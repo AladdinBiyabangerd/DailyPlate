@@ -1,5 +1,5 @@
 QIDA — ARDICIL KODLAŞDIRMA TAPŞIRIQLARI
-Versiya 1.0 | 4 noyabr 2026 | məhsul planı 1.7
+Versiya 1.1 | 4 noyabr 2026 | məhsul planı 1.7
 
 STATUS VƏ MƏNBƏ
 Bu sənəd icra növbəsidir, tətbiq implementasiyası deyil.
@@ -11,7 +11,10 @@ Dizayn qaydaları: design-concepts/simple-turquoise/implementation-guide.txt,
 new-flows-guide.txt və design-concepts/tokens.css. Bu sənəd vizual dizayn yaratmır.
 Baza: library/README.md, manifest.json, foods.json, recipes.json və tools/.
 Hazırda tətbiq yoxdur; 500 ərzaq və 224 dərc olunmamış resept layihəsi var.
-Platforma, tətbiq dili, backend, auth və ödəniş provayderi hələ seçilməyib.
+İstifadəçi qərarı (4 noyabr 2026): ilk tətbiq Android üçündür.
+iOS yalnız istifadəçi Android nəticəsini bəyənib davam qərarı verəndən sonra ayrıca mərhələdir.
+K01–K34 hazırda Android əhatəsidir; paralel iOS implementasiyası daxil deyil.
+Tətbiq dili/framework, backend, auth və ödəniş provayderi K01-də seçilməlidir.
 
 İCRA QAYDASI
 1. Nömrə sırası əsas ardıcıllıqdır; asılılıqlar minimum texniki şərtlərdir.
@@ -28,7 +31,7 @@ Platforma, tətbiq dili, backend, auth və ödəniş provayderi hələ seçilmə
    fake provider yalnız xarici sərhəddədir. Testin yazılması keçməsi demək deyil.
 7. UI işi üçün ui-craft: əvvəl token və aid şəkillər, sonra renderə baxış,
    kontrast ≥4,5, uzun AZ/EN/RU və böyük mətn yoxlaması. Render mümkün olmayıbsa
-   vizual qəbul yoxlanmamış yazılır. iOS 44 pt və Android platforma minimumu qorunur.
+   vizual qəbul yoxlanmamış yazılır. Android platforma minimumu qorunur; iOS ölçüləri gələcək mərhələnin istinadıdır.
 8. Fokuslu commit → workflow.py ci → səbəbi düzəlt/commit/təkrar → workflow.py finish.
    Yalnız branch və merged-main CI yaşıl olanda hissə tamamdır. .local-ci/ və
    .cursor/rules/local-ci.mdc tarixçəyə daxil edilmir; remote/push yoxdur.
@@ -38,7 +41,9 @@ Platforma, tətbiq dili, backend, auth və ödəniş provayderi hələ seçilmə
     insan təsdiqini, real qiyməti və ya cihaz sınağını əvəz etmir.
 
 AKTİVLƏŞDİRMƏ ŞƏRTLƏRİ
-G1 — K01-də platforma/stack qərarı; Android/iOS/web əvvəlcədən fərz edilmir.
+G1 — Platforma Android olaraq təsdiqlənib; K01-də Android stack/backend qərarı qalır.
+     Gələcək iOS üçün domain qaydaları/UI/saxlama sərhədləri qorunur; ortaq kod
+     framework-ü və ya iOS skeleti qurmaq indiki qərarın məcburi nəticəsi deyil.
 G2 — Klinik redaktor, əhatə, formula/aktivlik, enerji/makro qaydaları təsdiqlənmədən
      fərdi canlı plan açılmır. Test policy-si yalnız test mühitindədir.
 G3 — Mənbə/tərkib/allergen/təlimat/hüquq/tərcümə yoxlaması olmadan dərc yoxdur.
@@ -53,13 +58,13 @@ CI vasitəsilə avtomatik verilmir. Klinik hədd, qiymət və təsdiq uydurulmur
 
 MƏRHƏLƏ A — TƏMƏL VƏ MƏLUMAT
 
-K01 — Platforma qərarı və işləyən boş tətbiq
+K01 — Android texniki təməli və işləyən boş tətbiq
 Asılılıq: yoxdur. Mənbə: §1–2, §11–14, code-organization qaydası.
-Yazılacaq: platforma/stack/backend/saxlama seçimini səbəbi ilə ADR-də qeyd et;
-  istifadəçi niyyətindən məlum deyilsə həmin qərarı dəqiqləşdir. Giriş nöqtəsi,
+Yazılacaq: təsdiqli Android platformasını və stack/backend/saxlama seçimini
+  səbəbi ilə ADR-də qeyd et; platformanı yenidən soruşma. Giriş nöqtəsi,
   minimal açılan ekran, konfiqurasiya nümunəsi və modul sərhədləri qur.
   Kitabxana və istifadəçi DB-si ayrıdır; sirrlər repoya/mobil paketə yazılmır.
-Yoxlama: təmiz checkout-dan sənədləşmiş quraşdırma/build və açılış smoke testi;
+Yoxlama: təmiz checkout-dan sənədləşmiş Android build, emulator/cihazda açılış smoke testi;
   real lint/typecheck/build/test əmrlərini yerli CI-yə qoş və işlət.
 Bitmə: build olunan skelet və təkrarlanan CI var; placeholder skript test sayılmır.
 
@@ -395,6 +400,7 @@ Ekran 01–08 → K06–K09/K16/K25; 09–12 → K10–K12/K23;
 İLK DAVAM PROMPTU
 “K01-i icra et: planning/coding-tasks.txt və docs/context/current-task.md-ni oxu.
 Əsas plan planning/nutrition-science-implementation-plan.txt, kanonik mənbə
-planning/research-data.json-dır. Əvvəl platforma/stack qərarını həll et, sonra
-minimal app və real local CI qur. AGENTS.md workflow-unu tamamla.
+planning/research-data.json-dır. Platforma Android olaraq təsdiqlənib.
+Android stack qərarını ver, minimal Android app və real local CI qur.
+iOS yalnız sonrakı istifadəçi qərarı ilə ayrıca mərhələdir. AGENTS.md workflow-unu tamamla.
 K02-yə bu chatdə keçmə.”
