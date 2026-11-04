@@ -1,0 +1,49 @@
+K04 — pure nutrient and portion calculation core
+
+Requirements: current canonical plan §3–4/§12, coding-tasks K04 and customization
+§1–2. Package domain/nutrition has no Android, Room, UI or repository dependency.
+Quantities owns documented measurements/unit conversions/display formatting;
+RecipeCalculator owns ingredient sums, batch scaling, missing values and portions.
+
+Inputs are version-pinned nutrient-per-100g components with edible mass and explicit
+RAW/ALREADY_COOKED/AS_DESCRIBED state. No preparation state is guessed from a food
+name. Recipe ingredients describe a baseServings batch; servingsPrepared scales
+that batch. Result retains both counts and component provenance. Consumed servings
+or cooked grams are separate and bounded by the prepared batch. Half servings work.
+No implicit daily target, FoodLog write or menu update occurs in this pure core.
+
+CookingAdjustment requires named method/source, retained ingredient fraction and
+per-nutrient retention factors. It is accepted only on RAW input, preventing double
+cooking correction for cooked or ambiguous source records. Missing factors mean 1
+under that explicit method. No factors are invented or clinically approved here.
+Discarded oil can use measured retainedFraction; evaporation changes documented
+yield, not nutrient energy by itself. Missing nutrients remain null even at factor 0.
+
+CookedYield requires positive mass, MEASURED/DOCUMENTED_ESTIMATE basis and source.
+It describes the actual prepared batch. The engine never infers cooked weight from
+raw ingredient sum, and a batch size change requires a corresponding yield input.
+Without it, per100gCooked and consumed-cooked-mass results stay unavailable. It does
+not calibrate portion photos or turn an estimated yield into a measurement claim.
+
+Mass accepts g/kg only. Spoon/item conversion requires FoodMeasure tied to one
+food version, a measure ID, documented grams and source. No generic spoon or volume
+density conversion exists. Nutrient mass units g/mg/µg convert explicitly; energy
+cannot convert to mass. Energy remains the selected source energy, never 4/4/9.
+No sodium/salt or total/added/free sugar inference occurs.
+
+Default required energy/protein/fat/carbohydrate keys plus the union of source keys
+are calculated. Any absent/null component makes that nutrient total and all portions
+null; missingIngredients retains its version refs. Required target units normalize
+compatible source units; incompatible units fail explicitly. Empty recipes, nonpositive/
+nonfinite quantities, overflow, invalid factors and out-of-batch consumption fail.
+Zero ingredient input represents removal in the caller's edit workflow, not a valid
+core component. No arbitrary clinical or maximum portion thresholds were introduced.
+
+Double arithmetic retains precision throughout; BigDecimal HALF_UP formatting is
+only an explicit display boundary and never fed back into calculation. Source JSON
+validation in LibraryImporter now uses the same core for stored total/serving checks.
+Its existing 1e-5 serialization comparison tolerance remains unchanged. Current raw
+source rows use AS_DESCRIBED without correction; G3 remains closed.
+
+UI editing, meal-plan/day aggregation, publication review, storage of calculation
+provenance in later workflows and policy/clinical decisions remain later tasks.

@@ -1,0 +1,24 @@
+K04 acceptance — APK-free
+
+RecipeCalculatorTest: ten independent JVM tests cover:
+1. 2,400 kcal / 1,600 g = 150 kcal per 100 g; 280 g = 420 kcal; one of four = 600.
+2. Four prepared servings scale the batch, not the user's one/half serving.
+3. Null/absent/all-absent nutrients propagate, including missing ingredient refs.
+4. 20 g oil at 900 kcal/100g with 25% measured discard = 135 kcal/15 g fat;
+   separate documented 50% nutrient retention fixture.
+5. Already cooked/as-described inputs reject additional cooking adjustment.
+6. g/kg and documented food-version-specific spoon conversion.
+7. g/mg/µg normalization, incompatible units rejected, no macro-derived energy.
+8. No intermediate rounding; display-only rounding after summation/division.
+9. Invalid quantities, empty batch, invalid factors, overflow and consumed bounds.
+10. Estimated yield keeps its basis/source and changes density, not total energy.
+
+LibraryImportTest exercises all 224 real draft recipe totals through the new core,
+including nullable fields, serving division, JSON/SQLite parity and closed G3.
+The runner requires RecipeCalculatorTest plus all existing six suites (26 tests).
+Mandatory CI additionally runs source/library validation and canonical export parity.
+Final branch/main outcomes are recorded in .local-ci/logs/latest.json and Git history.
+
+Not verified: clinical coefficient approval, real kitchen yields/portion photos,
+UI editing and daily/weekly plan orchestration. No visual change, APK packaging or
+device/instrumentation run is included or claimed.

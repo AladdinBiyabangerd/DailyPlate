@@ -27,6 +27,7 @@ def main() -> None:
     reports = list((root / 'android/app/build/test-results/testDebugUnitTest').glob('TEST-*.xml'))
     required = {
         'az.qida.app.domain.ContractValidationTest',
+        'az.qida.app.domain.nutrition.RecipeCalculatorTest',
         'az.qida.app.data.local.UserPersistenceTest',
         'az.qida.app.data.local.PlanTransactionTest',
         'az.qida.app.data.local.DatabaseMigrationTest',
