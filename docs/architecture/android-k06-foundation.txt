@@ -1,0 +1,41 @@
+K06 — visual foundation, navigation and languages
+
+Requirements: coding-tasks K06; canonical research-data.json sections 18/19
+(19.2 welcome; 18.12 navigation; 19.10 language identity; 19.17 accessibility),
+implementation-guide.txt, new-flows-guide.txt and tokens.css. K07 onboarding and
+K25 authentication remain feature boundaries, not simulated forms or accounts.
+
+MainActivity retains the single Compose root. BootstrapScreen coordinates only
+presentation: Welcome -> Setup/Account boundary -> five main sections. Boundaries
+explain the absent feature and offer Continue to the shell. Empty sections do not
+invent profile, recipe, calorie, plan, weight or synchronization data. Today has
+real navigation actions to Add and Menu. No domain repository is written here.
+
+NavigationState uses stable enum route IDs, never translated labels. A saveable
+encoded back stack survives Activity recreation/process saved-state restoration;
+Back and visible Back pop the same stack. The root lets system Back exit. Tab
+selection is announced and marked by a check in addition to colour. This is a
+small foundation stack, not an implementation of future per-feature navigation.
+
+Only the presentation language preference (az/en/ru) is persisted. A localized
+Configuration context supplies strings without changing the device locale or
+any stored domain identity/numeric value. AZ is the initial and fallback language.
+Welcome and Profile expose the same language picker. Historical records are not
+translated into new records. Resources have identical keys across all locales.
+
+QidaTheme maps simple colours from Android XML (checked against canonical CSS),
+8/16/24/32dp spacing and 24dp card radius. Android touch minimum is explicitly
+48dp, a platform constraint rather than a new design spacing value. Body and
+button text use at least 16sp. No fixed text/card/navigation heights or ellipses;
+content scrolls, navigation buttons flow into additional rows at natural label widths, system insets are respected. This phase
+uses the selected light turquoise concept regardless of system dark setting.
+
+FoundationComponents contains button, labelled field (decimal keyboard option,
+error support), card, heading and distinct loading/empty/error surfaces. The
+caller owns form data, validation and retries; reusable UI does not invent domain
+validation or claim a write succeeded. Unavailable features are described plainly.
+
+Tests run with a plain Application, isolating UI/Room from Firebase initialization;
+the real application lifecycle is unchanged. Native Robolectric rendering writes
+PNG reports under app/build/reports/k06 without building APK/AAB. Mandatory local
+CI requires the K06 JVM suites as well as existing contract/Room suites.

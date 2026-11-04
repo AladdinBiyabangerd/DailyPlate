@@ -26,6 +26,8 @@ def main() -> None:
     ], cwd=root / 'android', env=env, check=True)
     reports = list((root / 'android/app/build/test-results/testDebugUnitTest').glob('TEST-*.xml'))
     required = {
+        'com.aladdin.dailyplate.ui.FoundationTest',
+        'com.aladdin.dailyplate.ui.NavigationUiTest',
         'com.aladdin.dailyplate.domain.ContractValidationTest',
         'com.aladdin.dailyplate.domain.editorial.EditorialWorkflowTest',
         'com.aladdin.dailyplate.data.local.EditorialPersistenceTest',

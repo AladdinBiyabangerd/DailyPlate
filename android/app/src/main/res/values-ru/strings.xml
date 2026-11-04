@@ -2,5 +2,31 @@
 <resources>
     <string name="app_name">DailyPlate</string>
     <string name="welcome_title">Добро пожаловать!</string>
-    <string name="welcome_message">Давай вместе спланируем твоё питание.</string>
+    <string name="welcome_message">Давайте вместе планировать питание.</string>
+    <string name="begin">Начать</string>
+    <string name="account">У меня есть аккаунт</string>
+    <string name="today">Сегодня</string>
+    <string name="menu">Меню</string>
+    <string name="add">Добавить</string>
+    <string name="progress">Прогресс</string>
+    <string name="profile">Профиль</string>
+    <string name="language">Язык</string>
+    <string name="back">Назад</string>
+    <string name="feature_log">Легко записывайте питание</string>
+    <string name="feature_menu">Меню для вас</string>
+    <string name="feature_progress">Следите за изменениями</string>
+    <string name="empty_today">Вы пока не добавили блюда.</string>
+    <string name="empty_menu">Меню пока не составлено.</string>
+    <string name="empty_add">Запись питания появится на следующем этапе.</string>
+    <string name="empty_progress">Записей прогресса пока нет.</string>
+    <string name="empty_profile">Личные данные пока не введены.</string>
+    <string name="unavailable">Эта функция пока не готова. Данные не введены и не сохранены.</string>
+    <string name="setup_pending">Настройка профиля появится на следующем этапе. План пока не создан.</string>
+    <string name="sign_in">Вход в аккаунт</string>
+    <string name="continue_action">Продолжить</string>
+    <string name="loading">Загрузка…</string>
+    <string name="empty_results">Нет результатов.</string>
+    <string name="retry">Повторить</string>
+    <string name="add_meal">Добавить блюдо</string>
+    <string name="today_menu">Меню на сегодня</string>
 </resources>

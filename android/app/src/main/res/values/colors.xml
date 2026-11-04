@@ -6,4 +6,7 @@
     <color name="simple_text">#123743</color>
     <color name="simple_muted">#4D707B</color>
     <color name="simple_primary">#087F91</color>
+    <color name="simple_accent">#16B3C7</color>
+    <color name="simple_peach">#FFF0E7</color>
+    <color name="simple_yellow">#FFE195</color>
 </resources>

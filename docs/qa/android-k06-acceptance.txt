@@ -1,0 +1,24 @@
+K06 acceptance evidence
+
+Required: five sections and Back; AZ/EN/RU without identity/value mutation;
+saved language and navigation restoration; long/large text; screen-reader
+semantics; 48dp targets; >=4.5 text contrast; actual rendered images inspected.
+
+Automation:
+- FoundationTest: stable IDs/back stack roundtrip; native welcome rendering in
+  AZ/EN/RU at fontScale=1.5, 360x800mdpi; language survives recreation.
+- NavigationUiTest: welcome -> setup boundary -> Today; all five sections;
+  selected tab semantics, >=48dp targets; EN/RU switching; Activity recreation
+  retains selected route; Back returns to previous route.
+- verify_tokens.py: Android/CSS colour parity, text/background/surface/button
+  pairs >=4.5. UI uses a fixed light theme, including in system dark mode.
+- Full local CI also runs existing nutrition, editorial and Room tests.
+
+Visual reports: android/app/build/reports/k06/*.png (generated, not tracked).
+Manual inspection and final test results are recorded in current-task.md.
+
+Limits: native JVM renderer is not a physical Android device. TalkBack speech,
+real device font/display variations, system process death, and instrumentation
+have not been tested. Saved-state recreation and semantics are local evidence,
+not a claim that all accessibility acceptance has passed. No APK/AAB packaging,
+installation, device tests or production content approval is part of K06.

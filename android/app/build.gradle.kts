@@ -32,10 +32,11 @@ android {
     }
     buildFeatures { compose = true }
     lint { warningsAsErrors = true }
+    testOptions { unitTests.isIncludeAndroidResources = true }
     sourceSets.getByName("test").resources.srcDir("schemas")
     sourceSets.getByName("test").resources.apply {
         srcDir("../../library")
-        include("**/*.json", "nutrition-library.sqlite")
+        include("**/*.json", "nutrition-library.sqlite", "robolectric.properties")
         exclude("sources/**")
     }
 }
@@ -74,6 +75,8 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.material3:material3")
+    testImplementation(composeBom)
+    testImplementation("androidx.compose.ui:ui-test-junit4")
     androidTestImplementation(composeBom)
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     androidTestImplementation("androidx.test:runner:1.7.0")
