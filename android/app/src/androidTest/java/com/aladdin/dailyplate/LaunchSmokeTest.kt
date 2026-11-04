@@ -19,7 +19,7 @@ class LaunchSmokeTest {
 
     private fun assertEntryVisible() {
         compose.onNodeWithText("DailyPlate").assertIsDisplayed()
-        compose.onNodeWithText("Xoş gəldin!").assertIsDisplayed()
-        compose.onNodeWithText("Nə yeyəcəyini birlikdə planlayaq.").assertIsDisplayed()
+        compose.onNodeWithText(compose.activity.getString(R.string.welcome_title)).assertIsDisplayed()
+        compose.onNodeWithText(compose.activity.getString(R.string.welcome_message)).assertIsDisplayed()
     }
 }
