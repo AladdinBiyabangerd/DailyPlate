@@ -18,6 +18,9 @@ Keçən yoxlamalar:
 
 Görüntülər: android-k01-api34.png və android-k01-api34-large-text.png.
 Daimi check: android/tools/check_android.py; məcburi yerli CI-yə bağlıdır.
+Sonrakı CI dəyişikliyi: daimi check artıq APK yaratmır; yalnız lint, Kotlin
+compile, JVM test tapşırığı və token yoxlaması aparır. Yuxarıdakı APK/cihaz
+sübutları ilkin K01 yoxlamasına aiddir, hər CI-də təkrarlanmır.
 Branch/main CI nəticəsi: .local-ci/logs/latest.json və Git tarixçəsindən yoxlanır;
 CI mövcud 15 library testini və kanonik plan export paritetini də işlətməlidir.
 

@@ -34,7 +34,9 @@ Uzaq backend/auth/store provider-i K25/K30 inteqrasiyasına qədər təxirə sal
 Provider SDK-ları, server, API açarları və boş data layları indidən əlavə edilmir.
 Backend seçimi auth-dan əvvəl ADR ilə həll olunmalıdır; foto server adaptor-u K23-dədir.
 
-Yoxlama: real lint, Kotlin compilation, APK build və emulator/device-də Compose
-launch/recreate instrumentation testi. Domen hesablaması olmadığı üçün saxta
-unit test əlavə edilmir; domain testləri K02-dən başlayır. Min/target SDK APK
-manifestindən də yoxlanır. Build API 24 cihaz sınağını əvəz etmir.
+Daimi CI: real lint, Kotlin compilation, JVM test tapşırığı və token yoxlaması;
+APK yaratmır və emulator tələb etmir. K01-də domen qaydaları və JVM testləri
+olmadığından test tapşırığı NO-SOURCE-dur; domain testləri K02-dən başlayır.
+APK build, manifest badging və Compose launch/recreate instrumentation testi
+ayrıca APK sorğusu ilə işlədilir. Tarixli K01 sübutları docs/qa/-da saxlanır.
+Build API 24 cihaz sınağını əvəz etmir.

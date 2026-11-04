@@ -33,11 +33,11 @@ again about routine local branches, commits, CI, fixes or merges.
 - This applies to debug, release and test APKs, including APKs generated
   indirectly by Gradle, CI or device/instrumentation tests. A request to
   implement a task or run checks does not authorize APK creation.
-- Run checks that do not produce APKs when possible. If the mandatory local CI
-  requires APK creation, report that limitation and leave those checks pending
-  until the user requests an APK; do not bypass checks or claim full CI passed.
-- This restriction takes precedence over the automatic CI/finish requirements
-  above whenever those commands would create an APK.
+- Mandatory local CI must use APK-free lint, compilation and JVM tests. APK
+  packaging, installation and device/instrumentation tests are separate opt-in
+  checks and must not be invoked by CI or finish.
+- Green branch/main CI does not imply APK or device tests passed; report those
+  separately when they were explicitly requested and actually run.
 
 ## Code organization
 
