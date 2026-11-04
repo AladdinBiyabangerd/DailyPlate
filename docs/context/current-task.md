@@ -1,64 +1,60 @@
-# Current task — K04 nutrient and portion core
+# Current task — K05 editor/publication/audit
 
 ## Completed
-- K03 merged main green at 20ad2bb before this unit; G3 remains closed.
-- K04 pure domain/nutrition core: ingredient sums, batch scaling vs personal share,
-  documented cooked yield, raw-only retention/ingredient loss, g/kg and version-bound
-  food measures, compatible nutrient units, unknown propagation and display rounding.
-- LibraryImporter stored total/serving validation now reuses this core.
-- Ten independent JVM tests added; CI requires them alongside six existing suites.
+- K04 nutrition core and later foundation/Firebase work were already merged.
+  Starting main 0ab932c had a clean tree and passing merged-main CI record.
+- K05 headless test editor for recipes, NutritionPolicy and EvidenceCard:
+  draft -> in review -> approved -> published -> archived, trusted test roles,
+  independent reviewer, version-specific evidence, append-only Room audit history.
+- Edit/rollback creates a new draft content version; rollback clears review and
+  metadata. Old editorial revisions and personal FoodLog snapshots are preserved.
+- Separate yield and photo calibration gates, rights, AZ/EN/RU checks, sourced
+  storage guidance including separate rice safety source, card next-review date.
+- New mandatory workflow/persistence JVM suites; architecture/acceptance docs.
 
 ## Current state
-- No K05 work started. No APK was created. Bootstrap UI lifecycle remains deferred.
-- K04 code/acceptance evidence are in Git; verify final branch/main green lifecycle
-  in .local-ci/logs/latest.json and Git history before starting another unit.
+- Scope is only K05. No APK created; no visual UI change or device test.
+- Test publication cannot activate real policies/content. G2/G3 remain closed.
+- Final branch/main CI and commit identities: consult .local-ci/logs/latest.json
+  and Git history for feat/k05-editorial-audit (recorded after this handoff commit).
 
 ## Decisions
-- Per-100g source components are explicit RAW/ALREADY_COOKED/AS_DESCRIBED.
-  Only RAW accepts documented CookingAdjustment; no coefficients are invented.
-- Base servings, prepared servings and consumed share remain separate. Yield is
-  documented for the prepared batch; no raw-weight fallback or automatic inheritance.
-- Missing required/unioned nutrients remain null in totals and portions with versioned
-  ingredient provenance; energy, sugars and sodium/salt are not inferred.
-- Calculation retains Double precision; BigDecimal HALF_UP is display-only.
-- No schema migration or publication gate changes; no Android dependencies in core.
+- Separate EditorialDatabase schema v1; library/user DB schemas unchanged.
+- Atomic INSERT of workflow snapshot+audit; expectedRevision rejects stale writes.
+- Workflow revisions increment for all actions; content versions only on edits/
+  rollback. Every past contributor is excluded from approving their own work.
+- TestOnly envelope carries stage/review; embedded content stays unreviewed DRAFT.
+  No production export/activation API; existing production catalog stays closed.
+- Completeness checks plus explicit reviewer attestation do not prove clinical,
+  legal, translation, kitchen/photo or food-safety correctness.
+- Editor is headless. Real identity/role provisioning and production authoring
+  interface are not supplied by this local test workflow.
 
 ## Remaining work
-- K05 editor/publication/audit flow per current coding task and canonical plan.
-- Later customization/plan workflows own persisted provenance, UI editing and daily/
-  weekly aggregation. Clinical factors, kitchen yields and photos are not approved.
-- APK/device runtime and UI integration remain unverified/deferred.
+- K06 visual foundation/navigation/languages is the next numbered unit.
+- Real G2/G3 review/authorization and content approval remain external work.
+- APK/device/runtime UI integration and visual acceptance remain unverified.
 
 ## Relevant files
-- planning/coding-tasks.txt K05; planning/research-data.json (canonical)
-- planning/nutrition-science-implementation-plan.txt K05-referenced sections
-- android/app/src/main/java/com/aladdin/dailyplate/domain/nutrition/{Quantities,RecipeCalculator}.kt
-- android/app/src/test/java/com/aladdin/dailyplate/domain/nutrition/RecipeCalculatorTest.kt
-- android/app/src/main/java/com/aladdin/dailyplate/data/local/LibraryImporter.kt
-- docs/architecture/android-k04-nutrition.txt; docs/qa/android-k04-acceptance.txt
-- android/tools/check_android.py; existing K02/K03 domain/storage docs as needed
+- planning/coding-tasks.txt K05/K06; planning/research-data.json canonical
+- planning/nutrition-science-implementation-plan.txt §2–4/§9–11/§13–15/§17 for K05
+- android/app/src/main/java/com/aladdin/dailyplate/domain/editorial/
+- android/app/src/main/java/com/aladdin/dailyplate/data/local/{EditorialDatabase,TestEditorRepository}.kt
+- android/app/src/test/java/com/aladdin/dailyplate/domain/editorial/
+- android/app/src/test/java/com/aladdin/dailyplate/data/local/EditorialPersistenceTest.kt
+- android/app/schemas/com.aladdin.dailyplate.data.local.EditorialDatabase/1.json
+- android/tools/check_android.py
+- docs/architecture/android-k05-editorial.txt; docs/qa/android-k05-acceptance.txt
 
 ## Checks performed
-- Development APK-free lint/compilation and 26 JVM tests passed before final
-  integration changes. Final mandatory CI evidence is in local logs/Git history.
-- Acceptance fixtures cover 2400/1600/280, batch vs consumed portions, missing fields,
-  oil loss, retention, raw/cooked boundary, units, overflow and final-only rounding.
-- Real library recipes are checked through the core by existing importer tests.
-- No visual/device/APK/clinical validation claimed.
+- Initial APK-free development lint/compilation and 37 JVM tests passed; an
+  additional reviewer-return/command-injection scenario was added afterwards.
+- Final mandatory branch and merged-main lifecycle evidence is in local CI logs
+  and Git history. No test-only evidence is claimed as human approval.
+- No APK, instrumentation, device, visual, real clinical/legal/translation or
+  kitchen/photo validation performed.
 
 ## Exact next step
-In a new chat, verify K04 green merged-main CI record, read K05 and its specific plan
-sections/files, then implement only K05 following local branch/commit/CI/finish flow.
-Do not create an APK without explicit request.
-
-## Foundation identity update
-- Package/source/test/Room schema paths now use com.aladdin.dailyplate.
-- App label is DailyPlate in default/AZ/RU/EN resources.
-- google-services.json is ignored; Google Services plugin is not configured in
-  the current project. Crashlytics, Remote Config and SHA-1 remain unchanged.
-- This task explicitly authorizes assembleDebug; no AAB or device test requested.
-- Checks: assembleDebug passed (D8 Kotlin metadata warnings); APK metadata confirms
-  com.aladdin.dailyplate. Installed/launched on emulator-5554; screenshot inspected,
-  DailyPlate visible without clipping. AZ/RU/EN resource values all match.
-- Automated device/recreation tests, AAB and Google Services matching were not run.
-  Branch/main mandatory CI results are recorded in .local-ci/logs/latest.json.
+In a new chat verify K05 merged-main green, then read K06, plan §18–19 and the
+referenced design guides/tokens. Apply ui-craft and implement only K06 with the
+mandatory branch/commit/CI/finish workflow. Do not create an APK unless requested.

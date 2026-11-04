@@ -1,0 +1,33 @@
+K05 acceptance evidence
+
+Automated scenarios (EditorialWorkflowTest / EditorialPersistenceTest)
+- All three kinds: draft -> in review -> approved -> published -> archived;
+  author, reviewer, date and audit revision retained. Test publication only.
+- Unknown roles and skipped transitions rejected; incomplete checklist cannot
+  approve/publish; independent policy review excludes every contributor.
+- Source/rights/translation/ingredient/allergen/instruction/nutrition/servings/
+  storage/rice requirements checked. Incomplete policy and evidence rejected.
+- Documented yield and calibrated photo gates independently checked; plain
+  declared-serving estimates need neither. Photo grams outside range rejected.
+- Edit/rollback creates new content version, clears approval; rollback clears
+  metadata and records target. Old published row and personal FoodLog unchanged.
+- Actual Room disk close/reopen retains review/history. Stale commands, unknown
+  restore targets, unauthorized commands and injected SQLite INSERT failure
+  leave no partial state/audit. Retry succeeds after the failing trigger clears.
+- Policy/card histories round-trip. Editorial test publication does not write
+  library data or activate production content. Pre-approved embedded payloads
+  cannot be supplied to bypass the workflow. Backdated audit events rejected.
+
+Execution evidence
+See .local-ci/logs/latest.json and commit-keyed logs for mandatory branch/main CI.
+Both new suites are required in android/tools/check_android.py. Mandatory checks:
+APK-free lintDebug, compileDebugKotlin, testDebugUnitTest, token checks plus the
+existing Python/library/plan export checks. Development run and final lifecycle
+results are summarized in docs/context/current-task.md and completion message.
+
+Not verified/approved
+No APK packaging, installation, instrumentation, device test or visual UI test.
+No new UI is added (headless test editor). Real clinical/editor role provisioning,
+G2/G3 content/policy approval, actual kitchen yield, calibrated photos, translation
+accuracy, legal permission and food safety review remain external human work.
+No real recipe/policy/card was approved or published. No production readiness claim.
