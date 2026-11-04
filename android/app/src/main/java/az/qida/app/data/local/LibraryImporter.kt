@@ -2,6 +2,7 @@ package az.qida.app.data.local
 
 import android.database.sqlite.SQLiteDatabase
 import az.qida.app.domain.*
+import az.qida.app.domain.nutrition.*
 import java.io.File
 import kotlinx.serialization.json.*
 
@@ -109,17 +110,19 @@ internal class LibraryImporter(private val database: LibraryDatabase) {
             val totals = nutrients(estimate.obj("total_recipe"))
             val perServing = nutrients(estimate.obj("per_declared_serving"))
             require(totals.values.keys == foodRows.values.first().obj("nutrients_per_100g").keys)
+            val calculated = RecipeCalculator.calculate(ingredients.map { ingredient ->
+                NutrientComponent(ingredient.food, Mass(ingredient.edibleGrams, MassUnit.GRAM),
+                    ComponentState.AS_DESCRIBED,
+                    nutrients(foodRows.getValue(ingredient.food.id).obj("nutrients_per_100g")))
+            }, raw.number("declared_servings"))
             for ((key, total) in totals.values) {
-                val amounts = ingredients.map { ingredient ->
-                    val value = foodRows.getValue(ingredient.food.id).obj("nutrients_per_100g").getValue(key)
-                    if (value is JsonNull) null else value.jsonPrimitive.double * ingredient.edibleGrams / 100
-                }
-                val expected = if (amounts.any { it == null }) null else amounts.filterNotNull().sum()
+                val expected = calculated.total.values.getValue(key).value
                 require(if (expected == null) total.value == null else
                     total.value != null && kotlin.math.abs(total.value - expected) < 0.00001)
                 val serving = perServing.values.getValue(key).value
-                require(if (total.value == null) serving == null else serving != null &&
-                    kotlin.math.abs(serving - total.value / raw.number("declared_servings")) < 0.00001)
+                val expectedServing = calculated.perDeclaredServing.values.getValue(key).value
+                require(if (expectedServing == null) serving == null else serving != null &&
+                    kotlin.math.abs(serving - expectedServing) < 0.00001)
             }
             val recipe = Recipe(VersionRef(raw.text("id"), version), raw.names(), ingredients,
                 estimate.text("basis"), raw.obj("steps").getValue("az").jsonArray.map { it.jsonPrimitive.content },
