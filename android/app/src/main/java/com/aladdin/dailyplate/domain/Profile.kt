@@ -40,6 +40,8 @@ data class UserProfile(
     val maxPreparationMinutes: Int?, val equipment: Set<String>,
     val budget: Budget, val homeFoods: List<HomeFood>, val mealsPerDay: Int,
     val specialistTargetKcal: Double?, val language: String,
+    val ageAsOfDate: CalendarDate? = null,
+    val eligibilityStatus: String = "not_evaluated",
 ) {
     init {
         require(userId.isNotBlank())

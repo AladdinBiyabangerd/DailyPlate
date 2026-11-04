@@ -21,6 +21,7 @@ import com.aladdin.dailyplate.R
 import com.aladdin.dailyplate.ui.theme.QidaDimensions
 import com.aladdin.dailyplate.ui.theme.QidaSpacing
 import java.util.Locale
+import kotlinx.coroutines.launch
 
 private val sections = listOf(Destination.Today to R.string.today, Destination.Menu to R.string.menu,
     Destination.Add to R.string.add, Destination.Progress to R.string.progress, Destination.Profile to R.string.profile)
@@ -34,6 +35,9 @@ fun BootstrapScreen() {
     var language by rememberSaveable { mutableStateOf(preferences.getString("language", "az") ?: "az") }
     var route by rememberSaveable { mutableStateOf(NavigationState().encode()) }
     val navigation = NavigationState.restore(route)
+    val contentScroll = rememberScrollState()
+    val scope = rememberCoroutineScope()
+    LaunchedEffect(navigation.current) { contentScroll.scrollTo(0) }
     val config = Configuration(LocalConfiguration.current).apply { setLocale(Locale.forLanguageTag(language)) }
     val localized = base.createConfigurationContext(config)
     BackHandler(navigation.stack.size > 1) { route = navigation.back().encode() }
@@ -41,10 +45,10 @@ fun BootstrapScreen() {
         fun open(destination: Destination) { route = navigation.open(destination).encode() }
         Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             Column(Modifier.fillMaxSize().safeDrawingPadding()) {
-                Column(Modifier.weight(1f).verticalScroll(rememberScrollState())
+                Column(Modifier.weight(1f).verticalScroll(contentScroll)
                     .padding(QidaSpacing.large), verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
                     Text(stringResource(R.string.app_name), style = MaterialTheme.typography.titleLarge)
-                    if (navigation.stack.size > 1) TextButton(onClick = { route = navigation.back().encode() },
+                    if (navigation.stack.size > 1 && navigation.current != Destination.Setup) TextButton(onClick = { route = navigation.back().encode() },
                         modifier = Modifier.heightIn(min = QidaDimensions.touchTarget)) { Text(stringResource(R.string.back)) }
                     if (navigation.current == Destination.Welcome || navigation.current == Destination.Profile) {
                         LanguagePicker(language) { code ->
@@ -64,7 +68,8 @@ fun BootstrapScreen() {
                                 Text(stringResource(R.string.account), style = MaterialTheme.typography.bodyLarge)
                             }
                         }
-                        Destination.Setup, Destination.Account -> {
+                        Destination.Setup -> com.aladdin.dailyplate.ui.onboarding.OnboardingScreen(language, { route = navigation.back().encode() }, { scope.launch { contentScroll.scrollTo(0) } }) { open(Destination.Today) }
+                        Destination.Account -> {
                             QidaHeading(stringResource(if (navigation.current == Destination.Setup) R.string.begin else R.string.sign_in))
                             QidaState(SurfaceState.Empty, stringResource(if (navigation.current == Destination.Setup) R.string.setup_pending else R.string.unavailable))
                             QidaButton(stringResource(R.string.continue_action), { open(Destination.Today) })
@@ -78,7 +83,10 @@ fun BootstrapScreen() {
                                 Destination.Progress -> R.string.empty_progress
                                 else -> R.string.empty_profile
                             }
-                            QidaState(SurfaceState.Empty, stringResource(message))
+                            if (navigation.current == Destination.Profile) {
+                                Text(stringResource(R.string.ob_local_note))
+                                QidaButton(stringResource(R.string.ob_profile), { open(Destination.Setup) })
+                            } else QidaState(SurfaceState.Empty, stringResource(message))
                             if (navigation.current == Destination.Today) {
                                 QidaButton(stringResource(R.string.add_meal), { open(Destination.Add) })
                                 QidaButton(stringResource(R.string.today_menu), { open(Destination.Menu) })

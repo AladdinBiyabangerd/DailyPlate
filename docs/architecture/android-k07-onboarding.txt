@@ -1,0 +1,31 @@
+K07 — Local onboarding/profile draft
+
+Five real steps: goal; measurements/optional equation sex; activity and optional
+physiological/medical answers; allergies/restrictions/dislikes; time, meals,
+budget scope, equipment and home food quantities. No sketch answer is prefilled.
+Raw draft answers are separate from UserProfile. Age is recorded with the local
+confirmation date; unknown sex/health/allergies are never inferred.
+
+OnboardingDraft owns parsing/validation and conversion. OnboardingStore owns
+ordered durable AtomicFile draft writes (explicit fsync) and Room profile confirmation.
+OnboardingScreen renders and coordinates IO; BootstrapScreen owns navigation.
+Writes are queued on an application-lifetime single writer, surviving composition
+exit. Load waits for preceding writes. Failed commits surface a retry message;
+profile writes run off main. Stable draft ID and the versioned Room repository
+prevent duplicate profile creation. Confirmation creates version 1; reopening a
+confirmed draft shows the saved boundary rather than editing it. K09 owns edits.
+
+Unmatched user-entered ingredient/dish/home-food names retain a user: namespace,
+not an invented published library ID. Custom allergens retain a custom: namespace.
+Matching these values to library candidates must fail closed in later planning;
+K07 does not implement menu filtering, pricing or nutrient calculations.
+Activity codes have descriptions, no unapproved multipliers. Eligibility remains
+not_evaluated. No plan/calories/clinical approval is implied by saving a profile.
+K08 owns policy/eligibility decisions; G2/G3 and content approval remain external.
+Budget without an amount is a preference; no prices or savings are invented.
+Guest data stays on this phone; account sync/recovery is not promised.
+
+All three locales use resource IDs and the existing turquoise palette/spacing,
+48dp minimum choice targets, persistent field labels and decimal keyboards.
+Navigation and language changes preserve raw values and stable codes.
+No APK/AAB packaging or device operation is part of this milestone.

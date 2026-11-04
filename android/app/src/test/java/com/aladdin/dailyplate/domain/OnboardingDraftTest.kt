@@ -1,0 +1,66 @@
+package com.aladdin.dailyplate.domain
+
+import com.aladdin.dailyplate.domain.onboarding.OnboardingDraft
+import org.junit.Assert.*
+import org.junit.Test
+
+fun readyOnboarding() = OnboardingDraft("onboarding-test", answers = mapOf(
+    "goal" to "HEALTHY", "age" to "30", "height" to "170,5", "weight" to "65,2",
+    "activity" to "some", "allergies" to "unknown", "time" to "30", "meals" to "5",
+    "tier" to "ECONOMICAL", "region" to "Baku", "currency" to "AZN", "people" to "2",
+    "coverage" to "breakfast;lunch;dinner"))
+
+class OnboardingDraftTest {
+    @Test fun decimalCommaAndOptionalSexProduceUnassessedProfileWithoutInventedTargets() {
+        val d = readyOnboarding()
+        assertTrue((0..4).all { d.errors(it).isEmpty() })
+        val p = d.profile("az", RecordedAt("2026-11-04T10:00:00Z", "Asia/Baku"), CalendarDate("2026-11-04"))
+        assertEquals(65.2, p.weightKg!!, 0.0); assertNull(p.calculationSex); assertNull(p.allergies)
+        assertNull(p.pregnant); assertNull(p.specialistTargetKcal); assertNull(p.budget.weeklyAmount)
+        assertEquals("not_evaluated", p.eligibilityStatus); assertEquals(5, p.mealsPerDay)
+        assertEquals("2026-11-04", p.ageAsOfDate!!.iso)
+        Goal.entries.forEach { goal ->
+            assertEquals(goal, d.change("goal", goal.name).profile("en", p.updatedAt, p.ageAsOfDate).goal)
+        }
+    }
+    @Test fun blankNegativeNonFiniteAndFractionalCountsAreRejected() {
+        for (value in listOf("", "-1", "0", "NaN", "Infinity", "1e999")) {
+            assertTrue("weight=$value", "weight" in readyOnboarding().change("weight", value).errors(1))
+        }
+        assertTrue("age" in readyOnboarding().change("age", "18,5").errors(1))
+        assertTrue("people" in readyOnboarding().change("people", "2.5").errors(4))
+        assertTrue("amount" in readyOnboarding().change("amount", "NaN").errors(4))
+        assertTrue("allergies" in readyOnboarding().change("allergies", "").errors(3))
+    }
+    @Test fun allergyNoneIsExclusiveAndWheatRemainsSeparateFromGluten() {
+        var d = readyOnboarding().toggleAllergen("none").toggleAllergen("wheat")
+        assertEquals(setOf("wheat"), d.items("allergies"))
+        d = d.change("restrictions", "gluten").change("extra_allergies", "sesame")
+        val p = d.profile("az", RecordedAt("2026-11-04T10:00:00Z", "UTC"), CalendarDate("2026-11-04"))
+        assertEquals(setOf("wheat", "custom:sesame"), p.allergies)
+        assertEquals(setOf("gluten"), p.dietaryRestrictions)
+        assertEquals("none", d.toggleAllergen("none").answer("allergies"))
+        assertEquals("", d.change("extra_allergies", "").answer("extra_allergies"))
+        assertTrue(d.change("disliked_foods", "onion").change("disliked_foods", "").items("disliked_foods").isEmpty())
+    }
+    @Test fun budgetScopeAndHomeFoodQuantitiesKeepTheirUnitsAndStates() {
+        val home = HomeFood(VersionRef("user:rice", 1), "dry", 200.0, "g")
+        for (tier in BudgetTier.entries) {
+            val d = readyOnboarding().copy(storedHomeFoods = listOf(home))
+                .change("tier", tier.name).change("amount", "125,50")
+                .change("home_name", "yogurt").change("home_quantity", "1,5")
+                .change("home_unit", "kg").change("home_state", "ready")
+            val p = d.profile("ru", RecordedAt("2026-11-04T10:00:00Z", "UTC"), CalendarDate("2026-11-04"))
+            assertEquals("125.50", p.budget.weeklyAmount!!.amount)
+            assertEquals("AZN", p.budget.weeklyAmount.currency)
+            assertEquals(2, p.budget.people)
+            assertEquals(setOf("breakfast", "lunch", "dinner"), p.budget.coveredMealSlots)
+            assertEquals(home, p.homeFoods.first())
+            assertEquals(1.5, p.homeFoods.last().quantity, 0.0)
+            assertEquals("kg", p.homeFoods.last().unit)
+            assertEquals("ready", p.homeFoods.last().preparationState)
+            assertTrue("home_quantity" in d.change("home_quantity", "NaN").errors(4))
+        }
+    }
+
+}

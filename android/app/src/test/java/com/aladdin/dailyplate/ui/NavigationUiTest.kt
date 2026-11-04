@@ -19,7 +19,7 @@ class NavigationUiTest {
     @get:Rule val compose = createAndroidComposeRule<MainActivity>()
 
     @Test fun fiveSectionsBackLanguageAndRecreationPreserveStableDestination() {
-        compose.onNodeWithText("Başlayaq").performScrollTo().performClick()
+        compose.onNodeWithText("Hesabım var").performScrollTo().performClick()
         compose.onNodeWithText("Davam et").performScrollTo().performClick()
         for (label in listOf("Menyu", "Əlavə et", "İrəliləyiş", "Profil")) {
             compose.onNodeWithText(label).assertHeightIsAtLeast(48.dp).performClick()
