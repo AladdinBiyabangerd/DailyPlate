@@ -1,76 +1,51 @@
-# Current task — K02 domain contracts and local Room persistence
+# Current task — K03 library import and content gates
 
 ## Completed
-- K01 foundation and APK-free CI maintenance merged to main before K02.
-- K02 serializable domain contracts: Food, Recipe, UserProfile, NutritionPolicy,
-  energy calculation provenance, MealPlan/Item, FoodLog, RecipeCustomization,
-  PlanChange, PhotoMealDraft, EvidenceCard and §19 supporting personal records.
-- Separate Room library/user databases, read-only catalog repository and typed
-  personal repositories; immutable revisions, event deduplication and transactional
-  optimistic plan/shopping writes. No library-builder user-data input was added.
-- Exported library v1 and user v1/v2 schemas; explicit non-destructive v1→v2 migration.
-- 13 JVM contract/Room tests, including nullable values, timestamps, migration,
-  file reopen, concurrent writers, owner isolation and SQL-triggered rollback.
-- Architecture/contract decisions: docs/architecture/android-k02-storage.txt.
+- K02 merged green before this unit; K03 adds JSON/read-only SQLite adapters for
+  current 500 food / 224 recipe package, typed Room mapping and original source rows.
+- Atomic immutable/idempotent imports, monotonic package revisions, source/status
+  validation, pinned ingredient refs and draft-only G3 production boundary.
+- Three real-package Room tests cover repeat JSON/SQLite parity, update/history,
+  corruption/conflict/downgrade rejection and SQL-triggered transaction rollback.
+- CI requires the new suite plus the existing five JVM suites.
 
 ## Current state
-- K02 implementation and acceptance tests pass. Final branch/main lifecycle is
-  recorded in .local-ci/logs/latest.json and Git history; verify those records.
-- CI runs APK-free lintDebug, compileDebugKotlin, testDebugUnitTest and tokens;
-  runner requires all five K02 suites to execute with no failures/errors/skips.
-- Bootstrap UI still has no onboarding or DB lifecycle wiring; K03–K34 not started.
-- Canonical product plan remains research-data.json 1.7; library has 500 foods and
-  224 unpublished recipe drafts. K02 has not imported or approved those drafts.
+- K03 code and acceptance evidence are in Git; consult latest local CI record and
+  branch/main history for final lifecycle outcome. No APK was created.
+- G3 remains closed. All current food/recipe records are editorial drafts.
+- Bootstrap UI still has no catalog lifecycle wiring; no K04 implementation started.
 
 ## Decisions
-- Android first: minSdk 24, compileSdk/targetSdk 36. iOS remains deferred.
-- Kotlin/Compose/serialization plugin 2.4.10, KSP 2.3.13, Room 2.8.5,
-  serialization 1.12.0, Robolectric 4.17. Dependencies updated to satisfy strict lint.
-- java.time desugared with desugar_jdk_libs 2.1.5 for API 24/25.
-- Domain has no Android/Room/UI imports. JSON aggregate snapshots deliberately
-  preserve exact versions and nulls; future query columns require migrations.
-- SQL schema version and JSON payload schema are separate. Unknown personal
-  payload schema fails explicitly; no destructive fallback or silent overwrite.
-- Repositories do synchronous IO on worker threads; production Room main-thread
-  protection stays enabled. First consuming feature will own lifecycle wiring.
-- Clinical calculations, menu validation, library publication gates, remote sync
-  and store verification are later tasks; structural models do not implement them.
-- APK creation/device tests only on explicit user request. JVM tests use API 34
-  fixture, resolved before runtime; Robolectric executes offline without APKs.
+- Package semver maps to Long major*1000000+minor*1000+patch+1 (0.3.0 = 3001).
+- Source dataset version remains separate. Original JSON retains lineage, servings,
+  gates, inferred allergens and other fields outside K02 typed contracts.
+- Current-format adapter rejects publication/live flags and unsupported source/status;
+  future reviewed publication requires a separate complete release-chain adapter.
+- SQLite contains only version/date metadata, so caller supplies manifest JSON;
+  SQLite version must match it. User data never enters the library importer.
+- No new DB tables/schema migration; immutable rows use existing library snapshots.
 
 ## Remaining work
-- K03: current JSON/SQLite library adapter, version/status gates, idempotent and
-  atomic imports/updates; preserve old FoodLog snapshots. G3 remains closed.
-- API 24/36 device runtime and APK packaging after dependency updates unverified;
-  no APK was created for K02. No visual changes or new screenshots in this unit.
-- Later units own actual calculation, customization workflows and UI integration.
+- K04 nutrient/portion calculation core per coding-tasks and current canonical plan.
+- APK/device runtime, UI lifecycle and content approvals remain unverified/deferred.
 
 ## Relevant files
-- planning/coding-tasks.txt K03; planning/research-data.json (canonical)
-- planning/nutrition-science-implementation-plan.txt §3–4, §11, §15 for K03
-- library/README.md, library/manifest.json, library/foods.json, library/recipes.json
-- library/tools/ (existing builder/validator; no user data input)
-- android/app/src/main/java/az/qida/app/domain/
-- android/app/src/main/java/az/qida/app/data/local/
-- android/app/src/test/java/az/qida/app/{domain,data/local}/
-- android/app/schemas/; android/tools/check_android.py
-- android/{build.gradle.kts,settings.gradle.kts,app/build.gradle.kts,README.txt}
-- docs/architecture/android-k02-storage.txt; docs/qa/android-k02-acceptance.txt
-- .local-ci/README.md, workflow.py and checks.py (ignored local tooling)
+- planning/coding-tasks.txt K04; planning/research-data.json (canonical)
+- planning/nutrition-science-implementation-plan.txt §3–4/§12
+- planning/meal-customization-requirements.txt §1–2 for K04
+- android/app/src/main/java/az/qida/app/data/local/Library{Database,Importer}.kt
+- android/app/src/main/java/az/qida/app/domain/{Catalog,Values}.kt
+- android/app/src/test/java/az/qida/app/data/local/LibraryImportTest.kt
+- docs/architecture/android-k03-library-import.txt
+- docs/qa/android-k03-acceptance.txt; android/tools/check_android.py
 
 ## Checks performed
-- Kotlin/Java compilation and strict lintDebug passed with final dependencies.
-- 13 JVM tests passed: 5 personal persistence, 3 plan transaction, 2 migration,
-  1 catalog isolation, 2 domain validation; no failures/errors/skips.
-- APK-free/offline runner and mandatory branch/main CI: consult exact commit and
-  passing records in .local-ci/logs/latest.json; no remote/push/deployment authorized.
-- Existing APK timestamps remain from K01 (4 November 2026, 12:46 Asia/Baku).
-- Historical K01 device/visual evidence remains docs/qa/android-k01-acceptance.txt;
-  it does not verify the K02 dependency/runtime changes.
+- New three Room integration tests passed during development; strict lint cursor
+  closure findings corrected. Final full CI outcome is recorded in local logs/history.
+- Mandatory CI covers library validator, canonical export parity, APK-free Android
+  lint/compilation/JVM tests and tokens. No visual or device check claimed.
 
 ## Exact next step
-In a new chat, verify K02 is merged with green main CI and read K03 in
-planning/coding-tasks.txt, library/README.md, product plan §3–4/§11/§15 and only
-needed adapter/domain files. Implement K03 import/content gates with real Room
-integration tests; keep G3 closed for unpublished drafts, preserve old log snapshots,
-complete AGENTS.md branch/commit/CI/finish flow without APK creation. Do not start K04.
+Verify K03 merged main CI record, then start K04 in a new chat. Read only the K04
+plan sections and referenced domain/import/test files, follow local CI lifecycle,
+and do not create an APK without explicit request.

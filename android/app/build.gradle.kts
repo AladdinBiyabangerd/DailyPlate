@@ -26,6 +26,11 @@ android {
     buildFeatures { compose = true }
     lint { warningsAsErrors = true }
     sourceSets.getByName("test").resources.srcDir("schemas")
+    sourceSets.getByName("test").resources.apply {
+        srcDir("../../library")
+        include("**/*.json", "nutrition-library.sqlite")
+        exclude("sources/**")
+    }
 }
 
 ksp { arg("room.schemaLocation", "$projectDir/schemas") }
