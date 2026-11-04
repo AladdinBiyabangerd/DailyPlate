@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Mirrors design-concepts/tokens.css; do not sample raster colours. -->
+<resources>
+    <color name="simple_bg">#EFFAFC</color>
+    <color name="simple_surface">#FFFFFF</color>
+    <color name="simple_text">#123743</color>
+    <color name="simple_muted">#4D707B</color>
+    <color name="simple_primary">#087F91</color>
+</resources>

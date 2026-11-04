@@ -1,45 +1,48 @@
-# Current task — sequential application coding backlog
+# Current task — K01 Android foundation
 
 ## Completed
-- Updated backlog to version 1.1 with the Android-first decision and deferred iOS scope.
-- Created planning/coding-tasks.txt: 34 ordered units (K01–K34) with dependencies, source requirements, scope, acceptance checks and completion conditions.
-- Mapped plan sections, customization T01–T19 and screens 01–44 to units.
-- Separated technical work from clinical/content approvals, regional prices, providers, billing decisions and pilot evidence.
+- Android app skeleton added under android/, using Kotlin + Jetpack Compose.
+- User SDK decision: minSdk 24 (Android 7.0), compileSdk/targetSdk 36 (Android 16).
+- Token resources, light theme, minimal Azerbaijani entry surface, explicit backup exclusions and launch/recreation instrumentation test added.
+- Tracked Android verification runner added and connected to ignored .local-ci/checks.py.
+- ADR: docs/architecture/android-foundation.txt; setup: android/README.txt.
 
 ## Current state
-- Requirements and execution planning only; no application implementation exists.
-- Product source remains planning/research-data.json, version 1.7. Its TXT/PDF/canvas views were not changed.
-- Library 0.3.0: 500 foods, 224 unpublished recipe drafts; no verified regional prices.
-- All K01–K34 units are not started. Android is confirmed; stack/backend remain undecided.
+- K01 implementation and initial acceptance checks are complete; K02–K34 not started. Verify the final branch/main CI record in .local-ci/logs/latest.json and Git history before proceeding.
+- Updated Gradle 8.14.6 / Activity 1.13.0 / runner 1.7.0 / JUnit ext 1.3.0 build, lint and API 34 device smoke passed. Normal and 1.5x font screenshots were inspected.
+- Canonical product plan remains research-data.json 1.7; library remains 500 foods / 224 unpublished drafts.
 
 ## Decisions
-- One coding unit per chat; split oversized units without dropping acceptance requirements.
-- Test fixtures support development while real approvals gate live activation.
-- User decision (4 November 2026): Android first. iOS is a separate future phase only if the user likes the Android result and chooses to proceed.
-- K01–K34 target Android; do not ask the platform question again. Stack/backend remain to be chosen in K01.
-- Preserve domain/UI/storage boundaries for future iOS; no shared framework or iOS skeleton is mandated.
-- No invented clinical thresholds, prices or paid feature boundaries.
-- Local Git only; remote push, store submission and deployment are outside authorization.
+- Android first; iOS only after user likes Android and decides to proceed.
+- Native Kotlin/Compose; Room selected for K02. No DB implemented yet.
+- Remote backend/provider choice deferred to relevant integration units; no server or secrets added.
+- Light palette uses existing tokens; primary-on-background text was replaced with text token after measured contrast 4.43 failed 4.5.
+- No onboarding/navigation/domain logic implemented in K01; no fake unit tests.
 
 ## Remaining work
-- Start K01: choose Android stack, bootstrap minimal Android app and add actual app checks to local CI.
-- Implement subsequent units in order; record acceptance evidence and unresolved gates.
+- Run/verify the mandatory commit and branch/main CI lifecycle; acceptance evidence is docs/qa/android-k01-acceptance.txt.
+- API 24 and API 36 runtime compatibility remain unverified without matching emulator/device tests.
+- Then start K02 in a new chat, reading its plan requirements first.
 
 ## Relevant files
-- planning/coding-tasks.txt (execution sequence and continuation prompt)
-- planning/research-data.json (canonical product requirements)
-- planning/nutrition-science-implementation-plan.txt (sections 1–19)
-- planning/meal-customization-requirements.txt (T01–T19)
-- library/README.md
-- design-concepts/simple-turquoise/implementation-guide.txt
-- design-concepts/simple-turquoise/new-flows-guide.txt
-- design-concepts/tokens.css
-- AGENTS.md and .cursor/rules/code-organization.mdc
+- planning/coding-tasks.txt
+- docs/architecture/android-foundation.txt
+- android/README.txt
+- android/app/build.gradle.kts
+- android/app/src/main/java/az/qida/app/
+- android/app/src/androidTest/java/az/qida/app/LaunchSmokeTest.kt
+- android/tools/check_android.py and verify_tokens.py
+- docs/qa/ (acceptance evidence)
+- planning/research-data.json and nutrition-science-implementation-plan.txt
+- .local-ci/README.md and checks.py (ignored, local-only)
 
 ## Checks performed
-- Read product plan, customization scenarios, design behavior guides and local workflow.
-- Verified 34 unique sequential IDs, required fields and no forward dependencies using a local assertion script.
-- Branch/main CI and commit results are reported in the completion response; no application tests or UI rendering apply to this text-only task.
+- Final API 34 emulator smoke: 1 test passed, no failures/errors/skips.
+- Measured actual text/background pairs: 11.95 and 5.04; white/primary 4.71.
+- SDK 36 installed; no API 24/36 system image present.
+- Final dependency-updated assembleDebug/lintDebug/device smoke passed; lint failures fixed without bypasses. APK manifest confirms minSdk 24, targetSdk/compileSdk 36.
+- Actual normal/1.5x font screenshots inspected; see docs/qa/android-k01-acceptance.txt.
+- Branch/main CI results are recorded in Git and .local-ci/logs/latest.json; these remain the authority for lifecycle completion.
 
 ## Exact next step
-Read K01 in planning/coding-tasks.txt and the local workflow. Android is confirmed. Choose the Android stack, create the skeleton and verify Android build/emulator smoke checks; do not begin iOS. Continue in a new chat using the prompt in the backlog.
+Verify K01 is merged to main with green local CI. Then continue K02 in a new chat: read planning/coding-tasks.txt K02, plan §5/§11/§16–19 and customization contracts, implement domain models and Room migrations. Preserve minSdk 24 / compileSdk and targetSdk 36; do not start K03 in that chat.

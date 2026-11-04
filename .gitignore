@@ -1,0 +1,7 @@
+# Android local tools and build output
+android/.gradle/
+android/.kotlin/
+android/**/build/
+android/local.properties
+*.jks
+*.keystore
