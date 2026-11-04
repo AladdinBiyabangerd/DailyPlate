@@ -1,0 +1,31 @@
+/* Initial concept palettes. Spacing: 4, 8, 12, 16, 24, 32, 48. */
+:root {
+  --simple-bg: #EFFAFC;
+  --simple-surface: #FFFFFF;
+  --simple-text: #123743;
+  --simple-muted: #4D707B;
+  --simple-primary: #087F91;
+  --simple-accent: #16B3C7;
+  --simple-peach: #FFF0E7;
+  --simple-yellow: #FFE195;
+  --natural-bg: #F7F8F2;
+  --natural-surface: #FFFFFF;
+  --natural-text: #203C31;
+  --natural-muted: #58665C;
+  --natural-accent: #326347;
+  --warm-bg: #FFF7EF;
+  --warm-surface: #FFFFFF;
+  --warm-text: #452D29;
+  --warm-muted: #795C51;
+  --warm-accent: #A5412C;
+  --dark-bg: #141C1B;
+  --dark-surface: #202C29;
+  --dark-text: #F1F4EA;
+  --dark-muted: #B3C0B6;
+  --dark-accent: #D2ED9B;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --radius-card: 24px;
+}

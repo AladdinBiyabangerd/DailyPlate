@@ -1,0 +1,65 @@
+{
+  "version": "0.3.0",
+  "generated_at": "2026-11-04",
+  "source_food_count": 8217,
+  "source_types": {
+    "SR Legacy": 7793,
+    "Foundation Foods": 424
+  },
+  "curated_food_count": 500,
+  "recipe_draft_count": 224,
+  "weekly_idea_count": 8,
+  "food_categories": {
+    "dairy_eggs": 55,
+    "grains": 55,
+    "legumes": 35,
+    "meat_fish": 70,
+    "vegetables": 120,
+    "fruits": 70,
+    "nuts_seeds": 30,
+    "pantry": 65
+  },
+  "recipe_categories": {
+    "breakfast": 33,
+    "soup": 26,
+    "main": 47,
+    "plant_main": 45,
+    "salad_side": 30,
+    "regional": 25,
+    "snack": 18
+  },
+  "publishable_food_count": 0,
+  "publishable_recipe_count": 0,
+  "source_files": [
+    {
+      "file": "usda-foundation-2026-10.zip",
+      "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2026-10-29.zip",
+      "sha256": "dd414cc9f1a132626bad354ef6655972c78b44aff14f16114dc899708663c579",
+      "bytes": 696866
+    },
+    {
+      "file": "usda-sr-legacy-2018-04.zip",
+      "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_csv_2018-04.zip",
+      "sha256": "b80817294b8850530aaedf2e515c02593b1824f763a0ff356e5c2081643e6fd0",
+      "bytes": 6074592
+    },
+    {
+      "file": "usda-supporting-2022-10.zip",
+      "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_Supporting_Data_csv_2022-10-28.zip",
+      "sha256": "03f5cb6d5ec76fc5285b5af5a5d6beebe73569f0085e59f1d8c2009aae27761d",
+      "bytes": 952346
+    }
+  ],
+  "source_downloads_page": "https://fdc.nal.usda.gov/download-datasets/",
+  "license": "USDA FoodData Central data: CC0 1.0; original recipe drafts authored for this project",
+  "energy_selection_policy": "1008 Energy, else 2048 Atwater Specific, else 2047 Atwater General; original method ID recorded. Not recalculated with 4/4/9.",
+  "limitations": [
+    "SR Legacy is historical final 2018 release, not current Azerbaijani products",
+    "Foundation Foods 2026-10 imported as reference, not silently substituted for curated SR entries",
+    "AZ/RU food names and recipe titles are editorial drafts; only AZ preparation steps are authored",
+    "No dietitian sign-off, kitchen measurements, calibrated portion images or verified regional costs",
+    "Allergen inference is not product verification or a guarantee against cross-contact",
+    "Recipe calories are unadjusted ingredient sums, not measured cooked portions",
+    "Weekly rotations are meal ideas, not nutrition-complete personalized plans"
+  ]
+}

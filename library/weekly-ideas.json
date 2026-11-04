@@ -1,0 +1,538 @@
+[
+  {
+    "id": "W01",
+    "name_az": "1-ci həftə üçün yemək ideyaları",
+    "status": "editorial_rotation_not_nutritionally_approved",
+    "publishable": false,
+    "personalized": false,
+    "energy_target_kcal": null,
+    "note_az": "Tam və fərdi balanslı pəhriz deyil. Porsiya, əlavə qida və klinik uyğunluq ayrıca hesablanmalıdır.",
+    "days": [
+      {
+        "day": 1,
+        "day_az": "Bazar ertəsi",
+        "breakfast": "B01",
+        "lunch": "S01",
+        "dinner": "M01",
+        "optional_snack": "N01"
+      },
+      {
+        "day": 2,
+        "day_az": "Çərşənbə axşamı",
+        "breakfast": "B07",
+        "lunch": "V02",
+        "dinner": "M14",
+        "optional_snack": "N02"
+      },
+      {
+        "day": 3,
+        "day_az": "Çərşənbə",
+        "breakfast": "B03",
+        "lunch": "S03",
+        "dinner": "L08",
+        "optional_snack": "N03"
+      },
+      {
+        "day": 4,
+        "day_az": "Cümə axşamı",
+        "breakfast": "B04",
+        "lunch": "V03",
+        "dinner": "L05",
+        "optional_snack": "N04"
+      },
+      {
+        "day": 5,
+        "day_az": "Cümə",
+        "breakfast": "B09",
+        "lunch": "S10",
+        "dinner": "L01",
+        "optional_snack": "N05"
+      },
+      {
+        "day": 6,
+        "day_az": "Şənbə",
+        "breakfast": "B15",
+        "lunch": "V04",
+        "dinner": "M15",
+        "optional_snack": "N01"
+      },
+      {
+        "day": 7,
+        "day_az": "Bazar",
+        "breakfast": "B13",
+        "lunch": "S02",
+        "dinner": "V06",
+        "optional_snack": "N02"
+      }
+    ]
+  },
+  {
+    "id": "W02",
+    "name_az": "2-ci həftə üçün yemək ideyaları",
+    "status": "editorial_rotation_not_nutritionally_approved",
+    "publishable": false,
+    "personalized": false,
+    "energy_target_kcal": null,
+    "note_az": "Tam və fərdi balanslı pəhriz deyil. Porsiya, əlavə qida və klinik uyğunluq ayrıca hesablanmalıdır.",
+    "days": [
+      {
+        "day": 1,
+        "day_az": "Bazar ertəsi",
+        "breakfast": "B10",
+        "lunch": "V01",
+        "dinner": "M03",
+        "optional_snack": "N01"
+      },
+      {
+        "day": 2,
+        "day_az": "Çərşənbə axşamı",
+        "breakfast": "B08",
+        "lunch": "S07",
+        "dinner": "M07",
+        "optional_snack": "N02"
+      },
+      {
+        "day": 3,
+        "day_az": "Çərşənbə",
+        "breakfast": "B16",
+        "lunch": "V08",
+        "dinner": "L06",
+        "optional_snack": "N03"
+      },
+      {
+        "day": 4,
+        "day_az": "Cümə axşamı",
+        "breakfast": "B05",
+        "lunch": "S11",
+        "dinner": "V09",
+        "optional_snack": "N04"
+      },
+      {
+        "day": 5,
+        "day_az": "Cümə",
+        "breakfast": "B11",
+        "lunch": "V13",
+        "dinner": "M13",
+        "optional_snack": "N05"
+      },
+      {
+        "day": 6,
+        "day_az": "Şənbə",
+        "breakfast": "B02",
+        "lunch": "S12",
+        "dinner": "L07",
+        "optional_snack": "N01"
+      },
+      {
+        "day": 7,
+        "day_az": "Bazar",
+        "breakfast": "B18",
+        "lunch": "V11",
+        "dinner": "M19",
+        "optional_snack": "N02"
+      }
+    ]
+  },
+  {
+    "id": "W03",
+    "name_az": "3-ci həftə üçün yemək ideyaları",
+    "status": "editorial_rotation_not_nutritionally_approved",
+    "publishable": false,
+    "personalized": false,
+    "energy_target_kcal": null,
+    "note_az": "Tam və fərdi balanslı pəhriz deyil. Porsiya, əlavə qida və klinik uyğunluq ayrıca hesablanmalıdır.",
+    "days": [
+      {
+        "day": 1,
+        "day_az": "Bazar ertəsi",
+        "breakfast": "B06",
+        "lunch": "S04",
+        "dinner": "M02",
+        "optional_snack": "N01"
+      },
+      {
+        "day": 2,
+        "day_az": "Çərşənbə axşamı",
+        "breakfast": "B12",
+        "lunch": "V12",
+        "dinner": "M09",
+        "optional_snack": "N02"
+      },
+      {
+        "day": 3,
+        "day_az": "Çərşənbə",
+        "breakfast": "B14",
+        "lunch": "S09",
+        "dinner": "L09",
+        "optional_snack": "N03"
+      },
+      {
+        "day": 4,
+        "day_az": "Cümə axşamı",
+        "breakfast": "B17",
+        "lunch": "V14",
+        "dinner": "M16",
+        "optional_snack": "N04"
+      },
+      {
+        "day": 5,
+        "day_az": "Cümə",
+        "breakfast": "B19",
+        "lunch": "S06",
+        "dinner": "L03",
+        "optional_snack": "N05"
+      },
+      {
+        "day": 6,
+        "day_az": "Şənbə",
+        "breakfast": "B20",
+        "lunch": "V05",
+        "dinner": "M10",
+        "optional_snack": "N01"
+      },
+      {
+        "day": 7,
+        "day_az": "Bazar",
+        "breakfast": "B01",
+        "lunch": "S14",
+        "dinner": "V07",
+        "optional_snack": "N02"
+      }
+    ]
+  },
+  {
+    "id": "W04",
+    "name_az": "4-ci həftə üçün yemək ideyaları",
+    "status": "editorial_rotation_not_nutritionally_approved",
+    "publishable": false,
+    "personalized": false,
+    "energy_target_kcal": null,
+    "note_az": "Tam və fərdi balanslı pəhriz deyil. Porsiya, əlavə qida və klinik uyğunluq ayrıca hesablanmalıdır.",
+    "days": [
+      {
+        "day": 1,
+        "day_az": "Bazar ertəsi",
+        "breakfast": "B03",
+        "lunch": "V15",
+        "dinner": "M04",
+        "optional_snack": "N01"
+      },
+      {
+        "day": 2,
+        "day_az": "Çərşənbə axşamı",
+        "breakfast": "B07",
+        "lunch": "S05",
+        "dinner": "M08",
+        "optional_snack": "N02"
+      },
+      {
+        "day": 3,
+        "day_az": "Çərşənbə",
+        "breakfast": "B10",
+        "lunch": "V10",
+        "dinner": "L10",
+        "optional_snack": "N03"
+      },
+      {
+        "day": 4,
+        "day_az": "Cümə axşamı",
+        "breakfast": "B04",
+        "lunch": "S08",
+        "dinner": "M11",
+        "optional_snack": "N04"
+      },
+      {
+        "day": 5,
+        "day_az": "Cümə",
+        "breakfast": "B09",
+        "lunch": "V01",
+        "dinner": "L04",
+        "optional_snack": "N05"
+      },
+      {
+        "day": 6,
+        "day_az": "Şənbə",
+        "breakfast": "B15",
+        "lunch": "S13",
+        "dinner": "M18",
+        "optional_snack": "N01"
+      },
+      {
+        "day": 7,
+        "day_az": "Bazar",
+        "breakfast": "B13",
+        "lunch": "S15",
+        "dinner": "M12",
+        "optional_snack": "N02"
+      }
+    ]
+  },
+  {
+    "id": "W05",
+    "name_az": "5-ci həftə üçün yemək ideyaları",
+    "status": "editorial_rotation_not_nutritionally_approved",
+    "publishable": false,
+    "personalized": false,
+    "energy_target_kcal": null,
+    "note_az": "Tam və fərdi balanslı pəhriz deyil. Porsiya, əlavə qida və klinik uyğunluq ayrıca hesablanmalıdır.",
+    "days": [
+      {
+        "day": 1,
+        "day_az": "Bazar ertəsi",
+        "breakfast": "B21",
+        "lunch": "S16",
+        "dinner": "M21",
+        "optional_snack": "N06"
+      },
+      {
+        "day": 2,
+        "day_az": "Çərşənbə axşamı",
+        "breakfast": "B22",
+        "lunch": "V16",
+        "dinner": "M30",
+        "optional_snack": "N07"
+      },
+      {
+        "day": 3,
+        "day_az": "Çərşənbə",
+        "breakfast": "B23",
+        "lunch": "S17",
+        "dinner": "L12",
+        "optional_snack": "N08"
+      },
+      {
+        "day": 4,
+        "day_az": "Cümə axşamı",
+        "breakfast": "B24",
+        "lunch": "V17",
+        "dinner": "L15",
+        "optional_snack": "N09"
+      },
+      {
+        "day": 5,
+        "day_az": "Cümə",
+        "breakfast": "B25",
+        "lunch": "S18",
+        "dinner": "M24",
+        "optional_snack": "N10"
+      },
+      {
+        "day": 6,
+        "day_az": "Şənbə",
+        "breakfast": "B26",
+        "lunch": "V18",
+        "dinner": "M32",
+        "optional_snack": "N11"
+      },
+      {
+        "day": 7,
+        "day_az": "Bazar",
+        "breakfast": "B27",
+        "lunch": "S19",
+        "dinner": "V19",
+        "optional_snack": "N12"
+      }
+    ]
+  },
+  {
+    "id": "W06",
+    "name_az": "6-ci həftə üçün yemək ideyaları",
+    "status": "editorial_rotation_not_nutritionally_approved",
+    "publishable": false,
+    "personalized": false,
+    "energy_target_kcal": null,
+    "note_az": "Tam və fərdi balanslı pəhriz deyil. Porsiya, əlavə qida və klinik uyğunluq ayrıca hesablanmalıdır.",
+    "days": [
+      {
+        "day": 1,
+        "day_az": "Bazar ertəsi",
+        "breakfast": "B28",
+        "lunch": "V20",
+        "dinner": "M22",
+        "optional_snack": "N13"
+      },
+      {
+        "day": 2,
+        "day_az": "Çərşənbə axşamı",
+        "breakfast": "B29",
+        "lunch": "S20",
+        "dinner": "M23",
+        "optional_snack": "N14"
+      },
+      {
+        "day": 3,
+        "day_az": "Çərşənbə",
+        "breakfast": "B30",
+        "lunch": "V21",
+        "dinner": "L13",
+        "optional_snack": "N15"
+      },
+      {
+        "day": 4,
+        "day_az": "Cümə axşamı",
+        "breakfast": "B21",
+        "lunch": "S21",
+        "dinner": "V22",
+        "optional_snack": "N06"
+      },
+      {
+        "day": 5,
+        "day_az": "Cümə",
+        "breakfast": "B22",
+        "lunch": "V23",
+        "dinner": "M31",
+        "optional_snack": "N07"
+      },
+      {
+        "day": 6,
+        "day_az": "Şənbə",
+        "breakfast": "B23",
+        "lunch": "S22",
+        "dinner": "L16",
+        "optional_snack": "N08"
+      },
+      {
+        "day": 7,
+        "day_az": "Bazar",
+        "breakfast": "B24",
+        "lunch": "V24",
+        "dinner": "M33",
+        "optional_snack": "N09"
+      }
+    ]
+  },
+  {
+    "id": "W07",
+    "name_az": "7-ci həftə üçün yemək ideyaları",
+    "status": "editorial_rotation_not_nutritionally_approved",
+    "publishable": false,
+    "personalized": false,
+    "energy_target_kcal": null,
+    "note_az": "Tam və fərdi balanslı pəhriz deyil. Porsiya, əlavə qida və klinik uyğunluq ayrıca hesablanmalıdır.",
+    "days": [
+      {
+        "day": 1,
+        "day_az": "Bazar ertəsi",
+        "breakfast": "B25",
+        "lunch": "S23",
+        "dinner": "M25",
+        "optional_snack": "N10"
+      },
+      {
+        "day": 2,
+        "day_az": "Çərşənbə axşamı",
+        "breakfast": "B26",
+        "lunch": "V25",
+        "dinner": "M26",
+        "optional_snack": "N11"
+      },
+      {
+        "day": 3,
+        "day_az": "Çərşənbə",
+        "breakfast": "B27",
+        "lunch": "S24",
+        "dinner": "L17",
+        "optional_snack": "N12"
+      },
+      {
+        "day": 4,
+        "day_az": "Cümə axşamı",
+        "breakfast": "B28",
+        "lunch": "V26",
+        "dinner": "M34",
+        "optional_snack": "N13"
+      },
+      {
+        "day": 5,
+        "day_az": "Cümə",
+        "breakfast": "B29",
+        "lunch": "S25",
+        "dinner": "L18",
+        "optional_snack": "N14"
+      },
+      {
+        "day": 6,
+        "day_az": "Şənbə",
+        "breakfast": "B30",
+        "lunch": "V27",
+        "dinner": "M35",
+        "optional_snack": "N15"
+      },
+      {
+        "day": 7,
+        "day_az": "Bazar",
+        "breakfast": "B21",
+        "lunch": "S16",
+        "dinner": "V28",
+        "optional_snack": "N06"
+      }
+    ]
+  },
+  {
+    "id": "W08",
+    "name_az": "8-ci həftə üçün yemək ideyaları",
+    "status": "editorial_rotation_not_nutritionally_approved",
+    "publishable": false,
+    "personalized": false,
+    "energy_target_kcal": null,
+    "note_az": "Tam və fərdi balanslı pəhriz deyil. Porsiya, əlavə qida və klinik uyğunluq ayrıca hesablanmalıdır.",
+    "days": [
+      {
+        "day": 1,
+        "day_az": "Bazar ertəsi",
+        "breakfast": "B22",
+        "lunch": "V29",
+        "dinner": "M27",
+        "optional_snack": "N07"
+      },
+      {
+        "day": 2,
+        "day_az": "Çərşənbə axşamı",
+        "breakfast": "B23",
+        "lunch": "S17",
+        "dinner": "M28",
+        "optional_snack": "N08"
+      },
+      {
+        "day": 3,
+        "day_az": "Çərşənbə",
+        "breakfast": "B24",
+        "lunch": "V30",
+        "dinner": "L19",
+        "optional_snack": "N09"
+      },
+      {
+        "day": 4,
+        "day_az": "Cümə axşamı",
+        "breakfast": "B25",
+        "lunch": "S18",
+        "dinner": "M36",
+        "optional_snack": "N10"
+      },
+      {
+        "day": 5,
+        "day_az": "Cümə",
+        "breakfast": "B26",
+        "lunch": "V31",
+        "dinner": "L20",
+        "optional_snack": "N11"
+      },
+      {
+        "day": 6,
+        "day_az": "Şənbə",
+        "breakfast": "B27",
+        "lunch": "S19",
+        "dinner": "M37",
+        "optional_snack": "N12"
+      },
+      {
+        "day": 7,
+        "day_az": "Bazar",
+        "breakfast": "B28",
+        "lunch": "V32",
+        "dinner": "M38",
+        "optional_snack": "N13"
+      }
+    ]
+  }
+]

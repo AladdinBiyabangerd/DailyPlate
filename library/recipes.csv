@@ -1,0 +1,225 @@
+﻿id,az,en,ru,category,servings,estimated_minutes,ingredient_count,ingredient_sum_kcal_per_serving_UNTESTED,status,publishable
+B01,Almalı südlü yulaf,Apple milk oats,Овсянка с яблоком на молоке,breakfast,2,15,5,317.735,formulated_source_linked_draft,False
+B02,Bananlı qatıq və yulaf,Banana yogurt oat bowl,Йогурт с бананом и овсянкой,breakfast,2,10,4,388.6,formulated_source_linked_draft,False
+B03,Giləmeyvəli yunan yoqurtu,Berry Greek yogurt bowl,Греческий йогурт с ягодами,breakfast,2,10,5,340.4,formulated_source_linked_draft,False
+B04,İspanaqlı omlet,Spinach omelet,Омлет со шпинатом,breakfast,2,15,5,204.66,formulated_source_linked_draft,False
+B05,Pomidorlu yumurta,Tomato eggs,Яйца с помидорами,breakfast,2,20,5,230.2,formulated_source_linked_draft,False
+B06,Göbələkli omlet,Mushroom omelet,Омлет с грибами,breakfast,2,20,6,209.96,formulated_source_linked_draft,False
+B07,"Yumurta, pendir və tərəvəz boşqabı",Egg cheese vegetable plate,Яйца с сыром и овощами,breakfast,2,15,5,381.5,formulated_source_linked_draft,False
+B08,Avokadolu yumurtalı çörək,Avocado egg toast,Тост с авокадо и яйцом,breakfast,2,15,5,330.6,formulated_source_linked_draft,False
+B09,Kəsmik əsaslı meyvə kasası,Cottage cheese fruit bowl,Творожный сыр с фруктами,breakfast,2,10,4,245.135,formulated_source_linked_draft,False
+B10,Balqabaqlı yulaf sıyığı,Pumpkin oat porridge,Овсяная каша с тыквой,breakfast,2,25,5,285.735,formulated_source_linked_draft,False
+B11,Südlü qarabaşaq,Buckwheat with milk,Гречневая каша с молоком,breakfast,2,25,4,276.68,formulated_source_linked_draft,False
+B12,Almalı darı sıyığı,Apple millet porridge,Пшённая каша с яблоком,breakfast,2,30,5,312.035,formulated_source_linked_draft,False
+B13,Göyərtili pendirli omlet,Herb cheese omelet,Омлет с зеленью и сыром,breakfast,2,15,5,250.535,formulated_source_linked_draft,False
+B14,Yumurtalı tərəvəzli bulqur,Bulgur with eggs and vegetables,Булгур с яйцами и овощами,breakfast,2,25,7,304.36,formulated_source_linked_draft,False
+B15,Tahinli bananlı çörək,Banana tahini toast,Тост с бананом и тахини,breakfast,2,10,4,312.885,formulated_source_linked_draft,False
+B16,Yoqurtlu şaftalılı çia,Peach yogurt chia bowl,Йогурт с персиком и чиа,breakfast,2,10,4,298.35,formulated_source_linked_draft,False
+B17,Qozlu kişmişli yulaf,Walnut raisin oats,Овсянка с изюмом и орехами,breakfast,2,15,5,362.25,formulated_source_linked_draft,False
+B18,Tofulu tərəvəz qovurması,Tofu vegetable scramble,Тофу с овощами на сковороде,breakfast,2,20,6,286.76,formulated_source_linked_draft,False
+B19,Qatıqla xiyar-göyərti və çörək,Cucumber herb yogurt breakfast,"Йогурт с огурцом, зеленью и хлебом",breakfast,2,10,5,303.77,formulated_source_linked_draft,False
+B20,Tərəvəzli yumurta muffini,Vegetable egg muffins,Яичные маффины с овощами,breakfast,2,30,6,251.52,formulated_source_linked_draft,False
+S01,Qırmızı mərci şorbası,Red lentil soup,Суп из красной чечевицы,soup,4,35,8,270.275,formulated_source_linked_draft,False
+S02,Toyuqlu tərəvəz şorbası,Chicken vegetable soup,Куриный суп с овощами,soup,4,45,7,183.375,formulated_source_linked_draft,False
+S03,Noxudlu tərəvəz şorbası,Chickpea vegetable soup,Овощной суп с нутом,soup,4,35,7,233.775,formulated_source_linked_draft,False
+S04,Ağ lobya şorbası,White bean soup,Суп из белой фасоли,soup,4,40,8,223.85,formulated_source_linked_draft,False
+S05,Balqabaq püresi şorbası,Pumpkin soup,Тыквенный суп-пюре,soup,4,35,7,131.025,formulated_source_linked_draft,False
+S06,Brokoli şorbası,Broccoli soup,Суп-пюре из брокколи,soup,4,30,7,151.02,formulated_source_linked_draft,False
+S07,Göbələkli arpa şorbası,Mushroom barley soup,Грибной суп с перловкой,soup,4,55,7,199.9,formulated_source_linked_draft,False
+S08,Pomidor şorbası,Tomato soup,Томатный суп,soup,4,35,7,98.8125,formulated_source_linked_draft,False
+S09,İspanaqlı mərci şorbası,Spinach lentil soup,Чечевичный суп со шпинатом,soup,4,40,7,233.3,formulated_source_linked_draft,False
+S10,Balıq şorbası,Fish vegetable soup,Рыбный суп с овощами,soup,4,40,7,177.525,formulated_source_linked_draft,False
+S11,Hinduşkalı düyü şorbası,Turkey rice soup,Суп с индейкой и рисом,soup,4,45,7,217.725,formulated_source_linked_draft,False
+S12,Yaşıl noxud şorbası,Green pea soup,Суп из зелёного горошка,soup,4,30,7,177.37,formulated_source_linked_draft,False
+S13,Gül kələmi şorbası,Cauliflower soup,Суп из цветной капусты,soup,4,35,7,140.645,formulated_source_linked_draft,False
+S14,Kabaçkili tərəvəz şorbası,Zucchini vegetable soup,Овощной суп с кабачком,soup,4,35,7,118.275,formulated_source_linked_draft,False
+S15,Qiyməli tərəvəz şorbası,Beef meatball vegetable soup,Овощной суп с говяжьими фрикадельками,soup,4,45,8,241.85,formulated_source_linked_draft,False
+M01,Tərəvəzli soba toyuğu,Roast chicken with vegetables,Курица с овощами в духовке,main,2,40,7,335.3,formulated_source_linked_draft,False
+M02,Toyuq və bulqur boşqabı,Chicken bulgur bowl,Курица с булгуром,main,2,35,7,493.43,formulated_source_linked_draft,False
+M03,Toyuq və qarabaşaq,Chicken buckwheat plate,Курица с гречкой,main,2,35,6,509.28,formulated_source_linked_draft,False
+M04,Pomidorlu toyuq makaronu,Tomato chicken pasta,Паста с курицей и томатами,main,2,35,7,556.855,formulated_source_linked_draft,False
+M05,Toyuqlu noxud yeməyi,Chicken chickpea stew,Курица с нутом,main,2,40,8,532.73,formulated_source_linked_draft,False
+M06,Toyuqlu kabaçki yeməyi,Chicken zucchini stew,Курица с кабачками,main,2,35,6,318.38,formulated_source_linked_draft,False
+M07,Göbələkli hinduşka,Turkey with mushrooms,Индейка с грибами,main,2,35,6,333.88,formulated_source_linked_draft,False
+M08,Hinduşka küftəsi və bulqur,Turkey meatballs with bulgur,Тефтели из индейки с булгуром,main,2,45,8,568.44,formulated_source_linked_draft,False
+M09,Mal qiyməli tərəvəz yeməyi,Beef vegetable stew,Овощное рагу с говяжьим фаршем,main,2,40,7,360.63,formulated_source_linked_draft,False
+M10,Mal küftəsi və qarabaşaq,Beef meatballs with buckwheat,Говяжьи тефтели с гречкой,main,2,45,7,533.64,formulated_source_linked_draft,False
+M11,Qiyməli yaşıl lobya,Green beans with minced beef,Стручковая фасоль с фаршем,main,2,40,7,358.18,formulated_source_linked_draft,False
+M12,Quzu qiyməli noxud yeməyi,Lamb mince chickpea stew,Нут с бараньим фаршем,main,2,45,8,682.235,formulated_source_linked_draft,False
+M13,Limonlu soba qızılbalığı,Lemon baked salmon,Лосось с лимоном в духовке,main,2,35,6,563.38,formulated_source_linked_draft,False
+M14,Forel və tərəvəz,Trout with vegetables,Форель с овощами,main,2,35,6,352.08,formulated_source_linked_draft,False
+M15,Pomidor sousunda treska,Cod in tomato sauce,Треска в томатном соусе,main,2,30,6,263.58,formulated_source_linked_draft,False
+M16,Skumbriya və kartof,Mackerel with potatoes,Скумбрия с картофелем,main,2,40,6,512.65,formulated_source_linked_draft,False
+M17,Ton balıqlı makaron,Tuna pasta,Паста с тунцом,main,2,25,6,492.93,formulated_source_linked_draft,False
+M18,Krevetkalı qəhvəyi düyü,Shrimp brown rice bowl,Бурый рис с креветками,main,2,35,7,499.93,formulated_source_linked_draft,False
+M19,Tilapiya və kinoa,Tilapia quinoa plate,Тилапия с киноа,main,2,35,7,480.98,formulated_source_linked_draft,False
+M20,Sardinalı bulqur boşqabı,Sardine bulgur plate,Булгур с сардинами,main,2,25,6,448.7,formulated_source_linked_draft,False
+V01,Tərəvəzli noxud,Chickpea vegetable stew,Нут с овощами,plant_main,2,35,7,476.47,formulated_source_linked_draft,False
+V02,Qırmızı lobya yeməyi,Red bean stew,Красная фасоль с овощами,plant_main,2,30,6,373.52,formulated_source_linked_draft,False
+V03,Mərcili bulqur,Lentil bulgur pilaf,Булгур с чечевицей,plant_main,2,35,7,481.795,formulated_source_linked_draft,False
+V04,Tərəvəzli kinoa,Vegetable quinoa,Киноа с овощами,plant_main,2,30,7,433.72,formulated_source_linked_draft,False
+V05,Tofulu brokoli və düyü,Tofu broccoli rice,Тофу с брокколи и рисом,plant_main,2,35,7,577.08,formulated_source_linked_draft,False
+V06,Badımcanlı ağ lobya,Eggplant white bean stew,Белая фасоль с баклажаном,plant_main,2,40,6,411.31,formulated_source_linked_draft,False
+V07,Göbələkli qarabaşaq,Mushroom buckwheat,Гречка с грибами,plant_main,2,30,7,372.62,formulated_source_linked_draft,False
+V08,Mərcili pomidor makaronu,Lentil tomato pasta,Паста с чечевицей и томатами,plant_main,2,30,7,553.145,formulated_source_linked_draft,False
+V09,Noxudlu balqabaq,Pumpkin chickpea stew,Тыква с нутом,plant_main,2,35,7,438.095,formulated_source_linked_draft,False
+V10,Yaşıl lobya və pomidor,Green bean tomato stew,Стручковая фасоль с помидорами,plant_main,2,35,6,212.56,formulated_source_linked_draft,False
+V11,Kələmli mərci yeməyi,Cabbage lentil stew,Капуста с чечевицей,plant_main,2,40,7,374.47,formulated_source_linked_draft,False
+V12,Noxudlu kuskus,Chickpea couscous,Кускус с нутом,plant_main,2,25,8,567.33,formulated_source_linked_draft,False
+V13,Qara lobyalı tərəvəz kasası,Black bean vegetable bowl,Овощная миска с чёрной фасолью,plant_main,2,30,7,603.08,formulated_source_linked_draft,False
+V14,Şirin kartof və noxud,Sweet potato chickpea tray,Батат с нутом в духовке,plant_main,2,40,6,531.34,formulated_source_linked_draft,False
+V15,Tərəvəzli arpa yarması,Vegetable barley,Перловка с овощами,plant_main,2,45,7,430.62,formulated_source_linked_draft,False
+A01,Çoban salatı,Shepherd salad,Салат из помидоров и огурцов,salad_side,2,10,7,123.98,formulated_source_linked_draft,False
+A02,Kələm-kök salatı,Cabbage carrot salad,Салат из капусты и моркови,salad_side,2,15,6,135.555,formulated_source_linked_draft,False
+A03,Çuğundur və qoz salatı,Beet walnut salad,Салат из свёклы с орехами,salad_side,2,55,4,213.675,formulated_source_linked_draft,False
+A04,Noxudlu tərəvəz salatı,Chickpea vegetable salad,Салат из овощей и нута,salad_side,2,15,7,345.18,formulated_source_linked_draft,False
+A05,Mərci salatı,Lentil salad,Салат из чечевицы,salad_side,2,15,7,286.83,formulated_source_linked_draft,False
+A06,Ton balıqlı lobya salatı,Tuna bean salad,Салат с тунцом и фасолью,salad_side,2,15,6,363.39,formulated_source_linked_draft,False
+A07,Toyuqlu kahı salatı,Chicken lettuce salad,Салат с курицей и листьями салата,salad_side,2,15,6,282.85,formulated_source_linked_draft,False
+A08,Kinoalı göyərti salatı,Quinoa herb salad,Салат с киноа и зеленью,salad_side,2,15,8,285.53,formulated_source_linked_draft,False
+A09,Bulqurlu göyərti salatı,Bulgur herb salad,Салат с булгуром и зеленью,salad_side,2,15,7,231.43,formulated_source_linked_draft,False
+A10,Sobada qarışıq tərəvəz,Roasted mixed vegetables,Овощи в духовке,salad_side,2,35,7,193.74,formulated_source_linked_draft,False
+A11,Sarımsaqlı brokoli,Garlic broccoli,Брокколи с чесноком,salad_side,2,20,5,154.49,formulated_source_linked_draft,False
+A12,Qatıqlı xiyar salatı,Cucumber yogurt salad,Огурцы с йогуртом,salad_side,2,10,5,106.775,formulated_source_linked_draft,False
+A13,Limonlu bişmiş bulqur,Lemon bulgur side,Булгур с лимоном,salad_side,2,25,6,297.34,formulated_source_linked_draft,False
+A14,Noxud əzməsi,Chickpea tahini spread,Паста из нута с тахини,salad_side,4,15,7,287.755,formulated_source_linked_draft,False
+A15,Pendirli pomidor salatı,Tomato feta salad,Салат с помидорами и фетой,salad_side,2,10,5,242.605,formulated_source_linked_draft,False
+L01,Toyuq plovu — standart layihə,Chicken rice pilaf draft,Плов с курицей — проект рецепта,regional,4,65,8,543.985,formulated_source_linked_draft,False
+L02,Şüyüdlü plov — standart layihə,Dill rice pilaf draft,Рис со свежим укропом — проект рецепта,regional,4,45,5,308.9125,formulated_source_linked_draft,False
+L03,Lobyalı plov — standart layihə,Bean rice pilaf draft,Рис с фасолью — проект рецепта,regional,4,45,7,412.725,formulated_source_linked_draft,False
+L04,Balqabaqlı plov — standart layihə,Pumpkin rice pilaf draft,Рис с тыквой — проект рецепта,regional,4,50,6,343.5,formulated_source_linked_draft,False
+L05,Yarpaq dolması — standart layihə,Grape leaf dolma draft,Долма в виноградных листьях — проект рецепта,regional,4,75,9,376.075,formulated_source_linked_draft,False
+L06,Üç bacı dolması — standart layihə,Stuffed vegetable trio draft,Фаршированные овощи — проект рецепта,regional,4,75,9,318.45,formulated_source_linked_draft,False
+L07,Kələm dolması — standart layihə,Cabbage dolma draft,Голубцы — проект рецепта,regional,4,75,8,361.575,formulated_source_linked_draft,False
+L08,Göyərti qutabı — standart layihə,Herb qutab draft,Кутабы с зеленью — проект рецепта,regional,4,60,8,323.225,formulated_source_linked_draft,False
+L09,Pendirli qutab — standart layihə,Cheese qutab draft,Кутабы с сыром — проект рецепта,regional,4,60,7,420.875,formulated_source_linked_draft,False
+L10,Balqabaq qutabı — standart layihə,Pumpkin qutab draft,Кутабы с тыквой — проект рецепта,regional,4,65,7,365.8375,formulated_source_linked_draft,False
+N01,Alma və qoz,Apple and walnuts,Яблоко с грецкими орехами,snack,2,5,2,176.1,formulated_source_linked_draft,False
+N02,Qatıq və giləmeyvə,Yogurt and berries,Йогурт с ягодами,snack,2,5,3,137.4,formulated_source_linked_draft,False
+N03,Noxud əzməsi ilə tərəvəz,Chickpea dip with vegetables,Овощи с пастой из нута,snack,2,15,6,219.675,formulated_source_linked_draft,False
+N04,Armud və badam,Pear and almonds,Груша с миндалём,snack,2,5,2,172.35,formulated_source_linked_draft,False
+N05,Bananlı kakao yoqurtu,Banana cocoa yogurt,Йогурт с бананом и какао,snack,2,10,3,169.4,formulated_source_linked_draft,False
+B21,Rikottalı armudlu çörək,Ricotta pear toast,Тост с рикоттой и грушей,breakfast,2,10,4,372.9,formulated_source_linked_draft,False
+B22,Qarabaşaq unundan blinçik,Buckwheat pancakes,Блины из гречневой муки,breakfast,2,25,6,349.86,formulated_source_linked_draft,False
+B23,Şabalıdlı darı sıyığı,Chestnut millet porridge,Пшённая каша с каштанами,breakfast,2,30,5,343.835,formulated_source_linked_draft,False
+B24,Kəpəkli banan sıyığı,Banana oat bran porridge,Каша из овсяных отрубей с бананом,breakfast,2,15,5,323.7,formulated_source_linked_draft,False
+B25,Qırmızı bibərli yumurta tortilyası,Pepper egg tortilla,Тортилья с яйцом и сладким перцем,breakfast,2,20,6,419.47,formulated_source_linked_draft,False
+B26,"Kinoa, alma və yoqurt",Quinoa apple yogurt bowl,Киноа с яблоком и йогуртом,breakfast,2,10,4,349.15,formulated_source_linked_draft,False
+B27,Kakaolu amarant sıyığı,Cocoa amaranth porridge,Каша из амаранта с какао,breakfast,2,30,5,343.1,formulated_source_linked_draft,False
+B28,Keçi pendirli göyərti omleti,Goat cheese herb omelet,Омлет с козьим сыром и зеленью,breakfast,2,20,5,272.06,formulated_source_linked_draft,False
+B29,Kəpəkli kəsmik blinçiki,Cottage cheese bran pancakes,Оладьи с творожным сыром и отрубями,breakfast,2,25,6,355.71,formulated_source_linked_draft,False
+B30,Göbələkli ispanaqlı tost,Mushroom spinach toast,Тост с грибами и шпинатом,breakfast,2,20,6,346.285,formulated_source_linked_draft,False
+S16,Maş şorbası,Mung bean soup,Суп из маша,soup,4,35,8,207.0375,formulated_source_linked_draft,False
+S17,Paxla püresi şorbası,Fava bean soup,Суп-пюре из бобов фава,soup,4,30,7,197.4,formulated_source_linked_draft,False
+S18,Mal ətli arpa şorbası,Beef barley soup,Суп с говядиной и перловкой,soup,4,90,8,268.3325,formulated_source_linked_draft,False
+S19,Kəvər və kartof şorbası,Leek potato soup,Суп из порея и картофеля,soup,4,35,7,204.775,formulated_source_linked_draft,False
+S20,Kərəviz kökü şorbası,Celeriac soup,Суп из корневого сельдерея,soup,4,40,7,170.775,formulated_source_linked_draft,False
+S21,Çuğundurlu kələm şorbası,Beet cabbage soup,Суп со свёклой и капустой,soup,4,55,9,173.225,formulated_source_linked_draft,False
+S22,Tofulu göbələk şorbası,Tofu mushroom soup,Суп с тофу и грибами,soup,4,30,7,114.5,formulated_source_linked_draft,False
+S23,Balqabaq və mərcili şorba,Pumpkin red lentil soup,Суп из тыквы и красной чечевицы,soup,4,40,8,238.225,formulated_source_linked_draft,False
+S24,Toyuqlu əriştə şorbası,Chicken noodle soup,Куриный суп с лапшой,soup,4,45,7,271.65,formulated_source_linked_draft,False
+S25,Borlotti lobya şorbası,Borlotti bean soup,Суп с фасолью борлотти,soup,4,40,8,247.9275,formulated_source_linked_draft,False
+M21,Mal ətli tərəvəz güveci,Beef vegetable casserole,Говядина с овощами в горшочке,main,2,100,9,492.345,formulated_source_linked_draft,False
+M22,Quzu tikələri və tərəvəz,Lamb cubes with vegetables,Баранина кусочками с овощами,main,2,90,8,366.19,formulated_source_linked_draft,False
+M23,Dana əti və göbələk,Veal mushroom skillet,Телятина с грибами,main,2,45,7,335.83,formulated_source_linked_draft,False
+M24,Toyuqlu tortilya bükməsi,Chicken tortilla wrap,Тортилья с курицей,main,2,30,7,503.2,formulated_source_linked_draft,False
+M25,Hinduşkalı tam taxıl sendviçi,Turkey wholegrain sandwich,Цельнозерновой сэндвич с индейкой,main,2,15,6,446.85,formulated_source_linked_draft,False
+M26,Nar souslu ördək — layihə,Duck with pomegranate sauce draft,Утка с гранатовым соусом — проект,main,2,60,7,361.6,formulated_source_linked_draft,False
+M27,Toyuq ürəyi və bulqur,Chicken hearts with bulgur,Куриные сердца с булгуром,main,2,55,7,578.78,formulated_source_linked_draft,False
+M28,Toyuq daşlığı və tərəvəz,Chicken gizzard stew,Куриные желудки с овощами,main,2,100,8,404.345,formulated_source_linked_draft,False
+M29,Karrili toyuq və düyü,Chicken curry with rice,Курица карри с рисом,main,2,40,9,599.655,formulated_source_linked_draft,False
+M30,Limonlu çəki balığı,Lemon carp tray,Карп с лимоном в духовке,main,2,45,7,429.605,formulated_source_linked_draft,False
+M31,Naqqa və tərəvəz,Catfish vegetable tray,Сом с овощами в духовке,main,2,40,7,299.23,formulated_source_linked_draft,False
+M32,Pikşa və bulqur,Haddock with bulgur,Пикша с булгуром,main,2,35,7,449.78,formulated_source_linked_draft,False
+M33,Paltus və qarabaşaq,Halibut with buckwheat,Палтус с гречкой,main,2,35,7,456.03,formulated_source_linked_draft,False
+M34,Xanı balığı pomidorla,Perch in tomato sauce,Окунь в томатном соусе,main,2,30,6,278.355,formulated_source_linked_draft,False
+M35,Durnabalığı və kartof,Pike potato bake,Щука с картофелем,main,2,45,6,405.13,formulated_source_linked_draft,False
+M36,Mintay və yaşıl noxud,Pollock with green peas,Минтай с зелёным горошком,main,2,35,7,518.53,formulated_source_linked_draft,False
+M37,Kefal və şirin bibər,Mullet with sweet peppers,Кефаль со сладким перцем,main,2,40,7,335.08,formulated_source_linked_draft,False
+M38,Dəniz xanısı və kinoa,Sea bass quinoa plate,Морской окунь с киноа,main,2,35,7,468.83,formulated_source_linked_draft,False
+M39,Sarımsaqlı dəniz darağı makaronu,Garlic scallop pasta,Паста с морскими гребешками,main,2,30,7,485.12,formulated_source_linked_draft,False
+M40,Midiya və düyü,Mussels with rice,Мидии с рисом,main,2,35,7,496.13,formulated_source_linked_draft,False
+V16,Paxlalı pomidor yeməyi,Fava tomato stew,Бобы фава с томатами,plant_main,2,30,7,345.32,formulated_source_linked_draft,False
+V17,Maşlı qəhvəyi düyü,Mung brown rice pilaf,Бурый рис с машем,plant_main,2,40,7,559.92,formulated_source_linked_draft,False
+V18,Adzuki və balqabaq,Adzuki pumpkin stew,Адзуки с тыквой,plant_main,2,35,7,372.595,formulated_source_linked_draft,False
+V19,Pinto lobya tortilyası,Pinto bean tortilla,Тортилья с фасолью пинто,plant_main,2,25,7,528.1,formulated_source_linked_draft,False
+V20,Qaragöz lobyalı bulqur,Black-eyed pea bulgur,Булгур с фасолью чёрный глаз,plant_main,2,35,7,542.52,formulated_source_linked_draft,False
+V21,Borlotti ilə tərəvəz güveci,Borlotti vegetable casserole,Овощное рагу с борлотти,plant_main,2,40,8,412.56,formulated_source_linked_draft,False
+V22,Tempe və brokoli,Tempeh broccoli skillet,Темпе с брокколи,plant_main,2,30,6,432.19,formulated_source_linked_draft,False
+V23,Edamame və kinoa kasası,Edamame quinoa bowl,Киноа с эдамаме,plant_main,2,30,8,547.78,formulated_source_linked_draft,False
+V24,İspanaqlı rikotta makaronu,Spinach ricotta pasta,Паста со шпинатом и рикоттой,plant_main,2,30,6,508.75,formulated_source_linked_draft,False
+V25,Gül kələmli noxud sinisi,Cauliflower chickpea tray,Цветная капуста с нутом в духовке,plant_main,2,40,6,424.43,formulated_source_linked_draft,False
+V26,Ənginarlı ağ lobya,Artichoke white bean stew,Белая фасоль с артишоками,plant_main,2,30,7,435.97,formulated_source_linked_draft,False
+V27,Şiitakeli düyü əriştəsi,Shiitake rice noodles,Рисовая лапша с шиитаке,plant_main,2,30,7,430.02,formulated_source_linked_draft,False
+V28,Speltalı göbələk yeməyi,Spelt mushroom pilaf,Полба с грибами,plant_main,2,45,7,367.92,formulated_source_linked_draft,False
+V29,Yabanı düyü və noxud,Wild rice chickpea pilaf,Дикий рис с нутом,plant_main,2,50,7,627.52,formulated_source_linked_draft,False
+V30,Qarabaşaq unlu tərəvəz blinçiki,Vegetable buckwheat crepes,Гречневые блины с овощами,plant_main,2,40,7,423.63,formulated_source_linked_draft,False
+V31,Paxlalı yarpaq kələm yeməyi,Leafy cabbage fava stew,Листовая капуста с бобами,plant_main,2,35,7,353.47,formulated_source_linked_draft,False
+V32,Manqoldlu mərci,Chard lentil stew,Чечевица с мангольдом,plant_main,2,35,7,348.72,formulated_source_linked_draft,False
+V33,Şirin kartoflu qara lobya,Sweet potato black bean bowl,Батат с чёрной фасолью,plant_main,2,40,7,546.72,formulated_source_linked_draft,False
+V34,Yaşıl tərəvəzli kuskus,Green vegetable couscous,Кускус с зелёными овощами,plant_main,2,25,7,452.62,formulated_source_linked_draft,False
+V35,Pomidorlu kinoa ilə doldurulmuş bibər,Quinoa stuffed peppers,Перцы с киноа и овощами,plant_main,2,50,8,452.93,formulated_source_linked_draft,False
+A16,Qızardılmış çuğundur və keçi pendiri,Roasted beet goat cheese salad,Салат из печёной свёклы с козьим сыром,salad_side,2,55,6,332.24,formulated_source_linked_draft,False
+A17,Qaragöz lobya salatı,Black-eyed pea salad,Салат из фасоли чёрный глаз,salad_side,2,15,7,275.98,formulated_source_linked_draft,False
+A18,Avokadolu edamame salatı,Avocado edamame salad,Салат с авокадо и эдамаме,salad_side,2,15,7,353.15,formulated_source_linked_draft,False
+A19,Razyana və portağal salatı,Fennel orange salad,Салат с фенхелем и апельсином,salad_side,2,15,5,181.19,formulated_source_linked_draft,False
+A20,Daykon və kök salatı,Daikon carrot salad,Салат из дайкона и моркови,salad_side,2,15,6,139.23,formulated_source_linked_draft,False
+A21,Kartof və şüyüd salatı,Potato dill salad,Картофельный салат с укропом,salad_side,2,15,6,231.45,formulated_source_linked_draft,False
+A22,Ənginar və zeytun salatı,Artichoke olive salad,Салат с артишоками и оливками,salad_side,2,15,6,175.99,formulated_source_linked_draft,False
+A23,Sobada Brüssel kələmi,Roasted Brussels sprouts,Брюссельская капуста в духовке,salad_side,2,30,5,175.08,formulated_source_linked_draft,False
+A24,Rozmarinli kök tərəvəzlər,Rosemary root vegetable tray,Корнеплоды с розмарином,salad_side,2,45,6,240.87,formulated_source_linked_draft,False
+A25,Tahinli gül kələmi,Cauliflower with tahini,Цветная капуста с тахини,salad_side,2,30,7,232.175,formulated_source_linked_draft,False
+A26,Narlı yarpaq salatı,Pomegranate leafy salad,Листовой салат с гранатом,salad_side,2,15,7,282.39,formulated_source_linked_draft,False
+A27,Kinoalı noxud salatı,Quinoa chickpea salad,Салат с киноа и нутом,salad_side,2,15,8,409.78,formulated_source_linked_draft,False
+A28,Sarımsaqlı pak-çoy,Garlic bok choy,Пак-чой с чесноком,salad_side,2,20,5,105.805,formulated_source_linked_draft,False
+A29,Pomidor və kapari salatı,Tomato caper salad,Салат с помидорами и каперсами,salad_side,2,10,6,116.405,formulated_source_linked_draft,False
+A30,Şabalıdlı qırmızı kələm,Red cabbage with chestnuts,Красная капуста с каштанами,salad_side,2,35,7,296.78,formulated_source_linked_draft,False
+L11,Dovğa — standart layihə,Dovga yogurt herb soup draft,Довга — проект рецепта,regional,4,45,10,309.825,formulated_source_linked_draft,False
+L12,Göyərti küküsü — standart layihə,Herb kuku draft,Кюкю из зелени — проект рецепта,regional,4,35,8,223.35,formulated_source_linked_draft,False
+L13,Toyuq ləvəngisi — standart layihə,Chicken lavangi draft,Куриный лявянги — проект рецепта,regional,4,75,7,447.5275,formulated_source_linked_draft,False
+L14,Balıq ləvəngisi — standart layihə,Fish lavangi draft,Рыбный лявянги — проект рецепта,regional,4,65,7,458.0275,formulated_source_linked_draft,False
+L15,Piti — sümüksüz resept layihəsi,Boneless piti style lamb stew draft,Пити без костей — проект рецепта,regional,4,150,8,471.0775,formulated_source_linked_draft,False
+L16,Küftə-bozbaş — standart layihə,Kufta bozbash draft,Кюфта-бозбаш — проект рецепта,regional,4,85,9,692.675,formulated_source_linked_draft,False
+L17,Düşbərə — standart layihə,Dushbara dumpling soup draft,Дюшбара — проект рецепта,regional,4,100,8,365.575,formulated_source_linked_draft,False
+L18,Qiyməli yarpaq xəngəl — layihə,Leaf khangal with beef draft,Листовой хингал с фаршем — проект,regional,4,80,9,524.425,formulated_source_linked_draft,False
+L19,Qatıqlı yarpaq xəngəl — layihə,Yogurt leaf khangal draft,Листовой хингал с йогуртом — проект,regional,4,70,8,426.1575,formulated_source_linked_draft,False
+L20,Badımcan küküsü — standart layihə,Eggplant kuku draft,Баклажанное кюкю — проект рецепта,regional,4,50,6,221.6,formulated_source_linked_draft,False
+L21,Şabalıdlı toyuq plovu — layihə,Chestnut chicken pilaf draft,Плов с курицей и каштанами — проект,regional,4,65,9,567.74,formulated_source_linked_draft,False
+L22,Noxudlu aş — layihə,Chickpea rice pilaf draft,Рисовый плов с нутом — проект,regional,4,50,8,502.0,formulated_source_linked_draft,False
+L23,İspanaqlı yoqurt yeməyi — layihə,Spinach yogurt dish draft,Шпинат с йогуртом — проект,regional,4,30,6,167.175,formulated_source_linked_draft,False
+L24,Tərəvəzli təndir çörəyi bükməsi — layihə,Vegetable flatbread wrap draft,Овощной рулет в лепёшке — проект,regional,4,30,7,363.775,formulated_source_linked_draft,False
+L25,Yumurtalı göy lobya — layihə,Green beans with eggs draft,Стручковая фасоль с яйцами — проект,regional,4,45,7,230.375,formulated_source_linked_draft,False
+N06,Klementin və fındıq,Clementine and hazelnuts,Клементины с фундуком,snack,2,5,2,164.7,formulated_source_linked_draft,False
+N07,Rikotta və çiyələk,Ricotta and strawberries,Рикотта с клубникой,snack,2,5,3,160.635,formulated_source_linked_draft,False
+N08,Badam əzməli alma,Apple with almond butter,Яблоко с миндальной пастой,snack,2,5,2,170.1,formulated_source_linked_draft,False
+N09,Kivi və yoqurt,Kiwi yogurt bowl,Йогурт с киви,snack,2,5,3,190.2,formulated_source_linked_draft,False
+N10,Şabalıd və armud,Chestnuts and pear,Каштаны с грушей,snack,2,5,2,166.65,formulated_source_linked_draft,False
+N11,Yumurtalı xiyar boşqabı,Egg cucumber snack plate,Яйцо с огурцом,snack,2,5,3,159.25,formulated_source_linked_draft,False
+N12,Tahinli ərəb xurması,Dates with tahini,Финики с тахини,snack,2,5,3,219.35,formulated_source_linked_draft,False
+N13,Moruqlu kəpək yoqurtu,Raspberry bran yogurt,Йогурт с малиной и отрубями,snack,2,10,3,168.8,formulated_source_linked_draft,False
+N14,Pendir və pomidorlu kiçik pita,Small feta tomato pita,Мини-пита с фетой и помидорами,snack,2,10,4,206.85,formulated_source_linked_draft,False
+N15,Sarımsaqsız ağ lobya əzməsi,White bean dip without garlic,Паста из белой фасоли без чеснока,snack,2,10,5,212.91,formulated_source_linked_draft,False
+G01,Noxudlu şakşuka,Chickpea shakshuka,Шакшука с нутом,breakfast,2,30,8,380.31,formulated_source_linked_draft,False
+G02,Mərciməkli mücəddərə,Lentil rice mujaddara,Муджаддара с чечевицей,plant_main,2,45,7,454.29,formulated_source_linked_draft,False
+G03,Ağ lobyalı ribollita üslubunda şorba,White bean vegetable soup,Овощной суп с белой фасолью,soup,2,35,9,418.97,formulated_source_linked_draft,False
+G04,Qara lobyalı takos kasası,Black bean taco bowl,Тако-боул с чёрной фасолью,plant_main,2,25,8,461.21,formulated_source_linked_draft,False
+G05,Qatıq və tahinli noxud kasası,Yogurt tahini chickpea bowl,Нут с йогуртом и тахини,plant_main,2,15,7,552.73,formulated_source_linked_draft,False
+G06,Zəncəfilli tofu və qarabaşaq,Ginger tofu buckwheat bowl,Тофу с имбирём и гречкой,plant_main,2,30,9,520.01,formulated_source_linked_draft,False
+G07,Qırmızı mərciməkli dal və düyü,Red lentil dal with rice,Дал из красной чечевицы с рисом,plant_main,2,35,9,454.93,formulated_source_linked_draft,False
+G08,Sardinalı pomidor makaronu,Sardine tomato pasta,Паста с сардинами и томатами,main,2,25,6,468.945,formulated_source_linked_draft,False
+G09,Somonlu kinoa və brokkoli,Salmon quinoa broccoli bowl,Лосось с киноа и брокколи,main,2,35,7,591.55,formulated_source_linked_draft,False
+G10,Toyuqlu arpa risottosu,Chicken barley risotto,Перловое ризотто с курицей,main,2,55,8,498.6,formulated_source_linked_draft,False
+G11,Yunan üslubunda limonlu lobya,Greek inspired lemon beans,Белая фасоль с лимоном по-гречески,plant_main,2,30,9,465.59,formulated_source_linked_draft,False
+G12,Balqabaqlı noxud kuskusu,Pumpkin chickpea couscous,Кускус с тыквой и нутом,plant_main,2,30,9,512.285,formulated_source_linked_draft,False
+G13,Almalı gecə yulafı və yerfındığı,Apple peanut overnight oats,Ночная овсянка с яблоком и арахисом,breakfast,2,10,6,453.185,formulated_source_linked_draft,False
+G14,Bananlı tahinli yoqurt kasası,Banana tahini yogurt bowl,Йогурт с бананом и тахини,breakfast,2,10,5,535.575,formulated_source_linked_draft,False
+G15,Yumurtalı kartof və kələm tavası,Egg potato cabbage skillet,Картофельно-капустная сковорода с яйцом,main,2,35,8,370.02,formulated_source_linked_draft,False
+G16,İspan üslubunda ispanaqlı noxud,Spanish inspired spinach chickpeas,Нут со шпинатом по-испански,plant_main,2,20,7,507.17,formulated_source_linked_draft,False
+G17,Zəncəfilli toyuq və qəhvəyi düyü,Ginger chicken rice bowl,Курица с имбирём и бурым рисом,main,2,45,8,464.21,formulated_source_linked_draft,False
+G18,Badamlı şirin kartof və mərcimək,Almond sweet potato lentils,Чечевица с бататом и миндалём,plant_main,2,40,7,448.475,formulated_source_linked_draft,False
+G19,Forelli bulqur və göyərti,Trout herb bulgur bowl,Форель с булгуром и зеленью,main,2,35,8,489.4,formulated_source_linked_draft,False
+G20,Krevetli avokado və düyü kasası,Shrimp avocado rice bowl,Рисовый боул с креветками и авокадо,main,2,20,7,479.08,formulated_source_linked_draft,False
+G21,Kakao və yerfındıqlı süd içkisi,Cocoa peanut milk smoothie,Молочный смузи с какао и арахисом,snack,2,10,5,400.57,formulated_source_linked_draft,False
+G22,Ağ lobyalı limonlu çörəküstü,Lemon white bean toast,Тост с белой фасолью и лимоном,snack,2,15,6,329.96,formulated_source_linked_draft,False
+G23,"Rikotta, fındıq və əncir kasası",Ricotta hazelnut fig bowl,Рикотта с фундуком и инжиром,snack,2,10,4,375.05,formulated_source_linked_draft,False
+G24,Göbələkli mərcimək bolonyezi,Mushroom lentil bolognese,Болоньезе из чечевицы и грибов,plant_main,2,35,8,507.72,formulated_source_linked_draft,False

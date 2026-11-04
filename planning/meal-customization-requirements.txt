@@ -1,0 +1,102 @@
+YEMƏYİ FƏRDİLƏŞDİRMƏ VƏ HƏFTƏLİK PLANI QORUMA
+Status: məcburi məhsul tələbi; işlək tətbiqdə hələ həyata keçirilməyib.
+İstifadəçi qərarı: inqrediyent çıxarmaq, əlavə etmək, miqdarı dəyişmək; başqa günün yeməyi ilə və ya həmin günə uyğun alternativlə dəyişmək.
+
+1. RESEPTİN İÇİNİ DƏYİŞMƏK
+“İnqrediyentləri dəyiş” reseptdən bir toxunuşla açılır.
+Hər sətirdə məhsulun adı, xam/bişmiş vəziyyəti, qram sahəsi, artır/azalt və çıxarma əməliyyatı var.
+“İnqrediyent əlavə et” mənbəli ərzaq axtarışını açır. Bazada olmayan məhsul ayrıca əl ilə daxil edilir; məlumat natamamdırsa hesab da natamam kimi göstərilir.
+Başlanğıc görünüş “1 porsiya üçün”dür. Ailə/qazan üçün “Neçə porsiya hazırlayırsan?” seçimi ayrıca göstərilir. Qazan miqdarı şəxsin yediyi porsiya ilə qarışmır.
+Qram müsbət və sonlu rəqəm olmalıdır; 0 daxil edilməsi çıxarma əməliyyatını aydın göstərir. Mənfi, boş, NaN və həddən artıq girişə başa düşülən xəta verilir. Hamısı silinmiş resept saxlanmır.
+Qaşıq, ədəd və digər ölçü seçilirsə yalnız həmin məhsul üçün məlum qram çevirməsi tətbiq edilir; bütün ərzaqlara eyni qaşıq çəkisi qoyulmur.
+Porsiya sayını artırmaq bütün qazanı miqyaslayır; istifadəçinin yeyəcəyi hissə ayrıca seçilir.
+
+2. NƏ YENİDƏN HESABLANIR?
+Hər əlavə/silmə/miqdar dəyişməsində reseptin enerjisi, makroları və mövcud digər nutrientləri yenilənir.
+Əvvəl və sonra, habelə istifadəçinin porsiyası açıq göstərilir. Hazır yeməyin ölçülməmiş 100 qramı hesablanmış kimi təqdim edilmir.
+Mənbə nutrienti yoxdursa null qalır. “Kalori məlumatı çatmır” və ya “Zülal məlumatı natamamdır” göstərilir; 0 yazılmır.
+Planın gün və həftə toplamı, uyğunluq nəticəsi və alış-veriş siyahısı dəyişir.
+Günün proqnozu = faktiki yeyilmiş qeydlər + hələ yeyilməmiş planlı hissələr. Planla əlaqəli artıq yeyilmiş hissə ikinci dəfə sayılmır. Natamam gündəlikdən dəqiq qalan enerji iddiası çıxarılmır.
+Günlük enerji hədəfi istifadəçinin resept dəyişməsinə görə avtomatik dəyişmir.
+
+3. HAZIRLANMA TƏLİMATI DƏYİŞƏNDƏ
+Sadəcə “duzu azaltdım” ilə “toyuğu mərci ilə əvəz etdim” eyni dəyişiklik deyil.
+İnqrediyent çıxarılanda köhnə addımda həmin məhsul qalmamalıdır. Yeni inqrediyent üçün uyğun hazırlıq addımı olmalıdır.
+Əsas məhsul və bişirmə üsulu dəyişirsə təhlükəsiz uyğunlaşdırma yoxlanmış addım şablonuna bağlanır. Uyğun təlimat yoxdursa əvvəlki resept təlimatının artıq tam uyğun olmadığı açıq yazılır; yeni təlimat təsdiqlənmiş sayılmır.
+Hazırlıq vaxtı, porsiya şəkli, bişmiş çıxım, allergen və dietoloq təsdiqi dəyişdirilmiş versiyaya avtomatik miras qalmır.
+
+4. BAŞQA GÜNÜN YEMƏYİ İLƏ DƏYİŞMƏ
+“Yeməyi dəyiş” → “Başqa günlə dəyiş” → gün və yemək vaxtını seç → hər iki günün nəticəsinə bax → “İki yeməyin yerini dəyiş”.
+Bu, qarşılıqlı dəyişmədir: A gününün seçilən yeməyi B-yə, B-nin seçilən yeməyi A-ya keçir. Yeməklər silinmir və iki dəfə əlavə olunmur.
+İki günün yemək vaxtı, istifadəçi məhdudiyyətləri, porsiyası, təsdiqli enerji/makro qaydaları və hazırlanma imkanları birlikdə yoxlanır.
+Miqdar tənzimləməsi təklif edilərsə yeni qramlar əvvəlcədən göstərilir; səssiz dəyişdirilmir. Hər iki günü uyğun etmək mümkün deyilsə əməliyyat “uyğundur” kimi göstərilmir.
+Əvəzləmə iki gün üçün bir əməliyyatla saxlanır. Bir gün dəyişib o biri günün dəyişmədiyi yarımçıq vəziyyətə yol verilmir.
+Tarixi keçmiş və ya artıq yeyildiyi qeyd edilmiş hissə bu əməliyyata daxil edilmir. Faktiki qeydə düzəliş ayrıca və açıq əməliyyatdır.
+Boş vaxta köçürmək ayrıca “Bu günə köçür” əməliyyatıdır; dolu vaxt üçün istifadəçi yer dəyişmə ilə əvəzləməni qarışdırmır.
+
+5. BAŞQA UYĞUN YEMƏKLƏ ƏVƏZLƏMƏ
+“Yeməyi dəyiş” → “Başqa yemək seç” → uyğun namizədlər → yeni porsiya və gün nəticəsi → “Bununla əvəz et”.
+Namizədlər həmin gün artıq yeyilən və hələ planlanan qidalarla birlikdə qiymətləndirilir.
+“Uyğundur” etiketi yalnız mövcud məlumat və aktiv NutritionPolicy qaydaları həqiqətən yoxlandıqda verilir. Hazırkı təsdiqsiz resept layihələri production üçün uyğun namizəd sayılmır.
+Allergiya və qəti qadağalar sərt filtrdir. Büdcə, vaxt və müxtəliflik yumşaq filtr ola bilər; uyğun gəlmədikdə səbəb deyilir. Məlum olmayan allergen tərkibi təhlükəsiz kimi təsnif edilmir.
+Namizəd eyni kaloridə olsa belə makroların da eyni olduğu fərz edilmir. Gün və həftə yenidən hesablanır.
+Uyğun namizəd yoxdursa bunu açıq göstər və məqbul porsiya/vaxt seçimləri təklif et; allergiya qaydasını yumşaltma.
+
+6. HƏFTƏLİK PLANIN QORUNMASI
+Bir reseptin dəyişməsi yalnız seçilmiş plan hissəsini dəyişir. İki günlə yer dəyişmə yalnız iki seçilmiş hissəyə toxunur.
+Həftənin qalan yeməkləri, profil, enerji hədəfi və faktiki gündəlik səssiz dəyişmir.
+Gündə yeni hədəfə çatmaq üçün başqa yeməyin porsiyası dəyişdirilməlidirsə bu yalnız ayrıca təklif olur; istifadəçi qəbul etmədən tətbiq edilmir.
+“Bütün həftəni yenidən qur” ayrıca açıq əməliyyatdır. Adi yemək dəyişməsinin gizli nəticəsi ola bilməz.
+Alış-veriş siyahısı yeni tərkiblə fərq üzrə yenilənir. Evdə var/alınıb işarələri eyni ərzaq üçün saxlanır. Artıq alınmış, amma yeni planda lazım olmayan məhsul səssiz itirilmir; ayrıca izah olunur.
+Ləğv etmək saxlanmamış dəyişiklikləri atır. Yadda saxladıqdan sonra “Geri qaytar” son plan əməliyyatını geri çevirir; bu arada faktiki yemək qeydi yaranıbsa əvvəlcə konflikt izah edilir.
+
+7. YEDİM ƏMƏLİYYATI
+“Yedim” zamanı məhz dəyişdirilmiş versiya və təsdiqlənən şəxsi porsiya gündəliyə yazılır.
+Plana düzəliş əvvəl yeyilmiş qeydin kalori/makro şəklini dəyişmir.
+İstifadəçi həqiqətən yediyi, amma profil məhdudiyyətinə uyğun olmayan yeməyi əl ilə qeyd edə bilər. Onu plan üçün “icazə verilən tövsiyə” kimi təqdim etmək başqa məsələdir.
+
+8. TEXNİKİ MƏLUMAT MÜQAVİLƏSİ
+RecipeCustomization: id, user_id, base_recipe_id/version, revision, ingredient_changes, servings_prepared, user_servings, nutrient_snapshot, missing_fields, instruction_status, constraint_results, created_at.
+MealPlanItem: id, date, meal_slot, recipe_version/customization_revision, planned_servings, remaining_planned_servings, nutrient_snapshot, status, consumed_log_ids.
+PlanChange: operation_id/idempotency_key, type(edit_ingredients/replace/swap/move), expected_plan_version, affected_item_ids, before/after_snapshots, validation_results, shopping_delta, created_at.
+Saxlama əməliyyatı plan versiyasını yoxlayır. Başqa cihaz eyni planı dəyişibsə köhnə dəyişiklik yenisinin üstündən səssiz yazılmır.
+Əsas resept kitabxanası dəyişmir; istifadəçinin ayrıca versiyası saxlanır. Başqa istifadəçinin reseptinə toxunulmur.
+İnternet yoxdursa dəyişiklik lokal qaralama kimi görünür. İki günlə yer dəyişmənin server təsdiqi tamamlanmadan tam sinxronlaşmış kimi göstərilmir.
+
+9. QƏBUL SSENARİLƏRİ
+T01: plovdan kökü çıxar → kök hesabdan və hazırlıq addımlarından çıxır; yalnız həmin plan hissəsi dəyişir.
+T02: yağı 10 q-dan 15 q-a qaldır → mənbə dəyərinə görə resept/porsiya/gün və həftə proqnozu artır; faktiki qəbul dəyişmir.
+T03: göbələk əlavə et → yeni inqrediyent, təlimat uyğunluğu və alış-veriş miqdarı görünür.
+T04: reseptə dörd porsiya seç → qazan miqdarı böyüyür, istifadəçi bir porsiya yeyirsə dörd porsiya gündəliyə yazılmır.
+T05: çərşənbə şamını cümə şamı ilə dəyiş → hər iki hissə bir dəfə yer dəyişir; qalan günlər sabitdir.
+T06: iki gündən biri uyğun gəlmir → uyğun olmayan yer dəyişmə saxlanmır; səbəb və mümkün porsiya təklifi göstərilir.
+T07: başqa yemək seç → uyğun porsiya və dəyişiklik əvvəlcədən görünür; yalnız həmin hissə əvəzlənir.
+T08: mənbə nutrienti yoxdur → nəticə natamamdır; sıfır və ya “tam uyğundur” yazılmır.
+T09: artıq yeyilmiş yeməyi köçürməyə çalış → tarixçə dəyişmir; ayrıca düzəliş yolu göstərilir.
+T10: səhvən iki dəfə yadda saxla → bir əməliyyat yaranır; alış-veriş və yemək dublikatı yoxdur.
+T11: reseptdə allergen yaranır → plan uyğunluğu rədd edilir və səbəb göstərilir; faktiki yemək qeyd etmək ayrıca qalır.
+T12: ləğv et və ya geri qaytar → plan və alış-veriş uyğun əvvəlki vəziyyətə qayıdır; sonrakı faktiki qeyd səssiz silinmir.
+
+10. BİZİM RESEPT HAZIRLANDIQDAN SONRA FOTO GÖNDƏRİLƏNDƏ
+Bu axın istifadəçinin hansı plan reseptini hazırladığı məlum olduqda işləyir: menyu/ resept ekranından foto açılıb və ya istifadəçi foto axınında həmin resepti seçib. Saat və şəkil oxşarlığı əsasında resept əlaqəsi səssiz fərz edilmir.
+Foto alındıqdan sonra sual: “Reseptdə nəyisə dəyişmisən?”
+“Xeyr, olduğu kimi hazırladım” → saxlanmış resept versiyası əsas götürülür → “Nə qədər yedin?” → istifadəçinin porsiyanı təsdiqi → nəticəyə baxış → “Gündəliyə əlavə et”. Foto təkbaşına qeyd yaratmır.
+“Bəli, dəyişdim” → məhz istifadəçiyə verilmiş reseptin həmin versiyası, varsa əvvəl saxlanmış fərdiləşdirilməsi ilə açılır → inqrediyenti çıxar/əlavə et/çəki dəyiş → hazırlanmış porsiya sayı → şəxsin yediyi hissə → nəticəyə baxış → “Gündəliyə əlavə et”.
+Burada menyudakı eyni inqrediyent redaktoru təkrar istifadə edilir. Kontekst “Hazırladığın yemək”dir. “Başqa yemək seç”, “Başqa günlə dəyiş”, “Bu günə köçür” və bütün həftəni yenidən qurmaq əməliyyatları göstərilmir.
+Qazan üçün istifadə olunan qram ilə şəxsin yediyi qram/porsiya ayrıca qalır. “Xeyr” cavabı bütün qazanı yediyi demək deyil.
+İstifadəçinin açıq verdiyi tərkib və miqdar məlumatı foto modelinin təxminindən üstündür. Model uyğunsuzluq görürsə qısa təsdiq istəyir; resepti və qramları səssiz dəyişmir. Gizli yağın yoxluğunu fotodan təsdiqləmir.
+Miqdar dəqiq bilinmirsə nəticə təxmini və qeyri-müəyyənliyi ilə göstərilir. İstifadəçidən dəqiq rəqəm uydurmaq tələb edilmir.
+Bu dəyişiklik bişmiş konkret yeməyin faktiki versiyasıdır. Əsas resept, növbəti həftələr və digər plan yeməkləri dəyişmir. Planlı yemək ilə faktiki qeyd əlaqələndirilir, yeyilmiş hissə gələcək proqnozda ikinci dəfə sayılmır.
+Əgər foto başqa yeməyə aiddirsə, istifadəçi geri qayıdıb ümumi yemək əlavə etmə axınını aça bilər. Bu, həmin redaktorun içində planı dəyişmək əməliyyatı deyil.
+İstifadəçi cavab vermədən və ya redaktəni yarımçıq qoyub çıxarsa gündəlik yazılmır; qaralama saxlanır və ya istifadəçinin ləğvi ilə atılır.
+
+11. FOTO + RESEPT AXINI ÜÇÜN ƏLAVƏ MƏLUMAT VƏ QƏBUL SSENARİLƏRİ
+PhotoMealDraft: id, photo_id, source_plan_item_id, served_recipe_version, existing_customization_revision, recipe_changed_answer, actual_ingredient_changes, servings_prepared, consumed_share, confirmation_status.
+FoodLog: actual_recipe_snapshot, recipe_changed_answer, nutrient_basis(recipe_confirmed/recipe_user_modified), photo_reference və porsiya təsdiqi saxlanır. Foto tanıma inqrediyent toplamını avtomatik əvəz etmir.
+T13: “Xeyr” + yarım porsiya → reseptin yarım porsiyası yazılır; foto təxmini ilə ikinci qeyd yaranmır.
+T14: “Bəli” + yağ miqdarı artıb → məhz verilmiş resept açılır; yağ dəyişir, faktiki hesab yenilənir, başqa yeməyə keçid yoxdur.
+T15: “Bəli” + kök çıxıb, göbələk əlavə edilib → faktiki variant saxlanır; əsas kitabxana və digər günlər dəyişmir.
+T16: əvvəlcədən fərdiləşdirilmiş resept → redaktor baza kitabxanasından deyil, istifadəçiyə son verilən versiyadan başlayır.
+T17: 4 porsiyalı qazan + 1 porsiya yeyilib → yalnız dörddə bir hissə gündəliyə yazılır.
+T18: foto modelinin fərziyyəsi istifadəçinin təsdiqi ilə ziddiyyətlidir → istifadəçi məlumatı səssiz əvəz edilmir; lazım olan qısa təsdiq göstərilir.
+T19: “Gündəliyə əlavə et” düyməsinə təkrar basılır → idempotency_key ilə bir faktiki qeyd yaranır.

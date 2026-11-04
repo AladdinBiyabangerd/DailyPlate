@@ -1,0 +1,25 @@
+---
+description: Organize implementation into cohesive components, packages, folders and classes
+alwaysApply: true
+---
+
+# Code organization
+
+- Apply this rule whenever writing, changing or reviewing code.
+- Before adding code, inspect the relevant folder structure and naming conventions;
+  reuse existing components, packages and abstractions where they fit.
+- Place each feature in its appropriate module/package and folder. Group code by
+  feature and responsibility, following the project's established architecture.
+- Give each component, class or module one clear responsibility. Split unrelated
+  responsibilities into focused files instead of growing a single screen or class.
+- Separate UI rendering, state/orchestration, business rules and data access where
+  those responsibilities exist. Keep business rules independent of UI and storage.
+- For example, a meal screen renders UI, a state holder coordinates interactions,
+  a planning service applies menu rules, and a repository handles persistence.
+- Keep feature-specific helpers inside their feature; move code into shared
+  packages only when it has a clear shared purpose. Avoid generic dumping grounds.
+- Use explicit interfaces at module boundaries and avoid circular dependencies.
+- Keep the structure proportional to the task: do not create empty layers, needless
+  classes or premature abstractions merely to increase the number of files.
+- Before finishing, check file placement, responsibility boundaries, duplicate
+  logic and affected imports; run relevant build/tests when applicable.

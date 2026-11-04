@@ -1,0 +1,73 @@
+YENİ QƏRARLARIN DİZAYNA ƏLAVƏ EDİLMƏSİ
+Ekranlar 25–44 / əvvəlki firuzəyi dizaynın davamı.
+Status: vizual konseptlər; işlək tətbiq deyil.
+
+ƏVVƏLKİ DİZAYNDA NƏ ÇATIŞMIRDI?
+14-cü resept ekranında inqrediyent redaktoru üçün açıq giriş yox idi.
+15-ci alternativ ekranında günlərarası qarşılıqlı dəyişmə, önbaxış və nəticə təsdiqi yox idi.
+11-ci foto təsdiqi sərbəst yemək tanıma üçündür; bizim reseptin hazırlanmasından sonrakı dəyişikliyi soruşmurdu.
+Menyu və alış-verişdə fərdiləşdirmənin nəticəsi və geri qaytarma göstərilmirdi.
+
+07-inqrediyent-redaktesi.png
+25. Reseptin yenilənmiş giriş ekranı: tərkibi dəyiş və hazırlanmış yeməyin fotosunu göndər.
+26. Plan üçün inqrediyent redaktoru: məhsul çıxar, qramı dəyiş, porsiya sayını seç.
+27. Mənbəli məhsul axtar və çəkisi ilə əlavə et.
+28. Dəyişikliklərin və kalori fərqinin önbaxışı; yeni addımlar və alış-veriş yenilənməsi; menyuya yadda saxla.
+
+08-yemek-ve-gun-deyisme.png
+29. Üç fərqli hərəkətin açıq seçimi: tərkib, başqa yemək, başqa günlə qarşılıqlı dəyişmə.
+30. Həmin gün üçün yoxlanacaq alternativlər və porsiya seçimi.
+31. Qarşılıqlı dəyişmə üçün gün/yemək seçimi; yeyilmiş qeydlər seçim deyil.
+32. Hər iki günün əvvəl/sonra önbaxışı və atomik yer dəyişmə təsdiqi.
+
+09-foto-sonrasi-resept.png
+33. Foto bizim verilmiş reseptlə bağlıdırsa: “Reseptdə nəyisə dəyişmisən?” — bəli/xeyr.
+34. Bəli: istifadəçiyə verilmiş son reseptin faktiki tərkibini düzəlt. Burada yemək/gün dəyişmə yoxdur.
+35. Hazırlanan qazan ilə yeyilən şəxsi porsiya ayrı seçilir. Xeyr cavabı da buraya keçir.
+36. İstifadəçinin təsdiqlədiyi tərkib və porsiyaya əsasən faktiki qeydin önbaxışı və əlavə etmə.
+
+10-deyisiklik-ve-xeta-hallari.png
+37. İki günə uyğun gəlməyən dəyişmə: səbəb və geri yol, heç nə dəyişməyib.
+38. Yeni məhsulun qida məlumatı çatmır: null məlumat 0 kalori kimi göstərilmir.
+39. Planlaşdırma zamanı inqrediyent dəyişibsə hazırlanma addımları da uyğunlaşdırılır.
+40. Yarımçıq redaktədən çıxış: davam et, ləğv et və ya qaralama saxla.
+
+11-yenilenmis-plan-ve-tesdiq.png
+41. Yer dəyişmədən sonra menyu və son dəyişiklik üçün geri qaytarma.
+42. Alış-verişdə yalnız əlavə fərq və əvvəlki alınıb/evdə-var işarələrinin saxlanması.
+43. Başqa uyğun yeməklə əvəzləmənin önbaxışı; həftənin digər hissələri dəyişmir.
+44. Fərdiləşdirilmiş yeməyin gündəliyə yazılmasının təsdiqi və qeydə düzəliş yolu.
+
+KÖHNƏ EKRANLARLA ƏLAQƏ
+Yeni 25-ci ekran əvvəlki 14-cü resept ekranının funksional genişləndirilməsidir.
+29/30/43 əvvəlki 15-ci alternativ seçimini tamamlayır. 31/32 yeni yer dəyişmə qoludur.
+33–36, plan reseptinə bağlanmış foto üçün işləyir. Əvvəlki 10/11-ci kamera və tanıma ekranları naməlum/sərbəst yemək qolunda qalır.
+35-ci porsiya ekranı məlum resept üçün əvvəlki “Az/Orta/Çox boşqab” seçiminə alternativdir. Mənbə miqdarını foto ilə dəqiq ölçülmüş kimi təqdim etmə.
+41 və 42 əvvəlki 13/16-cı menyu və alış-veriş ekranlarının dəyişiklikdən sonrakı vəziyyətidir.
+Əvvəlki şəkillər tarixçə və üslub istinadı kimi saxlanır; tələblər ziddiyyətində bu yeni axınlar və planning/meal-customization-requirements.txt əsas götürülür.
+
+AXINLAR
+Plan: 25 → 26 → 27 → 28 → menyu.
+Alternativ: 29 → 30 → 43 → menyu.
+Günlə dəyişmə: 29 → 31 → 32 → 41. Uyğunsuzluq varsa 37.
+Foto, xeyr: 25 → kamera → 33 → 35 → 36 → 44.
+Foto, bəli: 25 → kamera → 33 → 34 → lazım gələrsə 27 → 35 → 36 → 44.
+27 təkrar istifadə olunan məhsul seçicisidir; geri dönüş və əlavə etmə seçildiyi kontekstə uyğun qalır.
+
+NÜMUNƏ HESABLAR
+Şəkillərdəki plov nümunəsi library/recipes.json L01 layihəsinin inqrediyent hesabına söykənir: bir porsiya təxminən 544 kalori.
+Bir porsiyada yağ 7,5-dən 12,5 qrama və göbələk +50 q olarsa ilkin inqrediyent hesabı təxminən 599 kaloridir.
+4 porsiyalı qazan üçün yağ fərqi +20 q, göbələk +200 q olur. Bu rəqəmlər yeməyin bişmiş qramını və klinik təsdiqi bildirmir.
+Foto sualında xeyr seçilibsə dəyişməmiş resept 544, bəli seçilib göstərilən dəyişikliklər edilibsə 599 nümunəsi göstərilir. Eyni porsiya ekranı rəqəmi seçilmiş qoldan alır.
+
+TƏTBİQ QAYDALARI
+Foto redaktorunda başqa yeməyə keçid və planın günlərini dəyişmək yoxdur.
+Foto özü gündəlik yaratmır. İstifadəçinin təsdiqlədiyi tərkib model təxminindən üstündür.
+Plan dəyişikliyi yeyilən yemək kimi sayılmır. Faktiki qeyd gələcək günləri və kitabxana reseptini dəyişmir.
+Porsiya və allergiya uyğunluğu real kodla yoxlanmadan “uyğundur” nişanı verilmir.
+Yeni hazırlıq addımları yoxlanmış şablona bağlanır; sərbəst AI cavabı təsdiqlənmiş təlimat sayılmır.
+Geri qaytarma plan və alış-veriş üçün bir əməliyyatdır; sonradan yaranmış faktiki qeyd səssiz silinmir.
+
+KEYFİYYƏT
+Tokenlər ../tokens.css faylındadır. Əsas mətn/fon cütləri 4,5 kontrast həddini keçir.
+AI ilə yaradılmış raster yazı və rəqəmlər implementasiya üçün dəqiq məlumat müqaviləsi deyil. Məhsul tələbləri və nümunə hesablar bu sənəddən götürülür.

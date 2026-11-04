@@ -1,0 +1,102 @@
+{
+  "status": "visual_concepts_not_implemented_screens",
+  "new_screen_numbers": [
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44
+  ],
+  "generator": "built-in image_gen",
+  "visual_review": "all five final boards inspected; photo-editor removal actions and weekly date/calorie mismatch corrected with image_gen",
+  "palette_check": "simple-text/simple-bg, simple-muted/simple-surface, simple-surface/simple-primary passed 4.5 token contrast; raster per-pixel accessibility not certified",
+  "boards": [
+    {
+      "file": "07-inqrediyent-redaktesi.png",
+      "dimensions_px": [
+        1752,
+        897
+      ],
+      "screens": [
+        25,
+        26,
+        27,
+        28
+      ]
+    },
+    {
+      "file": "08-yemek-ve-gun-deyisme.png",
+      "dimensions_px": [
+        1752,
+        897
+      ],
+      "screens": [
+        29,
+        30,
+        31,
+        32
+      ]
+    },
+    {
+      "file": "09-foto-sonrasi-resept.png",
+      "dimensions_px": [
+        1774,
+        887
+      ],
+      "screens": [
+        33,
+        34,
+        35,
+        36
+      ]
+    },
+    {
+      "file": "10-deyisiklik-ve-xeta-hallari.png",
+      "dimensions_px": [
+        1752,
+        897
+      ],
+      "screens": [
+        37,
+        38,
+        39,
+        40
+      ]
+    },
+    {
+      "file": "11-yenilenmis-plan-ve-tesdiq.png",
+      "dimensions_px": [
+        1754,
+        897
+      ],
+      "screens": [
+        41,
+        42,
+        43,
+        44
+      ]
+    }
+  ],
+  "supersession_guide": "new-flows-guide.txt",
+  "prompt_set": "new-flows-prompts.txt",
+  "implementation_labels": [
+    "Düyü (quru) must remain explicit in every quantity editor",
+    "Photo-context editor never offers meal/day replacement",
+    "Unmeasured cooked weights are not inferred from plate photos"
+  ]
+}

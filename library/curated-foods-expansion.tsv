@@ -1,0 +1,259 @@
+# key|fdc_id|name_az|name_ru|allergen_candidates
+# dairy_eggs
+cream_cheese|173418|Krem pendir, sadə|Сливочный творожный сыр|milk
+gouda|171241|Qauda pendiri|Сыр гауда|milk
+edam|173419|Edam pendiri|Сыр эдам|milk
+swiss_cheese|171251|İsveçrə tipli pendir|Сыр швейцарского типа|milk
+brie|172177|Bri pendiri|Сыр бри|milk
+camembert|172178|Kamamber pendiri|Сыр камамбер|milk
+roquefort|171250|Rokfor pendiri|Сыр рокфор|milk
+blue_cheese|172175|Mavi kifli pendir, ümumi baza|Сыр с голубой плесенью|milk
+gruyere|171242|Qrüyer pendiri|Сыр грюйер|milk
+fontina|170843|Fontina pendiri|Сыр фонтина|milk
+provolone|170850|Provolone pendiri|Сыр проволоне|milk
+tilsit|170852|Tilzit pendiri|Сыр тильзитер|milk
+monterey|170844|Monterey pendiri|Сыр монтерей|milk
+muenster|171245|Münster pendiri|Сыр мюнстер|milk
+neufchatel|171246|Nöşatel pendiri|Сыр нёшатель|milk
+romano|171249|Romano pendiri|Сыр романо|milk
+goat_cheese_soft|173435|Keçi pendiri, yumşaq|Козий сыр мягкий|milk
+goat_cheese_hard|172197|Keçi pendiri, bərk|Козий сыр твёрдый|milk
+goat_cheese_semisoft|173433|Keçi pendiri, yarımyumşaq|Козий сыр полумягкий|milk
+ricotta_partskim|171248|Rikotta, qismən yağsız süddən|Рикотта из частично обезжиренного молока|milk
+mozzarella_partskim|170847|Mozzarella, qismən yağsız süddən|Моцарелла из частично обезжиренного молока|milk
+sour_cream|171257|Xama, fermentləşdirilmiş|Сметана|milk
+sour_cream_reduced|171256|Xama, azaldılmış yağlı|Сметана пониженной жирности|milk
+cream_light|170857|Qaymaq, yüngül|Сливки нежирные|milk
+cream_heavy|170859|Qaymaq, yüksək yağlı|Сливки жирные|milk
+cream_whipping|170858|Çalmaq üçün qaymaq, yüngül|Сливки для взбивания лёгкие|milk
+milk_sheep|170882|Qoyun südü|Овечье молоко|milk
+milk_goat|171278|Keçi südü, D vitamini əlavə edilmiş|Козье молоко с витамином D|milk
+ghee|171314|Əridilmiş kərə yağı, ghee|Топлёное масло гхи|milk
+butter_salted|173410|Kərə yağı, duzlu|Сливочное масло солёное|milk
+# grains
+white_bread|174924|Ağ çörək, hazır|Белый хлеб готовый|gluten_wheat,milk_candidate,eggs_candidate
+pita|172816|Pita, ağ undan|Пита из белой муки|gluten_wheat
+whole_pita|174916|Pita, tam buğda unundan|Цельнозерновая пита|gluten_wheat
+multigrain_bread|168013|Çoxtaxıllı çörək|Многозерновой хлеб|gluten_wheat,gluten_rye_candidate,gluten_oats_candidate
+baguette|172675|Fransız/Vyana tipli çörək|Французский или венский хлеб|gluten_wheat
+naan|171845|Naan, sadə, hazır|Наан простой готовый|gluten_wheat,milk_candidate
+chapati|171844|Çapati/roti, sadə, hazır|Чапати или роти готовые|gluten_wheat
+corn_tortilla|173241|Qarğıdalı tortilyası, duz əlavə edilməmiş|Кукурузная тортилья без добавления соли|
+wheat_tortilla|173242|Buğda tortilyası|Пшеничная тортилья|gluten_wheat
+whole_tortilla|174081|Tam buğda tortilyası|Цельнозерновая тортилья|gluten_wheat
+cornmeal|169697|Qarğıdalı unu, tam dənəli, sarı|Мука кукурузная цельнозерновая жёлтая|
+cornstarch|169698|Qarğıdalı nişastası|Кукурузный крахмал|
+semolina|168933|Manna yarması, zənginləşdirilməmiş|Манная крупа необогащённая|gluten_wheat
+rice_noodles|169742|Düyü əriştəsi, quru|Рисовая лапша сухая|
+rice_noodles_cooked|168914|Düyü əriştəsi, bişmiş|Рисовая лапша варёная|
+egg_noodles|169755|Yumurtalı əriştə, quru|Яичная лапша сухая|gluten_wheat,eggs
+egg_noodles_cooked|168926|Yumurtalı əriştə, bişmiş, duzsuz|Яичная лапша варёная без соли|gluten_wheat,eggs
+oat_bran|168872|Yulaf kəpəyi, xam|Овсяные отруби сырые|gluten_oats
+wheat_bran|169722|Buğda kəpəyi|Пшеничные отруби|gluten_wheat
+wheat_germ|168892|Buğda rüşeymi|Пшеничные зародыши|gluten_wheat
+rye_grain|168884|Çovdar dəni|Рожь в зерне|gluten_rye
+buckwheat_flour|170687|Qarabaşaq unu|Гречневая мука|
+wild_rice|169726|Yabanı düyü, quru|Дикий рис сухой|
+wild_rice_cooked|168897|Yabanı düyü, bişmiş|Дикий рис варёный|
+amaranth|170682|Amarant dəni, quru|Амарант сухой|
+amaranth_cooked|170683|Amarant, bişmiş|Амарант варёный|
+spelt|169745|Spelta, quru|Полба сухая|gluten_wheat
+spelt_cooked|169746|Spelta, bişmiş|Полба варёная|gluten_wheat
+teff|169747|Teff, quru|Тефф сухой|
+teff_cooked|168918|Teff, bişmiş|Тефф варёный|
+# legumes
+fava|175205|Paxla, yetişmiş dənə, quru|Бобы фава сухие|
+fava_cooked|173753|Paxla, bişmiş, duzsuz|Бобы фава варёные без соли|
+mung|174256|Maş, quru|Маш сухой|
+mung_cooked|174257|Maş, bişmiş, duzsuz|Маш варёный без соли|
+blackeyed_peas|173758|Qaragöz lobya, quru|Фасоль чёрный глаз сухая|
+blackeyed_peas_cooked|173759|Qaragöz lobya, bişmiş, duzsuz|Фасоль чёрный глаз варёная без соли|
+adzuki|173727|Adzuki lobya, quru|Фасоль адзуки сухая|
+adzuki_cooked|173728|Adzuki lobya, bişmiş, duzsuz|Фасоль адзуки варёная без соли|
+pinto|175199|Pinto lobya, quru|Фасоль пинто сухая|
+pinto_cooked|175200|Pinto lobya, bişmiş, duzsuz|Фасоль пинто варёная без соли|
+borlotti|175189|Borlotti lobya, quru|Фасоль борлотти сухая|
+borlotti_cooked|173736|Borlotti lobya, bişmiş, duzsuz|Фасоль борлотти варёная без соли|
+navy_beans|173745|Xırda ağ navy lobya, quru|Фасоль нави сухая|
+navy_beans_cooked|173746|Xırda ağ navy lobya, bişmiş, duzsuz|Фасоль нави варёная без соли|
+edamame|169282|Yaşıl soya paxlası, xam|Зелёные соевые бобы сырые|soybeans
+edamame_cooked|169283|Yaşıl soya paxlası, bişmiş, duzsuz|Зелёные соевые бобы варёные без соли|soybeans
+soft_tofu|172449|Tofu, yumşaq, kalsium sulfat və nigari ilə|Тофу мягкий с сульфатом кальция и нигари|soybeans
+tempeh|174272|Tempe, alınmış vəziyyətdə|Темпе как приобретено|soybeans
+tempeh_cooked|172467|Tempe, bişmiş|Темпе приготовленное|soybeans
+soy_milk|172446|Soya içkisi, orijinal/vanil, zənginləşdirilməmiş|Соевый напиток оригинальный или ванильный необогащённый|soybeans
+# meat_fish
+beef_stew|171206|Mal əti, çiyin hissəsi, tikə bişirmə üçün, xam|Говядина из лопатки для тушения сырая|
+beef_round|169529|Mal əti, budun üst hissəsi, yağlı hissə ilə, xam|Говядина верхняя часть бедра с жиром сырая|
+beef_chuck_lean|169445|Mal əti, çiyin altı, yalnız yağsız hissə, xam|Говядина подлопаточная постная сырая|
+beef_ribs_lean|170796|Mal qabırğa əti, sümüksüz, yalnız yağsız hissə, xam|Говяжьи рёбра без кости, постная часть сырая|
+lamb_cubes|172508|Quzu əti, bud/çiyin, yağsız tikələr, xam|Баранина из бедра и лопатки постная кусочками сырая|
+lamb_leg|172486|Quzu budu, baldır tərəfi, yalnız yağsız hissə, xam|Баранья нога, голяшечная половина, постная часть сырая|
+lamb_shoulder|172496|Quzu çiyini, yeyilən ət və yağ hissəsi, xam|Баранья лопатка, мясо и жир сырые|
+veal|175269|Dana əti, bud hissəsi, yalnız yağsız hissə, xam|Телятина из бедра постная сырая|
+chicken_heart|171458|Toyuq ürəyi, xam|Куриные сердца сырые|
+chicken_gizzard|171456|Toyuq daşlığı, xam|Куриные желудки сырые|
+turkey_whole_meat|171480|Hinduşka, yalnız yeyilən ət, xam|Индейка, только мясо, сырое|
+turkey_roasted|171481|Hinduşka, yalnız ət, sobada bişmiş|Индейка, только мясо, запечённое|
+duck|172410|Ördək əti, dərisiz, xam|Утка, только мясо без кожи, сырая|
+duck_roasted|172411|Ördək əti, dərisiz, sobada bişmiş|Утка, только мясо без кожи, запечённая|
+anchovy|174182|Avropa ançousu, xam|Анчоус европейский сырой|fish
+anchovy_canned|174183|Ançous, yağda konserv, süzülmüş|Анчоусы в масле без заливки|fish
+carp|171952|Çəki balığı, xam|Карп сырой|fish
+carp_cooked|174185|Çəki balığı, quru istiliklə bişmiş|Карп приготовленный сухим нагревом|fish
+catfish|174186|Kanal naqqası, yabanı, xam|Канальный сом дикий сырой|fish
+haddock|171964|Pikşa, xam|Пикша сырая|fish
+haddock_cooked|174198|Pikşa, quru istiliklə bişmiş|Пикша приготовленная сухим нагревом|fish
+halibut|174200|Atlantik/Sakit okean paltusu, xam|Палтус атлантический или тихоокеанский сырой|fish
+halibut_cooked|174201|Paltus, quru istiliklə bişmiş|Палтус приготовленный сухим нагревом|fish
+perch|173678|Xanı balığı, qarışıq növlər, xam|Окунь смешанных видов сырой|fish
+perch_cooked|173679|Xanı balığı, bişmiş|Окунь приготовленный|fish
+pike|173680|Adi durnabalığı, xam|Щука обыкновенная сырая|fish
+pollock|173725|Alyaska mintayı, xam|Минтай аляскинский сырой|fish
+mullet|175123|Zolaqlı kefal, xam|Кефаль полосатая сырая|fish
+sea_bass|175142|Dəniz xanısı, qarışıq növlər, xam|Морской окунь смешанных видов сырой|fish
+sturgeon|173701|Nərə balığı, qarışıq növlər, xam|Осётр смешанных видов сырой|fish
+whiting|173713|Merlan, qarışıq növlər, xam|Мерлан смешанных видов сырой|fish
+smelt|175146|Göyqurşağı koryuşkası, xam|Корюшка радужная сырая|fish
+crab|174204|Mavi yengəc, xam|Голубой краб сырой|crustaceans
+scallop|174220|Dəniz darağı, qarışıq növlər, xam|Морской гребешок сырой|molluscs
+mussel_cooked|174217|Midiya, nəm istiliklə bişmiş|Мидии приготовленные влажным нагревом|molluscs
+# vegetables
+beet_cooked|169146|Çuğundur, suda bişmiş|Свёкла варёная|
+potato_boiled|170440|Kartof, qabıqsız, suda bişmiş, duzsuz|Картофель очищенный варёный без соли|
+potato_baked|170093|Kartof, qabıqlı, sobada bişmiş, duzsuz|Картофель с кожурой запечённый без соли|
+brussels|170383|Brüssel kələmi, xam|Брюссельская капуста сырая|
+brussels_cooked|169971|Brüssel kələmi, suda bişmiş, duzsuz|Брюссельская капуста варёная без соли|
+savoy_cabbage|170388|Savoy kələmi, xam|Савойская капуста сырая|
+savoy_cooked|170389|Savoy kələmi, suda bişmiş, duzsuz|Савойская капуста варёная без соли|
+bok_choy|170390|Pak-çoy, xam|Пак-чой сырой|
+bok_choy_cooked|170391|Pak-çoy, bişmiş, duzsuz|Пак-чой варёный без соли|
+red_cabbage_cooked|169978|Qırmızı kələm, bişmiş, duzsuz|Краснокочанная капуста варёная без соли|
+napa_cooked|169980|Çin kələmi, bişmiş, duzsuz|Пекинская капуста варёная без соли|
+kale|168421|Kale yarpaq kələmi, xam|Кале сырая|
+kale_cooked|169238|Kale yarpaq kələmi, bişmiş, duzsuz|Кале варёная без соли|
+chard|169991|Manqold, xam|Мангольд сырой|
+chard_cooked|170401|Manqold, bişmiş, duzsuz|Мангольд варёный без соли|
+collard|170406|Collard yarpaq kələmi, xam|Листовая капуста коллард сырая|
+collard_cooked|170407|Collard yarpaq kələmi, bişmiş, duzsuz|Листовая капуста коллард варёная без соли|
+endive|168412|Endiv, xam|Эндивий сырой|
+chicory_leaf|169992|Kasnı yarpağı, xam|Листья цикория сырые|
+witloof|170404|Vitluf kasnısı, xam|Цикорий витлуф сырой|
+butterhead_lettuce|168429|Yağlı kahı, xam|Салат баттерхед сырой|
+red_lettuce|168431|Qırmızı yarpaq kahı, xam|Красный листовой салат сырой|
+watercress|170068|Vəzəri, su tərəsi, xam|Кресс водяной сырой|
+chives|169994|Şnitt soğanı, təzə|Шнитт-лук свежий|
+fennel_bulb|169385|Razyana köksoğanı, xam|Фенхель луковичный сырой|
+celeriac|170400|Kök kərəviz, xam|Корневой сельдерей сырой|celery
+celeriac_cooked|169987|Kök kərəviz, bişmiş, duzsuz|Корневой сельдерей варёный без соли|celery
+celery_cooked|169989|Kərəviz saplağı, bişmiş, duzsuz|Стеблевой сельдерей варёный без соли|celery
+parsnip|170417|Ağ kök, pastinak, xam|Пастернак сырой|
+parsnip_cooked|170009|Pastinak, bişmiş, duzsuz|Пастернак варёный без соли|
+turnip_cooked|170058|Şalğam, bişmiş, duzsuz|Репа варёная без соли|
+rutabaga|168454|Şalğam-kələm, bryukva, xam|Брюква сырая|
+rutabaga_cooked|168455|Bryukva, bişmiş, duzsuz|Брюква варёная без соли|
+kohlrabi|168424|Kolrabi, xam|Кольраби сырая|
+kohlrabi_cooked|168425|Kolrabi, bişmiş, duzsuz|Кольраби варёная без соли|
+daikon|168451|Daykon, xam|Дайкон сырой|
+daikon_cooked|168452|Daykon, bişmiş, duzsuz|Дайкон варёный без соли|
+artichoke|169205|Ənginar, xam|Артишок сырой|
+artichoke_cooked|168386|Ənginar, bişmiş, duzsuz|Артишок варёный без соли|
+shiitake|169242|Şiitake göbələyi, xam|Грибы шиитаке сырые|
+portobello|169255|Portobello göbələyi, xam|Грибы портобелло сырые|
+crimini|168434|Qəhvəyi şampinyon, xam|Шампиньоны коричневые сырые|
+enoki|169382|Enoki göbələyi, xam|Грибы эноки сырые|
+chanterelle|168422|Xoruz göbələyi, xam|Лисички сырые|
+maitake|169403|Maytake göbələyi, xam|Грибы майтаке сырые|
+okra_cooked|169261|Bamya, bişmiş, duzsuz|Бамия варёная без соли|
+jalapeno|168576|Xalapenyo bibəri, xam|Перец халапеньо сырой|
+green_chili|170497|Yaşıl acı bibər, xam|Зелёный перец чили сырой|
+sweet_onion|170008|Şirin soğan, xam|Сладкий лук сырой|
+green_pepper_cooked|170428|Yaşıl şirin bibər, bişmiş, duzsuz|Перец сладкий зелёный варёный без соли|
+red_pepper_cooked|170110|Qırmızı şirin bibər, bişmiş, duzsuz|Перец сладкий красный варёный без соли|
+butternut_baked|169296|Armudşəkilli balqabaq, sobada bişmiş|Тыква баттернат запечённая|
+acorn_squash|168472|Acorn balqabağı, xam|Тыква акорн сырая|
+spaghetti_squash|169298|Spagetti balqabağı, xam|Тыква спагетти сырая|
+pickled_cucumber|168558|Şüyüdlü xiyar turşusu|Огурцы маринованные с укропом|
+sauerkraut|169279|Duzlu kələm, konserv, mayesi ilə|Квашеная капуста консервированная с жидкостью|
+capers|172238|Kapari, konserv|Каперсы консервированные|
+yellow_tomato|170096|Sarı pomidor, xam|Жёлтый помидор сырой|
+green_tomato|170456|Yaşıl pomidor, xam|Зелёный помидор сырой|
+turnip_greens|170061|Şalğam yarpağı, xam|Листья репы сырые|
+# fruits
+feijoa|168176|Feyxoa, xam|Фейхоа сырая|
+loquat|169908|Yapon əzgili, xam|Мушмула японская сырая|
+gooseberry|173030|Firəng üzümü, xam|Крыжовник сырой|
+clementine|168195|Klementin, xam|Клементин сырой|
+kumquat|168154|Kumkvat, xam|Кумкват сырой|
+guava|173044|Quava, xam|Гуава сырая|
+lychee|169086|Liçi, xam|Личи сырые|
+passionfruit|169108|Marakuya, bənövşəyi, xam|Маракуйя фиолетовая сырая|
+physalis|173043|Fizalis, xam|Физалис сырой|
+prickly_pear|167750|Tikanlı armud, opunsiya meyvəsi, xam|Плод опунции сырой|
+tamarind|167763|Tamarind, xam|Тамаринд сырой|
+plantain_green|168215|Yaşıl plantan, xam|Плантан зелёный сырой|
+plantain_yellow|169130|Sarı plantan, xam|Плантан жёлтый сырой|
+lemon_peel|167749|Limon qabığı, təzə|Лимонная цедра свежая|
+orange_peel|169103|Portağal qabığı, təzə|Апельсиновая цедра свежая|
+orange_juice|169098|Portağal suyu, təzə sıxılmış|Апельсиновый сок свежий|
+apple_juice|173933|Alma suyu, qablaşdırılmış, şəkərsiz|Яблочный сок без добавленного сахара|
+grape_juice|173042|Üzüm suyu, qablaşdırılmış, şəkərsiz|Виноградный сок без добавленного сахара|
+pomegranate_juice|167787|Nar suyu, qablaşdırılmış|Гранатовый сок бутилированный|
+pineapple_juice|169947|Ananas suyu, qablaşdırılmış, şəkərsiz|Ананасовый сок без добавленного сахара|
+dried_apple|171691|Alma qurusu, kükürdlə işlənmiş|Яблоки сушёные обработанные диоксидом серы|sulphites_candidate
+dried_pear|169121|Armud qurusu, kükürdlə işlənmiş|Груши сушёные обработанные диоксидом серы|sulphites_candidate
+dried_cranberry|171723|Qurudulmuş mərcanı, şəkərli|Клюква сушёная подслащённая|
+pineapple_canned|167767|Ananas, öz şirəsində konserv, süzülmüş|Ананас в соке консервированный без заливки|
+cherry_frozen|171718|Vişnə, dondurulmuş, şəkərsiz|Вишня замороженная без сахара|
+# nuts_seeds
+chestnut|170575|Avropa şabalıdı, qabıqsız, xam|Каштан европейский очищенный сырой|
+chestnut_boiled|170168|Avropa şabalıdı, bişmiş|Каштан европейский варёный|
+chestnut_roasted|170190|Avropa şabalıdı, qovrulmuş|Каштан европейский жареный|
+macadamia|170178|Makadamiya, qovrulmamış|Макадамия необжаренная|nuts_macadamia
+macadamia_roasted|170179|Makadamiya, quru qovrulmuş, duzsuz|Макадамия сухой обжарки без соли|nuts_macadamia
+almond_butter|168588|Badam əzməsi, duzsuz|Миндальная паста без соли|nuts_almond
+cashew_butter|170163|Keşyu əzməsi, duzsuz|Паста из кешью без соли|nuts_cashew
+watermelon_seed|169407|Qarpız tumu ləpəsi, quru|Ядра семян арбуза сушёные|
+sunflower_roasted|170563|Günəbaxan ləpəsi, quru qovrulmuş, duzsuz|Семечки подсолнечника сухой обжарки без соли|
+pumpkin_seed_roasted|170557|Balqabaq tumu ləpəsi, qovrulmuş, duzsuz|Тыквенные семечки обжаренные без соли|
+# pantry
+bay_leaf|170917|Dəfnə yarpağı, quru|Лавровый лист сушёный|
+caraway|170918|Karavay, adi zirə|Тмин обыкновенный|
+cardamom|170919|Hil|Кардамон|
+curry|170924|Karri tozu|Порошок карри|mustard_candidate,celery_candidate
+dill_seed|170925|Şüyüd toxumu|Семена укропа|
+ginger_powder|170926|Zəncəfil, üyüdülmüş|Имбирь молотый|
+marjoram|170928|Mərzə, qurudulmuş|Майоран сушёный|
+mustard_seed|170929|Xardal toxumu, üyüdülmüş|Горчичное семя молотое|mustard
+dried_parsley|170930|Cəfəri, qurudulmuş|Петрушка сушёная|
+cayenne|170932|Kayen bibəri, üyüdülmüş|Кайенский перец молотый|
+white_pepper|170933|Ağ istiot|Белый перец|
+saffron|170934|Zəfəran|Шафран|
+sage|170935|Adaçayı, üyüdülmüş|Шалфей молотый|
+tarragon|170937|Tərxun, qurudulmuş|Эстрагон сушёный|
+allspice|171315|Ətirli istiot, üyüdülmüş|Душистый перец молотый|
+anise|171316|Anason toxumu|Семена аниса|
+cloves|171321|Mixək, üyüdülmüş|Гвоздика молотая|
+fennel_seed|171323|Razyana toxumu|Семена фенхеля|
+fenugreek|171324|Çəmən toxumu|Семена пажитника|
+garlic_powder|171325|Sarımsaq tozu|Чесночный порошок|
+nutmeg|171326|Muskat qozu, üyüdülmüş|Мускатный орех молотый|
+onion_powder|171327|Soğan tozu|Луковый порошок|
+rosemary|171333|Rozmarin, qurudulmuş|Розмарин сушёный|
+coconut_oil|171412|Kokos yağı|Кокосовое масло|
+flax_oil|167702|Kətan yağı, soyuq sıxılmış|Льняное масло холодного отжима|
+grapeseed_oil|171028|Üzüm çəyirdəyi yağı|Масло виноградной косточки|
+walnut_oil|171030|Qoz yağı|Масло грецкого ореха|nuts_walnut
+corn_oil|171029|Qarğıdalı yağı|Кукурузное масло|
+black_olives|169094|Qara yetişmiş zeytun, konserv|Маслины спелые консервированные|
+green_olives|169096|Yaşıl zeytun, turşuya qoyulmuş|Оливки зелёные маринованные|
+tomato_sauce|170054|Pomidor sousu, konserv|Томатный соус консервированный|
+soy_sauce|174277|Soya sousu, buğda və soyadan|Соевый соус из сои и пшеницы|soybeans,gluten_wheat
+tamari|174278|Tamari, soyadan sous|Соевый соус тамари|soybeans,gluten_wheat_candidate
+miso|172442|Miso əzməsi|Паста мисо|soybeans,gluten_barley_candidate,gluten_wheat_candidate
+mayonnaise|171009|Mayonez, adi|Майонез обычный|eggs_candidate,mustard_candidate,soybeans_candidate
+ketchup|168556|Ketçup|Кетчуп|celery_candidate
+vinegar_white|172237|Ağ sirkə, distillə edilmiş|Уксус белый дистиллированный|
+vinegar_balsamic|172241|Balzam sirkəsi|Уксус бальзамический|sulphites_candidate
+baking_powder|172804|Qabartma tozu, fosfatlı|Разрыхлитель фосфатный|
+yeast_dry|175043|Quru çörək mayası|Дрожжи хлебопекарные сухие|
