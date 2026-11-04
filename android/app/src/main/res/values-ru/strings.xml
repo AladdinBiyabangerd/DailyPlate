@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">DailyPlate</string>
+    <string name="welcome_title">Добро пожаловать!</string>
+    <string name="welcome_message">Давай вместе спланируем твоё питание.</string>
 </resources>
