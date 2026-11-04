@@ -1,5 +1,31 @@
 # Working notes
 
+## Mandatory local development workflow — every chat
+
+This is standing user authorization for all code work in this project, including
+new chats and continuations. Apply it without waiting for a reminder or asking
+again about routine local branches, commits, CI, fixes or merges.
+
+- Before changing code, read `.local-ci/README.md` and check `git status` and
+  `git config --local core.hooksPath` (expected: `.local-ci/hooks`). If the local
+  setup is missing, restore it before coding; never silently skip the workflow.
+- Start a suitable branch using `python3 .local-ci/workflow.py start <type/name>`
+  before editing. Continue an existing branch only when it belongs to this task.
+- Make focused commits of this task's changes; preserve unrelated user work.
+- Run `python3 .local-ci/workflow.py ci`. Read failures, fix their causes, commit
+  and repeat until green; never weaken checks or bypass hooks to obtain a pass.
+- When the task is complete, run `python3 .local-ci/workflow.py finish` to check
+  the branch, merge locally to main and check main again. A failed post-merge CI
+  means unfinished work: create a fix branch, repair, commit and repeat the flow.
+- Report completion only after both branch and merged-main CI pass. Report the
+  commits and checks performed; say which acceptance requirements are unverified.
+- This is a task lifecycle, not a commit on every file save. Read-only questions
+  do not need a branch. Do not create empty commits merely to exercise the flow.
+- Keep `.local-ci/` and `.cursor/rules/local-ci.mdc` outside Git history. Use local
+  Git only: no remote, push, GitHub workflow, release or deployment is authorized.
+- Extend local CI with real lint/build/test checks when introducing application
+  code; current data/planning checks do not verify future app behavior.
+
 ## Code organization
 
 When writing, changing or reviewing code, follow
