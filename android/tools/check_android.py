@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import xml.etree.ElementTree as ET
 
 from verify_tokens import check
 
@@ -23,6 +24,26 @@ def main() -> None:
         './gradlew', '--offline', '--no-daemon', '--console=plain',
         ':app:lintDebug', ':app:compileDebugKotlin', ':app:testDebugUnitTest',
     ], cwd=root / 'android', env=env, check=True)
+    reports = list((root / 'android/app/build/test-results/testDebugUnitTest').glob('TEST-*.xml'))
+    required = {
+        'az.qida.app.domain.ContractValidationTest',
+        'az.qida.app.data.local.UserPersistenceTest',
+        'az.qida.app.data.local.PlanTransactionTest',
+        'az.qida.app.data.local.DatabaseMigrationTest',
+        'az.qida.app.data.local.CatalogIsolationTest',
+    }
+    executed = set()
+    test_count = 0
+    for report in reports:
+        suite = ET.parse(report).getroot()
+        if any(int(suite.get(key, '0')) for key in ('failures', 'errors', 'skipped')):
+            raise RuntimeError(f'Failed or skipped JVM tests: {report}')
+        for case in suite.findall('testcase'):
+            executed.add(case.get('classname'))
+            test_count += 1
+    if required - executed:
+        raise RuntimeError(f'Required K02 JVM suites did not execute: {sorted(required - executed)}')
+    print(f'PASS: {test_count} JVM contract/Room tests; no failures, errors or skips')
     print('PASS: Android lint, Kotlin compilation, JVM tests and token checks (no APK)')
     print('NOT RUN: APK packaging, manifest badging and device launch/recreation smoke')
 

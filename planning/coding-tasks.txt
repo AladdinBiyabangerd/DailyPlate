@@ -1,10 +1,11 @@
 QIDA — ARDICIL KODLAŞDIRMA TAPŞIRIQLARI
-Versiya 1.2 | 4 noyabr 2026 | məhsul planı 1.7
+Versiya 1.3 | 4 noyabr 2026 | məhsul planı 1.7
 
 STATUS VƏ MƏNBƏ
 Bu sənəd icra növbəsidir, tətbiq implementasiyası deyil.
-K01 texniki hissəsi və ilkin qəbul yoxlamaları hazırdır; yekun status üçün yerli
-branch/main CI nəticəsini yoxla. K02–K34 hələ başlanmayıb.
+K01 və K02 domen/lokal Room hissəsi hazırdır; yekun status üçün yerli
+branch/main CI nəticəsini yoxla. K02 qəbul qeydi docs/qa/android-k02-acceptance.txt-dədir.
+K03–K34 hələ başlanmayıb.
 Kanonik məhsul mənbəyi: planning/research-data.json.
 § istinadları: planning/nutrition-science-implementation-plan.txt bölmələridir.
 Əlavə məcburi mənbə: planning/meal-customization-requirements.txt, T01–T19.
@@ -18,7 +19,7 @@ iOS yalnız istifadəçi Android nəticəsini bəyənib davam qərarı verəndə
 Minimum Android 7.0 (minSdk 24), target Android 16 (targetSdk 36), compileSdk 36.
 K01–K34 hazırda Android əhatəsidir; paralel iOS implementasiyası daxil deyil.
 K01 seçimi: native Kotlin + Jetpack Compose; texniki qərar docs/architecture/android-foundation.txt-dədir.
-Lokal user DB-si K02-də Room ilə qurulacaq; uzaq backend/auth/store provider-i
+Lokal user DB-si K02-də Room ilə qurulub; uzaq backend/auth/store provider-i
 inteqrasiya mərhələsinə qədər təxirə salınır, K01 şəbəkəsiz işləyir.
 
 İCRA QAYDASI
@@ -404,11 +405,13 @@ Ekran 01–08 → K06–K09/K16/K25; 09–12 → K10–K12/K23;
 Əlavə dizaynsız xəta/hesab halları da K31-də ayrıca izlənir.
 
 NÖVBƏTİ DAVAM PROMPTU
-“K02-ni icra et: planning/coding-tasks.txt və docs/context/current-task.md-ni oxu.
-Əsas plan planning/nutrition-science-implementation-plan.txt, kanonik mənbə
-planning/research-data.json-dır. Platforma Android olaraq təsdiqlənib.
-Kotlin + Compose ilə minSdk 24, compileSdk/targetSdk 36 konfiqurasiyasını saxla;
-Əvvəl K01-in yerli main CI nəticəsini təsdiqlə, sonra domen müqavilələri və lokal
-DB/migration hissəsini yaz. K02 üçün §5, §11, §16–19 və customization müqavilələrini oxu.
-iOS yalnız sonrakı istifadəçi qərarı ilə ayrıca mərhələdir. AGENTS.md workflow-unu tamamla.
-K03-ə bu chatdə keçmə.”
+“K03-ü icra et: planning/coding-tasks.txt və docs/context/current-task.md-ni oxu.
+Əsas plan planning/nutrition-science-implementation-plan.txt §3–4/§11/§15,
+kanonik mənbə planning/research-data.json-dır. library/README.md-ni və K02-nin
+android/app/src/main/java/az/qida/app/{domain,data/local}/ müqavilələrini nəzərə al.
+Əvvəl K02-nin yerli main CI nəticəsini təsdiqlə. JSON/SQLite idxalı, mənbə/versiya/
+status qapıları, təkrar idxal və atomik update üçün real integration testləri yaz.
+500/224 və mənbə ID-lərini qoru; publishable=false resept production namizədi deyil;
+köhnə FoodLog snapshot-ı dəyişməsin. G3 bağlı qalır.
+Android minSdk 24, compileSdk/targetSdk 36 konfiqurasiyasını və APK-siz CI-ni saxla.
+AGENTS.md workflow-unu tamamla. K04-ə bu chatdə keçmə.”
