@@ -6,6 +6,13 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
 }
 
+// google-services.json is git-excluded (secret config). Apply Firebase Gradle plugins only
+// when it is present, so local CI snapshots (git-tracked files only) still build.
+if (file("google-services.json").exists()) {
+    apply(plugin = "com.google.gms.google-services")
+    apply(plugin = "com.google.firebase.crashlytics")
+}
+
 android {
     namespace = "com.aladdin.dailyplate"
     compileSdk = 36
@@ -53,6 +60,11 @@ dependencies {
     implementation("androidx.room:room-runtime:2.8.5")
     ksp("androidx.room:room-compiler:2.8.5")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.12.0")
+    // Firebase (Spark plan only). Crashlytics collects in debug too so test crashes are visible.
+    implementation(platform("com.google.firebase:firebase-bom:35.1.0"))
+    implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-config")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.robolectric:robolectric:4.17")
     testImplementation("androidx.test:core:1.7.0")

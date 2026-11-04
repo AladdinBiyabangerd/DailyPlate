@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- In-app Remote Config defaults; used until the first successful fetch. -->
+<defaultsMap>
+    <entry>
+        <key>free_daily_ai_scans</key>
+        <value>3</value>
+    </entry>
+    <entry>
+        <key>paywall_enabled</key>
+        <value>false</value>
+    </entry>
+    <entry>
+        <key>min_supported_version</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>ai_model_default</key>
+        <value>default</value>
+    </entry>
+</defaultsMap>
