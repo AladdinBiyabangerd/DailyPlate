@@ -3,7 +3,12 @@ pluginManagement {
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories { google(); mavenCentral() }
+    repositories {
+        // Reuse an exact, already cached JVM Android fixture; other artifacts use official repos.
+        mavenLocal { content { includeModule("org.robolectric", "android-all-instrumented") } }
+        google()
+        mavenCentral()
+    }
 }
 rootProject.name = "Qida"
 include(":app")

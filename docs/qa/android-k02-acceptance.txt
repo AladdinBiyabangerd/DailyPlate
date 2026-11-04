@@ -1,0 +1,44 @@
+K02 — qəbul qeydi | 4 noyabr 2026
+
+Tələblər: coding-tasks K02; məhsul planı §5/§11/§16–19;
+meal-customization-requirements §8/§11. Domen və lokal saxlama əhatəsidir.
+
+Keçən yoxlamalar (son asılılıqlarla):
+- Kotlin/Java kompilyasiyası və warningsAsErrors=true ilə lintDebug.
+- 13 JUnit JVM testi; failures=0, errors=0, skipped=0:
+  ContractValidationTest 2; UserPersistenceTest 5; PlanTransactionTest 3;
+  DatabaseMigrationTest 2; CatalogIsolationTest 1.
+- Naməlum nutrient null qalır, həqiqi 0 ayrıca saxlanır, vahid dəyişmir.
+- UTC instant/subsecond, Asia/Baku timezone, tarix və dəqiq resept versiyası
+  DB-yə yazılıb oxunduqda qorunur; könüllü cins/allergiya cavabı fərz edilmir.
+- Köhnə revision dəyişmir; iki paralel yazıdan yalnız biri qəbul edilir;
+  başqa user ID ilə şəxsi qeydə çatılmır.
+- Eyni qida hadisəsi fayl DB bağlanıb açılandan və qeydə düzəlişdən sonra da
+  təkrarlanmır; fərqli məzmunla eyni açar rədd edilir.
+- İlkin export olunmuş user v1 sxemi ilə yaradılan həqiqi SQLite faylı v2-yə
+  keçir; payload, null/time/version və food-event mapping saxlanır. Oxuma zamanı
+  Room-un generasiya etdiyi tam sxem yoxlaması da işləyir.
+- Plan snapshot yazısından sonra PlanChange INSERT-ni SQL trigger ilə qəsdən
+  uğursuz edirik: plan, hər iki yemək, alış-veriş və əməliyyatın heç biri yarım
+  vəziyyətdə qalmır. Yenidən cəhd uğurlu olur, əvvəlki FoodLog dəyişmir.
+- Uğurlu swap bir dəfə yazılır, əvvəlki plan versiyası qalır, köhnəlmiş preview
+  və profil/policy/hədəfi səssiz əvəz edən əməliyyat rədd edilir.
+- Kitabxana və şəxsi DB ayrıdır; şəxsi yazıdan sonra catalog dəyişmir və library
+  DB-də user_snapshots/food_events cədvəli yoxdur. Python library builder dəyişməyib.
+- Draft policy təsdiq metadatası olmadan aktivləşmir. Bu struktur yoxlamadır,
+  klinik təsdiq və ya hesablama qaydalarının icrası deyil.
+
+Təkrarlama: python3 android/tools/check_android.py
+İlk asılılıq hazırlığı android/README.txt-dədir; sonra Gradle və Robolectric
+runtime oflayn işləyir. Runner bütün beş test suite-nin icrasını məcburi yoxlayır.
+Tam branch/main CI sübutu: .local-ci/logs/latest.json və uyğun commit logları.
+CI həmçinin 15 library müqavilə testini və kanonik export paritetini yoxlayır.
+
+Yoxlanmamış/əhatədən kənar:
+- API 24/36 cihaz/emulator, fiziki cihaz, yeni asılılıqlarla APK paketlənməsi.
+  K02 APK yaratmayıb; əvvəlki K01 APK-lərinin tarixləri dəyişməyib.
+- UI/E2E, onboarding, import və content publication gate-ləri, nutrient hesabı,
+  real yemək uyğunluğu/swap axını, server sync, ödəniş təsdiqi və klinik təsdiq.
+  Model/repository testləri həmin gələcək funksiyaların hazır olması demək deyil.
+- K01-də DB yox idi; v1→v2 testi K02-nin ilkin dəstəklənən schema keçididir,
+  real buraxılmış K01 user bazasından köçürmə iddiası deyil.

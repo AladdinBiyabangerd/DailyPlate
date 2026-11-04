@@ -1,0 +1,93 @@
+K02 — Domain contracts and local persistence
+
+Scope: planning/coding-tasks.txt K02; product plan §5, §11, §16–19 and
+meal-customization-requirements.txt §8/§11. This unit supplies contracts and
+persistence only. UI, library import/publication gates, nutrient calculations,
+menu validation, photo recognition and remote synchronization belong to later units.
+No clinical policy, price, backend or approval is invented here.
+
+Domain boundary
+- domain/ contains Kotlin serializable values without Context, Room or UI imports.
+- IDs are nonblank and versions/revisions are positive Long values. VersionRef
+  always names one exact revision; library references are never "latest" aliases.
+- NutrientAmount carries its own unit (kcal/g/mg/µg). Null or an absent key is
+  unknown; numeric zero remains a known zero. Food per-100g, Recipe total/per-100g
+  and FoodLog confirmed-portion snapshots are distinct fields. Customization
+  snapshot describes the selected user servings; prepared servings are separate.
+- RecordedAt retains UTC ISO instant and IANA timezone, including subsecond
+  precision. CalendarDate and WallTime validate ISO values. java.time is desugared
+  for API 24/25. Money uses a nonnegative decimal string and ISO-style currency code.
+- Null profile sex/allergies/eligibility/physiology differs from an explicit
+  answer. Wheat allergy and gluten restriction have separate fields. There are
+  four goals, 3–5 daily meal slots, optional actual budget and household/meal scope.
+- Policy definitions have versioned rules/inputs and approval metadata. ACTIVE
+  and APPROVED require review, approval time and evidence references. This is a
+  structural gate, not clinical verification or a formula/rules engine.
+- FoodLog retains confirmed portion, source version, nutrient snapshot, actual
+  ingredient/serving snapshot, recipe-change answer and nutrient basis. Modifying
+  a future plan or catalog cannot rewrite this history through these repositories.
+- RecipeCustomization never inherits a source Recipe review, measured yield or
+  portion photos. Prepared-meal drafts retain their own context and base versions.
+- SubscriptionEntitlement has store/product references and status, no card/token
+  credentials. An active/restored/scheduled-cancellation record requires verification
+  and validity timestamps. Store verification and access evaluation are later work.
+
+Storage boundary
+- LibraryDatabase / qida-library.db: immutable food, recipe, policy, evidence and
+  price snapshots, indexed by kind + id + version. CatalogRepository exposes reads
+  only. The internal DAO insert boundary is reserved for K03 content import.
+- UserDatabase / qida-user.db: append-only typed aggregate JSON snapshots indexed
+  by kind + userId + id + revision, plus an event-ID deduplication table. Public
+  repositories accept only typed personal aggregates; they cannot access the
+  library DAO. Existing Python library builder is unchanged and has no user-DB input.
+- JSON retains explicit nulls/defaults and rejects unknown/corrupt payloads.
+  User payloadSchema=1 is separate from SQL schema version; unknown payload schema
+  is rejected, never interpreted or silently overwritten. Column migrations alone
+  do not migrate future JSON contracts; new payload formats need explicit decoding
+  and preservation tests before release.
+- Aggregate JSON is deliberate: K02 needs atomic immutable snapshots, not nutrient
+  SQL analytics. MealPlan owns items and shopping in the same snapshot. Typed DAO
+  columns/indexes for future query-heavy features can be added with tested migrations.
+- No destructive migration fallback. Library SQL schema starts at v1. User SQL
+  schema v1 is the initial snapshot/event layout; v2 adds payloadSchema DEFAULT 1.
+  Both exported schemas are tracked. K01 had no user DB, so this initial migration
+  exercises a supported upgrade path, not migration from a shipped K01 database.
+- Use repositories on a worker thread. Production Room builders keep main-thread
+  IO protection; tests alone allow main-thread queries. Owners close opened repos.
+  The bootstrap UI does not open either DB yet; the first consuming feature owns
+  lifecycle wiring. No empty service classes or fake UI are added for K02.
+
+Write guarantees
+- save(value, expectedRevision): create at expectedRevision=0, otherwise increment
+  exactly one. Read/check/insert share a Room transaction. Old revisions remain.
+  Two competing writes cannot silently replace each other.
+- FoodLog.record: (userId, clientEventId) mapping and first snapshot are atomic.
+  Identical retries, including after reopening, return the original; changed data
+  under the same event key raises IdempotencyConflict. Explicit revisions preserve
+  the original event and all earlier nutrient snapshots.
+- MealPlan.apply: expected plan revision, affected before/after item snapshots and
+  operation ID are checked; plan/items/shopping and PlanChange commit together.
+  The operation cannot replace profile, policy, week, timezone or energy target.
+  Stale previews raise RevisionConflict. Identical retries return the original
+  result even if a newer plan now exists. Conflicting retries are rejected.
+- Meal business validation is the caller's responsibility in later units. Storage
+  does not claim an unvalidated swap is clinically suitable or server-synced.
+  No server confirmation is fabricated; LOCAL/PENDING/SYNCED/FAILED remain distinct.
+
+Checks
+- JVM JUnit + Robolectric run generated Room code against Android SQLite behavior:
+  nullable values/units, time/version round trips, file reopen, owner isolation,
+  concurrent revision conflict, event idempotency, schema upgrade and SQL-triggered
+  rollback after plan insertion. They create no application/instrumentation APK.
+- Test fixtures resolve via Gradle before execution; Robolectric runtime is offline.
+  Robolectric is a host test environment and does not certify API 24/36 physical
+  runtime behavior. APK/device instrumentation remains explicit-request-only.
+- Schemas are in android/app/schemas; test results in
+  android/app/build/test-results/testDebugUnitTest/; lint report in build/reports/.
+
+Reference documentation consulted for API/migration behavior:
+https://developer.android.com/training/data-storage/room/migrating-db-versions
+https://developer.android.com/training/data-storage/room/testing-db
+https://developer.android.com/jetpack/androidx/releases/room
+https://github.com/Kotlin/kotlinx.serialization/releases/tag/v1.12.0
+https://github.com/robolectric/robolectric/releases/tag/robolectric-4.17
