@@ -1,0 +1,62 @@
+K05 — Test editor, publication and audit
+
+Scope and plan
+Canonical planning/research-data.json §2–4, §9–11, §13–15, §17 and
+planning/coding-tasks.txt K05. No product/clinical decisions are changed.
+
+Boundaries
+The headless TestEditorRepository is the test editor entry point. It accepts
+Recipe, NutritionPolicy and EvidenceCard drafts wrapped in EditorialContent.
+Roles are supplied by a trusted local test session, not a command parameter.
+There is no production role provisioning, authoring UI or backend in K05.
+EditorialWorkflow is Android/Room-independent. PublicationRequirements checks
+completeness; human review remains an attestation, not automatic verification of
+clinical truth, translation accuracy, food safety or intellectual property.
+
+EditorialDatabase is a new separate Room database (schema v1). No migration of
+library/user databases is needed. The only write DAO operation is INSERT.
+Each command atomically appends one snapshot containing content, metadata, stage,
+review and audit. expectedRevision rejects stale writers; primary keys reject
+replacement. Failed validation/writes append nothing. History is ordered by
+revision. UTC instant and IANA timezone are retained and event times cannot go
+backwards. Read a previous workflow revision with revision(); history() exposes
+all events. Existing library importer/read APIs are unchanged.
+
+Workflow
+AUTHOR creates/edits/submits/rolls back. CLINICAL_REVIEWER approves or returns
+IN_REVIEW/APPROVED work to draft. PUBLISHER publishes APPROVED work and archives
+PUBLISHED work. Approval requires an independent reviewer (no past contributor),
+complete required checks and a future next-review date when supplied.
+DRAFT -> IN_REVIEW -> APPROVED -> PUBLISHED -> ARCHIVED is enforced.
+Return-to-draft clears review. Edit/rollback creates a new content version and
+returns to draft, retaining author, contributors and immutable old audit rows.
+Rollback selects history in the same kind/id, records the restored revision and
+clears all metadata/review; fresh evidence is required before republication.
+Content versions change only for edits/rollback; workflow revision changes on
+every event. Previously referenced versions and FoodLog snapshots never change.
+
+Publication evidence
+Common: version-specific sources, text rights, AZ/EN/RU translation checks.
+Recipe: localized names, ingredient/allergen/instruction/nutrition checks, known
+allergens (empty is allowed; unknown is not), declared servings, known time,
+localized cooling/refrigeration/freezing/reheating guidance with source refs and
+matching storage ID. Rice presence must be reviewed; rice needs a separate safety
+source. No invented storage duration or clinical threshold is supplied.
+Yield documentation is required if a cooked yield is claimed. Cooked 100g also
+requires that yield. Photos separately require per-photo rights, calibration
+evidence, real grams and a matching portion range. Neither gate is mandatory for
+an ingredient/declared-serving estimate. Missing nutrient values stay null.
+Optional prices need region/date; these checks do not activate budget claims.
+Policy: explicit scope review, inputs, activity map, evidence and documented
+rules for exclusions, every goal, energy bounds, macros, nutrient checks and
+reassessment. No numerical clinical rules are provided by this implementation.
+Evidence: claim ID, three-language text/limitations, exact source URL/section,
+population, next review date and independent clinical reviewer/date in envelope.
+
+Activation boundary
+Every editorial snapshot is testOnly. Embedded domain payloads remain unreviewed
+DRAFT, including when the TEST editorial stage says PUBLISHED. No conversion to
+active policy or production catalog is exposed. TestEditorRepository uses
+'dailyplate-test-editor.db'; CatalogRepository still returns no production foods
+or recipes. Real G2/G3 approvals, library ingestion/publication and identity
+provisioning need the real human/configuration inputs; tests confer none of them.
