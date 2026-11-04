@@ -26,6 +26,19 @@ again about routine local branches, commits, CI, fixes or merges.
 - Extend local CI with real lint/build/test checks when introducing application
   code; current data/planning checks do not verify future app behavior.
 
+## APK creation — explicit request only
+
+- Do not create an APK automatically when implementing a K milestone, feature,
+  fix or other task. Create an APK only when the user explicitly asks for it.
+- This applies to debug, release and test APKs, including APKs generated
+  indirectly by Gradle, CI or device/instrumentation tests. A request to
+  implement a task or run checks does not authorize APK creation.
+- Mandatory local CI must use APK-free lint, compilation and JVM tests. APK
+  packaging, installation and device/instrumentation tests are separate opt-in
+  checks and must not be invoked by CI or finish.
+- Green branch/main CI does not imply APK or device tests passed; report those
+  separately when they were explicitly requested and actually run.
+
 ## Code organization
 
 When writing, changing or reviewing code, follow

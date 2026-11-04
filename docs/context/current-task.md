@@ -8,6 +8,7 @@
 - ADR: docs/architecture/android-foundation.txt; setup: android/README.txt.
 
 ## Current state
+- CI now uses APK-free lintDebug, compileDebugKotlin, testDebugUnitTest and token checks; no emulator required. JVM task currently has NO-SOURCE. APK/device checks run only on explicit request.
 - K01 implementation and initial acceptance checks are complete; K02–K34 not started. Verify the final branch/main CI record in .local-ci/logs/latest.json and Git history before proceeding.
 - Updated Gradle 8.14.6 / Activity 1.13.0 / runner 1.7.0 / JUnit ext 1.3.0 build, lint and API 34 device smoke passed. Normal and 1.5x font screenshots were inspected.
 - Canonical product plan remains research-data.json 1.7; library remains 500 foods / 224 unpublished drafts.
@@ -20,7 +21,7 @@
 - No onboarding/navigation/domain logic implemented in K01; no fake unit tests.
 
 ## Remaining work
-- Run/verify the mandatory commit and branch/main CI lifecycle; acceptance evidence is docs/qa/android-k01-acceptance.txt.
+- K01 lifecycle passed on main at 1cebdc0. APK-free CI maintenance lifecycle is recorded in .local-ci/logs/latest.json; acceptance evidence is docs/qa/android-k01-acceptance.txt.
 - API 24 and API 36 runtime compatibility remain unverified without matching emulator/device tests.
 - Then start K02 in a new chat, reading its plan requirements first.
 
