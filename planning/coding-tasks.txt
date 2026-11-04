@@ -1,20 +1,25 @@
 QIDA — ARDICIL KODLAŞDIRMA TAPŞIRIQLARI
-Versiya 1.1 | 4 noyabr 2026 | məhsul planı 1.7
+Versiya 1.2 | 4 noyabr 2026 | məhsul planı 1.7
 
 STATUS VƏ MƏNBƏ
 Bu sənəd icra növbəsidir, tətbiq implementasiyası deyil.
-K01–K34 tapşırıqlarının HAMISI HƏLƏ BAŞLANMAYIB.
+K01 texniki hissəsi və ilkin qəbul yoxlamaları hazırdır; yekun status üçün yerli
+branch/main CI nəticəsini yoxla. K02–K34 hələ başlanmayıb.
 Kanonik məhsul mənbəyi: planning/research-data.json.
 § istinadları: planning/nutrition-science-implementation-plan.txt bölmələridir.
 Əlavə məcburi mənbə: planning/meal-customization-requirements.txt, T01–T19.
 Dizayn qaydaları: design-concepts/simple-turquoise/implementation-guide.txt,
 new-flows-guide.txt və design-concepts/tokens.css. Bu sənəd vizual dizayn yaratmır.
 Baza: library/README.md, manifest.json, foods.json, recipes.json və tools/.
-Hazırda tətbiq yoxdur; 500 ərzaq və 224 dərc olunmamış resept layihəsi var.
+K01 minimal Android skeleti android/ daxilindədir; məhsul funksiyaları hələ yoxdur.
+Kitabxanada 500 ərzaq və 224 dərc olunmamış resept layihəsi var.
 İstifadəçi qərarı (4 noyabr 2026): ilk tətbiq Android üçündür.
 iOS yalnız istifadəçi Android nəticəsini bəyənib davam qərarı verəndən sonra ayrıca mərhələdir.
+Minimum Android 7.0 (minSdk 24), target Android 16 (targetSdk 36), compileSdk 36.
 K01–K34 hazırda Android əhatəsidir; paralel iOS implementasiyası daxil deyil.
-Tətbiq dili/framework, backend, auth və ödəniş provayderi K01-də seçilməlidir.
+K01 seçimi: native Kotlin + Jetpack Compose; texniki qərar docs/architecture/android-foundation.txt-dədir.
+Lokal user DB-si K02-də Room ilə qurulacaq; uzaq backend/auth/store provider-i
+inteqrasiya mərhələsinə qədər təxirə salınır, K01 şəbəkəsiz işləyir.
 
 İCRA QAYDASI
 1. Nömrə sırası əsas ardıcıllıqdır; asılılıqlar minimum texniki şərtlərdir.
@@ -41,7 +46,8 @@ Tətbiq dili/framework, backend, auth və ödəniş provayderi K01-də seçilmə
     insan təsdiqini, real qiyməti və ya cihaz sınağını əvəz etmir.
 
 AKTİVLƏŞDİRMƏ ŞƏRTLƏRİ
-G1 — Platforma Android olaraq təsdiqlənib; K01-də Android stack/backend qərarı qalır.
+G1 — Android təsdiqlənib: minSdk 24, compileSdk/targetSdk 36; Kotlin + Compose.
+     Uzaq backend/provider seçimi uyğun inteqrasiya tapşırığında həll edilir.
      Gələcək iOS üçün domain qaydaları/UI/saxlama sərhədləri qorunur; ortaq kod
      framework-ü və ya iOS skeleti qurmaq indiki qərarın məcburi nəticəsi deyil.
 G2 — Klinik redaktor, əhatə, formula/aktivlik, enerji/makro qaydaları təsdiqlənmədən
@@ -397,10 +403,12 @@ Ekran 01–08 → K06–K09/K16/K25; 09–12 → K10–K12/K23;
 33–36 → K22; 37–40 → K18–K21; 41–44 → K12/K17/K20–K22.
 Əlavə dizaynsız xəta/hesab halları da K31-də ayrıca izlənir.
 
-İLK DAVAM PROMPTU
-“K01-i icra et: planning/coding-tasks.txt və docs/context/current-task.md-ni oxu.
+NÖVBƏTİ DAVAM PROMPTU
+“K02-ni icra et: planning/coding-tasks.txt və docs/context/current-task.md-ni oxu.
 Əsas plan planning/nutrition-science-implementation-plan.txt, kanonik mənbə
 planning/research-data.json-dır. Platforma Android olaraq təsdiqlənib.
-Android stack qərarını ver, minimal Android app və real local CI qur.
+Kotlin + Compose ilə minSdk 24, compileSdk/targetSdk 36 konfiqurasiyasını saxla;
+Əvvəl K01-in yerli main CI nəticəsini təsdiqlə, sonra domen müqavilələri və lokal
+DB/migration hissəsini yaz. K02 üçün §5, §11, §16–19 və customization müqavilələrini oxu.
 iOS yalnız sonrakı istifadəçi qərarı ilə ayrıca mərhələdir. AGENTS.md workflow-unu tamamla.
-K02-yə bu chatdə keçmə.”
+K03-ə bu chatdə keçmə.”

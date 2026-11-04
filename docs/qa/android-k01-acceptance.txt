@@ -1,0 +1,28 @@
+K01 — qəbul qeydi | 4 noyabr 2026
+
+Tətbiq: az.qida.app, debug 0.1.0. Native Kotlin + Compose.
+Yoxlanan əhatə: minimal giriş səthi, full onboarding deyil.
+
+Keçən yoxlamalar:
+- AGP 8.13.0 / Gradle 8.14.6 ilə assembleDebug və lintDebug.
+- Pixel_6_34 arm64 emulator, Android 14 / API 34: LaunchSmokeTest,
+  launchAndRecreateKeepTheEntrySurfaceVisible, tests=1/failures=0/errors=0/skipped=0.
+- APK aapt badging: sdkVersion 24, targetSdkVersion 36, compileSdkVersion 36,
+  platformBuildVersionName 16. Bu, min/target konfiqurasiyasının real APK sübutudur.
+- CSS→Android rəng pariteti və kontrast: text/bg 11.95, muted/bg 5.04,
+  white/primary 4.71. Primary/bg 4.43 olduğu üçün həmin mətn text tokeninə keçirildi.
+- Normal və 1.5x sistem mətn ölçüsündə görüntülər açılıb yoxlandı: əsas mətn
+  kəsilmir, sistem zolaqları ilə toqquşmur. İlkin normal screenshot splash idi,
+  həmin fayl real giriş səthinin yeni görüntüsü ilə əvəz edildi.
+- Sistem font_scale əvvəlki dəyərinə qaytarıldı.
+
+Görüntülər: android-k01-api34.png və android-k01-api34-large-text.png.
+Daimi check: android/tools/check_android.py; məcburi yerli CI-yə bağlıdır.
+Branch/main CI nəticəsi: .local-ci/logs/latest.json və Git tarixçəsindən yoxlanır;
+CI mövcud 15 library testini və kanonik plan export paritetini də işlətməlidir.
+
+Yoxlanmamış: API 24 (Android 7.0) və API 36 (Android 16) real runtime/emulator,
+fiziki cihaz, uzun EN/RU, screen-reader və tam onboarding əlçatanlığı.
+API 34 smoke bu yoxlamaları əvəz etmir; minSdk təkbaşına runtime sertifikatı deyil.
+K02 və sonrakı domen, DB, menyu, profil, hesab və ödəniş funksiyaları yoxdur.
+Klinik təsdiq/məzmun/qiymət gate-ləri dəyişməyib. Release/deployment edilməyib.
