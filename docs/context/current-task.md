@@ -14,8 +14,8 @@
   read-only here; K09 owns subsequent edits.
 
 ## Current state
-- K07 code and development lint/compilation/47 JVM tests passed. An additional
-  budget/home-food contract test is included for the mandatory lifecycle run.
+- K07 implemented. Snapshot lint/compilation and all 48 JVM tests passed,
+  including budget/home-food contracts; final lifecycle evidence is below.
 - Branch: feat/k07-onboarding. Final commit/main CI evidence must be read from
   .local-ci/logs/latest.json and Git history after finish completes.
 - No menu, energy target, eligibility decision or fake plan is created.
@@ -51,8 +51,9 @@
 - docs/architecture/android-k07-onboarding.txt; docs/qa/android-k07-acceptance.txt
 
 ## Checks performed
-- Development lint, Kotlin compilation, 47 JVM tests passed; lifecycle will also
-  execute the added budget/home-food test. Check final CI logs for exact counts.
+- Lint, Kotlin compilation, all 48 JVM tests and 15 library tests passed;
+  Python/JSON and canonical export parity passed. Final branch/main lifecycle
+  status is recorded in .local-ci/logs/latest.json and Git history.
 - Native Robolectric top/bottom images of all five steps in AZ/EN/RU at 150%
   text inspected; final measurement spacing and RU long-label/confirmation
   images inspected. Images: android/app/build/reports/k07/.
@@ -64,6 +65,5 @@
   using atomic file storage; rebuilt corrupt local KSP cache. Checks not weakened.
 
 ## Exact next step
-Finish K07 branch and merged-main CI. Once both are green, start K08 in a new
-chat: read this context, K08 requirements and plan §5–6/§11/§14/§17–18. Keep the
+After final K07 branch and merged-main CI are green, start K08 in a new chat: read this context, K08 requirements and plan §5–6/§11/§14/§17–18. Keep the
 mandatory local workflow and do not create APK/AAB without an explicit request.

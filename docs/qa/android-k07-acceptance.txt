@@ -10,6 +10,8 @@ Automated suites:
   five-step confirmation, reopening confirmed state; durable draft reload;
   repeated confirmation returns the same profile version; native Robolectric
   top/bottom renders of all steps in AZ/EN/RU at 150% text size.
+- Budget/home-food test: comma money, region/currency/scope, multiple home
+  foods with distinct units/preparation states and invalid quantities.
 - Existing profile/Room migration and isolation suites remain required.
 - Resource parity includes every strings XML, including onboarding.xml.
 - Palette parity and text contrast remain enforced by check_android.py.
