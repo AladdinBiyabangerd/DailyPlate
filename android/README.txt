@@ -1,7 +1,7 @@
-Qida Android — K01/K02
+DailyPlate Android — K01/K02
 
 Minimum Android 7.0 / API 24; compileSdk 36; target Android 16 / API 36.
-Paket: az.qida.app (hazırda yerli inkişaf identifikatoru; mağazada rezerv edilməyib).
+Paket: com.aladdin.dailyplate (Play Console identifikatoru).
 
 Tələblər: JDK 21, Android SDK Platform 36, Build Tools 35.0.0 və 36.0.0,
 Cihaz testi ayrıca istənərsə platform-tools və açıq API 24+ emulator/cihaz.
@@ -45,7 +45,7 @@ Lint: android/app/build/reports/lint-results-debug.html
 
 CI APK manifestini və cihazda açılışı yoxlamır. Əvvəlki K01 cihaz və vizual
 qəbul sübutları docs/qa/android-k01-acceptance.txt-də tarixli olaraq saxlanır.
-Smoke: tətbiqi aç → Qida/Xoş gəldin/mətn görünür → Activity recreate → yenə görünür.
+Smoke: tətbiqi aç → DailyPlate/Xoş gəldin/mətn görünür → Activity recreate → yenə görünür.
 K02 domen və DB qatıdır; onboarding, menyu və kitabxana importu hələ UI-yə qoşulmayıb.
 Növbəti kod hissəsi K03-dür.
 Build/debug imzası yalnız inkişaf üçündür. Remote, mağaza və deployment yoxdur.

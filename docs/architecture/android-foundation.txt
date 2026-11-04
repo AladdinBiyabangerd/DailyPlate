@@ -23,7 +23,7 @@ scrim kimi istifadə edilir. Safe drawing insets mətnin sistem zolaqlarına dü
 Dark palette olmadığı üçün light theme sabitdir; avtomatik rəng inversiyası edilmir.
 
 Qovluqlar:
-- android/app/src/main/java/az/qida/app: giriş və app koordinasiyası.
+- android/app/src/main/java/com/aladdin/dailyplate: giriş və app koordinasiyası.
 - ui/: yalnız render; ui/theme/: token xəritəsi və tema.
 - K02-də model və repository sərhədləri, sonra feature üzrə paketlər əlavə ediləcək.
 - android/tools/: təkrarlanan lokal yoxlamalar; src/androidTest/: cihaz testi.
