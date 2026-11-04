@@ -1,0 +1,400 @@
+QIDA — ARDICIL KODLAŞDIRMA TAPŞIRIQLARI
+Versiya 1.0 | 4 noyabr 2026 | məhsul planı 1.7
+
+STATUS VƏ MƏNBƏ
+Bu sənəd icra növbəsidir, tətbiq implementasiyası deyil.
+K01–K34 tapşırıqlarının HAMISI HƏLƏ BAŞLANMAYIB.
+Kanonik məhsul mənbəyi: planning/research-data.json.
+§ istinadları: planning/nutrition-science-implementation-plan.txt bölmələridir.
+Əlavə məcburi mənbə: planning/meal-customization-requirements.txt, T01–T19.
+Dizayn qaydaları: design-concepts/simple-turquoise/implementation-guide.txt,
+new-flows-guide.txt və design-concepts/tokens.css. Bu sənəd vizual dizayn yaratmır.
+Baza: library/README.md, manifest.json, foods.json, recipes.json və tools/.
+Hazırda tətbiq yoxdur; 500 ərzaq və 224 dərc olunmamış resept layihəsi var.
+Platforma, tətbiq dili, backend, auth və ödəniş provayderi hələ seçilməyib.
+
+İCRA QAYDASI
+1. Nömrə sırası əsas ardıcıllıqdır; asılılıqlar minimum texniki şərtlərdir.
+2. Bir chatdə bir Kxx götür. Böyükdürsə Kxx-a/Kxx-b kimi böl, ilkin qəbul
+   ssenarilərini saxla və növbəni yenilə. Növbəti böyük hissəyə keçmə.
+3. Əvvəl AGENTS.md, docs/context/current-task.md, .local-ci/README.md,
+   .cursor/rules/code-organization.mdc və aid plan bölmələrini oxu.
+4. git status/core.hooksPath yoxla; workflow.py start ilə branch aç.
+   Yerli workflow feat/fix/chore/refactor/docs prefikslərini tələb edir.
+5. Hər hissə işləyən kod, aid testlər və qəbul sübutu ilə bitir. Domain qaydası
+   UI və saxlama kodundan ayrı olur; konkret qovluqlar K01-də seçilir.
+6. Unit = ayrıca qayda; integration = real lokal DB/API sərhədi; E2E = istifadəçi
+   girişi→hərəkət→saxlanmış nəticə→geri/xəta. Öz hesablamamızı mock etmirik;
+   fake provider yalnız xarici sərhəddədir. Testin yazılması keçməsi demək deyil.
+7. UI işi üçün ui-craft: əvvəl token və aid şəkillər, sonra renderə baxış,
+   kontrast ≥4,5, uzun AZ/EN/RU və böyük mətn yoxlaması. Render mümkün olmayıbsa
+   vizual qəbul yoxlanmamış yazılır. iOS 44 pt və Android platforma minimumu qorunur.
+8. Fokuslu commit → workflow.py ci → səbəbi düzəlt/commit/təkrar → workflow.py finish.
+   Yalnız branch və merged-main CI yaşıl olanda hissə tamamdır. .local-ci/ və
+   .cursor/rules/local-ci.mdc tarixçəyə daxil edilmir; remote/push yoxdur.
+9. docs/context/current-task.md: bitmiş ID, commit, testlər, yoxlanmamış şərtlər,
+   növbəti dəqiq ID. Plan dəyişəndə təsirlənən tapşırıqları yenidən uzlaşdır.
+10. Bu növbə kanonik məhsul qaydalarını dəyişmir. Sınaq datası ilə işləmək
+    insan təsdiqini, real qiyməti və ya cihaz sınağını əvəz etmir.
+
+AKTİVLƏŞDİRMƏ ŞƏRTLƏRİ
+G1 — K01-də platforma/stack qərarı; Android/iOS/web əvvəlcədən fərz edilmir.
+G2 — Klinik redaktor, əhatə, formula/aktivlik, enerji/makro qaydaları təsdiqlənmədən
+     fərdi canlı plan açılmır. Test policy-si yalnız test mühitindədir.
+G3 — Mənbə/tərkib/allergen/təlimat/hüquq/tərcümə yoxlaması olmadan dərc yoxdur.
+     Bişmiş 100 q üçün çıxım sənədi, şəkilli porsiya üçün ayrıca kalibrasiya lazımdır.
+G4 — Region qiymətləri və köhnəlmə siyasəti olmadan dəqiq büdcə uyğunluğu yoxdur.
+G5 — Auth/foto provayder konfiqurasiyası, real cihaz və məlumatın saxlanma/silmə
+     qaydası yoxlanmadan həmin canlı inteqrasiya hazır deyil.
+G6 — Pulsuz/ödənişli sərhəd, mağaza məhsulları və platforma qərarı olmadan alış açılmır.
+G7 — Buraxılış üçün real məzmun/policy təsdiqi, cihaz və istifadəçi pilotu tələb edilir.
+Texniki iş deaktiv imkan və sınaq məlumatı ilə davam edə bilər; heç bir təsdiq
+CI vasitəsilə avtomatik verilmir. Klinik hədd, qiymət və təsdiq uydurulmur.
+
+MƏRHƏLƏ A — TƏMƏL VƏ MƏLUMAT
+
+K01 — Platforma qərarı və işləyən boş tətbiq
+Asılılıq: yoxdur. Mənbə: §1–2, §11–14, code-organization qaydası.
+Yazılacaq: platforma/stack/backend/saxlama seçimini səbəbi ilə ADR-də qeyd et;
+  istifadəçi niyyətindən məlum deyilsə həmin qərarı dəqiqləşdir. Giriş nöqtəsi,
+  minimal açılan ekran, konfiqurasiya nümunəsi və modul sərhədləri qur.
+  Kitabxana və istifadəçi DB-si ayrıdır; sirrlər repoya/mobil paketə yazılmır.
+Yoxlama: təmiz checkout-dan sənədləşmiş quraşdırma/build və açılış smoke testi;
+  real lint/typecheck/build/test əmrlərini yerli CI-yə qoş və işlət.
+Bitmə: build olunan skelet və təkrarlanan CI var; placeholder skript test sayılmır.
+
+K02 — Domen müqavilələri və lokal DB
+Asılılıq: K01. Mənbə: §5, §11, §16–19; customization §8, §11.
+Yazılacaq: Food, Recipe, UserProfile, NutritionPolicy, MealPlan/Item, FoodLog,
+  RecipeCustomization, PlanChange, PhotoMealDraft, EvidenceCard və §19 modelləri;
+  ID/revision/versiya, null/vahid müqaviləsi, ilkin DB migration və repository-lər.
+  Gələcək funksiyalar üçün boş servis sinifləri yaratma.
+Yoxlama: null→DB→oxu null qalır; tarix/timezone/versiya round-trip;
+  migration əvvəlki məlumatı qoruyur; transaction xətası yarım yazı buraxmır.
+Bitmə: müqavilə və DB testləri keçir; user data library qurucusuna düşmür.
+
+K03 — Kitabxana idxalı və məzmun qapıları
+Asılılıq: K02. Mənbə: §3–4, §11, §15; library/README.md.
+Yazılacaq: cari JSON/SQLite adaptor-u, mənbə/versiya/status filtri, təkrar idxal,
+  yenilənmə və test/production məlumat sərhədi.
+Yoxlama: cari paketdə 500/224 və mənbə ID-ləri qorunur; ikinci idxal dublikat deyil;
+  xam/bişmiş ayrıdır; zədələnmiş paket atomik rədd edilir; publishable=false resept
+  production namizədinə düşmür; update köhnə FoodLog snapshot-ını dəyişmir.
+Bitmə: mövcud library validator-u və importer integration testləri keçir; G3 bağlıdır.
+
+K04 — Nutrient və porsiya hesablama nüvəsi
+Asılılıq: K03. Mənbə: §3–4, §12; customization §1–2.
+Yazılacaq: inqrediyent cəmi, qazan/şəxsi porsiya ayrımı, məlum vahid çevirməsi,
+  çıxım/retention metodu, missing_fields yayılması; yalnız sonda yuvarlaqlaşdırma.
+Yoxlama: müstəqil fixture: 2400 kkal/1600 q → 150 kkal/100 q → 280 q = 420 kkal;
+  4 porsiyadan 1-i cəmin 1/4-üdür; null nutrient 0 olmur; bişmiş komponentə ikinci
+  bişmə əmsalı vurulmur; çıxım yoxdursa bişmiş 100 q nəticəsi açılmır.
+Bitmə: q/kq, yağ itkisi, retention, porsiya və xam/bişmiş sərhəd testləri keçir.
+
+K05 — Redaktor, dərc və audit axını
+Asılılıq: K03–K04. Mənbə: §2–4, §9–11, §13–15, §17.
+Yazılacaq: qaralama→yoxlanır→təsdiqlənib→dərc→arxiv, rol yoxlaması,
+  müəllif/yoxlayan/tarix, hüquq/tərcümə/qida saxlanma təlimatı; resept/policy/
+  maarif kartı üçün audit və əvvəlki versiyaya baxış/geri qaytarma.
+Yoxlama: icazəsiz rol və natamam yoxlama dərc edə bilmir; policy özünü təsdiqləmir;
+  rollback log tarixçəsini dəyişmir; çıxım və porsiya-foto qapıları ayrıdır.
+Bitmə: test redaktoru ilə keçidlər işləyir; real təsdiq G2/G3 kimi qalır.
+
+MƏRHƏLƏ B — PROFİL VƏ HƏDƏFLƏR
+
+K06 — Vizual təməl, naviqasiya və dillər
+Asılılıq: K01–K02. Mənbə: §18–19; implementation-guide; tokens.css.
+Yazılacaq: simple-*/space-*/radius-card platforma xəritəsi, forma/düymə/vəziyyət
+  komponentləri, beş əsas bölmə, AZ/EN/RU resursları, dil və back-state bərpası.
+Yoxlama: beş bölmə/geri dönüş işləyir; dil ID/rəqəmləri dəyişmir; uzun mətn/böyük
+  şrift renderi, ekran oxuyucu, touch target və kontrast ölçülür; görüntüyə baxılır.
+Bitmə: token əsaslı işləyən təməl; saxta məhsul məlumatı qoyulmur. Ekran 01 və naviqasiya.
+
+K07 — Onboarding və profil qaralaması
+Asılılıq: K02, K06. Mənbə: §5–6, §17–19; 00 və 02 dizayn istinadları.
+Yazılacaq: 4 məqsəd, yaş/as-of, könüllü formula cinsi, boy/çəki/aktivlik,
+  fizioloji uyğunluq, allergiya/istəksizlik, 15/30/60 dəq, 3/4/5 slot,
+  region/valyuta, büdcə kateqoriyası/məbləği/əhatəsi, avadanlıq və evdəki ərzaq.
+Yoxlama: onluq vergül; boş/mənfi/NaN giriş rəddi; geri/restart cavabları saxlayır;
+  allergiyam yoxdur qarşılıqlı istisnadır; cavabsız allergiya “yoxdur” olmur;
+  əlavə allergen və istəksizlik dəyişdirilib silinir; wheat/gluten ayrı saxlanır.
+Bitmə: Planımı hazırla bir profil versiyası yaradır; eskiz cavabı təsdiq sayılmır.
+
+K08 — Uyğunluq və NutritionPolicy
+Asılılıq: K04–K05, K07. Mənbə: §5–6, §11, §14, §17–18.
+Yazılacaq: required inputs/model yaş əhatəsi/istisnalar, versiyalı formula,
+  aktivlik/enerji/makro qaydası, səbəb kodları, ümumi və mütəxəssis hədəfi yolu.
+Yoxlama: eyni girişlərdə namizəd Mifflin kişi/qadın REE fərqi 166 kkal;
+  yaş hesabı dəyişir; tələb olunan yaş/cins yoxdursa formula işləmir; <18,
+  modeldən kənar yaş, hamiləlik/südvermə/tibbi istisna; təsdiqsiz policy aktiv deyil;
+  healthy avtomatik deficit/surplus yaratmır; nutrient referensi uyğun qrupu seçir.
+Bitmə: test policy-si ilə deterministik hesab; təsdiqsiz hədd/əmsal uydurulmur, G2 qalır.
+
+K09 — Profil dəyişməsi və hədəfin izahı
+Asılılıq: K07–K08. Mənbə: §5, §8, §10, §17–19.
+Yazılacaq: profil/goal/seçim redaktəsi, formula-policy-giriş tarixçəsi,
+  “Nəyə əsasən?”, gələcək plan üçün recalculation önbaxış/təsdiq müqaviləsi.
+Yoxlama: ləğv heç nə dəyişmir; təsdiq yeni versiyadır; keçmiş log eynidir;
+  səbəb görünür; policy yoxdursa ümumi yol işləyir.
+Bitmə: profil saxlanır; real menyu recalculation inteqrasiyası K16-da tamamlanır.
+
+MƏRHƏLƏ C — FAKTİKİ GÜNDƏLİK
+
+K10 — Axtarış, əl ilə giriş və əvvəl yediklərim
+Asılılıq: K03–K04, K06. Mənbə: §3, §18–19; ekran 09.
+Yazılacaq: ad/sinonim, xam/bişmiş seçim, loading/empty/error, Özün əlavə et,
+  əvvəlki yeməkdən yeni tarixli porsiya qaralaması.
+Yoxlama: üç dil adı eyni mənbəyə aparır; təmizləmə; tapılmayan məhsul əl ilə yazılır;
+  unknown nutrient null qalır; əvvəlki qeyd köhnə tarixi kopyalamır;
+  seçim təsdiqdən əvvəl FoodLog yaratmır.
+Bitmə: məhsul/variant/miqdar K11-ə dəqiq ötürülür.
+
+K11 — Porsiya təsdiqi və dayanıqlı FoodLog
+Asılılıq: K02, K04, K10. Mənbə: §4, §8, §11–12, §18–19.
+Yazılacaq: qram/məlum ölçü, feature-gated Az/Orta/Çox, şəxsi porsiya önbaxışı,
+  client_event_id və nutrient snapshot ilə lokal transaction.
+Yoxlama: təsdiqsiz yazı yoxdur; iki toxunuş/retry bir logdur; disk xətasında
+  “saxlanıb” deyilmir; restart uğurlu qeydi saxlayır; məlum çevirmə yoxdursa
+  bütün məhsullara universal qaşıq/boşqab çəkisi verilmir.
+Bitmə: faktiki qəbul yalnız saxlanmış təsdiqdən yaranır; offline işləyir.
+
+K12 — Bu gün, düzəliş və silmə
+Asılılıq: K08, K11. Mənbə: §10, §18–19; ekran 12, 22–23, 44.
+Yazılacaq: timezone üzrə gün, faktiki toplam, məlumdursa qalan enerji, boş gün,
+  konkret log ID-li uğur/düzəliş və təsdiqli silmə.
+Yoxlama: gecə yarısı sərhədi; edit/delete toplamı yeniləyir; unknown nutrient
+  dəqiq nəticə deyil; hədəf aşılması neytraldır; plan olmadan ekran işləyir.
+Bitmə: axtar→porsiya→save→restart→edit/delete E2E; plan proqnozu K16-da qoşulur.
+
+MƏRHƏLƏ D — MENYU VƏ ALIŞ-VERİŞ
+
+K13 — Resept namizədləri və sərt filtrlər
+Asılılıq: K03, K05, K07–K08. Mənbə: §6–8, §17–18.
+Yazılacaq: dərc/policy, allergiya/qadağa, region/avadanlıq, vaxt/istəksizlik,
+  mümkün porsiya intervalı, uyğun deyil/natamam səbəbləri.
+Yoxlama: allergenli/allergeni naməlum məhsul keçmir; vaxtı naməlum resept 15 dəq
+  limitinə uyğun deyil; wheat/gluten qarışmır; sıfır namizəd izahlıdır;
+  ucuz alternativ sərt qaydanı keçmir; seçim səssiz ləğv edilmir.
+Bitmə: deterministik filtr; draft library canlı namizəd olmur.
+
+K14 — Alış miqdarı və region qiymət modeli
+Asılılıq: K04, K07. Mənbə: §17, §19.8; customization §6.
+Yazılacaq: ingredient_price, paket/edible_fraction/preparation_state,
+  istifadə xərci ilə tam paket alışının ayrımı, evdəki miqdarın çıxılması.
+Yoxlama: həftə üzrə məhsul birləşir; 750 q/500 q paket → 2 paket;
+  250 q evdə varsa → 1 paket; quru qiymət bişmiş qrama vurulmur;
+  region/qiymət yoxdur və ya köhnədirsə total_cost=null və səbəb var.
+Bitmə: fixture qiyməti test kimi işarələnir; G4 olmadan real büdcə uyğunluğu yoxdur.
+
+K15 — Yeddi günlük plan və porsiyalar
+Asılılıq: K08, K13–K14. Mənbə: §7–8, §11–12, §17–18.
+Yazılacaq: 7 gün × 3/4/5 slot, real portion min/max/step, gün/həftə nutrient,
+  müxtəliflik/vaxt/paket büdcəsi yoxlaması, izah və alternativlər.
+Yoxlama: 4 məqsəd × 3 büdcə × 3 slot sayı × 3 vaxt = 108 kombinasiya;
+  nəticə sərt qaydaları ödəyir və ya səbəbli plan yoxdur verir; null lif/şəkər/duz
+  “yoxlanıb” deyil; slot artımı hədəfi artırmır; müxtəlif porsiya, sıfır alternativ,
+  büdcə çatmaması və istifadəçinin təsdiq etmədiyi limit artımının olmaması yoxlanır.
+Bitmə: approved test fixture-lə plan deterministikdir; test real məzmun təsdiqi deyil.
+
+K16 — Menyu, xülasə və gündəlik proqnoz
+Asılılıq: K09, K12, K15. Mənbə: §8, §18–19; customization §2, §7.
+Yazılacaq: profildən xülasə, tarixli həftə/gün, resept və Yedim;
+  consumed_log_ids/remaining_planned_servings ilə faktiki + qalan plan;
+  profil dəyişməsində gələcək planın recalculation/təsdiq axını.
+Yoxlama: menyuya baxış log deyil; 1 porsiyanın yarısı yeyilibsə faktiki yarım +
+  plan qalan yarım; Yedim retry dublikat deyil; profil dəyişikliyi keçmişi dəyişmir;
+  xülasə real goal/slot/hədəfə bağlıdır; natamam gündəlik dəqiq proqnoz iddiası deyil.
+Bitmə: ekran 04, 13–14 və Bu gün inteqrasiyası E2E; tarixlər realdır.
+
+K17 — Alış-veriş ekranı və paylaşım
+Asılılıq: K14, K16. Mənbə: §19.8; ekran 16, 42.
+Yazılacaq: həftəlik kateqoriya/vahid/miqdar, ayrı Evdə var və Alınıb,
+  unikal məhsul sayğacı, plan fərqi və sistem paylaşım önbaxışı.
+Yoxlama: uyğun vahidlər birləşir; unknown ədəd→qram çevrilmir; işarə restart-da
+  qalır; artıq alınmış/lazım olmayan məhsul itmir; paylaşım yalnız siyahıdır,
+  ləğv dəyişiklik etmir və avtomatik göndərmir.
+Bitmə: ekran miqdarı planla eynidir; shopping delta K18–K21 üçün hazırdır.
+
+MƏRHƏLƏ E — MƏCBURİ FƏRDİLƏŞDİRMƏ
+
+K18 — Plan əməliyyatı, qaralama və undo infrastrukturu
+Asılılıq: K02, K16–K17. Mənbə: §16, §19; customization §6, §8.
+Yazılacaq: expected_plan_version/idempotency_key, before/after/shopping_delta
+  transaction-u; EditDraft context/base-version, bərpa və konfliktli undo.
+Yoxlama: T10, T12; retry bir dəyişiklikdir; yarım yazı yoxdur; köhnə revision
+  rədd edilir; draft restart-dan qayıdır; sonrakı FoodLog undo ilə silinmir.
+Bitmə: edit/replace/swap/move eyni atomik mexanizmdən istifadə edə bilər.
+
+K19 — İnqrediyent redaktəsi və təlimatlar
+Asılılıq: K04, K13, K18. Mənbə: §16, §19; customization §1–3; ekran 25–28, 38–40.
+Yazılacaq: çıxar/əlavə et/qrama düzəliş, qazan-porsiya miqyası, əvvəl/sonra,
+  yoxlanmış instruction şablonu, fərdi revision, davam/ləğv/qaralama və null alternativi.
+Yoxlama: T01–T04, T08, T11; kök addımdan da çıxır; yağ 10→15 q artımı müstəqil
+  hesabla eynidir; hamısını silmək/mənfi/NaN rədd edilir; duz/su itmir;
+  approval/yield/foto/vaxt yeni tərkibə avtomatik miras qalmır; uyğunsuz təlimat işarələnir.
+Bitmə: yalnız seçilmiş item/shopping dəyişir; log/hədəf/əsas kitabxana sabitdir.
+
+K20 — Başqa yeməklə əvəzləmə
+Asılılıq: K13, K15, K18–K19. Mənbə: §16–17, §19; customization §5; ekran 29–30, 43.
+Yazılacaq: faktiki/qalan planı nəzərə alan alternativ, yeni porsiya/gün/həftə/xərc
+  önbaxışı, Bununla əvəz et və Başqa variant seç.
+Yoxlama: T07, T11; allergenli ucuz variant rədd; eyni kalori eyni makro deyil;
+  sıfır namizəd izahlıdır; yalnız seçilmiş item dəyişir; başqa porsiya təklifi
+  ayrıca qəbul tələb edir; ləğv bütün snapshot-ları saxlayır.
+Bitmə: bir plan versiyası və shopping delta yaranır, FoodLog yaranmır.
+
+K21 — Günlərarası swap, boş slota move və undo
+Asılılıq: K18, K20. Mənbə: §16, §19; customization §4, §6; ekran 31–32, 37, 41–42.
+Yazılacaq: iki dolu slotun swap-ı, boş slota ayrıca move, hər iki günün
+  önbaxışı/yoxlaması və vahid undo.
+Yoxlama: T05–T06, T09–T10, T12; A↔B bir dəfə/atomikdir, digər 5 gün eynidir;
+  bir gün uyğunsuzdursa heç biri dəyişmir; keçmiş/yeyilmiş seçilmir;
+  move dolu slotu əzmir; xəta yarım swap yaratmır.
+Bitmə: iki gün və shopping birlikdə bərpa edilir; sonrakı faktiki qeyd qorunur.
+
+MƏRHƏLƏ F — FOTO VƏ MƏZMUN KÖMƏYİ
+
+K22 — Məlum reseptin fotosu və faktiki tərkib
+Asılılıq: K11, K16, K19. Mənbə: §16, §19; customization §10–11; ekran 33–36, 44.
+Yazılacaq: açıq source_plan_item əlaqəsi, Reseptdə nəyisə dəyişmisən?,
+  xeyr→porsiya, bəli→son verilmiş versiyanın faktiki redaktoru, PhotoMealDraft.
+  Burada foto fayl istinadıdır; model olmadan da axın işləyir.
+Yoxlama: T13–T19; 4 porsiyadan 1-i 1/4 yazılır; əvvəlki customization əsasdır;
+  foto özü log deyil; iki save bir logdur; yarımçıq çıxış yazmır; redaktorda plan/gün
+  dəyişmə yoxdur; istifadəçi təsdiqi model fərzindən üstündür.
+Bitmə: yalnız həmin bişmiş yeməyin log-u yaranır; baza/gələcək plan dəyişmir.
+
+K23 — Sərbəst foto, kamera və tanıma adaptor-u
+Asılılıq: K10–K11, K22. Mənbə: §2, §8, §12, §19; ekran 10–11, 24.
+Yazılacaq: kamera/qalereya/icazə, provider sərhədi, namizəd/başqa yemək,
+  yağ-sous miqdarı/təsdiqi, offline/tanınmayan foto üçün manual yol.
+Yoxlama: icazə rəddi/timeout/yanlış namizəd; gizli yağ yoxdur iddiası verilmir;
+  yağ ikinci dəfə sayılmır; model nutrient/policy hesabını əvəz etmir;
+  təsdiqsiz log yoxdur; provider açarı mobil paketdə yoxdur.
+Bitmə: fake provider E2E; real provider/cihaz/pilot ayrıca G5/G7-dir.
+
+K24 — Seçilmişlər və mənbəli maarif kartları
+Asılılıq: K05–K06, K16. Mənbə: §9–11, §19.7.
+Yazılacaq: RecipeBookmark əlavə/silmə, versiyalı reseptə baxış, Nəyə əsasən?,
+  12 mövzu üçün EvidenceCard dərc/göstərmə və saxlanma təlimatı.
+Yoxlama: Saxla plan/log yaratmır; arxiv resept izahlıdır; təsdiqsiz kart dərc deyil;
+  dil claim_id-ni dəyişmir; 7 günlük menyu 7 günlük soyuducuda saxlama təlimatı deyil.
+Bitmə: mənbə/bölmə/əhatə/reviewer/tarix açılır; saxta klinik nişan yoxdur.
+
+MƏRHƏLƏ G — HESAB VƏ CİHAZLARARASI DAVAMLILIQ
+
+K25 — Qonaqdan hesaba keçid və giriş
+Asılılıq: K02, K07, K11, K18. Mənbə: §18.9–10, §19.16.
+Yazılacaq: Apple/Google/e-poçt adaptorları, qeydiyyat/giriş/reset/göstər-gizlət,
+  İndi yox, qonaq məlumatının idempotent köçürülməsi, server ownership yoxlaması.
+Yoxlama: provider ləğvi/səhv giriş/offline/yarım köçürmə data itirmir; retry
+  dublikat deyil; başqa user ID ilə log/plan/draft oxu-yazı rədd edilir;
+  şifrə/reset tokenləri/auth sirrləri loglara çıxmır.
+Bitmə: test serverlə axın işləyir; real provider konfiqurasiyası G5-də qalır.
+
+K26 — Outbox, sinxronizasiya və konflikt
+Asılılıq: K18, K25. Mənbə: §11–12, §18–19; customization §8.
+Yazılacaq: durable outbox, retry/ack/client_event_id, revision yoxlaması,
+  pending/error/synced, ikinci cihazda bərpa və silmə hadisələri.
+Yoxlama: offline save→kill→restart→retry bir logdur; iki cihaz plan redaktəsi
+  səssiz overwrite deyil; swap serverdə atomikdir; təsdiqsiz lokal draft synced
+  deyil; edit/delete başqa cihazda yayılır; bərpa yalnız uğurlu sync-dən sonra vəd edilir.
+Bitmə: iki izolə client + test server integration/E2E; real cihaz ayrıca göstərilir.
+
+K27 — Çəki tarixçəsi və irəliləyiş
+Asılılıq: K09, K12, K26. Mənbə: §10, §18–19; ekran 17–18.
+Yazılacaq: tarixli WeightEntry/edit/delete, eyni tarixdə əvəzləmə/ayrıca ölçmə,
+  həftə seçimi, qeyd edilən gün/ölçmə sayı, real nöqtələr və məqsədə uyğun mətn.
+Yoxlama: boş həftə və bir ölçmə saxta trend deyil; qeyd olunmayan gün 0 deyil;
+  healthy üçün çəki azalması avtomatik uğur deyil; tarix/timezone həftəni düzgün
+  yeniləyir; ən çox yemək yalnız mövcud loglardan gəlir.
+Bitmə: rəqəmlər saxlanmış data ilə eynidir, saxta qrafik yoxdur.
+
+K28 — Xatırlatmalar və profil menyusu
+Asılılıq: K06–K07, K26. Mənbə: §19.10; ekran 19–20.
+Yazılacaq: bütün profil keçidləri, meal/weight settings, timezone, 3/4/5 slot,
+  günlük/həftəlik çəki, sakit saatlar və sistem icazəsi.
+Yoxlama: 22:00–08:00 test aralığı gecə yarısını keçir; səfər/saat dəyişikliyi
+  və retry bildirişi çoxaltmır; icazə rəddi app-i bloklamır;
+  söndür/saxla/restart seçimi bərpa edir; profilin heç bir keçidi ölü deyil.
+Bitmə: fake clock testləri və platformada real bildiriş nəticəsi qeyd edilir.
+
+K29 — Məxfilik, ixrac, silmə və dəstək
+Asılılıq: K25–K26. Mənbə: §19.16, §12.7.
+Yazılacaq: sadə məxfilik/saxlanma-silmə qaydası, export/logout/təsdiqli hesab silmə;
+  plan/log/photo/draft əhatəsi; FAQ, dəstək və yanlış qida bildirişi.
+Yoxlama: export yalnız həmin hesabındır; logout başqa hesaba lokal data sızdırmır;
+  silmə ləğvi qoruyur; təsdiqli silmə/retry server/lokal/foto qaydasına uyğundur;
+  outbox silinəni yenidən diriltmir; istifadəçi təsdiqsiz mesaj göndərilmir.
+Bitmə: test hesabında lifecycle sübut olunur; açıq retention qərarı gizlədilmir.
+
+K30 — Abunəlik və mağaza inteqrasiyası
+Asılılıq: K25–K26, K29 və G6 qərarı. Mənbə: §19.11; ekran 21.
+Yazılacaq: təsdiqli free/paid xəritə, aylıq/illik store məhsulları, server yoxlanmış
+  entitlement, restore/idarəetmə/ləğv keçidi və pulsuz davam.
+Yoxlama: active/expired/cancel-scheduled/pending/failed/restored; pending/redd
+  hüquq açmır və log silmir; restore retry dublikat deyil; real qiymət/valyuta/dövr
+  göstərilir, eskizdəki 4,99/39,99 hardcode edilmir.
+Bitmə: sandbox alış/restore sübutu var; qərar yoxdursa K30 bloklanır, K31-in
+  ödənişsiz işləri davam edə bilər; canlı alış icra edilmir.
+
+MƏRHƏLƏ H — QƏBUL VƏ MƏZMUN HAZIRLIĞI
+
+K31 — Tam axınlar, əlçatanlıq və regresiya
+Asılılıq: K01–K29; hazır olduqda K30 testləri də əlavə edilir. Mənbə: §12, §16–19.
+Yazılacaq: ekran 01–44 üçün tələb→task→test→sübut, giriş/hərəkət/nəticə/geri/xəta;
+  T01–T19 və 108 profil kombinasiyasının regresiyası.
+Yoxlama: real unit/integration/E2E/lint/build CI-də keçir; AZ/EN/RU/böyük mətn,
+  ekran oxuyucu/kontrast; cihaz renderlərinə baxılır; offline disk xətası,
+  auth/sync konflikti və paylaşım məzmunu ayrıca yoxlanır.
+Bitmə: yoxlanmamış cihaz/provider/ödəniş/klinik hissələr açıqdır; K30 yoxdursa
+  yalnız qeyri-ödəniş əhatəsi yoxlanmışdır, ümumi buraxılış hazır sayılmır.
+
+K32 — Real məzmun, qiymət və 350 resept hədəfi
+Asılılıq: K05, K13–K15, K24; G2–G4 insan işi. Mənbə: §13–17.
+Yazılacaq: review nəticələri, üç dil, allergen/hüquq/saxlanma, real region qiyməti,
+  profil coverage hesabatı; əvvəl 224 layihə yoxlanır, sonra boşluqlar üçün 350
+  fərqli layihə hədəfinə genişlənir. Bu iş insan girişləri gəldikcə daha erkən başlaya bilər.
+Yoxlama: dərc olunan hər resept izlənir; çıxım/foto qapılarının sübutu var;
+  təkrarlar, ucuz/sürətli/bitki-zülal boşluqları, 12 profil və həftəlik alternativlər.
+Bitmə: faktiki təsdiq sayı və blocker-lər göstərilir; 350-yə çatmaq təsdiq deyil;
+  çatmayan hissə ayrıca qalan işdir, 350 universal buraxılış şərti edilmir.
+
+K33 — İstifadəçi pilotu və foto qiymətləndirməsi
+Asılılıq: K31–K32; foto aktivdirsə K23/G5. Mənbə: §12.
+Yazılacaq: ölçmə protokolu, anonimləşdirilmiş nəticələr, prioritet problemlər və düzəlişlər.
+Yoxlama: plandakı 10–15 yetkin köməksiz yemək tapsın, porsiya seçsin, səhv qeydi
+  düzəltsin, yeməyi dəyişsin; vaxt/səhv/kömək ölçülsün. Foto aktivdirsə ən azı
+  100 ölçülmüş nümunədə namizəd doğruluğu/düzəliş/porsiya xətası ayrı ölçülsün;
+  yerli/qarışıq yemək, sous və işıq daxil edilsin.
+Bitmə: real nəticə və qalan risk var; uydurma pilot/kalori dəqiqliyi yoxdur.
+
+K34 — Yerli buraxılış namizədinin yekun qəbulu
+Asılılıq: K30–K33 və tətbiq edilən G1–G7. Mənbə: §12–14, §19.
+Yazılacaq: yekun protokol, aktiv funksiya siyahısı, məhdudiyyət, məzmun/policy
+  versiyaları, bərpa/rollback və insident/yanlış qida bildirişi təlimatı.
+Yoxlama: sıfır kritik allergen/dublikat pozuntusu; approval audit; əsas E2E-lər
+  seçilmiş real cihazlarda; branch və merged-main CI yaşıl; aktiv funksiya sübutludur,
+  deaktiv funksiya vəd edilmir. Həll edilməmiş blocker buraxılışı dayandırır.
+Bitmə: yalnız yerli release candidate qəbul edilir. Remote/push/mağazaya təqdimat,
+  deployment və ictimai buraxılış bu növbə ilə icazələndirilmir.
+
+QƏBUL İZLƏNMƏSİ
+§3–4 → K03–K05/K10–K11; §5–6 → K07–K09/K13; §7–8 → K13–K16.
+§9–10 → K05/K24; §11 → K02–K05/K18/K26; §12–14 → G1–G7/K01/K05/K08/K31–K34.
+§15 → K03/K32; §16 → K18–K23; §17 → K07–K09/K13–K15/K20/K32.
+§18 → K06–K17/K25–K27; §19 → K06–K31/K34.
+T01–T04/T08/T11 → K19; T05–T06/T09 → K21; T07 → K20;
+T10/T12 → K18/K21; T13–T19 → K22; hamısı K31-də regresiya edilir.
+Ekran 01–08 → K06–K09/K16/K25; 09–12 → K10–K12/K23;
+13–16 → K16–K17/K20/K24; 17–20 → K09/K27–K28; 21 → K30;
+22–24 → K12/K23/K26; 25–28 → K19/K22; 29–32 → K20–K21;
+33–36 → K22; 37–40 → K18–K21; 41–44 → K12/K17/K20–K22.
+Əlavə dizaynsız xəta/hesab halları da K31-də ayrıca izlənir.
+
+İLK DAVAM PROMPTU
+“K01-i icra et: planning/coding-tasks.txt və docs/context/current-task.md-ni oxu.
+Əsas plan planning/nutrition-science-implementation-plan.txt, kanonik mənbə
+planning/research-data.json-dır. Əvvəl platforma/stack qərarını həll et, sonra
+minimal app və real local CI qur. AGENTS.md workflow-unu tamamla.
+K02-yə bu chatdə keçmə.”
