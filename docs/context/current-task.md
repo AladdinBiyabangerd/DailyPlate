@@ -57,3 +57,8 @@ Do not create an APK without explicit request.
 - google-services.json is ignored; Google Services plugin is not configured in
   the current project. Crashlytics, Remote Config and SHA-1 remain unchanged.
 - This task explicitly authorizes assembleDebug; no AAB or device test requested.
+- Checks: assembleDebug passed (D8 Kotlin metadata warnings); APK metadata confirms
+  com.aladdin.dailyplate. Installed/launched on emulator-5554; screenshot inspected,
+  DailyPlate visible without clipping. AZ/RU/EN resource values all match.
+- Automated device/recreation tests, AAB and Google Services matching were not run.
+  Branch/main mandatory CI results are recorded in .local-ci/logs/latest.json.
