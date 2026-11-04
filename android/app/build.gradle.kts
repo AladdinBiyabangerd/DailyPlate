@@ -4,8 +4,13 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
-    id("com.google.gms.google-services")
-    id("com.google.firebase.crashlytics")
+}
+
+// google-services.json is git-excluded (secret config). Apply Firebase Gradle plugins only
+// when it is present, so local CI snapshots (git-tracked files only) still build.
+if (file("google-services.json").exists()) {
+    apply(plugin = "com.google.gms.google-services")
+    apply(plugin = "com.google.firebase.crashlytics")
 }
 
 android {
