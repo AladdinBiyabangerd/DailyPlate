@@ -26,13 +26,13 @@ def main() -> None:
     ], cwd=root / 'android', env=env, check=True)
     reports = list((root / 'android/app/build/test-results/testDebugUnitTest').glob('TEST-*.xml'))
     required = {
-        'az.qida.app.domain.ContractValidationTest',
-        'az.qida.app.domain.nutrition.RecipeCalculatorTest',
-        'az.qida.app.data.local.UserPersistenceTest',
-        'az.qida.app.data.local.PlanTransactionTest',
-        'az.qida.app.data.local.DatabaseMigrationTest',
-        'az.qida.app.data.local.CatalogIsolationTest',
-        'az.qida.app.data.local.LibraryImportTest',
+        'com.aladdin.dailyplate.domain.ContractValidationTest',
+        'com.aladdin.dailyplate.domain.nutrition.RecipeCalculatorTest',
+        'com.aladdin.dailyplate.data.local.UserPersistenceTest',
+        'com.aladdin.dailyplate.data.local.PlanTransactionTest',
+        'com.aladdin.dailyplate.data.local.DatabaseMigrationTest',
+        'com.aladdin.dailyplate.data.local.CatalogIsolationTest',
+        'com.aladdin.dailyplate.data.local.LibraryImportTest',
     }
     executed = set()
     test_count = 0

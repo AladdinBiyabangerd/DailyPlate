@@ -32,9 +32,9 @@
 ## Relevant files
 - planning/coding-tasks.txt K05; planning/research-data.json (canonical)
 - planning/nutrition-science-implementation-plan.txt K05-referenced sections
-- android/app/src/main/java/az/qida/app/domain/nutrition/{Quantities,RecipeCalculator}.kt
-- android/app/src/test/java/az/qida/app/domain/nutrition/RecipeCalculatorTest.kt
-- android/app/src/main/java/az/qida/app/data/local/LibraryImporter.kt
+- android/app/src/main/java/com/aladdin/dailyplate/domain/nutrition/{Quantities,RecipeCalculator}.kt
+- android/app/src/test/java/com/aladdin/dailyplate/domain/nutrition/RecipeCalculatorTest.kt
+- android/app/src/main/java/com/aladdin/dailyplate/data/local/LibraryImporter.kt
 - docs/architecture/android-k04-nutrition.txt; docs/qa/android-k04-acceptance.txt
 - android/tools/check_android.py; existing K02/K03 domain/storage docs as needed
 
@@ -50,3 +50,10 @@
 In a new chat, verify K04 green merged-main CI record, read K05 and its specific plan
 sections/files, then implement only K05 following local branch/commit/CI/finish flow.
 Do not create an APK without explicit request.
+
+## Foundation identity update
+- Package/source/test/Room schema paths now use com.aladdin.dailyplate.
+- App label is DailyPlate in default/AZ/RU/EN resources.
+- google-services.json is ignored; Google Services plugin is not configured in
+  the current project. Crashlytics, Remote Config and SHA-1 remain unchanged.
+- This task explicitly authorizes assembleDebug; no AAB or device test requested.

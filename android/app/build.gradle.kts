@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "az.qida.app"
+    namespace = "com.aladdin.dailyplate"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "az.qida.app"
+        applicationId = "com.aladdin.dailyplate"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

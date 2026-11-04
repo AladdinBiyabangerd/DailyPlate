@@ -5,3 +5,6 @@ android/**/build/
 android/local.properties
 *.jks
 *.keystore
+
+# Local Firebase client configuration
+/android/app/google-services.json
