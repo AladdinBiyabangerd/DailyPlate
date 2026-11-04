@@ -24,6 +24,9 @@ internal interface LibrarySnapshotDao {
     @Query("SELECT * FROM library_snapshots WHERE kind = :kind AND id = :id AND version = :version")
     fun version(kind: String, id: String, version: Long): LibrarySnapshotEntity?
 
+    @Query("SELECT * FROM library_snapshots WHERE kind = :kind ORDER BY version DESC, id")
+    fun all(kind: String): List<LibrarySnapshotEntity>
+
     // Import boundary only. Personal repositories cannot access this DAO.
     @Insert fun insert(snapshot: LibrarySnapshotEntity)
 }
@@ -41,6 +44,13 @@ internal abstract class LibraryDatabase : RoomDatabase() {
 
 /** Read-only application-facing library access. K03 owns the content import gate. */
 class CatalogRepository internal constructor(private val database: LibraryDatabase) : AutoCloseable {
+    /** Import is atomic and never writes user data. Call on a worker thread. */
+    fun importPackage(pack: LibraryPackage): Long = LibraryImporter(database).importPackage(pack)
+
+    /** G3 is closed: current package has no reviewed production content. */
+    fun productionRecipes(): List<Recipe> = emptyList()
+    fun productionFoods(): List<Food> = emptyList()
+
     fun food(ref: VersionRef): Food? = read("food", ref, Food.serializer())
     fun recipe(ref: VersionRef): Recipe? = read("recipe", ref, Recipe.serializer())
     fun policy(ref: VersionRef): NutritionPolicy? = read("policy", ref, NutritionPolicy.serializer())

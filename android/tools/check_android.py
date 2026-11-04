@@ -31,6 +31,7 @@ def main() -> None:
         'az.qida.app.data.local.PlanTransactionTest',
         'az.qida.app.data.local.DatabaseMigrationTest',
         'az.qida.app.data.local.CatalogIsolationTest',
+        'az.qida.app.data.local.LibraryImportTest',
     }
     executed = set()
     test_count = 0
@@ -42,7 +43,7 @@ def main() -> None:
             executed.add(case.get('classname'))
             test_count += 1
     if required - executed:
-        raise RuntimeError(f'Required K02 JVM suites did not execute: {sorted(required - executed)}')
+        raise RuntimeError(f'Required JVM suites did not execute: {sorted(required - executed)}')
     print(f'PASS: {test_count} JVM contract/Room tests; no failures, errors or skips')
     print('PASS: Android lint, Kotlin compilation, JVM tests and token checks (no APK)')
     print('NOT RUN: APK packaging, manifest badging and device launch/recreation smoke')

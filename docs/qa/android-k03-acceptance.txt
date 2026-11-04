@@ -1,0 +1,17 @@
+K03 acceptance — APK-free
+
+LibraryImportTest (real current package, Room/Robolectric API 34):
+- 500 foods / 224 recipes, original FDC ID and nullable nutrient retained.
+- JSON repeated import and read-only SQLite import produce identical snapshots.
+- Raw/cooked preparation states remain distinct; production candidates stay empty.
+- New package revision preserves old food and personal FoodLog nutrient snapshot.
+- Immutable revision conflicts, downgrades, invalid source IDs and publication flags
+  reject without changing stored rows.
+- SQL trigger failure after food inserts rolls back typed/raw rows and manifest.
+Existing library/tools/validate_library.py remains part of mandatory CI and verifies
+source archives, nutrient arithmetic, missing values, portions and content gates.
+Android runner now requires LibraryImportTest alongside all five existing suites.
+
+No APK, instrumentation/device runtime, visual changes, publication approval or
+clinical eligibility verification belongs to this unit. UI lifecycle wiring is deferred.
+Final branch/main CI evidence is in ignored .local-ci/logs/latest.json and Git history.

@@ -1,0 +1,33 @@
+K03 — library import boundary
+
+CatalogRepository.importPackage accepts LibraryPackage.json or .sqlite. SQLite is
+opened read-only, checked for integrity/foreign keys, and its metadata version is
+matched against the separately supplied manifest (the source SQLite stores no
+manifest JSON). Only selected foods and recipes enter Room; the 8,217 source
+reference rows and weekly ideas remain source-package material.
+
+Current-format adapter deliberately accepts source_linked_draft SR Legacy 2018-04
+foods and formulated_source_linked_draft recipes only. It rejects publishable or
+live-planning flags. G3 stays closed: productionFoods/productionRecipes return no
+candidates. Exact version lookups are for historical snapshots/editorial development,
+not production eligibility. This unit does not approve content or nutrition policy.
+A future publication adapter must implement the complete reviewed release chain.
+
+Strict major.minor.patch components (0..999) map to a positive Long:
+major*1000000 + minor*1000 + patch + 1. Thus 0.3.0 maps to 3001. Food sourceVersion
+remains 2018-04; package revision and source dataset revision are different concepts.
+Recipe ingredient references pin the matching food package revision. Source IDs,
+preparation state, null nutrients and source energy selection are retained. Inferred
+allergens do not become verified allergen-safe claims: typed allergens stay unknown.
+Original food/recipe JSON rows (including nutrient lineage, servings, translations,
+gates, yield limitations and inferred allergens) and manifest are retained as immutable
+source_food/source_recipe/package snapshots. No new Room schema is needed.
+
+All validation/mapping precedes writes. One Room transaction writes all typed and
+raw snapshots and the manifest. Reimport is a no-op only for byte-equivalent parsed
+row content; same-version changes conflict and roll back. Lower package versions
+are rejected. Updates add versions; they do not replace older content or touch the
+separate user database. Historical FoodLog nutrients remain independent snapshots.
+
+Call import/read operations on a worker thread. UI/application lifecycle wiring,
+bundled production assets and recipe calculation engine remain later units.
