@@ -1,60 +1,59 @@
-# Current task — K05 editor/publication/audit
+# Current task — K06 visual foundation/navigation/languages
 
 ## Completed
-- K04 nutrition core and later foundation/Firebase work were already merged.
-  Starting main 0ab932c had a clean tree and passing merged-main CI record.
-- K05 headless test editor for recipes, NutritionPolicy and EvidenceCard:
-  draft -> in review -> approved -> published -> archived, trusted test roles,
-  independent reviewer, version-specific evidence, append-only Room audit history.
-- Edit/rollback creates a new draft content version; rollback clears review and
-  metadata. Old editorial revisions and personal FoodLog snapshots are preserved.
-- Separate yield and photo calibration gates, rights, AZ/EN/RU checks, sourced
-  storage guidance including separate rice safety source, card next-review date.
-- New mandatory workflow/persistence JVM suites; architecture/acceptance docs.
+- K05 was merged on main 0b1cfd8 with green local CI before this task.
+- K06 token-based Compose foundation: welcome (screen 01), five main sections,
+  empty states, explicit future onboarding/account boundaries, shared button,
+  labelled field, card, heading and loading/empty/error components.
+- AZ/EN/RU resources; persistent language preference; stable route IDs and saved
+  back stack; visible/system Back; selection semantics and non-colour checkmark.
+- CSS/Android palette parity and expanded >=4.5 text contrast checks.
+- APK-free native Robolectric welcome renders at 150% font in all three languages;
+  navigation UI tests cover five sections, 48dp targets, EN/RU, Back and recreation.
 
 ## Current state
-- Scope is only K05. No APK created; no visual UI change or device test.
-- Test publication cannot activate real policies/content. G2/G3 remain closed.
-- Final branch/main CI and commit identities: consult .local-ci/logs/latest.json
-  and Git history for feat/k05-editorial-audit (recorded after this handoff commit).
+- Only K06 implemented. No fake profile, calorie, recipe, weight or plan data.
+- K07 onboarding and later authentication remain clearly explained boundaries.
+- Final commit/main CI evidence: consult .local-ci/logs/latest.json and Git history
+  for feat/k06-visual-foundation, after the lifecycle completes for this handoff.
 
 ## Decisions
-- Separate EditorialDatabase schema v1; library/user DB schemas unchanged.
-- Atomic INSERT of workflow snapshot+audit; expectedRevision rejects stale writes.
-- Workflow revisions increment for all actions; content versions only on edits/
-  rollback. Every past contributor is excluded from approving their own work.
-- TestOnly envelope carries stage/review; embedded content stays unreviewed DRAFT.
-  No production export/activation API; existing production catalog stays closed.
-- Completeness checks plus explicit reviewer attestation do not prove clinical,
-  legal, translation, kitchen/photo or food-safety correctness.
-- Editor is headless. Real identity/role provisioning and production authoring
-  interface are not supplied by this local test workflow.
+- Simple turquoise light palette; no new dark palette or sampled raster colours.
+- Navigation stores enum IDs in saved instance state, not localized labels.
+- Language changes only presentation preferences/configuration, no domain writes.
+- Unit tests use plain Application to isolate Firebase; production app unchanged.
+- JVM render/test dependencies are local/offline; no APK/AAB or device workflow.
 
 ## Remaining work
-- K06 visual foundation/navigation/languages is the next numbered unit.
-- Real G2/G3 review/authorization and content approval remain external work.
-- APK/device/runtime UI integration and visual acceptance remain unverified.
+- K07 is the next numbered unit: onboarding/profile draft; read its requirements.
+- Physical-device/TalkBack speech, process-death and instrumentation acceptance
+  remain unverified. Native JVM images/semantics are not device certification.
+- Real G2/G3 approval and production content authorization remain external work.
 
 ## Relevant files
-- planning/coding-tasks.txt K05/K06; planning/research-data.json canonical
-- planning/nutrition-science-implementation-plan.txt §2–4/§9–11/§13–15/§17 for K05
-- android/app/src/main/java/com/aladdin/dailyplate/domain/editorial/
-- android/app/src/main/java/com/aladdin/dailyplate/data/local/{EditorialDatabase,TestEditorRepository}.kt
-- android/app/src/test/java/com/aladdin/dailyplate/domain/editorial/
-- android/app/src/test/java/com/aladdin/dailyplate/data/local/EditorialPersistenceTest.kt
-- android/app/schemas/com.aladdin.dailyplate.data.local.EditorialDatabase/1.json
-- android/tools/check_android.py
-- docs/architecture/android-k05-editorial.txt; docs/qa/android-k05-acceptance.txt
+- planning/coding-tasks.txt K06/K07; planning/research-data.json canonical
+- planning/nutrition-science-implementation-plan.txt §18–19
+- design-concepts/tokens.css; design-concepts/simple-turquoise/*guide.txt, 00/01 images
+- android/app/src/main/java/com/aladdin/dailyplate/ui/{BootstrapScreen,FoundationComponents,NavigationState}.kt
+- android/app/src/main/java/com/aladdin/dailyplate/ui/theme/QidaTheme.kt
+- android/app/src/main/res/values{,-az,-en,-ru}/strings.xml; values/colors.xml
+- android/app/src/test/java/com/aladdin/dailyplate/ui/; src/test/resources/robolectric.properties
+- android/tools/{check_android,verify_tokens}.py
+- docs/architecture/android-k06-foundation.txt; docs/qa/android-k06-acceptance.txt
 
 ## Checks performed
-- Initial APK-free development lint/compilation and 37 JVM tests passed; an
-  additional reviewer-return/command-injection scenario was added afterwards.
-- Final mandatory branch and merged-main lifecycle evidence is in local CI logs
-  and Git history. No test-only evidence is claimed as human approval.
-- No APK, instrumentation, device, visual, real clinical/legal/translation or
-  kitchen/photo validation performed.
+- Contrast: text/bg 11.95; muted/bg 5.04; white/primary and primary/white 4.71;
+  text/surface 12.70; muted/surface 5.36. ui-craft checker also passed core pairs.
+- AZ/EN/RU 150% welcome images and final RU profile image inspected. Selected
+  chip palette corrected to primary; narrow navigation word breaks fixed and
+  visually rechecked using natural-width wrapping buttons.
+- Final development check: lint, Kotlin compilation and all 41 JVM tests passed.
+  Final lifecycle evidence: local CI logs; images: android/app/build/reports/k06/.
+- Development checks exposed and fixed resource-enabled test Firebase isolation,
+  unused resources and KTX lint. No checks disabled or weakened.
+- No APK/AAB, installation, device/instrumentation or human content approval.
 
 ## Exact next step
-In a new chat verify K05 merged-main green, then read K06, plan §18–19 and the
-referenced design guides/tokens. Apply ui-craft and implement only K06 with the
-mandatory branch/commit/CI/finish workflow. Do not create an APK unless requested.
+After K06 branch and merged-main CI are green, continue K07 in a new chat. Read
+this context, K07 and plan §5–6/§17–19, then apply ui-craft and the mandatory local
+workflow. Do not create APK/AAB unless explicitly requested.
