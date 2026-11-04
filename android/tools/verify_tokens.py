@@ -13,11 +13,14 @@ def check(root: Path) -> None:
         assert color.upper() == tokens[name.replace('_', '-')].upper(), name
 
     resources = root / 'android/app/src/main/res'
-    base_strings = {node.attrib['name'] for node in ET.parse(resources / 'values/strings.xml').getroot()}
+    def string_map(folder):
+        return {node.attrib['name']: node.text for path in folder.glob('*.xml')
+                for node in ET.parse(path).getroot() if node.tag == 'string'}
+    base_strings = string_map(resources / 'values')
     for locale in ('az', 'en', 'ru'):
-        strings = list(ET.parse(resources / f'values-{locale}/strings.xml').getroot())
-        assert {node.attrib['name'] for node in strings} == base_strings, locale
-        assert all(node.text and node.text.strip() for node in strings), locale
+        strings = string_map(resources / f'values-{locale}')
+        assert strings.keys() == base_strings.keys(), locale
+        assert all(value and value.strip() for value in strings.values()), locale
         print(f'PASS complete {locale} string resources: {len(strings)} keys')
 
     def luminance(color):

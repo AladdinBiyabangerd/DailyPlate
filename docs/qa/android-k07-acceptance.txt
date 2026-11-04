@@ -1,0 +1,24 @@
+K07 acceptance evidence
+
+Automated suites:
+- OnboardingDraftTest: all four goals; comma decimals; null optional sex,
+  health answers and unknown allergies; age/as-of; no energy target; missing
+  budget amount; rejection of empty/negative/zero/NaN/infinite measurements,
+  fractional ages/people, NaN money; none exclusivity; wheat/gluten separation;
+  custom allergen and removable dislikes.
+- OnboardingUiTest: visible Back, activity recreation, retained measurements,
+  five-step confirmation, reopening confirmed state; durable draft reload;
+  repeated confirmation returns the same profile version; native Robolectric
+  top/bottom renders of all steps in AZ/EN/RU at 150% text size.
+- Existing profile/Room migration and isolation suites remain required.
+- Resource parity includes every strings XML, including onboarding.xml.
+- Palette parity and text contrast remain enforced by check_android.py.
+
+Visual artifacts: android/app/build/reports/k07/ (local generated files).
+Branch and merged-main CI evidence: .local-ci/logs/latest.json and commit logs.
+Only a passing run is evidence; consult the final task handoff for actual results.
+
+Not verified: physical-device/TalkBack spoken output, abrupt OS process kill,
+disk-full fault injection, production content/clinical approval, policy decisions,
+menu/pricing algorithms, library-name matching, account sync, APK/AAB or device
+instrumentation. JVM recreation and durable reload are narrower checks.
