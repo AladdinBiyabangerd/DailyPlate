@@ -23,6 +23,21 @@ class OnboardingDraftTest {
             assertEquals(goal, d.change("goal", goal.name).profile("en", p.updatedAt, p.ageAsOfDate).goal)
         }
     }
+    @Test fun maleSelectionClearsReproductiveAnswersAndIgnoresStaleSavedAnswers() {
+        val female = readyOnboarding().change("sex", "FEMALE")
+            .change("pregnant", "yes").change("breastfeeding", "no")
+        assertTrue(female.asksReproductiveHealth)
+        assertTrue(female.change("sex", "").asksReproductiveHealth)
+        val male = female.change("sex", "MALE")
+        assertFalse(male.asksReproductiveHealth)
+        assertEquals("", male.answer("pregnant"))
+        assertEquals("", male.answer("breastfeeding"))
+        assertEquals("", male.change("sex", "FEMALE").answer("pregnant"))
+        val stale = female.copy(answers = female.answers + ("sex" to "MALE"))
+        val profile = stale.profile("az", RecordedAt("2026-11-04T10:00:00Z", "UTC"), CalendarDate("2026-11-04"))
+        assertNull(profile.pregnant)
+        assertNull(profile.breastfeeding)
+    }
     @Test fun blankNegativeNonFiniteAndFractionalCountsAreRejected() {
         for (value in listOf("", "-1", "0", "NaN", "Infinity", "1e999")) {
             assertTrue("weight=$value", "weight" in readyOnboarding().change("weight", value).errors(1))

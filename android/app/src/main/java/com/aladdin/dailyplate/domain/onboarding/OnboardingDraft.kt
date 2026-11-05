@@ -10,7 +10,12 @@ data class OnboardingDraft(
     val storedHomeFoods: List<HomeFood> = emptyList(),
 ) {
     fun answer(key: String) = answers[key].orEmpty()
-    fun change(key: String, value: String) = copy(answers = answers + (key to value))
+    val asksReproductiveHealth: Boolean get() = answer("sex") != "MALE"
+    fun change(key: String, value: String): OnboardingDraft {
+        val updated = answers + (key to value)
+        return copy(answers = if (key == "sex" && value == "MALE")
+            updated - setOf("pregnant", "breastfeeding") else updated)
+    }
     fun number(key: String): Double? = answer(key).replace(',', '.').toDoubleOrNull()
         ?.takeIf { it.isFinite() && it > 0 }
     fun items(key: String) = answer(key).split(';').map(String::trim).filter(String::isNotEmpty).toSet()
@@ -59,7 +64,8 @@ data class OnboardingDraft(
             goal = Goal.valueOf(answer("goal")), ageYears = number("age")!!.toInt(),
             calculationSex = answer("sex").takeIf { it.isNotBlank() }?.let(CalculationSex::valueOf),
             heightCm = number("height"), weightKg = number("weight"), activityCode = answer("activity"),
-            pregnant = yesNo("pregnant"), breastfeeding = yesNo("breastfeeding"),
+            pregnant = if (asksReproductiveHealth) yesNo("pregnant") else null,
+            breastfeeding = if (asksReproductiveHealth) yesNo("breastfeeding") else null,
             eligibilityAnswers = listOf("eating_risk", "medical_diet", "kidney", "treatment").associateWith(::yesNo),
             allergies = if (answer("allergies") == "unknown") null else if (answer("allergies") == "none" && items("extra_allergies").isEmpty()) emptySet()
                 else (items("allergies") - setOf("none", "unknown")) + items("extra_allergies").map { "custom:$it" },
