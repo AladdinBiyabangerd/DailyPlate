@@ -10,6 +10,8 @@
 ## Current state
 - K15 domain preview is implemented; matching-main CI result is in local latest.json.
 - No UI/DB writes or activation of real catalogs. No APK created.
+- Result retains full current K08 formula/contract/provenance and reviewed coverage
+  snapshots; macro proximity is a soft tie-breaker.
 
 ## Decisions
 - SUCCESS requires the selected reviewed reference set and protein-quality evidence;
@@ -22,6 +24,7 @@
 
 ## Remaining work
 - K16 preview/persistence/UI with transactional current-version checks.
+- Continue the next milestone in a new chat; K15 implementation spans multiple files.
 - Real catalog/G3, regional pricing/G4 and actual budget coverage remain unverified.
 - K17 shopping boolean model/mark preservation remains as earlier handoff.
 

@@ -2,6 +2,7 @@ package com.aladdin.dailyplate.domain.planning
 
 import com.aladdin.dailyplate.domain.*
 import com.aladdin.dailyplate.domain.policy.NutritionCarbohydrateBasis
+import com.aladdin.dailyplate.domain.policy.NutritionPlanningPreview
 import com.aladdin.dailyplate.domain.pricing.*
 import java.time.ZoneId
 
@@ -48,8 +49,10 @@ data class GeneratedWeek(
     val request: PlanGenerationRequest, val meals: List<GeneratedMeal>,
     val dailyNutrients: List<NutrientSnapshot>, val weeklyNutrients: NutrientSnapshot,
     val alternatives: List<GeneratedAlternative>, val shoppingCost: ShoppingCost,
-    val targetKcal: Double,
-)
+    val nutritionPreview: NutritionPlanningPreview, val coverage: PlanningCoverage,
+) {
+    val targetKcal: Double get() = requireNotNull(nutritionPreview.targetKcal)
+}
 data class PlanGenerationResult(
     val status: GenerationStatus, val testOnly: Boolean, val plan: GeneratedWeek?,
     val ruleResults: List<CandidateRuleResult>, val visitedNodes: Int,
