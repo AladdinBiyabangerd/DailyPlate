@@ -63,4 +63,21 @@
     <string name="nr_report_note">For a new symptom or unexplained weight change, the options below immediately suspend the target.</string>
     <string name="nr_symptom">New symptom — suspend target</string>
     <string name="nr_unexplained">Unexplained weight change — suspend target</string>
+
+    <string name="rd_details">Recipe details</string>
+    <string name="rd_error">Could not load the recipe or save the entry. Retry. A changed plan needs a new portion confirmation.</string>
+    <string name="rd_saved">Saved to the local diary.</string>
+    <string name="rd_pending">A confirmed entry is pending. Retry saves the same entry.</string>
+    <string name="rd_version">Recipe version %1$d · customization %2$d</string>
+    <string name="rd_plan_portion">Planned personal servings: %1$.2f · remaining: %2$.2f</string>
+    <string name="rd_batch">Ingredients for the entire prepared batch</string>
+    <string name="rd_batch_servings">Prepared batch: %1$.2f plan servings</string>
+    <string name="rd_steps">Preparation steps</string>
+    <string name="rd_unverified">Instructions for this version are unverified.</string>
+    <string name="rd_no_steps">No instructions for this version.</string>
+    <string name="rd_no_basis">The personal portion cannot be linked to the batch. A portion basis is required to log this meal.</string>
+    <string name="rd_ate">I ate — choose portion</string>
+    <string name="rd_personal">How many personal plan servings did you eat?</string>
+    <string name="rd_invalid">Enter a positive finite amount no greater than the remaining portion.</string>
+    <string name="rd_confirm_portion">Personal servings to record: %1$.2f</string>
 </resources>

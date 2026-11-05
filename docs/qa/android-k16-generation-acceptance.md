@@ -43,3 +43,11 @@ UI screens 04/13/14 and Today routes, automatic catalog import activation, real 
 - Accepted menu uses seven real dates in the plan timezone, selected-day marker, and planned/partial/consumed/skipped labels. Today reads accepted-plan actual + remaining projection; diary completeness is not inferred.
 - JVM UI render coverage: localized missing-input/profile-summary view at 1.5 font scale; no synthetic success, plan or FoodLog. Repository acceptance/recalculation scenarios remain in their existing suites.
 - Remaining K16: complete recipe detail/name/ingredient/step presentation and portion-confirmed Yedim routes; successful production UI end-to-end acceptance/recalculation with approved catalog/prices; dated-menu and successful-preview visual/device coverage. This integration does not complete all K16 acceptance requirements.
+
+## Recipe detail and portion-confirmed intake continuation
+- Menu opens an exact recipe/customization revision with localized names, batch ingredient grams/preparation states and instruction verification status.
+- Planned personal nutrient snapshot and remaining servings are distinct from full-batch ingredients. Missing cooked yield blocks the base-recipe batch conversion; customized batches use their recorded prepared/user servings. Customized yield is not inherited.
+- “Yedim” opens a numeric personal portion, then nutrient/gram preview and explicit diary confirmation. Viewing/cancellation never writes. Null nutrients remain unknown.
+- Exact serialized PlanConsumption is durably committed before the atomic log/remaining-plan transaction. Restart/retry reuses its event ID, timestamp and snapshots, including after DB success but before preference cleanup.
+- Added RecipeDetailTest (half portion, exact customization, missing yield and invalid inputs), RecipeWorkflowTest (restart and post-commit replay), and MenuUiTest coverage/rendering for AZ/EN/RU at 1.5 font scale.
+- Only mandatory post-merge CI may execute checks. Production G3/G4 gates remain closed. Real catalog successful-flow/device acceptance and APK checks remain unverified; no APK authorized.

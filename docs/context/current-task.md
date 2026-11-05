@@ -1,38 +1,35 @@
-# Current task — K16 menu UI integration
+# Current task — K16 recipe detail and confirmed intake
 
 ## Completed
-- Menu route wired to production generation, explicit acceptance and futurePlans preview/confirm.
-- Exact pending request/seed/acceptance IDs saved before compute; retry resumes after recreation/restart.
-- Real dated accepted-plan menu, profile goal/slot summary, AZ/EN/RU empty/failure states.
-- Today uses accepted-plan actual + remaining projection without declaring diary completeness.
+- Existing K16 production generation/explicit acceptance/future preview and Today projection retained.
+- Menu recipe entry resolves exact library/customization revision; localized names, batch ingredients/preparation state, instructions and verification status.
+- Personal portion input → nutrient/gram preview → explicit Yedim confirmation; cancellation/viewing does not log.
+- Durable exact consumption command saved before atomic log/remaining-plan write; restart and post-commit retry reuse event and snapshot.
 
 ## Current state
-- Production catalog/G3, price/G4 and budget gates remain closed.
-- No synthetic success or fixture bypass in UI. No APK authorized.
+- Scoped implementation and tests committed for mandatory merged-main CI; consult `.local-ci/logs/latest.json` and chat for actual result.
+- G3/catalog and G4/pricing remain closed; no fixture bypass in production. No APK authorized.
 
 ## Decisions
-- Existing repository invariants and immutable receipts retained.
-- New initial weeks begin after existing accepted weeks to avoid overlapping generated weeks.
-- Profile recalculation is separate from initial acceptance, preserves protected history.
+- Base batch conversion requires stored cooked yield and personal grams; missing basis blocks intake here.
+- Customized ingredients/instructions come from exact saved revision; cooked yield/verification are not inherited.
+- One generated serving denotes a personal portion, distinct from a full batch.
 
 ## Remaining work
-- Complete recipe detail/name/ingredient/step presentation and portion-confirmed Yedim UI.
-- Successful production UI acceptance/recalculation E2E with authoritative catalog/pricing.
-- Dated-menu/successful-preview visual and device coverage.
+- Production acceptance/recalculation/detail E2E with authoritative catalog/prices and device coverage.
+- K18 ingredient editor and other later milestones remain separate.
 
 ## Relevant files
-- ui/menu/{MenuWorkflow,MenuScreen,TodayPlanProjection}.kt; ui/BootstrapScreen.kt; ui/today/TodayScreen.kt
-- data/local/{PlanGenerationRepository,PlanAcceptanceRepository,FuturePlanRepository,MealPlanRepository}.kt
-- ui/MenuUiTest.kt; docs/qa/android-k16-generation-acceptance.md
-- planning/coding-tasks.txt K16; planning/research-data.json §8/18–19/22; docs/nutrition-plan-design.md
+- ui/menu/{RecipeDetailData,RecipeDetailScreen,RecipeWorkflow,MenuScreen}.kt
+- data/local/PlanConsumptionRepository.kt; domain/planning/PlanConsumption.kt
+- ui/{RecipeDetailTest,RecipeWorkflowTest,MenuUiTest}.kt
+- docs/qa/android-k16-generation-acceptance.md
+- planning/research-data.json §8/18–19/22; planning/meal-customization-requirements.txt §2/7
 
 ## Checks performed
-- Read lifecycle, organization, canonical scoped requirements, ui-craft, tokens and design references.
-- APK-free Kotlin compilation and all six token contrast pairs passed during post-merge checks.
-- AZ/EN/RU missing-input screens rendered and inspected at 1.5 font scale.
-- Lint found plural-candidate and SharedPreferences extension guidance; repaired without losing synchronous commit failure detection.
-- Final full merged-main CI result recorded in chat response.
-- No APK/device/clinical/real catalog acceptance claimed.
+- Read lifecycle, organization, canonical scoped requirements, nutrition design, design references and ui-craft; inspected recipe reference image.
+- Added APK-free JVM behavioral tests and native Compose rendering for AZ/EN/RU at font scale 1.5.
+- CI execution and resulting screenshot inspection are recorded in chat after finish; do not infer passes from this file.
 
 ## Exact next step
-- Next scoped unit: recipe detail + idempotent portion-confirmed Yedim, following K16 and customization §2/7.
+- Check merged-main CI outcome and screenshot evidence, then plan the next scoped unit using planning/coding-tasks.txt. Do not claim production/device acceptance without evidence.
