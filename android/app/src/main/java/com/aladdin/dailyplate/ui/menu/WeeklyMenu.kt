@@ -94,7 +94,8 @@ private fun WeekSelector(first: LocalDate, selected: String, today: LocalDate, s
             }
         }
     }
-    if (expanded) FlowRow(Modifier.fillMaxWidth(), maxItemsInEachRow = 2,
+    if (expanded) FlowRow(Modifier.fillMaxWidth(),
+        maxItemsInEachRow = if (locale.language == "ru" && config.fontScale > 1.3f) 1 else 2,
         horizontalArrangement = Arrangement.spacedBy(QidaSpacing.small),
         verticalArrangement = Arrangement.spacedBy(QidaSpacing.small)) {
         for (index in 0L..6L) day(index, Modifier.weight(1f))
