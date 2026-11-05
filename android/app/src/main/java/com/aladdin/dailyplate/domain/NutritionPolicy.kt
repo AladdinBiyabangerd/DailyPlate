@@ -1,8 +1,9 @@
 package com.aladdin.dailyplate.domain
 
 import kotlinx.serialization.Serializable
+import com.aladdin.dailyplate.domain.policy.PolicyExecutionRules
 
-/** Versioned rule contracts only. K02 does not interpret or approve clinical rules. */
+/** Legacy editorial rule descriptions; executable K08 rules are typed separately. */
 @Serializable
 data class PolicyRule(val code: String, val parameters: Map<String, String>, val evidenceRefs: List<String>)
 
@@ -18,6 +19,8 @@ data class NutritionPolicy(
     val macroRules: List<PolicyRule>, val nutrientChecks: List<PolicyRule>,
     val reassessmentRules: List<PolicyRule>, val evidenceRefs: List<String>,
     val review: Review?, val approvedAt: RecordedAt?, val status: PolicyStatus,
+    // Absent in K02/K05 snapshots: legacy policies remain readable but cannot execute.
+    val execution: PolicyExecutionRules? = null,
 ) {
     init {
         activityMapping.values.forEach(::positive)

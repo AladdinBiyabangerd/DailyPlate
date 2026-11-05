@@ -3,6 +3,8 @@ package com.aladdin.dailyplate.data.local
 import android.content.Context
 import com.aladdin.dailyplate.domain.*
 import com.aladdin.dailyplate.domain.onboarding.OnboardingDraft
+import com.aladdin.dailyplate.domain.policy.NutritionAssessmentRecord
+import com.aladdin.dailyplate.domain.policy.NutritionPolicyEngine
 import kotlinx.serialization.json.Json
 import java.time.LocalDate
 import java.time.Instant
@@ -33,10 +35,21 @@ class OnboardingStore(context: Context) {
         }
     }
     fun confirmed(id: String): UserProfile? = UserRepositories.open(context).use { it.profiles.latest("local-guest", id) }
-    fun confirm(draft: OnboardingDraft, language: String): UserProfile = UserRepositories.open(context).use { repositories ->
-        // Stable draft ID makes double taps/restart after a completed write idempotent.
-        repositories.profiles.latest("local-guest", draft.id) ?: repositories.profiles.save(
-            draft.profile(language, RecordedAt(Instant.now().toString(), ZoneId.systemDefault().id),
-                CalendarDate(LocalDate.now().toString())), 0)
+    fun confirm(draft: OnboardingDraft, language: String): UserProfile {
+        val database = UserDatabase.open(context)
+        return UserRepositories(database).use { repositories ->
+            database.runInTransaction(java.util.concurrent.Callable {
+                // Stable draft ID makes double taps/restart after a completed write idempotent.
+                val profile = repositories.profiles.latest("local-guest", draft.id) ?: repositories.profiles.save(
+                    draft.profile(language, RecordedAt(Instant.now().toString(), ZoneId.systemDefault().id),
+                        CalendarDate(LocalDate.now().toString())), 0)
+                // Profile and screening commit together; retries never create a new profile version.
+                if (repositories.nutritionAssessments.version(profile.userId, profile.ref) == null) {
+                    repositories.nutritionAssessments.save(NutritionAssessmentRecord(profile.ref, profile.userId,
+                        NutritionPolicyEngine.assess(profile, null, profile.updatedAt)), 0)
+                }
+                profile
+            })
+        }
     }
 }
