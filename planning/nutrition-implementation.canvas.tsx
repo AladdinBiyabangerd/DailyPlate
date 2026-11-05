@@ -752,6 +752,19 @@ const data = {
         "S5",
         "S14"
       ]
+    },
+    {
+      "id": "mutexessis-tesdiqi",
+      "title": "30. Planın hamısı üzrə bildirilmiş mütəxəssis təsdiqi",
+      "summary": "İstifadəçi planın hamısının mütəxəssis tərəfindən yoxlanıb təsdiqləndiyini bildirib; ad onun istəyinə uyğun saxlanmır.",
+      "items": [
+        "Cari status: SPECIALIST_APPROVAL_REPORTED. Əhatə: 2.1-research versiyasındakı bütün yazılı plan, §1–29 və nutrition_policy_candidate hesab qaydaları. Bildiriş 5 noyabr 2026 tarixində bu söhbətdə alınıb; bu, mütəxəssisin yoxlama tarixi deyil.",
+        "Mütəxəssisin adı istifadəçinin istəyi ilə yazılmır. İxtisas və faktiki yoxlama tarixi bildirilməyib; həmin sahələr naməlum qalır, tarix və imza uydurulmur. Qeyd istifadəçi bildirişinə əsaslanır; ayrıca sənəd təqdim olunmayıb və müstəqil yoxlama aparıldığı iddia edilmir.",
+        "Əvvəlki bölmələrdəki “mütəxəssis yoxdur” və “təsdiq alınmayıb” sözləri əvvəlki iş vəziyyətini təsvir edir. Plan üzrə bildirilən mütəxəssis baxışının cari statusu bu bölmədir. Sonradan dəyişdirilən qaydalar əvvəlki təsdiq əhatəsinə səssiz daxil edilmir; təsdiq olunan versiya və hash ayrıca saxlanır.",
+        "Yazılı planın təsdiqi tətbiqin hazır, klinik sınaqdan keçmiş və ya rəsmi tənzimləyici təsdiqli olması demək deyil. Android implementasiyası, migration, hesab testləri, hər reseptin mənbə/allergen/hüquq/çıxım sübutu, məlumat təhlükəsizliyi və real cihaz qəbulunun faktiki statusları ayrıca qalır. Bu qeydlə production_enabled avtomatik açılmır.",
+        "Növbəti texniki işdə mütəxəssis tapılmaması plan üzrə açıq blok kimi göstərilmir; istifadəçinin bildirdiyi baxış statusu nəzərə alınır. Aktivləşdirmə üçün hələ lazım olan implementasiya və yoxlama tələbləri konkret sübutlarla tamamlanır; naməlum reviewer/date sahələri saxta dəyərlə doldurulmur."
+      ],
+      "refs": []
     }
   ],
   "week": [
@@ -799,16 +812,32 @@ const data = {
     ]
   ],
   "metadata": {
-    "version": "2.1-research",
+    "version": "2.2-reported-review",
     "updated_on": "2026-11-05",
     "timezone": "Asia/Baku",
-    "status": "isolated_policy_proposal_not_approved",
-    "canonical": "planning/research-data.json"
+    "status": "specialist_approval_reported_by_user",
+    "canonical": "planning/research-data.json",
+    "specialist_review": {
+      "status": "SPECIALIST_APPROVAL_REPORTED",
+      "scope": "entire_written_plan_including_sections_1_to_29_and_nutrition_policy_candidate",
+      "reviewed_plan_version": "2.1-research",
+      "reviewed_canonical_sha256": "d008480bf08dc912094b0c73000bf071843fc3c5883afdba930a14e30b122705",
+      "basis": "USER_ATTESTATION",
+      "reported_on": "2026-11-05",
+      "reported_timezone": "Asia/Baku",
+      "reviewer_name": null,
+      "reviewer_name_withheld_by_user": true,
+      "reviewer_qualification": null,
+      "reviewed_on": null,
+      "supporting_document_provided": false,
+      "independently_verified": false,
+      "statement_az": "İstifadəçinin bildirişinə əsasən planın hamısı mütəxəssis tərəfindən yoxlanıb təsdiqlənib. İstifadəçi mütəxəssisin adının yazılmamasını istəyib; yoxlama tarixi və ixtisas bildirilməyib."
+    }
   },
   "nutrition_policy_candidate": {
     "id": "dailyplate-adult-energy-candidate",
     "version": 1,
-    "status": "RESEARCH_PROPOSAL",
+    "status": "SPECIALIST_APPROVAL_REPORTED",
     "production_enabled": false,
     "approved_by": null,
     "approved_at": null,
@@ -1134,6 +1163,22 @@ const data = {
         2425.0365,
         2680.3035
       ]
+    },
+    "specialist_review": {
+      "status": "SPECIALIST_APPROVAL_REPORTED",
+      "scope": "entire_written_plan_including_sections_1_to_29_and_nutrition_policy_candidate",
+      "reviewed_plan_version": "2.1-research",
+      "reviewed_canonical_sha256": "d008480bf08dc912094b0c73000bf071843fc3c5883afdba930a14e30b122705",
+      "basis": "USER_ATTESTATION",
+      "reported_on": "2026-11-05",
+      "reported_timezone": "Asia/Baku",
+      "reviewer_name": null,
+      "reviewer_name_withheld_by_user": true,
+      "reviewer_qualification": null,
+      "reviewed_on": null,
+      "supporting_document_provided": false,
+      "independently_verified": false,
+      "statement_az": "İstifadəçinin bildirişinə əsasən planın hamısı mütəxəssis tərəfindən yoxlanıb təsdiqlənib. İstifadəçi mütəxəssisin adının yazılmamasını istəyib; yoxlama tarixi və ixtisas bildirilməyib."
     }
   }
 };
@@ -1142,7 +1187,7 @@ export default function NutritionPlan() {
   const [selected, setSelected] = useState("qerar");
   const section = data.sections.find(s => s.id === selected) || data.sections[0];
   return <Stack gap={24} style={{padding:24, maxWidth:1160, margin:"0 auto", color:theme.text.primary, background:theme.bg.editor}}>
-    <Stack gap={8}><H1>Qida: elmi əsasdan işlək məhsula</H1><Text tone="secondary">İcra planı · 500 ərzaq qeydi + 224 resept layihəsi · 5 noyabr 2026 · Versiya 2.1-research</Text>
+    <Stack gap={8}><H1>Qida: elmi əsasdan işlək məhsula</H1><Text tone="secondary">İcra planı · 500 ərzaq qeydi + 224 resept layihəsi · 5 noyabr 2026 · Versiya 2.2-reported-review</Text>
     <Callout tone="info" title="Əsas qərar">Təsdiqli ərzaq məlumatı + çəkilmiş yerli reseptlər + dietoloqun təsdiqlədiyi qaydalar. AI seçimə və izaha kömək edir; hesablamanı və təhlükəsizlik filtrini yoxlanmış kod aparır.</Callout></Stack>
     <Row gap={8} wrap>{data.sections.map(s=><Pill key={s.id} active={selected===s.id} onClick={()=>setSelected(s.id)}>{s.title}</Pill>)}<Pill active={selected==="sources"} onClick={()=>setSelected("sources")}>Mənbə reyestri</Pill></Row>
     {selected === "sources" ? <Stack gap={16}><H2>Yoxlanmış ilkin mənbələr</H2><Text tone="secondary">Mənbələrin yoxlama tarixi və məhdudiyyəti reyestrdədir. Yeni baxış: 5 noyabr 2026; bütün alt sənədlər yenidən yoxlanmayıb.</Text>{data.sources.map(s=><Stack key={s.id} gap={8}><Link href={s.url}>{s.id} · {s.name}</Link><Text>{s.use}</Text><Divider/></Stack>)}</Stack> :

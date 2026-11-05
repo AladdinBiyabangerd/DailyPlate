@@ -35,9 +35,13 @@
 ## Exact next step
 - Verify matching-main CI, then read K14 and its referenced plan before coding.
 
-## Separate nutrition-policy research handoff (not integrated)
-- This worktree/branch adds plan §26–29 and exact disabled policy proposal.
-- Detailed Completed/State/Decisions/Remaining/Files/Checks/Next step:
-  docs/context/nutrition-policy-research.md.
-- User requires a separate branch; no main merge, no CI, no app code activation.
-  Continue K14 in its own worktree using main's plan until integration is requested.
+## Latest nutrition-plan status
+- Research proposal 479f7ee merged into main as b775fb2; CI skipped at user request.
+- User subsequently reported specialist approval of the entire written plan and
+  requested no reviewer name. Plan 2.2-reported-review records USER_ATTESTATION,
+  scope/version/hash; qualification and review date remain unknown.
+- No fake identity/date/document or independent verification claimed. No Android
+  execution flag enabled; implementation/content/device acceptance remains separate.
+- Canonical research-data.json and generated MD/TXT/canvas/candidate JSON/PDF updated.
+- Exact next step: implement the scoped K08-v2 contract in a separate task using
+  plan §26–30; retain snapshots and verify actual implementation before activation.

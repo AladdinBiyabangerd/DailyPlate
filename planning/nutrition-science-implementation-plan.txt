@@ -1,5 +1,5 @@
 QIDA — ELMİ ƏSAS, MƏZMUN VƏ REAL İCRA PLANI
-Versiya 2.1-research | 5 noyabr 2026 | 500 ərzaq qeydi və 224 resept layihəsi
+Versiya 2.2-reported-review | 5 noyabr 2026 | 500 ərzaq qeydi və 224 resept layihəsi
 
 1. Nə qururuq və elmi əsas nə deməkdir?
 Təsdiqlənmiş qida məlumatı + öz resept bazamız + versiyalı hesablama və menyu qaydaları.
@@ -159,7 +159,7 @@ Təsdiqlənmiş kitabxanadan seçim → porsiya → yenidən yoxlama → sabit p
 
 10. AI üçün icazəli rol: təsdiqli namizədləri tapmaq, AZ/EN/RU sadə izahı hazırlamaq, foto namizədi vermək. Hesablamalar, allergen filtri və tibbi hədlər yoxlanmış kodda icra edilir; modelin sərbəst cavabına buraxılmır.
 
-Mənbələr: 
+Mənbələr:
 
 9. İlk 7 günlük məzmun nüvəsi
 Aşağıdakı yeməklər kitabxana üçün ideyadır. Porsiya və qida hesabı təsdiqlənmədən istifadəçiyə balanslı plan kimi təqdim edilmir.
@@ -195,7 +195,7 @@ Mənbələr: S11
 
 7. Hər maarif kartı üçün: qısa istifadəçi mətni, əhatə və istisnalar, konkret mənbə bölməsi, müəllif, klinik redaktor, yoxlama tarixi və növbəti baxış tarixi. Tərcümə eyni qaydanın ID-sinə bağlıdır.
 
-Mənbələr: 
+Mənbələr:
 
 11. Komandaya veriləcək məlumat müqavilələri
 Sadə ekranların arxasında mənbəni və keçmiş nəticəni qoruyan struktur olmalıdır.
@@ -214,7 +214,7 @@ Sadə ekranların arxasında mənbəni və keçmiş nəticəni qoruyan struktur 
 
 7. Keyfiyyət qaydası: təsdiq zənciri və audit izi olmayan resept, policy və izah avtomatik dərc edilmir; geri qaytarılma və əvvəlki versiyaya baxış mümkün olur.
 
-Mənbələr: 
+Mənbələr:
 
 12. Buraxılışdan əvvəl nəyi yoxlayacağıq?
 Əvvəl hesablamanın düzgünlüyü, sonra real məzmun və rahat istifadə.
@@ -233,7 +233,7 @@ Mənbələr:
 
 7. Buraxılış meyarı: aktiv policy klinik redaktor tərəfindən təsdiqlənib; dərc edilən reseptlər izlenə bilir; kritik allergen pozuntusu və hesab dublikatı testlərdə yoxdur; UI sadə dildə yoxlanıb. İlk buraxılış sonrası insident və yanlış qida məlumatını bildirmə kanalı işləyir.
 
-Mənbələr: 
+Mənbələr:
 
 13. İcra ardıcıllığı və məsul şəxslər
 Məzmunun ilkin genişləndirilməsi artıq edilib. Aşağıdakı iş planı qalan ölçmə, yoxlama və məhsula inteqrasiya üçündür; bütün tətbiqin buraxılış tarixi deyil.
@@ -254,7 +254,7 @@ Məzmunun ilkin genişləndirilməsi artıq edilib. Aşağıdakı iş planı qal
 
 8. Hazır konkret paket: 500 mənbəli ərzaq qeydi + qram və addımları yazılmış 224 resept layihəsi + 8 həftəlik ideya rotasiyası + 8 217 mənbə qeydi olan SQLite + JSON/CSV idxalı. Yoxlamalar tamamlanmadığı üçün publishable=false saxlanır. Bişmiş 100 qram və şəkilli porsiyanın şərtləri ayrıca feature_gates sahəsindədir.
 
-Mənbələr: 
+Mənbələr:
 
 14. Hansı qərarlar təsdiqlənmədən kodu aktivləşdirmirik?
 Plan hazırdır; bu qərarlar icranın yoxlama nöqtələridir.
@@ -267,7 +267,7 @@ Plan hazırdır; bu qərarlar icranın yoxlama nöqtələridir.
 
 4. Bu qərarlar rəqəm uydurmaqla doldurulmur. Təsdiq gələnədək texniki hissə sınaq məlumatı və deaktiv siyasətlə hazırlana bilər; real istifadəçiyə fərdi tibbi uyğunluq vədi verilmir.
 
-Mənbələr: 
+Mənbələr:
 
 15. Kitabxana indi genişləndirildi: faktiki nəticə
 Planlaşdırılan saylar artıq fayllarda var; təsdiq olunmayan hissələr aydın statusla ayrılıb.
@@ -311,7 +311,7 @@ Mənbələr: S12, S13
 
 9. Ətraflı axınlar, məlumat müqavilələri və 19 qəbul ssenarisi planning/meal-customization-requirements.txt faylındadır. Status: məcburi tələb kimi yazılıb, tətbiqdə hələ kodlaşdırılmayıb.
 
-Mənbələr: 
+Mənbələr:
 
 17. Məqsəd, büdcə və dünya mətbəxlərinə uyğun kitabxana
 Məcburi məhsul tələbi: istifadəçinin arıqlama, çəki artırma və saxlama seçiminə uyğun porsiya və menyu; regionda əlçatan ərzaq və real həftəlik büdcə.
@@ -375,7 +375,7 @@ Mənbələr: S2, S3, S7, S14, S15, S16
 
 13. Qəbul meyarları: 4 məqsəd × 3 büdcə = 12 profil; hər profil üçün 3/4/5 yemək və 15/30/60 dəqiqə seçimlərinin planı dəyişməsi; allergiya yoxdur qarşılıqlı istisnası; cavabsız allergiya; çoxlu allergiya və istəksizlik; vaxtı/qiyməti naməlum resept; uyğun nəticə olmaması; healthy üçün avtomatik defisitin olmaması; qonaqdan hesaba keçid; başqa cihazda bərpa; giriş və sinxronizasiya xətasında məlumatın saxlanması. Bunlar planlaşdırılan yoxlamalardır, işlək tətbiqdə keçmiş test iddiası deyil.
 
-Mənbələr: 
+Mənbələr:
 
 19. Digər dizayn ekranları ilə müqayisə və tamamlanan tələblər
 01 və 03–11 dizayn dəstləri mövcud planla müqayisə edildi. Elmi/hesablama və fərdiləşdirmə qaydaları saxlanıldı; çatışmayan ekran davranışları, vəziyyətlər və məlumat müqavilələri aşağıda tamamlandı.
@@ -418,7 +418,7 @@ Mənbələr:
 
 19. Buraxılış yoxlama siyahısı: ekran 01–44 üçün giriş→hərəkət→nəticə→geri/xəta yolu izlənir. Əlavə ssenarilər: könüllü cins buraxılıb; onluq vergül; plan xülasəsi profillə uyğun; əl ilə naməlum nutrient; kamera icazəsi yoxdur; tanınmayan foto; yağın iki dəfə sayılmaması; seçilmişlərdən təkrar qeyd; tarixli çəki düzəlişi; boş həftə; sakit saatların gecə yarısını keçməsi; bildiriş icazəsi rəddi; aylıq/illik və bərpa/ödəniş xətası; pulsuz davam; lokal yazı xətası; paylaşımın ləğvi; qaralamanın bərpası və konflikti; alış-verişdə evdə/alınıb ayrımı; sonrakı gündəliyi qoruyan undo; dil dəyişməsi və böyük mətn. Bunlar icra edilməli qəbul ssenariləridir, keçmiş tətbiq testləri deyil.
 
-Mənbələr: 
+Mənbələr:
 
 20. Vahid plan, üstünlük və ziddiyyətlərin həlli
 U-01–U-10: iki planın bir icra müqaviləsinə çevrilməsi; təsdiqsiz rəqəmlər aktiv qayda olmur.
@@ -651,6 +651,21 @@ NP-24–NP-31: araşdırma tamamlanıb, təklif konkretləşdirilib; live aktivl
 8. NP-31 Yoxlama fərqi: bu işdə rəsmi formullar/istinadlar və sintetik hesab arifmetikası tutuşdurulur; runtime K08-v2, 4 seçimli onboarding, real yemək planı, cihaz/klinik pilot və effektivlik sınağı hələ aparılmır. S25 köhnə guideline-dir, NHS S14 baxış tarixi 2023 və növbəti baxış 2026-dır; NICE və NASEM bəzi hissələri yalnız rəsmi indeks çıxarışı ilə yoxlanıb. Mənbə əlçatanlığı və tarix məhdudiyyəti approval paketində açıq saxlanır.
 
 Mənbələr: S23, S24, S25, S26, S5, S14
+
+30. Planın hamısı üzrə bildirilmiş mütəxəssis təsdiqi
+İstifadəçi planın hamısının mütəxəssis tərəfindən yoxlanıb təsdiqləndiyini bildirib; ad onun istəyinə uyğun saxlanmır.
+
+1. Cari status: SPECIALIST_APPROVAL_REPORTED. Əhatə: 2.1-research versiyasındakı bütün yazılı plan, §1–29 və nutrition_policy_candidate hesab qaydaları. Bildiriş 5 noyabr 2026 tarixində bu söhbətdə alınıb; bu, mütəxəssisin yoxlama tarixi deyil.
+
+2. Mütəxəssisin adı istifadəçinin istəyi ilə yazılmır. İxtisas və faktiki yoxlama tarixi bildirilməyib; həmin sahələr naməlum qalır, tarix və imza uydurulmur. Qeyd istifadəçi bildirişinə əsaslanır; ayrıca sənəd təqdim olunmayıb və müstəqil yoxlama aparıldığı iddia edilmir.
+
+3. Əvvəlki bölmələrdəki “mütəxəssis yoxdur” və “təsdiq alınmayıb” sözləri əvvəlki iş vəziyyətini təsvir edir. Plan üzrə bildirilən mütəxəssis baxışının cari statusu bu bölmədir. Sonradan dəyişdirilən qaydalar əvvəlki təsdiq əhatəsinə səssiz daxil edilmir; təsdiq olunan versiya və hash ayrıca saxlanır.
+
+4. Yazılı planın təsdiqi tətbiqin hazır, klinik sınaqdan keçmiş və ya rəsmi tənzimləyici təsdiqli olması demək deyil. Android implementasiyası, migration, hesab testləri, hər reseptin mənbə/allergen/hüquq/çıxım sübutu, məlumat təhlükəsizliyi və real cihaz qəbulunun faktiki statusları ayrıca qalır. Bu qeydlə production_enabled avtomatik açılmır.
+
+5. Növbəti texniki işdə mütəxəssis tapılmaması plan üzrə açıq blok kimi göstərilmir; istifadəçinin bildirdiyi baxış statusu nəzərə alınır. Aktivləşdirmə üçün hələ lazım olan implementasiya və yoxlama tələbləri konkret sübutlarla tamamlanır; naməlum reviewer/date sahələri saxta dəyərlə doldurulmur.
+
+Mənbələr:
 
 MƏNBƏ REYESTRİ
 

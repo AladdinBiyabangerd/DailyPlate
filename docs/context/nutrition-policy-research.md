@@ -61,3 +61,11 @@
 ## Exact next step
 - Review proposal in this worktree, especially NP-07 and NP-09–NP-23 choices;
   do not turn RESEARCH_PROPOSAL into ACTIVE or merge without a new user request.
+
+## Subsequent status superseding the original isolation/approval notes
+- 479f7ee was merged into main as b775fb2 at the user's request, without CI.
+- User reports specialist approval of the entire 2.1-research written plan;
+  reviewer name is withheld by explicit request. Plan §30/metadata records the
+  attestation and original source hash. Review date/qualification are unknown.
+- This is not independent verification, completed app testing or regulatory approval.
+- App implementation/production activation is unchanged. Use current main plan §30.

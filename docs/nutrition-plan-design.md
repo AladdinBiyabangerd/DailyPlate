@@ -1,9 +1,9 @@
 # DailyPlate — vahid qidalanma və funksional icra planı
 
-> Versiya 2.1-research · 5 noyabr 2026 (Asia/Baku) · Paket: `com.aladdin.dailyplate`
+> Versiya 2.2-reported-review · 5 noyabr 2026 (Asia/Baku) · Paket: `com.aladdin.dailyplate`
 > Bu fayl `planning/research-data.json`-dan yaradılır. Tələbi əvvəl kanonik JSON-da dəyiş, sonra `python3 library/tools/update_project_plan.py` işlət.
 
-Əvvəlki nutrition-plan-design və məhsul planı birləşdirilib. §1–19 mövcud məhsul qaydalarını, §20–25 ziddiyyət həllərini və müqavilələri, §26–29 konkret enerji/makro policy tədqiqat təklifini əhatə edir. Bu sənəd işlək tətbiq və ya klinik təsdiq iddiası deyil.
+Əvvəlki nutrition-plan-design və məhsul planı birləşdirilib. §1–19 mövcud məhsul qaydalarını, §20–25 ziddiyyət həllərini və müqavilələri, §26–29 konkret enerji/makro policy tədqiqat təklifini əhatə edir. §30 planın hamısı üzrə istifadəçinin bildirdiyi mütəxəssis təsdiqini qeydə alır; tətbiqin implementasiya/test statusu ayrıdır.
 
 İcra növbəsi: [coding-tasks](../planning/coding-tasks.txt). Əlavə məcburi müqavilə: [T01–T19](../planning/meal-customization-requirements.txt).
 
@@ -668,6 +668,20 @@ NP-24–NP-31: araşdırma tamamlanıb, təklif konkretləşdirilib; live aktivl
 8. NP-31 Yoxlama fərqi: bu işdə rəsmi formullar/istinadlar və sintetik hesab arifmetikası tutuşdurulur; runtime K08-v2, 4 seçimli onboarding, real yemək planı, cihaz/klinik pilot və effektivlik sınağı hələ aparılmır. S25 köhnə guideline-dir, NHS S14 baxış tarixi 2023 və növbəti baxış 2026-dır; NICE və NASEM bəzi hissələri yalnız rəsmi indeks çıxarışı ilə yoxlanıb. Mənbə əlçatanlığı və tarix məhdudiyyəti approval paketində açıq saxlanır.
 
 Mənbələr: [S23](https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/dietary-reference-intakes/tables/equations-estimate-energy-requirement.html), [S24](https://www.ncbi.nlm.nih.gov/books/NBK588659/pdf/Bookshelf_NBK588659.pdf), [S25](https://www.jacc.org/doi/10.1016/j.jacc.2013.11.004), [S26](https://www.nice.org.uk/guidance/ng246/chapter/Physical-activity-and-diet), [S5](https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2012.2557), [S14](https://www.nhs.uk/live-well/healthy-weight/managing-your-weight/healthy-ways-to-gain-weight/)
+
+## 30. Planın hamısı üzrə bildirilmiş mütəxəssis təsdiqi
+
+İstifadəçi planın hamısının mütəxəssis tərəfindən yoxlanıb təsdiqləndiyini bildirib; ad onun istəyinə uyğun saxlanmır.
+
+1. Cari status: SPECIALIST_APPROVAL_REPORTED. Əhatə: 2.1-research versiyasındakı bütün yazılı plan, §1–29 və nutrition_policy_candidate hesab qaydaları. Bildiriş 5 noyabr 2026 tarixində bu söhbətdə alınıb; bu, mütəxəssisin yoxlama tarixi deyil.
+
+2. Mütəxəssisin adı istifadəçinin istəyi ilə yazılmır. İxtisas və faktiki yoxlama tarixi bildirilməyib; həmin sahələr naməlum qalır, tarix və imza uydurulmur. Qeyd istifadəçi bildirişinə əsaslanır; ayrıca sənəd təqdim olunmayıb və müstəqil yoxlama aparıldığı iddia edilmir.
+
+3. Əvvəlki bölmələrdəki “mütəxəssis yoxdur” və “təsdiq alınmayıb” sözləri əvvəlki iş vəziyyətini təsvir edir. Plan üzrə bildirilən mütəxəssis baxışının cari statusu bu bölmədir. Sonradan dəyişdirilən qaydalar əvvəlki təsdiq əhatəsinə səssiz daxil edilmir; təsdiq olunan versiya və hash ayrıca saxlanır.
+
+4. Yazılı planın təsdiqi tətbiqin hazır, klinik sınaqdan keçmiş və ya rəsmi tənzimləyici təsdiqli olması demək deyil. Android implementasiyası, migration, hesab testləri, hər reseptin mənbə/allergen/hüquq/çıxım sübutu, məlumat təhlükəsizliyi və real cihaz qəbulunun faktiki statusları ayrıca qalır. Bu qeydlə production_enabled avtomatik açılmır.
+
+5. Növbəti texniki işdə mütəxəssis tapılmaması plan üzrə açıq blok kimi göstərilmir; istifadəçinin bildirdiyi baxış statusu nəzərə alınır. Aktivləşdirmə üçün hələ lazım olan implementasiya və yoxlama tələbləri konkret sübutlarla tamamlanır; naməlum reviewer/date sahələri saxta dəyərlə doldurulmur.
 
 ## Mənbə reyestri
 
