@@ -76,7 +76,7 @@ class RecipeDetailDesignUiTest {
                             Spacer(Modifier.height(QidaSpacing.small).testTag("d04-top"))
                             QidaHeading(t(R.string.menu))
                             RecipeDetailContent(detail, confirm = confirm)
-                            QidaButton(t(R.string.back), {})
+                            RecipeDetailBack {}
                             Spacer(Modifier.height(QidaSpacing.small).testTag("d04-bottom"))
                         }
                     }
