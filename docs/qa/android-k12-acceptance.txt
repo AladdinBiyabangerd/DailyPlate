@@ -23,7 +23,7 @@ Implemented:
   explicit confirmation recover. No remote-sync claim. No Room table migration.
 
 Evidence:
-- Main abb1c8128f6a: 98 JVM tests passed, Android lint/compile/tokens and 15 library
+- Main d2d44c63c70e: 103 JVM tests passed, Android lint/compile/tokens and 15 library
   tests passed; canonical JSON/export parity passed.
 - TodayDiaryTest: Baku/UTC boundaries, Berlin 23-hour DST day, unknown/absent/unit
   mismatch, empty day and snapshot scaling. UserPersistenceTest: edits/deletion,
@@ -34,9 +34,11 @@ Evidence:
   a real published-food search-to-save E2E is not claimed.
 - Native JVM renders inspected: Today, editor and empty day. Large-font AZ/EN/RU
   previews inspected; switching languages in one preview exposed stale native
-  draw artifacts, so final previews render each locale in a separate test.
-- Final localized preview/ingredient-label changes require the subsequent finish
-  result. Authoritative final evidence: .local-ci/logs/latest.json passed=true
+  draw artifacts. Independent locale tests improved coverage; some English native
+  captures still omit previously drawn text. Earlier full English previews and
+  final labels were inspected too; device visual acceptance remains unverified.
+- Localized preview/ingredient-label changes passed main CI at d2d44c63c70e.
+  This documentation-only follow-up also uses finish. Authoritative final evidence: .local-ci/logs/latest.json passed=true
   and head equal to main HEAD. Artifacts: .local-ci/reports/k10/k12-*.png;
   test XML: .local-ci/reports/k10-test-results. An isolated final worktree keeps
   its own .local-ci reports; final report location is given in chat.
