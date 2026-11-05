@@ -15,6 +15,43 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], manifest = Config.NONE)
 class CurrentNutritionPersistenceTest {
+    @Test fun suspensionIsAtomicPersistentIdempotentAndProtectsPastAssessments() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        val name = "np16-suspension.db"
+        context.deleteDatabase(name)
+        fun open() = Room.databaseBuilder(context, UserDatabase::class.java, name).allowMainThreadQueries().build()
+        val p = readyOnboarding().profile("az", recordedAt, date)
+        val stop = com.aladdin.dailyplate.domain.profile.NutritionReview.suspension(p,
+            NutritionSuspension.NEW_SYMPTOM, recordedAt)
+        try {
+            open().useDatabase { db ->
+                val r = UserRepositories(db)
+                r.profiles.save(p, 0)
+                val old = NutritionAssessmentRecord(p.ref, p.userId, NutritionPolicyEngine.assessCurrent(p, recordedAt))
+                r.nutritionAssessments.save(old, 0)
+                db.openHelper.writableDatabase.execSQL("""CREATE TRIGGER np16_fail BEFORE INSERT ON user_snapshots
+                    WHEN NEW.kind = 'profile_change' BEGIN SELECT RAISE(ABORT, 'disk failure'); END""")
+                assertThrows(Exception::class.java) { r.profileEdits.confirm(stop) }
+                assertEquals(p, r.profiles.latest(p.userId, p.ref.id))
+                assertNull(r.nutritionAssessments.version(p.userId, stop.after.ref))
+                db.openHelper.writableDatabase.execSQL("DROP TRIGGER np16_fail")
+                assertEquals(stop.after, r.profileEdits.confirm(stop))
+                assertEquals(stop.after, r.profileEdits.confirm(stop))
+                assertEquals(old, r.nutritionAssessments.version(p.userId, p.ref))
+                val w = WeightEntry(VersionRef("weight", 1), p.userId, recordedAt, 70.0)
+                r.weights.save(w, 0); r.weights.save(w.copy(ref = w.ref.copy(version = 2), weightKg = 71.0), 1)
+                r.weights.save(w.copy(userId = "other"), 0)
+                assertEquals(listOf(71.0), r.weights.current(p.userId).map { it.weightKg })
+            }
+            open().useDatabase { db ->
+                val r = UserRepositories(db)
+                assertEquals(NutritionSuspension.NEW_SYMPTOM, r.profiles.latest(p.userId, p.ref.id)!!.nutritionSuspension)
+                assertNull(r.nutritionAssessments.latest(p.userId, p.ref.id)!!.assessment.diaryTarget())
+                assertEquals(2, r.profiles.history(p.userId, p.ref.id).size)
+            }
+        } finally { context.deleteDatabase(name) }
+    }
+
     private fun fixture(name: String) = requireNotNull(javaClass.classLoader!!.getResourceAsStream("nutrition/$name.json"))
         .bufferedReader().use { it.readText().trim() }
 

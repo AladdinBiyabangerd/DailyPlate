@@ -53,4 +53,14 @@
     <string name="pf_estimated_kcal">Estimated target: %1$s kcal/day</string>
     <string name="pf_review_due">Your 14-day review is due. Check weight, activity and age in your profile; the calculation changes only after preview and confirmation.</string>
     <string name="pf_review_date">First review date: %1$s</string>
+    <string name="nr_suspended">Target suspended. You can continue your food diary.</string>
+    <string name="nr_support">Contact a doctor or dietitian. Ordinary profile edits do not reactivate the target.</string>
+    <string name="nr_days">Measurements in the last 14 days: %1$d</string>
+    <string name="nr_insufficient">At least 3 voluntary measurements in the last 14 days are needed for a trend. Weighing is optional.</string>
+    <string name="nr_observed">Observed change between first and last measurement: %1$s kg. This is not a prediction.</string>
+    <string name="nr_review_note">Weight alone does not change calories. Review new weight, activity or age, then preview the reason and calculation before confirming.</string>
+    <string name="nr_review">Review details and preview calculation</string>
+    <string name="nr_report_note">For a new symptom or unexplained weight change, the options below immediately suspend the target.</string>
+    <string name="nr_symptom">New symptom — suspend target</string>
+    <string name="nr_unexplained">Unexplained weight change — suspend target</string>
 </resources>

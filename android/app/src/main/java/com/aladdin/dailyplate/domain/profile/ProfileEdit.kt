@@ -67,6 +67,7 @@ object ProfileEdit {
             specialistTargetKcal = specialist.takeIf { it.isNotBlank() }?.replace(',', '.')?.toDouble(),
             // Fields outside this editor are retained, including real source IDs.
             equipment = base.equipment, homeFoods = base.homeFoods,
+            nutritionSuspension = base.nutritionSuspension,
             eligibilityAnswers = base.eligibilityAnswers + edited.eligibilityAnswers,
             // K08 treats explicit positives as exclusions for every equation sex.
             // Hiding a question must never silently withdraw an existing positive.

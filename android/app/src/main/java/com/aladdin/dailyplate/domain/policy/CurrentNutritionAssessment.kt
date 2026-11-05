@@ -12,6 +12,12 @@ internal object CurrentNutritionAssessment {
     const val ACTIVITY_MODEL = "nasem-2023-four-category"
 
     fun assess(profile: UserProfile, at: RecordedAt): NutritionAssessment {
+        if (profile.nutritionSuspension != null) {
+            val issue = PolicyIssue(PolicyReason.HEALTH_EXCLUSION, profile.nutritionSuspension.name)
+            return NutritionAssessment(profile.ref, at,
+                EligibilityAssessment(EligibilityStatus.EXCLUDED, listOf(issue)),
+                TargetPath.GENERAL, null, null, listOf(issue))
+        }
         val today = Instant.parse(at.instant).atZone(ZoneId.of(at.timezone)).toLocalDate()
         val confirmedDate = profile.ageAsOfDate?.let { LocalDate.parse(it.iso) }
         val fresh = confirmedDate != null && !confirmedDate.isAfter(today) &&
