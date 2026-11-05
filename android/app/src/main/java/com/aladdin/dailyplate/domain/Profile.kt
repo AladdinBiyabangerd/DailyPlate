@@ -31,6 +31,9 @@ data class HomeFood(val food: VersionRef, val preparationState: String, val quan
 }
 
 @Serializable
+enum class NutritionSuspension { NEW_SYMPTOM, UNEXPLAINED_WEIGHT_CHANGE }
+
+@Serializable
 data class UserProfile(
     val ref: VersionRef, val userId: String, val updatedAt: RecordedAt,
     val goal: Goal, val ageYears: Int?, val calculationSex: CalculationSex?,
@@ -46,6 +49,7 @@ data class UserProfile(
     // Absent in legacy payloads: even the overlapping active label needs reconfirmation.
     val activityModel: String? = null,
     val measurementsConfirmed: Boolean = false,
+    val nutritionSuspension: NutritionSuspension? = null,
 ) {
     init {
         require(userId.isNotBlank())

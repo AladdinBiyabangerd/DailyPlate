@@ -24,6 +24,10 @@ class UserSnapshotRepository<T> internal constructor(
     fun history(userId: String, id: String): List<T> =
         database.snapshots().history(kind, userId, id).map { it.decode() }
 
+    /** Current revisions only, scoped to this owner. Historical edits are not extra measurements. */
+    fun current(userId: String): List<T> = database.snapshots().all(kind, userId)
+        .groupBy { it.id }.values.map { versions -> versions.maxBy { it.revision }.decode() }
+
     /** expectedRevision=0 creates an object; subsequent writes must increment by one. */
     fun save(value: T, expectedRevision: Long): T = database.runInTransaction(Callable {
         val userId = userIdOf(value)

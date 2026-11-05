@@ -12,7 +12,9 @@ import com.aladdin.dailyplate.R
 import com.aladdin.dailyplate.data.local.*
 import com.aladdin.dailyplate.domain.UserProfile
 import com.aladdin.dailyplate.domain.policy.NutritionAssessmentRecord
-import com.aladdin.dailyplate.domain.policy.reviewDate
+import com.aladdin.dailyplate.domain.WeightEntry
+import com.aladdin.dailyplate.domain.RecordedAt
+import com.aladdin.dailyplate.domain.profile.NutritionReview
 import com.aladdin.dailyplate.domain.profile.ProfileChangeRecord
 import com.aladdin.dailyplate.ui.*
 import kotlinx.coroutines.*
@@ -24,6 +26,8 @@ fun ProfileScreen(resetScroll: () -> Unit, setup: () -> Unit) {
     var profile by remember { mutableStateOf<UserProfile?>(null) }
     var history by remember { mutableStateOf<List<Pair<UserProfile, NutritionAssessmentRecord?>>>(emptyList()) }
     var changes by remember { mutableStateOf<List<ProfileChangeRecord>>(emptyList()) }
+    var weights by remember { mutableStateOf<List<WeightEntry>>(emptyList()) }
+    var reviewWeight by remember { mutableStateOf<Double?>(null) }
     var loaded by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf(false) }
     var busy by remember { mutableStateOf(false) }
@@ -40,6 +44,9 @@ fun ProfileScreen(resetScroll: () -> Unit, setup: () -> Unit) {
                         r.profileChanges.history("local-guest", id)
                 }
             }
+            weights = withContext(Dispatchers.IO) {
+                UserRepositories.open(context).use { it.weights.current("local-guest") }
+            }
             history = data.first; changes = data.second; profile = history.firstOrNull()?.first
             loaded = true; error = false
         } catch (_: Exception) { error = true }
@@ -54,7 +61,7 @@ fun ProfileScreen(resetScroll: () -> Unit, setup: () -> Unit) {
     }
     val step = editing
     if (step != null) {
-        ProfileEditor(p, step, busy, error, resetScroll, { editing = null; error = false; refresh++ }) { preview ->
+        ProfileEditor(p, step, busy, error, resetScroll, { editing = null; error = false; refresh++ }, initialWeight = reviewWeight) { preview ->
             busy = true
             scope.launch {
                 try {
@@ -68,14 +75,29 @@ fun ProfileScreen(resetScroll: () -> Unit, setup: () -> Unit) {
     }
     if (error) QidaState(SurfaceState.Error, stringResource(R.string.ob_write_error)) { refresh++ }
     Text(stringResource(R.string.pf_version, p.ref.version))
-    ProfileAction(stringResource(R.string.ob_profile)) { editing = 1 }
+    ProfileAction(stringResource(R.string.ob_profile)) { reviewWeight = null; editing = 1 }
     ProfileAction(stringResource(R.string.ob_goal)) { editing = 0 }
     ProfileAction(stringResource(R.string.pf_food_choices)) { editing = 3 }
     QidaButton(stringResource(R.string.pf_basis), { explain = !explain })
-    history.firstOrNull()?.second?.assessment?.reviewDate()?.let { due ->
-        if (!java.time.LocalDate.now().isBefore(due)) {
-            QidaCard { Text(stringResource(R.string.pf_review_due)) }
-            QidaButton(stringResource(R.string.ob_profile), { editing = 1 })
+    val zone = java.time.ZoneId.systemDefault()
+    val now = RecordedAt(java.time.Instant.now().toString(), zone.id)
+    val review = NutritionReview.evaluate(p, history.firstOrNull()?.second?.assessment, weights, now)
+    NutritionReviewCard(review, p.nutritionSuspension != null, busy, {
+        reviewWeight = review.latestWeightKg
+        editing = 1
+    }) { reason ->
+        busy = true
+        scope.launch {
+            try {
+                withContext(Dispatchers.IO) {
+                    UserRepositories.open(context).use {
+                        it.profileEdits.confirm(NutritionReview.suspension(p, reason,
+                            RecordedAt(java.time.Instant.now().toString(), zone.id)))
+                    }
+                }
+                refresh++
+            } catch (_: Exception) { error = true }
+            finally { busy = false }
         }
     }
     QidaCard {

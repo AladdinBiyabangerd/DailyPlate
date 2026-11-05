@@ -64,13 +64,49 @@ class CurrentNutritionUiTest {
             capture("health-$language-large")
         }
     }
+    @Test fun reviewAndSuspensionRenderAtLargeTextAndReportsHaveDistinctActions() {
+        for (language in listOf("az", "en", "ru")) {
+            val config = android.content.res.Configuration(compose.activity.resources.configuration).apply {
+                setLocale(java.util.Locale.forLanguageTag(language)); fontScale = 1.5f
+            }
+            val localized = compose.activity.createConfigurationContext(config)
+            var reported: NutritionSuspension? = null
+            compose.activityRule.scenario.onActivity { activity ->
+                activity.setContent {
+                    QidaTheme {
+                        CompositionLocalProvider(LocalDensity provides Density(LocalDensity.current.density, 1.5f),
+                            LocalContext provides localized, LocalConfiguration provides config) {
+                            Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(QidaSpacing.medium),
+                                verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
+                                com.aladdin.dailyplate.ui.profile.NutritionReviewCard(
+                                    com.aladdin.dailyplate.domain.profile.NutritionReviewState(true, 3, -0.5, 70.0),
+                                    false, false, {}, { reported = it })
+                                com.aladdin.dailyplate.ui.profile.NutritionReviewCard(
+                                    com.aladdin.dailyplate.domain.profile.NutritionReviewState(false, 0, null, null),
+                                    true, false, {}, {})
+                            }
+                        }
+                    }
+                }
+            }
+            compose.onNodeWithText(localized.getString(R.string.nr_days, 3)).assertIsDisplayed()
+            capture("np16-review-$language-large")
+            compose.onNodeWithText(localized.getString(R.string.nr_symptom)).performScrollTo().performClick()
+            compose.runOnIdle { Assert.assertEquals(NutritionSuspension.NEW_SYMPTOM, reported) }
+            compose.onNodeWithText(localized.getString(R.string.nr_unexplained)).performScrollTo().performClick()
+            compose.runOnIdle { Assert.assertEquals(NutritionSuspension.UNEXPLAINED_WEIGHT_CHANGE, reported) }
+            compose.onNodeWithText(localized.getString(R.string.nr_support)).performScrollTo().assertIsDisplayed()
+            capture("np16-suspended-$language-large")
+        }
+    }
+
     private fun capture(name: String) {
         compose.waitForIdle()
         compose.runOnIdle {
             val view = compose.activity.window.decorView
             val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
             view.draw(Canvas(bitmap))
-            val file = File("build/reports/nutrition-integration/$name.png")
+            val file = File(System.getenv("NUTRITION_SCREENSHOT_DIR") ?: "build/reports/nutrition-integration", "$name.png")
             file.parentFile!!.mkdirs()
             file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
         }

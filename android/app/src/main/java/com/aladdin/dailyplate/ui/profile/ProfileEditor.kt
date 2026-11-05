@@ -13,8 +13,10 @@ import java.time.*
 
 @Composable
 fun ProfileEditor(base: UserProfile, startStep: Int, busy: Boolean, error: Boolean, resetScroll: () -> Unit,
-                  cancel: () -> Unit, confirm: (ProfileEditPreview) -> Unit) {
-    var draft by remember(base.ref) { mutableStateOf(ProfileEdit.draft(base).copy(step = startStep)) }
+                  cancel: () -> Unit, initialWeight: Double? = null, confirm: (ProfileEditPreview) -> Unit) {
+    var draft by remember(base.ref) { mutableStateOf(ProfileEdit.draft(base).let { d ->
+        if (initialWeight != null && initialWeight != base.weightKg) d.change("weight", initialWeight.toString()) else d
+    }.copy(step = startStep)) }
     var specialist by remember(base.ref) { mutableStateOf(base.specialistTargetKcal?.toString().orEmpty()) }
     var ageConfirmed by remember { mutableStateOf(false) }
     var reason by remember { mutableStateOf("") }
