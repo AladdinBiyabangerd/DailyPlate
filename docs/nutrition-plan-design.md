@@ -1,5 +1,9 @@
 # DailyPlate: pəhrizsiz, rəsmi mənbələrə əsaslanan qida planı dizaynı
 
+> **Bu sənəd qida hesablamaları üçün məcburi əsasdır.**
+> Bütün nutrition calculation və meal/plan generation kodu `docs/nutrition-plan-design.md` ilə uyğun olmalıdır: rəsmi açıq mənbələr, DB-dən yenidən hesab, tibbi qırmızı bayraqlar, disclaimer. Bu sənədi zəiflətmək və ya nəzərə almamaq olmaz.
+
+
 > **App:** DailyPlate (Play adı); daxildə Qida / Callmood · **Paket:** `com.aladdin.dailyplate`
 > **Auditoriya:** Google Play 16+; fərdiləşdirilmiş plan yalnız 18+ sağlam böyüklər üçün
 > **Firebase:** Spark yalnız (Blaze / Cloud Functions / Identity Platform yox)
