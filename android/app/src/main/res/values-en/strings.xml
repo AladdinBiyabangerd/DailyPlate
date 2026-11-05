@@ -72,7 +72,6 @@
     <string name="rd_plan_portion">Planned personal servings: %1$.2f · remaining: %2$.2f</string>
     <string name="rd_batch">Ingredients for the entire prepared batch</string>
     <string name="rd_batch_servings">Prepared batch: %1$.2f plan servings</string>
-    <string name="rd_steps">Preparation steps</string>
     <string name="rd_unverified">Instructions for this version are unverified.</string>
     <string name="rd_no_steps">No instructions for this version.</string>
     <string name="rd_no_basis">The personal portion cannot be linked to the batch. A portion basis is required to log this meal.</string>
@@ -82,7 +81,6 @@
     <string name="rd_confirm_portion">Personal servings to record: %1$.2f</string>
 
     <string name="rd_personal_nutrients">Nutrients for the planned personal portion</string>
-    <string name="rd_time">Preparation time (min): %1$d</string>
     <string name="td_greeting">Hello!</string>
     <string name="td_next_meal">Your next meal</string>
     <string name="td_latest_meal">Your latest meal</string>

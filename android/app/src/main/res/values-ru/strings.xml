@@ -72,7 +72,6 @@
     <string name="rd_plan_portion">Запланировано личных порций: %1$.2f · осталось: %2$.2f</string>
     <string name="rd_batch">Ингредиенты всего приготовленного блюда</string>
     <string name="rd_batch_servings">Приготовленное блюдо: %1$.2f порций плана</string>
-    <string name="rd_steps">Шаги приготовления</string>
     <string name="rd_unverified">Инструкции этой версии не проверены.</string>
     <string name="rd_no_steps">Для этой версии нет инструкций.</string>
     <string name="rd_no_basis">Нет данных о доле личной порции в блюде. Для записи нужна основа расчёта порции.</string>
@@ -82,7 +81,6 @@
     <string name="rd_confirm_portion">Личных порций для записи: %1$.2f</string>
 
     <string name="rd_personal_nutrients">Пищевая ценность личной порции плана</string>
-    <string name="rd_time">Время приготовления (мин): %1$d</string>
     <string name="td_greeting">Привет!</string>
     <string name="td_next_meal">Следующий приём пищи</string>
     <string name="td_latest_meal">Последняя запись</string>
