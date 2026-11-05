@@ -177,7 +177,7 @@ class WeeklyMenuUiTest {
             capture("loading", language, scale)
             show(language, scale) { MenuLoadState(SurfaceState.Error) { retried = true } }
             capture("error", language, scale)
-            compose.onNodeWithText(t(R.string.retry)).performScrollTo().performClick()
+            compose.onNodeWithText(t(R.string.mn_reload)).performScrollTo().performClick()
             assertTrue(retried)
             show(language, scale) { MenuMissingProfile { profile = true } }
             capture("missing-profile", language, scale)
