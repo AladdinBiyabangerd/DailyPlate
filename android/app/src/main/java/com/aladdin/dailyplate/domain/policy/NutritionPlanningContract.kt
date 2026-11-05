@@ -3,16 +3,16 @@ package com.aladdin.dailyplate.domain.policy
 import kotlinx.serialization.Serializable
 
 @Serializable
-internal data class ResearchMacroVector(val proteinGrams: Double, val fatGrams: Double,
+data class NutritionMacroVector(val proteinGrams: Double, val fatGrams: Double,
                                        val availableCarbohydrateGrams: Double) {
     init { require(listOf(proteinGrams, fatGrams, availableCarbohydrateGrams).all { it.isFinite() && it > 0 }) }
 }
 
-@Serializable internal enum class MaintenanceComparison { ANY, STRICTLY_BELOW, STRICTLY_ABOVE }
+@Serializable enum class MaintenanceComparison { ANY, STRICTLY_BELOW, STRICTLY_ABOVE }
 
 /** Bounds are product search tolerances, not a universal clinical maximum. */
 @Serializable
-internal data class ResearchMenuEnergyBounds(
+data class NutritionMenuEnergyBounds(
     val lowerKcal: Double, val upperKcal: Double, val maintenanceKcal: Double,
     val maintenanceComparison: MaintenanceComparison,
 ) {
@@ -30,17 +30,17 @@ internal data class ResearchMenuEnergyBounds(
         }
 }
 
-@Serializable internal enum class ResearchPlanningFailure {
+@Serializable enum class NutritionPlanningFailure {
     INPUT_BLOCKED, MACRO_INFEASIBLE, NO_FEASIBLE_PLAN, UNSUPPORTED_SLOT_COUNT,
 }
 
 /** Search specification, never evidence of a feasible menu. On failure its usable target is null;
  * energy retains screening/maintenance diagnostics with its candidate target cleared. */
 @Serializable
-internal data class ResearchPlanningPreviewV2(
-    val energy: ResearchEnergyPreviewV2,
-    val targetKcal: Double?, val macros: ResearchMacroVector?, val bounds: ResearchMenuEnergyBounds?,
-    val slotKcal: List<Double>, val failure: ResearchPlanningFailure?,
+data class NutritionPlanningPreview(
+    val energy: NutritionEnergyPreview,
+    val targetKcal: Double?, val macros: NutritionMacroVector?, val bounds: NutritionMenuEnergyBounds?,
+    val slotKcal: List<Double>, val failure: NutritionPlanningFailure?,
     val evidenceRefs: List<String> = listOf("S5", "S27", "S28", "S3"),
 ) {
     init {
@@ -51,40 +51,40 @@ internal data class ResearchPlanningPreviewV2(
 
 /** Source-normalized menu quantities. A value without complete coverage cannot pass a hard rule. */
 @Serializable
-internal data class ResearchMenuQuantity(val value: Double?, val complete: Boolean = false)
-@Serializable internal enum class ResearchCarbohydrateBasis { AVAILABLE_GLYCAEMIC, BY_DIFFERENCE, UNKNOWN }
-@Serializable internal enum class ResearchCatalogFeasibility {
+data class NutritionMenuQuantity(val value: Double?, val complete: Boolean = false)
+@Serializable enum class NutritionCarbohydrateBasis { AVAILABLE_GLYCAEMIC, BY_DIFFERENCE, UNKNOWN }
+@Serializable enum class NutritionCatalogFeasibility {
     NOT_EVALUATED, EMPTY_CATALOG, NO_REAL_COMBINATION, VERIFIED_PUBLISHED_PORTIONS,
 }
 
 /** Supplied by a future catalog adapter, not inferred from successful arithmetic. */
 @Serializable
-internal data class ResearchMenuObservation(
-    val energyKcal: ResearchMenuQuantity, val proteinGrams: ResearchMenuQuantity,
-    val fatGrams: ResearchMenuQuantity, val carbohydrateGrams: ResearchMenuQuantity,
-    val fibreGrams: ResearchMenuQuantity, val carbohydrateBasis: ResearchCarbohydrateBasis,
-    val catalogFeasibility: ResearchCatalogFeasibility,
+data class NutritionMenuObservation(
+    val energyKcal: NutritionMenuQuantity, val proteinGrams: NutritionMenuQuantity,
+    val fatGrams: NutritionMenuQuantity, val carbohydrateGrams: NutritionMenuQuantity,
+    val fibreGrams: NutritionMenuQuantity, val carbohydrateBasis: NutritionCarbohydrateBasis,
+    val catalogFeasibility: NutritionCatalogFeasibility,
 )
-@Serializable internal enum class ResearchMenuRule {
+@Serializable enum class NutritionMenuRule {
     ENERGY_INTERVAL, PROTEIN_PRI, FAT_RI, CARBOHYDRATE_RI, FIBRE_AI,
     PUBLISHED_PORTION_FEASIBILITY, OTHER_NUTRIENTS_AND_PROTEIN_QUALITY, WHO_TOTAL_FAT_ADVISORY,
 }
-@Serializable internal enum class ResearchMenuReason {
+@Serializable enum class NutritionMenuReason {
     MISSING_OR_INCOMPLETE, INVALID_QUANTITY, CARBOHYDRATE_DEFINITION_UNKNOWN,
     OUT_OF_RANGE, NO_FEASIBLE_PLAN, CATALOG_NOT_EVALUATED, COVERAGE_NOT_EVALUATED, PREVIEW_BLOCKED,
 }
 @Serializable
-internal data class ResearchMenuRuleResult(
-    val rule: ResearchMenuRule, val status: ResearchRuleStatus, val reason: ResearchMenuReason? = null,
+data class NutritionMenuRuleResult(
+    val rule: NutritionMenuRule, val status: NutritionRuleStatus, val reason: NutritionMenuReason? = null,
     val advisory: Boolean = false,
 )
 @Serializable
-internal data class ResearchMenuAssessment(val rules: List<ResearchMenuRuleResult>) {
+data class NutritionMenuAssessment(val rules: List<NutritionMenuRuleResult>) {
     init {
-        require(rules.map { it.rule }.toSet() == ResearchMenuRule.entries.toSet())
-        require(rules.size == ResearchMenuRule.entries.size)
-        require(rules.all { it.advisory == (it.rule == ResearchMenuRule.WHO_TOTAL_FAT_ADVISORY) })
+        require(rules.map { it.rule }.toSet() == NutritionMenuRule.entries.toSet())
+        require(rules.size == NutritionMenuRule.entries.size)
+        require(rules.all { it.advisory == (it.rule == NutritionMenuRule.WHO_TOTAL_FAT_ADVISORY) })
     }
     // Slice 3 never certifies complete nutrition, restricted diets, or production eligibility.
-    val allHardRulesPass: Boolean get() = rules.filterNot { it.advisory }.all { it.status == ResearchRuleStatus.PASS }
+    val allHardRulesPass: Boolean get() = rules.filterNot { it.advisory }.all { it.status == NutritionRuleStatus.PASS }
 }

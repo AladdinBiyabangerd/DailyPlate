@@ -29,4 +29,24 @@
     <string name="retry">Yenidən yoxla</string>
     <string name="add_meal">Yemək əlavə et</string>
     <string name="today_menu">Bugünkü menyunu gör</string>
+    <string name="ob_measurements_confirm">Yaşımı, boyumu sm və çəkimi kq ilə yoxladım və təsdiqləyirəm</string>
+    <string name="ob_activity_question">Adi günündə iş, ev işi, gediş-gəliş və məşq birlikdə nə qədər hərəkət edirsən? Seçimi yenidən təsdiqlə.</string>
+    <string name="ob_activity_examples">Bunlar Health Canada gündəlik fəaliyyət nümunələridir, məşq resepti deyil. Əmin deyilsənsə hədəfsiz gündəliyi seç.</string>
+    <string name="ob_inactive">Az hərəkətli: adi işlər, təxminən 30 dəq gəzinti və 90 dəq yüngül/orta ev işi</string>
+    <string name="ob_low_active">Bir qədər aktiv: adi işlərə əlavə 60–80 dəq 5–7 km/saat gəzinti</string>
+    <string name="ob_current_active">Aktiv: əlavə 30–50 dəq gəzinti, 45 dəq orta velosiped və 40 dəq cüt tennis</string>
+    <string name="ob_very_active">Çox aktiv: əlavə 45 dəq orta velosiped, 25 dəq 10 km/saat qaçış və 60 dəq cüt tennis</string>
+    <string name="ob_activity_uncertain">Əmin deyiləm — hədəfsiz gündəlik</string>
+    <string name="ob_diabetes">Diabetin varmı?</string>
+    <string name="ob_unintentional_loss">Səbəbsiz çəki itkisi varmı?</string>
+    <string name="ob_high_sport">Yüksək performans idmanı ilə məşğulsan?</string>
+    <string name="ob_body_composition">Bədən tərkibin BMI nəticəsini yanıltmış ola bilərmi?</string>
+    <string name="pf_current_target">Təxmini gündəlik enerji hədəfi</string>
+    <string name="pf_current_basis">NASEM 2023 adult EER · Health Canada · EFSA makro referensləri. Birbaşa gündəlik hesabdır, əlavə PAL vurulmur.</string>
+    <string name="pf_maintenance">Çəkini saxlamaq üçün təxmini enerji: %1$s kkal</string>
+    <string name="pf_macros">Planlama: protein %1$s q · yağ %2$s q · available karbohidrat %3$s q</string>
+    <string name="pf_energy_interval">Menyu enerji intervalı: %1$s–%2$s kkal</string>
+    <string name="pf_menu_unverified">Bu hesab tam balanslı menyu deyil. Katalog, porsiyalar və bütün nutrient əhatəsi hələ yoxlanmayıb. İlk baxış 14 gündən sonra; son 14 gündə ən azı 3 könüllü ölçmə olmadan trend və kalori düzəlişi yoxdur. Yeni simptomda hədəfi dayandır və peşəkar dəstək al.</string>
+    <string name="pf_scope_needed">Bu məqsəd və ya BMI avtomatik hədəfin əhatəsindən kənardır. Hədəfsiz gündəlik və peşəkar dəstək yolu qalır.</string>
+    <string name="ob_review_target">Hesaba bax və təsdiqlə</string>
 </resources>

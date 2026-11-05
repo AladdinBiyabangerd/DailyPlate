@@ -38,7 +38,7 @@ class NutritionAssessmentPersistenceTest {
                     val assessment = r.nutritionAssessments.version(saved.userId, saved.ref)!!.assessment
                     assertEquals(TargetPath.GENERAL, assessment.path)
                     assertNull(assessment.dailyKcal)
-                    assertTrue(PolicyIssue(PolicyReason.POLICY_MISSING) in assessment.issues)
+                    assertTrue(assessment.issues.any { it.reason == PolicyReason.HEALTH_ANSWER_MISSING })
                 }
             }.get()
         } finally { executor.shutdownNow() }

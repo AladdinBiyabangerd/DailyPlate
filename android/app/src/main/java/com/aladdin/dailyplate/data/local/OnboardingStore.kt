@@ -35,20 +35,23 @@ class OnboardingStore(context: Context) {
         }
     }
     fun confirmed(id: String): UserProfile? = UserRepositories.open(context).use { it.profiles.latest("local-guest", id) }
-    fun confirm(draft: OnboardingDraft, language: String): UserProfile {
+    fun confirm(draft: OnboardingDraft, language: String): UserProfile = confirm(
+        com.aladdin.dailyplate.domain.onboarding.OnboardingPreview.create(draft, language,
+            RecordedAt(Instant.now().toString(), ZoneId.systemDefault().id), CalendarDate(LocalDate.now().toString())))
+
+    fun confirm(preview: com.aladdin.dailyplate.domain.onboarding.OnboardingPreview): UserProfile {
         val database = UserDatabase.open(context)
         return UserRepositories(database).use { repositories ->
             database.runInTransaction(java.util.concurrent.Callable {
-                // Stable draft ID makes double taps/restart after a completed write idempotent.
-                val profile = repositories.profiles.latest("local-guest", draft.id) ?: repositories.profiles.save(
-                    draft.profile(language, RecordedAt(Instant.now().toString(), ZoneId.systemDefault().id),
-                        CalendarDate(LocalDate.now().toString())), 0)
-                // Profile and screening commit together; retries never create a new profile version.
-                if (repositories.nutritionAssessments.version(profile.userId, profile.ref) == null) {
-                    repositories.nutritionAssessments.save(NutritionAssessmentRecord(profile.ref, profile.userId,
-                        NutritionPolicyEngine.assess(profile, null, profile.updatedAt)), 0)
-                }
-                profile
+                val candidate = preview.profile
+                require(preview.assessment == NutritionPolicyEngine.assessCurrent(candidate, candidate.updatedAt))
+                val existing = repositories.profiles.latest(candidate.userId, candidate.ref.id)
+                // Retry after durable success never rewrites the first snapshot.
+                if (existing != null) return@Callable existing
+                repositories.profiles.save(candidate, 0)
+                repositories.nutritionAssessments.save(NutritionAssessmentRecord(candidate.ref, candidate.userId,
+                    preview.assessment), 0)
+                candidate
             })
         }
     }

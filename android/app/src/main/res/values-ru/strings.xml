@@ -29,4 +29,24 @@
     <string name="retry">Повторить</string>
     <string name="add_meal">Добавить блюдо</string>
     <string name="today_menu">Меню на сегодня</string>
+    <string name="ob_measurements_confirm">Подтверждаю возраст, рост в см и вес в кг</string>
+    <string name="ob_activity_question">Насколько активен весь ваш день: работа, домашние дела, дорога и тренировки? Подтвердите выбор.</string>
+    <string name="ob_activity_examples">Это примеры дневной активности Health Canada, а не программа тренировок. Если не уверены, выберите дневник без цели.</string>
+    <string name="ob_inactive">Низкая активность: обычные дела, около 30 мин ходьбы и 90 мин лёгких/умеренных домашних дел</string>
+    <string name="ob_low_active">Небольшая активность: обычные дела плюс 60–80 мин ходьбы со скоростью 5–7 км/ч</string>
+    <string name="ob_current_active">Активно: дополнительно 30–50 мин ходьбы, 45 мин умеренной езды на велосипеде и 40 мин парного тенниса</string>
+    <string name="ob_very_active">Очень активно: дополнительно 45 мин умеренной езды на велосипеде, 25 мин бега со скоростью 10 км/ч и 60 мин парного тенниса</string>
+    <string name="ob_activity_uncertain">Не уверен(а) — дневник без цели</string>
+    <string name="ob_diabetes">Есть ли у вас диабет?</string>
+    <string name="ob_unintentional_loss">Есть ли необъяснимая потеря веса?</string>
+    <string name="ob_high_sport">Занимаетесь ли вы спортом высоких достижений?</string>
+    <string name="ob_body_composition">Может ли состав вашего тела искажать оценку ИМТ?</string>
+    <string name="pf_current_target">Ориентировочная суточная цель энергии</string>
+    <string name="pf_current_basis">NASEM 2023 adult EER · Health Canada · нормы макронутриентов EFSA. Прямая суточная оценка без дополнительного множителя PAL.</string>
+    <string name="pf_maintenance">Оценка энергии для поддержания веса: %1$s ккал</string>
+    <string name="pf_macros">Для планирования: белок %1$s г · жир %2$s г · усвояемые углеводы %3$s г</string>
+    <string name="pf_energy_interval">Диапазон энергии меню: %1$s–%2$s ккал</string>
+    <string name="pf_menu_unverified">Этот расчёт не является полностью сбалансированным меню. Каталог, порции и полнота нутриентов ещё не проверены. Пересмотр через 14 дней; без 3 добровольных измерений за последние 14 дней тренд и калории не корректируются. При новых симптомах прекратите использование цели и обратитесь к специалисту.</string>
+    <string name="pf_scope_needed">Эта цель или ИМТ вне области автоматического расчёта. Доступны дневник без цели и помощь специалиста.</string>
+    <string name="ob_review_target">Проверить и подтвердить расчёт</string>
 </resources>

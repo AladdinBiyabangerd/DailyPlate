@@ -6,6 +6,10 @@ import java.time.ZoneId
 
 /** Pure deterministic K08 core. No production activation provider exists until G2 is resolved. */
 object NutritionPolicyEngine {
+    /** Current onboarding/profile calculation; no nullable external policy selection. */
+    fun assessCurrent(profile: UserProfile, at: RecordedAt): NutritionAssessment =
+        CurrentNutritionAssessment.assess(profile, at)
+
     val MIFFLIN_ST_JEOR_V1 = EnergyFormula.MIFFLIN_V1
 
     fun assess(profile: UserProfile, policy: NutritionPolicy?, at: RecordedAt): NutritionAssessment =

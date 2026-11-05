@@ -33,6 +33,19 @@ class RecipeCandidateFilterTest {
         assertTrue(result.unmetConstraints.any { it.ruleId == rule && it.status == status && it.reason.isNotBlank() })
     }
 
+    @Test fun currentEnergySuccessOrHealthFailureNeverOpensProductionMenuGate() {
+        val current = profile.copy(activityCode = "inactive", activityModel = "nasem-2023-four-category",
+            measurementsConfirmed = true, pregnant = false, breastfeeding = false,
+            eligibilityAnswers = NutritionHealthQuestion.entries.associate { it.name.lowercase() to false })
+        assertNotNull(NutritionPolicyEngine.assessCurrent(current, policyTime).dailyKcal)
+        for (p in listOf(current, current.copy(eligibilityAnswers = current.eligibilityAnswers + ("diabetes" to true)))) {
+            val result = RecipeCandidateFilter.filter(request(), p, policy, catalog())
+            assertEquals(CandidateStatus.POLICY_UNAVAILABLE, result.status)
+            assertTrue(result.candidates.isEmpty())
+            assertTrue(result.ruleResults.any { it.ruleId == "PRODUCTION_APPROVAL_REQUIRED" })
+        }
+    }
+
     @Test fun acceptsOnlyRecipeGridInsideIntersectionAndRetainsVersions() {
         val r = run()
         assertEquals(CandidateStatus.SUCCESS, r.status)

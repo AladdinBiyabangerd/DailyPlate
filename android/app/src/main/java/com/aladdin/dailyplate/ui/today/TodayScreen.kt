@@ -1,5 +1,8 @@
 package com.aladdin.dailyplate.ui.today
 
+import com.aladdin.dailyplate.domain.policy.diaryTarget
+import com.aladdin.dailyplate.domain.policy.profileForDiaryDate
+
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -51,11 +54,9 @@ fun TodayScreen(initialId: String? = null, add: () -> Unit, menu: () -> Unit) {
             val data = withContext(Dispatchers.IO) {
                 val id = OnboardingStore(context).load().id
                 UserRepositories.open(context).use { repositories ->
-                    val profile = repositories.profiles.latest("local-guest", id)
+                    val profile = profileForDiaryDate(repositories.profiles.history("local-guest", id), day, zone)
                     val assessment = profile?.let { repositories.nutritionAssessments.version(it.userId, it.ref)?.assessment }
-                    repositories.foodLogs.recent("local-guest") to assessment?.takeIf {
-                        it.path == com.aladdin.dailyplate.domain.policy.TargetPath.SPECIALIST
-                    }?.dailyKcal
+                    repositories.foodLogs.recent("local-guest") to assessment?.diaryTarget()
                 }
             }
             logs = data.first; target = data.second; state = SurfaceState.Empty
@@ -169,9 +170,9 @@ fun SavedDaySummary(log: FoodLog) {
             withContext(Dispatchers.IO) {
                 val id = OnboardingStore(context).load().id
                 UserRepositories.open(context).use { repositories ->
-                    val profile = repositories.profiles.latest(log.userId, id)
+                    val profile = profileForDiaryDate(repositories.profiles.history(log.userId, id), date, zone)
                     val assessment = profile?.let { repositories.nutritionAssessments.version(it.userId, it.ref)?.assessment }
-                    target = assessment?.takeIf { it.path == com.aladdin.dailyplate.domain.policy.TargetPath.SPECIALIST }?.dailyKcal
+                    target = assessment?.diaryTarget()
                     entries = diaryDay(repositories.foodLogs.recent(log.userId), date, zone)
                 }
             }

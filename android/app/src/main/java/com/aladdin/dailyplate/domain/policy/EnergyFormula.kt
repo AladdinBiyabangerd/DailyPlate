@@ -5,13 +5,13 @@ import com.aladdin.dailyplate.domain.VersionRef
 
 /** S23/S24 category codes. These are not PAL multipliers or legacy activity mappings. */
 @kotlinx.serialization.Serializable
-internal enum class EerActivity(val code: String) {
+enum class EerActivity(val code: String) {
     INACTIVE("inactive"), LOW_ACTIVE("low_active"), ACTIVE("active"), VERY_ACTIVE("very_active");
 }
 
 internal sealed interface EnergyActivity {
     data class LegacyFactor(val factor: Double) : EnergyActivity
-    // Construct only after the future v2 profile confirmation check; never infer from a v1 code.
+    // Construct only after the current profile confirmation check; never infer from a v1 code.
     data class ConfirmedEer(val category: EerActivity) : EnergyActivity
 }
 
