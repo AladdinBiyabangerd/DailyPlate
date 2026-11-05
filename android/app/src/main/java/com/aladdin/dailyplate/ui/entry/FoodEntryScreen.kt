@@ -6,6 +6,7 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.saveable.rememberSaveableStateHolder
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import com.aladdin.dailyplate.R
 import com.aladdin.dailyplate.data.local.*
@@ -29,7 +30,7 @@ fun FoodEntryScreen(resetScroll: () -> Unit) {
     var query by rememberSaveable { mutableStateOf("") }
     var mode by rememberSaveable { mutableStateOf("search") }
     var encoded by rememberSaveable { mutableStateOf<String?>(null) }
-    val language = context.resources.configuration.locales[0].language
+    val language = LocalConfiguration.current.locales[0].language
     LaunchedEffect(refresh, language) {
         state = SurfaceState.Loading
         try {
