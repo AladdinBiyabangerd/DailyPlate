@@ -8,12 +8,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.aladdin.dailyplate.R
 import com.aladdin.dailyplate.domain.*
-import com.aladdin.dailyplate.domain.entry.parseEntryNumber
 import com.aladdin.dailyplate.domain.planning.*
 import com.aladdin.dailyplate.ui.*
 import kotlinx.coroutines.*
-import java.time.Instant
-import java.util.UUID
 
 @Composable
 internal fun RecipeDetailScreen(planId: String, itemId: String, back: () -> Unit) {
@@ -69,9 +66,10 @@ internal fun RecipeDetailContent(detail: RecipeDetailData, confirm: (PlanConsump
     val language = LocalConfiguration.current.locales[0].language
     val name = detail.recipe.names.recipeLabel(language)
     var eating by rememberSaveable(detail.plan.ref, detail.item.id) { mutableStateOf(false) }
-    var amount by rememberSaveable(detail.plan.ref, detail.item.id) { mutableStateOf("") }
-    var preview by remember { mutableStateOf<PlanConsumption?>(null) }
-    var invalid by remember { mutableStateOf(false) }
+    if (eating) {
+        RecipePortionEditor(detail, { eating = false }, confirm)
+        return
+    }
     QidaHeading(name)
     Text("${detail.item.date.iso} · ${detail.item.mealSlot}")
     Text(stringResource(R.string.rd_version, detail.recipe.ref.version, detail.customization?.ref?.version ?: 0L))
@@ -100,27 +98,7 @@ internal fun RecipeDetailContent(detail: RecipeDetailData, confirm: (PlanConsump
     if (detail.item.remainingPlannedServings > 0 && detail.item.status in
         setOf(PlanItemStatus.PLANNED, PlanItemStatus.PARTIALLY_CONSUMED)) {
         if (detail.batchServings == null) Text(stringResource(R.string.rd_no_basis))
-        else if (!eating) QidaButton(stringResource(R.string.rd_ate), { eating = true })
-        else {
-            QidaField(stringResource(R.string.rd_personal), amount, { amount = it; preview = null; invalid = false },
-                if (invalid) stringResource(R.string.rd_invalid) else null, numeric = true)
-            QidaButton(stringResource(R.string.fe_prepare), {
-                preview = parseEntryNumber(amount)?.let { servings -> runCatching {
-                    detail.command(servings, name, UUID.randomUUID().toString(),
-                        RecordedAt(Instant.now().toString(), detail.plan.timezone))
-                }.getOrNull() }
-                invalid = preview == null
-            })
-            preview?.let { command ->
-                QidaCard {
-                    Text(stringResource(R.string.rd_confirm_portion, command.consumedServings))
-                    command.log.confirmedPortionGrams?.let { Text("$it g") }
-                    RecipeNutrients(command.log.nutrientSnapshot)
-                    QidaButton(stringResource(R.string.pc_confirm), { confirm(command) })
-                }
-            }
-            QidaButton(stringResource(R.string.mn_cancel), { eating = false; preview = null; amount = "" })
-        }
+        else QidaButton(stringResource(R.string.rd_ate), { eating = true })
     }
 }
 

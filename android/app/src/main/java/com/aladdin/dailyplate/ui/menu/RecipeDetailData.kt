@@ -25,12 +25,20 @@ internal data class RecipeDetailData(
     val batchServings: Double? get() = customization?.let { it.servingsPrepared * item.plannedServings / it.userServings }
         ?: recipe.yieldCookedGrams?.let { yield -> item.portionGrams?.let { item.plannedServings * yield / it } }
 
-    fun command(servings: Double, name: String, event: String, at: RecordedAt): PlanConsumption {
+    fun command(servings: Double, name: String, event: String, at: RecordedAt,
+        preparedServings: Double = requireNotNull(batchServings)): PlanConsumption {
         require(servings.isFinite() && servings > 0 && servings <= item.remainingPlannedServings)
-        val batch = requireNotNull(batchServings)
-        require(servings <= batch && ingredients.isNotEmpty())
-        val actual = ActualRecipeSnapshot(recipe.ref, item.customization, ingredients, batch, servings / batch,
-            if (customization == null) recipe.yieldCookedGrams else null, instructions, instructionStatus)
+        val originalBatch = requireNotNull(batchServings)
+        require(preparedServings.isFinite() && preparedServings > 0)
+        require(servings <= preparedServings && ingredients.isNotEmpty())
+        val factor = preparedServings / originalBatch
+        require(factor.isFinite() && factor > 0)
+        val scaledIngredients = ingredients.map { it.copy(edibleGrams = it.edibleGrams * factor) }
+        require(scaledIngredients.all { it.edibleGrams.isFinite() && it.edibleGrams > 0 })
+        val yield = if (customization == null) recipe.yieldCookedGrams?.times(factor) else null
+        require(yield == null || (yield.isFinite() && yield > 0))
+        val actual = ActualRecipeSnapshot(recipe.ref, item.customization, scaledIngredients, preparedServings,
+            servings / preparedServings, yield, instructions, instructionStatus)
         val log = FoodLog(VersionRef("meal-$event", 1), event, plan.userId, at, null, item.recipe,
             item.portionGrams?.times(servings / item.plannedServings),
             WeeklyNutrition.scale(item.nutrientSnapshot, servings / item.plannedServings),

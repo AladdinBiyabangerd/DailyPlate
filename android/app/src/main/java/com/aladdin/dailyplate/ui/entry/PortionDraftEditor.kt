@@ -67,36 +67,43 @@ fun PortionDraftEditor(draft: PortionDraft, back: () -> Unit, update: (PortionDr
         })
         return
     }
-    QidaHeading(stringResource(R.string.fe_portion))
+    EntryBack(back)
+    PortionHero(if (draft.unit == EntryUnit.PREVIOUS_PORTION) R.string.fe_portion else R.string.pd_quantity,
+        if (draft.unit == EntryUnit.PREVIOUS_PORTION) R.drawable.art_entry_previous else R.drawable.art_weight)
     QidaCard {
         Text(draft.name, style = MaterialTheme.typography.titleMedium)
         draft.preparationState?.let { Text(it) }
-        draft.source?.let { Text(it) }
+        draft.source?.let { Text(it, color = MaterialTheme.colorScheme.onSurfaceVariant) }
         Text(Instant.parse(draft.consumedAt.instant).atZone(ZoneId.of(draft.consumedAt.timezone))
             .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm z")))
     }
-    QidaField(stringResource(R.string.fe_amount), amount, { amount = it; ready = false },
-        if (invalid) stringResource(R.string.fe_invalid) else null, numeric = true)
-    Text(stringResource(when (draft.unit) {
-        EntryUnit.GRAM -> R.string.fe_grams
-        EntryUnit.KILOGRAM -> R.string.fe_kilograms
-        EntryUnit.PREVIOUS_PORTION -> R.string.fe_previous_portion
-    }))
-    QidaButton(stringResource(R.string.fe_prepare), {
-        val value = parseEntryNumber(amount)
-        val next = value?.takeIf { it > 0 }?.let { runCatching { draft.copy(quantity = it).also { p -> p.nutrients } }.getOrNull() }
-        invalid = next == null
-        if (next != null) { update(next); ready = true }
-    })
-    if (ready) QidaCard {
-        Text(stringResource(R.string.fe_ready))
-        Text(stringResource(R.string.fe_unknown))
-        Text("${draft.quantity} ${portionUnitLabel(draft.unit.name)}")
-        draft.grams?.let { Text("$it ${stringResource(R.string.fe_grams)}") }
-        Text(stringResource(R.string.pc_estimate))
-        PortionNutrients(draft.nutrients)
+    if (!ready) {
+        QidaCard {
+            QidaField(stringResource(R.string.fe_amount), amount, { amount = it; ready = false; invalid = false },
+                if (invalid) stringResource(R.string.fe_invalid) else null, numeric = true)
+            Text(portionUnitLabel(draft.unit.name))
+        }
+        PortionNotice(stringResource(if (draft.unit == EntryUnit.PREVIOUS_PORTION)
+            R.string.pd_previous else R.string.pd_no_photo))
+        if (draft.nutrients.values["energy"]?.value == null && draft.nutrients.values["energy_kcal"]?.value == null)
+            PortionNotice(stringResource(R.string.pd_energy_unknown))
+        QidaButton(stringResource(R.string.pd_preview), {
+            val value = parseEntryNumber(amount)
+            val next = value?.takeIf { it > 0 }?.let { runCatching { draft.copy(quantity = it).also { p -> p.nutrients } }.getOrNull() }
+            invalid = next == null
+            if (next != null) { update(next); ready = true }
+        })
+    } else {
+        QidaCard {
+            Text(stringResource(R.string.fe_ready))
+            Text(stringResource(R.string.fe_unknown))
+            Text("${draft.quantity} ${portionUnitLabel(draft.unit.name)}")
+            if (draft.unit != EntryUnit.GRAM) draft.grams?.let { Text("$it ${stringResource(R.string.fe_grams)}") }
+            Text(stringResource(R.string.pc_estimate))
+            PortionNutrients(draft.nutrients)
+        }
+        QidaButton(stringResource(R.string.pd_edit), { ready = false })
     }
-    Text(stringResource(R.string.pc_photo_closed))
     if (ready) QidaButton(stringResource(R.string.pc_confirm), {
         if (!busy && pending == null) {
             val log = runCatching { draft.confirm("local-guest", UUID.randomUUID().toString()) }.getOrNull()

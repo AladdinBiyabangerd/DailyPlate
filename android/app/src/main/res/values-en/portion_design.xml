@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pd_quantity">Enter the amount</string>
+    <string name="pd_illustration">Illustration · not a portion reference</string>
+    <string name="pd_no_photo">There is no measured portion photo for this food.</string>
+    <string name="pd_prepared">How many servings did you prepare?</string>
+    <string name="pd_eaten">How many servings did you eat?</string>
+    <string name="pd_batch_scale">Changing the prepared count scales all batch ingredients proportionally.</string>
+    <string name="pd_batch_grams">For this batch: %1$s g</string>
+    <string name="pd_half">Half</string>
+    <string name="pd_one">1 serving</string>
+    <string name="pd_two">2 servings</string>
+    <string name="pd_share">%1$s / %2$s of the batch</string>
+    <string name="pd_exact">Enter an exact amount</string>
+    <string name="pd_no_yield">Exact grams need a measured cooked weight. You can continue in servings.</string>
+    <string name="pd_grams">Amount eaten (g)</string>
+    <string name="pd_servings_mode">Choose servings</string>
+    <string name="pd_energy_unknown">Energy: unknown</string>
+    <string name="pd_preview">Preview</string>
+    <string name="pd_edit">Change amount</string>
+    <string name="pd_previous">Choose a multiple of the saved personal portion. 1 is the same amount as the previous entry.</string>
+    <string name="pd_batch_invalid">Prepared servings must be positive and finite.</string>
+    <string name="pd_recipe_title">How much did you eat?</string>
+</resources>

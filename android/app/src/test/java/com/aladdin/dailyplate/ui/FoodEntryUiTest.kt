@@ -146,7 +146,7 @@ class FoodEntryUiTest {
         compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.fe_manual)).fetchSemanticsNodes().isNotEmpty() }
         click(t(R.string.fe_manual))
         enter(t(R.string.fe_name), "K12 yemək"); enter(t(R.string.fe_amount), "150")
-        click(t(R.string.fe_prepare)); click(t(R.string.fe_prepare)); click(t(R.string.pc_confirm))
+        click(t(R.string.fe_prepare)); click(t(R.string.pd_preview)); click(t(R.string.pc_confirm))
         compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.pc_saved)).fetchSemanticsNodes().isNotEmpty() }
         compose.activityRule.scenario.recreate()
         click(t(R.string.td_edit))
@@ -195,7 +195,7 @@ class FoodEntryUiTest {
                 } }
             }
         } }
-        click(context.getString(R.string.fe_prepare))
+        click(context.getString(R.string.pd_preview))
         org.junit.Assert.assertEquals(0, attempts)
         click(context.getString(R.string.pc_confirm))
         compose.waitUntil(10000) { compose.onAllNodesWithText(context.getString(R.string.pc_error)).fetchSemanticsNodes().isNotEmpty() }
@@ -220,7 +220,7 @@ class FoodEntryUiTest {
         enter(az.getString(R.string.fe_amount), "150")
         click(az.getString(R.string.fe_prepare))
         compose.activityRule.scenario.recreate()
-        compose.onNodeWithText(az.getString(R.string.fe_portion)).performScrollTo().assertIsDisplayed()
+        compose.onNodeWithText(az.getString(R.string.pd_quantity)).performScrollTo().assertIsDisplayed()
         compose.onNodeWithText("Evdə yemək").assertExists()
         capture("app-portion-restored-az")
     }
@@ -267,9 +267,9 @@ class FoodEntryUiTest {
             compose.onNodeWithText(t(R.string.fe_name)).performScrollTo()
             capture("manual-$lang-$s")
             click(t(R.string.fe_prepare))
-            compose.onNodeWithText(t(R.string.fe_portion)).performScrollTo().assertIsDisplayed()
+            compose.onNodeWithText(t(R.string.pd_quantity)).performScrollTo().assertIsDisplayed()
             capture("portion-$lang-$s")
-            click(t(R.string.fe_prepare))
+            click(t(R.string.pd_preview))
             compose.onNodeWithText(t(R.string.fe_ready)).performScrollTo().assertIsDisplayed()
             capture("ready-$lang-$s")
         }
