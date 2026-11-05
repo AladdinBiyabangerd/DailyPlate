@@ -15,8 +15,11 @@ data class OnboardingDraft(
     val asksReproductiveHealth: Boolean get() = answer("sex") != "MALE"
     fun change(key: String, value: String): OnboardingDraft {
         val updated = answers + (key to value)
-        return copy(answers = if (key == "sex" && value == "MALE")
-            updated - setOf("pregnant", "breastfeeding") else updated)
+        return copy(answers = when (key) {
+            "activity" -> updated + ("activity_model" to "nasem-2023-four-category")
+            "age", "height", "weight" -> updated - "measurements_confirmed"
+            else -> updated
+        })
     }
     fun number(key: String): Double? = answer(key).replace(',', '.').toDoubleOrNull()
         ?.takeIf { it.isFinite() && it > 0 }
@@ -39,7 +42,7 @@ data class OnboardingDraft(
                 numeric("age", integer = true); numeric("height"); numeric("weight")
                 if (answer("sex") !in setOf("", "MALE", "FEMALE")) add("sex")
             }
-            2 -> if (answer("activity") !in setOf("sedentary", "some", "active")) add("activity")
+            2 -> if (answer("activity") !in setOf("inactive", "low_active", "active", "very_active", "uncertain", "sedentary", "some")) add("activity")
             3 -> {
                 if (answer("allergies").isBlank() && items("extra_allergies").isEmpty()) add("allergies")
                 if ("tree_nuts" in items("allergies") && items("extra_allergies").isEmpty()) add("extra_allergies")
@@ -62,9 +65,10 @@ data class OnboardingDraft(
             goal = Goal.valueOf(answer("goal")), ageYears = number("age")!!.toInt(),
             calculationSex = answer("sex").takeIf { it.isNotBlank() }?.let(CalculationSex::valueOf),
             heightCm = number("height"), weightKg = number("weight"), activityCode = answer("activity"),
-            pregnant = if (asksReproductiveHealth) yesNo("pregnant") else null,
-            breastfeeding = if (asksReproductiveHealth) yesNo("breastfeeding") else null,
-            eligibilityAnswers = listOf("eating_risk", "medical_diet", "kidney", "treatment").associateWith(::yesNo),
+            pregnant = yesNo("pregnant"),
+            breastfeeding = yesNo("breastfeeding"),
+            eligibilityAnswers = listOf("eating_risk", "medical_diet", "kidney", "treatment",
+                "diabetes", "unintentional_weight_loss", "high_performance_sport", "body_composition_affects_bmi").associateWith(::yesNo),
             allergies = if (answer("allergies") == "unknown") null else if (answer("allergies") == "none" && items("extra_allergies").isEmpty()) emptySet()
                 else (items("allergies") - setOf("none", "unknown")) + items("extra_allergies").map { "custom:$it" },
             dietaryRestrictions = items("restrictions"), dislikedFoodIds = items("disliked_foods").map { "user:$it" }.toSet(),
@@ -75,6 +79,8 @@ data class OnboardingDraft(
             homeFoods = emptyList(),
             mealsPerDay = answer("meals").toInt(), specialistTargetKcal = null, language = language,
             ageAsOfDate = date,
+            activityModel = answer("activity_model").takeIf(String::isNotBlank),
+            measurementsConfirmed = answer("measurements_confirmed") == "yes",
         )
         return profile.copy(eligibilityStatus = ProfileEligibility.assess(profile, date).status.name.lowercase())
     }

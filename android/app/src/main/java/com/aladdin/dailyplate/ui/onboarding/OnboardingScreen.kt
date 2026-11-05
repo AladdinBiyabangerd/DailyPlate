@@ -29,6 +29,7 @@ fun OnboardingScreen(language: String, exit: () -> Unit, resetScroll: () -> Unit
     var invalid by remember { mutableStateOf(false) }
     var busy by remember { mutableStateOf(false) }
     var confirmed by remember { mutableStateOf<com.aladdin.dailyplate.domain.UserProfile?>(null) }
+    var preview by remember { mutableStateOf<com.aladdin.dailyplate.domain.onboarding.OnboardingPreview?>(null) }
     val saved = confirmed != null
     LaunchedEffect(Unit) {
         try { val loaded = withContext(Dispatchers.IO) { store.load() }; confirmed = withContext(Dispatchers.IO) { store.confirmed(loaded.id) }; draft = loaded } catch (_: Exception) { writeError = true }
@@ -48,7 +49,7 @@ fun OnboardingScreen(language: String, exit: () -> Unit, resetScroll: () -> Unit
         }
     }
     if (d == null) { QidaState(SurfaceState.Loading); return }
-    LaunchedEffect(d.step, saved) { resetScroll() }
+    LaunchedEffect(d.step, saved, preview != null) { resetScroll() }
     if (busy) { QidaState(SurfaceState.Loading); return }
     if (saved) {
         QidaArt(R.drawable.art_saved, Modifier.fillMaxWidth().height(QidaDimensions.heroArt))
@@ -63,6 +64,22 @@ fun OnboardingScreen(language: String, exit: () -> Unit, resetScroll: () -> Unit
         Text(stringResource(R.string.ob_meals) + ": " + profile.mealsPerDay)
         QidaCard { Text(stringResource(R.string.ob_boundary)); Text(stringResource(R.string.ob_local_note)) }
         QidaButton(stringResource(R.string.continue_action), done)
+        return
+    }
+    val review = preview
+    if (review != null) {
+        BackHandler { preview = null }
+        QidaHeading(stringResource(R.string.ob_review_target))
+        com.aladdin.dailyplate.ui.profile.TargetExplanation(review.profile, review.assessment)
+        QidaButton(stringResource(R.string.pf_confirm), {
+            busy = true
+            scope.launch {
+                try { confirmed = withContext(Dispatchers.IO) { store.confirm(review) }; preview = null; writeError = false }
+                catch (_: Exception) { writeError = true }
+                finally { busy = false }
+            }
+        })
+        QidaButton(stringResource(R.string.pf_continue_edit), { preview = null })
         return
     }
     BackHandler(d.step > 0 && !busy) { update(d.copy(step = d.step - 1)) }
@@ -82,12 +99,11 @@ fun OnboardingScreen(language: String, exit: () -> Unit, resetScroll: () -> Unit
         if (busy) return@Button
         if (d.errors(d.step).isNotEmpty()) { invalid = true; return@Button }
         if (d.step < 4) update(d.copy(step = d.step + 1)) else {
-            busy = true
-            scope.launch {
-                try { confirmed = withContext(Dispatchers.IO) { store.queueSave(d).get(); store.confirm(d, language) }; writeError = false }
-                catch (_: Exception) { writeError = true }
-                finally { busy = false }
-            }
+            val zone = java.time.ZoneId.systemDefault()
+            val now = java.time.Instant.now()
+            preview = com.aladdin.dailyplate.domain.onboarding.OnboardingPreview.create(d, language,
+                com.aladdin.dailyplate.domain.RecordedAt(now.toString(), zone.id),
+                com.aladdin.dailyplate.domain.CalendarDate(now.atZone(zone).toLocalDate().toString()))
         }
     }, enabled = !busy, modifier = Modifier.fillMaxWidth().heightIn(min = QidaDimensions.touchTarget),
         shape = androidx.compose.foundation.shape.RoundedCornerShape(QidaDimensions.buttonRadius),

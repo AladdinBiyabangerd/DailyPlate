@@ -12,7 +12,7 @@ class ProfileEditRepository internal constructor(private val database: UserDatab
         val after = preview.after
         require(after.ref == preview.request.toProfile && before.ref == preview.request.fromProfile)
         require(before.userId == after.userId && preview.assessment.profile == after.ref)
-        require(preview.assessment == NutritionPolicyEngine.assess(after, null, after.updatedAt))
+        require(preview.assessment == NutritionPolicyEngine.assessCurrent(after, after.updatedAt))
         val record = ProfileChangeRecord(after.ref, after.userId, after.updatedAt, preview.request)
         val existing = repositories.profileChanges.version(after.userId, after.ref)
         if (existing == record && repositories.profiles.version(after.userId, after.ref) == after)

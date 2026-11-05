@@ -43,6 +43,9 @@ data class UserProfile(
     val specialistTargetKcal: Double?, val language: String,
     val ageAsOfDate: CalendarDate? = null,
     val eligibilityStatus: String = "not_evaluated",
+    // Absent in legacy payloads: even the overlapping active label needs reconfirmation.
+    val activityModel: String? = null,
+    val measurementsConfirmed: Boolean = false,
 ) {
     init {
         require(userId.isNotBlank())

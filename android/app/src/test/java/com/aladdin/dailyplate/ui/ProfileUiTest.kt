@@ -60,7 +60,7 @@ class ProfileUiTest {
         await("Profil versiyası 2")
         click("Nəyə əsasən?")
         compose.onNodeWithText("Dəyişiklik səbəbi: Yeni məqsəd").performScrollTo().assertIsDisplayed()
-        compose.onAllNodesWithText("Təsdiqli klinik qayda aktivləşdirilməyib.").onFirst().performScrollTo().assertIsDisplayed()
+        compose.onAllNodesWithText("Hesab üçün tələb olunan cavablar tam deyil.").onFirst().performScrollTo().assertIsDisplayed()
         capture("explanation-az")
     }
 

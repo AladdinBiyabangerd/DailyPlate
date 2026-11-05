@@ -4,7 +4,7 @@ import com.aladdin.dailyplate.domain.*
 import kotlinx.serialization.Serializable
 
 @Serializable
-enum class TargetPath { GENERAL, SPECIALIST, AUTOMATIC_TEST }
+enum class TargetPath { GENERAL, SPECIALIST, AUTOMATIC_TEST, AUTOMATIC }
 
 /** Frozen inputs, including the age confirmation date and explicit sex/health answers. */
 @Serializable
@@ -41,11 +41,15 @@ data class NutritionAssessment(
     val dailyKcal: Double?, val calculation: PolicyCalculation?, val issues: List<PolicyIssue>,
     val canUseGeneralDiary: Boolean = true,
     val canEnterSpecialistTarget: Boolean = true,
+    val currentCalculation: NutritionPlanningPreview? = null,
 ) {
     init {
         dailyKcal?.let(::positive)
         require((path == TargetPath.AUTOMATIC_TEST) == (calculation != null))
         require(path != TargetPath.GENERAL || dailyKcal == null)
+        require((path == TargetPath.AUTOMATIC) == (currentCalculation?.targetKcal != null))
+        require(currentCalculation == null || calculation == null)
+        if (path == TargetPath.AUTOMATIC) require(dailyKcal == currentCalculation?.targetKcal)
         require(path != TargetPath.SPECIALIST || dailyKcal != null)
         calculation?.let {
             require(it.profile == profile && it.dailyKcal == dailyKcal && it.calculatedAt == assessedAt)

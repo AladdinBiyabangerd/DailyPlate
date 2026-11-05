@@ -29,4 +29,24 @@
     <string name="retry">Try again</string>
     <string name="add_meal">Add a meal</string>
     <string name="today_menu">See today’s menu</string>
+    <string name="ob_measurements_confirm">I checked and confirm my age, height in cm and weight in kg</string>
+    <string name="ob_activity_question">How active is your whole day, including work, housework, travel and exercise? Confirm your choice.</string>
+    <string name="ob_activity_examples">These are Health Canada daily activity examples, not exercise prescriptions. If unsure, choose a diary without a target.</string>
+    <string name="ob_inactive">Inactive: daily tasks, about 30 min walking and 90 min light/moderate housework</string>
+    <string name="ob_low_active">Low active: daily tasks plus 60–80 min walking at 5–7 km/h</string>
+    <string name="ob_current_active">Active: plus 30–50 min walking, 45 min moderate cycling and 40 min doubles tennis</string>
+    <string name="ob_very_active">Very active: plus 45 min moderate cycling, 25 min running at 10 km/h and 60 min doubles tennis</string>
+    <string name="ob_activity_uncertain">I am unsure — diary without a target</string>
+    <string name="ob_diabetes">Do you have diabetes?</string>
+    <string name="ob_unintentional_loss">Have you lost weight unintentionally?</string>
+    <string name="ob_high_sport">Do you participate in high performance sport?</string>
+    <string name="ob_body_composition">Could your body composition make BMI misleading?</string>
+    <string name="pf_current_target">Estimated daily energy target</string>
+    <string name="pf_current_basis">NASEM 2023 adult EER · Health Canada · EFSA macro references. Direct daily estimate; no extra PAL multiplier.</string>
+    <string name="pf_maintenance">Estimated maintenance energy: %1$s kcal</string>
+    <string name="pf_macros">Planning: protein %1$s g · fat %2$s g · available carbohydrate %3$s g</string>
+    <string name="pf_energy_interval">Menu energy interval: %1$s–%2$s kcal</string>
+    <string name="pf_menu_unverified">This calculation is not a fully balanced menu. Catalog, portions and full nutrient coverage remain unverified. Review after 14 days; no trend or calorie adjustment without at least 3 voluntary measurements in the last 14 days. Stop the target and seek professional support for new symptoms.</string>
+    <string name="pf_scope_needed">This goal or BMI is outside automatic target scope. A diary without a target and professional support remain available.</string>
+    <string name="ob_review_target">Review and confirm calculation</string>
 </resources>

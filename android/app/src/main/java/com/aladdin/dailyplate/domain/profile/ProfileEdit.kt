@@ -38,6 +38,8 @@ object ProfileEdit {
             "goal" to p.goal.name, "age" to p.ageYears?.toString().orEmpty(),
             "sex" to p.calculationSex?.name.orEmpty(), "height" to p.heightCm?.toString().orEmpty(),
             "weight" to p.weightKg?.toString().orEmpty(), "activity" to p.activityCode.orEmpty(),
+            "activity_model" to p.activityModel.orEmpty(),
+            "measurements_confirmed" to if (p.measurementsConfirmed) "yes" else "",
             "pregnant" to yesNo(p.pregnant), "breastfeeding" to yesNo(p.breastfeeding),
             "allergies" to (p.allergies?.filterNot { it.startsWith("custom:") }?.joinToString(";")
                 ?.ifEmpty { if (p.allergies.isEmpty()) "none" else "" } ?: "unknown"),
@@ -74,7 +76,7 @@ object ProfileEdit {
             dislikedFoodIds = restoreIds(draft.items("disliked_foods"), base.dislikedFoodIds),
             dislikedRecipeIds = restoreIds(draft.items("disliked_recipes"), base.dislikedRecipeIds),
         )
-        val assessment = NutritionPolicyEngine.assess(candidate, null, at)
+        val assessment = NutritionPolicyEngine.assessCurrent(candidate, at)
         val after = candidate.copy(eligibilityStatus = assessment.eligibility.status.name.lowercase())
         val old = ProfileEdit.draft(base).answers
         val changed = (old.keys + draft.answers.keys).filter { old[it] != draft.answers[it] }.toMutableSet()

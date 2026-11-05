@@ -48,6 +48,9 @@ fun ProfileAnswerFields(d: OnboardingDraft, invalid: Boolean, update: (Onboardin
                     if (invalid && key in d.errors(d.step)) stringResource(R.string.ob_invalid) else null,
                     { change(key, it) }, { delta -> change(key, ((d.number(key) ?: 0.0) + delta).toString()) })
             }
+            OnboardingChoice(stringResource(R.string.ob_measurements_confirm), d.answer("measurements_confirmed") == "yes") {
+                change("measurements_confirmed", if (d.answer("measurements_confirmed") == "yes") "" else "yes")
+            }
             Text(stringResource(R.string.ob_age_date))
             Text(stringResource(R.string.ob_sex))
             DesignGrid(listOf("MALE" to { modifier ->
@@ -59,16 +62,22 @@ fun ProfileAnswerFields(d: OnboardingDraft, invalid: Boolean, update: (Onboardin
             Text(stringResource(R.string.ob_boundary))
         }
         2 -> {
-            listOf(Triple("sedentary", R.string.ob_sedentary, R.drawable.art_sedentary),
-                Triple("some", R.string.ob_some, R.drawable.art_walking),
-                Triple("active", R.string.ob_active, R.drawable.art_active)).forEach { (value, label, art) ->
-                DesignChoice(stringResource(label), d.answer("activity") == value, { change("activity", value) }, art = art)
+            Text(stringResource(R.string.ob_activity_question))
+            Text(stringResource(R.string.ob_activity_examples))
+            listOf(Triple("inactive", R.string.ob_inactive, R.drawable.art_sedentary),
+                Triple("low_active", R.string.ob_low_active, R.drawable.art_walking),
+                Triple("active", R.string.ob_current_active, R.drawable.art_active),
+                Triple("very_active", R.string.ob_very_active, R.drawable.art_active),
+                Triple("uncertain", R.string.ob_activity_uncertain, R.drawable.art_walking)).forEach { (value, label, art) ->
+                DesignChoice(stringResource(label), d.answer("activity") == value &&
+                    d.answer("activity_model") == "nasem-2023-four-category", { change("activity", value) }, art = art)
             }
             QidaArt(R.drawable.art_health, Modifier.fillMaxWidth().height(QidaDimensions.heroArt))
             listOf("pregnant" to R.string.ob_pregnant, "breastfeeding" to R.string.ob_breastfeeding,
                 "eating_risk" to R.string.ob_eating_risk, "medical_diet" to R.string.ob_medical_diet,
-                "kidney" to R.string.ob_kidney, "treatment" to R.string.ob_treatment)
-                .filter { (key, _) -> d.asksReproductiveHealth || key !in setOf("pregnant", "breastfeeding") }
+                "kidney" to R.string.ob_kidney, "treatment" to R.string.ob_treatment,
+                "diabetes" to R.string.ob_diabetes, "unintentional_weight_loss" to R.string.ob_unintentional_loss,
+                "high_performance_sport" to R.string.ob_high_sport, "body_composition_affects_bmi" to R.string.ob_body_composition)
                 .forEach { (key, label) ->
                 ChoiceGroup(stringResource(label)) {
                     SegmentedChoices(listOf("yes" to stringResource(R.string.ob_yes),

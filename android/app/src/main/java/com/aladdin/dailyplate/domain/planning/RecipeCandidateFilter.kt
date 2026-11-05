@@ -31,7 +31,10 @@ object RecipeCandidateFilter {
             return finish(CandidateStatus.STALE_INPUT)
         }
         val assessment = if (test) NutritionPolicyEngine.assessTest(p, policy, q.at)
-            else NutritionPolicyEngine.assess(p, policy, q.at)
+            else NutritionPolicyEngine.assessCurrent(p, q.at).let { current ->
+                // An energy target does not activate catalog/content/menu approval gates.
+                current.copy(issues = current.issues + PolicyIssue(PolicyReason.PRODUCTION_APPROVAL_REQUIRED))
+            }
         if (assessment.issues.isNotEmpty() || assessment.calculation == null) {
             assessment.issues.forEach { rule(it.reason.name, "profile", RuleStatus.FAIL,
                 "Policy/eligibility prevents personalized candidates", it.field) }

@@ -36,6 +36,7 @@ class OnboardingUiTest {
         compose.onNode(hasText("Sağlam yemək") and isSelected()).assertExists()
         repeat(4) { compose.onNodeWithText("Davam et").performScrollTo().performClick() }
         compose.onNodeWithText("Planımı hazırla").performScrollTo().performClick()
+        compose.onNodeWithText("Təsdiqlə və profili saxla").performScrollTo().performClick()
         compose.waitUntil(10000) { compose.onAllNodesWithText("Profil saxlanıb. Menyu hələ yaradılmayıb.").fetchSemanticsNodes().isNotEmpty() }
         compose.activityRule.scenario.recreate()
         compose.waitUntil(10000) { compose.onAllNodesWithText("Profil saxlanıb. Menyu hələ yaradılmayıb.").fetchSemanticsNodes().isNotEmpty() }
@@ -54,8 +55,8 @@ class OnboardingUiTest {
         compose.onNodeWithText("Başlayaq").performScrollTo().performClick()
         compose.waitUntil(10000) { compose.onAllNodesWithText("65,2").fetchSemanticsNodes().isNotEmpty() }
         compose.onNodeWithText("Davam et").performScrollTo().performClick()
-        compose.onNodeWithText("Hamiləlik").assertDoesNotExist()
-        compose.onNodeWithText("Südvermə").assertDoesNotExist()
+        compose.onNodeWithText("Hamiləlik").assertExists()
+        compose.onNodeWithText("Südvermə").assertExists()
         compose.onNodeWithText("Qidalanma pozuntusu ilə bağlı risk").performScrollTo().assertIsDisplayed()
         capture("activity-male-health")
         compose.onNodeWithText("Geri").performScrollTo().performClick()
@@ -67,8 +68,8 @@ class OnboardingUiTest {
         compose.onNodeWithText("Geri").performScrollTo().performClick()
         compose.onNodeWithText("Kişi").performScrollTo().performClick()
         compose.onNodeWithText("Davam et").performScrollTo().performClick()
-        compose.onNodeWithText("Hamiləlik").assertDoesNotExist()
-        compose.onNodeWithText("Südvermə").assertDoesNotExist()
+        compose.onNodeWithText("Hamiləlik").assertExists()
+        compose.onNodeWithText("Südvermə").assertExists()
     }
     @Test fun storageRestartAndDoubleConfirmationKeepOneProfileVersion() {
         val context = ApplicationProvider.getApplicationContext<Application>()
