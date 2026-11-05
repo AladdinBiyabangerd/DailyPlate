@@ -1,70 +1,61 @@
-# Current task — connect planned nutrition calculation to the application
+# Current task — current nutrition onboarding/profile integration
 
 ## Completed
-- K08 slices 1–3 merged into main: c6f8342 and f7b1755.
-- f7b1755 post-merge CI passed: 137 JVM tests, lint, compilation, tokens,
-  15 library tests, Python/JSON and canonical export checks. No APK/device tests.
-- Pure NASEM energy screening, max/remainder macros, typed menu intervals and
-  partial nutrient checks exist internally; no onboarding/profile integration yet.
-- Read integration call sites and design §30; this handoff adds no application code.
+- 437b803 connects onboarding review/confirm and profile preview/confirm/save to
+  NutritionPolicyEngine.assessCurrent; 37da6f3 fixes AZ resource parity; 4186980
+  corrects source/estimated-target labels and adds 14-day in-app review reminder.
+- Main 38fd034 passed post-merge APK-free CI: 145 JVM tests, lint, compilation,
+  tokens/contrast, 15 library contracts, Python/JSON and canonical export parity.
+- Current modules/tests use Nutrition names. No null-policy calls in onboarding,
+  profile preview or repository validation. Four activity categories plus unsure,
+  explicit ten health answers, confirmed measurements and fresh age are required.
+- Literal legacy profile/Mifflin assessment payloads survive confirmation/reopen
+  byte-identically; FoodLog/old plans/history remain unchanged. Only new confirmed
+  profile/assessment revisions are written. Diary chooses date-effective revisions.
 
 ## Current state
-- Workspace /Users/mac/My Workspace/callmood.
-- Latest user explicitly requests actual onboarding/profile integration according
-  to the plan, one current calculation path, and removal of confusing v2 naming.
-- Previous no-merge/CI instruction concerned isolated slice work; slices were
-  subsequently merged at user request. Normal local lifecycle applies to new work.
-- Do not generate APKs: none requested.
+- Integration is merged locally; final evidence commit updates QA, requires the
+  new CI suites, hides activity-model implementation text in profile differences,
+  and aligns screenshot Configuration.fontScale with 1.5x rendering density.
+- That commit must complete its own workflow finish and merged-main CI before
+  reporting completion. Check .local-ci/logs/latest.json for the actual final HEAD.
+- No APK/device tests or remote actions authorized or performed.
 
 ## Decisions
-- Implement the plan in the real app, not another disconnected research-only API.
-- Rename new runtime modules to clear nutrition-domain names without V2/Research
-  branding. Persisted schema/version metadata may remain technical compatibility
-  details; do not destroy or recompute old profiles/calculations/FoodLog/history.
-- Existing Mifflin snapshot compatibility is a historical decoder concern, not an
-  alternative current onboarding/profile algorithm or user-facing choice.
-- Plan §30 reports SPECIALIST_APPROVAL_REPORTED/USER_ATTESTATION; do not treat
-  finding a specialist as an open blocker or fabricate reviewer/date evidence.
-- Activation still requires concrete implementation/migration/runtime checks;
-  do not enable content/menu gates by pretending unpublished data passed.
-- Retain four-choice activity reconfirmation (including overlapping active code),
-  all explicit risk answers, age freshness, no-clamp failures, future-only confirmed
-  profile revisions and no retrospective history recomputation.
-- Macro/energy success is not a full balanced menu; unknown nutrient/catalog
-  coverage must stay explicit. No new clinical thresholds or calorie titration.
+- One current direct NASEM EER + max/remainder macro path. Mifflin is historical
+  compatibility/testing only. Failed screening has no usable planning target.
+- §30 user-reported specialist review is recorded with its canonical hash;
+  unknown reviewer/date stay null. No catalog/menu production gates are opened.
+- Explicit activity-model reconfirmation includes the overlapping legacy active
+  label. Sex changes preserve risks. New measurements invalidate confirmation.
+- Future revisions require preview/reason/confirm; no retrospective recomputation.
+- A successful target is not a fully balanced or feasible real menu.
 
 ## Remaining work
-- Read QA slices 4–5 and applicable design §18–19, §26–30, including NP-06/16/27/28.
-- Connect onboarding and profile preview/confirm/save to one current engine;
-  replace null-policy call sites and repository validation together.
-- Add current activity/health inputs and backward-compatible persisted decoding;
-  make reconfirmation explicit instead of mapping legacy activity labels silently.
-- Verify persisted legacy fixtures, future-only revisions, failure/no-snapshot
-  paths and downstream K13/K12 behavior; rename internal modules and tests.
-- Use ui-craft for changed UI, existing tokens and rendered visual inspection.
+- No further feature should be stacked in this chat after final CI/visual QA.
+- Separate future scope: actual 3-voluntary-measurement trend consumer, optional
+  notification scheduling, self-report pilot/device acceptance and full K15
+  catalog/portion/nutrient feasibility. No automatic calorie titration.
 
 ## Relevant files
-- docs/qa/android-k08-v2-implementation.md
-- docs/nutrition-plan-design.md; planning/nutrition-science-implementation-plan.txt
-- planning/research-data.json (canonical); planning/nutrition-policy-candidate.json
+- docs/qa/android-k08-v2-implementation.md (current integration appendix)
+- docs/nutrition-plan-design.md §26–30; planning/research-data.json (canonical)
+- planning/nutrition-science-implementation-plan.txt
 - android/app/src/main/java/com/aladdin/dailyplate/domain/policy/
-  NutritionPolicyEngine.kt, NutritionAssessment.kt, Research*V2.kt, EnergyFormula.kt
-- android/app/src/main/java/com/aladdin/dailyplate/domain/onboarding/OnboardingDraft.kt
-- android/app/src/main/java/com/aladdin/dailyplate/domain/profile/ProfileEdit.kt
-- android/app/src/main/java/com/aladdin/dailyplate/data/local/
-  OnboardingStore.kt, ProfileEditRepository.kt, UserSnapshotRepository.kt, SnapshotJson.kt
-- android/app/src/main/java/com/aladdin/dailyplate/ui/onboarding/OnboardingScreen.kt
-- android/app/src/main/java/com/aladdin/dailyplate/ui/profile/ProfileEditor.kt
-- android/app/src/main/java/com/aladdin/dailyplate/ui/theme/QidaTheme.kt
-- design-concepts/tokens.css; design-concepts/simple-turquoise/ guides
+  CurrentNutritionAssessment.kt, NutritionEnergy*, NutritionPlanning*, DiaryTarget.kt
+- domain/onboarding/OnboardingDraft.kt, OnboardingPreview.kt; domain/profile/ProfileEdit.kt
+- data/local/OnboardingStore.kt, ProfileEditRepository.kt; ui/onboarding, ui/profile
+- android/app/src/test/resources/nutrition/legacy-*.json and CurrentNutrition*Test.kt
 
 ## Checks performed
-- Confirmed null policy at OnboardingStore.kt:49, ProfileEdit.kt:77 and
-  ProfileEditRepository.kt:15. snapshotJson encodes defaults/nulls, rejects unknowns.
-- Prior integrated slices: CI PASS f7b1755, 137 JVM tests. Handoff has no app changes.
-- Real onboarding/profile NASEM integration, migration and visual acceptance unverified.
+- Main 38fd034: all 145 JVM tests passed, no failures/errors/skips; lint,
+  compilation, token/contrast (minimum 4.71:1), library and export checks passed.
+- Inspected AZ/EN/RU current target/bounds, activity and health images plus AZ
+  1.5x onboarding image. Final screenshot configuration correction needs final
+  post-merge render inspection; .local-ci/reports/nutrition-integration holds it.
+- APK/device/clinical/pilot/full-menu behavior unverified; no APK created.
 
 ## Exact next step
-- On a suitable branch started through .local-ci/workflow.py, read scoped QA/plan
-  requirements, then inspect profile/assessment payloads and onboarding/profile
-  confirmation transactions before implementing the single current calculation path.
+- Finish the evidence branch, confirm green merged-main CI and inspect final
+  large-font renders. Then report commits/checks and use a new chat for any
+  additional product work, reading this handoff and the QA appendix first.

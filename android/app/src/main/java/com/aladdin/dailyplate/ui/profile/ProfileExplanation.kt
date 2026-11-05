@@ -18,7 +18,7 @@ private val fieldLabels = mapOf(
     "kidney" to R.string.ob_kidney, "treatment" to R.string.ob_treatment,
     "diabetes" to R.string.ob_diabetes, "unintentional_weight_loss" to R.string.ob_unintentional_loss,
     "high_performance_sport" to R.string.ob_high_sport, "body_composition_affects_bmi" to R.string.ob_body_composition,
-    "activity_model" to R.string.ob_activity_question, "measurements_confirmed" to R.string.ob_measurements_confirm,
+    "activity_model" to R.string.ob_activity, "measurements_confirmed" to R.string.ob_measurements_confirm,
     "allergies" to R.string.ob_allergies, "extra_allergies" to R.string.ob_extra_allergies,
     "restrictions" to R.string.ob_restrictions, "disliked_foods" to R.string.ob_disliked_foods,
     "disliked_recipes" to R.string.ob_disliked_recipes, "time" to R.string.ob_time,
@@ -31,6 +31,7 @@ internal fun profileFieldLabel(key: String): String = fieldLabels[key]?.let { st
 
 @Composable
 internal fun profileAnswer(key: String, value: String, p: UserProfile): String {
+    if (key == "activity_model") return stringResource(if (p.activityModel == "nasem-2023-four-category") R.string.ob_yes else R.string.ob_skip)
     if (key == "specialist_target") return p.specialistTargetKcal?.toString() ?: "—"
     if (key == "age_confirmation") return p.ageAsOfDate?.iso ?: "—"
     val options = when (key) {

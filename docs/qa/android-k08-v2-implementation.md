@@ -127,3 +127,59 @@ lint, CI, APK/device or clinical execution. New tests are unexecuted. Existing
 v1 snapshots, FoodLog, downstream K13/K14 and production gates are untouched.
 On planning failure both the top-level target and nested candidate energy target
 are cleared; screening/maintenance diagnostics remain.
+
+## Current application integration — 5 November 2026
+
+This section supersedes the historical isolation/remaining statements above for
+onboarding/profile integration. Implementation: 437b803, 37da6f3, 4186980;
+merged-main 38fd034 passed post-merge CI: 145 JVM tests, lint/compilation/tokens,
+15 library contracts, Python/JSON and canonical export parity. No APK/device run.
+
+- Onboarding review/confirm and profile preview/confirm/repository validation use
+  `NutritionPolicyEngine.assessCurrent`. No nullable policy is supplied at those
+  call sites. Current runtime modules/tests use Nutrition names. Legacy Mifflin
+  arithmetic remains for historical contract fixtures, not as a current choice.
+- Direct EER, max/remainder macros, slot allocation and strict energy bounds are
+  frozen with explicit inputs, typed rules and contractVersion=2. Scalar-factor
+  v1 calculations remain unchanged. Payload schema 1 accepts new defaulted fields;
+  there is no destructive DB migration or eager snapshot rewrite.
+- NP-06: four explicit activity choices plus uncertainty; model confirmation is
+  separate from the label. Legacy `active`, `some`, `sedentary` never grant a
+  current target without reconfirmation. Measurements require confirmation in
+  cm/kg; changed measurements clear it. All ten health questions are explicit
+  for every sex. Changing sex never erases an existing positive answer.
+- NP-16: age confirmation freshness uses the candidate's 365-day rule; changed
+  age requires confirmation. New revisions require preview/reason/confirmation.
+  A 14-day in-app profile review reminder opens the editor. No automatic calorie
+  titration, birthday inference, trend from missing weights or weight forecast.
+  This is an in-app reminder; notification scheduling and the future 3-measurement
+  trend consumer are not implemented by this slice.
+- `CurrentNutritionTest` exercises actual draft/profile adapter success, all four
+  categories, legacy reconfirmation, missing/positive health answers, stale/future
+  age dates, measurement invalidation, age endpoints, goal/floor failure and
+  date-effective diary revision selection. Pure NutritionEnergy/Planning tests
+  retain the full synthetic BMI/nonfinite/floor/macro/empty-catalog matrix.
+- `CurrentNutritionPersistenceTest` inserts independent literal legacy-format
+  profile and Mifflin assessment JSON. Reconfirmation, retry and database reopen
+  preserve their exact bytes and the FoodLog value; only revision 2 is added.
+  Existing Room tests cover rollback, conflict, idempotency, unchanged old plans
+  and logs, and profiles that had no historical assessment. Failure assessments
+  may record screening diagnostics, but contain no usable target/macros/bounds.
+- K12 diary reads frozen assessments from the profile revision effective on the
+  selected date. K13 uses current screening and still refuses production menus
+  without content/menu activation. K15 can consume public typed planning bounds;
+  no generator or complete nutrient/catalog certification is claimed.
+- §30 provenance records SPECIALIST_APPROVAL_REPORTED / USER_ATTESTATION and the
+  approved canonical hash. Reviewer/date are null; productionEnabled stays false
+  for catalog/menu activation. No additional approval evidence is invented.
+
+Visual evidence is retained locally under `.local-ci/reports/k07`, `k09` and
+`nutrition-integration`: AZ/EN/RU normal/large forms and current target/activity/
+health renders. Inspected images show the current EER source/estimated target,
+macro/energy interval and long activity descriptions. Contrast pairs pass at
+4.71:1 or better. The final evidence commit also aligns the isolated screenshot
+configuration's fontScale with its 1.5x density and requires the new suites in CI.
+
+Unverified: real-device interaction/notification delivery, clinical effectiveness,
+self-report activity pilot, full published-catalog/portion/nutrient feasibility,
+K14 pricing and K15 generator runtime. No APK was requested or created.

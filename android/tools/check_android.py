@@ -26,6 +26,12 @@ def main() -> None:
     ], cwd=root / 'android', env=env, check=True)
     reports = list((root / 'android/app/build/test-results/testDebugUnitTest').glob('TEST-*.xml'))
     required = {
+        'com.aladdin.dailyplate.domain.policy.CurrentNutritionTest',
+        'com.aladdin.dailyplate.data.local.CurrentNutritionPersistenceTest',
+        'com.aladdin.dailyplate.ui.CurrentNutritionUiTest',
+        'com.aladdin.dailyplate.domain.policy.NutritionEnergyTest',
+        'com.aladdin.dailyplate.domain.policy.NutritionPlanningTest',
+        'com.aladdin.dailyplate.domain.planning.RecipeCandidateFilterTest',
         'com.aladdin.dailyplate.domain.entry.PortionConfirmationTest',
         'com.aladdin.dailyplate.domain.entry.FoodEntryTest',
         'com.aladdin.dailyplate.ui.FoodEntryUiTest',
