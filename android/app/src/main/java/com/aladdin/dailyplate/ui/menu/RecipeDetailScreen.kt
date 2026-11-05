@@ -13,7 +13,7 @@ import com.aladdin.dailyplate.ui.*
 import kotlinx.coroutines.*
 
 @Composable
-internal fun RecipeDetailScreen(planId: String, itemId: String, back: () -> Unit) {
+internal fun RecipeDetailScreen(planId: String, itemId: String, startEating: Boolean = false, back: () -> Unit) {
     val context = LocalContext.current
     val workflow = remember { RecipeWorkflow(context) }
     val scope = rememberCoroutineScope()
@@ -56,16 +56,18 @@ internal fun RecipeDetailScreen(planId: String, itemId: String, back: () -> Unit
             Text(retry.log.displayName ?: retry.log.recipe!!.id)
             RecipeNutrients(retry.log.nutrientSnapshot)
             QidaButton(stringResource(R.string.retry), { load(resume = true) })
-        } else if (!saved) detail?.let { RecipeDetailContent(it) { command -> load(command = command) } }
+        } else if (!saved) detail?.let { RecipeDetailContent(it, startEating = startEating) { command -> load(command = command) } }
         QidaButton(stringResource(R.string.back), back)
     }
 }
 
 @Composable
-internal fun RecipeDetailContent(detail: RecipeDetailData, confirm: (PlanConsumption) -> Unit) {
+internal fun RecipeDetailContent(detail: RecipeDetailData, startEating: Boolean = false, confirm: (PlanConsumption) -> Unit) {
     val language = LocalConfiguration.current.locales[0].language
     val name = detail.recipe.names.recipeLabel(language)
-    var eating by rememberSaveable(detail.plan.ref, detail.item.id) { mutableStateOf(false) }
+    var eating by rememberSaveable(detail.plan.ref, detail.item.id) { mutableStateOf(startEating &&
+        detail.item.remainingPlannedServings > 0 && detail.item.status in
+        setOf(PlanItemStatus.PLANNED, PlanItemStatus.PARTIALLY_CONSUMED)) }
     if (eating) {
         RecipePortionEditor(detail, { eating = false }, confirm)
         return

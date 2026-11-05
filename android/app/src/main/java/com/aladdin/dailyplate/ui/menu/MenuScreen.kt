@@ -1,5 +1,10 @@
 package com.aladdin.dailyplate.ui.menu
 
+import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
+import androidx.compose.ui.Modifier
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -12,6 +17,7 @@ import com.aladdin.dailyplate.ui.*
 import kotlinx.coroutines.*
 import java.time.*
 
+@OptIn(androidx.compose.foundation.ExperimentalFoundationApi::class)
 @Composable
 fun MenuScreen(profile: () -> Unit) {
     val context = LocalContext.current
@@ -22,7 +28,12 @@ fun MenuScreen(profile: () -> Unit) {
     var error by remember { mutableStateOf(false) }
     var recipePlan by rememberSaveable { mutableStateOf<String?>(null) }
     var recipeItem by rememberSaveable { mutableStateOf<String?>(null) }
+    var eating by rememberSaveable { mutableStateOf(false) }
+    val top = remember { BringIntoViewRequester() }
+    Spacer(Modifier.height(com.aladdin.dailyplate.ui.theme.QidaSpacing.small).bringIntoViewRequester(top))
+    LaunchedEffect(recipePlan, recipeItem, eating) { top.bringIntoView() }
     var week by rememberSaveable { mutableStateOf<String?>(null) }
+    var selectedDate by rememberSaveable { mutableStateOf<String?>(null) }
     fun action(block: () -> Unit) {
         if (busy) return
         busy = true; error = false
@@ -35,29 +46,34 @@ fun MenuScreen(profile: () -> Unit) {
     }
     LaunchedEffect(Unit) { action {} }
     if (recipePlan != null && recipeItem != null) {
-        RecipeDetailScreen(requireNotNull(recipePlan), requireNotNull(recipeItem)) {
+        BackHandler { recipePlan = null; recipeItem = null; action {} }
+        RecipeDetailScreen(requireNotNull(recipePlan), requireNotNull(recipeItem), startEating = eating) {
             recipePlan = null; recipeItem = null; action {}
         }
         return
     }
-    if (busy) { QidaState(SurfaceState.Loading); return }
+    if (busy) { MenuLoadState(SurfaceState.Loading); return }
     if (error) {
-        QidaState(SurfaceState.Error, stringResource(R.string.mn_error)) { action { workflow.resume() } }
-        QidaButton(stringResource(R.string.mn_reload), { action {} })
+        MenuLoadState(SurfaceState.Error) { action {} }
+        return
     }
     val d = data ?: return
     val p = d.profile
     if (p == null) {
-        QidaState(SurfaceState.Empty, stringResource(R.string.empty_profile))
-        QidaButton(stringResource(R.string.profile), profile); return
+        MenuMissingProfile(profile); return
     }
-    MenuProfileSummary(p)
-    QidaButton(stringResource(R.string.mn_choices), profile)
     val plan = d.plans.firstOrNull { it.ref.id == week } ?: d.plans.firstOrNull()
     if (d.plans.size > 1) d.plans.forEach {
-        QidaButton(it.week.iso, { week = it.ref.id })
+        QidaButton(it.week.iso, { week = it.ref.id; selectedDate = null })
     }
-    plan?.let { DatedMenu(it) { item -> recipePlan = it.ref.id; recipeItem = item.id } }
+    if (plan != null) DatedMenu(plan, d.recipes, selectedDay = selectedDate, selectDay = { selectedDate = it }, openRecipe = { item ->
+        eating = false; recipePlan = plan.ref.id; recipeItem = item.id
+    }, eat = { item ->
+        eating = true; recipePlan = plan.ref.id; recipeItem = item.id
+    })
+    if (plan == null && d.pending == null && !d.inputsAvailable) MenuUnavailable()
+    MenuProfileSummary(p)
+    QidaButton(stringResource(R.string.mn_choices), profile)
     val pending = d.pending
     if (pending != null) {
         val generated = d.generated
@@ -100,7 +116,9 @@ fun MenuScreen(profile: () -> Unit) {
             }
         }
         QidaButton(stringResource(R.string.mn_cancel), { action { workflow.discard() } })
-    } else if (!d.inputsAvailable) MenuUnavailable()
+    } else if (!d.inputsAvailable) {
+        if (plan != null) MenuUnavailable(hasPlan = true)
+    }
     else {
         QidaButton(stringResource(R.string.mn_generate), { action { workflow.start(null) } })
         if (plan != null && plan.userProfile != p.ref &&
@@ -110,7 +128,11 @@ fun MenuScreen(profile: () -> Unit) {
 }
 
 @Composable
-internal fun MenuUnavailable() {
+internal fun MenuUnavailable(hasPlan: Boolean = false) {
+    if (!hasPlan) {
+        QidaArt(R.drawable.art_empty_menu, Modifier.fillMaxWidth().height(com.aladdin.dailyplate.ui.theme.QidaDimensions.bannerArt))
+        QidaHeading(stringResource(R.string.wm_empty))
+    }
     QidaState(SurfaceState.Empty, stringResource(R.string.mn_unavailable))
 }
 
@@ -138,49 +160,4 @@ private fun GenerationMessage(status: GenerationStatus) {
         GenerationStatus.TEMPORARY_FAILURE -> R.string.mn_temporary
         GenerationStatus.REQUEST_CONFLICT -> R.string.mn_error
     }))
-}
-
-@Composable
-internal fun DatedMenu(plan: MealPlan, openRecipe: (MealPlanItem) -> Unit = {}) {
-    var selected by rememberSaveable(plan.ref.id) { mutableStateOf(
-        LocalDate.now(ZoneId.of(plan.timezone)).toString().takeIf { date -> plan.items.any { it.date.iso == date } } ?: plan.week.iso) }
-    Text("${plan.week.iso} · ${plan.timezone}")
-    plan.energyEstimate?.dailyKcal?.let { Text(stringResource(R.string.mn_target, it)) }
-    for (index in 0L..6L) {
-        val date = LocalDate.parse(plan.week.iso).plusDays(index).toString()
-        val today = date == LocalDate.now(ZoneId.of(plan.timezone)).toString()
-        QidaButton("${if (date == selected) "✓ " else ""}$date${if (today) " · ${stringResource(R.string.today)}" else ""}", { selected = date })
-    }
-    plan.items.filter { it.date.iso == selected }.forEach { item ->
-        QidaCard {
-            RecipeMenuName(item.recipe)
-            QidaButton(stringResource(R.string.rd_details), { openRecipe(item) })
-            Text("${item.date.iso} · ${item.mealSlot}")
-            Text(stringResource(when (item.status) {
-                PlanItemStatus.PLANNED -> R.string.mn_planned
-                PlanItemStatus.PARTIALLY_CONSUMED -> R.string.mn_partial
-                PlanItemStatus.CONSUMED -> R.string.mn_consumed
-                PlanItemStatus.SKIPPED -> R.string.mn_skipped
-            }))
-            Text("${item.portionGrams ?: "—"} g · ${item.remainingPlannedServings}/${item.plannedServings}")
-        }
-    }
-}
-
-@Composable
-private fun RecipeMenuName(ref: VersionRef) {
-    val context = LocalContext.current
-    val language = androidx.compose.ui.platform.LocalConfiguration.current.locales[0].language
-    var name by remember(ref, language) { mutableStateOf(ref.id) }
-    LaunchedEffect(ref, language) {
-        try {
-            name = withContext(Dispatchers.IO) {
-                com.aladdin.dailyplate.data.local.CatalogRepository.open(context).use {
-                    it.recipe(ref)?.names?.recipeLabel(language) ?: ref.id
-                }
-            }
-        } catch (cancelled: CancellationException) { throw cancelled }
-        catch (_: Exception) { /* Stable reference remains visible when catalog cannot be read. */ }
-    }
-    Text(name, style = MaterialTheme.typography.titleMedium)
 }
