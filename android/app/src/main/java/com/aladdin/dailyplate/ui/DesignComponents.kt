@@ -12,6 +12,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
@@ -37,18 +39,27 @@ fun DesignChoice(label: String, selected: Boolean, action: () -> Unit,
         shape = MaterialTheme.shapes.large, border = outline,
         colors = CardDefaults.cardColors(containerColor = if (selected) MaterialTheme.colorScheme.background else MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = QidaDimensions.cardElevation)) {
-        if (tile) {
-            Column(Modifier.fillMaxWidth().padding(QidaSpacing.medium), horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(QidaSpacing.small)) {
+        Box(Modifier.fillMaxWidth()) {
+            if (tile) {
+                Column(Modifier.fillMaxWidth().padding(QidaSpacing.medium).padding(top = QidaSpacing.small), horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(QidaSpacing.small)) {
+                    if (art != null) QidaArt(art, Modifier.size(QidaDimensions.bannerArt))
+                    Text(label, style = MaterialTheme.typography.titleMedium,
+                        textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                }
+            } else Row(Modifier.fillMaxWidth().padding(QidaSpacing.medium), verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
                 if (art != null) QidaArt(art, Modifier.size(QidaDimensions.choiceArt))
-                Text((if (selected) "✓ " else "") + label, style = MaterialTheme.typography.titleMedium,
-                    textAlign = androidx.compose.ui.text.style.TextAlign.Center)
+                Text(label, Modifier.weight(1f).padding(end = QidaSpacing.large),
+                    style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.SemiBold)
             }
-        } else Row(Modifier.fillMaxWidth().padding(QidaSpacing.medium), verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
-            if (art != null) QidaArt(art, Modifier.size(QidaDimensions.choiceArt))
-            Text((if (selected) "✓ " else "") + label, Modifier.weight(1f),
-                style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.SemiBold)
+            if (selected) Surface(
+                modifier = Modifier.align(Alignment.TopEnd).padding(QidaSpacing.small)
+                    .size(QidaSpacing.large).clearAndSetSemantics { },
+                shape = CircleShape, color = MaterialTheme.colorScheme.primary,
+                contentColor = MaterialTheme.colorScheme.onPrimary) {
+                Box(contentAlignment = Alignment.Center) { Text("✓", fontWeight = FontWeight.Bold) }
+            }
         }
     }
 }
@@ -74,14 +85,18 @@ fun StepHeader(step: Int, back: () -> Unit) {
             colors = ButtonDefaults.textButtonColors(containerColor = MaterialTheme.colorScheme.surface)) {
             Text("‹"); Text(stringResource(R.string.back))
         }
-        Row(Modifier.weight(1f), horizontalArrangement = Arrangement.spacedBy(QidaSpacing.small)) {
-            repeat(5) { index ->
-                Surface(Modifier.weight(1f).height(QidaSpacing.small),
-                    shape = MaterialTheme.shapes.large,
-                    color = if (index <= step) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface) {}
-            }
+        Spacer(Modifier.weight(1f))
+        Surface(shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.surface) {
+            Text("${step + 1}/5", Modifier.padding(QidaSpacing.small), fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSurface)
         }
-        Text("${step + 1}/5", fontWeight = FontWeight.Bold, color = MaterialTheme.colorScheme.primary)
+    }
+    Row(Modifier.fillMaxWidth().padding(horizontal = QidaSpacing.extraLarge),
+        horizontalArrangement = Arrangement.spacedBy(QidaSpacing.small)) {
+        repeat(5) { index ->
+            Surface(Modifier.weight(1f).height(QidaSpacing.small), shape = MaterialTheme.shapes.large,
+                color = if (index <= step) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.surface) {}
+        }
     }
 }
 
@@ -131,10 +146,12 @@ fun MeasurementCard(label: String, value: String, art: Int, error: String?,
         } else Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(QidaSpacing.small)) {
             QidaArt(art, Modifier.size(QidaDimensions.fieldArt))
-            TextButton(onClick = { step(-1) }, modifier = Modifier.size(QidaDimensions.touchTarget)
+            TextButton(onClick = { step(-1) }, shape = CircleShape,
+                colors = ButtonDefaults.textButtonColors(containerColor = MaterialTheme.colorScheme.background), modifier = Modifier.size(QidaDimensions.touchTarget)
                 .semantics { contentDescription = "$label −1" }) { Text("−") }
             Box(Modifier.weight(1f)) { QidaField(label, value, change, error, numeric = true) }
-            TextButton(onClick = { step(1) }, modifier = Modifier.size(QidaDimensions.touchTarget)
+            TextButton(onClick = { step(1) }, shape = CircleShape,
+                colors = ButtonDefaults.textButtonColors(containerColor = MaterialTheme.colorScheme.background), modifier = Modifier.size(QidaDimensions.touchTarget)
                 .semantics { contentDescription = "$label +1" }) { Text("+") }
         }
     }
