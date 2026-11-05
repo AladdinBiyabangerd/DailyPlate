@@ -183,3 +183,23 @@ configuration's fontScale with its 1.5x density and requires the new suites in C
 Unverified: real-device interaction/notification delivery, clinical effectiveness,
 self-report activity pilot, full published-catalog/portion/nutrient feasibility,
 K14 pricing and K15 generator runtime. No APK was requested or created.
+
+## Preview preservation acceptance — 5 November 2026
+
+- Verified the prior evidence merge is main 844d3a2 with green post-merge CI
+  (145 JVM tests, lint/compile/tokens, library/export checks; no APK).
+- Inspected final 1.5x renders: AZ target, RU activity, AZ health and EN bounds.
+  Visible text wraps within cards; these are scroll-position captures, not full
+  screen/device interaction evidence. No UI code changed in this acceptance unit.
+- Added a Room regression for 27 blocked profile previews (age 18/65, missing
+  sex, uncertain/unconfirmed activity, out-of-scope lose, unconfirmed measurement,
+  each missing/positive health answer), plus cancellation of a successful preview.
+  It checks no revision-2 profile/assessment/change receipt, byte-identical legacy
+  payloads and unchanged FoodLog. This complements, rather than replaces, the
+  pure arithmetic boundary matrix. Confirmed failure diagnostics remain distinct
+  from preview/cancel behavior; no usable automatic target is asserted for failures.
+- This unit's execution result is the post-merge CI log for the commit containing
+  this section. No branch/manual CI or APK/device checks are authorized.
+- Remaining NP-16 acceptance: actual voluntary-weight storage/trend consumer and
+  new-symptom target suspension need a separate scoped implementation review.
+  Device/self-report pilot and real catalog/menu feasibility remain unverified.

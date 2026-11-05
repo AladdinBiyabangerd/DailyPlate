@@ -18,6 +18,48 @@ class CurrentNutritionPersistenceTest {
     private fun fixture(name: String) = requireNotNull(javaClass.classLoader!!.getResourceAsStream("nutrition/$name.json"))
         .bufferedReader().use { it.readText().trim() }
 
+    @Test fun blockedAndCancelledPreviewsNeverWriteRevisions() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        val db = Room.inMemoryDatabaseBuilder(context, UserDatabase::class.java).allowMainThreadQueries().build()
+        db.useDatabase {
+            val r = UserRepositories(db)
+            val rawProfile = fixture("legacy-profile")
+            val rawAssessment = fixture("legacy-assessment")
+            val base = snapshotJson.decodeFromString(UserProfile.serializer(), rawProfile)
+            db.snapshots().insert(UserSnapshotEntity("profile", base.userId, base.ref.id, 1, rawProfile))
+            db.snapshots().insert(UserSnapshotEntity("nutrition_assessment", base.userId, base.ref.id, 1, rawAssessment))
+            val frozenLog = log(base.userId)
+            r.foodLogs.record(frozenLog)
+            var ready = ProfileEdit.draft(base).change("activity", "inactive").change("measurements_confirmed", "yes")
+            for (q in NutritionHealthQuestion.entries) ready = ready.change(q.name.lowercase(), "no")
+            val blocked = listOf(
+                ready.change("age", "18").change("measurements_confirmed", "yes"),
+                ready.change("age", "65").change("measurements_confirmed", "yes"),
+                ready.change("sex", ""), ready.change("activity", "uncertain"),
+                ready.copy(answers = ready.answers - "activity_model"),
+                ready.change("goal", "LOSE"),
+                ready.change("weight", "71"),
+            ) + NutritionHealthQuestion.entries.flatMap { q ->
+                listOf(ready.change(q.name.lowercase(), ""), ready.change(q.name.lowercase(), "yes"))
+            }
+            for ((index, draft) in (blocked + ready).withIndex()) {
+                val preview = ProfileEdit.preview(base, draft, "", true, "Acceptance preview $index", recordedAt, date)
+                if (index < blocked.size) {
+                    assertNull("case $index", preview.assessment.dailyKcal)
+                    assertNull("case $index", preview.assessment.currentCalculation?.targetKcal)
+                    assertNull("case $index", preview.assessment.currentCalculation?.macros)
+                } else assertNotNull(preview.assessment.dailyKcal)
+                // Preview/cancel must leave both frozen bytes and revision counts untouched.
+                assertEquals(1, r.profiles.history(base.userId, base.ref.id).size)
+                for (kind in listOf("profile", "nutrition_assessment", "profile_change"))
+                    assertNull(db.snapshots().version(kind, base.userId, base.ref.id, 2))
+                assertEquals(rawProfile, db.snapshots().version("profile", base.userId, base.ref.id, 1)!!.payload)
+                assertEquals(rawAssessment, db.snapshots().version("nutrition_assessment", base.userId, base.ref.id, 1)!!.payload)
+                assertEquals(frozenLog, r.foodLogs.version(frozenLog.userId, frozenLog.ref))
+            }
+        }
+    }
+
     @Test fun legacyPayloadsRemainByteIdenticalAfterReconfirmationAndReopen() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         val name = "current-nutrition-migration.db"
