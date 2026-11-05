@@ -20,6 +20,8 @@ fun MenuScreen(profile: () -> Unit) {
     var data by remember { mutableStateOf<MenuData?>(null) }
     var busy by remember { mutableStateOf(false) }
     var error by remember { mutableStateOf(false) }
+    var recipePlan by rememberSaveable { mutableStateOf<String?>(null) }
+    var recipeItem by rememberSaveable { mutableStateOf<String?>(null) }
     var week by rememberSaveable { mutableStateOf<String?>(null) }
     fun action(block: () -> Unit) {
         if (busy) return
@@ -32,6 +34,12 @@ fun MenuScreen(profile: () -> Unit) {
         }
     }
     LaunchedEffect(Unit) { action {} }
+    if (recipePlan != null && recipeItem != null) {
+        RecipeDetailScreen(requireNotNull(recipePlan), requireNotNull(recipeItem)) {
+            recipePlan = null; recipeItem = null; action {}
+        }
+        return
+    }
     if (busy) { QidaState(SurfaceState.Loading); return }
     if (error) {
         QidaState(SurfaceState.Error, stringResource(R.string.mn_error)) { action { workflow.resume() } }
@@ -49,7 +57,7 @@ fun MenuScreen(profile: () -> Unit) {
     if (d.plans.size > 1) d.plans.forEach {
         QidaButton(it.week.iso, { week = it.ref.id })
     }
-    plan?.let { DatedMenu(it) }
+    plan?.let { DatedMenu(it) { item -> recipePlan = it.ref.id; recipeItem = item.id } }
     val pending = d.pending
     if (pending != null) {
         val generated = d.generated
@@ -133,7 +141,7 @@ private fun GenerationMessage(status: GenerationStatus) {
 }
 
 @Composable
-internal fun DatedMenu(plan: MealPlan) {
+internal fun DatedMenu(plan: MealPlan, openRecipe: (MealPlanItem) -> Unit = {}) {
     var selected by rememberSaveable(plan.ref.id) { mutableStateOf(
         LocalDate.now(ZoneId.of(plan.timezone)).toString().takeIf { date -> plan.items.any { it.date.iso == date } } ?: plan.week.iso) }
     Text("${plan.week.iso} · ${plan.timezone}")
@@ -145,7 +153,8 @@ internal fun DatedMenu(plan: MealPlan) {
     }
     plan.items.filter { it.date.iso == selected }.forEach { item ->
         QidaCard {
-            Text(item.recipe.id, style = MaterialTheme.typography.titleMedium)
+            RecipeMenuName(item.recipe)
+            QidaButton(stringResource(R.string.rd_details), { openRecipe(item) })
             Text("${item.date.iso} · ${item.mealSlot}")
             Text(stringResource(when (item.status) {
                 PlanItemStatus.PLANNED -> R.string.mn_planned
@@ -156,4 +165,22 @@ internal fun DatedMenu(plan: MealPlan) {
             Text("${item.portionGrams ?: "—"} g · ${item.remainingPlannedServings}/${item.plannedServings}")
         }
     }
+}
+
+@Composable
+private fun RecipeMenuName(ref: VersionRef) {
+    val context = LocalContext.current
+    val language = androidx.compose.ui.platform.LocalConfiguration.current.locales[0].language
+    var name by remember(ref, language) { mutableStateOf(ref.id) }
+    LaunchedEffect(ref, language) {
+        try {
+            name = withContext(Dispatchers.IO) {
+                com.aladdin.dailyplate.data.local.CatalogRepository.open(context).use {
+                    it.recipe(ref)?.names?.recipeLabel(language) ?: ref.id
+                }
+            }
+        } catch (cancelled: CancellationException) { throw cancelled }
+        catch (_: Exception) { /* Stable reference remains visible when catalog cannot be read. */ }
+    }
+    Text(name, style = MaterialTheme.typography.titleMedium)
 }

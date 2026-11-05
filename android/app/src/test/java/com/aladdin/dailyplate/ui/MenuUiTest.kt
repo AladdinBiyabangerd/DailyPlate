@@ -80,4 +80,56 @@ class MenuUiTest {
             UserRepositories.open(context).use { Assert.assertTrue(it.foodLogs.recent("local-guest").isEmpty()) }
         }.get() } finally { verify.shutdown() }
     }
+    @Test fun recipeViewingAndCancellationDoNotLogAndHalfPortionRequiresConfirmation() {
+        for (language in listOf("az", "en", "ru")) {
+            val config = android.content.res.Configuration(compose.activity.resources.configuration).apply {
+                setLocale(java.util.Locale.forLanguageTag(language)); fontScale = 1.5f
+            }
+            val localized = compose.activity.createConfigurationContext(config)
+            var confirmed: com.aladdin.dailyplate.domain.planning.PlanConsumption? = null
+            val detail = RecipeDetailTest().detail().let { d -> d.copy(recipe = d.recipe.copy(
+                names = com.aladdin.dailyplate.domain.LocalizedText("Tərəvəzli toyuq və düyü", "Chicken with vegetables and rice", "Курица с овощами и рисом"),
+                instructions = listOf("TEST — preparation instructions"))) }
+            compose.activityRule.scenario.onActivity { activity -> activity.setContent {
+                CompositionLocalProvider(LocalContext provides localized, LocalConfiguration provides config,
+                    LocalDensity provides Density(LocalDensity.current.density, 1.5f)) {
+                    QidaTheme {
+                        androidx.compose.material3.Surface(color = androidx.compose.material3.MaterialTheme.colorScheme.background) {
+                            Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(QidaSpacing.large),
+                                verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
+                                androidx.compose.runtime.key(language) { RecipeDetailContent(detail) { confirmed = it } }
+                            }
+                        }
+                    }
+                }
+            } }
+            compose.onNodeWithText(detail.recipe.names.recipeLabel(language)).assertIsDisplayed()
+            capture("recipe-$language")
+            Assert.assertNull(confirmed)
+            compose.onNodeWithText(localized.getString(R.string.rd_ate)).performScrollTo().performClick()
+            compose.onNodeWithText(localized.getString(R.string.rd_personal)).performScrollTo().performTextInput("0,5")
+            compose.onNodeWithText(localized.getString(R.string.fe_prepare)).performScrollTo().performClick()
+            compose.onNodeWithText(localized.getString(R.string.rd_confirm_portion, 0.5)).performScrollTo().assertIsDisplayed()
+            Assert.assertNull(confirmed)
+            compose.onNodeWithText(localized.getString(R.string.pc_confirm)).performScrollTo().assertIsDisplayed()
+            capture("recipe-portion-$language")
+            compose.onNodeWithText(localized.getString(R.string.mn_cancel)).performScrollTo().performClick()
+            Assert.assertNull(confirmed)
+            compose.onNodeWithText(localized.getString(R.string.rd_ate)).performScrollTo().performClick()
+            compose.onNodeWithText(localized.getString(R.string.rd_personal)).performScrollTo().performTextInput("0.5")
+            compose.onNodeWithText(localized.getString(R.string.fe_prepare)).performScrollTo().performClick()
+            compose.onNodeWithText(localized.getString(R.string.pc_confirm)).performScrollTo().performClick()
+            compose.runOnIdle { Assert.assertEquals(0.5, confirmed!!.consumedServings, 0.0) }
+        }
+    }
+
+    private fun capture(name: String) = compose.runOnIdle {
+        val view = compose.activity.window.decorView
+        val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
+        view.draw(Canvas(bitmap))
+        val file = File(System.getenv("MENU_SCREENSHOT_DIR") ?: "build/reports/menu-ui", "$name.png")
+        file.parentFile!!.mkdirs()
+        file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
+    }
+
 }

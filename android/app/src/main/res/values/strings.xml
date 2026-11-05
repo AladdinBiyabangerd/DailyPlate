@@ -63,4 +63,21 @@
     <string name="nr_report_note">Yeni simptom və ya səbəbsiz çəki dəyişikliyi varsa, aşağıdakı seçim hədəfi dərhal dayandırır.</string>
     <string name="nr_symptom">Yeni simptom var — hədəfi dayandır</string>
     <string name="nr_unexplained">Səbəbsiz çəki dəyişikliyi var — hədəfi dayandır</string>
+
+    <string name="rd_details">Reseptə bax</string>
+    <string name="rd_error">Resept və ya qeyd oxunmadı. Təkrar yoxla. Plan dəyişibsə yeni porsiya təsdiqi lazımdır.</string>
+    <string name="rd_saved">Gündəliyə lokal əlavə olundu.</string>
+    <string name="rd_pending">Təsdiqlənmiş qeyd gözləyir. Təkrar cəhd eyni qeydi saxlayır.</string>
+    <string name="rd_version">Resept versiyası %1$d · fərdiləşdirmə %2$d</string>
+    <string name="rd_plan_portion">Planlı şəxsi porsiya: %1$.2f · qalan: %2$.2f</string>
+    <string name="rd_batch">Bütün hazırlanmış yeməyin tərkibi</string>
+    <string name="rd_batch_servings">Hazırlanmış yemək: %1$.2f plan porsiyası</string>
+    <string name="rd_steps">Hazırlanma addımları</string>
+    <string name="rd_unverified">Bu versiyanın təlimatı təsdiqlənməyib.</string>
+    <string name="rd_no_steps">Bu versiya üçün təlimat yoxdur.</string>
+    <string name="rd_no_basis">Şəxsi porsiyanı hazırlanmış yeməyə bağlayan məlumat yoxdur. Yedim qeydi üçün porsiya əsası lazımdır.</string>
+    <string name="rd_ate">Yedim — porsiyanı seç</string>
+    <string name="rd_personal">Neçə şəxsi plan porsiyası yedin?</string>
+    <string name="rd_invalid">Müsbət, sonlu və qalan porsiyadan çox olmayan miqdar yaz.</string>
+    <string name="rd_confirm_portion">Gündəliyə yazılacaq şəxsi porsiya: %1$.2f</string>
 </resources>
