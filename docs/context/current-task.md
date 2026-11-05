@@ -1,68 +1,66 @@
-# Current task — K09 completed; next unit K10
+# Current task — K10 implementation; next unit K11
 
 ## Completed
-- K09: isolated profile/body/goal/preference editor, specialist target, explicit age
-  confirmation, reason, before/after preview and cancel/confirm flow.
-- Atomic append of profile + assessment + pending K16 request; idempotent retry,
-  stale-edit conflict, write-failure rollback and legacy profiles without assessments.
-- “Nəyə əsasən?” history exposes saved inputs/date/timezone, formula/policy versions
-  where present, S6 link for Mifflin v1, readable general/specialist/test-only reasons.
-- FuturePlanPreview/Acceptance binds exact revisions and preserves past/consumed
-  items, dates/slots and log references. Real menu computation/application is K16.
-- Feature commit 77ddc7d; fixes b3ec08a, 7e4d158, 81ae53a, cd85fb7.
-  Final acceptance/timestamp commit: 3356617.
+- K10 multilingual name/alias search, exact food version/state/source selection,
+  clear query, loading/empty/error/retry, manual escape and previous-entry list.
+- Manual name, positive g/kg quantity, optional source-backed per-100g nutrients;
+  decimal comma accepted; missing nutrients stay null, explicit zero stays zero.
+- PortionDraft is a serializable K11 input: name, new consumption instant/zone,
+  method, food version, state, source, quantity/unit and nutrient basis.
+- Repeat retains the immutable FoodLog snapshot as provenance, uses new time and
+  an editable previous-portion multiple. No new log/event/plan identity is copied.
+- Manual form and selected draft use saved-instance state. No K10 FoodLog write.
+- Feature commit 8830139; resource fix 9e7ed25; verification/history f91d341;
+  locale/recreation fix 8d75888; final navigation helper fix follows these.
 
 ## Current state
-- Local main; final merge/CI truth is .local-ci/logs/latest.json: passed=true and
-  head must match git rev-parse HEAD. Last verified implementation main: 1fdd3ac.
-- User's unrelated AGENTS.md edit is preserved separately and restored after the
-  final finish; never include it in task commits. No remote/push/deployment.
+- Local main after finish. Authoritative final result is .local-ci/logs/latest.json:
+  require passed=true and head equal to git rev-parse HEAD before starting K11.
+- No unrelated user changes were present at start. Local Git only; no remote.
 
 ## Decisions
-- Reuse K07 controls/validation without writing edits to the onboarding draft.
-- Preserve age-as-of unless explicitly confirmed; never guess birthday/age.
-- Store nullable currency without requiring a budget amount; legacy unknown
-  currency is entered by the user. Preserve fields outside this editor.
-- Profile confirmation leaves existing menus and past logs unchanged; the K16
-  request remains pending, and a computed menu needs separate preview/acceptance.
-- Explicit positive pregnancy/breastfeeding answers survive hidden questions and
-  unrelated edits; only an explicit No can withdraw them (K08 screening contract).
-- G2 stays closed; no clinical coefficients, thresholds, prices or approvals invented.
+- CatalogRepository.productionFoods remains empty while G3 is closed; do not
+  expose draft food/recipe fixtures as real search candidates.
+- Search accepts all three names and aliases; translated display preserves IDs.
+- Repeat uses the stored nutrient/recipe snapshot, never recalculates old logs
+  against a changed catalog. Full previous snapshot is provenance, not the new
+  record's consumption date/client event/plan item/photo identity.
+- PREVIOUS_PORTION is a multiple of the original portion, including recipe-only
+  records without known grams. K11 must preserve/scale actual recipe semantics.
+- No implicit item/spoon to grams conversion. Manual nutrients are per 100g.
+- K11 owns durable confirmation/recording and any schema extension needed to
+  retain manual display names. Historical records without a catalog title show
+  a localized fallback with log ID; do not infer a name from a newer catalog.
+- G2/G3 remain closed. No clinical thresholds, prices or approvals added.
 
 ## Remaining work
-- K10 next. K16 real recalculation/delta/application integration. G2 approval.
-- APK/device/emulator/TalkBack and clinical acceptance unverified. Formula-source
-  link interaction and test-only calculation UI are not device-tested.
+- K11 only next: confirm portion and write durable, idempotent FoodLog; inspect
+  its task requirements and plan references before editing.
+- APK/device/emulator/TalkBack and real published-content acceptance unverified.
+- Existing G2 approval and K16 real menu recalculation/application remain future.
 
 ## Relevant files
-- domain/profile/{ProfileEdit,FuturePlanPreview}.kt; domain/Profile.kt
-- data/local/{ProfileEditRepository,UserRepositories,UserSnapshotRepository}.kt
-- ui/profile/*.kt; ui/onboarding/ProfileAnswerFields.kt; res/values*/profile.xml
-- tests: domain/ProfileEditTest, data/local/ProfileEditPersistenceTest, ui/ProfileUiTest
-- docs/qa/android-k09-acceptance.txt; planning/coding-tasks.txt
-- K10 sources: planning/research-data.json; nutrition-science-implementation-plan.txt §3/18–19
-- K10 reuse: data/local/LibraryDatabase.kt (CatalogRepository) and domain/nutrition; inspect scoped files.
+- domain/entry/FoodEntry.kt; ui/entry/{FoodEntryScreen,ManualFoodForm,PortionDraftEditor}.kt
+- data/local/{FoodLogRepository,UserDatabase,LibraryDatabase}.kt; domain/FoodLog.kt
+- ui/BootstrapScreen.kt; res/values*/food_entry.xml
+- tests: domain/entry/FoodEntryTest; ui/FoodEntryUiTest;
+  data/local/UserPersistenceTest recent-entry regression
+- docs/qa/android-k10-acceptance.txt; planning/coding-tasks.txt
+- Canonical plan: planning/research-data.json; derived TXT §4/8/11–12/18–19 for K11
 
 ## Checks performed
-- Implementation main 1fdd3ac: 80 JVM/Room/Compose tests (no failure/error/skip),
-  lintDebug, compileDebugKotlin; 15 library tests, Python/JSON/export parity.
-- AZ/EN/RU string parity; palette contrast 4.71–12.70:1 (all required pairs >=4.5).
-- Inspected native JVM PNGs: profile/editor/editor-bottom/explanation AZ/EN/RU
-  at 100%/150%, plus AZ changed-input preview and saved-history flow. They wrap
-  and scroll; this does not establish physical-device accessibility acceptance.
-- Artifacts: .local-ci/reports/k09; retained XML: .local-ci/reports/k09-test-results.
-- Added ProfileEditTest regression for hidden explicit reproductive risks; final
-  branch/main CI must execute 82 tests. The prior 80-test result above is historical.
-- Final timestamp display uses local zone and minute precision to avoid splitting
-  raw ISO fractions; inspected the final AZ/EN/RU 150% explanation renders.
-- Latest user instruction: CI only after a branch merges into main. Workflow,
-  hooks, AGENTS.md and local rule now enforce post-merge-only CI; manual calls
-  and branch/pre-merge CI are refused. This supersedes branch-CI instructions.
-- Future meal-count changes may add/remove future unconsumed slots; protected
-  past/consumed items remain immutable. Added a contract regression (82 tests).
-- No APK packaging, installation, device tests or remote operations.
+- Post-merge CI only: library 15-test suite, Python/JSON/canonical export parity,
+  lintDebug, compileDebugKotlin, JVM/Room/Compose suites and token/language checks.
+- Last test collection: 89 tests; final status is the matching-head CI log above.
+- Source fixes addressed explicit AZ resources, actual manifest Activity for
+  native UI tests, Compose LocalConfiguration reads, and navigation test scrolling.
+- Inspected native JVM search/manual/portion/draft-ready PNGs in AZ/EN/RU,
+  including actual 150% font density. Long text wraps; forms scroll.
+- Palette required pairs measure 4.71–12.70:1; AZ/EN/RU resource keys match.
+- Artifacts: .local-ci/reports/k10; XML: .local-ci/reports/k10-test-results.
+- No APK packaging/install/device checks or remote operations.
 
 ## Exact next step
-- In a new chat, implement only K10 using planning/coding-tasks.txt's continuation
-  prompt. Read this handoff first. Keep K03/K04 contracts, G3 gates and ui-craft.
-- K11 owns actual food-log save/confirmation; do not silently implement it in K10.
+- In a new chat, implement only K11 from coding-tasks.txt, using PortionDraft.
+  Read this handoff, required workflow/organization rules and scoped plan first.
+- Check final latest.json against HEAD; if red, repair K10 before starting K11.

@@ -1,5 +1,5 @@
 QIDA — ARDICIL KODLAŞDIRMA TAPŞIRIQLARI
-Versiya 1.4 | 5 noyabr 2026 | məhsul planı 1.7
+Versiya 1.5 | 5 noyabr 2026 | məhsul planı 1.7
 
 STATUS VƏ MƏNBƏ
 Bu sənəd icra növbəsidir, tətbiq implementasiyası deyil.
@@ -7,8 +7,9 @@ K01–K07 implementasiyası və qəbul qeydləri docs/qa/android-kXX-acceptance.
 K08 domen hesablama/uyğunluq nüvəsi və lokal nəticə tarixçəsi yazılıb; qəbul qeydi
 docs/qa/android-k08-acceptance.txt-dədir. Yekun icra sübutu merged-main CI qeydidir;
 cihaz/klinik/vizual qəbul bu statusdan avtomatik çıxarılmır. K09 profil redaktəsi/izah və gələcək plan təsdiqi müqaviləsi yazılıb; qəbul qeydi
-docs/qa/android-k09-acceptance.txt-dədir. K10–K34 başlanmayıb.
-Növbəti tapşırıq K10-dur. G2 bağlıdır; production fərdi hədəf aktiv deyil.
+docs/qa/android-k09-acceptance.txt-dədir. K10 axtarış/əl ilə giriş/əvvəlki yeməkdən
+porsiya qaralaması yazılıb; qəbul qeydi docs/qa/android-k10-acceptance.txt-dədir.
+K11–K34 başlanmayıb. Növbəti tapşırıq K11-dir. G2 bağlıdır; production fərdi hədəf aktiv deyil.
 Kanonik məhsul mənbəyi: planning/research-data.json.
 § istinadları: planning/nutrition-science-implementation-plan.txt bölmələridir.
 Əlavə məcburi mənbə: planning/meal-customization-requirements.txt, T01–T19.
@@ -409,10 +410,8 @@ Ekran 01–08 → K06–K09/K16/K25; 09–12 → K10–K12/K23;
 Əlavə dizaynsız xəta/hesab halları da K31-də ayrıca izlənir.
 
 NÖVBƏTİ DAVAM PROMPTU
-“K10-u icra et. docs/context/current-task.md və planning/coding-tasks.txt-ni oxu.
-Əsas plan planning/nutrition-science-implementation-plan.txt §3/18–19 və ekran 09;
-kanonik mənbə planning/research-data.json-dır. K03 library/K04 nutrient nüvəsini,
-K06 dil/token/naviqasiya qaydalarını qoru. Axtarış, əl ilə giriş və əvvəlki yeməkdən
-porsiya qaralaması qur; faktiki yazı/təsdiq K11 sərhədidir. G3 bağlıdır, qaralama
-reseptləri production namizədi etmə. Lokal workflow: CI yalnız merged main,
-APK yaratma. Yalnız K10; K11-ə keçmə.”
+“K11-i icra et. docs/context/current-task.md, planning/coding-tasks.txt və
+əsas plan planning/nutrition-science-implementation-plan.txt §4/8/11–12/18–19-u oxu.
+K10 PortionDraft müqaviləsini istifadə et; mənbə/versiya, naməlum nutrient və əvvəlki
+qeyd snapshot-unu qoru. Porsiya təsdiqi və dayanıqlı FoodLog yazısını qur.
+G2/G3 bağlıdır. Lokal workflow: CI yalnız merged main, APK yaratma. Yalnız K11.”
