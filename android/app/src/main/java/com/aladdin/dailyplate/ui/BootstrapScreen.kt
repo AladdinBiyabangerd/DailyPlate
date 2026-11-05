@@ -109,6 +109,8 @@ fun BootstrapScreen() {
                             } else if (navigation.current == Destination.Today) {
                                 com.aladdin.dailyplate.ui.today.TodayScreen(savedLogId,
                                     { savedLogId = null; open(Destination.Add) }, { open(Destination.Menu) })
+                            } else if (navigation.current == Destination.Menu) {
+                                com.aladdin.dailyplate.ui.menu.MenuScreen { open(Destination.Profile) }
                             } else {
                                 val art = when (navigation.current) {
                                     Destination.Today -> R.drawable.art_empty

@@ -1,0 +1,27 @@
+<resources>
+    <string name="mn_error">Не удалось сохранить план или предпросмотр устарел. Проверь ещё раз.</string>
+    <string name="mn_reload">Обновить</string>
+    <string name="mn_choices">Изменить настройки</string>
+    <string name="mn_target">Примерная дневная цель: %1$.0f ккал</string>
+    <string name="mn_slots">Приёмов пищи в день: %1$d</string>
+    <string name="mn_accept">Подтвердить меню</string>
+    <string name="mn_future_note">Прошлые и записанные порции сохраняются. Предпросмотр не создаёт запись в дневнике.</string>
+    <string name="mn_from">Дата изменения: %1$s</string>
+    <string name="mn_before_after">До → после</string>
+    <string name="mn_confirm_future">Подтвердить будущий план</string>
+    <string name="mn_cancel">Отменить предпросмотр</string>
+    <string name="mn_generate">Создать новый план на неделю</string>
+    <string name="mn_recalculate">Пересчитать будущий план по профилю</string>
+    <string name="mn_unavailable">Подтверждённые данные для плана недоступны. Можно пользоваться дневником.</string>
+    <string name="mn_ready">Предпросмотр готов. Подтверди для сохранения.</string>
+    <string name="mn_no_plan">Для этого запроса подходящий план не найден.</string>
+    <string name="mn_incomplete">Недостаточно данных для подтверждения плана.</string>
+    <string name="mn_stale">Профиль или данные изменились. Создай новый запрос.</string>
+    <string name="mn_temporary">Поиск не завершён. Попробуй новый запрос.</string>
+    <string name="mn_planned">Запланировано</string>
+    <string name="mn_partial">Частично съедено</string>
+    <string name="mn_consumed">Съедено</string>
+    <string name="mn_skipped">Пропущено</string>
+    <string name="mn_projection">Фактически + остаток плана (примерно): %1$s ккал</string>
+    <string name="mn_diary_incomplete">Полнота дневника не подтверждена; точный остаток энергии недоступен.</string>
+</resources>
