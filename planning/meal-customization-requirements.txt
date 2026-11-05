@@ -47,7 +47,7 @@ Bir reseptin dəyişməsi yalnız seçilmiş plan hissəsini dəyişir. İki gü
 Həftənin qalan yeməkləri, profil, enerji hədəfi və faktiki gündəlik səssiz dəyişmir.
 Gündə yeni hədəfə çatmaq üçün başqa yeməyin porsiyası dəyişdirilməlidirsə bu yalnız ayrıca təklif olur; istifadəçi qəbul etmədən tətbiq edilmir.
 “Bütün həftəni yenidən qur” ayrıca açıq əməliyyatdır. Adi yemək dəyişməsinin gizli nəticəsi ola bilməz.
-Alış-veriş siyahısı yeni tərkiblə fərq üzrə yenilənir. Evdə var/alınıb işarələri eyni ərzaq üçün saxlanır. Artıq alınmış, amma yeni planda lazım olmayan məhsul səssiz itirilmir; ayrıca izah olunur.
+Alış-veriş siyahısı yeni tərkiblə fərq üzrə yenilənir. Evdə var/alınıb işarələri eyni ərzaq üçün saxlanır. Həftəyə lazım olan ümumi miqdar göstərilir; evdəki dəqiq miqdar daxil edilmir və çıxılmır. “Evdə var” yalnız könüllü sadə işarədir, ümumi ehtiyacı dəyişmir. Artıq alınmış, amma yeni planda lazım olmayan məhsul səssiz itirilmir; ayrıca izah olunur.
 Ləğv etmək saxlanmamış dəyişiklikləri atır. Yadda saxladıqdan sonra “Geri qaytar” son plan əməliyyatını geri çevirir; bu arada faktiki yemək qeydi yaranıbsa əvvəlcə konflikt izah edilir.
 
 7. YEDİM ƏMƏLİYYATI
