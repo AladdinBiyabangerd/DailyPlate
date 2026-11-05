@@ -22,6 +22,7 @@ class PlanConsumptionTest {
         nutrientSnapshot = NutrientSnapshot(mapOf("energy_kcal" to NutrientAmount(400.0, NutrientUnit.KCAL),
             "protein_g" to NutrientAmount(null, NutrientUnit.GRAM)))) }) }
     private fun command() = PlanConsumption(original.ref, "item-a", 0.5, log().copy(
+        actualRecipeSnapshot = log().actualRecipeSnapshot!!.copy(consumedShare = 0.125),
         nutrientSnapshot = NutrientSnapshot(mapOf("energy_kcal" to NutrientAmount(200.0, NutrientUnit.KCAL),
             "protein_g" to NutrientAmount(null, NutrientUnit.GRAM)))))
 
@@ -97,6 +98,7 @@ class PlanConsumptionTest {
 
     @Test fun invalidPortionAndForeignOwnerCannotWrite() {
         listOf(command().copy(consumedServings = 2.0), command().copy(log = command().log.copy(userId = "other")),
+            command().copy(log = command().log.copy(actualRecipeSnapshot = log().actualRecipeSnapshot)),
             command().copy(log = command().log.copy(nutrientSnapshot = nutrients))).forEach { bad ->
             assertThrows(IllegalArgumentException::class.java) { bad.applyTo(original) }
         }

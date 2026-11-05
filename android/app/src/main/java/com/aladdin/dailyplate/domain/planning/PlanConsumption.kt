@@ -14,6 +14,8 @@ data class PlanConsumption(
         require(log.ref.version == 1L && !log.deleted && log.entryMethod == EntryMethod.PLAN)
         require(log.sourcePlanItemId == itemId && log.actualRecipeSnapshot != null)
         require(log.recipeChangedAnswer != null)
+        require(log.nutrientBasis == if (log.recipeChangedAnswer == true)
+            NutrientBasis.RECIPE_USER_MODIFIED else NutrientBasis.RECIPE_CONFIRMED)
     }
 
     fun applyTo(current: MealPlan): MealPlan {
@@ -24,7 +26,12 @@ data class PlanConsumption(
         require(log.ref.id !in item.consumedLogIds)
         require(log.recipe == item.recipe)
         if (log.recipeChangedAnswer == false) {
-            require(log.actualRecipeSnapshot?.customization == item.customization)
+            val actual = requireNotNull(log.actualRecipeSnapshot)
+            require(actual.customization == item.customization)
+            val actualServings = actual.servingsPrepared * actual.consumedShare
+            require(kotlin.math.abs(actualServings - consumedServings) <= 1e-9 * consumedServings) {
+                "Batch share must match the confirmed personal portion"
+            }
             require(log.nutrientSnapshot == WeeklyNutrition.scale(item.nutrientSnapshot,
                 consumedServings / item.plannedServings)) { "Confirmed intake must match the served plan portion" }
             require(log.confirmedPortionGrams == item.portionGrams?.times(consumedServings / item.plannedServings))
