@@ -1,5 +1,8 @@
+@file:kotlinx.serialization.UseSerializers(DecimalStringSerializer::class, DurationStringSerializer::class)
+
 package com.aladdin.dailyplate.domain.pricing
 
+import kotlinx.serialization.Serializable
 import com.aladdin.dailyplate.domain.IngredientPrice
 import com.aladdin.dailyplate.domain.Money
 import com.aladdin.dailyplate.domain.RecordedAt
@@ -12,27 +15,34 @@ import java.time.Instant
 
 /** Edible grams in this exact state. Count/volume and cooked/raw conversions belong
  * at a documented conversion boundary; this engine never infers a yield factor. */
+@Serializable
 data class ShoppingProduct(val foodId: String, val preparationState: String) {
     init { require(foodId.isNotBlank() && preparationState.isNotBlank()) }
 }
+@Serializable
 data class ShoppingNeed(val product: ShoppingProduct, val edibleGrams: BigDecimal) {
     init { require(edibleGrams.signum() >= 0) }
 }
+@Serializable
 data class PriceObservation(val price: IngredientPrice, val testOnly: Boolean)
 
 /** No default freshness threshold: supply an explicitly versioned policy. */
+@Serializable
 data class PriceFreshness(val ref: VersionRef, val maximumAge: Duration) {
     init { require(!maximumAge.isNegative) }
 }
+@Serializable
 enum class PriceIssue {
     REGION_MISSING, PRICE_MISSING, STATE_MISMATCH, PRICE_STALE, PRICE_FROM_FUTURE,
     FRESHNESS_POLICY_MISSING, FIXTURE_PRICE, G4_REQUIRED,
 }
+@Serializable
 data class ShoppingCostLine(
     val product: ShoppingProduct, val requiredEdibleGrams: BigDecimal,
     val price: VersionRef?, val packages: BigDecimal?,
     val usageCost: Money?, val purchaseCost: Money?, val issues: Set<PriceIssue>,
 )
+@Serializable
 data class ShoppingCost(
     val lines: List<ShoppingCostLine>, val totalCost: Money?,
     val issues: Set<PriceIssue>, val testOnly: Boolean, val freshnessPolicy: VersionRef?,

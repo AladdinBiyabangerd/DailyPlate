@@ -1,9 +1,11 @@
 package com.aladdin.dailyplate.domain.planning
 
+import kotlinx.serialization.Serializable
 import com.aladdin.dailyplate.domain.*
 import com.aladdin.dailyplate.domain.editorial.EditorialSnapshot
 
 /** Evidence is exact-version, editorial data; missing evidence is never an empty safe set. */
+@Serializable
 data class IngredientSafety(
     val food: Food,
     val mappingResolved: Boolean?,
@@ -13,6 +15,7 @@ data class IngredientSafety(
     val availableRegions: Set<String>?,
 )
 
+@Serializable
 data class CandidateCatalog(
     val ref: VersionRef,
     val recipes: List<EditorialSnapshot>,
@@ -24,6 +27,7 @@ data class CandidateCatalog(
     }
 }
 
+@Serializable
 data class CandidateRequest(
     val profile: VersionRef, val policy: VersionRef, val catalog: VersionRef,
     val at: RecordedAt,
@@ -32,9 +36,12 @@ data class CandidateRequest(
     val portion: PortionRange? = null,
 )
 
+@Serializable
 enum class RuleStatus { PASS, FAIL, UNKNOWN, NOT_APPLICABLE }
+@Serializable
 enum class CandidateStatus { SUCCESS, NO_FEASIBLE_PLAN, INCOMPLETE_DATA, POLICY_UNAVAILABLE, STALE_INPUT }
 
+@Serializable
 data class CandidateRuleResult(
     val ruleId: String, val policy: VersionRef, val scope: String,
     val operator: String, val threshold: String?, val observedValue: String?, val unit: String?,
@@ -42,7 +49,9 @@ data class CandidateRuleResult(
     val reason: String,
 )
 
+@Serializable
 data class RecipeCandidate(val recipe: VersionRef, val portion: PortionRange)
+@Serializable
 data class CandidateResult(
     val status: CandidateStatus, val testOnly: Boolean,
     val candidates: List<RecipeCandidate>, val ruleResults: List<CandidateRuleResult>,
