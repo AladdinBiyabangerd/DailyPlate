@@ -15,7 +15,8 @@
         "android/app/src/test/java/com/aladdin/dailyplate/ui/PortionDesignUiTest.kt",
         "android/app/src/test/java/com/aladdin/dailyplate/ui/FoodEntryUiTest.kt",
         "android/app/src/test/java/com/aladdin/dailyplate/ui/MenuUiTest.kt",
-        "android/app/src/test/java/com/aladdin/dailyplate/ui/RecipeDetailTest.kt"
+        "android/app/src/test/java/com/aladdin/dailyplate/ui/RecipeDetailTest.kt",
+        "android/app/src/main/res/drawable-nodpi/art_portion_scale.png"
       ],
       "requirements": [
         "Approved B design: labelled decorative illustration, white cards and turquoise tokens; no universal plate calories",
@@ -820,7 +821,8 @@
         "android/app/src/test/java/com/aladdin/dailyplate/ui/PortionDesignUiTest.kt",
         "android/app/src/test/java/com/aladdin/dailyplate/ui/FoodEntryUiTest.kt",
         "android/app/src/test/java/com/aladdin/dailyplate/ui/MenuUiTest.kt",
-        "android/app/src/test/java/com/aladdin/dailyplate/ui/RecipeDetailTest.kt"
+        "android/app/src/test/java/com/aladdin/dailyplate/ui/RecipeDetailTest.kt",
+        "android/app/src/main/res/drawable-nodpi/art_portion_scale.png"
       ],
       "requirements": [
         "Approved B design: labelled decorative illustration, white cards and turquoise tokens; no universal plate calories",

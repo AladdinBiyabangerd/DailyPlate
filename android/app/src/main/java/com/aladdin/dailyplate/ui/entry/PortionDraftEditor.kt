@@ -69,7 +69,7 @@ fun PortionDraftEditor(draft: PortionDraft, back: () -> Unit, update: (PortionDr
     }
     EntryBack(back)
     PortionHero(if (draft.unit == EntryUnit.PREVIOUS_PORTION) R.string.fe_portion else R.string.pd_quantity,
-        if (draft.unit == EntryUnit.PREVIOUS_PORTION) R.drawable.art_entry_previous else R.drawable.art_weight)
+        if (draft.unit == EntryUnit.PREVIOUS_PORTION) R.drawable.art_entry_previous else R.drawable.art_portion_scale)
     QidaCard {
         Text(draft.name, style = MaterialTheme.typography.titleMedium)
         draft.preparationState?.let { Text(it) }
@@ -143,6 +143,12 @@ private fun PortionNutrients(snapshot: com.aladdin.dailyplate.domain.NutrientSna
             "carbohydrate", "carbs" -> stringResource(R.string.pc_carbs)
             else -> key
         }
-        Text("$label: ${nutrient.value?.toString() ?: stringResource(R.string.fe_unknown_value)} ${nutrient.unit}")
+        val unit = when (nutrient.unit) {
+            com.aladdin.dailyplate.domain.NutrientUnit.KCAL -> "kcal"
+            com.aladdin.dailyplate.domain.NutrientUnit.GRAM -> "g"
+            com.aladdin.dailyplate.domain.NutrientUnit.MILLIGRAM -> "mg"
+            com.aladdin.dailyplate.domain.NutrientUnit.MICROGRAM -> "µg"
+        }
+        Text("$label: ${nutrient.value?.toString() ?: stringResource(R.string.fe_unknown_value)} $unit")
     }
 }

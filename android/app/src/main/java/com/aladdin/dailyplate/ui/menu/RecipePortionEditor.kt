@@ -2,6 +2,11 @@ package com.aladdin.dailyplate.ui.menu
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.material3.*
+import androidx.compose.foundation.layout.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import com.aladdin.dailyplate.ui.theme.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.platform.LocalConfiguration
@@ -42,8 +47,7 @@ internal fun RecipePortionEditor(detail: RecipeDetailData, back: () -> Unit, con
         else parseEntryNumber(amount)
     val command = preview
     if (command == null) {
-        MeasurementCard(stringResource(R.string.pd_prepared), prepared, R.drawable.art_cooking,
-            if (invalid && batch == null) stringResource(R.string.pd_batch_invalid) else null,
+        PreparedServings(prepared, if (invalid && batch == null) stringResource(R.string.pd_batch_invalid) else null,
             { prepared = it; invalid = false }, { delta ->
                 val next = (parseEntryNumber(prepared) ?: basis) + delta
                 if (next.isFinite() && next > 0) { prepared = next.toString(); invalid = false }
@@ -96,3 +100,31 @@ internal fun RecipePortionEditor(detail: RecipeDetailData, back: () -> Unit, con
 }
 
 private fun number(value: Double): String = java.math.BigDecimal.valueOf(value).stripTrailingZeros().toPlainString()
+
+@Composable
+private fun PreparedServings(value: String, error: String?, change: (String) -> Unit, step: (Int) -> Unit) {
+    val label = stringResource(R.string.pd_prepared)
+    QidaCard {
+        Text(label, style = MaterialTheme.typography.titleMedium)
+        if (LocalConfiguration.current.fontScale > 1.3f) {
+            QidaField(stringResource(R.string.pd_count), value, change, error, numeric = true)
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(QidaSpacing.small)) {
+                listOf(-1, 1).forEach { delta ->
+                    FilledTonalButton(onClick = { step(delta) }, modifier = Modifier.weight(1f)
+                        .heightIn(min = QidaDimensions.touchTarget)
+                        .semantics { contentDescription = label + if (delta > 0) " +1" else " −1" },
+                        contentPadding = PaddingValues(QidaSpacing.small)) { Text(if (delta > 0) "+" else "−") }
+                }
+            }
+        } else {
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(QidaSpacing.small),
+                verticalAlignment = androidx.compose.ui.Alignment.CenterVertically) {
+                FilledTonalButton(onClick = { step(-1) }, modifier = Modifier.size(QidaDimensions.touchTarget)
+                    .semantics { contentDescription = "$label −1" }, contentPadding = PaddingValues(QidaSpacing.small)) { Text("−") }
+                Box(Modifier.weight(1f)) { QidaField(stringResource(R.string.pd_count), value, change, error, numeric = true) }
+                FilledTonalButton(onClick = { step(1) }, modifier = Modifier.size(QidaDimensions.touchTarget)
+                    .semantics { contentDescription = "$label +1" }, contentPadding = PaddingValues(QidaSpacing.small)) { Text("+") }
+            }
+        }
+    }
+}
