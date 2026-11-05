@@ -1,63 +1,61 @@
-# Current task — D03 approved weekly menu complete
+# Current task — D04 recipe details complete
 
 ## Completed
-- User approved the displayed D03 proposal with “Basla” (5 November 2026).
-- Compact week selector with real dates, selected check and separate Today marker;
-  illustrated cards, localized slots/status, accepted snapshot energy and exact-version
-  recipe time. Unknown values stay unknown; customized time is not copied from base.
-- Recipe viewing stays read-only. Ate opens the existing D02 portion editor; preview
-  and explicit confirmation remain required. Consumed/skipped meals cannot log again;
-  partial meals retain existing remaining-serving safeguards.
-- Honest empty/loading/error/missing-profile recovery; real repository empty-state
-  load tested. Existing generation/acceptance/durable retry behavior preserved.
+- User approved adapting D04 to the new design on 5 November 2026, retaining
+  “Yedim — porsiyanı seç” and hiding unavailable photo/edit controls.
+- Labelled dish illustration, personal-share summary, illustrated batch ingredients,
+  expandable numbered cooking steps and secondary nutrition/version details implemented.
+- Portion selection opens at its heading; existing preview/explicit confirmation,
+  remaining-share safeguards and read-only recipe viewing preserved.
 
 ## Current state
-- Accepted main: 5880677604805947bc5231074464c41c374e1469.
-- Technical CI passed and explicit visual acceptance passed; finish verified without
-  rerunning CI. The documentation-only completion merge is checked separately by finish;
-  .local-ci/logs/latest.json is authoritative for the latest main status.
-- 396 fresh native APK-free renders actually inspected in 66 pixel-preserving sheets
-  plus original-frame checks: 204 D03 and 192 unchanged D02 regression images.
-- Implementation commits: 7f4fe64, f62ca61, 1e319d0, a129164.
+- Accepted implementation main: 5a6db7c407964a2759ea44a488c773c1afec70d6.
+- Technical CI and explicit hash-bound visual acceptance passed. Documentation-only
+  completion merge is checked separately; .local-ci/logs/latest.json is authoritative.
+- Implementation commits: 9c8510a, b19729e, 17e6379, 53ce8cc.
+- All 708 final native renders viewed in 118 pixel-preserving sheets: 312 D04 and
+  396 D02/D03 regression images, whose hashes match prior accepted images.
 
 ## Decisions
-- Approved reference: design-concepts/simple-turquoise/approved/d03-menu.png and .txt;
-  original 04/00 references remain style/flow references. Existing tokens reused.
-- Generic artwork is labelled illustration. Replacement/shopping show one unavailable
-  notice until their functional UI is implemented; no inert fake actions or sample plan.
-- Normal day selector scrolls horizontally to preserve 48dp targets. Large labels wrap;
-  RU 150% dates use full width. Existing Menu shell heading/navigation is retained (D06 open).
-- Publication/nutrition policy gates unchanged. No APK/device checks authorized.
+- Approved 07 ingredient/recipe reference supplies artwork and visual hierarchy;
+  existing tokens/native components retained. Two ingredient columns at 100%, one
+  at 150% keeps translated labels readable. Illustration is explicitly not a photo.
+- Personal planned share and entire prepared batch remain distinct. Customized
+  ingredients are exact; unverified instructions and unknown time/nutrients stay honest.
+- Consumed/skipped/no-basis states do not offer invalid logging. Photo/edit and other
+  unavailable actions are omitted. Existing shell navigation remains D06 debt.
+- No APK, remote, push or deployment; nutrition/publication policy gates unchanged.
 
 ## Remaining work
-- D04 recipe detail design discrepancy is the next separate unit. D05/D06 remain open.
-- Real approved production-catalog populated-menu integration, production food photos,
-  device/keyboard and TalkBack acceptance remain unverified.
-- During the error-reload merge the existing FoodEntryUiTest restart/edit test timed
-  out once. It passed in final 588067 main CI; no unrelated product/test change was made
-  and no claim is made that the intermittent timeout's root cause was resolved.
+- D05 profile and D06 navigation remain open separate units. Do not begin automatically.
+- Real approved production-catalog integration, actual food photos, device/keyboard
+  and TalkBack acceptance remain unverified.
+- Earlier D03 FoodEntryUiTest intermittent timeout root cause remains uninvestigated;
+  final D04 221-test run passed without failures/errors/skips.
 
 ## Relevant files
 - android/app/src/main/java/com/aladdin/dailyplate/ui/menu/
-  {MenuScreen,WeeklyMenu,MenuRecipeSummary,MenuWorkflow,RecipeDetailScreen}.kt
-- android/app/src/main/res/values{,-az,-en,-ru}/weekly_menu.xml
-- android/app/src/test/java/com/aladdin/dailyplate/ui/{WeeklyMenuUiTest,MenuRecipeSummaryTest}.kt
+  {RecipeDetailScreen,RecipeDetailDesign,RecipeIngredientArt}.kt
+- android/app/src/main/res/values{,-az,-en,-ru}/recipe_design.xml
+- android/app/src/test/java/com/aladdin/dailyplate/ui/RecipeDetailDesignUiTest.kt
 - docs/qa/{design-discrepancies.md,visual-review-plan.json,visual-acceptance.md}
-- planning/nutrition-science-implementation-plan.txt §16/18–19;
-  docs/nutrition-plan-design.md; design-concepts/simple-turquoise/{00-reference,04-menyu-ve-alisveris,07-inqrediyent-redaktesi}.png
+- design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png;
+  design-concepts/tokens.css; planning/nutrition-science-implementation-plan.txt
+  §16/18–19; docs/nutrition-plan-design.md.
 
 ## Checks performed
-- Main 588067: 220 JVM tests, lint/compile/token/contrast, canonical exports/library
-  contracts and visual gate contracts passed. No branch/manual CI, remote/push or APK.
-- 204 D03 AZ/EN/RU × 100%/150% renders inspected: 3/4/5 meals including every card,
-  alternate selected day, empty day/plan, unavailable/loading/error/missing profile,
-  and direct Ate editor entry. 192 D02 images re-opened and match prior accepted hashes.
-- Evidence: .local-ci/visual/5880677604805947bc5231074464c41c374e1469/{manifest,review}.json
-  and renders/k10/{d02,d03}-*.png. review-visual accepted; finish verified without CI rerun.
-- Initial CI exposed test scrolling/thread access; then lint exposed unused reload copy.
-  Repaired through fix branches/merges. Native review fixed RU large-date word wrapping.
+- Post-merge main: 221 JVM contract/Room tests; APK-free lint/compile/token/contrast,
+  canonical exports/library contracts and visual gate contracts passed.
+- D04 normal/expanded/customized/no-basis/consumed/skipped/partial at AZ/EN/RU ×
+  100%/150%, top/summary/every ingredient/steps/bottom plus expanded step/info views.
+- Tests verify modified grams, unknown time/energy, no inherited custom steps,
+  absent invalid actions, direct portion heading visibility and preview/cancel safety.
+- Evidence: .local-ci/visual/5a6db7c407964a2759ea44a488c773c1afec70d6/{manifest,review}.json.
+  Actual comparison completed before review-visual; finish accepted without CI rerun.
+- Initial lint failure fixed by removing obsolete labels; native review improved hero
+  crop, secondary back action and portion-editor scroll entry. No APK/device checks.
 
 ## Exact next step
-- Continue D04 in a new chat only when requested: read this context, discrepancy inventory,
-  visual rules and plan §16/18–19; compare recipe screen in 04 with the newer 07 flow.
-  If a new design is needed to reconcile requirements, present it for user approval first.
+- If requested, inspect D05 in a new chat: read this context, discrepancy inventory,
+  visual rules, plan §18–19 and 05-irelileyis-ve-profil.png. Show current and reference
+  side by side; present any new design for user approval before implementing it.

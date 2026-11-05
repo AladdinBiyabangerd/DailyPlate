@@ -7,9 +7,6 @@ təsdiqlənmiş baseline etmir. Agent siyahını düzəliş və faktiki qəbul s
 
 ## Hazır funksiyalarda açıq fərqlər
 
-- **D04 · Resept detalları — açıq.** `ui/menu/RecipeDetailScreen.kt` mətn əsaslıdır;
-  04/07 istinadlarındakı əsas yemək şəkli, şəkilli inqrediyent təqdimatı və vizual
-  addım iyerarxiyası çatışmır. Foto və redaktorun gələcək funksiyaları ayrıca scope-dur.
 - **D05 · Profil — açıq.** `ui/profile/ProfileScreen.kt` hazır redaktə/izah
   funksiyalarını göstərir, amma `05-irelileyis-ve-profil.png` profilinin illüstrasiyalı
   seçim sətirləri və ümumi iyerarxiyası tam tətbiq edilməyib. Hazır olmayan hesab,
@@ -19,7 +16,23 @@ təsdiqlənmiş baseline etmir. Agent siyahını düzəliş və faktiki qəbul s
   əvəzinə normal axındakı düymə istifadə olunur. Normal ölçüdə uyğunlaşdırma və
   böyük şriftdə əlçatanlıq ayrıca renderlə qiymətləndirilməlidir.
 
-## Bağlanmış hissələr — D03 və D02
+## Bağlanmış hissələr — D04, D03 və D02
+
+- **D04 · Resept detalları — bağlı (5 noyabr 2026).** İstifadəçi yeni dizayna
+  uyğunlaşdırmanı təsdiqlədi: əsas düymə “Yedim — porsiyanı seç”, hazır olmayan foto
+  və redaktə düymələri göstərilmir. 07 istinadından yemək illüstrasiyası, şəkilli
+  inqrediyent kartları, açılan nömrəli bişirmə addımları və ikinci dərəcəli qida
+  məlumatları tətbiq edilib. Şəxsi pay bütün hazırlanacaq yeməyin miqdarından ayrıdır.
+  Kartlar 100% şriftdə iki, 150%-də bir sütundur; şəkillər real foto kimi təqdim edilmir.
+  Porsiya seçimi başlığından açılır; mövcud önbaxış/təsdiq və qalan pay qaydaları qorunur.
+  Qəbul edilmiş main: `5a6db7c407964a2759ea44a488c773c1afec70d6`.
+  Commitlər: `9c8510a`, `b19729e`, `17e6379`, `53ce8cc`.
+  221 JVM testi və APK-siz lint/kompilyasiya/token/kontrast yoxlamaları keçib.
+  312 D04 + 396 dəyişməyən D02/D03 renderi (AZ/EN/RU × 100%/150%) açılıb müqayisə
+  edilib və hash-ə bağlı vizual qəbul yazılıb: `.local-ci/visual/5a6db7c407964a2759ea44a488c773c1afec70d6/`.
+  APK, cihaz/klaviatura/TalkBack və real təsdiqli istehsal kataloqu yoxlamaları aparılmayıb.
+  Foto, resept redaktoru və D06 naviqasiya ayrıca açıq işdir.
+
 
 - **D03 · Həftəlik menyu — bağlı (5 noyabr 2026).** İstifadəçi yeni təklifi
   “Basla” ilə təsdiqlədi. İstinad: `approved/d03-menu.png` və native uyğunlaşdırma
