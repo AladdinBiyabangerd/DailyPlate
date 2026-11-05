@@ -6194,6 +6194,54 @@
           "font_scale": 1.5,
           "state": "week",
           "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.0-top",
+          "image": "demo/demo-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.5-top",
+          "image": "demo/demo-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.0-top",
+          "image": "demo/demo-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.5-top",
+          "image": "demo/demo-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.0-top",
+          "image": "demo/demo-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.5-top",
+          "image": "demo/demo-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
         }
       ]
     }

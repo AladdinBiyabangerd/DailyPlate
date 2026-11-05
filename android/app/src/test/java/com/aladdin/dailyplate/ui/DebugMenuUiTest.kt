@@ -50,7 +50,7 @@ class DebugMenuUiTest {
                         Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(QidaSpacing.large),
                             verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
                             Spacer(Modifier.height(QidaSpacing.small).testTag("d03-top"))
-                            QidaHeading(t(R.string.menu))
+                            QidaHeading(localized!!.getString(R.string.menu))
                             content()
                             Spacer(Modifier.height(QidaSpacing.small).testTag("d03-bottom"))
                         }
@@ -63,18 +63,24 @@ class DebugMenuUiTest {
 
     @Test fun sevenOfflinePhotosAndDatedMealsInEveryLanguageAndTextScale() {
         for (language in listOf("az", "en", "ru")) for (scale in listOf(1f, 1.5f)) {
-            show(language, scale) { DebugWeeklyMenu(LocalDate.parse("2026-11-05")) }
+            show(language, scale) {
+                DebugMenuToggle(true) {}
+                DebugWeeklyMenu(LocalDate.parse("2026-11-05"))
+            }
             val names = localized!!.resources.getStringArray(R.array.demo_meals)
             assertEquals(7, names.size)
-            for (index in 0..6) {
+            for (index in -1..6) {
+                if (index == -1) compose.onNodeWithTag("d03-top").performScrollTo()
+                else {
                 compose.onNodeWithTag("demo-photo-$index").performScrollTo().assertIsDisplayed()
                     .assertContentDescriptionEquals(names[index])
                 compose.onNodeWithTag("demo-meal-$index").performScrollTo().assertIsDisplayed()
+                }
                 compose.runOnIdle {
                     val view = compose.activity.window.decorView
                     val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
                     view.draw(Canvas(bitmap))
-                    val file = File("build/reports/demo/demo-$language-$scale-meal-$index.png")
+                    val file = File("build/reports/demo/demo-$language-$scale-${if (index == -1) "top" else "meal-$index"}.png")
                     file.parentFile!!.mkdirs()
                     file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
                     bitmap.recycle()
