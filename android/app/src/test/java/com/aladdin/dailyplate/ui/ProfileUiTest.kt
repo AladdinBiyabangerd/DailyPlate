@@ -60,14 +60,16 @@ class ProfileUiTest {
         await("Profil versiyası 2")
         click("Nəyə əsasən?")
         compose.onNodeWithText("Dəyişiklik səbəbi: Yeni məqsəd").performScrollTo().assertIsDisplayed()
-        compose.onNodeWithText("Təsdiqli klinik qayda aktivləşdirilməyib.").performScrollTo().assertIsDisplayed()
+        compose.onAllNodesWithText("Təsdiqli klinik qayda aktivləşdirilməyib.").onFirst().performScrollTo().assertIsDisplayed()
         capture("explanation-az")
     }
 
     @Test fun renderEditorAndExplanationInEveryLanguageAndLargeText() {
         seed()
         for (scale in listOf(1f, 1.5f)) for (language in listOf("az", "en", "ru")) {
-            context.getSharedPreferences("presentation", 0).edit().putString("language", language).commit()
+            compose.onNode(hasContentDescription("Dil") or hasContentDescription("Language") or hasContentDescription("Язык"))
+                .performScrollTo().performClick()
+            compose.onNodeWithText(language.uppercase()).performClick()
             val config = android.content.res.Configuration(context.resources.configuration).apply { fontScale = scale }
             @Suppress("DEPRECATION")
             context.resources.updateConfiguration(config, context.resources.displayMetrics)
@@ -88,9 +90,9 @@ class ProfileUiTest {
             capture("editor-bottom-$language-$scale")
             click(text(R.string.pf_cancel))
             // Reset navigation to Welcome for the next configuration.
-            compose.activityRule.scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }
-            compose.activityRule.scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }
-            compose.activityRule.scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }
+            compose.activityRule.scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }; compose.waitForIdle()
+            compose.activityRule.scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }; compose.waitForIdle()
+            compose.activityRule.scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }; compose.waitForIdle()
         }
     }
     private fun capture(name: String) {

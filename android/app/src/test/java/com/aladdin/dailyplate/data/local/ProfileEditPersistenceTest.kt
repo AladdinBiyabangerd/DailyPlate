@@ -15,6 +15,20 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [34], manifest = Config.NONE)
 class ProfileEditPersistenceTest {
+    @Test fun legacyProfileWithoutAssessmentCanBeEditedWithoutInventingPastResults() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        Room.inMemoryDatabaseBuilder(context, UserDatabase::class.java).allowMainThreadQueries().build().useDatabase { db ->
+            val r = UserRepositories(db)
+            val p = readyOnboarding().profile("az", recordedAt, date)
+            r.profiles.save(p, 0)
+            val preview = ProfileEdit.preview(p, ProfileEdit.draft(p).change("goal", "GAIN"), "", false,
+                "New goal", recordedAt, date)
+            r.profileEdits.confirm(preview)
+            assertNull(r.nutritionAssessments.version(p.userId, p.ref))
+            assertEquals(preview.assessment, r.nutritionAssessments.version(p.userId, preview.after.ref)!!.assessment)
+        }
+    }
+
     @Test fun futurePlanAcceptanceBindsExactVersionsAndProtectsConsumedItems() {
         val p = readyOnboarding().profile("az", recordedAt, date)
         val request = ProfileEdit.preview(p, ProfileEdit.draft(p).change("goal", "LOSE"), "", false,

@@ -1,6 +1,10 @@
 package com.aladdin.dailyplate.ui.profile
 
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
+import androidx.compose.foundation.layout.*
+import androidx.compose.ui.Modifier
+import com.aladdin.dailyplate.ui.theme.QidaSpacing
+import com.aladdin.dailyplate.ui.theme.QidaDimensions
 import androidx.compose.runtime.*
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.platform.LocalContext
@@ -13,7 +17,7 @@ import com.aladdin.dailyplate.ui.*
 import kotlinx.coroutines.*
 
 @Composable
-fun ProfileScreen(setup: () -> Unit) {
+fun ProfileScreen(resetScroll: () -> Unit, setup: () -> Unit) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     var profile by remember { mutableStateOf<UserProfile?>(null) }
@@ -25,6 +29,7 @@ fun ProfileScreen(setup: () -> Unit) {
     var editing by remember { mutableStateOf<Int?>(null) }
     var explain by remember { mutableStateOf(false) }
     var refresh by remember { mutableIntStateOf(0) }
+    LaunchedEffect(editing, explain) { resetScroll() }
     LaunchedEffect(refresh) {
         try {
             val id = withContext(Dispatchers.IO) { OnboardingStore(context).load().id }
@@ -48,7 +53,7 @@ fun ProfileScreen(setup: () -> Unit) {
     }
     val step = editing
     if (step != null) {
-        ProfileEditor(p, step, busy, error, { editing = null; error = false; refresh++ }) { preview ->
+        ProfileEditor(p, step, busy, error, resetScroll, { editing = null; error = false; refresh++ }) { preview ->
             busy = true
             scope.launch {
                 try {
@@ -60,14 +65,25 @@ fun ProfileScreen(setup: () -> Unit) {
         }
         return
     }
+    if (error) QidaState(SurfaceState.Error, stringResource(R.string.ob_write_error)) { refresh++ }
     Text(stringResource(R.string.pf_version, p.ref.version))
-    QidaButton(stringResource(R.string.ob_profile), { editing = 1 })
-    QidaButton(stringResource(R.string.ob_goal), { editing = 0 })
-    QidaButton(stringResource(R.string.pf_food_choices), { editing = 3 })
+    ProfileAction(stringResource(R.string.ob_profile)) { editing = 1 }
+    ProfileAction(stringResource(R.string.ob_goal)) { editing = 0 }
+    ProfileAction(stringResource(R.string.pf_food_choices)) { editing = 3 }
     QidaButton(stringResource(R.string.pf_basis), { explain = !explain })
     QidaCard { Text(stringResource(R.string.pf_general)); Text(stringResource(R.string.pf_future)) }
     if (explain) history.forEach { (version, assessment) ->
         changes.firstOrNull { it.ref == version.ref }?.let { QidaCard { Text(stringResource(R.string.pf_reason) + ": " + it.request.reason) } }
         TargetExplanation(version, assessment?.assessment)
+    }
+}
+
+@Composable
+private fun ProfileAction(label: String, action: () -> Unit) {
+    TextButton(onClick = action, modifier = Modifier.fillMaxWidth().heightIn(min = QidaDimensions.touchTarget),
+        shape = MaterialTheme.shapes.large, contentPadding = PaddingValues(QidaSpacing.medium),
+        colors = ButtonDefaults.textButtonColors(containerColor = MaterialTheme.colorScheme.surface,
+            contentColor = MaterialTheme.colorScheme.onSurface)) {
+        Text(label, style = MaterialTheme.typography.titleMedium)
     }
 }
