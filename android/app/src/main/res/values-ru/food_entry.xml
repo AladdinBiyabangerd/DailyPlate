@@ -1,0 +1,30 @@
+<resources>
+    <string name="fe_title">Что ты ел?</string>
+    <string name="fe_search">Поиск по названию еды</string>
+    <string name="fe_previous">Предыдущие блюда</string>
+    <string name="fe_query">Название еды</string>
+    <string name="fe_clear">Очистить поиск</string>
+    <string name="fe_no_previous">Предыдущих записей пока нет.</string>
+    <string name="fe_no_results">Подходящий опубликованный продукт не найден. Добавь вручную.</string>
+    <string name="fe_previous_item">Предыдущая запись: %1$s</string>
+    <string name="fe_repeat">Выбрать новую порцию</string>
+    <string name="fe_choose">Выбрать этот вариант</string>
+    <string name="fe_manual">Не нашлось? Добавь вручную</string>
+    <string name="fe_portion">Черновик порции</string>
+    <string name="fe_amount">Количество</string>
+    <string name="fe_invalid">Проверь название и положительное количество. Для пищевой ценности нужен источник; числа не могут быть отрицательными.</string>
+    <string name="fe_grams">Граммы (г)</string>
+    <string name="fe_kilograms">Килограммы (кг)</string>
+    <string name="fe_previous_portion">Доля предыдущей порции — измени перед подтверждением</string>
+    <string name="fe_prepare">Подготовить черновик порции</string>
+    <string name="fe_ready">Черновик готов. Запись в дневнике не создана. Подтверждение порции появится на следующем этапе.</string>
+    <string name="fe_unknown">Неизвестная пищевая ценность не равна нулю. Эти данные не подтверждают безопасность при аллергии.</string>
+    <string name="fe_unknown_value">Неизвестно</string>
+    <string name="fe_name">Название продукта</string>
+    <string name="fe_basis">Пищевая ценность на 100 граммов — необязательно</string>
+    <string name="fe_energy">Энергия (ккал / 100 г)</string>
+    <string name="fe_protein">Белки (г / 100 г)</string>
+    <string name="fe_fat">Жиры (г / 100 г)</string>
+    <string name="fe_carbs">Углеводы (г / 100 г)</string>
+    <string name="fe_source">Источник / этикетка и дата</string>
+</resources>

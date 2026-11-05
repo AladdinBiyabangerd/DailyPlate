@@ -100,6 +100,8 @@ fun BootstrapScreen() {
                             }
                             if (navigation.current == Destination.Profile) {
                                 com.aladdin.dailyplate.ui.profile.ProfileScreen({ scope.launch { contentScroll.scrollTo(0) } }) { open(Destination.Setup) }
+                            } else if (navigation.current == Destination.Add) {
+                                com.aladdin.dailyplate.ui.entry.FoodEntryScreen { scope.launch { contentScroll.scrollTo(0) } }
                             } else {
                                 val art = when (navigation.current) {
                                     Destination.Today -> R.drawable.art_empty

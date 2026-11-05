@@ -1,0 +1,30 @@
+<resources>
+    <string name="fe_title">What did you eat?</string>
+    <string name="fe_search">Search by food name</string>
+    <string name="fe_previous">Previously eaten</string>
+    <string name="fe_query">Food name</string>
+    <string name="fe_clear">Clear search</string>
+    <string name="fe_no_previous">No previous food entries yet.</string>
+    <string name="fe_no_results">No matching published food. You can add it manually.</string>
+    <string name="fe_previous_item">Previous entry: %1$s</string>
+    <string name="fe_repeat">Choose a new portion</string>
+    <string name="fe_choose">Choose this variant</string>
+    <string name="fe_manual">Not found? Add manually</string>
+    <string name="fe_portion">Portion draft</string>
+    <string name="fe_amount">Quantity</string>
+    <string name="fe_invalid">Check the name and positive quantity. Nutrient values require a source and cannot be negative.</string>
+    <string name="fe_grams">Grams (g)</string>
+    <string name="fe_kilograms">Kilograms (kg)</string>
+    <string name="fe_previous_portion">Multiple of the previous portion — adjust before confirmation</string>
+    <string name="fe_prepare">Prepare portion draft</string>
+    <string name="fe_ready">Draft ready. No diary entry saved. Portion confirmation will be available in the next stage.</string>
+    <string name="fe_unknown">Unknown nutrients are not zero. This information does not establish allergy suitability.</string>
+    <string name="fe_unknown_value">Unknown</string>
+    <string name="fe_name">Product name</string>
+    <string name="fe_basis">Nutrients per 100 grams — optional</string>
+    <string name="fe_energy">Energy (kcal / 100 g)</string>
+    <string name="fe_protein">Protein (g / 100 g)</string>
+    <string name="fe_fat">Fat (g / 100 g)</string>
+    <string name="fe_carbs">Carbohydrate (g / 100 g)</string>
+    <string name="fe_source">Source / label and date</string>
+</resources>
