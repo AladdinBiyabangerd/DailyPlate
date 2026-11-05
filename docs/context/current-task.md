@@ -27,6 +27,7 @@
   invalidate that total and remaining energy; known zero is retained.
 - Edits keep K11 event identity; append-only revisions use optimistic concurrency.
   Deletion is a backward-compatible optional FoodLog.deleted JSON field.
+- Recipes without known gram yield show actual batch share, never invented grams.
 - No automatic targets, fake content approvals, remote sync or APK generation.
 
 ## Remaining work

@@ -56,14 +56,21 @@ class FoodEntryUiTest {
     @Test fun todayEditorAzLarge() = renderToday("az", true)
     @Test fun todayEditorEnLarge() = renderToday("en", true)
     @Test fun todayEditorRuLarge() = renderToday("ru", true)
-    private fun renderToday(language: String, editor: Boolean) {
+    @Test fun todayRecipeWithoutGramsUsesActualBatchShare() = renderToday("az", true, true)
+    private fun renderToday(language: String, editor: Boolean, recipe: Boolean = false) {
         val log = com.aladdin.dailyplate.domain.entry.PortionDraft("Home meal",
             com.aladdin.dailyplate.domain.RecordedAt("2026-11-05T10:00:00Z", "Asia/Baku"),
             com.aladdin.dailyplate.domain.EntryMethod.MANUAL, quantity = 150.0,
             unit = com.aladdin.dailyplate.domain.entry.EntryUnit.GRAM, source = "label",
             nutrientsPerBasis = com.aladdin.dailyplate.domain.NutrientSnapshot(mapOf(
                 "energy" to com.aladdin.dailyplate.domain.NutrientAmount(100.0, com.aladdin.dailyplate.domain.NutrientUnit.KCAL))))
-        val saved = log.confirm("guest", "today-preview")
+        val saved = log.confirm("guest", "today-preview").let { entry ->
+            if (!recipe) entry else entry.copy(confirmedPortionGrams = null,
+                actualRecipeSnapshot = com.aladdin.dailyplate.domain.ActualRecipeSnapshot(
+                    com.aladdin.dailyplate.domain.VersionRef("recipe", 1), null,
+                    listOf(com.aladdin.dailyplate.domain.Ingredient(com.aladdin.dailyplate.domain.VersionRef("food", 1), 100.0)),
+                    4.0, 0.25, null, null, com.aladdin.dailyplate.domain.InstructionStatus.NEEDS_REVIEW))
+        }
         compose.runOnUiThread { compose.activity.setContent {
             val config = android.content.res.Configuration(base.resources.configuration).apply {
                 setLocale(Locale.forLanguageTag(language)); fontScale = 1.5f
@@ -83,7 +90,7 @@ class FoodEntryUiTest {
             }
         } }
         compose.waitForIdle()
-        capture("k12-${if (editor) "editor" else "summary"}-$language-large")
+        capture("k12-${if (recipe) "recipe-" else ""}${if (editor) "editor" else "summary"}-$language-large")
     }
 
     @Test fun savedRecordSurvivesRestartAndCanBeEditedAndDeleted() {

@@ -9,4 +9,5 @@
     <string name="td_write_error">Изменение не сохранено. Обновите и подтвердите снова.</string>
     <string name="td_missing">Запись не найдена или удалена.</string>
     <string name="td_total">Приблизительный итог записей</string>
+    <string name="td_batch_share">Доля приготовленного блюда: %1$.3f</string>
 </resources>

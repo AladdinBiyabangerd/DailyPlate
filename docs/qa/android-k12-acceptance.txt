@@ -13,6 +13,7 @@ Implemented:
   closed. Above-target copy is neutral; no punishment or eating restriction.
 - Saved success has actual portion/nutrients, actual recipe batch ingredients,
   committed-day summary, Today / another meal / edit by concrete log ID.
+- Recipes without a known gram yield display their actual consumed batch share.
 - Edit previews an explicit multiple of the saved portion, then confirms a new
   immutable revision. Original event/date/source/basis and recipe batch remain;
   recipe consumedShare and nutrients scale, exceeding the batch is rejected.

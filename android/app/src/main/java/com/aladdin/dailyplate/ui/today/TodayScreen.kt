@@ -99,7 +99,7 @@ fun TodayScreen(initialId: String? = null, add: () -> Unit, menu: () -> Unit) {
             QidaCard {
                 Text(entry.displayName ?: entry.ref.id, style = MaterialTheme.typography.titleMedium)
                 Text(Instant.parse(entry.consumedAt.instant).atZone(zone).toLocalTime().withSecond(0).withNano(0).toString())
-                Text("${entry.confirmedPortionGrams ?: "?"} ${stringResource(R.string.fe_grams)}")
+                RecordedPortion(entry)
                 QidaButton(stringResource(R.string.td_edit), { selected = entry.ref.id })
             }
         }
@@ -132,7 +132,7 @@ internal fun LogEditor(log: FoodLog, busy: Boolean, back: () -> Unit, save: (Foo
     var invalid by remember { mutableStateOf(false) }
     var confirmDelete by rememberSaveable { mutableStateOf(false) }
     QidaHeading(log.displayName ?: log.ref.id)
-    Text("${log.confirmedPortionGrams ?: "?"} ${stringResource(R.string.fe_grams)}")
+    RecordedPortion(log)
     RecordedIngredients(log)
     Text(stringResource(R.string.pc_local))
     QidaField(stringResource(R.string.td_multiple), quantity, { quantity = it; preview = null },
@@ -180,4 +180,11 @@ fun SavedDaySummary(log: FoodLog) {
     }
     entries?.let { TodaySummary(it, target, date.toString(), zone.id) }
         ?: Text(stringResource(R.string.td_remaining_unknown))
+}
+
+@Composable
+private fun RecordedPortion(log: FoodLog) {
+    val grams = log.confirmedPortionGrams
+    if (grams != null) Text("$grams ${stringResource(R.string.fe_grams)}")
+    else Text(stringResource(R.string.td_batch_share, requireNotNull(log.actualRecipeSnapshot).consumedShare))
 }
