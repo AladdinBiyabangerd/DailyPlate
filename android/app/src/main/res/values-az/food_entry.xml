@@ -1,0 +1,30 @@
+<resources>
+    <string name="fe_title">Nə yemisən?</string>
+    <string name="fe_search">Yeməyin adını axtar</string>
+    <string name="fe_previous">Əvvəl yediklərim</string>
+    <string name="fe_query">Yeməyin adı</string>
+    <string name="fe_clear">Mətni təmizlə</string>
+    <string name="fe_no_previous">Hələ əvvəlki yemək qeydin yoxdur.</string>
+    <string name="fe_no_results">Uyğun dərc olunmuş məhsul tapılmadı. Özün əlavə edə bilərsən.</string>
+    <string name="fe_previous_item">Əvvəlki qeyd: %1$s</string>
+    <string name="fe_repeat">Yeni porsiya seç</string>
+    <string name="fe_choose">Bu variantı seç</string>
+    <string name="fe_manual">Tapmadın? Özün əlavə et</string>
+    <string name="fe_portion">Porsiya qaralaması</string>
+    <string name="fe_amount">Miqdar</string>
+    <string name="fe_invalid">Adı və müsbət miqdarı yoxla. Qida dəyəri yazılıbsa mənbə tələb olunur; rəqəmlər mənfi ola bilməz.</string>
+    <string name="fe_grams">Qram (q)</string>
+    <string name="fe_kilograms">Kiloqram (kq)</string>
+    <string name="fe_previous_portion">Əvvəlki porsiyanın qatı — miqdarı təsdiqdən əvvəl dəyiş</string>
+    <string name="fe_prepare">Porsiya qaralamasını hazırla</string>
+    <string name="fe_ready">Qaralama hazırdır. Gündəliyə yazılmayıb. Porsiyanın təsdiqi növbəti mərhələdə açılacaq.</string>
+    <string name="fe_unknown">Bilinməyən qida dəyəri sıfır sayılmır. Bu məlumat allergiya uyğunluğunu təsdiqləmir.</string>
+    <string name="fe_unknown_value">Məlum deyil</string>
+    <string name="fe_name">Məhsulun adı</string>
+    <string name="fe_basis">Qida dəyəri — 100 qram üçün, bilirsənsə yaz</string>
+    <string name="fe_energy">Enerji (kkal / 100 q)</string>
+    <string name="fe_protein">Zülal (q / 100 q)</string>
+    <string name="fe_fat">Yağ (q / 100 q)</string>
+    <string name="fe_carbs">Karbohidrat (q / 100 q)</string>
+    <string name="fe_source">Mənbə / etiket və tarix</string>
+</resources>
