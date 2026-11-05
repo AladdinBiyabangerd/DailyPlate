@@ -9,7 +9,7 @@ docs/qa/android-k08-acceptance.txt-dədir. Yekun icra sübutu merged-main CI qey
 cihaz/klinik/vizual qəbul bu statusdan avtomatik çıxarılmır. K09 profil redaktəsi/izah və gələcək plan təsdiqi müqaviləsi yazılıb; qəbul qeydi
 docs/qa/android-k09-acceptance.txt-dədir. K10 axtarış/əl ilə giriş/əvvəlki yeməkdən
 porsiya qaralaması yazılıb; qəbul qeydi docs/qa/android-k10-acceptance.txt-dədir.
-K11–K34 başlanmayıb. Növbəti tapşırıq K11-dir. G2 bağlıdır; production fərdi hədəf aktiv deyil.
+K11 tamamlandı. K12–K34 başlanmayıb. Növbəti tapşırıq K12-dir. G2 bağlıdır; production fərdi hədəf aktiv deyil.
 Kanonik məhsul mənbəyi: planning/research-data.json.
 § istinadları: planning/nutrition-science-implementation-plan.txt bölmələridir.
 Əlavə məcburi mənbə: planning/meal-customization-requirements.txt, T01–T19.
