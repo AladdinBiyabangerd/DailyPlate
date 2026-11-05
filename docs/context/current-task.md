@@ -1,6 +1,10 @@
-# Current task — onboarding simplification
+# Current task — hide extra allergen input for no-allergy selection
 
 ## Completed
+- Latest fix: selecting no allergies hides the custom-allergen field and its
+  illustration; deselecting it restores the input. Existing none toggle clears
+  previous custom answers. Gluten/dietary restrictions stay independent.
+- Household-input removal merged as 62682e7 with green branch/main CI.
 - Preserved concurrent turquoise UI alignment merged as 432dec5: larger choice
   artwork, corner selected badges, rounded numeric inputs/circular steppers,
   centered welcome/account action and separate progress row. Tests assert actual
@@ -16,7 +20,7 @@
   user's 5 November decision. Existing persisted profiles are not rewritten.
 
 ## Current state
-- Work branch: fix/simplify-onboarding-inputs. Verify Git history and
+- Work branch: fix/hide-extra-allergens-for-none. Verify Git history and
   .local-ci/logs/latest.json for final commit/merge and branch/main CI evidence.
 - No APK creation, installation or device tests authorized or performed.
 
@@ -42,6 +46,10 @@
   sections 8, 17–19; library/tools/update_project_plan.py generates TXT/canvas.
 
 ## Checks performed
+- Latest allergen fix: 54 JVM/UI tests, lint, compilation, resource parity and
+  contrast passed. Tested enter custom answer -> none -> hidden -> deselect none
+  -> empty restored input, in AZ/EN/RU at normal/150% fonts. AZ normal and RU 150%
+  native no-allergy renders inspected. Branch/main final evidence is in local logs.
 - First fix: 53 JVM/UI tests, lint, compilation, contrast, branch/main CI passed;
   male/female native renders inspected.
 - Simplification: 54 JVM/UI tests, lint, Kotlin compilation, three-language resource

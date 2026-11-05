@@ -118,6 +118,18 @@ class OnboardingUiTest {
                 if (step == 3) {
                     compose.onNodeWithText(c.getString(com.aladdin.dailyplate.R.string.ob_extra_allergies)).performScrollTo()
                     capture("allergen-details-$language-$size")
+                    val extraLabel = c.getString(com.aladdin.dailyplate.R.string.ob_extra_allergies)
+                    val noneLabel = c.getString(com.aladdin.dailyplate.R.string.ob_none)
+                    compose.onNodeWithText(extraLabel).performTextInput("sesame")
+                    compose.onNodeWithText(noneLabel).performScrollTo().performClick()
+                    compose.onNodeWithText(extraLabel).assertDoesNotExist()
+                    compose.onNodeWithText(c.getString(com.aladdin.dailyplate.R.string.ob_restrictions)).performScrollTo()
+                    capture("allergy-none-$language-$size")
+                    // Removing the exclusive choice restores the custom-answer route.
+                    compose.onNodeWithText(noneLabel).performScrollTo().performClick()
+                    compose.onNodeWithText(extraLabel).performScrollTo().assertExists()
+                    compose.onNodeWithText("sesame").assertDoesNotExist()
+                    compose.onNodeWithText(noneLabel).performScrollTo().performClick()
                     compose.onNodeWithText(c.getString(com.aladdin.dailyplate.R.string.ob_dislikes)).performScrollTo().performClick()
                     compose.onNodeWithText(c.getString(com.aladdin.dailyplate.R.string.ob_disliked_foods)).performScrollTo()
                     capture("dislikes-$language-$size")
