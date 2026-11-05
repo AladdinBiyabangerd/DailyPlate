@@ -58,6 +58,7 @@ fun MenuScreen(profile: () -> Unit) {
             GenerationMessage(generated.result.status)
             generated.result.plan?.let { preview ->
                 Text(stringResource(R.string.mn_target, preview.targetKcal))
+                Text(stringResource(R.string.mn_cost, preview.shoppingCost.totalCost?.let { "${it.amount} ${it.currency}" } ?: "—"))
                 preview.meals.forEach { Text("${it.day.iso} · ${it.recipe.id} · ${it.portionGrams} g") }
                 if (generated.result.status == GenerationStatus.SUCCESS)
                     QidaButton(stringResource(R.string.mn_accept), { action { workflow.confirm() } })
@@ -75,11 +76,15 @@ fun MenuScreen(profile: () -> Unit) {
                     Text(stringResource(R.string.mn_from, preview.effectiveFrom.iso))
                     Text(stringResource(R.string.mn_before_after))
                     Text("${preview.before.energyEstimate?.dailyKcal} → ${preview.after.energyEstimate?.dailyKcal} kcal")
-                    preview.after.items.filter { item -> preview.before.items.firstOrNull { it.id == item.id } != item }
-                        .forEach { item ->
-                            val before = preview.before.items.firstOrNull { it.id == item.id }
-                            Text("${item.date.iso} · ${item.mealSlot}: ${before?.recipe?.id ?: "—"} (${before?.portionGrams ?: "—"} g) → ${item.recipe.id} (${item.portionGrams ?: "—"} g)")
+                    (preview.before.items.map { it.id } + preview.after.items.map { it.id }).distinct().forEach { id ->
+                        val before = preview.before.items.firstOrNull { it.id == id }
+                        val after = preview.after.items.firstOrNull { it.id == id }
+                        if (before != after) {
+                            val item = requireNotNull(after ?: before)
+                            Text("${item.date.iso} · ${item.mealSlot}: ${before?.recipe?.id ?: "—"} (${before?.portionGrams ?: "—"} g) → ${after?.recipe?.id ?: "—"} (${after?.portionGrams ?: "—"} g)")
                         }
+                    }
+                    Text(stringResource(R.string.mn_cost, result.calculation.shoppingCost?.totalCost?.let { "${it.amount} ${it.currency}" } ?: "—"))
                     result.calculation.shoppingDelta.forEach { Text("${it.foodId}: ${it.quantityDelta} ${it.unit}") }
                     if (result.calculation.status == GenerationStatus.SUCCESS)
                         QidaButton(stringResource(R.string.mn_confirm_future), { action { workflow.confirm() } })

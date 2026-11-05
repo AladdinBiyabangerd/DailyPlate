@@ -81,7 +81,7 @@ fun TodayScreen(initialId: String? = null, add: () -> Unit, menu: () -> Unit) {
     }
     val entries = diaryDay(logs, day, zone)
     TodaySummary(entries, null, day.toString(), zone.id)
-    com.aladdin.dailyplate.ui.menu.TodayPlanProjection(logs, refresh)
+    com.aladdin.dailyplate.ui.menu.TodayPlanProjection(logs, refresh, day)
     if (writeError) {
         Text(stringResource(R.string.td_write_error))
         QidaButton(stringResource(R.string.retry), { refresh++ })

@@ -50,7 +50,7 @@ class MenuUiTest {
                 CompositionLocalProvider(LocalContext provides localized, LocalConfiguration provides config,
                     LocalDensity provides Density(LocalDensity.current.density, 1.5f)) {
                     QidaTheme {
-                        androidx.compose.material3.Surface {
+                        androidx.compose.material3.Surface(color = androidx.compose.material3.MaterialTheme.colorScheme.background) {
                             Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(QidaSpacing.large),
                                 verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
                                 QidaHeading(localized.getString(R.string.menu))
