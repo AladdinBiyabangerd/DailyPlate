@@ -1,33 +1,38 @@
 # Current task — D02 approved portion design
 
 ## Completed
-- Read lifecycle, visual rules, organization, product §16/18–20 and design/token guides.
-- User approved new B design (“okeydir yeni”): recipe batch/personal share; manual exact quantity.
-- Implemented native portion selection/preview, scaled batch command, source/repeat units preserved; no universal plate calories.
+- User approved B design (“okeydir yeni”): recipe batch/personal share and manual exact quantity.
+- Native screens implemented with illustration labels, token components, preview then explicit confirmation, large-text/Russian adaptations.
+- Unknown nutrients, source units, previous-portion multipliers and exact immutable retry events preserved. Prepared count scales batch ingredients/yield, not personal nutrients.
+- D02 visual acceptance completed on main feca156eca1e5a380bed6679e4403a05ab92f1b7, 192 inspected native renders; discrepancy record closed.
 
 ## Current state
-- On fix/d02-portion-design; awaiting mandatory post-merge CI and fresh hash-bound visual acceptance. D02 remains open until accepted.
-- Prior Today/Add and K16 work preserved. G3/G4/catalog integration remain separate.
+- Final docs-only acceptance-record branch awaiting finish. Authoritative completion requires latest.json head equals main HEAD and passed=true.
+- Prior Today/Add/K16 work preserved; concurrent 2d4aa26 design-consistency principle preserved. G3/G4 and real catalog integration unchanged.
 
 ## Decisions
-- Reuse existing cooking/scale art with explicit illustration disclaimer, existing tokens, scroll and stacked large text controls.
-- Prepared-count changes scale all batch ingredients and measured yield, preserving nutrients per personal plan serving; no silent composition changes.
-- Exact grams require a measured recipe yield; unknown nutrients stay unknown; preview is separate from durable recording.
+- Approved reference: design-concepts/simple-turquoise/approved/d02-portions.png; native adaptations/provenance in matching .txt.
+- Exact recipe grams require measured cooked yield; no universal plate calories or fabricated remaining-energy allowance.
 - No APK/device checks authorized.
 
 ## Remaining work
-- Finish branch; inspect all matrix renders and reference, fix differences; review-visual then finish.
-- Close D02 with exact accepted commit/evidence. D03–D06 remain independent debt.
+- D03 weekly menu is the next separate design discrepancy; do not start it in this chat.
+- Real catalog/recipe availability, production food photos, physical device/keyboard and TalkBack acceptance remain unverified.
 
 ## Relevant files
 - ui/entry/{PortionDraftEditor,PortionDesign}.kt; ui/menu/{RecipePortionEditor,RecipeDetailScreen,RecipeDetailData}.kt
 - PortionDesignUiTest.kt; RecipeDetailTest.kt; FoodEntryUiTest.kt; MenuUiTest.kt
-- docs/qa/visual-review-plan.json; design-concepts/simple-turquoise/approved/d02-portions.{png,txt}
+- docs/qa/{design-discrepancies.md,visual-review-plan.json,visual-acceptance.md}
 - planning/nutrition-science-implementation-plan.txt §16/18–19; docs/nutrition-plan-design.md
 
 ## Checks performed
-- Initial clean main d9681dd, hooksPath .local-ci/hooks, prior main CI passed.
-- First merged-main 81e2eac: compilation/lint succeeded; 217 JVM tests ran, one new assertion exposed KCAL enum display instead of kcal. Fixed human-readable unit symbols; improved prepared-count label and replaced blurry legacy weight icon with kitchen-scale art. Second merge 581b381: all 217 tests passed; lint found now-unused pc_photo_closed resource. Removed obsolete copy; visual inspection also found cramped Russian serving chips, so Russian choices use a full-width list and long recipe names/middle coverage were added. Merged-main 335ffb0 passed all technical checks, 217 JVM tests, lint/compile/token checks; visual review found exact-entry/back competed with primary action. Converted navigation/edit to text buttons to match approved hierarchy. Merged-main 2f45cb0 passed all technical checks. Inspection found raw previous-log UUID clutter; retained provenance internally but removed its display. Saved-summary screenshot now waits for loaded totals instead of racing asynchronous data. 793cad1: all 192 native images inspected against approved reference; no UI clipping remained, but middle captures targeted a heading and missed part of the 150% selection card. Adjusted middle evidence to show the personal-amount field and all preceding options. 62a2ccc: technical CI passed; concurrent docs/design-consistency-principle branch was preserved and merged with a10c556 test correction after workflow start rejected the changed branch. Added implementation-guide mapping to visual registry; final evidence/acceptance pending; no branch CI/APK/device run.
+- Main feca156: lint/compile/token/contrast, 217 JVM tests, canonical exports/library/visual-gate contracts passed.
+- 192 AZ/EN/RU × 100%/150% fresh APK-free native renders inspected; review-visual accepted, then finish verified without CI rerun.
+- Evidence: .local-ci/visual/feca156eca1e5a380bed6679e4403a05ab92f1b7/{manifest,review}.json and renders/k10/d02-*.png.
+- First CI found KCAL display; next lint found obsolete unused copy. Subsequent image review fixed blurry scale, Russian label fit, action hierarchy and middle coverage. All repaired via local merges.
+- A concurrent chat changed the branch during one start; start rejected but subsequent commands continued and a10c556 landed on that branch. Its already-committed 2d4aa26 docs were preserved and merged. Subsequent Git phases checked separately.
+- No branch/manual CI, remote/push, APK or device test.
 
 ## Exact next step
-- Commit focused D02 changes, run workflow.py finish, inspect fresh .local-ci/visual/<head>/manifest.json and every required render, then write actual comparison review.
+- Finish docs/d02-acceptance-record and verify current-main technical result and unchanged accepted render hashes. If a fresh image changes, inspect actual differences before reacceptance.
+- Then continue D03 only in a new chat: read this context, visual rules, discrepancy inventory and plan §18–19; compare 04/00 references before coding. If plan and design conflict, prepare a new design and ask user approval first.

@@ -7,11 +7,6 @@ təsdiqlənmiş baseline etmir. Agent siyahını düzəliş və faktiki qəbul s
 
 ## Hazır funksiyalarda açıq fərqlər
 
-- **D02 · Porsiya quruluşu — açıq.** `ui/entry/PortionDraftEditor.kt` əsasən rəqəm
-  formasıdır; 00 istinadındakı şəkilli porsiya görünüşü yoxdur. Az/Orta/Çox yalnız
-  resept üzrə real miqdar əlaqəsi varsa açılmalıdır; naməlum/manual qidada universal
-  boşqab kalorisi uydurulmur. Məlum resept üçün 09 dəstinin qazan/şəxsi porsiya
-  qaydası üstündür. Dəqiq qram yolu qorunur.
 - **D03 · Həftəlik menyu — açıq.** `ui/menu/MenuScreen.kt` daxilində DatedMenu yeddi
   tam enli düymə və mətn kartları göstərir. `04-menyu-ve-alisveris.png`/00 istinadındakı
   yığcam həftə seçicisi, şəkilli yemək kartları, enerji/vaxt və hərəkət iyerarxiyası
@@ -27,6 +22,30 @@ təsdiqlənmiş baseline etmir. Agent siyahını düzəliş və faktiki qəbul s
   ikonlar və seçilməni saxlayır. 00 istinadının qaldırılmış mərkəzi Əlavə et forması
   əvəzinə normal axındakı düymə istifadə olunur. Normal ölçüdə uyğunlaşdırma və
   böyük şriftdə əlçatanlıq ayrıca renderlə qiymətləndirilməlidir.
+
+## Bağlanmış hissə — D02
+
+- **D02 · Porsiya quruluşu — bağlı (5 noyabr 2026).** İstifadəçi B yeni dizaynını
+  “okeydir yeni” ilə təsdiqlədi. İstinad:
+  `design-concepts/simple-turquoise/approved/d02-portions.png` və uyğunlaşdırma qeydi `.txt`.
+  Manual/axtarış qidasında dəqiq miqdar/vahid; əvvəlki qeyddə saxlanmış porsiyanın qatı;
+  reseptdə hazırlanmış qazan və yeyilən şəxsi pay ayrıdır. Qazan sayı tərkibi və məlum
+  çıxımı proporsional miqyaslayır; şəxsi nutrient hesabı saxlanır. Qram çevirməsi yalnız
+  ölçülmüş bişmiş çıxım olduqda işləyir. Naməlum dəyər sıfır deyil; illüstrasiya ölçü fotosu deyil.
+- İcra commitləri: `397e96e`, `42f6d29`, `3716691`, `785ba67`, `102ea0f`;
+  render əhatəsi `a10c556`, qəbul xəritəsi `2b6822a`. Qəbul edilmiş main:
+  `feca156eca1e5a380bed6679e4403a05ab92f1b7`.
+- Dəqiq sübut:
+  `.local-ci/visual/feca156eca1e5a380bed6679e4403a05ab92f1b7/review.json`;
+  eyni qovluqdakı `manifest.json` və `renders/k10/d02-*.png`.
+  AZ/EN/RU × 100%/150%, 192 təzə APK-sız native renderin yuxarı/aşağı və uzun resept
+  formasında orta hissəsi faktiki müqayisə edilib. Böyük şrift və rus seçimi tam enli
+  siyahı ilə uyğunlaşdırılıb; preview/təsdiq əsas, naviqasiya ikinci dərəcəlidir.
+- Texniki qəbul ayrıca: 217 JVM testi, lint, Kotlin kompilyasiyası, token/kontrast,
+  plan/kitabxana müqavilələri keçib. Yazı xətası və eyni hadisə ilə təkrar cəhd,
+  önizləmənin qeyd yaratmaması, qazan/pay miqyası və naməlum nutrient ssenariləri yoxlanıb.
+  Real istehsal kataloqundan resept axını, fiziki cihaz, klaviatura və TalkBack yoxlanmayıb;
+  APK hazırlanmayıb. Bu qəbul digər ekranları və G3/G4 məzmun qapılarını təsdiqləmir.
 
 ## Yenilənmiş və yenidən yoxlanmalı hissələr
 
