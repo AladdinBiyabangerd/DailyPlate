@@ -139,7 +139,7 @@ Mənbələr: S3, S4
 8. Menyu mühərrikinin konkret axını
 Təsdiqlənmiş kitabxanadan seçim → porsiya → yenidən yoxlama → sabit plan versiyası.
 
-1. 1) Profil: uyğunluq, məqsəd, hədəf, allergiya, yemədikləri, region, büdcə, vaxt, yemək sayı və evdə olan ərzaqlar alınır.
+1. 1) Profil: uyğunluq, məqsəd, hədəf, allergiya, yemədikləri, region, büdcə, vaxt və yemək sayı alınır. Onboarding ev avadanlığı və ərzaq inventarı soruşmur.
 
 2. 2) Sərt filtr: təsdiqlənməmiş reseptlər, məlum olmayan allergen tərkibi, qadağan məhsullar və uyğunsuz porsiyalar çıxarılır.
 
@@ -322,7 +322,7 @@ Məcburi məhsul tələbi: istifadəçinin arıqlama, çəki artırma və saxlam
 
 3. Elmi əsasın üç səviyyəsi saxlanır: ərzağın nutrient mənbəsi; ümumi qidalanma qaydasının mənbəsi; konkret reseptin redaktor və dietoloq yoxlaması. USDA-ya bağlanmış qram hesabı və WHO/NHS istinadı həmin reseptin insanı arıqlatdığını və ya kökəltdiyini sübut etmir.
 
-4. Onboarding müqaviləsi: goal=lose|maintain|gain|healthy; yaş, hesablama üçün cins, boy, çəki, aktivlik və uyğunluq məlumatları; region, valyuta, həftəlik büdcə məbləği, büdcənin neçə nəfərə və hansı yeməklərə aid olduğu; evdəki ərzaq miqdarı; allergiya, yemədikləri, vaxt və avadanlıq. Sadə az/orta/çox büdcə seçimi məbləğ yoxdursa üstünlükdür, dəqiq limit deyil.
+4. Onboarding müqaviləsi: goal=lose|maintain|gain|healthy; yaş, hesablama üçün cins, boy, çəki, aktivlik və uyğunluq məlumatları; region, valyuta, həftəlik büdcə məbləği, büdcənin neçə nəfərə və hansı yeməklərə aid olduğu; allergiya, yemədikləri və vaxt. İstifadəçinin 5 noyabr 2026 qərarı: onboarding-də ev avadanlığı və evdəki ərzaqların siyahısı/miqdarı soruşulmur; bu məlumatlar olmadan profil təsdiqlənir. Əvvəlki qaralamadakı həmin sahələr təsdiqi bloklamır və yeni profilə ötürülmür. Sadə az/orta/çox büdcə seçimi məbləğ yoxdursa üstünlükdür, dəqiq limit deyil.
 
 5. Məqsəd məcburi seçim girişidir. Arıqlama üçün təsdiqli enerji çatışmazlığı, saxlama üçün ehtiyac ətrafında hədəf, çəki artırma üçün təsdiqli enerji artığı tətbiq olunur. Rəqəmlər aktiv NutritionPolicy-dən gəlir. Heç bir inqrediyent və resept dəyişməz şəkildə yalnız bir məqsədə aid deyil; porsiya və bütün günün tərkibi yenidən yoxlanır.
 

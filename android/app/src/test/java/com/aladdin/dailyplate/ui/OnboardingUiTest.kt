@@ -106,6 +106,15 @@ class OnboardingUiTest {
             headings.forEachIndexed { step, heading ->
                 compose.onNodeWithText(c.getString(heading)).performScrollTo()
                 capture("step-$step-$language-$size")
+                if (step == 4) {
+                    val removedLabels = when (language) {
+                        "az" -> listOf("Avadanlıq (; ilə ayır)", "Evdəki ərzaq — könüllü")
+                        "en" -> listOf("Equipment (separate with ;)", "Food at home — optional")
+                        "ru" -> listOf("Оборудование (через ;)", "Продукт дома — необязательно")
+                        else -> error("Unexpected test language")
+                    }
+                    removedLabels.forEach { compose.onNodeWithText(it).assertDoesNotExist() }
+                }
                 if (step == 3) {
                     compose.onNodeWithText(c.getString(com.aladdin.dailyplate.R.string.ob_extra_allergies)).performScrollTo()
                     capture("allergen-details-$language-$size")

@@ -58,24 +58,25 @@ class OnboardingDraftTest {
         assertEquals("", d.change("extra_allergies", "").answer("extra_allergies"))
         assertTrue(d.change("disliked_foods", "onion").change("disliked_foods", "").items("disliked_foods").isEmpty())
     }
-    @Test fun budgetScopeAndHomeFoodQuantitiesKeepTheirUnitsAndStates() {
-        val home = HomeFood(VersionRef("user:rice", 1), "dry", 200.0, "g")
+    @Test fun budgetScopeKeepsItsAmountAndCoverage() {
         for (tier in BudgetTier.entries) {
-            val d = readyOnboarding().copy(storedHomeFoods = listOf(home))
+            val d = readyOnboarding()
                 .change("tier", tier.name).change("amount", "125,50")
-                .change("home_name", "yogurt").change("home_quantity", "1,5")
-                .change("home_unit", "kg").change("home_state", "ready")
             val p = d.profile("ru", RecordedAt("2026-11-04T10:00:00Z", "UTC"), CalendarDate("2026-11-04"))
             assertEquals("125.50", p.budget.weeklyAmount!!.amount)
             assertEquals("AZN", p.budget.weeklyAmount.currency)
             assertEquals(2, p.budget.people)
             assertEquals(setOf("breakfast", "lunch", "dinner"), p.budget.coveredMealSlots)
-            assertEquals(home, p.homeFoods.first())
-            assertEquals(1.5, p.homeFoods.last().quantity, 0.0)
-            assertEquals("kg", p.homeFoods.last().unit)
-            assertEquals("ready", p.homeFoods.last().preparationState)
-            assertTrue("home_quantity" in d.change("home_quantity", "NaN").errors(4))
         }
+    }
+    @Test fun removedInventoryInputsCannotBlockOrInfluenceNewProfilesFromOldDrafts() {
+        val draft = readyOnboarding().copy(storedHomeFoods = listOf(
+            HomeFood(VersionRef("user:rice", 1), "dry", 200.0, "g")))
+            .change("equipment", "oven").change("home_name", "rice").change("home_quantity", "NaN")
+        assertTrue(draft.errors(4).isEmpty())
+        val profile = draft.profile("az", RecordedAt("2026-11-05T10:00:00Z", "UTC"), CalendarDate("2026-11-05"))
+        assertTrue(profile.equipment.isEmpty())
+        assertTrue(profile.homeFoods.isEmpty())
     }
 
 }

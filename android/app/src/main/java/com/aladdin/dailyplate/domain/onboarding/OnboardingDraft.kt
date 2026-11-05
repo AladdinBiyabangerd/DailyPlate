@@ -7,6 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class OnboardingDraft(
     val id: String, val step: Int = 0, val answers: Map<String, String> = emptyMap(),
+    // Retained only to decode drafts saved before home inventory was removed from onboarding.
     val storedHomeFoods: List<HomeFood> = emptyList(),
 ) {
     fun answer(key: String) = answers[key].orEmpty()
@@ -50,9 +51,6 @@ data class OnboardingDraft(
                 if (!answer("currency").matches(Regex("[A-Z]{3}"))) add("currency")
                 numeric("amount", optional = true); numeric("people", integer = true)
                 if (items("coverage").isEmpty()) add("coverage")
-                if (listOf("home_name", "home_quantity", "home_unit", "home_state").any { answer(it).isNotBlank() }) {
-                    required("home_name"); numeric("home_quantity"); required("home_unit"); required("home_state")
-                }
             }
         }
     }
@@ -71,11 +69,10 @@ data class OnboardingDraft(
                 else (items("allergies") - setOf("none", "unknown")) + items("extra_allergies").map { "custom:$it" },
             dietaryRestrictions = items("restrictions"), dislikedFoodIds = items("disliked_foods").map { "user:$it" }.toSet(),
             dislikedRecipeIds = items("disliked_recipes").map { "user:$it" }.toSet(),
-            maxPreparationMinutes = answer("time").toInt(), equipment = items("equipment"),
+            maxPreparationMinutes = answer("time").toInt(), equipment = emptySet(),
             budget = Budget(BudgetTier.valueOf(answer("tier")), answer("amount").takeIf(String::isNotBlank)
                 ?.let { Money(it.replace(',', '.'), answer("currency")) }, answer("region"), number("people")!!.toInt(), items("coverage")),
-            homeFoods = storedHomeFoods + if (answer("home_name").isBlank()) emptyList() else listOf(HomeFood(
-                VersionRef("user:" + answer("home_name"), 1), answer("home_state"), number("home_quantity")!!, answer("home_unit"))),
+            homeFoods = emptyList(),
             mealsPerDay = answer("meals").toInt(), specialistTargetKcal = null, language = language,
             ageAsOfDate = date,
         )

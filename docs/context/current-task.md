@@ -1,63 +1,49 @@
-# Current task — K06/K07 UI alignment with supplied PNGs
+# Current task — onboarding simplification
 
 ## Completed
-- K07 was merged to main df744ad with green main CI before this UI task.
-- Replaced plain K06/K07 presentation with artwork extracted from original
-  00/01/02/06 references, native illustrated cards, progress bars, compact
-  measurement controls, grouped preference segments, language dropdown and icon
-  navigation. Goal cards align in height; primary action sits at bottom if it fits.
-- Added same-style PNG boards 12 (supplemental profile), 13 (empty/boundary),
-  14 (supplemental forms/loading/error), generated with built-in image_gen.
-- All implemented sections covered, including custom allergens/dislikes,
-  health/budget/home foods, confirmed summary, unavailable Account and states.
-- Domain, storage and validation code unchanged; no fake menu/calorie/auth data.
+- Male selection hides pregnancy/breastfeeding, clears their previous draft answers,
+  and ignores stale answers at confirmation. Merged as a9594aa with green branch/main CI.
+- Removed equipment and home-food inventory forms, add/remove actions, artwork and
+  labels from onboarding. Removed obsolete inventory text from the budget note.
+- Removed inventory validation and mapping: old incomplete home-food answers cannot
+  block confirmation; newly confirmed profiles have empty equipment/homeFoods.
+- Updated canonical plan sections 8/17 and regenerated TXT/canvas to match the
+  user's 5 November decision. Existing persisted profiles are not rewritten.
 
 ## Current state
-- Branch feat/png-ui-parity; local development lint, compilation and all 51 JVM
-  tests pass. Branch/main lifecycle evidence: .local-ci/logs/latest.json and Git
-  history after finish. Do not infer merge success solely from this document.
-- Native normal/150% AZ/EN/RU renders available under android/app/build/reports/
-  k06, k07 and ui-parity. Representative final images actually inspected.
+- Work branch: fix/simplify-onboarding-inputs. Verify Git history and
+  .local-ci/logs/latest.json for final commit/merge and branch/main CI evidence.
+- No APK creation, installation or device tests authorized or performed.
 
 ## Decisions
-- Existing CSS colour/spacing/card tokens remain authoritative; new native
-  illustration/component metrics are named in QidaDimensions, not inline values.
-- Native controls remain interactive/accessible; entire PNGs are not UI screens.
-- >130% font uses one-column grids/segments; overflow scrolls. Supplementary
-  questions remain inside the existing five-step sequence. Full plan labels and
-  optional/custom-answer paths take precedence over sketch sample text.
-- Mockup 13 repeats Today selection; real UI selects the actual route.
-- No pixel-diff identity is claimed across native font/platform/translation.
+- Onboarding no longer asks users to type household equipment or food inventory.
+- storedHomeFoods stays in the serialized draft model solely for decoding legacy
+  drafts; removed inputs do not influence newly confirmed profiles.
+- Budget region, currency, optional amount, people and meal coverage stay unchanged.
+- Existing design tokens/styles are reused; no new dimensions or colors.
 
 ## Remaining work
-- User/device visual acceptance and physical TalkBack remain unverified.
-- K08 policy/eligibility is still the next numbered product milestone; K09 profile
-  editing, later planning/authentication remain outside this visual task.
-- No APK/AAB, installation, instrumentation or deployment was requested/run.
+- Complete the current branch CI/finish lifecycle if Git/logs do not yet show it.
+- Physical-device acceptance and TalkBack remain unverified.
+- K08 eligibility/policy remains the next numbered milestone, outside this fix.
 
 ## Relevant files
-- design-concepts/simple-turquoise/{00–14 PNGs,implementation-guide.txt,
-  ui-extension-guide.txt,ui-extension-prompts.txt}; design-concepts/tokens.css
-- planning/research-data.json canonical; nutrition-science-implementation-plan.txt
-  §18–19; planning/coding-tasks.txt K06/K07/K08
-- android/app/src/main/java/com/aladdin/dailyplate/ui/{BootstrapScreen,
-  DesignComponents,FoundationComponents,onboarding/OnboardingScreen,theme/QidaTheme}.kt
-- android/app/src/main/res/drawable{-nodpi,}/; values{,-az,-en,-ru}/onboarding.xml
-- android/tools/extract_design_art.py (manual macOS sips extraction/provenance)
-- docs/qa/android-ui-png-parity.txt; ui/{Foundation,NavigationUi,OnboardingUi}Test.kt
+- android/app/src/main/java/com/aladdin/dailyplate/{domain/onboarding/OnboardingDraft,ui/onboarding/OnboardingScreen}.kt
+- android/app/src/test/java/com/aladdin/dailyplate/{domain/OnboardingDraftTest,ui/OnboardingUiTest}.kt
+- android/app/src/main/res/values{,-az,-en,-ru}/onboarding.xml
+- android/tools/extract_design_art.py
+- planning/research-data.json (canonical), nutrition-science-implementation-plan.txt
+  sections 8, 17–19; library/tools/update_project_plan.py generates TXT/canvas.
 
 ## Checks performed
-- APK-free lintDebug + compileDebugKotlin + 51 JVM tests passed locally.
-- Contrast checker: white/primary 4.71, muted/bg 5.04, text/bg 11.95; full token
-  validator passed. Complete resource-key parity in AZ/EN/RU.
-- Final images inspected: normal welcome/goals/measurements/preferences,
-  RU 150% measurements/dislikes/preference footer, EN extra-allergen/Profile,
-  main Menu/Today, saved summary, unavailable Account, loading/write-error cards.
-- Fixed screenshot-discovered crop scaling, unequal goal cards, long +/- labels,
-  and unwanted illustration fragments. No checks weakened; no APK created.
-- Local Kotlin incremental cache fell back to full compilation; build then passed.
+- First fix: 53 JVM/UI tests, lint, compilation, contrast, branch/main CI passed;
+  male/female native renders inspected.
+- Simplification: 54 JVM/UI tests, lint, Kotlin compilation, three-language resource
+  parity and token contrast passed. AZ normal and RU 150% final preference footer
+  renders inspected: removed forms/artwork/inventory note absent; action visible.
+- Branch/main lifecycle results are recorded by .local-ci/logs/latest.json after
+  finish; consult that and Git rather than assuming success from this handoff.
 
 ## Exact next step
-Verify final branch/merged-main CI in local logs and history. For any further UI
-revision, start a new chat with the specific screenshot and PNG reference. For
-K08, read its plan requirements before changing domain/policy behavior.
+Verify final branch/merged-main CI and clean Git state. For any further change, begin a new chat with its specific requested
+behavior, read this handoff, and consult current canonical plan requirements.
