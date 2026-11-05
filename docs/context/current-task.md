@@ -39,3 +39,22 @@
 ## Exact next step
 - Continue K16 in a new chat only if requested: reviewed catalog → version-compatible planning integration, preserving source-food safety and closed G3/G4.
 - Today acceptance reference: docs/qa/android-today-design-acceptance.md; final CI and native image evidence live under .local-ci/.
+
+
+## Visual acceptance gate — current unit
+- Added rules/protocol, commit-bound PNG/review validator, negative-path tests and
+  current-main discrepancy inventory. Existing Add/search and Today improvements
+  are preserved; earlier negative findings for those screens are superseded.
+- Local post-merge CI saves only fresh APK-free renders; missing coverage/review,
+  unresolved differences or changed accepted render hashes block completion.
+- Legacy anchor 93fe1cb is source tracking, not approval. No old images seeded as
+  accepted baselines. Accepted cases remain in the persistent review registry.
+- Remaining: D02–D06 design repairs individually; D01/D07/D08 require current
+  evidence on their next change. Prior K16 integration and closed G3/G4 unchanged.
+- Files: docs/qa/{visual-acceptance.md,visual-policy.json,visual-review-plan.json,
+  design-discrepancies.md}; android/tools/{visual_gate.py,test_visual_gate.py};
+  .cursor/rules/visual-acceptance.mdc; excluded .local-ci/{workflow,checks,visual_gate}.py.
+- Checks: final merged-main result must match .local-ci/logs/latest.json; no branch
+  CI/APK/device checks. This unit changes process/tooling, not app appearance.
+- Exact next step: fix one discrepancy (D02 portions, with real portion mapping)
+  in a new chat only when requested; prepare the review plan before implementation.
