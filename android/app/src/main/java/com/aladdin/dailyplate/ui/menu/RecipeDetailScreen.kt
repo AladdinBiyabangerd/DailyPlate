@@ -1,6 +1,13 @@
 package com.aladdin.dailyplate.ui.menu
 
 import androidx.compose.material3.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Rect
+import com.aladdin.dailyplate.ui.theme.QidaSpacing
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.platform.LocalContext
@@ -60,16 +67,18 @@ internal fun RecipeDetailScreen(planId: String, itemId: String, startEating: Boo
     }
 }
 
+@OptIn(androidx.compose.foundation.ExperimentalFoundationApi::class)
 @Composable
 internal fun RecipeDetailContent(detail: RecipeDetailData, startEating: Boolean = false, confirm: (PlanConsumption) -> Unit) {
     var eating by rememberSaveable(detail.plan.ref, detail.item.id) { mutableStateOf(startEating &&
         detail.item.remainingPlannedServings > 0 && detail.item.status in
         setOf(PlanItemStatus.PLANNED, PlanItemStatus.PARTIALLY_CONSUMED)) }
-    if (eating) {
-        RecipePortionEditor(detail, { eating = false }, confirm)
-        return
+    val top = remember { BringIntoViewRequester() }
+    LaunchedEffect(eating) { top.bringIntoView(Rect(0f, 0f, 1f, 1f)) }
+    Column(Modifier.bringIntoViewRequester(top), verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
+        if (eating) RecipePortionEditor(detail, { eating = false }, confirm)
+        else RecipeDetailDesign(detail) { eating = true }
     }
-    RecipeDetailDesign(detail) { eating = true }
 }
 
 @Composable

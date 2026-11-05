@@ -127,6 +127,7 @@ class RecipeDetailDesignUiTest {
                 assertNull(command)
                 if (state == "normal" || state == "partial") {
                     compose.onNodeWithTag("d04-eat").performScrollTo().performClick()
+                    compose.onNodeWithText(t(R.string.pd_recipe_title)).assertIsDisplayed()
                     compose.onNodeWithText(t(R.string.pd_preview)).performScrollTo().assertIsDisplayed()
                     assertNull(command)
                     compose.onNodeWithText(t(R.string.mn_cancel)).performScrollTo().performClick()
