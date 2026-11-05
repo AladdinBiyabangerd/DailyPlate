@@ -78,6 +78,13 @@ This applies to all implementation, fixes, refactors and code reviews in this pr
 
 ## Visual work
 
+- **New designs must follow the existing design principles.** Before designing a
+  new screen or flow, consult the approved references and related screens. Keep
+  layout, components, terminology and interaction patterns consistent. UI/UX must
+  be simple, easy to understand, comfortable to use and polished; avoid needless
+  complexity and make the main action and next step clear. Apply this rule to
+  every new design and redesign, alongside the existing visual acceptance gate.
+
 When a task touches how something looks, use the `ui-craft` skill — it carries
 the token, contrast and screenshot workflow. Two things hold regardless of it:
 

@@ -8,6 +8,9 @@ Köhnə resept/alternativ/foto ekranlarını bu əlavələrsiz son axın kimi t�
 Bu dəst vizual ekran nümunələridir; işlək tətbiq və ya Figma komponent kitabxanası deyil.
 
 DİZAYN QAYDALARI
+Məcburi ümumi prinsip: hər yeni ekran, axın və yenidən dizayn mövcud dizayn prinsiplərinə uyğun hazırlanmalıdır. İşə başlamazdan əvvəl təsdiqlənmiş istinadlar və əlaqəli ekranlar nəzərdən keçirilməlidir.
+İnterfeys sadə, asan başa düşülən, rahat istifadə olunan və keyfiyyətli olmalıdır. Ekranlar arasında düzülüş, komponentlər, terminlər və qarşılıqlı əlaqə davranışlarında ardıcıllıq qorunmalıdır.
+Lazımsız mürəkkəblikdən qaçın; əsas hərəkət və növbəti addım aydın olsun. Bu prinsip hər yeni dizayn və yenidən dizayn üçün mövcud vizual qəbul yoxlaması ilə birlikdə tətbiq olunur.
 Rəng tokenləri: ../tokens.css faylında simple-* adları.
 Fon simple-bg; kart simple-surface; mətn simple-text; köməkçi mətn simple-muted.
 Düymələrdə simple-primary üzərində ağ mətn. Parlaq simple-accent şəkil və dekorativ vurğular üçündür.
