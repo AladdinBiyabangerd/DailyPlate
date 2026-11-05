@@ -47,7 +47,18 @@ class CatalogRepository internal constructor(private val database: LibraryDataba
     /** Import is atomic and never writes user data. Call on a worker thread. */
     fun importPackage(pack: LibraryPackage): Long = LibraryImporter(database).importPackage(pack)
 
-    /** G3 is closed: current package has no reviewed production content. */
+    /** Trusted local production transport. Recompute and complete replacement commit atomically.
+     * Stored reviewed selection does not authorize personalized menus while G3/G4 remain closed.
+     */
+    fun importReviewedCatalogJson(payload: String, at: com.aladdin.dailyplate.domain.RecordedAt): VersionRef =
+        ReviewedCatalogImporter(database).importJson(payload, at)
+
+    fun currentReviewedCatalog(): ReviewedCatalogPackage? =
+        database.snapshots().all("reviewed_catalog").firstOrNull()?.let {
+            snapshotJson.decodeFromString(ReviewedCatalogPackage.serializer(), it.payload)
+        }
+
+    /** G3 remains closed: importing reviewed records alone cannot release production content. */
     fun productionRecipes(): List<Recipe> = emptyList()
     fun productionFoods(): List<Food> = emptyList()
 

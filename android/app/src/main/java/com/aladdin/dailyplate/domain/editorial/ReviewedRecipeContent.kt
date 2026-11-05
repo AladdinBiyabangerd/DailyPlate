@@ -10,7 +10,11 @@ import kotlinx.serialization.json.Json
 
 /** Production wire payload, independent of K05's synthetic EditorialSnapshot workflow. */
 @Serializable
-data class ReviewedRecipePayload(val recipe: Recipe, val metadata: EditorialMetadata)
+data class ReviewedRecipePayload(
+    val recipe: Recipe, val metadata: EditorialMetadata,
+    // Older model records remain decodable, but cannot pass the DB recompute import gate.
+    val calculation: ReviewedRecipeCalculation? = null,
+)
 
 @Serializable
 enum class ReviewedContentState { PUBLISHED, WITHDRAWN }
