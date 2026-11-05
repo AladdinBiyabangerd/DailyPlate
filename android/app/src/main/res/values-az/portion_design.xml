@@ -21,4 +21,5 @@
     <string name="pd_previous">Əvvəl saxlanmış şəxsi porsiyanın miqdarını seç. 1 əvvəlki qeyddəki eyni paydır.</string>
     <string name="pd_batch_invalid">Hazırlanmış porsiya sayı müsbət və sonlu olmalıdır.</string>
     <string name="pd_recipe_title">Nə qədər yedin?</string>
+    <string name="pd_count">Porsiya sayı</string>
 </resources>

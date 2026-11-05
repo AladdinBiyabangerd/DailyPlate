@@ -27,7 +27,7 @@
 
 ## Checks performed
 - Initial clean main d9681dd, hooksPath .local-ci/hooks, prior main CI passed.
-- Source review only so far; no branch CI, APK or device run. Final checks/evidence still pending.
+- First merged-main 81e2eac: compilation/lint succeeded; 217 JVM tests ran, one new assertion exposed KCAL enum display instead of kcal. Fixed human-readable unit symbols; improved prepared-count label and replaced blurry legacy weight icon with kitchen-scale art. Repaired merged-main CI and visual review still pending; no branch CI/APK/device run.
 
 ## Exact next step
 - Commit focused D02 changes, run workflow.py finish, inspect fresh .local-ci/visual/<head>/manifest.json and every required render, then write actual comparison review.

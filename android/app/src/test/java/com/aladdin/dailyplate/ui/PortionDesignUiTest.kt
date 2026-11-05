@@ -139,7 +139,7 @@ class PortionDesignUiTest {
             capture("recipe-portion", "edit", language, scale)
             click(R.string.pd_half)
             capture("recipe-portion", "selected", language, scale)
-            enter(R.string.pd_prepared, "8")
+            enter(R.string.pd_count, "8")
             click(R.string.pd_exact)
             capture("recipe-portion", "exact", language, scale)
             enter(R.string.pd_grams, "0"); click(R.string.pd_preview)
