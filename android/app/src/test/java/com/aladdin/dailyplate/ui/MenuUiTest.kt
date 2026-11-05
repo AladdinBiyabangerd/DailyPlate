@@ -103,7 +103,7 @@ class MenuUiTest {
                     }
                 }
             } }
-            compose.onNodeWithText(detail.recipe.names.recipeLabel(language)).assertIsDisplayed()
+            compose.onNodeWithText(detail.recipe.names.recipeLabel(language)).performScrollTo().assertIsDisplayed()
             capture("recipe-$language")
             Assert.assertNull(confirmed)
             compose.onNodeWithText(localized.getString(R.string.rd_ate)).performScrollTo().performClick()

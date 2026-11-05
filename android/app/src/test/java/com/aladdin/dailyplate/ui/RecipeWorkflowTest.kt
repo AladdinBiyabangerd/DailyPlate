@@ -16,6 +16,8 @@ import org.robolectric.annotation.Config
 @Config(sdk = [34], application = Application::class, manifest = Config.NONE)
 class RecipeWorkflowTest {
     @Test fun pendingExactCommandSurvivesRestartAndCommittedRetryDoesNotDuplicate() {
+        val worker = java.util.concurrent.Executors.newSingleThreadExecutor()
+        try { worker.submit {
         val context = ApplicationProvider.getApplicationContext<Application>()
         val d = RecipeDetailTest().detail()
         val command = d.command(0.5, "TEST", "durable-event", recordedAt)
@@ -33,5 +35,6 @@ class RecipeWorkflowTest {
             assertEquals(1, it.foodLogs.recent(d.plan.userId).size)
             assertEquals(0.5, it.plans.latest(d.plan.userId, d.plan.ref.id)!!.items.first().remainingPlannedServings, 0.0)
         }
+        }.get() } finally { worker.shutdown() }
     }
 }

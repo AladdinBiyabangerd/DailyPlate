@@ -80,4 +80,7 @@
     <string name="rd_personal">Сколько личных порций плана вы съели?</string>
     <string name="rd_invalid">Введите положительное конечное число не больше оставшейся порции.</string>
     <string name="rd_confirm_portion">Личных порций для записи: %1$.2f</string>
+
+    <string name="rd_personal_nutrients">Пищевая ценность личной порции плана</string>
+    <string name="rd_time">Время приготовления: %1$d минут</string>
 </resources>
