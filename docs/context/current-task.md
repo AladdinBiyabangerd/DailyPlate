@@ -1,37 +1,43 @@
-# Current task — K16 production reviewed-content model
+# Current task — K16 reviewed catalog import + DB recompute
 
 ## Completed
-- Previous planning input transport on main 750eb0a passed mandatory APK-free CI.
-- Added separate schema-1 ReviewedRecipeContent / ReviewedRecipePayload; no conversion from test EditorialSnapshot.
-- Exact UTF-8 payload SHA-256 + recipe version binding, publication identity/time, evidence completeness, chronology, optional review expiry and withdrawal checks.
-- Added four JVM contract tests; QA requirements and integration limits documented.
+- Prior reviewed-content model on main 372c89b passed 206 JVM tests and APK-free CI.
+- CatalogRepository.importReviewedCatalogJson imports separate ReviewedCatalogPackage into Library DB.
+- Exact ingredient DB versions drive RecipeCalculator before atomic catalog selection insertion.
+- Hashed calculation evidence supplies component state/retention/loss/yield; coverage/unit/null/total/cooked-100g checks.
+- Immutable complete replacements, monotonic catalog/recipe versions, replay without reactivation, sticky exact-version withdrawal.
+- Five Room/JVM tests added, including disk reopen, forged values, changed DB values, yield/retention and failed replacement preservation.
 
 ## Current state
-- Model only: CandidateCatalog still uses test-only EditorialSnapshot; production import still rejects it.
-- No real reviewed recipes, approval evidence, source authentication or automatic library/application integration supplied.
-- G3/G4 remain closed. §30 reported specialist plan approval and current energy/macro activation remain unchanged.
+- Stored reviewed catalog selection is separate from production menu release. G3/G4 remain closed; productionRecipes/Foods stay empty.
+- Existing source foods may remain drafts: recomputation does not confer publication or allergen safety approval.
+- PlanningInputImporter/CandidateCatalog still reject test EditorialSnapshot. No adapter/conversion added.
+- No real reviewed catalog or authenticated remote publisher added. §30 energy/macro activation unchanged.
 
 ## Decisions
-- Publisher preserves exact JSON payload bytes for hashing; hash is integrity, not authenticity.
-- Production record uses published Recipe + real Review + EditorialMetadata, independently of K05 draft-envelope workflow.
-- Withdrawal blocks new use while retaining historical payload; importing boundary must choose latest state.
-- DB nutrient recompute, source manifest validation and atomic catalog activation remain separate required integration work.
+- Current reviewed catalog is highest immutable Library DB snapshot; no Room schema change.
+- Catalog import is a trusted local boundary; hashes check integrity, not authenticity.
+- Old ReviewedRecipePayload without calculation remains readable but cannot pass production import recompute.
+- AS_DESCRIBED/cooked components cannot receive cooking factors; raw factors require raw/dry DB source.
+- New use must check current withdrawal/expiry; currentReviewedCatalog is audit/integration data, not usable menu candidates.
 
 ## Remaining work
-- Integrate reviewed records into production catalog/library import and planning transport with schema compatibility.
-- Authoritative G3 content/G4 prices; application invocation and successful generation/acceptance/recalculation/detail/Today device E2E.
+- Production reviewed-food/source-manifest/authenticity and allergen/mapping evidence; no promotion of draft food rows.
+- Version-compatible reviewed catalog → planning transport/application integration while preserving G3/G4.
+- Authoritative content/prices and generation/acceptance/recalculation/detail/Today device E2E.
 - K18 separate. No APK authorized or created.
 
 ## Relevant files
-- domain/editorial/ReviewedRecipeContent.kt; corresponding test source ReviewedRecipeContentTest.kt
-- domain/editorial/{EditorialContent,PublicationRequirements}.kt
+- data/local/{ReviewedCatalogImporter,ReviewedRecipeRecompute,LibraryDatabase}.kt
+- domain/editorial/{ReviewedRecipeContent,ReviewedRecipeCalculation}.kt
+- data/local/ReviewedCatalogImportTest.kt (test source set)
 - domain/planning/CandidateContracts.kt; data/local/PlanningInputImporter.kt
 - docs/qa/android-k16-generation-acceptance.md
-- planning/research-data.json §8/21/22/25/30; planning/coding-tasks.txt K16
+- planning/research-data.json §3–4/8/21–23/25/30; planning/coding-tasks.txt K16
 
 ## Checks performed
-- Read lifecycle/organization/context and relevant canonical requirements; inspected existing editorial/publication/import boundaries.
-- Final mandatory merged-main CI result: consult .local-ci/logs/latest.json. No branch/manual CI; no APK/device checks.
+- Read lifecycle, context, organization, relevant canonical requirements and binding nutrition design.
+- Final merged-main mandatory CI: consult .local-ci/logs/latest.json. No branch/manual CI, APK or device checks.
 
 ## Exact next step
-- Check latest main CI; integrate the separate reviewed model into a version-compatible production catalog transport without converting test snapshots or bypassing G3/G4, including DB recomputation before activation.
+- Confirm latest merged-main CI, then integrate stored reviewed catalog with a version-compatible planning transport; keep source-food safety/publication evidence and closed G3/G4 explicit.

@@ -88,3 +88,42 @@ then atomically activate the complete catalog. The current `CandidateCatalog`
 and `PlanningInputImporter` deliberately retain their fixture rejection; this
 unit does not wire the new record into generation, open G3/G4 or claim real
 catalog/device E2E acceptance. An empty/unavailable catalog remains supported.
+
+## Reviewed catalog import + DB recompute (supersedes model-only limits above)
+
+`CatalogRepository.importReviewedCatalogJson(payload, at)` now accepts a separate
+schema-1 `ReviewedCatalogPackage` from a trusted local publisher. The complete
+selection is stored atomically as one immutable Library DB snapshot; highest
+catalog revision is current. Duplicate recipe IDs, schema/hash/version/evidence
+errors, revision conflicts and downgrades reject the entire replacement. Exact
+old-package replay returns its reference without restoring that selection.
+Withdrawal is sticky for an exact recipe version, including after omission from a
+later package; historical payloads remain unchanged. Re-publication requires a
+new recipe version and review.
+
+Before insertion, `ReviewedRecipeRecompute` resolves every exact ingredient from
+Library DB and uses `RecipeCalculator`, never payload-provided ingredient
+nutrients. Hashed `ReviewedRecipePayload.calculation` supplies ordered component
+state, documented retention/loss factors and yield basis. Old model-only payloads
+remain decodable but cannot import without calculation evidence. No coefficient
+is invented. RAW adjustment requires a raw/dry DB source; cooked or ambiguous
+sources cannot be relabeled RAW. Non-raw inputs cannot receive retention twice.
+Total and, when declared, cooked-100g values must match DB recompute with exact
+coverage, units and null propagation (1e-9 relative/absolute floating-point
+comparison allowance only). No rounding enters the calculation.
+
+`ReviewedCatalogImportTest` covers disk reopen, preserved draft source rows,
+closed production lists, forged totals and null-to-zero, units, missing exact DB
+versions, missing calculation evidence, double correction, yield/retention,
+changed DB values, atomic rejection, replay/conflict, withdrawal and schema/test
+wire rejection. Requirements: canonical §3–4, §8, R-06/R-07, C-07, A-04/A-12.
+
+`currentReviewedCatalog()` exposes the stored reviewed selection for integration
+and audit, including withdrawal records; it is not a list of usable menu
+candidates. Import can recompute against existing draft source-food records; it
+does not promote them to published/safety-reviewed foods. `productionRecipes()`
+and `productionFoods()` remain empty. G3/G4, planning fixture rejection and price
+gates are unchanged. Planning transport/application wiring, authenticated remote
+publisher/source manifests, authoritative reviewed food/allergen mappings and
+real catalog/device E2E remain unverified/unimplemented. Existing source-package
+validation is reused; this importer does not independently authenticate USDA data.
