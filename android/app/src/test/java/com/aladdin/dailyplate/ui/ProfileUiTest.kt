@@ -32,7 +32,11 @@ class ProfileUiTest {
         try { worker.submit { store.confirm(d, "az") }.get() } finally { worker.shutdown() }
     }
     private fun await(text: String) = compose.waitUntil(10000) { compose.onAllNodesWithText(text).fetchSemanticsNodes().isNotEmpty() }
-    private fun click(text: String) = compose.onAllNodesWithText(text).onFirst().performScrollTo().performClick()
+    private fun click(text: String) {
+        val node = compose.onAllNodesWithText(text).onFirst()
+        if (text !in setOf("Profil", "Profile", "Профиль")) node.performScrollTo()
+        node.performClick()
+    }
 
     @Test fun cancelThenConfirmPersistsNewVersionAndExplanationAfterRecreation() {
         seed()

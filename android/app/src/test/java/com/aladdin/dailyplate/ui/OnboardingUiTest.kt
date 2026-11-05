@@ -44,6 +44,7 @@ class OnboardingUiTest {
         capture("confirmed-az")
         compose.onNodeWithText("Davam et").performScrollTo().performClick()
         compose.onNodeWithText("Profil").performClick()
+        compose.waitUntil(10000) { compose.onAllNodesWithText("Profil və seçimlərim").fetchSemanticsNodes().isNotEmpty() }
         compose.onNodeWithText("Profil və seçimlərim").performScrollTo().performClick()
         compose.waitUntil(10000) { compose.onAllNodesWithText("Profili redaktə et").fetchSemanticsNodes().isNotEmpty() }
     }

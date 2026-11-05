@@ -59,8 +59,8 @@ fun TargetExplanation(profile: UserProfile, assessment: NutritionAssessment?) {
             Text("REE: ${c.restingKcal}; ${c.inputs.activityFactor}; ${c.maintenanceKcal}")
             c.nutrientReferences.forEach { row -> Text("${row.nutrient}: ${row.amount.value} ${row.amount.unit} · ${row.source.id} v${row.source.version} · ${row.sourceSection}") }
         } ?: Text(stringResource(R.string.pf_no_formula))
-        assessment?.issues?.map { it.reason }?.distinct()?.forEach { reason ->
-            Text(stringResource(reasonLabel(reason)))
+        assessment?.issues?.map { reasonLabel(it.reason) }?.distinct()?.forEach { label ->
+            Text(stringResource(label))
         }
         Text(stringResource(R.string.pf_inputs), style = MaterialTheme.typography.titleMedium)
         ProfileEdit.draft(profile).answers.forEach { (key, value) ->
