@@ -1,35 +1,37 @@
-# Current task — K16 planning input transport
+# Current task — K16 production reviewed-content model
 
 ## Completed
-- Previous recipe detail/portion-confirmed intake retained; previous main 43c3167 passed 197 JVM tests and APK-free CI.
-- Added complete schema-versioned planning input package transport through UserRepositories.planningImports.
-- Atomic active-revision + receipt write, monotonic source revisions, exact replay without reactivation, owner isolation and fixture rejection.
+- Previous planning input transport on main 750eb0a passed mandatory APK-free CI.
+- Added separate schema-1 ReviewedRecipeContent / ReviewedRecipePayload; no conversion from test EditorialSnapshot.
+- Exact UTF-8 payload SHA-256 + recipe version binding, publication identity/time, evidence completeness, chronology, optional review expiry and withdrawal checks.
+- Added four JVM contract tests; QA requirements and integration limits documented.
 
 ## Current state
-- This unit is a trusted local transport API, not automatic library/application integration or production approval.
-- All current EditorialSnapshot objects are testOnly; production import rejects them. Empty/unavailable catalogs are supported; successful real catalog import requires a separate reviewed representation.
-- G3/G4 remain closed. Current energy/macro activation and reported specialist approval follow canonical §30; do not describe absence of specialist as the current blocker.
+- Model only: CandidateCatalog still uses test-only EditorialSnapshot; production import still rejects it.
+- No real reviewed recipes, approval evidence, source authentication or automatic library/application integration supplied.
+- G3/G4 remain closed. §30 reported specialist plan approval and current energy/macro activation remain unchanged.
 
 ## Decisions
-- Complete replacement includes policy/catalog/evidence/coverage/prices/freshness; no mixing with older selection.
-- Package ref uses planning-import; same source version + changed payload conflicts. Old receipt replay never restores old active inputs.
-- User DB transaction owns activation + receipt; library DB is outside this API. No authenticity/signature claim.
+- Publisher preserves exact JSON payload bytes for hashing; hash is integrity, not authenticity.
+- Production record uses published Recipe + real Review + EditorialMetadata, independently of K05 draft-envelope workflow.
+- Withdrawal blocks new use while retaining historical payload; importing boundary must choose latest state.
+- DB nutrient recompute, source manifest validation and atomic catalog activation remain separate required integration work.
 
 ## Remaining work
-- Production reviewed catalog representation and library import/activation orchestration with application invocation.
-- Authoritative G3 catalog/G4 prices and successful generation/acceptance/recalculation/detail/Today device E2E.
-- K18 remains separate. No APK authorized.
+- Integrate reviewed records into production catalog/library import and planning transport with schema compatibility.
+- Authoritative G3 content/G4 prices; application invocation and successful generation/acceptance/recalculation/detail/Today device E2E.
+- K18 separate. No APK authorized or created.
 
 ## Relevant files
-- data/local/{PlanningInputImporter,PlanGenerationRepository,UserRepositories}.kt
-- data/local/PlanningInputImporterTest.kt (test source set)
-- domain/editorial/EditorialContent.kt; domain/planning/RecipeCandidateFilter.kt
+- domain/editorial/ReviewedRecipeContent.kt; corresponding test source ReviewedRecipeContentTest.kt
+- domain/editorial/{EditorialContent,PublicationRequirements}.kt
+- domain/planning/CandidateContracts.kt; data/local/PlanningInputImporter.kt
 - docs/qa/android-k16-generation-acceptance.md
-- planning/research-data.json §8/22/25/30; planning/coding-tasks.txt K16
+- planning/research-data.json §8/21/22/25/30; planning/coding-tasks.txt K16
 
 ## Checks performed
-- Read lifecycle/organization/current context and scoped plan/design contracts; inspected library importer and production gates.
-- Added five Room/JVM tests, including disk reopen and transactional rollback. Mandatory post-merge CI outcome: consult .local-ci/logs/latest.json; no branch/manual CI and no APK.
+- Read lifecycle/organization/context and relevant canonical requirements; inspected existing editorial/publication/import boundaries.
+- Final mandatory merged-main CI result: consult .local-ci/logs/latest.json. No branch/manual CI; no APK/device checks.
 
 ## Exact next step
-- Confirm latest merged-main CI, then design a production reviewed-content representation without promoting test EditorialSnapshot or bypassing G3/G4. Automatic application wiring remains unimplemented.
+- Check latest main CI; integrate the separate reviewed model into a version-compatible production catalog transport without converting test snapshots or bypassing G3/G4, including DB recomputation before activation.
