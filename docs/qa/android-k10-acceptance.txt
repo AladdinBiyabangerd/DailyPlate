@@ -30,3 +30,11 @@ retain under .local-ci/reports/k10 and inspect before completion.
 Unverified: physical-device/TalkBack/keyboard behavior, APK packaging/install,
 real published search content and clinical/content approval. K11 writes and
 confirmation, camera/photo (K23) and publication approval are outside K10.
+
+Additional regression coverage:
+- Room recent() chooses latest revision per record, isolates owner, sorts by
+  consumed instant and leaves originals/revision history unchanged on repeat.
+- Actual MainActivity navigation and saved-instance recreation retain the draft.
+- Native UI tests explicitly provide font density at 100%/150% in all languages.
+- Palette measured pairs: 4.71–12.70:1; complete AZ/EN/RU resource parity.
+- Final merged-main execution result and head: .local-ci/logs/latest.json.

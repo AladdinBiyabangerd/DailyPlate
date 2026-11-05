@@ -32,7 +32,11 @@ import java.util.Locale
 class FoodEntryUiTest {
     @get:Rule val compose = createAndroidComposeRule<MainActivity>()
     private val base get() = ApplicationProvider.getApplicationContext<Application>()
-    private fun click(label: String) = compose.onAllNodesWithText(label).onFirst().performScrollTo().performClick()
+    private fun click(label: String) {
+        val node = compose.onAllNodesWithText(label).onFirst()
+        if (label != "Əlavə et") node.performScrollTo()
+        node.performClick()
+    }
     private fun enter(label: String, text: String) = compose.onNodeWithText(label).performScrollTo().performTextInput(text)
     private fun capture(name: String) {
         compose.mainClock.advanceTimeBy(500); compose.waitForIdle()
