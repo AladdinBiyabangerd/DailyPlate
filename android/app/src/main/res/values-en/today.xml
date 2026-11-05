@@ -8,4 +8,5 @@
     <string name="td_remaining_unknown">Remaining energy is unknown.</string>
     <string name="td_write_error">Change was not saved. Reload and confirm again.</string>
     <string name="td_missing">Entry is missing or deleted.</string>
+    <string name="td_total">Estimated recorded total</string>
 </resources>

@@ -9,7 +9,8 @@ docs/qa/android-k08-acceptance.txt-dədir. Yekun icra sübutu merged-main CI qey
 cihaz/klinik/vizual qəbul bu statusdan avtomatik çıxarılmır. K09 profil redaktəsi/izah və gələcək plan təsdiqi müqaviləsi yazılıb; qəbul qeydi
 docs/qa/android-k09-acceptance.txt-dədir. K10 axtarış/əl ilə giriş/əvvəlki yeməkdən
 porsiya qaralaması yazılıb; qəbul qeydi docs/qa/android-k10-acceptance.txt-dədir.
-K11 tamamlandı. K12–K34 başlanmayıb. Növbəti tapşırıq K12-dir. G2 bağlıdır; production fərdi hədəf aktiv deyil.
+K11–K12 implementasiya olunub; K12 qəbul qeydi docs/qa/android-k12-acceptance.txt-dədir.
+Yekun sübut matching-head merged-main CI-dir. K13–K34 başlanmayıb. Növbəti tapşırıq K13-dür. G2 bağlıdır; production fərdi hədəf aktiv deyil.
 Kanonik məhsul mənbəyi: planning/research-data.json.
 § istinadları: planning/nutrition-science-implementation-plan.txt bölmələridir.
 Əlavə məcburi mənbə: planning/meal-customization-requirements.txt, T01–T19.
@@ -410,8 +411,6 @@ Ekran 01–08 → K06–K09/K16/K25; 09–12 → K10–K12/K23;
 Əlavə dizaynsız xəta/hesab halları da K31-də ayrıca izlənir.
 
 NÖVBƏTİ DAVAM PROMPTU
-“K11-i icra et. docs/context/current-task.md, planning/coding-tasks.txt və
-əsas plan planning/nutrition-science-implementation-plan.txt §4/8/11–12/18–19-u oxu.
-K10 PortionDraft müqaviləsini istifadə et; mənbə/versiya, naməlum nutrient və əvvəlki
-qeyd snapshot-unu qoru. Porsiya təsdiqi və dayanıqlı FoodLog yazısını qur.
-G2/G3 bağlıdır. Lokal workflow: CI yalnız merged main, APK yaratma. Yalnız K11.”
+“K13-ü icra et. docs/context/current-task.md, planning/coding-tasks.txt və
+K13-ün istinad etdiyi plan bölmələrini oxu. K03/K05 dərc və K07/K08 uyğunluq
+müqavilələrini istifadə et. G2/G3 bağlıdır. APK yaratma. Yalnız K13.”

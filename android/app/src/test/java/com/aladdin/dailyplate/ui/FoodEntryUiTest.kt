@@ -50,9 +50,13 @@ class FoodEntryUiTest {
             file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
         }
     }
-    @Test fun todaySummaryAndEditorRenderInAllLanguagesAtLargeText() {
-        var language by mutableStateOf("az")
-        var editor by mutableStateOf(false)
+    @Test fun todaySummaryAzLarge() = renderToday("az", false)
+    @Test fun todaySummaryEnLarge() = renderToday("en", false)
+    @Test fun todaySummaryRuLarge() = renderToday("ru", false)
+    @Test fun todayEditorAzLarge() = renderToday("az", true)
+    @Test fun todayEditorEnLarge() = renderToday("en", true)
+    @Test fun todayEditorRuLarge() = renderToday("ru", true)
+    private fun renderToday(language: String, editor: Boolean) {
         val log = com.aladdin.dailyplate.domain.entry.PortionDraft("Home meal",
             com.aladdin.dailyplate.domain.RecordedAt("2026-11-05T10:00:00Z", "Asia/Baku"),
             com.aladdin.dailyplate.domain.EntryMethod.MANUAL, quantity = 150.0,
@@ -78,12 +82,8 @@ class FoodEntryUiTest {
                 }
             }
         } }
-        for (lang in listOf("az", "en", "ru")) {
-            compose.runOnIdle { language = lang; editor = false }
-            compose.waitForIdle(); capture("k12-summary-$lang-large")
-            compose.runOnIdle { editor = true }
-            compose.waitForIdle(); capture("k12-editor-$lang-large")
-        }
+        compose.waitForIdle()
+        capture("k12-${if (editor) "editor" else "summary"}-$language-large")
     }
 
     @Test fun savedRecordSurvivesRestartAndCanBeEditedAndDeleted() {
@@ -107,7 +107,7 @@ class FoodEntryUiTest {
         capture("k12-today-az")
         click(t(R.string.td_edit)); click(t(R.string.td_delete))
         compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.td_delete_question)).fetchSemanticsNodes().isNotEmpty() }
-        compose.onNodeWithText(t(R.string.td_delete_question)).assertExists()
+        compose.onNodeWithText(t(R.string.td_delete_question)).performScrollTo().assertIsDisplayed()
         capture("k12-delete-confirm-az")
         compose.onAllNodesWithText(t(R.string.td_delete)).onLast().performScrollTo().performClick()
         compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.empty_today)).fetchSemanticsNodes().isNotEmpty() }
