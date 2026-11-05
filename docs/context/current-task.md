@@ -8,7 +8,10 @@
   automatic and specialist active targets, survives ordinary edits and restart.
 
 ## Current state
-- Implementation merged; final repair finish must pass matching-head main CI.
+- Implementation merged at 47cb07dfc944; matching main CI passed all 151 JVM tests,
+  lint, compilation, token/contrast, data contracts and export parity.
+- This completion-note commit uses the same mandatory finish lifecycle; latest.json
+  matching current main remains the authoritative final check.
 
 ## Decisions
 - Last 14 local calendar days including today; at least 3 measurements, no future
@@ -17,7 +20,7 @@
 - No catalog/menu activation, remote actions or APK creation.
 
 ## Remaining work
-- Confirm final repair main CI; inspect EN/RU PNGs (AZ already inspected).
+- No remaining NP-16 work in this scoped unit.
 - Device/pilot and broader weight-entry/progress milestones remain unverified.
 
 ## Relevant files
@@ -30,11 +33,14 @@
 ## Checks performed
 - git diff --check. Post-merge domain/Room tests passed; APK-free compilation and
   lint passed. UI test caught retained scroll between locales; fixed by scrolling
-  the asserted review label into view. AZ review/suspended PNGs visually inspected.
+  the asserted review label into view. AZ/EN/RU review/suspended PNGs visually
+  inspected at 1.5x font; no clipping in the visible text/buttons.
 - Explicit values-az locale parity repaired after first CI failure.
-- Final repair CI includes all acceptance tests and refreshed localized PNGs.
+- Final repair CI passed 151 JVM tests with no failures/errors/skips.
+- PNG evidence: .local-ci/np16-screenshots/np16-{review,suspended}-*-large.png.
 - No branch CI, APK or device checks.
 
 ## Exact next step
-- Finish this branch, repair any main CI failures, inspect screenshots; update this
-  note with final evidence. Future large milestones belong in a new chat.
+- In a new chat, read this note and planning/coding-tasks.txt, verify the current
+  milestone acceptance records before choosing the next menu/progress unit.
+  This unit does not implement broader weight-entry UI or menu generation.
