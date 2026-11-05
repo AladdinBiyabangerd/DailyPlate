@@ -1,5 +1,6 @@
 package com.aladdin.dailyplate.domain.planning
 
+import kotlinx.serialization.Serializable
 import com.aladdin.dailyplate.domain.*
 import com.aladdin.dailyplate.domain.policy.NutritionCarbohydrateBasis
 import com.aladdin.dailyplate.domain.policy.NutritionPlanningPreview
@@ -8,6 +9,7 @@ import java.time.ZoneId
 
 /** Exact-version editorial mapping; quantities describe the whole cooked batch.
  * No food group, available carbohydrate or free sugar is inferred from a recipe name. */
+@Serializable
 data class PlanningEvidence(
     val recipe: VersionRef, val carbohydrateBasis: NutritionCarbohydrateBasis,
     val fruitVegetableGrams: Double?, val vegetableSources: Set<String>?,
@@ -18,12 +20,14 @@ data class PlanningEvidence(
 }
 
 /** Versioned product search parameters, not clinical thresholds. */
+@Serializable
 data class WeeklySearchRules(
     val ref: VersionRef, val maximumNodes: Int = 100_000,
     val maximumRecipeOccurrences: Int = 7, val minimumSourcesPerGroup: Int = 2,
 ) {
     init { require(maximumNodes in 1..1_000_000); require(maximumRecipeOccurrences > 0); require(minimumSourcesPerGroup > 0) }
 }
+@Serializable
 data class PlanGenerationRequest(
     val candidate: CandidateRequest, val weekStart: CalendarDate, val timezone: String,
     val goal: Goal, val mealsPerDay: Int, val seed: Long, val requestId: String,
@@ -31,20 +35,25 @@ data class PlanGenerationRequest(
 ) {
     init { ZoneId.of(timezone); require(mealsPerDay in 3..5); require(requestId.isNotBlank()) }
 }
+@Serializable
 data class WeeklyPlanningData(
     val catalog: CandidateCatalog, val evidence: Map<VersionRef, PlanningEvidence>,
     val prices: List<PriceObservation>, val freshness: PriceFreshness?,
     val coverage: PlanningCoverage? = null,
 ) { init { require(evidence.all { (ref, evidence) -> ref == evidence.recipe }) } }
+@Serializable
 enum class GenerationStatus {
     SUCCESS, NO_FEASIBLE_PLAN, INCOMPLETE_DATA, POLICY_UNAVAILABLE, STALE_INPUT,
     TEMPORARY_FAILURE, REQUEST_CONFLICT,
 }
+@Serializable
 data class GeneratedMeal(
     val day: CalendarDate, val slot: Int, val recipe: VersionRef, val portionGrams: Double,
     val nutrients: NutrientSnapshot, val explanation: String,
 )
+@Serializable
 data class GeneratedAlternative(val day: CalendarDate, val slot: Int, val recipe: VersionRef, val portionGrams: Double)
+@Serializable
 data class GeneratedWeek(
     val request: PlanGenerationRequest, val meals: List<GeneratedMeal>,
     val dailyNutrients: List<NutrientSnapshot>, val weeklyNutrients: NutrientSnapshot,
@@ -53,6 +62,7 @@ data class GeneratedWeek(
 ) {
     val targetKcal: Double get() = requireNotNull(nutritionPreview.targetKcal)
 }
+@Serializable
 data class PlanGenerationResult(
     val status: GenerationStatus, val testOnly: Boolean, val plan: GeneratedWeek?,
     val ruleResults: List<CandidateRuleResult>, val visitedNodes: Int,
@@ -62,14 +72,18 @@ data class PlanGenerationResult(
 
 /** Explicit source-specific supplemental policy contract. No default clinical thresholds.
  * Day and week refer to totals in that window, never an unlabelled habitual average. */
+@Serializable
 enum class PlanningWindow { DAY, WEEK }
+@Serializable
 enum class PlanningOperator { LESS_THAN, AT_MOST, AT_LEAST, GREATER_THAN }
+@Serializable
 data class PlanningNutrientRule(
     val id: String, val nutrient: String, val threshold: NutrientAmount,
     val operator: PlanningOperator, val window: PlanningWindow, val source: String,
 ) {
     init { require(id.isNotBlank() && nutrient.isNotBlank() && source.isNotBlank()); require(threshold.value != null) }
 }
+@Serializable
 data class PlanningCoverage(
     val ref: VersionRef, val policy: VersionRef, val review: Review,
     val rules: List<PlanningNutrientRule>,

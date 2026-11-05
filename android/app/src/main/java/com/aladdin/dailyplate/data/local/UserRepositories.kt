@@ -31,6 +31,7 @@ class UserRepositories internal constructor(private val database: UserDatabase) 
     val foodLogs = FoodLogRepository(database)
     val plans = MealPlanRepository(database)
     val planConsumption = PlanConsumptionRepository(database)
+    val planGeneration = PlanGenerationRepository(database)
 
     private fun <T> repository(kind: String, serializer: KSerializer<T>, userId: (T) -> String, ref: (T) -> VersionRef) =
         UserSnapshotRepository(database, kind, serializer, userId, ref)
