@@ -1,0 +1,15 @@
+<resources>
+  <string name="demo_title">Демо · Меню на неделю</string>
+  <string name="demo_notice">7 дней, по одному примеру блюда в день. Это не персональный план питания. Фото иллюстрируют блюда; записи в дневник не добавляются.</string>
+  <string name="demo_show_real">Открыть своё меню</string>
+  <string name="demo_show_mock">Показать демоменю из 7 блюд</string>
+  <string-array name="demo_meals">
+    <item>Курица терияки</item>
+    <item>Пирог с говядиной и горчицей</item>
+    <item>Чечевичный суп</item>
+    <item>Шакшука</item>
+    <item>Курица кацу с карри</item>
+    <item>Тушёная курица в соусе</item>
+    <item>Хрустящая жареная курица</item>
+  </string-array>
+</resources>

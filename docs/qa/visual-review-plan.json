@@ -5830,6 +5830,372 @@
           "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
         }
       ]
+    },
+    {
+      "id": "debug-menu",
+      "sources": [
+        "android/app/src/main/java/com/aladdin/dailyplate/ui/menu/MenuScreen.kt",
+        "android/app/src/debug/java/com/aladdin/dailyplate/ui/menu/DebugMenu.kt",
+        "android/app/src/release/java/com/aladdin/dailyplate/ui/menu/DebugMenu.kt",
+        "android/app/src/debug/res/values/demo_menu.xml",
+        "android/app/src/debug/res/values-en/demo_menu.xml",
+        "android/app/src/debug/res/values-ru/demo_menu.xml",
+        "android/app/src/test/java/com/aladdin/dailyplate/ui/DebugMenuUiTest.kt",
+        "android/app/src/debug/res/drawable-nodpi/demo_meal_0.jpg",
+        "android/app/src/debug/res/drawable-nodpi/demo_meal_1.jpg",
+        "android/app/src/debug/res/drawable-nodpi/demo_meal_2.jpg",
+        "android/app/src/debug/res/drawable-nodpi/demo_meal_3.jpg",
+        "android/app/src/debug/res/drawable-nodpi/demo_meal_4.jpg",
+        "android/app/src/debug/res/drawable-nodpi/demo_meal_5.jpg",
+        "android/app/src/debug/res/drawable-nodpi/demo_meal_6.jpg"
+      ],
+      "requirements": [
+        "User-requested debug-only mock week: seven dated dishes, one each day, each with its matching offline photograph",
+        "Existing Qida spacing, cards and typography; AZ/EN/RU, 100/150 percent text, readable whole labels",
+        "Explicit demo and illustrative-photo notice; no nutrition recommendation, DB writes or production catalog approval",
+        "Release implementation has no demo content; production menu remains reachable by toggle"
+      ],
+      "states": [
+        "week"
+      ],
+      "cases": [
+        {
+          "id": "demo-az-1.0-meal-0",
+          "image": "demo/demo-az-1.0-meal-0.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.0-meal-1",
+          "image": "demo/demo-az-1.0-meal-1.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.0-meal-2",
+          "image": "demo/demo-az-1.0-meal-2.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.0-meal-3",
+          "image": "demo/demo-az-1.0-meal-3.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.0-meal-4",
+          "image": "demo/demo-az-1.0-meal-4.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.0-meal-5",
+          "image": "demo/demo-az-1.0-meal-5.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.0-meal-6",
+          "image": "demo/demo-az-1.0-meal-6.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.5-meal-0",
+          "image": "demo/demo-az-1.5-meal-0.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.5-meal-1",
+          "image": "demo/demo-az-1.5-meal-1.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.5-meal-2",
+          "image": "demo/demo-az-1.5-meal-2.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.5-meal-3",
+          "image": "demo/demo-az-1.5-meal-3.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.5-meal-4",
+          "image": "demo/demo-az-1.5-meal-4.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.5-meal-5",
+          "image": "demo/demo-az-1.5-meal-5.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-az-1.5-meal-6",
+          "image": "demo/demo-az-1.5-meal-6.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.0-meal-0",
+          "image": "demo/demo-en-1.0-meal-0.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.0-meal-1",
+          "image": "demo/demo-en-1.0-meal-1.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.0-meal-2",
+          "image": "demo/demo-en-1.0-meal-2.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.0-meal-3",
+          "image": "demo/demo-en-1.0-meal-3.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.0-meal-4",
+          "image": "demo/demo-en-1.0-meal-4.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.0-meal-5",
+          "image": "demo/demo-en-1.0-meal-5.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.0-meal-6",
+          "image": "demo/demo-en-1.0-meal-6.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.5-meal-0",
+          "image": "demo/demo-en-1.5-meal-0.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.5-meal-1",
+          "image": "demo/demo-en-1.5-meal-1.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.5-meal-2",
+          "image": "demo/demo-en-1.5-meal-2.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.5-meal-3",
+          "image": "demo/demo-en-1.5-meal-3.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.5-meal-4",
+          "image": "demo/demo-en-1.5-meal-4.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.5-meal-5",
+          "image": "demo/demo-en-1.5-meal-5.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-en-1.5-meal-6",
+          "image": "demo/demo-en-1.5-meal-6.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.0-meal-0",
+          "image": "demo/demo-ru-1.0-meal-0.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.0-meal-1",
+          "image": "demo/demo-ru-1.0-meal-1.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.0-meal-2",
+          "image": "demo/demo-ru-1.0-meal-2.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.0-meal-3",
+          "image": "demo/demo-ru-1.0-meal-3.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.0-meal-4",
+          "image": "demo/demo-ru-1.0-meal-4.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.0-meal-5",
+          "image": "demo/demo-ru-1.0-meal-5.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.0-meal-6",
+          "image": "demo/demo-ru-1.0-meal-6.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.5-meal-0",
+          "image": "demo/demo-ru-1.5-meal-0.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.5-meal-1",
+          "image": "demo/demo-ru-1.5-meal-1.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.5-meal-2",
+          "image": "demo/demo-ru-1.5-meal-2.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.5-meal-3",
+          "image": "demo/demo-ru-1.5-meal-3.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.5-meal-4",
+          "image": "demo/demo-ru-1.5-meal-4.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.5-meal-5",
+          "image": "demo/demo-ru-1.5-meal-5.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "demo-ru-1.5-meal-6",
+          "image": "demo/demo-ru-1.5-meal-6.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "week",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        }
+      ]
     }
   ]
 }
