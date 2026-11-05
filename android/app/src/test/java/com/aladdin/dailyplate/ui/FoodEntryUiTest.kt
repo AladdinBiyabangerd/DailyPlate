@@ -49,6 +49,42 @@ class FoodEntryUiTest {
             file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
         }
     }
+    @Test fun failedWriteRetriesSameEventAndOnlyThenShowsSuccess() {
+        val config = android.content.res.Configuration(base.resources.configuration).apply { setLocale(Locale.forLanguageTag("az")) }
+        val context = base.createConfigurationContext(config)
+        var attempts = 0
+        val events = mutableListOf<com.aladdin.dailyplate.domain.FoodLog>()
+        compose.runOnUiThread { compose.activity.setContent {
+            CompositionLocalProvider(LocalContext provides context, LocalConfiguration provides config) {
+                QidaTheme { androidx.compose.material3.Surface {
+                    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(QidaSpacing.large),
+                        verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
+                        com.aladdin.dailyplate.ui.entry.PortionDraftEditor(
+                            com.aladdin.dailyplate.domain.entry.PortionDraft("Home meal",
+                                com.aladdin.dailyplate.domain.RecordedAt("2026-11-05T10:00:00Z", "Asia/Baku"),
+                                com.aladdin.dailyplate.domain.EntryMethod.MANUAL, quantity = 150.0,
+                                unit = com.aladdin.dailyplate.domain.entry.EntryUnit.GRAM,
+                                nutrientsPerBasis = com.aladdin.dailyplate.domain.NutrientSnapshot(emptyMap())), {}, {},
+                            record = { log ->
+                                events.add(log); attempts++
+                                if (attempts == 1) throw java.io.IOException("disk failure")
+                                log
+                            })
+                    }
+                } }
+            }
+        } }
+        click(context.getString(R.string.fe_prepare))
+        org.junit.Assert.assertEquals(0, attempts)
+        click(context.getString(R.string.pc_confirm))
+        compose.waitUntil(10000) { compose.onAllNodesWithText(context.getString(R.string.pc_error)).fetchSemanticsNodes().isNotEmpty() }
+        compose.onNodeWithText(context.getString(R.string.pc_saved)).assertDoesNotExist()
+        capture("confirmation-write-error-az")
+        click(context.getString(R.string.pc_retry))
+        compose.waitUntil(10000) { compose.onAllNodesWithText(context.getString(R.string.pc_saved)).fetchSemanticsNodes().isNotEmpty() }
+        org.junit.Assert.assertEquals(2, attempts); org.junit.Assert.assertEquals(events[0], events[1])
+        capture("confirmation-saved-az")
+    }
     @Test fun appNavigationRestoresSelectedDraftWithoutWritingFoodLog() {
         val az = base.createConfigurationContext(android.content.res.Configuration(base.resources.configuration).apply {
             setLocale(Locale.forLanguageTag("az"))

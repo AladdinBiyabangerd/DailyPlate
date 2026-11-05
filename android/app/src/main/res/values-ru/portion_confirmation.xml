@@ -1,0 +1,10 @@
+<resources>
+    <string name="pc_confirm">Подтвердить порцию и записать</string>
+    <string name="pc_saved">Еда сохранена на телефоне</string>
+    <string name="pc_local">Сохранено только на телефоне. Не синхронизировано.</string>
+    <string name="pc_another">Добавить другую еду</string>
+    <string name="pc_error">Запись не подтверждена. Повторите ту же запись.</string>
+    <string name="pc_retry">Повторить</string>
+    <string name="pc_estimate">Приблизительная пищевая ценность вашей порции</string>
+    <string name="pc_photo_closed">Мало/Средне/Много доступны только с проверенным весом рецепта и реальными фото порций. Сейчас введите точное количество.</string>
+</resources>

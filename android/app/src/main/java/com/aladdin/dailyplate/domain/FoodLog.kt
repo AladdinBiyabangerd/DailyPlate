@@ -15,6 +15,8 @@ data class FoodLog(
     val entryMethod: EntryMethod, val sourcePlanItemId: String?, val syncStatus: SyncStatus,
     val actualRecipeSnapshot: ActualRecipeSnapshot?, val recipeChangedAnswer: Boolean?,
     val nutrientBasis: NutrientBasis, val photoReference: String?, val portionConfirmed: Boolean,
+    val displayName: String? = null, val preparationState: String? = null,
+    val repeatedFrom: VersionRef? = null, val nutrientSource: String? = null, val enteredQuantity: Double? = null, val enteredUnit: String? = null,
 ) {
     init {
         require(clientEventId.isNotBlank()); require(userId.isNotBlank())

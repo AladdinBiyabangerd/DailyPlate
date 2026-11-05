@@ -1,0 +1,10 @@
+<resources>
+    <string name="pc_confirm">Confirm portion and record</string>
+    <string name="pc_saved">Food saved on your phone</string>
+    <string name="pc_local">Saved locally only. Not synced.</string>
+    <string name="pc_another">Add another food</string>
+    <string name="pc_error">Write not confirmed. Retry the same record.</string>
+    <string name="pc_retry">Retry</string>
+    <string name="pc_estimate">Estimated nutrients for your portion</string>
+    <string name="pc_photo_closed">Small/Medium/Large requires verified recipe weights and real portion photos. Enter an exact quantity now.</string>
+</resources>

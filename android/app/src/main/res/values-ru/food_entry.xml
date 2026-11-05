@@ -17,7 +17,7 @@
     <string name="fe_kilograms">Килограммы (кг)</string>
     <string name="fe_previous_portion">Доля предыдущей порции — измени перед подтверждением</string>
     <string name="fe_prepare">Подготовить черновик порции</string>
-    <string name="fe_ready">Черновик готов. Запись в дневнике не создана. Подтверждение порции появится на следующем этапе.</string>
+    <string name="fe_ready">Предпросмотр вашей порции. Пока не записано.</string>
     <string name="fe_unknown">Неизвестная пищевая ценность не равна нулю. Эти данные не подтверждают безопасность при аллергии.</string>
     <string name="fe_unknown_value">Неизвестно</string>
     <string name="fe_name">Название продукта</string>

@@ -17,7 +17,7 @@
     <string name="fe_kilograms">Kiloqram (kq)</string>
     <string name="fe_previous_portion">Əvvəlki porsiyanın qatı — miqdarı təsdiqdən əvvəl dəyiş</string>
     <string name="fe_prepare">Porsiya qaralamasını hazırla</string>
-    <string name="fe_ready">Qaralama hazırdır. Gündəliyə yazılmayıb. Porsiyanın təsdiqi növbəti mərhələdə açılacaq.</string>
+    <string name="fe_ready">Şəxsi porsiyanın önbaxışı. Hələ gündəliyə yazılmayıb.</string>
     <string name="fe_unknown">Bilinməyən qida dəyəri sıfır sayılmır. Bu məlumat allergiya uyğunluğunu təsdiqləmir.</string>
     <string name="fe_unknown_value">Məlum deyil</string>
     <string name="fe_name">Məhsulun adı</string>
