@@ -225,6 +225,11 @@ class FoodEntryUiTest {
         capture("app-portion-restored-az")
     }
     @Test fun manualUnknownDraftAndSearchClearInAllLanguagesAtLargeText() {
+        // This is a layout/input matrix, not a cold catalog-import timing test.
+        val catalogWorker = java.util.concurrent.Executors.newSingleThreadExecutor()
+        try { catalogWorker.submit {
+            com.aladdin.dailyplate.data.local.CatalogRepository.open(base).use { it.productionFoods() }
+        }.get() } finally { catalogWorker.shutdown() }
         var language by androidx.compose.runtime.mutableStateOf("az")
         var scale by androidx.compose.runtime.mutableFloatStateOf(1f)
         compose.runOnUiThread { compose.activity.setContent {
@@ -248,7 +253,8 @@ class FoodEntryUiTest {
             val c = base.createConfigurationContext(android.content.res.Configuration(base.resources.configuration).apply { setLocale(Locale.forLanguageTag(lang)) })
             fun t(id: Int) = c.getString(id)
             click(t(R.string.fe_search))
-            compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.fe_no_results)).fetchSemanticsNodes().isNotEmpty() }
+            compose.waitUntil(30000) { compose.onAllNodesWithText(t(R.string.loading)).fetchSemanticsNodes().isEmpty() }
+            compose.onNodeWithText(t(R.string.fe_no_results)).performScrollTo().assertIsDisplayed()
             enter(t(R.string.fe_query), "Missing")
             click(t(R.string.fe_clear))
             compose.onNodeWithText("Missing").assertDoesNotExist()

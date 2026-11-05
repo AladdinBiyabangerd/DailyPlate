@@ -31,7 +31,8 @@
 - Read local lifecycle, context, organization, design guides/tokens and scoped plan/nutrition requirements.
 - Native AZ 100%/150%, EN/RU 150%, full-app Today and log detail renders inspected. Plate artwork/card label corrected; narrow EN 150% plan shortcut found visually and changed to full-width at large fonts.
 - Prior merged-main 80503a0 passed 214 JVM tests, lint/compile and contrast 4.71–12.70. Final main also includes large-font shortcut fix and system Back refresh; authoritative final pass is latest.json.
-- First post-merge run caught explicit AZ string parity; second caught test scroll reuse at locale changes. Both repaired.
+- Initial failures: explicit AZ string parity and test scroll reuse across locales; repaired. Later unrelated Add layout-matrix cold-catalog timeout: warm catalog outside its layout timer, await loading completion and assert empty result.
+- Concurrent visual-gate work is preserved, uncommitted, in /tmp/callmood-today-dashboard; not part of Today commits. Final CI runs in the clean original workspace after user paused the parallel chat.
 - Final mandatory result: compare main HEAD with .local-ci/logs/latest.json (passed=true required). Native render output: .local-ci/reports/k10/today-dashboard-* and today-log-detail-*.
 - Snapshot nutrients are displayed in details using both manual and recipe keys without recomputation; navigation tests assert saved energy. No branch CI, APK or device tests.
 
