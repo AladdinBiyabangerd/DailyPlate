@@ -34,7 +34,8 @@ internal object WeeklyCoverage {
             quality.any { it == false } -> RuleStatus.FAIL
             quality.any { it == null } -> RuleStatus.UNKNOWN
             else -> RuleStatus.PASS
-        }, "Exact-recipe protein-quality review; not inferred from protein grams")
+        }, "Exact-recipe protein-quality review; not inferred from protein grams").copy(
+            evidenceRefs = meals.flatMap { data.evidence[it.recipe]?.sources.orEmpty() }.distinct() + coverage.review.auditId)
         return results
     }
 }

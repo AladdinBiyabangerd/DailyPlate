@@ -85,6 +85,18 @@ class WeeklyPlanGeneratorTest {
         for ((a, b) in r.meals.chunked(3).zipWithNext()) assertTrue(a.none { x -> b.any { it.recipe == x.recipe } })
         assertEquals(WeeklyNutrition.sum(r.dailyNutrients), r.weeklyNutrients)
         assertTrue(r.alternatives.isNotEmpty())
+        assertEquals(VersionRef("nasem-2023-adult-eer", 1), r.nutritionPreview.energy.contract.formula)
+        assertEquals(data().coverage, r.coverage)
+        assertEquals(r.meals.sumOf { it.portionGrams } * 2,
+            r.weeklyNutrients.values.getValue("energy_kcal").value!!, 1e-8)
+        for (alternative in r.alternatives) {
+            val original = r.meals.single { it.day == alternative.day && it.slot == alternative.slot }
+            assertNotEquals(original.recipe, alternative.recipe)
+            assertTrue(alternative.portionGrams in 100.0..600.0 && (alternative.portionGrams - 100) % 25 == 0.0)
+            val dayGrams = r.meals.filter { it.day == alternative.day }.sumOf { it.portionGrams } -
+                original.portionGrams + alternative.portionGrams
+            assertTrue(r.nutritionPreview.bounds!!.contains(dayGrams * 2))
+        }
     }
     @Test fun missingCriticalNutrientsNeverPassAndSearchIsBounded() {
         for (key in listOf("fibre_g", "free_sugar_g", "sodium_mg", "trans_fat_g", "available_carbohydrate_g")) {

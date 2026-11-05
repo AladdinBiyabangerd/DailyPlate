@@ -36,7 +36,10 @@ nutrient adapter and bounded request session. No UI, DB write, diary event or AP
   Offered alternatives recheck the complete affected day, weekly variety, repetition,
   adjacent-day repetition and full package budget. Nothing is applied automatically.
 - C-10: exact request/profile/policy/catalog/recipe refs and nutrient coverage are
-  retained. `WeeklyPlanSession` reuses identical request payloads, rejects changed
+  retained. The complete K08 preview retains its actual EER formula/contract/provenance,
+  alongside the selected supplemental coverage snapshot (the fixture editorial policy
+  ref is not mislabelled as an EER formula). Energy proximity ranks first, macro
+  proximity is a soft tie-breaker and never changes a hard threshold. `WeeklyPlanSession` reuses identical request payloads, rejects changed
   payloads under an existing request ID, and has bounded capacity. This is in-memory
   preview idempotency; K16 must persist envelopes and transactionally compare current
   versions before a write. Restart/DB race guarantees are not claimed here.

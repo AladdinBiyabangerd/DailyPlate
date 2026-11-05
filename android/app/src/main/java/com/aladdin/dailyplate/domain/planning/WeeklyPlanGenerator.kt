@@ -117,8 +117,20 @@ object WeeklyPlanGenerator {
             val day = index / q.mealsPerDay
             val slot = index % q.mealsPerDay
             val target = preview.slotKcal[slot]
+            fun macroDistance(option: Pair<Recipe, Double>): Double {
+                val (recipe, grams) = option
+                val fraction = target / requireNotNull(preview.targetKcal)
+                val macros = requireNotNull(preview.macros)
+                val expected = listOf("protein_g" to macros.proteinGrams, "fat_g" to macros.fatGrams,
+                    "available_carbohydrate_g" to macros.availableCarbohydrateGrams)
+                return expected.sumOf { (key, daily) ->
+                    val amount = WeeklyNutrition.value(recipe.nutrientsTotal, key)
+                    if (amount == null) Double.MAX_VALUE / 3 else
+                        abs(amount * grams / requireNotNull(recipe.yieldCookedGrams) - daily * fraction) / daily
+                }
+            }
             val ordered = shuffled.sortedWith(compareBy<Pair<Recipe, Double>> { (r, grams) -> abs((WeeklyNutrition.value(r.nutrientsTotal,
-                "energy_kcal", NutrientUnit.KCAL) ?: Double.MAX_VALUE) * grams / requireNotNull(r.yieldCookedGrams) - target) }.thenBy { option -> path.count { it.recipe == option.first.ref } })
+                "energy_kcal", NutrientUnit.KCAL) ?: Double.MAX_VALUE) * grams / requireNotNull(r.yieldCookedGrams) - target) }.thenBy { macroDistance(it) }.thenBy { option -> path.count { it.recipe == option.first.ref } })
             for (option in ordered) {
                 if (nodes >= q.search.maximumNodes) { exhausted = true; return false }; nodes++
                 if (path.count { it.recipe == option.first.ref } >= q.search.maximumRecipeOccurrences) continue
@@ -171,6 +183,6 @@ object WeeklyPlanGenerator {
                 if (exhausted) "Alternative search budget exhausted; no alternative promised" else "Only complete revalidated replacements are offered; zero alternatives is explicit")
         }
         val daily = selected.chunked(q.mealsPerDay).map { WeeklyNutrition.sum(it.map { meal -> meal.nutrients }) }
-        return finish(GenerationStatus.SUCCESS, GeneratedWeek(q, selected, daily, WeeklyNutrition.sum(daily), alternatives, cost, preview.targetKcal))
+        return finish(GenerationStatus.SUCCESS, GeneratedWeek(q, selected, daily, WeeklyNutrition.sum(daily), alternatives, cost, preview, requireNotNull(data.coverage)))
     }
 }
