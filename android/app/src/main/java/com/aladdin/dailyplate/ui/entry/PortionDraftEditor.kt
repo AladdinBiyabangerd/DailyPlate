@@ -39,6 +39,7 @@ fun PortionDraftEditor(draft: PortionDraft, back: () -> Unit, update: (PortionDr
             Text("${log.enteredQuantity} ${portionUnitLabel(log.enteredUnit)}")
             Text(stringResource(R.string.pc_estimate))
             PortionNutrients(log.nutrientSnapshot)
+            com.aladdin.dailyplate.ui.today.RecordedIngredients(log)
             Text(stringResource(R.string.pc_local))
         }
         com.aladdin.dailyplate.ui.today.SavedDaySummary(log)

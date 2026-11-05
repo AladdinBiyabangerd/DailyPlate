@@ -1,0 +1,46 @@
+K12 — Today diary, revision edits and confirmed deletion
+
+Requirements: coding-tasks K12; main plan §10, §18.8–12, §19.4/6/12/15/17;
+visual references 03 screen 12, 06 screens 22–23, 11 screen 44.
+
+Implemented:
+- Current system IANA zone; half-open local-midnight day boundaries, refresh on
+  midnight/timezone change and activity resume. Actual saved entries only.
+- Energy/protein/fat/carbohydrate totals. Empty day, absent/null values or wrong
+  units never become precise zeroes. No plan required. K16 owns plan forecasts.
+- Remaining energy only with complete energy and the persisted K08 specialist
+  assessment for the current profile revision. G2 automatic production remains
+  closed. Above-target copy is neutral; no punishment or eating restriction.
+- Saved success has actual portion/nutrients, actual recipe batch ingredients,
+  committed-day summary, Today / another meal / edit by concrete log ID.
+- Edit previews an explicit multiple of the saved portion, then confirms a new
+  immutable revision. Original event/date/source/basis and recipe batch remain;
+  recipe consumedShare and nutrients scale, exceeding the batch is rejected.
+- Delete requires a second explicit confirmation. A revision tombstone excludes
+  the entry from totals/repeats without removing history or the event ledger.
+  Original record retries cannot resurrect a deleted entry. Stale edits conflict.
+- Local write failures show an error and retain the editable record; reload and
+  explicit confirmation recover. No remote-sync claim. No Room table migration.
+
+Evidence:
+- Main abb1c8128f6a: 98 JVM tests passed, Android lint/compile/tokens and 15 library
+  tests passed; canonical JSON/export parity passed.
+- TodayDiaryTest: Baku/UTC boundaries, Berlin 23-hour DST day, unknown/absent/unit
+  mismatch, empty day and snapshot scaling. UserPersistenceTest: edits/deletion,
+  stale revisions, preserved originals, deduplication and file database reopen.
+- FoodEntryUiTest: manual add -> confirm -> activity recreation -> concrete edit
+  -> 150g to 300g -> confirm delete -> recreate empty day. Existing search and
+  confirmation/retry tests remain enabled. Production catalog is unpublished;
+  a real published-food search-to-save E2E is not claimed.
+- Native JVM renders inspected: Today, editor and empty day. Large-font AZ/EN/RU
+  previews inspected; switching languages in one preview exposed stale native
+  draw artifacts, so final previews render each locale in a separate test.
+- Final localized preview/ingredient-label changes require the subsequent finish
+  result. Authoritative final evidence: .local-ci/logs/latest.json passed=true
+  and head equal to main HEAD. Artifacts: .local-ci/reports/k10/k12-*.png;
+  test XML: .local-ci/reports/k10-test-results. An isolated final worktree keeps
+  its own .local-ci reports; final report location is given in chat.
+- Existing token contrast pairs: 4.71–12.70:1; no new visual values.
+
+Unverified: APK packaging/install, emulator/device/TalkBack, physical disk-full,
+real published-food search E2E and clinical approval. No APK was created.

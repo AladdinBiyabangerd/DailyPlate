@@ -8,4 +8,5 @@
     <string name="td_remaining_unknown">Qalan enerji məlum deyil.</string>
     <string name="td_write_error">Dəyişiklik saxlanmadı. Yenidən yoxla və təkrar təsdiqlə.</string>
     <string name="td_missing">Qeyd tapılmadı və ya silinib.</string>
+    <string name="td_total">Qeyd edilmiş təxmini toplam</string>
 </resources>

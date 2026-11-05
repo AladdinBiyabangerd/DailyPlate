@@ -113,7 +113,7 @@ fun TodaySummary(entries: List<FoodLog>, target: Double?, date: String, timezone
     Text("$date · $timezone")
     QidaCard {
         val energy = diaryTotal(entries, "energy", NutrientUnit.KCAL)
-        Text(stringResource(R.string.pc_estimate))
+        Text(stringResource(R.string.td_total))
         Text("${stringResource(R.string.pc_energy)}: ${energy?.toString() ?: stringResource(R.string.fe_unknown_value)} kcal")
         listOf("protein" to R.string.pc_protein, "fat" to R.string.pc_fat, "carbohydrate" to R.string.pc_carbs).forEach { (key, label) ->
             Text("${stringResource(label)}: ${diaryTotal(entries, key, NutrientUnit.GRAM)?.toString() ?: stringResource(R.string.fe_unknown_value)} g")
@@ -133,7 +133,7 @@ internal fun LogEditor(log: FoodLog, busy: Boolean, back: () -> Unit, save: (Foo
     var confirmDelete by rememberSaveable { mutableStateOf(false) }
     QidaHeading(log.displayName ?: log.ref.id)
     Text("${log.confirmedPortionGrams ?: "?"} ${stringResource(R.string.fe_grams)}")
-    log.actualRecipeSnapshot?.ingredients?.forEach { Text("${it.food.id}: ${it.edibleGrams} ${stringResource(R.string.fe_grams)}") }
+    RecordedIngredients(log)
     Text(stringResource(R.string.pc_local))
     QidaField(stringResource(R.string.td_multiple), quantity, { quantity = it; preview = null },
         if (invalid) stringResource(R.string.fe_invalid) else null, numeric = true)
