@@ -35,6 +35,11 @@ class RecipeWorkflowTest {
             assertEquals(1, it.foodLogs.recent(d.plan.userId).size)
             assertEquals(0.5, it.plans.latest(d.plan.userId, d.plan.ref.id)!!.items.first().remainingPlannedServings, 0.0)
         }
+        val stale = d.command(0.25, "TEST", "stale-event", recordedAt)
+        assertTrue(prefs.edit().putString("pending", Json.encodeToString(PlanConsumption.serializer(), stale)).commit())
+        assertThrows(RevisionConflict::class.java) { RecipeWorkflow(context).resume() }
+        assertNull(RecipeWorkflow(context).pending())
+        UserRepositories.open(context).use { assertEquals(1, it.foodLogs.recent(d.plan.userId).size) }
         }.get() } finally { worker.shutdown() }
     }
 }

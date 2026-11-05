@@ -30,12 +30,17 @@ internal fun RecipeDetailScreen(planId: String, itemId: String, back: () -> Unit
         busy = true; error = false
         scope.launch {
             try {
+                if (resume || command != null) {
+                    withContext(Dispatchers.IO) {
+                        if (command != null) workflow.confirm(command) else workflow.resume()
+                    }
+                    // A failed detail refresh cannot turn a successful write into a failed intake.
+                    saved = true; pending = null
+                }
                 val result = withContext(Dispatchers.IO) {
-                    if (command != null) workflow.confirm(command) else if (resume) workflow.resume()
                     workflow.load(planId, itemId) to workflow.pending()
                 }
                 detail = result.first; pending = result.second
-                if (resume || command != null) saved = true
             } catch (cancelled: CancellationException) { throw cancelled }
             catch (_: Exception) {
                 error = true; detail = null

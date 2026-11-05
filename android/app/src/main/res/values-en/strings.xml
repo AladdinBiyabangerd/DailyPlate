@@ -82,5 +82,5 @@
     <string name="rd_confirm_portion">Personal servings to record: %1$.2f</string>
 
     <string name="rd_personal_nutrients">Nutrients for the planned personal portion</string>
-    <string name="rd_time">Preparation time: %1$d minutes</string>
+    <string name="rd_time">Preparation time (min): %1$d</string>
 </resources>
