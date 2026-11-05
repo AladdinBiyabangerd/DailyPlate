@@ -46,13 +46,13 @@ class FuturePlanRepositoryTest : WeeklyPlanningFixture() {
 
     private fun current() = repositories.plans.latest(p.userId, original.ref.id)!!
     private fun change(field: String = "weight", value: String = "70.1"): UserProfile {
-        val edit = ProfileEdit.preview(p, ProfileEdit.draft(p).change(field, value), "", false,
+        val edit = ProfileEdit.preview(p, ProfileEdit.draft(p).change(field, value).change("measurements_confirmed", "yes"), "", false,
             "Profile updated", q.candidate.at, q.weekStart)
         return repositories.profileEdits.confirm(edit)
     }
     private fun generate(profile: UserProfile, id: String = "new-generation") {
-        assertEquals(GenerationStatus.SUCCESS, repositories.planGeneration.generateTest(p.userId,
-            request(profile).copy(requestId = id)).status)
+        val result = repositories.planGeneration.generateTest(p.userId, request(profile).copy(requestId = id))
+        assertEquals(result.ruleResults.filter { it.status != RuleStatus.PASS }.toString(), GenerationStatus.SUCCESS, result.status)
     }
     private fun command(id: String = "recalculate") = FuturePlanCommand(id, current().ref, "new-generation", effective)
     private fun consume(item: MealPlanItem, share: Double = 0.5, id: String = "actual"): MealPlan {
@@ -173,7 +173,7 @@ class FuturePlanRepositoryTest : WeeklyPlanningFixture() {
     @Test fun currentHardFiltersApplyToPreservedRemainingPortions() {
         val item = current().items.first { it.date == effective }
         consume(item)
-        val edit = ProfileEdit.preview(p, ProfileEdit.draft(p).change("weight", "70.1"), "", false,
+        val edit = ProfileEdit.preview(p, ProfileEdit.draft(p).change("weight", "70.1").change("measurements_confirmed", "yes"), "", false,
             "New catalog dislike", q.candidate.at, q.weekStart)
         val edited = edit.after.copy(dislikedRecipeIds = setOf(item.recipe.id))
         repositories.profileEdits.confirm(edit.copy(after = edited,
