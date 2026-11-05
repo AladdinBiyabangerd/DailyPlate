@@ -116,6 +116,7 @@ class PortionDesignUiTest {
             capture("portion", "loading", language, scale)
             writing.complete(Unit)
             compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.pc_saved)).fetchSemanticsNodes().isNotEmpty() }
+            compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.td_total)).fetchSemanticsNodes().isNotEmpty() }
             capture("portion", "saved", language, scale)
             assertEquals(events[0], events[1]); assertEquals(250.5, events[1].confirmedPortionGrams!!, 0.0)
             assertTrue(events[1].nutrientSnapshot.values.isEmpty())
