@@ -36,13 +36,13 @@ Evidence and limits
   menu recalculation has been verified. G2 remains closed. No remote operations.
 
 Observed implementation acceptance, 5 November 2026
-- Main 3964ca8 passed all checks: 80 JVM tests, 15 library tests, lint/compile,
+- Main 1fdd3ac passed all checks: 80 JVM tests, 15 library tests, lint/compile,
   string parity and six contrast pairs (minimum 4.71:1).
 - Inspected profile/editor/editor-bottom/explanation native PNGs in all three
   locales at 100%/150%; inspected AZ change preview and saved-version history.
   Text wraps and scrolling exposes the longer content; large navigation wraps.
 - Initial UI selector/timing failures were repaired on fix branches and merged;
-  no checks were removed. Final timestamp formatting/compatibility acceptance is
-  followed by another full post-merge main CI; latest.json is the final evidence.
+  no checks were removed. Final timestamp/compatibility code passed full main CI;
+  inspected final AZ/EN/RU 150% explanation images. latest.json is final evidence.
 - Legacy profiles lacking an old assessment can confirm a new one without
   inventing historical results. Unknown screening keys and out-of-editor data stay.
