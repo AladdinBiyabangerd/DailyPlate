@@ -12,13 +12,13 @@ again about routine local branches, commits, CI, fixes or merges.
 - Start a suitable branch using `python3 .local-ci/workflow.py start <type/name>`
   before editing. Continue an existing branch only when it belongs to this task.
 - Make focused commits of this task's changes; preserve unrelated user work.
-- Run `python3 .local-ci/workflow.py ci`. Read failures, fix their causes, commit
-  and repeat until green; never weaken checks or bypass hooks to obtain a pass.
-- When the task is complete, run `python3 .local-ci/workflow.py finish` to check
-  the branch, merge locally to main and check main again. A failed post-merge CI
-  means unfinished work: create a fix branch, repair, commit and repeat the flow.
-- Report completion only after both branch and merged-main CI pass. Report the
-  commits and checks performed; say which acceptance requirements are unverified.
+- CI runs only after a branch is merged locally into main, through the post-merge
+  hook. Never run CI on a branch, before merging, or manually in any other case.
+- When the task is complete, run `python3 .local-ci/workflow.py finish` to merge
+  locally to main and run CI once after the merge. A failed post-merge CI means
+  unfinished work: create a fix branch, repair, commit and finish again.
+- Report completion only after merged-main CI passes. Report the commits and
+  checks performed; say which acceptance requirements are unverified.
 - This is a task lifecycle, not a commit on every file save. Read-only questions
   do not need a branch. Do not create empty commits merely to exercise the flow.
 - Keep `.local-ci/` and `.cursor/rules/local-ci.mdc` outside Git history. Use local
@@ -36,7 +36,7 @@ again about routine local branches, commits, CI, fixes or merges.
 - Mandatory local CI must use APK-free lint, compilation and JVM tests. APK
   packaging, installation and device/instrumentation tests are separate opt-in
   checks and must not be invoked by CI or finish.
-- Green branch/main CI does not imply APK or device tests passed; report those
+- Green post-merge main CI does not imply APK or device tests passed; report those
   separately when they were explicitly requested and actually run.
 
 ## Code organization
