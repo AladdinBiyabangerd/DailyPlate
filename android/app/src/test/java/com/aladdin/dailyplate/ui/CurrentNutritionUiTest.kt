@@ -45,6 +45,7 @@ class CurrentNutritionUiTest {
         for (language in listOf("az", "en", "ru")) {
             val config = android.content.res.Configuration(compose.activity.resources.configuration).apply {
                 setLocale(java.util.Locale.forLanguageTag(language))
+                fontScale = 1.5f
             }
             val localized = compose.activity.createConfigurationContext(config)
             compose.activityRule.scenario.onActivity { activity ->
