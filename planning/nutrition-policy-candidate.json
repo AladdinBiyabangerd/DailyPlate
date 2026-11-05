@@ -1,7 +1,7 @@
 {
   "id": "dailyplate-adult-energy-candidate",
   "version": 1,
-  "status": "RESEARCH_PROPOSAL",
+  "status": "SPECIALIST_APPROVAL_REPORTED",
   "production_enabled": false,
   "approved_by": null,
   "approved_at": null,
@@ -327,5 +327,21 @@
       2425.0365,
       2680.3035
     ]
+  },
+  "specialist_review": {
+    "status": "SPECIALIST_APPROVAL_REPORTED",
+    "scope": "entire_written_plan_including_sections_1_to_29_and_nutrition_policy_candidate",
+    "reviewed_plan_version": "2.1-research",
+    "reviewed_canonical_sha256": "d008480bf08dc912094b0c73000bf071843fc3c5883afdba930a14e30b122705",
+    "basis": "USER_ATTESTATION",
+    "reported_on": "2026-11-05",
+    "reported_timezone": "Asia/Baku",
+    "reviewer_name": null,
+    "reviewer_name_withheld_by_user": true,
+    "reviewer_qualification": null,
+    "reviewed_on": null,
+    "supporting_document_provided": false,
+    "independently_verified": false,
+    "statement_az": "İstifadəçinin bildirişinə əsasən planın hamısı mütəxəssis tərəfindən yoxlanıb təsdiqlənib. İstifadəçi mütəxəssisin adının yazılmamasını istəyib; yoxlama tarixi və ixtisas bildirilməyib."
   }
 }
