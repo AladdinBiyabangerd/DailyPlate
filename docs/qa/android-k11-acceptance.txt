@@ -1,0 +1,23 @@
+K11 — explicit portion confirmation / durable local FoodLog
+
+Scope: grams/kg and a multiple of an immutable previous portion. No universal
+household conversions. G3 stays closed: calibrated photo choices unavailable.
+Preview is not consumption. Confirmation freezes event ID, personal nutrient
+snapshot, name, source, original version and consumption instant/timezone.
+Retry/recreation retains exact event payload. Success follows transaction commit;
+local-only status does not claim remote sync. Recipe repeats scale consumedShare
+and nutrients, retain batch composition, reject shares exceeding the batch.
+Old JSON payloads use optional defaults; Room tables/schema are unchanged.
+
+Automated checks in merged-main CI:
+- PortionConfirmationTest: kg->g, personal energy, null/zero, recipe share,
+  fresh event/date and no copied plan/photo identity.
+- UserPersistenceTest: exact confirmed snapshot survives file database reopen;
+  retry deduplication, event conflict, revision and owner isolation.
+- FoodEntryUiTest: preview has no write; simulated disk failure has no success;
+  retry uses the exact payload; native preview/error/success PNGs.
+- Existing three-language/150% font Compose rendering remains enabled.
+
+Unverified: APK/device/emulator/TalkBack; real calibrated recipe photos (G3
+closed); physical disk-full failure (IO failure simulated); clinical approval.
+Success-screen edit/day totals belong to K12, not this unit.

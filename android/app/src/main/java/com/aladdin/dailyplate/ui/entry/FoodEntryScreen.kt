@@ -18,7 +18,7 @@ import kotlinx.serialization.json.Json
 import java.time.Instant
 import java.time.ZoneId
 
-/** IO and screen state only. This feature has no FoodLog write path. */
+/** Search and draft navigation; confirmation owns durable recording. */
 @Composable
 fun FoodEntryScreen(resetScroll: () -> Unit) {
     val context = LocalContext.current
@@ -39,7 +39,7 @@ fun FoodEntryScreen(resetScroll: () -> Unit) {
                     val logs = UserRepositories.open(context).use { it.foodLogs.recent("local-guest") }
                     catalog.productionFoods() to logs.map { log ->
                         val names = log.food?.let(catalog::food)?.names ?: log.recipe?.let(catalog::recipe)?.names
-                        log to (names?.label(language) ?: context.getString(R.string.fe_previous_item, log.ref.id))
+                        log to (log.displayName ?: names?.label(language) ?: context.getString(R.string.fe_previous_item, log.ref.id))
                     }
                 }
             }
@@ -53,7 +53,7 @@ fun FoodEntryScreen(resetScroll: () -> Unit) {
     BackHandler(mode != "search" || draft != null) { if (draft != null) encoded = null else mode = "search" }
     LaunchedEffect(mode, draft != null) { resetScroll() }
     when {
-        draft != null -> PortionDraftEditor(draft, { encoded = null }, ::select)
+        draft != null -> PortionDraftEditor(draft, { encoded = null; refresh++ }, ::select)
         mode == "manual" -> savedForms.SaveableStateProvider("manual") {
             ManualFoodForm(query, { mode = "search" }) { select(it) }
         }

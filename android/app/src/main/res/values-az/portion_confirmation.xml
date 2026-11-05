@@ -1,0 +1,10 @@
+<resources>
+    <string name="pc_confirm">Porsiyanı təsdiqlə və qeyd et</string>
+    <string name="pc_saved">Yeməyin telefonda saxlanıb</string>
+    <string name="pc_local">Yalnız lokal saxlanıb. Sinxronizasiya edilməyib.</string>
+    <string name="pc_another">Başqa yemək əlavə et</string>
+    <string name="pc_error">Yazı təsdiqlənmədi. Eyni qeydi yenidən yoxla.</string>
+    <string name="pc_retry">Yenidən yoxla</string>
+    <string name="pc_estimate">Şəxsi porsiyanın təxmini qida dəyəri</string>
+    <string name="pc_photo_closed">Az/Orta/Çox yalnız yoxlanmış resept çəkiləri və real porsiya fotoları olduqda açılır. İndi dəqiq miqdarı yaz.</string>
+</resources>

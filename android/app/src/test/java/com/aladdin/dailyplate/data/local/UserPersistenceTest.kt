@@ -5,6 +5,7 @@ import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import com.aladdin.dailyplate.domain.*
 import com.aladdin.dailyplate.domain.entry.repeatDraft
+import com.aladdin.dailyplate.domain.entry.confirm
 import java.util.concurrent.Callable
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executors
@@ -86,8 +87,14 @@ class UserPersistenceTest {
         fun openFile() = UserRepositories(Room.databaseBuilder(context, UserDatabase::class.java, name)
             .addMigrations(UserDatabase.MIGRATION_1_2).allowMainThreadQueries().build())
         try {
-            openFile().use { repo -> assertEquals(log(), repo.foodLogs.record(log())) }
+            val confirmed = log().repeatDraft("Repeated meal", recordedAt).confirm("guest-1", "confirmed-event")
             openFile().use { repo ->
+                assertEquals(log(), repo.foodLogs.record(log()))
+                repo.foodLogs.record(confirmed)
+            }
+            openFile().use { repo ->
+                assertEquals(confirmed, repo.foodLogs.record(confirmed))
+                assertEquals(confirmed, repo.foodLogs.latest("guest-1", "confirmed-event"))
                 assertEquals(log(), repo.foodLogs.record(log()))
                 val revised = log().copy(ref = VersionRef("log-1", 2), confirmedPortionGrams = 100.0)
                 repo.foodLogs.revise(revised, 1)

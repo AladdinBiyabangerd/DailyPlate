@@ -7,15 +7,59 @@ import androidx.compose.ui.res.stringResource
 import com.aladdin.dailyplate.R
 import com.aladdin.dailyplate.domain.entry.*
 import com.aladdin.dailyplate.ui.*
+import androidx.compose.ui.platform.LocalContext
+import com.aladdin.dailyplate.data.local.UserRepositories
+import com.aladdin.dailyplate.domain.FoodLog
+import kotlinx.coroutines.*
+import kotlinx.serialization.json.Json
+import java.util.UUID
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 
 @Composable
-fun PortionDraftEditor(draft: PortionDraft, back: () -> Unit, update: (PortionDraft) -> Unit) {
+fun PortionDraftEditor(draft: PortionDraft, back: () -> Unit, update: (PortionDraft) -> Unit,
+    record: (suspend (FoodLog) -> FoodLog)? = null,
+) {
     var amount by rememberSaveable(draft.name) { mutableStateOf(draft.quantity.toString()) }
     var invalid by rememberSaveable { mutableStateOf(false) }
     var ready by rememberSaveable { mutableStateOf(false) }
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    var pending by rememberSaveable { mutableStateOf<String?>(null) }
+    var saved by rememberSaveable { mutableStateOf<String?>(null) }
+    var busy by remember { mutableStateOf(false) }
+    if (saved != null) {
+        val log = Json.decodeFromString(FoodLog.serializer(), requireNotNull(saved))
+        QidaHeading(stringResource(R.string.pc_saved))
+        QidaCard {
+            Text(requireNotNull(log.displayName))
+            Text("${log.enteredQuantity} ${log.enteredUnit}")
+            Text(stringResource(R.string.pc_local))
+            Text(log.ref.id)
+        }
+        QidaButton(stringResource(R.string.pc_another), back)
+        return
+    }
+    if (busy) { QidaState(SurfaceState.Loading); return }
+    if (pending != null) {
+        Text(stringResource(R.string.pc_error))
+        QidaButton(stringResource(R.string.pc_retry), {
+            if (!busy) {
+                busy = true
+                scope.launch {
+                    try {
+                        val log = Json.decodeFromString(FoodLog.serializer(), requireNotNull(pending))
+                        val result = withContext(Dispatchers.IO) { record?.invoke(log) ?: UserRepositories.open(context).use { it.foodLogs.record(log) } }
+                        saved = Json.encodeToString(FoodLog.serializer(), result)
+                    } catch (cancelled: CancellationException) { throw cancelled }
+                    catch (_: Exception) { /* Retain the exact event for retry; no success claim. */ }
+                    finally { busy = false }
+                }
+            }
+        })
+        return
+    }
     QidaHeading(stringResource(R.string.fe_portion))
     QidaCard {
         Text(draft.name, style = MaterialTheme.typography.titleMedium)
@@ -40,9 +84,31 @@ fun PortionDraftEditor(draft: PortionDraft, back: () -> Unit, update: (PortionDr
     if (ready) QidaCard {
         Text(stringResource(R.string.fe_ready))
         Text(stringResource(R.string.fe_unknown))
+        Text("${draft.quantity} ${draft.unit.name}")
+        draft.grams?.let { Text("$it ${stringResource(R.string.fe_grams)}") }
+        Text(stringResource(R.string.pc_estimate))
         draft.nutrients.values.forEach { (key, nutrient) ->
             Text("$key: ${nutrient.value?.toString() ?: stringResource(R.string.fe_unknown_value)} ${nutrient.unit}")
         }
     }
+    Text(stringResource(R.string.pc_photo_closed))
+    if (ready) QidaButton(stringResource(R.string.pc_confirm), {
+        if (!busy && pending == null) {
+            val log = runCatching { draft.confirm("local-guest", UUID.randomUUID().toString()) }.getOrNull()
+            if (log == null) { invalid = true; ready = false }
+            else {
+                pending = Json.encodeToString(FoodLog.serializer(), log)
+                busy = true
+                scope.launch {
+                    try {
+                        val result = withContext(Dispatchers.IO) { record?.invoke(log) ?: UserRepositories.open(context).use { it.foodLogs.record(log) } }
+                        saved = Json.encodeToString(FoodLog.serializer(), result)
+                    } catch (cancelled: CancellationException) { throw cancelled }
+                    catch (_: Exception) { /* Retain the exact event for retry; no success claim. */ }
+                    finally { busy = false }
+                }
+            }
+        }
+    })
     QidaButton(stringResource(R.string.back), back)
 }
