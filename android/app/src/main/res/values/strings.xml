@@ -72,7 +72,6 @@
     <string name="rd_plan_portion">Planlı şəxsi porsiya: %1$.2f · qalan: %2$.2f</string>
     <string name="rd_batch">Bütün hazırlanmış yeməyin tərkibi</string>
     <string name="rd_batch_servings">Hazırlanmış yemək: %1$.2f plan porsiyası</string>
-    <string name="rd_steps">Hazırlanma addımları</string>
     <string name="rd_unverified">Bu versiyanın təlimatı təsdiqlənməyib.</string>
     <string name="rd_no_steps">Bu versiya üçün təlimat yoxdur.</string>
     <string name="rd_no_basis">Şəxsi porsiyanı hazırlanmış yeməyə bağlayan məlumat yoxdur. Yedim qeydi üçün porsiya əsası lazımdır.</string>
@@ -82,7 +81,6 @@
     <string name="rd_confirm_portion">Gündəliyə yazılacaq şəxsi porsiya: %1$.2f</string>
 
     <string name="rd_personal_nutrients">Planlı şəxsi porsiyanın qida dəyərləri</string>
-    <string name="rd_time">Hazırlanma vaxtı (dəq): %1$d</string>
     <string name="td_greeting">Salam!</string>
     <string name="td_next_meal">Növbəti yeməyin</string>
     <string name="td_latest_meal">Son qeyd etdiyin yemək</string>
