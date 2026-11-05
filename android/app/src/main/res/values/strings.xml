@@ -82,5 +82,5 @@
     <string name="rd_confirm_portion">Gündəliyə yazılacaq şəxsi porsiya: %1$.2f</string>
 
     <string name="rd_personal_nutrients">Planlı şəxsi porsiyanın qida dəyərləri</string>
-    <string name="rd_time">Hazırlanma vaxtı: %1$d dəqiqə</string>
+    <string name="rd_time">Hazırlanma vaxtı (dəq): %1$d</string>
 </resources>

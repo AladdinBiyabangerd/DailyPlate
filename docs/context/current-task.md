@@ -30,8 +30,8 @@
 ## Checks performed
 - Read lifecycle, organization, canonical scoped requirements, nutrition design, design references and ui-craft; inspected recipe reference image.
 - Added APK-free JVM behavioral tests and native Compose rendering for AZ/EN/RU at font scale 1.5.
-- First merged CI caught missing AZ override keys (fixed); second compiled and ran 197 tests, exposing test harness thread/scroll assumptions (repaired).
-- Inspected native AZ portion preview at font scale 1.5; text wraps and confirmation is visible. Final CI and remaining render inspection are recorded in chat.
+- Earlier CI caught AZ override keys and test harness thread/scroll assumptions (fixed). Third merged run passed all 197 JVM tests; lint required a preparation-time label adjustment (fixed).
+- Inspected native AZ/EN/RU detail/portion previews at font scale 1.5; text wraps and confirmation is visible. Six contrast pairs passed. Final merged CI result is recorded in chat.
 
 ## Exact next step
 - Check merged-main CI outcome and screenshot evidence, then plan the next scoped unit using planning/coding-tasks.txt. Do not claim production/device acceptance without evidence.
