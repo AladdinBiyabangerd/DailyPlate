@@ -1,5 +1,5 @@
 QIDA — ARDICIL KODLAŞDIRMA TAPŞIRIQLARI
-Versiya 1.6 | 5 noyabr 2026 | məhsul planı 2.0
+Versiya 1.7 | 5 noyabr 2026 | məhsul planı 2.0
 
 STATUS VƏ MƏNBƏ
 Bu sənəd icra növbəsidir, tətbiq implementasiyası deyil.
@@ -10,14 +10,31 @@ cihaz/klinik/vizual qəbul bu statusdan avtomatik çıxarılmır. K09 profil red
 docs/qa/android-k09-acceptance.txt-dədir. K10 axtarış/əl ilə giriş/əvvəlki yeməkdən
 porsiya qaralaması yazılıb; qəbul qeydi docs/qa/android-k10-acceptance.txt-dədir.
 K11–K12 implementasiya olunub; K12 qəbul qeydi docs/qa/android-k12-acceptance.txt-dədir.
-Yekun sübut matching-head merged-main CI-dir. K13–K34 başlanmayıb. Növbəti tapşırıq K13-dür. G2 bağlıdır; production fərdi hədəf aktiv deyil.
+K13 deterministik resept namizədi/sərt filtr domeni implementasiya olunub
+(ilkin commit 00a0ca2); qəbul: docs/qa/android-k13-acceptance.txt.
+K08-v2 EER, makro/interval müqavilələri və onboarding/profil/DB inteqrasiyası mövcuddur;
+qəbul: docs/qa/android-k08-v2-implementation.md (sonrakı inteqrasiya/aktivləşmə
+bölmələri əvvəlki izolə və “unexecuted/remaining” qeydlərini öz əhatəsində əvəz edir).
+Cari avtomatik enerji/makro hesabı istifadəçinin açıq qərarı ilə aktivdir
+(20473a9; kanonik §30); bu, kataloq/real menyu aktivləşməsi və yeni klinik təsdiq deyil.
+NP-16 review/çəki consumer-i və davamlı hədəf dayandırılması tamamlanıb
+(47cb07d; yekun qəbul/kontekst 5daf7de): docs/qa/android-np16-acceptance.md.
+NP-17–23 makro və menyu yoxlama nüvəsi mövcuddur; tam nutrient əhatəsi,
+real dərc olunmuş porsiya feasibility-si və K15 generatoru hazır sayılmır.
+K14–K34 tam mərhələlər kimi tamamlanmayıb; müqavilə/model/nüvə hazırlığı həmin
+mərhələlərin qəbulu deyil. Növbəti implementasiya vahidi K14-dür; bu status
+yeniləməsi K14-ə başlama göstərişi deyil. K27 geniş çəki giriş/progress UI-si qalır.
+Yoxlanmış baza main 5daf7de: uyğun CI yaşıl, 151 JVM testi, lint/compile,
+token/kontrast, kitabxana müqavilələri və export parity. Cari yekun sübut
+.local-ci/logs/latest.json head-in main HEAD ilə uyğunluğu və passed=true-dur.
+Cihaz/APK/pilot/klinik qəbul CI-dən çıxarılmır; G2/G3 kataloq/menyu qapıları bağlıdır.
 Kanonik məhsul mənbəyi: planning/research-data.json.
 § istinadları: planning/nutrition-science-implementation-plan.txt bölmələridir.
 Əlavə məcburi mənbə: planning/meal-customization-requirements.txt, T01–T19.
 Dizayn qaydaları: design-concepts/simple-turquoise/implementation-guide.txt,
 new-flows-guide.txt və design-concepts/tokens.css. Bu sənəd vizual dizayn yaratmır.
 Baza: library/README.md, manifest.json, foods.json, recipes.json və tools/.
-Android tətbiqi android/ daxilindədir; K01–K12 üçün implementasiya və qəbul qeydləri mövcuddur.
+Android tətbiqi android/ daxilindədir; K01–K13 üçün implementasiya və qəbul qeydləri mövcuddur.
 Kitabxanada 500 ərzaq və 224 dərc olunmamış resept layihəsi var.
 İstifadəçi qərarı (4 noyabr 2026): ilk tətbiq Android üçündür.
 iOS yalnız istifadəçi Android nəticəsini bəyənib davam qərarı verəndən sonra ayrıca mərhələdir.
@@ -57,7 +74,9 @@ G1 — Android təsdiqlənib: minSdk 24, compileSdk/targetSdk 36; Kotlin + Compo
      Gələcək iOS üçün domain qaydaları/UI/saxlama sərhədləri qorunur; ortaq kod
      framework-ü və ya iOS skeleti qurmaq indiki qərarın məcburi nəticəsi deyil.
 G2 — Klinik redaktor, əhatə, formula/aktivlik, enerji/makro qaydaları təsdiqlənmədən
-     fərdi canlı plan açılmır. Test policy-si yalnız test mühitindədir.
+     fərdi canlı menyu açılmır. §30 üzrə istifadəçi yalnız cari avtomatik enerji/makro
+     hesabını aktivləşdirib; bu istisna kataloq/menyu qapısını açmır. Sintetik test
+     policy-si real məzmun və klinik qəbul sübutu deyil.
 G3 — Mənbə/tərkib/allergen/təlimat/hüquq/tərcümə yoxlaması olmadan dərc yoxdur.
      Bişmiş 100 q üçün çıxım sənədi, şəkilli porsiya üçün ayrıca kalibrasiya lazımdır.
 G4 — Region qiymətləri və köhnəlmə siyasəti olmadan dəqiq büdcə uyğunluğu yoxdur.
@@ -187,6 +206,7 @@ Bitmə: axtar→porsiya→save→restart→edit/delete E2E; plan proqnozu K16-da
 MƏRHƏLƏ D — MENYU VƏ ALIŞ-VERİŞ
 
 K13 — Resept namizədləri və sərt filtrlər
+Status: domen filtri implementasiya olunub; docs/qa/android-k13-acceptance.txt.
 Asılılıq: K03, K05, K07–K08. Mənbə: §6–8, §17–18.
 Yazılacaq: dərc/policy, allergiya/qadağa, region/avadanlıq, vaxt/istəksizlik,
   mümkün porsiya intervalı, uyğun deyil/natamam səbəbləri.
@@ -196,6 +216,7 @@ Yoxlama: allergenli/allergeni naməlum məhsul keçmir; vaxtı naməlum resept 1
 Bitmə: deterministik filtr; draft library canlı namizəd olmur.
 
 K14 — Alış miqdarı və region qiymət modeli
+Status: növbəti vahid; bu uzlaşdırmada implementasiyasına başlanmayıb.
 Asılılıq: K04, K07. Mənbə: §17, §19.8; customization §6.
 Yazılacaq: ingredient_price, paket/edible_fraction/preparation_state,
   istifadə xərci ilə tam paket alışının ayrımı, evdəki miqdarın çıxılması.
@@ -411,12 +432,14 @@ Ekran 01–08 → K06–K09/K16/K25; 09–12 → K10–K12/K23;
 Əlavə dizaynsız xəta/hesab halları da K31-də ayrıca izlənir.
 
 NÖVBƏTİ DAVAM PROMPTU
-“K13-ü icra et. docs/context/current-task.md, planning/coding-tasks.txt və
-K13-ün istinad etdiyi plan bölmələrini oxu. K03/K05 dərc və K07/K08 uyğunluq
-müqavilələrini istifadə et. G2/G3 bağlıdır. APK yaratma. Yalnız K13.”
+“K14 üçün mövcud müqavilə və qəbul boşluqlarını yoxla. docs/context/current-task.md,
+planning/coding-tasks.txt və K14-ün istinad etdiyi plan bölmələrini oxu.
+K13-ü yenidən implementasiya etmə. Cari enerji/makro aktivləşməsini kataloq/menyu
+icazəsi sayma; G3/G4 sübutlarını uydurma. APK yaratma. K14 implementasiyasına
+yalnız ayrıca istifadəçi göstərişi olduqda başla.”
 
 VAHİD PLAN 2.0 ƏLAVƏLƏRİ — mövcud növbəni əvəz etmir
-§20 U-01–U-10 bütün qidalanma koduna tətbiq olunur; G2/G3 bağlı qalır.
+§20 U-01–U-10 tətbiq olunur; cari hesab aktivləşməsi üçün §30, menyu üçün G2/G3 qalır.
 K08 dəyişərsə: §22 C-01–C-05, A-02/A-03/A-06 üzrə policy migration və regresiya.
 K13: §22 C-05/C-08/C-09, §23 D-02/D-05, A-05; UNKNOWN sərt filtrdən keçmir.
 K14: §21 R-06, A-07/A-08; qiymət naməlumdursa dəqiq büdcə vədi yoxdur.
@@ -430,9 +453,16 @@ K29: B-06/B-07, A-11; foto razılığı, real retention/export/delete/backup siy
 K31–K34: §25 A-01–A-14 tam izləmə; 108 baza kombinasiya və əlavə sərhədlər.
 Bu əlavələr yeni implementasiya və ya keçmiş test statusu iddiası deyil.
 
-AYRI TƏDQİQAT BRANCH-İ — inteqrasiya olunmayıb
-§26–29 NP-01–NP-31: birbaşa adult EER, 4 aktivlik kateqoriyası, konkret
-enerji/makro policy təklifi və sintetik arifmetika; G2/G3 açılmır.
-Bu iş K13/K14 koduna daxil deyil. Sonradan ayrıca user inteqrasiya tapşırığı
-olarsa K08 contract v2 + migration + source-defined regressions əvvəl yazılır.
-NASEM EER-ni indiki Mifflin activityMapping sahələrinə yerləşdirmək qadağandır.
+NP TƏDQİQATI VƏ SONRAKI İNTEQRASİYA — CARİ STATUS
+§26–29 ilkin tədqiqat mətnidir; “inteqrasiya olunmayıb” cari tətbiq statusu deyil.
+K08 contract v2 formula dispatch, 4 aktivlik kateqoriyası, max/remainder makroları,
+enerji intervalları və snapshot uyğunluğu main-dədir. NASEM EER köhnə Mifflin
+activityMapping sahəsinə yerləşdirilməyib; tarixi v1 payload-lar qorunur.
+Cari onboarding/profil hesabı və K12 tarix-effektiv nəticə istehlakı inteqrasiya olunub.
+K13 cari screening-i istifadə edir, production namizədlərini ayrıca rədd edir.
+NP-16 tamamlanıb; NP-17–23 nüvəsi real menyu generatoru və tam nutrient sertifikasiyası deyil.
+Cari sübutlar: docs/qa/android-k08-v2-implementation.md,
+docs/qa/android-np16-acceptance.md və matching-head merged-main CI.
+§30 USER_ATTESTATION bildirilmiş təsdiqdir; reviewer/tarix uydurulmur.
+K14 qiymət, K15 real generator və K27 geniş progress qəbulu hələ ayrıca işdir.
+Bu sənəd icra statusunu uzlaşdırır; kanonik məhsul qaydalarını dəyişmir.
