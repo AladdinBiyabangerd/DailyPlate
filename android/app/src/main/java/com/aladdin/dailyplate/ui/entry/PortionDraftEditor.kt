@@ -102,7 +102,7 @@ fun PortionDraftEditor(draft: PortionDraft, back: () -> Unit, update: (PortionDr
             Text(stringResource(R.string.pc_estimate))
             PortionNutrients(draft.nutrients)
         }
-        QidaButton(stringResource(R.string.pd_edit), { ready = false })
+        PortionSecondaryButton(stringResource(R.string.pd_edit), { ready = false })
     }
     if (ready) QidaButton(stringResource(R.string.pc_confirm), {
         if (!busy && pending == null) {
@@ -122,7 +122,7 @@ fun PortionDraftEditor(draft: PortionDraft, back: () -> Unit, update: (PortionDr
             }
         }
     })
-    QidaButton(stringResource(R.string.back), back)
+    PortionSecondaryButton(stringResource(R.string.back), back)
 }
 
 @Composable
