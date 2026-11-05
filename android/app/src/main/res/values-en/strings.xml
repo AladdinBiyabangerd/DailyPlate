@@ -83,4 +83,17 @@
 
     <string name="rd_personal_nutrients">Nutrients for the planned personal portion</string>
     <string name="rd_time">Preparation time (min): %1$d</string>
+    <string name="td_greeting">Hello!</string>
+    <string name="td_next_meal">Your next meal</string>
+    <string name="td_latest_meal">Your latest meal</string>
+    <string name="td_start">Start your day</string>
+    <string name="td_illustration">Illustration</string>
+    <string name="td_recorded_meals">Your recorded meals</string>
+    <string name="td_recorded">Recorded</string>
+    <string name="td_kcal">About %.0f kcal</string>
+    <string name="td_breakfast">Breakfast</string>
+    <string name="td_lunch">Lunch</string>
+    <string name="td_dinner">Dinner</string>
+    <string name="td_snack">Snack</string>
+    <string name="td_numbered_meal">Meal %1$d</string>
 </resources>
