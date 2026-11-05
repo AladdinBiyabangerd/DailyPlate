@@ -87,7 +87,7 @@ object WeeklyPlanGenerator {
                 else ShoppingPricing.calculate(needs, data.prices, profile.budget.region, currency, q.candidate.at, data.freshness)
         }
         fun weekChecks(meals: List<GeneratedMeal>, cost: ShoppingCost): List<CandidateRuleResult> {
-            val result = mutableListOf<CandidateRuleResult>()
+            val result = WeeklyCoverage.checks(meals, data, q.candidate.policy, "week", PlanningWindow.WEEK).toMutableList()
             val evidence = meals.map { data.evidence.getValue(it.recipe) }
             for ((name, groups) in listOf("vegetable_variety" to evidence.map { it.vegetableSources },
                 "grain_variety" to evidence.map { it.grainSources }, "protein_variety" to evidence.map { it.proteinSources })) {

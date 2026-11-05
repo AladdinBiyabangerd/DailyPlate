@@ -35,19 +35,24 @@ class WeeklyPlanGeneratorTest {
             val recipe = base.copy(ref = VersionRef("TEST-recipe-$i", 1), ingredients = listOf(Ingredient(food.ref, 1000.0)),
                 nutrientsTotal = nutrients, yieldCookedGrams = 1000.0, nutrientsPer100g = null,
                 portionRange = PortionRange(100.0, 600.0, 25.0), time = PreparationTime(15, 10, 5))
-            var envelope = workflow.create(EditorialContent.RecipeContent(recipe), completeMetadata, "author", policyTime, "TEST")
+            var envelope = workflow.create(EditorialContent.RecipeContent(recipe), completeMetadata.copy(yieldEvidence = "TEST measured yield"), "author", policyTime, "TEST")
             for ((action, actor) in listOf(EditorialAction.SUBMIT to "author", EditorialAction.APPROVE to "reviewer", EditorialAction.PUBLISH to "publisher"))
                 envelope = workflow.apply(envelope, action, actor, policyTime, "TEST")
             envelope
         }
         val evidence = recipes.associate { r -> r.content.ref to PlanningEvidence(r.content.ref,
             NutritionCarbohydrateBasis.AVAILABLE_GLYCAEMIC, 500.0, setOf("v${r.content.ref.id.last().digitToInt() % 3}"),
-            setOf("g${r.content.ref.id.last().digitToInt() % 3}"), setOf("p${r.content.ref.id.last().digitToInt() % 3}"), listOf("TEST mapping")) }
+            setOf("g${r.content.ref.id.last().digitToInt() % 3}"), setOf("p${r.content.ref.id.last().digitToInt() % 3}"), listOf("TEST mapping"), true) }
         return WeeklyPlanningData(CandidateCatalog(VersionRef("TEST-catalog", 1), recipes,
             mapOf(food.ref to IngredientSafety(food, true, true, emptySet(), emptySet(), setOf("AZ")))), evidence,
             listOf(PriceObservation(IngredientPrice(VersionRef("TEST-price", 1), food.ref.id, "AZ", "TEST", policyTime,
                 500.0, 1.0, Money("1", "AZN"), "raw", "TEST only"), true)),
-            PriceFreshness(VersionRef("TEST-freshness", 1), Duration.ofDays(7)))
+            PriceFreshness(VersionRef("TEST-freshness", 1), Duration.ofDays(7)),
+            PlanningCoverage(VersionRef("TEST-coverage", 1), policy.ref, Review("TEST", policyTime, "TEST"), listOf(
+                PlanningNutrientRule("TEST-fibre-week", "fibre_g", NutrientAmount(175.0, NutrientUnit.GRAM),
+                    PlanningOperator.AT_LEAST, PlanningWindow.WEEK, "TEST weekly rule"),
+                PlanningNutrientRule("TEST-protein-day", "protein_g", NutrientAmount(50.0, NutrientUnit.GRAM),
+                    PlanningOperator.AT_LEAST, PlanningWindow.DAY, "TEST daily rule"))))
     }
     private fun request(p: UserProfile = profile(), nodes: Int = 10000) = PlanGenerationRequest(
         CandidateRequest(p.ref, policy.ref, VersionRef("TEST-catalog", 1), policyTime, setOf("pot")),
@@ -119,6 +124,49 @@ class WeeklyPlanGeneratorTest {
         assertEquals(21, r.ruleResults.count { it.ruleId.startsWith("alternatives:") && it.status == RuleStatus.UNKNOWN })
         assertEquals(GenerationStatus.TEMPORARY_FAILURE, run(q = request(nodes = 1)).status)
         assertNull(run(d = data(1), q = q).plan)
+    }
+    @Test fun widerCoverageAndProteinQualityRemainHardWithoutEvidence() {
+        val d = data()
+        for (incomplete in listOf(d.copy(coverage = null),
+            d.copy(evidence = d.evidence.mapValues { (_, e) -> e.copy(proteinQualityReviewed = null) }),
+            d.copy(coverage = d.coverage!!.copy(policy = VersionRef(policy.ref.id, 2))))) {
+            val r = run(d = incomplete, q = request(nodes = 200))
+            assertNull(r.plan)
+            assertTrue(r.ruleResults.any { it.ruleId == "OTHER_NUTRIENTS_AND_PROTEIN_QUALITY" && it.status != RuleStatus.PASS })
+        }
+    }
+    @Test fun whoOperatorsUseExactBoundariesAndUnknownNeverBecomesZero() {
+        val d = data()
+        val p = profile()
+        val day = run(p, d).plan!!.meals.take(3).mapIndexed { i, meal -> meal.copy(nutrients = NutrientSnapshot(
+            meal.nutrients.values + mapOf(
+                "energy_kcal" to NutrientAmount(900.0, NutrientUnit.KCAL),
+                "free_sugar_g" to NutrientAmount(22.5, NutrientUnit.GRAM),
+                "saturated_fat_g" to NutrientAmount(10.0, NutrientUnit.GRAM),
+                "trans_fat_g" to NutrientAmount(1.0, NutrientUnit.GRAM),
+                "sodium_mg" to NutrientAmount(if (i == 0) 2000.0 else 0.0, NutrientUnit.MILLIGRAM)))) }
+        val recipes = d.catalog.recipes.associate { it.content.ref to (it.content as EditorialContent.RecipeContent).recipe }
+        fun check(meals: List<GeneratedMeal>) = WeeklyNutrition.check(meals, recipes, d,
+            NutritionPolicyEngine.assessCurrent(p, policyTime).currentCalculation!!, policy.ref, "test")
+        val exact = check(day).associateBy { it.ruleId }
+        assertEquals(RuleStatus.FAIL, exact.getValue("free_sugar").status)
+        assertEquals(RuleStatus.FAIL, exact.getValue("salt_from_sodium").status)
+        assertEquals(RuleStatus.PASS, exact.getValue("saturated_fat").status)
+        assertEquals(RuleStatus.PASS, exact.getValue("trans_fat").status)
+        val below = day.map { m -> m.copy(nutrients = NutrientSnapshot(m.nutrients.values.mapValues { (key, value) ->
+            if (key in setOf("free_sugar_g", "sodium_mg")) value.copy(value = value.value!! * 0.999) else value })) }
+        assertEquals(RuleStatus.PASS, check(below).single { it.ruleId == "free_sugar" }.status)
+        assertEquals(RuleStatus.PASS, check(below).single { it.ruleId == "salt_from_sodium" }.status)
+        val missing = day.map { it.copy(nutrients = NutrientSnapshot(it.nutrients.values - "free_sugar_g")) }
+        assertEquals(RuleStatus.UNKNOWN, check(missing).single { it.ruleId == "free_sugar" }.status)
+    }
+    @Test fun weeklyReferencesCannotBeSubstitutedByDailyOrIgnored() {
+        val d = data()
+        val impossible = d.coverage!!.copy(rules = d.coverage.rules.map {
+            if (it.window == PlanningWindow.WEEK) it.copy(threshold = NutrientAmount(10000.0, NutrientUnit.GRAM)) else it })
+        val r = run(d = d.copy(coverage = impossible), q = request(nodes = 200))
+        assertNull(r.plan)
+        assertTrue(r.ruleResults.any { it.ruleId == "TEST-fibre-week" && it.scope == "week" && it.status == RuleStatus.FAIL })
     }
     @Test fun sessionIdempotencyConflictsAndCapacity() {
         val session = WeeklyPlanSession(1)
