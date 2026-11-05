@@ -3292,6 +3292,2539 @@
           "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
         }
       ]
+    },
+    {
+      "id": "recipe-detail",
+      "sources": [
+        "android/app/src/main/java/com/aladdin/dailyplate/ui/menu/RecipeDetailScreen.kt",
+        "android/app/src/main/java/com/aladdin/dailyplate/ui/menu/RecipeDetailDesign.kt",
+        "android/app/src/test/java/com/aladdin/dailyplate/ui/RecipeDetailDesignUiTest.kt",
+        "android/app/src/main/res/values/recipe_design.xml",
+        "android/app/src/main/res/values-az/recipe_design.xml",
+        "android/app/src/main/res/values-en/recipe_design.xml",
+        "android/app/src/main/res/values-ru/recipe_design.xml",
+        "android/app/src/test/java/com/aladdin/dailyplate/ui/TodayDashboardUiTest.kt",
+        "android/app/src/main/java/com/aladdin/dailyplate/ui/menu/RecipeIngredientArt.kt",
+        "android/app/src/main/res/drawable-nodpi/art_ingredient_chicken.png",
+        "android/app/src/main/res/drawable-nodpi/art_ingredient_rice.png",
+        "android/app/src/main/res/drawable-nodpi/art_ingredient_carrot.png",
+        "android/app/src/main/res/drawable-nodpi/art_ingredient_onion.png",
+        "android/app/src/main/res/drawable-nodpi/art_ingredient_oil.png"
+      ],
+      "requirements": [
+        "User approved 07/25 structure on 5 November 2026 with Yedim — porsiyanı seç as primary action; no unavailable photo, edit, replacement or bookmark buttons",
+        "Labelled decorative hero and ingredient illustrations; native full labels, white cards, existing turquoise tokens",
+        "Personal accepted snapshot energy/servings separate from complete batch ingredient grams; unknown nutrients remain unknown; customization never inherits base time/instructions",
+        "Expandable numbered instructions and nutrient/version details; read-only viewing/expansion, existing explicit portion preview/confirmation unchanged",
+        "Localized date, slot and status; consumed/skipped have no Ate; AZ/EN/RU at 100/150%, scroll coverage and 48dp controls"
+      ],
+      "states": [
+        "normal",
+        "expanded",
+        "customized",
+        "no-basis",
+        "consumed",
+        "skipped",
+        "partial"
+      ],
+      "cases": [
+        {
+          "id": "d04-normal-az-1.0-top",
+          "image": "k10/d04-normal-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-az-1.0-summary",
+          "image": "k10/d04-normal-az-1.0-summary.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-az-1.0-ingredients",
+          "image": "k10/d04-normal-az-1.0-ingredients.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-az-1.0-steps",
+          "image": "k10/d04-normal-az-1.0-steps.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-az-1.0-bottom",
+          "image": "k10/d04-normal-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-az-1.5-top",
+          "image": "k10/d04-normal-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-az-1.5-summary",
+          "image": "k10/d04-normal-az-1.5-summary.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-az-1.5-ingredients",
+          "image": "k10/d04-normal-az-1.5-ingredients.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-az-1.5-steps",
+          "image": "k10/d04-normal-az-1.5-steps.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-az-1.5-bottom",
+          "image": "k10/d04-normal-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-en-1.0-top",
+          "image": "k10/d04-normal-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-en-1.0-summary",
+          "image": "k10/d04-normal-en-1.0-summary.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-en-1.0-ingredients",
+          "image": "k10/d04-normal-en-1.0-ingredients.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-en-1.0-steps",
+          "image": "k10/d04-normal-en-1.0-steps.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-en-1.0-bottom",
+          "image": "k10/d04-normal-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-en-1.5-top",
+          "image": "k10/d04-normal-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-en-1.5-summary",
+          "image": "k10/d04-normal-en-1.5-summary.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-en-1.5-ingredients",
+          "image": "k10/d04-normal-en-1.5-ingredients.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-en-1.5-steps",
+          "image": "k10/d04-normal-en-1.5-steps.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-en-1.5-bottom",
+          "image": "k10/d04-normal-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-ru-1.0-top",
+          "image": "k10/d04-normal-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-ru-1.0-summary",
+          "image": "k10/d04-normal-ru-1.0-summary.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-ru-1.0-ingredients",
+          "image": "k10/d04-normal-ru-1.0-ingredients.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-ru-1.0-steps",
+          "image": "k10/d04-normal-ru-1.0-steps.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-ru-1.0-bottom",
+          "image": "k10/d04-normal-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-ru-1.5-top",
+          "image": "k10/d04-normal-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-ru-1.5-summary",
+          "image": "k10/d04-normal-ru-1.5-summary.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-ru-1.5-ingredients",
+          "image": "k10/d04-normal-ru-1.5-ingredients.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-ru-1.5-steps",
+          "image": "k10/d04-normal-ru-1.5-steps.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-ru-1.5-bottom",
+          "image": "k10/d04-normal-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.0-top",
+          "image": "k10/d04-expanded-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.0-summary",
+          "image": "k10/d04-expanded-az-1.0-summary.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.0-ingredients",
+          "image": "k10/d04-expanded-az-1.0-ingredients.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.0-steps",
+          "image": "k10/d04-expanded-az-1.0-steps.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.0-bottom",
+          "image": "k10/d04-expanded-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.5-top",
+          "image": "k10/d04-expanded-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.5-summary",
+          "image": "k10/d04-expanded-az-1.5-summary.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.5-ingredients",
+          "image": "k10/d04-expanded-az-1.5-ingredients.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.5-steps",
+          "image": "k10/d04-expanded-az-1.5-steps.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.5-bottom",
+          "image": "k10/d04-expanded-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.0-top",
+          "image": "k10/d04-expanded-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.0-summary",
+          "image": "k10/d04-expanded-en-1.0-summary.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.0-ingredients",
+          "image": "k10/d04-expanded-en-1.0-ingredients.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.0-steps",
+          "image": "k10/d04-expanded-en-1.0-steps.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.0-bottom",
+          "image": "k10/d04-expanded-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.5-top",
+          "image": "k10/d04-expanded-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.5-summary",
+          "image": "k10/d04-expanded-en-1.5-summary.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.5-ingredients",
+          "image": "k10/d04-expanded-en-1.5-ingredients.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.5-steps",
+          "image": "k10/d04-expanded-en-1.5-steps.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.5-bottom",
+          "image": "k10/d04-expanded-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.0-top",
+          "image": "k10/d04-expanded-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.0-summary",
+          "image": "k10/d04-expanded-ru-1.0-summary.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.0-ingredients",
+          "image": "k10/d04-expanded-ru-1.0-ingredients.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.0-steps",
+          "image": "k10/d04-expanded-ru-1.0-steps.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.0-bottom",
+          "image": "k10/d04-expanded-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.5-top",
+          "image": "k10/d04-expanded-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.5-summary",
+          "image": "k10/d04-expanded-ru-1.5-summary.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.5-ingredients",
+          "image": "k10/d04-expanded-ru-1.5-ingredients.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.5-steps",
+          "image": "k10/d04-expanded-ru-1.5-steps.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.5-bottom",
+          "image": "k10/d04-expanded-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-az-1.0-top",
+          "image": "k10/d04-customized-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-az-1.0-summary",
+          "image": "k10/d04-customized-az-1.0-summary.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-az-1.0-ingredients",
+          "image": "k10/d04-customized-az-1.0-ingredients.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-az-1.0-steps",
+          "image": "k10/d04-customized-az-1.0-steps.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-az-1.0-bottom",
+          "image": "k10/d04-customized-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-az-1.5-top",
+          "image": "k10/d04-customized-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-az-1.5-summary",
+          "image": "k10/d04-customized-az-1.5-summary.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-az-1.5-ingredients",
+          "image": "k10/d04-customized-az-1.5-ingredients.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-az-1.5-steps",
+          "image": "k10/d04-customized-az-1.5-steps.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-az-1.5-bottom",
+          "image": "k10/d04-customized-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-en-1.0-top",
+          "image": "k10/d04-customized-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-en-1.0-summary",
+          "image": "k10/d04-customized-en-1.0-summary.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-en-1.0-ingredients",
+          "image": "k10/d04-customized-en-1.0-ingredients.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-en-1.0-steps",
+          "image": "k10/d04-customized-en-1.0-steps.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-en-1.0-bottom",
+          "image": "k10/d04-customized-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-en-1.5-top",
+          "image": "k10/d04-customized-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-en-1.5-summary",
+          "image": "k10/d04-customized-en-1.5-summary.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-en-1.5-ingredients",
+          "image": "k10/d04-customized-en-1.5-ingredients.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-en-1.5-steps",
+          "image": "k10/d04-customized-en-1.5-steps.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-en-1.5-bottom",
+          "image": "k10/d04-customized-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-ru-1.0-top",
+          "image": "k10/d04-customized-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-ru-1.0-summary",
+          "image": "k10/d04-customized-ru-1.0-summary.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-ru-1.0-ingredients",
+          "image": "k10/d04-customized-ru-1.0-ingredients.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-ru-1.0-steps",
+          "image": "k10/d04-customized-ru-1.0-steps.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-ru-1.0-bottom",
+          "image": "k10/d04-customized-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-ru-1.5-top",
+          "image": "k10/d04-customized-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-ru-1.5-summary",
+          "image": "k10/d04-customized-ru-1.5-summary.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-ru-1.5-ingredients",
+          "image": "k10/d04-customized-ru-1.5-ingredients.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-ru-1.5-steps",
+          "image": "k10/d04-customized-ru-1.5-steps.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-ru-1.5-bottom",
+          "image": "k10/d04-customized-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-az-1.0-top",
+          "image": "k10/d04-no-basis-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-az-1.0-summary",
+          "image": "k10/d04-no-basis-az-1.0-summary.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-az-1.0-ingredients",
+          "image": "k10/d04-no-basis-az-1.0-ingredients.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-az-1.0-steps",
+          "image": "k10/d04-no-basis-az-1.0-steps.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-az-1.0-bottom",
+          "image": "k10/d04-no-basis-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-az-1.5-top",
+          "image": "k10/d04-no-basis-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-az-1.5-summary",
+          "image": "k10/d04-no-basis-az-1.5-summary.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-az-1.5-ingredients",
+          "image": "k10/d04-no-basis-az-1.5-ingredients.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-az-1.5-steps",
+          "image": "k10/d04-no-basis-az-1.5-steps.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-az-1.5-bottom",
+          "image": "k10/d04-no-basis-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-en-1.0-top",
+          "image": "k10/d04-no-basis-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-en-1.0-summary",
+          "image": "k10/d04-no-basis-en-1.0-summary.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-en-1.0-ingredients",
+          "image": "k10/d04-no-basis-en-1.0-ingredients.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-en-1.0-steps",
+          "image": "k10/d04-no-basis-en-1.0-steps.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-en-1.0-bottom",
+          "image": "k10/d04-no-basis-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-en-1.5-top",
+          "image": "k10/d04-no-basis-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-en-1.5-summary",
+          "image": "k10/d04-no-basis-en-1.5-summary.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-en-1.5-ingredients",
+          "image": "k10/d04-no-basis-en-1.5-ingredients.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-en-1.5-steps",
+          "image": "k10/d04-no-basis-en-1.5-steps.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-en-1.5-bottom",
+          "image": "k10/d04-no-basis-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-ru-1.0-top",
+          "image": "k10/d04-no-basis-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-ru-1.0-summary",
+          "image": "k10/d04-no-basis-ru-1.0-summary.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-ru-1.0-ingredients",
+          "image": "k10/d04-no-basis-ru-1.0-ingredients.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-ru-1.0-steps",
+          "image": "k10/d04-no-basis-ru-1.0-steps.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-ru-1.0-bottom",
+          "image": "k10/d04-no-basis-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-ru-1.5-top",
+          "image": "k10/d04-no-basis-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-ru-1.5-summary",
+          "image": "k10/d04-no-basis-ru-1.5-summary.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-ru-1.5-ingredients",
+          "image": "k10/d04-no-basis-ru-1.5-ingredients.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-ru-1.5-steps",
+          "image": "k10/d04-no-basis-ru-1.5-steps.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-ru-1.5-bottom",
+          "image": "k10/d04-no-basis-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-az-1.0-top",
+          "image": "k10/d04-consumed-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-az-1.0-summary",
+          "image": "k10/d04-consumed-az-1.0-summary.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-az-1.0-ingredients",
+          "image": "k10/d04-consumed-az-1.0-ingredients.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-az-1.0-steps",
+          "image": "k10/d04-consumed-az-1.0-steps.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-az-1.0-bottom",
+          "image": "k10/d04-consumed-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-az-1.5-top",
+          "image": "k10/d04-consumed-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-az-1.5-summary",
+          "image": "k10/d04-consumed-az-1.5-summary.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-az-1.5-ingredients",
+          "image": "k10/d04-consumed-az-1.5-ingredients.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-az-1.5-steps",
+          "image": "k10/d04-consumed-az-1.5-steps.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-az-1.5-bottom",
+          "image": "k10/d04-consumed-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-en-1.0-top",
+          "image": "k10/d04-consumed-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-en-1.0-summary",
+          "image": "k10/d04-consumed-en-1.0-summary.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-en-1.0-ingredients",
+          "image": "k10/d04-consumed-en-1.0-ingredients.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-en-1.0-steps",
+          "image": "k10/d04-consumed-en-1.0-steps.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-en-1.0-bottom",
+          "image": "k10/d04-consumed-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-en-1.5-top",
+          "image": "k10/d04-consumed-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-en-1.5-summary",
+          "image": "k10/d04-consumed-en-1.5-summary.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-en-1.5-ingredients",
+          "image": "k10/d04-consumed-en-1.5-ingredients.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-en-1.5-steps",
+          "image": "k10/d04-consumed-en-1.5-steps.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-en-1.5-bottom",
+          "image": "k10/d04-consumed-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-ru-1.0-top",
+          "image": "k10/d04-consumed-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-ru-1.0-summary",
+          "image": "k10/d04-consumed-ru-1.0-summary.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-ru-1.0-ingredients",
+          "image": "k10/d04-consumed-ru-1.0-ingredients.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-ru-1.0-steps",
+          "image": "k10/d04-consumed-ru-1.0-steps.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-ru-1.0-bottom",
+          "image": "k10/d04-consumed-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-ru-1.5-top",
+          "image": "k10/d04-consumed-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-ru-1.5-summary",
+          "image": "k10/d04-consumed-ru-1.5-summary.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-ru-1.5-ingredients",
+          "image": "k10/d04-consumed-ru-1.5-ingredients.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-ru-1.5-steps",
+          "image": "k10/d04-consumed-ru-1.5-steps.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-ru-1.5-bottom",
+          "image": "k10/d04-consumed-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-az-1.0-top",
+          "image": "k10/d04-skipped-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-az-1.0-summary",
+          "image": "k10/d04-skipped-az-1.0-summary.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-az-1.0-ingredients",
+          "image": "k10/d04-skipped-az-1.0-ingredients.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-az-1.0-steps",
+          "image": "k10/d04-skipped-az-1.0-steps.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-az-1.0-bottom",
+          "image": "k10/d04-skipped-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-az-1.5-top",
+          "image": "k10/d04-skipped-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-az-1.5-summary",
+          "image": "k10/d04-skipped-az-1.5-summary.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-az-1.5-ingredients",
+          "image": "k10/d04-skipped-az-1.5-ingredients.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-az-1.5-steps",
+          "image": "k10/d04-skipped-az-1.5-steps.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-az-1.5-bottom",
+          "image": "k10/d04-skipped-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-en-1.0-top",
+          "image": "k10/d04-skipped-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-en-1.0-summary",
+          "image": "k10/d04-skipped-en-1.0-summary.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-en-1.0-ingredients",
+          "image": "k10/d04-skipped-en-1.0-ingredients.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-en-1.0-steps",
+          "image": "k10/d04-skipped-en-1.0-steps.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-en-1.0-bottom",
+          "image": "k10/d04-skipped-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-en-1.5-top",
+          "image": "k10/d04-skipped-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-en-1.5-summary",
+          "image": "k10/d04-skipped-en-1.5-summary.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-en-1.5-ingredients",
+          "image": "k10/d04-skipped-en-1.5-ingredients.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-en-1.5-steps",
+          "image": "k10/d04-skipped-en-1.5-steps.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-en-1.5-bottom",
+          "image": "k10/d04-skipped-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-ru-1.0-top",
+          "image": "k10/d04-skipped-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-ru-1.0-summary",
+          "image": "k10/d04-skipped-ru-1.0-summary.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-ru-1.0-ingredients",
+          "image": "k10/d04-skipped-ru-1.0-ingredients.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-ru-1.0-steps",
+          "image": "k10/d04-skipped-ru-1.0-steps.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-ru-1.0-bottom",
+          "image": "k10/d04-skipped-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-ru-1.5-top",
+          "image": "k10/d04-skipped-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-ru-1.5-summary",
+          "image": "k10/d04-skipped-ru-1.5-summary.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-ru-1.5-ingredients",
+          "image": "k10/d04-skipped-ru-1.5-ingredients.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-ru-1.5-steps",
+          "image": "k10/d04-skipped-ru-1.5-steps.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-ru-1.5-bottom",
+          "image": "k10/d04-skipped-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-az-1.0-top",
+          "image": "k10/d04-partial-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-az-1.0-summary",
+          "image": "k10/d04-partial-az-1.0-summary.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-az-1.0-ingredients",
+          "image": "k10/d04-partial-az-1.0-ingredients.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-az-1.0-steps",
+          "image": "k10/d04-partial-az-1.0-steps.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-az-1.0-bottom",
+          "image": "k10/d04-partial-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-az-1.5-top",
+          "image": "k10/d04-partial-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-az-1.5-summary",
+          "image": "k10/d04-partial-az-1.5-summary.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-az-1.5-ingredients",
+          "image": "k10/d04-partial-az-1.5-ingredients.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-az-1.5-steps",
+          "image": "k10/d04-partial-az-1.5-steps.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-az-1.5-bottom",
+          "image": "k10/d04-partial-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-en-1.0-top",
+          "image": "k10/d04-partial-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-en-1.0-summary",
+          "image": "k10/d04-partial-en-1.0-summary.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-en-1.0-ingredients",
+          "image": "k10/d04-partial-en-1.0-ingredients.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-en-1.0-steps",
+          "image": "k10/d04-partial-en-1.0-steps.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-en-1.0-bottom",
+          "image": "k10/d04-partial-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-en-1.5-top",
+          "image": "k10/d04-partial-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-en-1.5-summary",
+          "image": "k10/d04-partial-en-1.5-summary.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-en-1.5-ingredients",
+          "image": "k10/d04-partial-en-1.5-ingredients.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-en-1.5-steps",
+          "image": "k10/d04-partial-en-1.5-steps.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-en-1.5-bottom",
+          "image": "k10/d04-partial-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-ru-1.0-top",
+          "image": "k10/d04-partial-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-ru-1.0-summary",
+          "image": "k10/d04-partial-ru-1.0-summary.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-ru-1.0-ingredients",
+          "image": "k10/d04-partial-ru-1.0-ingredients.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-ru-1.0-steps",
+          "image": "k10/d04-partial-ru-1.0-steps.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-ru-1.0-bottom",
+          "image": "k10/d04-partial-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-ru-1.5-top",
+          "image": "k10/d04-partial-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-ru-1.5-summary",
+          "image": "k10/d04-partial-ru-1.5-summary.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-ru-1.5-ingredients",
+          "image": "k10/d04-partial-ru-1.5-ingredients.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-ru-1.5-steps",
+          "image": "k10/d04-partial-ru-1.5-steps.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-ru-1.5-bottom",
+          "image": "k10/d04-partial-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-az-1.0-ingredient-0",
+          "image": "k10/d04-normal-az-1.0-ingredient-0.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-az-1.0-ingredient-1",
+          "image": "k10/d04-normal-az-1.0-ingredient-1.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-az-1.5-ingredient-0",
+          "image": "k10/d04-normal-az-1.5-ingredient-0.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-az-1.5-ingredient-1",
+          "image": "k10/d04-normal-az-1.5-ingredient-1.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-en-1.0-ingredient-0",
+          "image": "k10/d04-normal-en-1.0-ingredient-0.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-en-1.0-ingredient-1",
+          "image": "k10/d04-normal-en-1.0-ingredient-1.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-en-1.5-ingredient-0",
+          "image": "k10/d04-normal-en-1.5-ingredient-0.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-en-1.5-ingredient-1",
+          "image": "k10/d04-normal-en-1.5-ingredient-1.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-ru-1.0-ingredient-0",
+          "image": "k10/d04-normal-ru-1.0-ingredient-0.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-ru-1.0-ingredient-1",
+          "image": "k10/d04-normal-ru-1.0-ingredient-1.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-ru-1.5-ingredient-0",
+          "image": "k10/d04-normal-ru-1.5-ingredient-0.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-normal-ru-1.5-ingredient-1",
+          "image": "k10/d04-normal-ru-1.5-ingredient-1.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "normal",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.0-ingredient-0",
+          "image": "k10/d04-expanded-az-1.0-ingredient-0.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.0-ingredient-1",
+          "image": "k10/d04-expanded-az-1.0-ingredient-1.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.0-step-0",
+          "image": "k10/d04-expanded-az-1.0-step-0.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.0-step-1",
+          "image": "k10/d04-expanded-az-1.0-step-1.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.0-info",
+          "image": "k10/d04-expanded-az-1.0-info.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.5-ingredient-0",
+          "image": "k10/d04-expanded-az-1.5-ingredient-0.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.5-ingredient-1",
+          "image": "k10/d04-expanded-az-1.5-ingredient-1.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.5-step-0",
+          "image": "k10/d04-expanded-az-1.5-step-0.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.5-step-1",
+          "image": "k10/d04-expanded-az-1.5-step-1.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-az-1.5-info",
+          "image": "k10/d04-expanded-az-1.5-info.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.0-ingredient-0",
+          "image": "k10/d04-expanded-en-1.0-ingredient-0.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.0-ingredient-1",
+          "image": "k10/d04-expanded-en-1.0-ingredient-1.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.0-step-0",
+          "image": "k10/d04-expanded-en-1.0-step-0.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.0-step-1",
+          "image": "k10/d04-expanded-en-1.0-step-1.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.0-info",
+          "image": "k10/d04-expanded-en-1.0-info.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.5-ingredient-0",
+          "image": "k10/d04-expanded-en-1.5-ingredient-0.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.5-ingredient-1",
+          "image": "k10/d04-expanded-en-1.5-ingredient-1.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.5-step-0",
+          "image": "k10/d04-expanded-en-1.5-step-0.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.5-step-1",
+          "image": "k10/d04-expanded-en-1.5-step-1.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-en-1.5-info",
+          "image": "k10/d04-expanded-en-1.5-info.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.0-ingredient-0",
+          "image": "k10/d04-expanded-ru-1.0-ingredient-0.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.0-ingredient-1",
+          "image": "k10/d04-expanded-ru-1.0-ingredient-1.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.0-step-0",
+          "image": "k10/d04-expanded-ru-1.0-step-0.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.0-step-1",
+          "image": "k10/d04-expanded-ru-1.0-step-1.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.0-info",
+          "image": "k10/d04-expanded-ru-1.0-info.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.5-ingredient-0",
+          "image": "k10/d04-expanded-ru-1.5-ingredient-0.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.5-ingredient-1",
+          "image": "k10/d04-expanded-ru-1.5-ingredient-1.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.5-step-0",
+          "image": "k10/d04-expanded-ru-1.5-step-0.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.5-step-1",
+          "image": "k10/d04-expanded-ru-1.5-step-1.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-expanded-ru-1.5-info",
+          "image": "k10/d04-expanded-ru-1.5-info.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "expanded",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-az-1.0-ingredient-0",
+          "image": "k10/d04-customized-az-1.0-ingredient-0.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-az-1.0-ingredient-1",
+          "image": "k10/d04-customized-az-1.0-ingredient-1.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-az-1.5-ingredient-0",
+          "image": "k10/d04-customized-az-1.5-ingredient-0.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-az-1.5-ingredient-1",
+          "image": "k10/d04-customized-az-1.5-ingredient-1.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-en-1.0-ingredient-0",
+          "image": "k10/d04-customized-en-1.0-ingredient-0.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-en-1.0-ingredient-1",
+          "image": "k10/d04-customized-en-1.0-ingredient-1.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-en-1.5-ingredient-0",
+          "image": "k10/d04-customized-en-1.5-ingredient-0.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-en-1.5-ingredient-1",
+          "image": "k10/d04-customized-en-1.5-ingredient-1.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-ru-1.0-ingredient-0",
+          "image": "k10/d04-customized-ru-1.0-ingredient-0.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-ru-1.0-ingredient-1",
+          "image": "k10/d04-customized-ru-1.0-ingredient-1.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-ru-1.5-ingredient-0",
+          "image": "k10/d04-customized-ru-1.5-ingredient-0.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-customized-ru-1.5-ingredient-1",
+          "image": "k10/d04-customized-ru-1.5-ingredient-1.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "customized",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-az-1.0-ingredient-0",
+          "image": "k10/d04-no-basis-az-1.0-ingredient-0.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-az-1.0-ingredient-1",
+          "image": "k10/d04-no-basis-az-1.0-ingredient-1.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-az-1.5-ingredient-0",
+          "image": "k10/d04-no-basis-az-1.5-ingredient-0.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-az-1.5-ingredient-1",
+          "image": "k10/d04-no-basis-az-1.5-ingredient-1.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-en-1.0-ingredient-0",
+          "image": "k10/d04-no-basis-en-1.0-ingredient-0.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-en-1.0-ingredient-1",
+          "image": "k10/d04-no-basis-en-1.0-ingredient-1.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-en-1.5-ingredient-0",
+          "image": "k10/d04-no-basis-en-1.5-ingredient-0.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-en-1.5-ingredient-1",
+          "image": "k10/d04-no-basis-en-1.5-ingredient-1.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-ru-1.0-ingredient-0",
+          "image": "k10/d04-no-basis-ru-1.0-ingredient-0.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-ru-1.0-ingredient-1",
+          "image": "k10/d04-no-basis-ru-1.0-ingredient-1.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-ru-1.5-ingredient-0",
+          "image": "k10/d04-no-basis-ru-1.5-ingredient-0.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-no-basis-ru-1.5-ingredient-1",
+          "image": "k10/d04-no-basis-ru-1.5-ingredient-1.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-az-1.0-ingredient-0",
+          "image": "k10/d04-consumed-az-1.0-ingredient-0.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-az-1.0-ingredient-1",
+          "image": "k10/d04-consumed-az-1.0-ingredient-1.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-az-1.5-ingredient-0",
+          "image": "k10/d04-consumed-az-1.5-ingredient-0.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-az-1.5-ingredient-1",
+          "image": "k10/d04-consumed-az-1.5-ingredient-1.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-en-1.0-ingredient-0",
+          "image": "k10/d04-consumed-en-1.0-ingredient-0.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-en-1.0-ingredient-1",
+          "image": "k10/d04-consumed-en-1.0-ingredient-1.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-en-1.5-ingredient-0",
+          "image": "k10/d04-consumed-en-1.5-ingredient-0.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-en-1.5-ingredient-1",
+          "image": "k10/d04-consumed-en-1.5-ingredient-1.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-ru-1.0-ingredient-0",
+          "image": "k10/d04-consumed-ru-1.0-ingredient-0.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-ru-1.0-ingredient-1",
+          "image": "k10/d04-consumed-ru-1.0-ingredient-1.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-ru-1.5-ingredient-0",
+          "image": "k10/d04-consumed-ru-1.5-ingredient-0.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-consumed-ru-1.5-ingredient-1",
+          "image": "k10/d04-consumed-ru-1.5-ingredient-1.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "consumed",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-az-1.0-ingredient-0",
+          "image": "k10/d04-skipped-az-1.0-ingredient-0.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-az-1.0-ingredient-1",
+          "image": "k10/d04-skipped-az-1.0-ingredient-1.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-az-1.5-ingredient-0",
+          "image": "k10/d04-skipped-az-1.5-ingredient-0.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-az-1.5-ingredient-1",
+          "image": "k10/d04-skipped-az-1.5-ingredient-1.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-en-1.0-ingredient-0",
+          "image": "k10/d04-skipped-en-1.0-ingredient-0.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-en-1.0-ingredient-1",
+          "image": "k10/d04-skipped-en-1.0-ingredient-1.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-en-1.5-ingredient-0",
+          "image": "k10/d04-skipped-en-1.5-ingredient-0.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-en-1.5-ingredient-1",
+          "image": "k10/d04-skipped-en-1.5-ingredient-1.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-ru-1.0-ingredient-0",
+          "image": "k10/d04-skipped-ru-1.0-ingredient-0.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-ru-1.0-ingredient-1",
+          "image": "k10/d04-skipped-ru-1.0-ingredient-1.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-ru-1.5-ingredient-0",
+          "image": "k10/d04-skipped-ru-1.5-ingredient-0.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-skipped-ru-1.5-ingredient-1",
+          "image": "k10/d04-skipped-ru-1.5-ingredient-1.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "skipped",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-az-1.0-ingredient-0",
+          "image": "k10/d04-partial-az-1.0-ingredient-0.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-az-1.0-ingredient-1",
+          "image": "k10/d04-partial-az-1.0-ingredient-1.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-az-1.5-ingredient-0",
+          "image": "k10/d04-partial-az-1.5-ingredient-0.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-az-1.5-ingredient-1",
+          "image": "k10/d04-partial-az-1.5-ingredient-1.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-en-1.0-ingredient-0",
+          "image": "k10/d04-partial-en-1.0-ingredient-0.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-en-1.0-ingredient-1",
+          "image": "k10/d04-partial-en-1.0-ingredient-1.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-en-1.5-ingredient-0",
+          "image": "k10/d04-partial-en-1.5-ingredient-0.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-en-1.5-ingredient-1",
+          "image": "k10/d04-partial-en-1.5-ingredient-1.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-ru-1.0-ingredient-0",
+          "image": "k10/d04-partial-ru-1.0-ingredient-0.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-ru-1.0-ingredient-1",
+          "image": "k10/d04-partial-ru-1.0-ingredient-1.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-ru-1.5-ingredient-0",
+          "image": "k10/d04-partial-ru-1.5-ingredient-0.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        },
+        {
+          "id": "d04-partial-ru-1.5-ingredient-1",
+          "image": "k10/d04-partial-ru-1.5-ingredient-1.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "partial",
+          "reference": "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png"
+        }
+      ]
     }
   ]
 }

@@ -85,7 +85,7 @@ class TodayDashboardUiTest {
             compose.onNodeWithText(localized.getString(R.string.back)).performScrollTo().performClick()
             compose.onNodeWithTag("today-plan-" + meal.item.id).performScrollTo().performClick()
             Assert.assertEquals(meal, openedPlan)
-            compose.onNodeWithText(localized.getString(R.string.rd_steps)).performScrollTo().assertIsDisplayed()
+            compose.onNodeWithText(localized.getString(R.string.rdd_steps)).performScrollTo().assertIsDisplayed()
             Assert.assertEquals(0, confirmations)
             Assert.assertEquals(0, addCount)
         }

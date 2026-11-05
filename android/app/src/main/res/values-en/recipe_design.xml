@@ -1,0 +1,13 @@
+<resources>
+    <string name="rdd_ingredients">What do I need?</string>
+    <string name="rdd_steps">How do I cook it?</string>
+    <string name="rdd_more">Nutrition and recipe information</string>
+    <string name="rdd_art">Illustration — not an actual photo of the meal or ingredients.</string>
+    <string name="rdd_energy">Approximately %1$.0f kcal</string>
+    <string name="rdd_grams">%1$.1f g</string>
+    <string name="rdd_personal">Your planned share: %1$.2f servings</string>
+    <string name="rdd_batch_hint">The quantities below are for the entire prepared batch.</string>
+    <string name="rdd_empty">Ingredient information is unavailable for this version.</string>
+    <string name="rdd_expanded">Expanded</string>
+    <string name="rdd_collapsed">Collapsed</string>
+</resources>
