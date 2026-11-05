@@ -2716,96 +2716,576 @@
           "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
         },
         {
-          "id": "d03-four-meals-az-1.0-middle",
-          "image": "k10/d03-four-meals-az-1.0-middle.png",
+          "id": "d03-three-meals-az-1.0-meal-0",
+          "image": "k10/d03-three-meals-az-1.0-meal-0.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-az-1.0-meal-1",
+          "image": "k10/d03-three-meals-az-1.0-meal-1.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-az-1.0-meal-2",
+          "image": "k10/d03-three-meals-az-1.0-meal-2.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-az-1.5-meal-0",
+          "image": "k10/d03-three-meals-az-1.5-meal-0.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-az-1.5-meal-1",
+          "image": "k10/d03-three-meals-az-1.5-meal-1.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-az-1.5-meal-2",
+          "image": "k10/d03-three-meals-az-1.5-meal-2.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-en-1.0-meal-0",
+          "image": "k10/d03-three-meals-en-1.0-meal-0.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-en-1.0-meal-1",
+          "image": "k10/d03-three-meals-en-1.0-meal-1.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-en-1.0-meal-2",
+          "image": "k10/d03-three-meals-en-1.0-meal-2.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-en-1.5-meal-0",
+          "image": "k10/d03-three-meals-en-1.5-meal-0.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-en-1.5-meal-1",
+          "image": "k10/d03-three-meals-en-1.5-meal-1.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-en-1.5-meal-2",
+          "image": "k10/d03-three-meals-en-1.5-meal-2.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-ru-1.0-meal-0",
+          "image": "k10/d03-three-meals-ru-1.0-meal-0.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-ru-1.0-meal-1",
+          "image": "k10/d03-three-meals-ru-1.0-meal-1.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-ru-1.0-meal-2",
+          "image": "k10/d03-three-meals-ru-1.0-meal-2.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-ru-1.5-meal-0",
+          "image": "k10/d03-three-meals-ru-1.5-meal-0.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-ru-1.5-meal-1",
+          "image": "k10/d03-three-meals-ru-1.5-meal-1.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-three-meals-ru-1.5-meal-2",
+          "image": "k10/d03-three-meals-ru-1.5-meal-2.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "three-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-az-1.0-meal-0",
+          "image": "k10/d03-four-meals-az-1.0-meal-0.png",
           "language": "az",
           "font_scale": 1.0,
           "state": "four-meals",
           "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
         },
         {
-          "id": "d03-four-meals-az-1.5-middle",
-          "image": "k10/d03-four-meals-az-1.5-middle.png",
+          "id": "d03-four-meals-az-1.0-meal-1",
+          "image": "k10/d03-four-meals-az-1.0-meal-1.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-az-1.0-meal-2",
+          "image": "k10/d03-four-meals-az-1.0-meal-2.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-az-1.0-meal-3",
+          "image": "k10/d03-four-meals-az-1.0-meal-3.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-az-1.5-meal-0",
+          "image": "k10/d03-four-meals-az-1.5-meal-0.png",
           "language": "az",
           "font_scale": 1.5,
           "state": "four-meals",
           "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
         },
         {
-          "id": "d03-four-meals-en-1.0-middle",
-          "image": "k10/d03-four-meals-en-1.0-middle.png",
+          "id": "d03-four-meals-az-1.5-meal-1",
+          "image": "k10/d03-four-meals-az-1.5-meal-1.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-az-1.5-meal-2",
+          "image": "k10/d03-four-meals-az-1.5-meal-2.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-az-1.5-meal-3",
+          "image": "k10/d03-four-meals-az-1.5-meal-3.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-en-1.0-meal-0",
+          "image": "k10/d03-four-meals-en-1.0-meal-0.png",
           "language": "en",
           "font_scale": 1.0,
           "state": "four-meals",
           "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
         },
         {
-          "id": "d03-four-meals-en-1.5-middle",
-          "image": "k10/d03-four-meals-en-1.5-middle.png",
+          "id": "d03-four-meals-en-1.0-meal-1",
+          "image": "k10/d03-four-meals-en-1.0-meal-1.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-en-1.0-meal-2",
+          "image": "k10/d03-four-meals-en-1.0-meal-2.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-en-1.0-meal-3",
+          "image": "k10/d03-four-meals-en-1.0-meal-3.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-en-1.5-meal-0",
+          "image": "k10/d03-four-meals-en-1.5-meal-0.png",
           "language": "en",
           "font_scale": 1.5,
           "state": "four-meals",
           "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
         },
         {
-          "id": "d03-four-meals-ru-1.0-middle",
-          "image": "k10/d03-four-meals-ru-1.0-middle.png",
+          "id": "d03-four-meals-en-1.5-meal-1",
+          "image": "k10/d03-four-meals-en-1.5-meal-1.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-en-1.5-meal-2",
+          "image": "k10/d03-four-meals-en-1.5-meal-2.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-en-1.5-meal-3",
+          "image": "k10/d03-four-meals-en-1.5-meal-3.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-ru-1.0-meal-0",
+          "image": "k10/d03-four-meals-ru-1.0-meal-0.png",
           "language": "ru",
           "font_scale": 1.0,
           "state": "four-meals",
           "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
         },
         {
-          "id": "d03-four-meals-ru-1.5-middle",
-          "image": "k10/d03-four-meals-ru-1.5-middle.png",
+          "id": "d03-four-meals-ru-1.0-meal-1",
+          "image": "k10/d03-four-meals-ru-1.0-meal-1.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-ru-1.0-meal-2",
+          "image": "k10/d03-four-meals-ru-1.0-meal-2.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-ru-1.0-meal-3",
+          "image": "k10/d03-four-meals-ru-1.0-meal-3.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-ru-1.5-meal-0",
+          "image": "k10/d03-four-meals-ru-1.5-meal-0.png",
           "language": "ru",
           "font_scale": 1.5,
           "state": "four-meals",
           "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
         },
         {
-          "id": "d03-five-meals-az-1.0-middle",
-          "image": "k10/d03-five-meals-az-1.0-middle.png",
+          "id": "d03-four-meals-ru-1.5-meal-1",
+          "image": "k10/d03-four-meals-ru-1.5-meal-1.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-ru-1.5-meal-2",
+          "image": "k10/d03-four-meals-ru-1.5-meal-2.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-four-meals-ru-1.5-meal-3",
+          "image": "k10/d03-four-meals-ru-1.5-meal-3.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "four-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-az-1.0-meal-0",
+          "image": "k10/d03-five-meals-az-1.0-meal-0.png",
           "language": "az",
           "font_scale": 1.0,
           "state": "five-meals",
           "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
         },
         {
-          "id": "d03-five-meals-az-1.5-middle",
-          "image": "k10/d03-five-meals-az-1.5-middle.png",
+          "id": "d03-five-meals-az-1.0-meal-1",
+          "image": "k10/d03-five-meals-az-1.0-meal-1.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-az-1.0-meal-2",
+          "image": "k10/d03-five-meals-az-1.0-meal-2.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-az-1.0-meal-3",
+          "image": "k10/d03-five-meals-az-1.0-meal-3.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-az-1.0-meal-4",
+          "image": "k10/d03-five-meals-az-1.0-meal-4.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-az-1.5-meal-0",
+          "image": "k10/d03-five-meals-az-1.5-meal-0.png",
           "language": "az",
           "font_scale": 1.5,
           "state": "five-meals",
           "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
         },
         {
-          "id": "d03-five-meals-en-1.0-middle",
-          "image": "k10/d03-five-meals-en-1.0-middle.png",
+          "id": "d03-five-meals-az-1.5-meal-1",
+          "image": "k10/d03-five-meals-az-1.5-meal-1.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-az-1.5-meal-2",
+          "image": "k10/d03-five-meals-az-1.5-meal-2.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-az-1.5-meal-3",
+          "image": "k10/d03-five-meals-az-1.5-meal-3.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-az-1.5-meal-4",
+          "image": "k10/d03-five-meals-az-1.5-meal-4.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-en-1.0-meal-0",
+          "image": "k10/d03-five-meals-en-1.0-meal-0.png",
           "language": "en",
           "font_scale": 1.0,
           "state": "five-meals",
           "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
         },
         {
-          "id": "d03-five-meals-en-1.5-middle",
-          "image": "k10/d03-five-meals-en-1.5-middle.png",
+          "id": "d03-five-meals-en-1.0-meal-1",
+          "image": "k10/d03-five-meals-en-1.0-meal-1.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-en-1.0-meal-2",
+          "image": "k10/d03-five-meals-en-1.0-meal-2.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-en-1.0-meal-3",
+          "image": "k10/d03-five-meals-en-1.0-meal-3.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-en-1.0-meal-4",
+          "image": "k10/d03-five-meals-en-1.0-meal-4.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-en-1.5-meal-0",
+          "image": "k10/d03-five-meals-en-1.5-meal-0.png",
           "language": "en",
           "font_scale": 1.5,
           "state": "five-meals",
           "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
         },
         {
-          "id": "d03-five-meals-ru-1.0-middle",
-          "image": "k10/d03-five-meals-ru-1.0-middle.png",
+          "id": "d03-five-meals-en-1.5-meal-1",
+          "image": "k10/d03-five-meals-en-1.5-meal-1.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-en-1.5-meal-2",
+          "image": "k10/d03-five-meals-en-1.5-meal-2.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-en-1.5-meal-3",
+          "image": "k10/d03-five-meals-en-1.5-meal-3.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-en-1.5-meal-4",
+          "image": "k10/d03-five-meals-en-1.5-meal-4.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-ru-1.0-meal-0",
+          "image": "k10/d03-five-meals-ru-1.0-meal-0.png",
           "language": "ru",
           "font_scale": 1.0,
           "state": "five-meals",
           "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
         },
         {
-          "id": "d03-five-meals-ru-1.5-middle",
-          "image": "k10/d03-five-meals-ru-1.5-middle.png",
+          "id": "d03-five-meals-ru-1.0-meal-1",
+          "image": "k10/d03-five-meals-ru-1.0-meal-1.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-ru-1.0-meal-2",
+          "image": "k10/d03-five-meals-ru-1.0-meal-2.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-ru-1.0-meal-3",
+          "image": "k10/d03-five-meals-ru-1.0-meal-3.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-ru-1.0-meal-4",
+          "image": "k10/d03-five-meals-ru-1.0-meal-4.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-ru-1.5-meal-0",
+          "image": "k10/d03-five-meals-ru-1.5-meal-0.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-ru-1.5-meal-1",
+          "image": "k10/d03-five-meals-ru-1.5-meal-1.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-ru-1.5-meal-2",
+          "image": "k10/d03-five-meals-ru-1.5-meal-2.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-ru-1.5-meal-3",
+          "image": "k10/d03-five-meals-ru-1.5-meal-3.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "five-meals",
+          "reference": "design-concepts/simple-turquoise/approved/d03-menu.png"
+        },
+        {
+          "id": "d03-five-meals-ru-1.5-meal-4",
+          "image": "k10/d03-five-meals-ru-1.5-meal-4.png",
           "language": "ru",
           "font_scale": 1.5,
           "state": "five-meals",

@@ -1,6 +1,8 @@
 package com.aladdin.dailyplate.ui.menu
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.relocation.BringIntoViewRequester
+import androidx.compose.foundation.relocation.bringIntoViewRequester
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -60,19 +62,21 @@ internal fun DatedMenu(plan: MealPlan, recipes: Map<VersionRef, Recipe> = emptyM
     }
 }
 
-@OptIn(ExperimentalLayoutApi::class)
+@OptIn(ExperimentalLayoutApi::class, androidx.compose.foundation.ExperimentalFoundationApi::class)
 @Composable
 private fun WeekSelector(first: LocalDate, selected: String, today: LocalDate, select: (String) -> Unit) {
     val config = LocalConfiguration.current
     val locale = config.locales[0]
     val expanded = config.fontScale > 1.3f || locale.language == "ru"
+    val selectedView = remember { BringIntoViewRequester() }
+    LaunchedEffect(selected) { selectedView.bringIntoView() }
     @Composable fun day(index: Long, modifier: Modifier) {
         val date = first.plusDays(index)
         val checked = date.toString() == selected
         val current = date == today
         val fullDate = date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(locale))
         val todayLabel = stringResource(R.string.today)
-        Surface(onClick = { select(date.toString()) }, modifier = modifier
+        Surface(onClick = { select(date.toString()) }, modifier = modifier.then(if (checked) Modifier.bringIntoViewRequester(selectedView) else Modifier)
             .heightIn(min = QidaDimensions.touchTarget).testTag("menu-day-$date")
             .semantics { role = Role.Tab; this.selected = checked
                 contentDescription = fullDate + if (current) ", $todayLabel" else "" },
