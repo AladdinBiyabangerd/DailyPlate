@@ -69,7 +69,7 @@ class ProfileUiTest {
         for (scale in listOf(1f, 1.5f)) for (language in listOf("az", "en", "ru")) {
             compose.onNode(hasContentDescription("Dil") or hasContentDescription("Language") or hasContentDescription("Язык"))
                 .performScrollTo().performClick()
-            compose.onNodeWithText(language.uppercase()).performClick()
+            compose.onAllNodesWithText(language.uppercase()).onLast().performClick()
             val config = android.content.res.Configuration(context.resources.configuration).apply { fontScale = scale }
             @Suppress("DEPRECATION")
             context.resources.updateConfiguration(config, context.resources.displayMetrics)
