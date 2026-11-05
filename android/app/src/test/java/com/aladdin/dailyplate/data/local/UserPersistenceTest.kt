@@ -119,6 +119,18 @@ class UserPersistenceTest {
                     repo.foodLogs.record(log().copy(confirmedPortionGrams = 999.0))
                 }
                 assertEquals(log("other-user"), repo.foodLogs.record(log("other-user")))
+                val edited = confirmed.resizePortion(0.5)
+                repo.foodLogs.revise(edited, 1)
+            }
+            openFile().use { repo ->
+                val edited = requireNotNull(repo.foodLogs.latest("guest-1", "confirmed-event"))
+                assertEquals(confirmed.resizePortion(0.5), edited)
+                repo.foodLogs.delete(edited.userId, edited.ref)
+            }
+            openFile().use { repo ->
+                assertTrue(repo.foodLogs.recent("guest-1").none { it.ref.id == "confirmed-event" })
+                assertEquals(confirmed, repo.foodLogs.record(confirmed))
+                assertTrue(repo.foodLogs.recent("guest-1").none { it.ref.id == "confirmed-event" })
             }
         } finally { context.deleteDatabase(name) }
     }

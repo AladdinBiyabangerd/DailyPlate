@@ -36,7 +36,6 @@ class FoodLogRepository internal constructor(private val database: UserDatabase)
     fun revise(log: FoodLog, expectedRevision: Long): FoodLog = database.runInTransaction(Callable {
         val original = requireNotNull(history.version(log.userId, VersionRef(log.ref.id, 1)))
         require(original.clientEventId == log.clientEventId)
-        require(original.consumedAt == log.consumedAt)
         val current = requireNotNull(latest(log.userId, log.ref.id))
         require(!current.deleted || current == log) { "Deleted entry cannot be restored" }
         history.save(log, expectedRevision)
