@@ -21,7 +21,7 @@ with tempfile.TemporaryDirectory(prefix='callmood-workflow-test-') as temp:
         'sys.exit(1 if (Path(sys.argv[1])/"sample.txt").read_text()=="bad" else 0)\n')
 
     def run(*args, ok=True):
-        result = subprocess.run(args, cwd=root, capture_output=True, text=True)
+        result = subprocess.run(args, cwd=root, capture_output=True, text=True, errors='replace')
         assert (result.returncode == 0) == ok, result.stdout + result.stderr
         return result.stdout.strip()
 
@@ -96,7 +96,7 @@ with tempfile.TemporaryDirectory(prefix='callmood-workflow-test-') as temp:
     (root / 'fixtures').mkdir()
     for index, (language, scale) in enumerate(( (lang, scale) for lang in ('az','en','ru') for scale in (1.0,1.5) )):
         name = f'{index}.png'
-        (root / 'fixtures' / name).write_bytes(b'\x89PNG\r\n\x1a\n' + bytes([index]))
+        (root / 'fixtures' / name).write_bytes(b'\x89PNG\r\n\x1a\n\x00' + bytes([index]))
         cases.append(dict(id=name, image=name, language=language, font_scale=scale, state='normal', reference='design-concepts/ref.txt'))
     plan = dict(surfaces=[dict(sources=['android/app/src/main/screen.kt', 'design-concepts/ref.txt'],
         requirements=['test fixture layout'], states=['normal'], cases=cases)])
@@ -134,7 +134,7 @@ with tempfile.TemporaryDirectory(prefix='callmood-workflow-test-') as temp:
     workflow('finish')
     assert json.loads(report_path.read_text())['visual_status'] == 'matched'
     workflow('start', 'fix/render-drift')
-    (root / 'fixtures/0.png').write_bytes(b'\x89PNG\r\n\x1a\nchanged')
+    (root / 'fixtures/0.png').write_bytes(b'\x89PNG\r\n\x1a\n\x00changed')
     run('git', 'add', 'fixtures')
     run('git', 'commit', '-m', 'simulate render drift without source change')
     workflow('finish', ok=False)
