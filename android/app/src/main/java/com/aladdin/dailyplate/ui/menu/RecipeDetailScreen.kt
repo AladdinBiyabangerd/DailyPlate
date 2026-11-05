@@ -3,7 +3,6 @@ package com.aladdin.dailyplate.ui.menu
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.aladdin.dailyplate.R
@@ -63,8 +62,6 @@ internal fun RecipeDetailScreen(planId: String, itemId: String, startEating: Boo
 
 @Composable
 internal fun RecipeDetailContent(detail: RecipeDetailData, startEating: Boolean = false, confirm: (PlanConsumption) -> Unit) {
-    val language = LocalConfiguration.current.locales[0].language
-    val name = detail.recipe.names.recipeLabel(language)
     var eating by rememberSaveable(detail.plan.ref, detail.item.id) { mutableStateOf(startEating &&
         detail.item.remainingPlannedServings > 0 && detail.item.status in
         setOf(PlanItemStatus.PLANNED, PlanItemStatus.PARTIALLY_CONSUMED)) }
@@ -72,36 +69,7 @@ internal fun RecipeDetailContent(detail: RecipeDetailData, startEating: Boolean 
         RecipePortionEditor(detail, { eating = false }, confirm)
         return
     }
-    QidaHeading(name)
-    Text("${detail.item.date.iso} · ${detail.item.mealSlot}")
-    Text(stringResource(R.string.rd_version, detail.recipe.ref.version, detail.customization?.ref?.version ?: 0L))
-    Text(stringResource(R.string.rd_plan_portion, detail.item.plannedServings, detail.item.remainingPlannedServings))
-    detail.item.portionGrams?.let { Text("$it ${stringResource(R.string.fe_grams)}") }
-    Text(stringResource(R.string.rd_personal_nutrients))
-    RecipeNutrients(detail.item.nutrientSnapshot)
-    if (detail.customization == null) detail.recipe.time.totalMinutes?.let {
-        Text(stringResource(R.string.rd_time, it))
-    }
-    QidaCard {
-        Text(stringResource(R.string.rd_batch), style = MaterialTheme.typography.titleMedium)
-        detail.batchServings?.let { Text(stringResource(R.string.rd_batch_servings, it)) }
-        detail.ingredients.forEach { ingredient ->
-            val food = detail.foods[ingredient.food]
-            Text("${food?.names?.recipeLabel(language) ?: ingredient.food.id} · ${food?.preparationState ?: stringResource(R.string.fe_unknown_value)} · ${ingredient.edibleGrams} g")
-        }
-    }
-    QidaCard {
-        Text(stringResource(R.string.rd_steps), style = MaterialTheme.typography.titleMedium)
-        if (detail.instructionStatus != InstructionStatus.VERIFIED) Text(stringResource(R.string.rd_unverified))
-        val steps = detail.instructions
-        if (steps.isNullOrEmpty()) Text(stringResource(R.string.rd_no_steps))
-        else steps.forEachIndexed { index, step -> Text("${index + 1}. $step") }
-    }
-    if (detail.item.remainingPlannedServings > 0 && detail.item.status in
-        setOf(PlanItemStatus.PLANNED, PlanItemStatus.PARTIALLY_CONSUMED)) {
-        if (detail.batchServings == null) Text(stringResource(R.string.rd_no_basis))
-        else QidaButton(stringResource(R.string.rd_ate), { eating = true })
-    }
+    RecipeDetailDesign(detail) { eating = true }
 }
 
 @Composable

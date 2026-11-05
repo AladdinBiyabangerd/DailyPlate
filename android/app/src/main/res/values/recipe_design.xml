@@ -1,0 +1,13 @@
+<resources>
+    <string name="rdd_ingredients">Nə lazımdır?</string>
+    <string name="rdd_steps">Necə bişirim?</string>
+    <string name="rdd_more">Qida dəyərləri və resept məlumatı</string>
+    <string name="rdd_art">İllüstrasiya — yeməyin və inqrediyentlərin real fotosu deyil.</string>
+    <string name="rdd_energy">Təxminən %1$.0f kkal</string>
+    <string name="rdd_grams">%1$.1f q</string>
+    <string name="rdd_personal">Sənin planlı payın: %1$.2f porsiya</string>
+    <string name="rdd_batch_hint">Aşağıdakı miqdarlar bütün hazırlanacaq yemək üçündür.</string>
+    <string name="rdd_empty">Bu versiyanın inqrediyent məlumatı yoxdur.</string>
+    <string name="rdd_expanded">Açıqdır</string>
+    <string name="rdd_collapsed">Bağlıdır</string>
+</resources>
