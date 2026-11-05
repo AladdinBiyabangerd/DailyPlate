@@ -26,14 +26,14 @@ class OnboardingUiTest {
         val draft = readyOnboarding()
         OnboardingStore(context).queueSave(draft).get()
         compose.onNodeWithText("Başlayaq").performScrollTo().performClick()
-        compose.waitUntil(10000) { compose.onAllNodesWithText("✓ Sağlam yemək").fetchSemanticsNodes().isNotEmpty() }
+        compose.waitUntil(10000) { compose.onAllNodes(hasText("Sağlam yemək") and isSelected()).fetchSemanticsNodes().isNotEmpty() }
         compose.onNodeWithText("Davam et").performScrollTo().performClick()
         compose.onNodeWithText("65,2").assertExists()
         compose.activityRule.scenario.recreate()
         compose.waitUntil(10000) { compose.onAllNodesWithText("65,2").fetchSemanticsNodes().isNotEmpty() }
         compose.onNodeWithText("65,2").assertExists()
         compose.onAllNodesWithText("Geri").onLast().performScrollTo().performClick()
-        compose.onNodeWithText("✓ Sağlam yemək").assertExists()
+        compose.onNode(hasText("Sağlam yemək") and isSelected()).assertExists()
         repeat(4) { compose.onNodeWithText("Davam et").performScrollTo().performClick() }
         compose.onNodeWithText("Planımı hazırla").performScrollTo().performClick()
         compose.waitUntil(10000) { compose.onAllNodesWithText("Profil saxlanıb. Menyu hələ yaradılmayıb.").fetchSemanticsNodes().isNotEmpty() }

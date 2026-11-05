@@ -29,6 +29,8 @@ fun QidaField(label: String, value: String, onValueChange: (String) -> Unit,
               error: String? = null, numeric: Boolean = false) {
     OutlinedTextField(value, onValueChange, modifier = Modifier.fillMaxWidth(),
         label = { Text(label) }, isError = error != null,
+        shape = androidx.compose.foundation.shape.RoundedCornerShape(QidaDimensions.buttonRadius),
+        singleLine = numeric,
         supportingText = error?.let { { Text(it) } },
         keyboardOptions = KeyboardOptions(keyboardType = if (numeric) KeyboardType.Decimal else KeyboardType.Text))
 }
