@@ -15,10 +15,12 @@ nutrient adapter and bounded request session. No UI, DB write, diary event or AP
   compatible mass units. Available carbohydrate requires explicit editorial basis.
   WHO free sugar (<10%), saturated fat (≤10%), trans fat (≤1%), salt (<5g via
   sodium conversion) and mapped fruit/vegetables (≥400g) are additional daily checks.
-- Wider micronutrient/protein-quality coverage remains UNKNOWN in every result.
-  WHO total-fat advisory remains separate from EFSA RI. SUCCESS means the supported
-  healthy-adult subset passed, **not** complete dietary adequacy. Restricted diets
-  are blocked with INCOMPLETE_DATA; no B12/supplement/clinical claim is introduced.
+- K08 wider-coverage UNKNOWN remains blocking unless an exact-policy reviewed
+  supplemental reference set and exact-recipe protein-quality review are supplied.
+  Selected source thresholds keep their own operator, unit and day/week window.
+  WHO total-fat advisory remains separate from EFSA RI. SUCCESS means the selected
+  reference set passed, **not** universal dietary adequacy. Restricted diets are
+  blocked with INCOMPLETE_DATA; no B12/supplement/clinical claim is introduced.
 - §7/17/C-09: no recipe repeats on adjacent days; occurrence and distinct mapped
   vegetable/grain/protein source minima are explicit versioned product parameters.
   Preparation time and equipment use K13. No preference or limit is relaxed.
@@ -46,7 +48,8 @@ nutrient adapter and bounded request session. No UI, DB write, diary event or AP
 `WeeklyPlanGeneratorTest` covers the 108 positive combinations, deterministic
 reordering, independently checked portion/nutrient properties, variable portions,
 unknown fibre/free sugar/salt/trans fat/carbohydrate, package budget failure,
-unknown scope/prices, stale versions, empty/withdrawn catalog, restricted diets,
+unknown scope/prices, stale versions, empty/withdrawn catalog, restricted diets, source-specific day/week coverage, exact WHO
+operators and unknown protein-quality evidence,
 production gate, exclusions, zero alternatives, search exhaustion and request conflicts.
 K13/K08/K14 regression suites remain mandatory. Local CI runs **only after merge**
 via workflow finish: APK-free lint, compile, JVM tests, tokens and data/export checks.

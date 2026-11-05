@@ -11,6 +11,7 @@ data class PlanningEvidence(
     val recipe: VersionRef, val carbohydrateBasis: NutritionCarbohydrateBasis,
     val fruitVegetableGrams: Double?, val vegetableSources: Set<String>?,
     val grainSources: Set<String>?, val proteinSources: Set<String>?, val sources: List<String>,
+    val proteinQualityReviewed: Boolean? = null,
 ) {
     init { fruitVegetableGrams?.let { require(it.isFinite() && it >= 0) }; require(sources.isNotEmpty()) }
 }
@@ -32,6 +33,7 @@ data class PlanGenerationRequest(
 data class WeeklyPlanningData(
     val catalog: CandidateCatalog, val evidence: Map<VersionRef, PlanningEvidence>,
     val prices: List<PriceObservation>, val freshness: PriceFreshness?,
+    val coverage: PlanningCoverage? = null,
 ) { init { require(evidence.all { (ref, evidence) -> ref == evidence.recipe }) } }
 enum class GenerationStatus {
     SUCCESS, NO_FEASIBLE_PLAN, INCOMPLETE_DATA, POLICY_UNAVAILABLE, STALE_INPUT,
@@ -53,4 +55,21 @@ data class PlanGenerationResult(
     val ruleResults: List<CandidateRuleResult>, val visitedNodes: Int,
 ) {
     val unmetConstraints get() = ruleResults.filter { it.status == RuleStatus.FAIL || it.status == RuleStatus.UNKNOWN }
+}
+
+/** Explicit source-specific supplemental policy contract. No default clinical thresholds.
+ * Day and week refer to totals in that window, never an unlabelled habitual average. */
+enum class PlanningWindow { DAY, WEEK }
+enum class PlanningOperator { LESS_THAN, AT_MOST, AT_LEAST, GREATER_THAN }
+data class PlanningNutrientRule(
+    val id: String, val nutrient: String, val threshold: NutrientAmount,
+    val operator: PlanningOperator, val window: PlanningWindow, val source: String,
+) {
+    init { require(id.isNotBlank() && nutrient.isNotBlank() && source.isNotBlank()); require(threshold.value != null) }
+}
+data class PlanningCoverage(
+    val ref: VersionRef, val policy: VersionRef, val review: Review,
+    val rules: List<PlanningNutrientRule>,
+) {
+    init { require(rules.isNotEmpty()); require(rules.map { it.id }.distinct().size == rules.size) }
 }
