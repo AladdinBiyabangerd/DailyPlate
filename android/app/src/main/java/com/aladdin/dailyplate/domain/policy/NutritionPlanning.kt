@@ -9,7 +9,7 @@ import kotlin.math.min
 /** NP-13–23 planning arithmetic. No generation, calorie titration, storage or approval. */
 object NutritionPlanning {
     fun preview(inputs: NutritionInputs, slots: Int,
-                contract: NutritionEnergyContract = NutritionEnergyContract()): NutritionPlanningPreview {
+                contract: NutritionEnergyContract = NutritionEnergyContract(productionEnabled = true)): NutritionPlanningPreview {
         val energy = NutritionEnergyEligibility.preview(inputs, contract)
         fun fail(reason: NutritionPlanningFailure) =
             NutritionPlanningPreview(energy.copy(candidateTargetKcal = null), null, null, null, emptyList(), reason)

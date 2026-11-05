@@ -29,7 +29,9 @@
 
 ## Checks performed
 - git diff --check; regenerated all plan views; inspected PDF page 44.
-- Activation tests execute only in merged-main CI. No APK/device check.
+- Initial merged-main CI caught planning passing the historical false default.
+  Fixed the planning preview default too; final fix merge CI is authoritative.
+  No APK/device check.
 
 ## Exact next step
 - Confirm activation merged-main CI result, then continue remaining NP-16 work
