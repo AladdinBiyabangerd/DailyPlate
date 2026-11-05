@@ -56,5 +56,8 @@
   .cursor/rules/visual-acceptance.mdc; excluded .local-ci/{workflow,checks,visual_gate}.py.
 - Checks: final merged-main result must match .local-ci/logs/latest.json; no branch
   CI/APK/device checks. This unit changes process/tooling, not app appearance.
+- Gate validation: first post-merge run caught an unignored Python cache in the
+  disposable workflow fixture; fixture isolation repaired and integration test
+  moved into tracked android/tools/test_visual_workflow.py. Final CI remains required.
 - Exact next step: fix one discrepancy (D02 portions, with real portion mapping)
   in a new chat only when requested; prepare the review plan before implementation.

@@ -88,3 +88,8 @@ Final reports must identify commit, technical CI, visual status, inspected evide
 authorized adaptations and unverified device/TalkBack checks. A green unrelated task
 does not certify the whole app. APK/device tests still require explicit user request.
 Local tooling stays excluded from Git; back up `.local-ci/` separately.
+
+Gate tests: `android/tools/test_visual_gate.py` validates evidence contracts and
+`android/tools/test_visual_workflow.py` exercises actual hooks/finish/review in
+isolated disposable repositories. Both run only in mandatory post-merge CI.
+Python caches in test fixtures are excluded from Git cleanliness checks.
