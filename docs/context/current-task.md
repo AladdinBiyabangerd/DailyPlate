@@ -1,48 +1,42 @@
-# Current task — K15 weekly generator
+# Current task — K16 consumption/projection foundation
 
 ## Completed
-- Implemented bounded seeded 7-day × 3/4/5-slot domain generation and exact recipe grids.
-- Reused K08-v2 screening/energy/menu checks, K13 safety filter and K14 package pricing.
-- Added explicit WHO nutrient/group evidence, daily/weekly snapshots, full revalidated
-  alternatives, request-session idempotency/conflict handling and acceptance tests (108 cases).
-- Production G3/G4 gates, restricted-diet coverage remain explicit; UNKNOWN wider coverage is blocking.
+- Added confirmed PlanConsumption command and atomic plan/log/event/receipt persistence.
+- Added daily actual + remaining-plan projection using K15 WeeklyNutrition scale/sum.
+- Added acceptance tests for half portions, retries, conflicts, rollback, unknown nutrients and log revisions.
 
 ## Current state
-- K15 domain preview is implemented; matching-main CI result is in local latest.json.
-- No UI/DB writes or activation of real catalogs. No APK created.
-- Result retains full current K08 formula/contract/provenance and reviewed coverage
-  snapshots; macro proximity is a soft tie-breaker.
+- Partial K16 only; no UI route uses these new boundaries yet.
+- Full K15 domain generator remains available; real catalogs/G3, pricing/G4 and budget scope remain gated.
+- No APK created. Local merged-main CI result is stored in .local-ci/latest.json/logs (check matching head).
 
 ## Decisions
-- SUCCESS requires the selected reviewed reference set and protein-quality evidence;
-  never universal micronutrient adequacy. Missing supplemental coverage blocks.
-- Budget comparison needs explicit single-person full slot scope; onboarding omits scope,
-  so ordinary profile budget is UNKNOWN and cannot produce a publishable plan here.
-- Alternatives may be absent, with slot-specific UNKNOWN; never fabricated.
-- Search rules are versioned product parameters; exhaustion is TEMPORARY_FAILURE.
-- In-memory preview session is bounded; persistent idempotency/version write checks belong to K16.
+- Item nutrientSnapshot means the full plannedServings; remaining scales by remaining/planned.
+- Consumption advances plan revision; preserves shopping quantities, other items and historical snapshots.
+- Durable receipt keyed by owner + clientEventId binds exact command and original result.
+- Log edits/deletion affect actual intake, never silently restore remaining planned portions.
+- Projection defaults diaryComplete=false; exact remaining-energy claim suppressed.
 
 ## Remaining work
-- K16 preview/persistence/UI with transactional current-version checks.
-- Continue the next milestone in a new chat; K15 implementation spans multiple files.
-- Real catalog/G3, regional pricing/G4 and actual budget coverage remain unverified.
-- K17 shopping boolean model/mark preservation remains as earlier handoff.
+- K16 persistent K15 generation request/result envelope with transactional profile/policy/catalog version checks.
+- Future profile recalculation preview + explicit acceptance persistence, preserving past/consumed items.
+- Screens 04/13/14, dated menu, recipe/portion confirmation and Today integration/E2E.
+- Actual recipe editor must calculate/confirm snapshot before using consumption boundary.
 
 ## Relevant files
-- domain/planning/{WeeklyPlanContracts,WeeklyNutrition,WeeklyCoverage,WeeklyPlanGenerator,WeeklyPlanSession}.kt
-  under android/app/src/main/java/com/aladdin/dailyplate/
-- android/app/src/test/java/com/aladdin/dailyplate/domain/planning/WeeklyPlanGeneratorTest.kt
-- docs/qa/android-k15-acceptance.md; planning/coding-tasks.txt
-- planning/research-data.json §7–8/11–12/17–18/21–22/25, docs/nutrition-plan-design.md
+- domain/planning/{PlanConsumption,DailyPlanProjection,WeeklyNutrition,WeeklyPlanContracts,WeeklyPlanSession}.kt
+- data/local/{PlanConsumptionRepository,MealPlanRepository,UserRepositories}.kt
+- android/app/src/test/java/com/aladdin/dailyplate/data/local/PlanConsumptionTest.kt
+- docs/qa/android-k16-consumption-acceptance.md; planning/coding-tasks.txt
+- planning/research-data.json §8/18–19/22, docs/nutrition-plan-design.md
 
 ## Checks performed
-- Read local workflow/current context/organization rules and scoped canonical requirements.
-- Clean initial tree/hooks verified; local task branch used. git diff --check. First merged CI exposed missing yield evidence in the new test
-  fixture; repaired on a separate fix branch, without weakening publication checks.
-- Mandatory APK-free checks only through finish on merged main; see matching-head local log.
-- No device, clinical, real-content or real-price acceptance claimed.
+- Read local workflow, organization, K16 and scoped canonical/customization requirements.
+- Clean starting tree and expected hooks verified; dedicated local branch used.
+- Tests run only through mandatory finish after merge; inspect matching-head CI result.
+- No UI render, APK, device, real catalog, clinical or pricing acceptance claimed.
 
 ## Exact next step
-- Read K16 and applicable canonical requirements in a new chat; inspect K15 contracts.
-- Resolve preview/publishable semantics for unknown budget scope without inventing coverage.
-- Use local workflow start/commit/finish; do not create APK unless explicitly requested.
+- Continue K16 generation persistence/current-version validation using existing K15 contracts.
+- Read this context and scoped requirements; use local start/commit/finish lifecycle.
+- Before UI work use ui-craft, tokens and design guides; no APK without explicit request.
