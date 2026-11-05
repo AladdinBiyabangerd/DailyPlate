@@ -3,7 +3,7 @@
     <string name="mn_reload">Yenidən yüklə</string>
     <string name="mn_choices">Seçimləri dəyiş</string>
     <string name="mn_target">Təxmini gündəlik hədəf: %1$.0f kcal</string>
-    <string name="mn_slots">Gündə %1$d yemək</string>
+    <string name="mn_slots">Gündəlik yemək sayı: %1$d</string>
     <string name="mn_accept">Menyunu təsdiqlə</string>
     <string name="mn_future_note">Keçmiş və qeyd edilmiş porsiyalar qorunur. Bu önbaxış gündəlik qeydi yaratmır.</string>
     <string name="mn_from">Dəyişiklik tarixi: %1$s</string>
@@ -24,4 +24,5 @@
     <string name="mn_skipped">Buraxılıb</string>
     <string name="mn_projection">Faktiki + qalan plan (təxmini): %1$s kcal</string>
     <string name="mn_diary_incomplete">Gündəlik tam təsdiqlənməyib; dəqiq qalan enerji göstərilmir.</string>
+    <string name="mn_cost">Həftəlik xərc (təxmini): %1$s</string>
 </resources>

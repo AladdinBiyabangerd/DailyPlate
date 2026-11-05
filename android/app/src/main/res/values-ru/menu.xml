@@ -24,4 +24,5 @@
     <string name="mn_skipped">Пропущено</string>
     <string name="mn_projection">Фактически + остаток плана (примерно): %1$s ккал</string>
     <string name="mn_diary_incomplete">Полнота дневника не подтверждена; точный остаток энергии недоступен.</string>
+    <string name="mn_cost">Примерные расходы на неделю: %1$s</string>
 </resources>

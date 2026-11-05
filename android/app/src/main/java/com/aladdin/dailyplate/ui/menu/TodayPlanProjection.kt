@@ -15,10 +15,10 @@ import java.time.ZoneId
 
 /** Reads accepted plans only; incomplete diaries never acquire an exact remaining allowance. */
 @Composable
-internal fun TodayPlanProjection(logs: List<FoodLog>, refresh: Int) {
+internal fun TodayPlanProjection(logs: List<FoodLog>, refresh: Int, date: LocalDate) {
     val context = LocalContext.current
     var projection by remember { mutableStateOf<DailyPlanProjection?>(null) }
-    LaunchedEffect(logs, refresh) {
+    LaunchedEffect(logs, refresh, date) {
         projection = null
         try {
             projection = withContext(Dispatchers.IO) {

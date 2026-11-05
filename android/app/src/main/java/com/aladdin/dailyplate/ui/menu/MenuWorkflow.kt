@@ -21,6 +21,8 @@ internal data class MenuData(
 )
 
 /** Worker-thread orchestration. Saves exact retry commands before computation or acceptance. */
+// Synchronous commit is required: computation must never precede durable retry metadata.
+@android.annotation.SuppressLint("ApplySharedPref")
 internal class MenuWorkflow(context: Context) {
     private val context = context.applicationContext
     private val preferences = this.context.getSharedPreferences("menu-workflow", 0)
