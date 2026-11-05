@@ -4,7 +4,6 @@ import com.aladdin.dailyplate.domain.*
 import com.aladdin.dailyplate.domain.editorial.EditorialContent
 import com.aladdin.dailyplate.domain.policy.*
 import com.aladdin.dailyplate.domain.pricing.*
-import java.math.BigDecimal
 import java.time.LocalDate
 import kotlin.math.abs
 import kotlin.random.Random
@@ -74,36 +73,9 @@ object WeeklyPlanGenerator {
                 WeeklyNutrition.scale(recipe.nutrientsTotal, grams / requireNotNull(recipe.yieldCookedGrams)),
                 "${recipe.time.totalMinutes} dəqiqə; seçilmiş allergiya, region və porsiya filtrlərindən keçir. Qida əhatəsi ayrıca göstərilir.")
         }
-        fun price(meals: List<GeneratedMeal>): ShoppingCost {
-            val needs = meals.flatMap { m ->
-                val r = recipes.getValue(m.recipe)
-                r.ingredients.map { ingredient -> ShoppingNeed(ShoppingProduct(ingredient.food.id,
-                    data.catalog.ingredients.getValue(ingredient.food).food.preparationState),
-                    BigDecimal.valueOf(ingredient.edibleGrams) * BigDecimal.valueOf(m.portionGrams)
-                        .divide(BigDecimal.valueOf(requireNotNull(r.yieldCookedGrams)), java.math.MathContext.DECIMAL128)) }
-            }
-            val currency = profile.budget.currency ?: "XXX"
-            return if (test) ShoppingPricing.calculateTest(needs, data.prices, profile.budget.region, currency, q.candidate.at, data.freshness)
-                else ShoppingPricing.calculate(needs, data.prices, profile.budget.region, currency, q.candidate.at, data.freshness)
-        }
-        fun weekChecks(meals: List<GeneratedMeal>, cost: ShoppingCost): List<CandidateRuleResult> {
-            val result = WeeklyCoverage.checks(meals, data, q.candidate.policy, "week", PlanningWindow.WEEK).toMutableList()
-            val evidence = meals.map { data.evidence.getValue(it.recipe) }
-            for ((name, groups) in listOf("vegetable_variety" to evidence.map { it.vegetableSources },
-                "grain_variety" to evidence.map { it.grainSources }, "protein_variety" to evidence.map { it.proteinSources })) {
-                result += rule(name, when { groups.any { it == null } -> RuleStatus.UNKNOWN
-                    groups.filterNotNull().flatten().distinct().size >= q.search.minimumSourcesPerGroup -> RuleStatus.PASS
-                    else -> RuleStatus.FAIL }, "Versioned product variety minimum: ${q.search.minimumSourcesPerGroup} mapped sources")
-            }
-            val limit = profile.budget.weeklyAmount
-            result += rule("package_budget", when {
-                cost.totalCost == null || limit == null || profile.budget.people != 1 || profile.budget.coveredMealSlots != (0 until q.mealsPerDay).map { "slot:$it" }.toSet() -> RuleStatus.UNKNOWN
-                cost.totalCost.currency != limit.currency -> RuleStatus.UNKNOWN
-                cost.totalCost.amount.toBigDecimal() <= limit.amount.toBigDecimal() -> RuleStatus.PASS
-                else -> RuleStatus.FAIL
-            }, "Full weekly package cost; exact budget scope must be explicit. No limit/people/coverage is inferred or relaxed")
-            return result
-        }
+        fun price(meals: List<GeneratedMeal>) = WeeklyPlanChecks.price(meals, recipes, data, profile, q, test)
+        fun weekChecks(meals: List<GeneratedMeal>, cost: ShoppingCost) =
+            WeeklyPlanChecks.weekChecks(meals, cost, data, profile, q)
         val path = mutableListOf<GeneratedMeal>()
         var solution: List<GeneratedMeal>? = null
         var lastFailures = emptyList<CandidateRuleResult>()
