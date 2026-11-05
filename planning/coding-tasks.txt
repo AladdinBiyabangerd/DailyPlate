@@ -1,11 +1,13 @@
 QIDA — ARDICIL KODLAŞDIRMA TAPŞIRIQLARI
-Versiya 1.3 | 4 noyabr 2026 | məhsul planı 1.7
+Versiya 1.4 | 5 noyabr 2026 | məhsul planı 1.7
 
 STATUS VƏ MƏNBƏ
 Bu sənəd icra növbəsidir, tətbiq implementasiyası deyil.
-K01 və K02 domen/lokal Room hissəsi hazırdır; yekun status üçün yerli
-branch/main CI nəticəsini yoxla. K02 qəbul qeydi docs/qa/android-k02-acceptance.txt-dədir.
-K03–K34 hələ başlanmayıb.
+K01–K07 implementasiyası və qəbul qeydləri docs/qa/android-kXX-acceptance.txt-dədir.
+K08 domen hesablama/uyğunluq nüvəsi və lokal nəticə tarixçəsi yazılıb; qəbul qeydi
+docs/qa/android-k08-acceptance.txt-dədir. Yekun icra sübutu merged-main CI qeydidir;
+cihaz/klinik/vizual qəbul bu statusdan avtomatik çıxarılmır. K09–K34 başlanmayıb.
+Növbəti tapşırıq K09-dur. G2 bağlıdır; production fərdi hədəf aktiv deyil.
 Kanonik məhsul mənbəyi: planning/research-data.json.
 § istinadları: planning/nutrition-science-implementation-plan.txt bölmələridir.
 Əlavə məcburi mənbə: planning/meal-customization-requirements.txt, T01–T19.
@@ -38,8 +40,8 @@ inteqrasiya mərhələsinə qədər təxirə salınır, K01 şəbəkəsiz işlə
 7. UI işi üçün ui-craft: əvvəl token və aid şəkillər, sonra renderə baxış,
    kontrast ≥4,5, uzun AZ/EN/RU və böyük mətn yoxlaması. Render mümkün olmayıbsa
    vizual qəbul yoxlanmamış yazılır. Android platforma minimumu qorunur; iOS ölçüləri gələcək mərhələnin istinadıdır.
-8. Fokuslu commit → workflow.py ci → səbəbi düzəlt/commit/təkrar → workflow.py finish.
-   Yalnız branch və merged-main CI yaşıl olanda hissə tamamdır. .local-ci/ və
+8. Fokuslu commit → workflow.py finish → merged-main CI. Branch-də CI işlətmə.
+   Main CI uğursuzdursa fix branch → düzəliş/commit → finish. .local-ci/ və
    .cursor/rules/local-ci.mdc tarixçəyə daxil edilmir; remote/push yoxdur.
 9. docs/context/current-task.md: bitmiş ID, commit, testlər, yoxlanmamış şərtlər,
    növbəti dəqiq ID. Plan dəyişəndə təsirlənən tapşırıqları yenidən uzlaşdır.
@@ -126,7 +128,8 @@ K07 — Onboarding və profil qaralaması
 Asılılıq: K02, K06. Mənbə: §5–6, §17–19; 00 və 02 dizayn istinadları.
 Yazılacaq: 4 məqsəd, yaş/as-of, könüllü formula cinsi, boy/çəki/aktivlik,
   fizioloji uyğunluq, allergiya/istəksizlik, 15/30/60 dəq, 3/4/5 slot,
-  region/valyuta, büdcə kateqoriyası/məbləği/əhatəsi, avadanlıq və evdəki ərzaq.
+  region/valyuta, büdcə kateqoriyası/məbləği/nəfər sayı. İstifadəçinin 5 noyabr
+  qərarı: yemək əhatəsi, avadanlıq və evdəki ərzaq onboarding-də soruşulmur.
 Yoxlama: onluq vergül; boş/mənfi/NaN giriş rəddi; geri/restart cavabları saxlayır;
   allergiyam yoxdur qarşılıqlı istisnadır; cavabsız allergiya “yoxdur” olmur;
   əlavə allergen və istəksizlik dəyişdirilib silinir; wheat/gluten ayrı saxlanır.
@@ -405,13 +408,15 @@ Ekran 01–08 → K06–K09/K16/K25; 09–12 → K10–K12/K23;
 Əlavə dizaynsız xəta/hesab halları da K31-də ayrıca izlənir.
 
 NÖVBƏTİ DAVAM PROMPTU
-“K03-ü icra et: planning/coding-tasks.txt və docs/context/current-task.md-ni oxu.
-Əsas plan planning/nutrition-science-implementation-plan.txt §3–4/§11/§15,
-kanonik mənbə planning/research-data.json-dır. library/README.md-ni və K02-nin
-android/app/src/main/java/az/qida/app/{domain,data/local}/ müqavilələrini nəzərə al.
-Əvvəl K02-nin yerli main CI nəticəsini təsdiqlə. JSON/SQLite idxalı, mənbə/versiya/
-status qapıları, təkrar idxal və atomik update üçün real integration testləri yaz.
-500/224 və mənbə ID-lərini qoru; publishable=false resept production namizədi deyil;
-köhnə FoodLog snapshot-ı dəyişməsin. G3 bağlı qalır.
-Android minSdk 24, compileSdk/targetSdk 36 konfiqurasiyasını və APK-siz CI-ni saxla.
-AGENTS.md workflow-unu tamamla. K04-ə bu chatdə keçmə.”
+“K09-u icra et: docs/context/current-task.md və planning/coding-tasks.txt-ni oxu.
+Əsas plan planning/nutrition-science-implementation-plan.txt §5/§8/§10/§17–19;
+kanonik mənbə planning/research-data.json-dır. K08 domain/policy nüvəsini,
+UserRepositories.nutritionAssessments və K07 onboarding saxlanmasını təkrar istifadə et.
+Profil/goal/seçim redaktəsi, formula-policy-giriş tarixçəsi, Nəyə əsasən? və gələcək
+plan hesablamasının önbaxış/təsdiq müqaviləsini qur. Ləğv dəyişiklik etmir; təsdiq
+profilin yeni versiyasıdır; keçmiş FoodLog və assessment snapshot-ları dəyişmir.
+Production G2 bağlıdır; təsdiqsiz klinik policy/əmsal/hədd uydurma. Real menyunun
+recalculation inteqrasiyası K16-dadır. Vizual işdə ui-craft, design-concepts/simple-turquoise/
+istinadları və tokens.css əsasdır; renderə baxmadan vizual qəbul iddiası vermə.
+AGENTS.md lokal workflow: CI yalnız merge-dən sonra main-də, APK yaratma.
+Yalnız K09-u götür; context handoff-u yenilə, K10-a bu chatdə keçmə.”

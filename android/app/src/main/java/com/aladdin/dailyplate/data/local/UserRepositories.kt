@@ -10,11 +10,14 @@ import com.aladdin.dailyplate.domain.SubscriptionEntitlement
 import com.aladdin.dailyplate.domain.UserProfile
 import com.aladdin.dailyplate.domain.VersionRef
 import com.aladdin.dailyplate.domain.WeightEntry
+import com.aladdin.dailyplate.domain.policy.NutritionAssessmentRecord
 import kotlinx.serialization.KSerializer
 
 /** Owns only qida-user.db; it has no library DB dependency or import access. */
 class UserRepositories internal constructor(private val database: UserDatabase) : AutoCloseable {
     val profiles = repository("profile", UserProfile.serializer(), UserProfile::userId, UserProfile::ref)
+    val nutritionAssessments = repository("nutrition_assessment", NutritionAssessmentRecord.serializer(),
+        NutritionAssessmentRecord::userId, NutritionAssessmentRecord::ref)
     val customizations = repository("customization", RecipeCustomization.serializer(), RecipeCustomization::userId, RecipeCustomization::ref)
     val photoDrafts = repository("photo_draft", PhotoMealDraft.serializer(), PhotoMealDraft::userId, PhotoMealDraft::ref)
     val weights = repository("weight", WeightEntry.serializer(), WeightEntry::userId, WeightEntry::ref)

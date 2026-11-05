@@ -1,6 +1,7 @@
 package com.aladdin.dailyplate.domain.onboarding
 
 import com.aladdin.dailyplate.domain.*
+import com.aladdin.dailyplate.domain.policy.ProfileEligibility
 import kotlinx.serialization.Serializable
 
 /** Raw answers remain editable and are never treated as confirmed profile data. */
@@ -56,7 +57,7 @@ data class OnboardingDraft(
     fun profile(language: String, at: RecordedAt, date: CalendarDate): UserProfile {
         require((0..4).all { errors(it).isEmpty() })
         fun yesNo(key: String) = when (answer(key)) { "yes" -> true; "no" -> false; else -> null }
-        return UserProfile(
+        val profile = UserProfile(
             ref = VersionRef(id, 1), userId = "local-guest", updatedAt = at,
             goal = Goal.valueOf(answer("goal")), ageYears = number("age")!!.toInt(),
             calculationSex = answer("sex").takeIf { it.isNotBlank() }?.let(CalculationSex::valueOf),
@@ -75,5 +76,6 @@ data class OnboardingDraft(
             mealsPerDay = answer("meals").toInt(), specialistTargetKcal = null, language = language,
             ageAsOfDate = date,
         )
+        return profile.copy(eligibilityStatus = ProfileEligibility.assess(profile, date).status.name.lowercase())
     }
 }

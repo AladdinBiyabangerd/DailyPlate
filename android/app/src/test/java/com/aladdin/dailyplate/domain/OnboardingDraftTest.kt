@@ -10,13 +10,13 @@ fun readyOnboarding() = OnboardingDraft("onboarding-test", answers = mapOf(
     "tier" to "ECONOMICAL", "region" to "Baku", "currency" to "AZN", "people" to "2"))
 
 class OnboardingDraftTest {
-    @Test fun decimalCommaAndOptionalSexProduceUnassessedProfileWithoutInventedTargets() {
+    @Test fun decimalCommaAndOptionalSexProduceIncompleteProfileWithoutInventedTargets() {
         val d = readyOnboarding()
         assertTrue((0..4).all { d.errors(it).isEmpty() })
         val p = d.profile("az", RecordedAt("2026-11-04T10:00:00Z", "Asia/Baku"), CalendarDate("2026-11-04"))
         assertEquals(65.2, p.weightKg!!, 0.0); assertNull(p.calculationSex); assertNull(p.allergies)
         assertNull(p.pregnant); assertNull(p.specialistTargetKcal); assertNull(p.budget.weeklyAmount)
-        assertEquals("not_evaluated", p.eligibilityStatus); assertEquals(5, p.mealsPerDay)
+        assertEquals("incomplete", p.eligibilityStatus); assertEquals(5, p.mealsPerDay)
         assertEquals("2026-11-04", p.ageAsOfDate!!.iso)
         Goal.entries.forEach { goal ->
             assertEquals(goal, d.change("goal", goal.name).profile("en", p.updatedAt, p.ageAsOfDate).goal)

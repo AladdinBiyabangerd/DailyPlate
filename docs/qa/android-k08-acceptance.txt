@@ -1,0 +1,66 @@
+K08 — Eligibility and NutritionPolicy acceptance
+
+Scope
+- Pure Kotlin domain/policy core, no screen/style changes. K09 owns profile edit,
+  target explanation and future recalculation confirmation UI. Existing turquoise
+  references/implementation-guide/new-flows-guide remain the design contract.
+- Typed execution contract v1 augments NutritionPolicy with nullable execution.
+  Legacy opaque PolicyRule lists remain editorial descriptions, not executable
+  instructions. Old payloads decode but cannot calculate without the typed rules.
+- No clinical numbers, activity factors, age maximum, energy bounds, macro ratios
+  or age refresh interval are supplied in production. Synthetic fixtures live only
+  in src/test. Model age scope and each nutrient row carry policy/source versions.
+- Production assess always returns general/specialist path with the G2 approval
+  reason. No trusted production activation provider exists yet. Test evaluation
+  is internal, explicitly named and every computed snapshot is marked testOnly.
+  Payload ACTIVE/review metadata cannot open production by itself.
+
+Acceptance scenarios in required CI suites
+NutritionPolicyEngineTest:
+- Independent 1780 REE -> 2670 maintenance arithmetic; activity separate from REE;
+  macro grams calculated using explicit test rules without intermediate rounding.
+- Same inputs except sex: 166 kcal REE difference (249 with test activity factor).
+  Age 30 -> 40 changes REE by 50. Four goals use explicit policy adjustments;
+  healthy and maintain cannot carry deficit/surplus in typed contract v1.
+- Missing age/sex/height/weight/activity never produces an automatic target.
+  Unknown activity/formula/formula revision and legacy/no/inactive policy reject.
+- Under 18, model lower/upper boundaries and out-of-scope adult; pregnancy,
+  breastfeeding, eating risk, medical diet, kidney and treatment for all goals.
+  Missing health answers remain unknown; explicit risks outrank missing answers.
+  Male onboarding's unasked reproductive fields do not block; explicit true does.
+- Age/as-of is retained, not guessed from birthdays. Missing/future/stale date
+  requires confirmation; test max-days boundary uses RecordedAt user timezone.
+- Bounds reject rather than clamp; overflow/nonfinite values cannot become targets.
+- General and specialist paths remain available without policy/sex. Specialist
+  target is an entered value, has no formula/macros, and cannot override screening.
+- Formula/policy/profile versions, full inputs and time survive serialization.
+NutrientReferenceSelectorTest:
+- Each nutrient selects its own age/sex/life-stage source row. Null sex selects
+  only sex-independent rows. Unknown stage/age and overlapping rows report
+  missing/ambiguous data rather than zero or arbitrary selection. Selecting a
+  pregnancy row does not authorize an automatic pregnancy plan.
+NutritionAssessmentPersistenceTest:
+- Real Room disk close/reopen; append-only profile and assessment revisions;
+  owner isolation, idempotency/conflict; new profile/policy leaves prior assessment
+  and FoodLog snapshots unchanged. Legacy policy JSON without execution decodes.
+- Injected SQLite INSERT failure in onboarding assessment rolls back profile too;
+  retry commits one profile/assessment and reopening returns persisted results.
+OnboardingDraftTest / existing UI regression:
+- Confirmed profile records screened eligible/incomplete/excluded status; health
+  answers remain explicit. Existing onboarding design and language behavior retained.
+
+Execution evidence
+- Required suites added to android/tools/check_android.py. Only actual merged-main
+  CI results establish execution: .local-ci/logs/latest.json and commit-keyed log.
+- CI runs only after workflow.py finish merges to main. Mandatory checks are
+  APK-free lintDebug, compileDebugKotlin, testDebugUnitTest, token/resource checks
+  and existing Python/library/plan export parity. No branch CI is authorized.
+
+Unverified / deferred
+- G2 clinical/editor role provisioning and actual approved scope/formula/activity/
+  energy/macro/reassessment decisions. No live personal target or menu is activated.
+- K09 profile edit/history/explanation UI, specialist-target entry UI and explicit
+  age-update confirmation UI. K16 integrates actual menu recalculation.
+- No APK/AAB, installation, device/instrumentation, TalkBack or new visual render.
+  This task changes domain/storage only and makes no new visual acceptance claim.
+- No clinical efficacy, diagnosis, nutrient completeness or release-readiness claim.
