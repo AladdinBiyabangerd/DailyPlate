@@ -38,7 +38,7 @@ internal fun RecipeDetailScreen(planId: String, itemId: String, back: () -> Unit
                 if (resume || command != null) saved = true
             } catch (cancelled: CancellationException) { throw cancelled }
             catch (_: Exception) {
-                error = true
+                error = true; detail = null
                 pending = withContext(Dispatchers.IO) { workflow.pending() }
             } finally { busy = false }
         }
@@ -72,7 +72,11 @@ internal fun RecipeDetailContent(detail: RecipeDetailData, confirm: (PlanConsump
     Text(stringResource(R.string.rd_version, detail.recipe.ref.version, detail.customization?.ref?.version ?: 0L))
     Text(stringResource(R.string.rd_plan_portion, detail.item.plannedServings, detail.item.remainingPlannedServings))
     detail.item.portionGrams?.let { Text("$it ${stringResource(R.string.fe_grams)}") }
+    Text(stringResource(R.string.rd_personal_nutrients))
     RecipeNutrients(detail.item.nutrientSnapshot)
+    if (detail.customization == null) detail.recipe.time.totalMinutes?.let {
+        Text(stringResource(R.string.rd_time, it))
+    }
     QidaCard {
         Text(stringResource(R.string.rd_batch), style = MaterialTheme.typography.titleMedium)
         detail.batchServings?.let { Text(stringResource(R.string.rd_batch_servings, it)) }

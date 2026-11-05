@@ -13,6 +13,7 @@
 ## Decisions
 - Base batch conversion requires stored cooked yield and personal grams; missing basis blocks intake here.
 - Customized ingredients/instructions come from exact saved revision; cooked yield/verification are not inherited.
+- Stale uncommitted commands are cleared only on repository RevisionConflict; require reload/new confirmation. Temporary failures retain the exact command.
 - One generated serving denotes a personal portion, distinct from a full batch.
 
 ## Remaining work
@@ -29,7 +30,8 @@
 ## Checks performed
 - Read lifecycle, organization, canonical scoped requirements, nutrition design, design references and ui-craft; inspected recipe reference image.
 - Added APK-free JVM behavioral tests and native Compose rendering for AZ/EN/RU at font scale 1.5.
-- CI execution and resulting screenshot inspection are recorded in chat after finish; do not infer passes from this file.
+- First merged CI caught missing AZ override keys (fixed); second compiled and ran 197 tests, exposing test harness thread/scroll assumptions (repaired).
+- Inspected native AZ portion preview at font scale 1.5; text wraps and confirmation is visible. Final CI and remaining render inspection are recorded in chat.
 
 ## Exact next step
 - Check merged-main CI outcome and screenshot evidence, then plan the next scoped unit using planning/coding-tasks.txt. Do not claim production/device acceptance without evidence.

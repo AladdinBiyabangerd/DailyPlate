@@ -33,7 +33,13 @@ internal class RecipeWorkflow(context: Context) {
     }
     fun resume() {
         val command = requireNotNull(pending())
-        UserRepositories.open(context).use { it.planConsumption.confirm(command) }
+        try {
+            UserRepositories.open(context).use { it.planConsumption.confirm(command) }
+        } catch (stale: RevisionConflict) {
+            // Repository checks its receipt before revision: this event has not committed.
+            check(preferences.edit().remove("pending").commit())
+            throw stale
+        }
         check(preferences.edit().remove("pending").commit())
     }
 }
