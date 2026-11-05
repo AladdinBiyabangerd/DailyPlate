@@ -55,8 +55,9 @@
   branch/main CI must execute 82 tests. The prior 80-test result above is historical.
 - Final timestamp display uses local zone and minute precision to avoid splitting
   raw ISO fractions; inspected the final AZ/EN/RU 150% explanation renders.
-- Earlier user instructions required main-only CI. Latest replacement AGENTS.md
-  requires branch + main CI; local workflow restored accordingly for the final fix.
+- Latest user instruction: CI only after a branch merges into main. Workflow,
+  hooks, AGENTS.md and local rule now enforce post-merge-only CI; manual calls
+  and branch/pre-merge CI are refused. This supersedes branch-CI instructions.
 - Future meal-count changes may add/remove future unconsumed slots; protected
   past/consumed items remain immutable. Added a contract regression (82 tests).
 - No APK packaging, installation, device tests or remote operations.
