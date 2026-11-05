@@ -1,48 +1,36 @@
-# Current task — execution queue reconciliation
+# Current task — K14 price arithmetic
 
 ## Completed
-- Reconciled planning/coding-tasks.txt with existing code and acceptance evidence.
-- K13 hard filters exist (00a0ca2); K08-v2 integration/activation is already on main
-  (20473a9). NP-16 is complete (47cb07d; final acceptance/context 5daf7de).
-- Corrected stale K13-next, research-not-integrated and inactive-calculation claims.
+- K14 pure shopping/pricing engine and eight JVM acceptance tests implemented.
+- Decimal usage/full-package cost, weekly aggregation, home deduction, exact
+  state/region/currency matching, explicit versioned freshness, missing reasons.
+- Production G4 gate remains closed; test observations explicitly marked.
 
 ## Current state
-- Before this documentation update, main 5daf7de had matching green CI: 151 JVM
-  tests, lint/compile, tokens/contrast, library contracts and canonical export parity.
-- This documentation-only unit uses finish; authoritative final result is
-  .local-ci/logs/latest.json with head equal to current main HEAD and passed=true.
-- K14 is next in the implementation queue; it has NOT been started in this unit.
+- Implementation complete; authoritative final CI is .local-ci/logs/latest.json:
+  require passed=true and head matching main. See chat for final execution result.
+- K15 is next; no generator, shopping UI or real price acceptance claimed.
 
 ## Decisions
-- Current automatic energy/macros are explicitly user-enabled under canonical §30.
-  Catalog/menu approval remains separate and blocked; no new clinical approval.
-- NP-17–23 macro/menu-check core exists, but does not complete K15 generation,
-  full nutrient coverage or real published-portion validation.
-- Existing models/contracts are preparation, not acceptance of K14–K34.
-- Only coding-tasks.txt and this context changed. No app/canonical plan/UI changes.
+- No invented freshness threshold or cooking yield; exact-state edible grams only.
+- Production total null until G4; budgetComplianceVerified always false.
+- Existing IngredientPrice snapshot persistence reused, no schema migration.
 
 ## Remaining work
-- Await a separate instruction before K14 implementation. Inspect pricing contracts
-  and plan §17/19.8, §21 R-06, A-07/A-08 and customization §6 first.
-- K15 generator and K27 broader weight entry/progress remain separate milestones.
-- Device/APK/pilot, clinical effectiveness and real catalog/price acceptance remain
-  unverified. No APK or remote actions authorized/performed.
+- K15 generator; K17 shopping marks/deltas/UI. Real prices and G4 remain separate.
+- 108-profile generator matrix, clinical/pilot and device/APK unverified.
 
 ## Relevant files
-- planning/coding-tasks.txt; planning/nutrition-science-implementation-plan.txt
-- docs/nutrition-plan-design.md §30 (canonical source: planning/research-data.json)
-- docs/qa/android-k13-acceptance.txt; android-k08-v2-implementation.md;
-  android-np16-acceptance.md (all under docs/qa/)
-- android/app/src/main/java/com/aladdin/dailyplate/domain/planning/RecipeCandidateFilter.kt
-- android/app/src/main/java/com/aladdin/dailyplate/domain/policy/NutritionPlanning.kt
-- android/app/src/main/java/com/aladdin/dailyplate/domain/policy/NutritionMenuChecks.kt
+- android/app/src/main/java/com/aladdin/dailyplate/domain/pricing/ShoppingPricing.kt
+- android/app/src/test/java/com/aladdin/dailyplate/domain/pricing/ShoppingPricingTest.kt
+- docs/qa/android-k14-acceptance.md; planning/coding-tasks.txt
+- planning/nutrition-science-implementation-plan.txt §17/19.8/21/25
 
 ## Checks performed
-- Read code, acceptance records and commit history; verified clean initial tree,
-  hooksPath=.local-ci/hooks and baseline matching-head green CI.
-- Documentation diff/whitespace review; final post-merge check via workflow finish.
-- No branch/manual CI, new UI render, APK or device checks.
+- Initial clean status, hooksPath, local workflow and scoped requirements read.
+- Diff whitespace review; post-merge CI via workflow finish only (see latest.json).
+- No APK, device, remote or UI checks performed.
 
 ## Exact next step
-- Read this note and coding-tasks.txt. K14 is the next implementation candidate;
-  start it only on a separate user instruction. Do not repeat K13 or NP-16.
+- On K15 instruction read its requirements and generator contracts; start a new
+  local workflow branch. Do not repeat K14 or infer G4 approval from test prices.
