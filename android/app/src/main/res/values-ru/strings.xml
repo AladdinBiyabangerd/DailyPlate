@@ -96,4 +96,5 @@
     <string name="td_dinner">Ужин</string>
     <string name="td_snack">Перекус</string>
     <string name="td_numbered_meal">Приём пищи %1$d</string>
+    <string name="td_details">Подробнее</string>
 </resources>

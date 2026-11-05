@@ -1,6 +1,9 @@
 package com.aladdin.dailyplate.ui.today
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.Image
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.ui.draw.clip
 import androidx.compose.material3.*
@@ -35,11 +38,11 @@ internal fun TodayDashboard(entries: List<FoodLog>, meals: List<TodayMeal>, date
             contentColor = MaterialTheme.colorScheme.onPrimary)) {
         Column(Modifier.padding(QidaSpacing.medium), verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
             if (LocalConfiguration.current.fontScale > 1.3f) {
-                QidaArt(R.drawable.art_menu, Modifier.size(QidaDimensions.bannerArt).clip(CircleShape).align(Alignment.CenterHorizontally))
+                MealIllustration(Modifier.size(QidaDimensions.bannerArt).clip(CircleShape).align(Alignment.CenterHorizontally))
                 HeroLabel(next, latest)
             } else Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(QidaSpacing.small)) {
                 Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(QidaSpacing.small)) { HeroLabel(next, latest) }
-                QidaArt(R.drawable.art_menu, Modifier.size(QidaDimensions.bannerArt).clip(CircleShape))
+                MealIllustration(Modifier.size(QidaDimensions.bannerArt).clip(CircleShape))
             }
             Text(stringResource(R.string.td_illustration), style = MaterialTheme.typography.bodyMedium)
             FilledTonalButton(onClick = add, modifier = Modifier.fillMaxWidth().heightIn(min = QidaDimensions.touchTarget),
@@ -68,7 +71,7 @@ internal fun TodayDashboard(entries: List<FoodLog>, meals: List<TodayMeal>, date
                         Column(horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.spacedBy(QidaSpacing.small)) {
                             Box(contentAlignment = Alignment.BottomEnd) {
-                                QidaArt(R.drawable.art_menu, Modifier.size(QidaDimensions.touchTarget).clip(CircleShape))
+                                MealIllustration(Modifier.size(QidaDimensions.touchTarget).clip(CircleShape))
                                 if (meal.item.status == PlanItemStatus.CONSUMED) Text("✓")
                             }
                             Text(slotLabel(meal.item.mealSlot), style = MaterialTheme.typography.bodyMedium)
@@ -83,7 +86,7 @@ internal fun TodayDashboard(entries: List<FoodLog>, meals: List<TodayMeal>, date
         Text(stringResource(R.string.today_menu), style = MaterialTheme.typography.titleLarge)
         meals.forEach { meal ->
             MealPictureCard(meal.name, slotLabel(meal.item.mealSlot) + " · " + statusLabel(meal.item.status),
-                "today-plan-" + meal.item.id, { openMeal(meal) })
+                "today-plan-" + meal.item.id, { openMeal(meal) }, planned = true)
         }
     }
     if (entries.isEmpty()) {
@@ -109,21 +112,21 @@ private fun HeroLabel(next: TodayMeal?, latest: FoodLog?) {
     Text(next?.name ?: latest?.displayName ?: latest?.ref?.id ?: stringResource(R.string.empty_today), style = MaterialTheme.typography.titleLarge)
     if (next != null) Text(stringResource(R.string.mn_planned))
     else if (latest != null) Text(stringResource(R.string.td_recorded))
-    if (next != null || latest != null) Text(stringResource(R.string.rd_details), style = MaterialTheme.typography.labelLarge)
+    if (next != null || latest != null) Text(stringResource(if (next != null) R.string.rd_details else R.string.td_details), style = MaterialTheme.typography.labelLarge)
 }
 
 @Composable
-private fun MealPictureCard(name: String, subtitle: String, tag: String, open: () -> Unit) {
+private fun MealPictureCard(name: String, subtitle: String, tag: String, open: () -> Unit, planned: Boolean = false) {
     Card(onClick = open, modifier = Modifier.fillMaxWidth().heightIn(min = QidaDimensions.touchTarget).testTag(tag),
         shape = MaterialTheme.shapes.large,
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)) {
         Row(Modifier.padding(QidaSpacing.medium), verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
-            QidaArt(R.drawable.art_menu, Modifier.size(QidaDimensions.choiceArt).clip(CircleShape))
+            MealIllustration(Modifier.size(QidaDimensions.choiceArt).clip(CircleShape))
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(QidaSpacing.small)) {
                 Text(name, style = MaterialTheme.typography.titleMedium)
                 Text(subtitle, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Text(stringResource(R.string.rd_details), color = MaterialTheme.colorScheme.primary)
+                Text(stringResource(if (planned) R.string.rd_details else R.string.td_details), color = MaterialTheme.colorScheme.primary)
                 Text(stringResource(R.string.td_illustration), style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant)
             }
@@ -147,3 +150,9 @@ private fun statusLabel(status: PlanItemStatus) = stringResource(when (status) {
     PlanItemStatus.CONSUMED -> R.string.mn_consumed
     PlanItemStatus.SKIPPED -> R.string.mn_skipped
 })
+
+@Composable
+private fun MealIllustration(modifier: Modifier = Modifier) {
+    Image(painterResource(R.drawable.art_empty), contentDescription = null,
+        modifier = modifier.clip(CircleShape), contentScale = ContentScale.Crop)
+}

@@ -50,7 +50,7 @@ fun BootstrapScreen() {
                 Column(Modifier.weight(1f).verticalScroll(contentScroll)
                     .padding(if (navigation.current == Destination.Welcome) QidaSpacing.medium else QidaSpacing.large),
                     verticalArrangement = Arrangement.spacedBy(if (navigation.current == Destination.Welcome) QidaSpacing.small else QidaSpacing.medium)) {
-                    if (navigation.stack.size > 1 && navigation.current != Destination.Setup) TextButton(onClick = { route = navigation.back().encode() },
+                    if (navigation.stack.size > 1 && navigation.current != Destination.Setup && navigation.current != Destination.Today) TextButton(onClick = { route = navigation.back().encode() },
                         modifier = Modifier.heightIn(min = QidaDimensions.touchTarget),
                         shape = MaterialTheme.shapes.large,
                         colors = ButtonDefaults.textButtonColors(containerColor = MaterialTheme.colorScheme.surface)) {

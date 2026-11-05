@@ -96,4 +96,5 @@
     <string name="td_dinner">Dinner</string>
     <string name="td_snack">Snack</string>
     <string name="td_numbered_meal">Meal %1$d</string>
+    <string name="td_details">View details</string>
 </resources>
