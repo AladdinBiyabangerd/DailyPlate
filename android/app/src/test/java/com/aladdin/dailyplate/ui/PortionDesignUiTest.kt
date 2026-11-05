@@ -70,7 +70,7 @@ class PortionDesignUiTest {
         val positions = if (surface == "recipe-portion" && state in listOf("edit", "selected"))
             listOf("top", "middle", "bottom") else listOf("top", "bottom")
         for (position in positions) {
-            if (position == "middle") compose.onNodeWithText(t(R.string.pd_eaten)).performScrollTo()
+            if (position == "middle") compose.onNodeWithText(t(R.string.rd_personal)).performScrollTo()
             else compose.onNodeWithTag("d02-$position").performScrollTo()
             compose.runOnIdle {
                 val view = compose.activity.window.decorView
