@@ -20,13 +20,15 @@
         "android/app/src/main/res/values/portion_confirmation.xml",
         "android/app/src/main/res/values-az/portion_confirmation.xml",
         "android/app/src/main/res/values-en/portion_confirmation.xml",
-        "android/app/src/main/res/values-ru/portion_confirmation.xml"
+        "android/app/src/main/res/values-ru/portion_confirmation.xml",
+        "design-concepts/simple-turquoise/implementation-guide.txt"
       ],
       "requirements": [
         "Approved B design: labelled decorative illustration, white cards and turquoise tokens; no universal plate calories",
         "Recipe separates scaled prepared batch from consumed share; manual/search keep original grams or kilograms and previous entries keep original basis",
         "Explicit preview then confirmation; errors never claim success; retry preserves event; unknown nutrients stay unknown",
-        "AZ/EN/RU 100%/150% full top/bottom coverage, 48dp targets, full labels and single-column large text"
+        "AZ/EN/RU 100%/150% full top/bottom coverage, 48dp targets, full labels and single-column large text",
+        "Existing design principle: simple layout, consistent native components/terms; one clear primary action and next step"
       ],
       "states": [
         "edit",
@@ -830,13 +832,15 @@
         "android/app/src/main/res/values/portion_confirmation.xml",
         "android/app/src/main/res/values-az/portion_confirmation.xml",
         "android/app/src/main/res/values-en/portion_confirmation.xml",
-        "android/app/src/main/res/values-ru/portion_confirmation.xml"
+        "android/app/src/main/res/values-ru/portion_confirmation.xml",
+        "design-concepts/simple-turquoise/implementation-guide.txt"
       ],
       "requirements": [
         "Approved B design: labelled decorative illustration, white cards and turquoise tokens; no universal plate calories",
         "Recipe separates scaled prepared batch from consumed share; manual/search keep original grams or kilograms and previous entries keep original basis",
         "Explicit preview then confirmation; errors never claim success; retry preserves event; unknown nutrients stay unknown",
-        "AZ/EN/RU 100%/150% full top/bottom coverage, 48dp targets, full labels and single-column large text"
+        "AZ/EN/RU 100%/150% full top/bottom coverage, 48dp targets, full labels and single-column large text",
+        "Existing design principle: simple layout, consistent native components/terms; one clear primary action and next step"
       ],
       "states": [
         "edit",
