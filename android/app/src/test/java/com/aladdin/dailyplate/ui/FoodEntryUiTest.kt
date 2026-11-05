@@ -50,17 +50,20 @@ class FoodEntryUiTest {
         }
     }
     @Test fun appNavigationRestoresSelectedDraftWithoutWritingFoodLog() {
+        val az = base.createConfigurationContext(android.content.res.Configuration(base.resources.configuration).apply {
+            setLocale(Locale.forLanguageTag("az"))
+        })
         click("Hesabım var")
         click("Davam et")
         click("Əlavə et")
         compose.waitUntil(10000) { compose.onAllNodesWithText("Nə yemisən?").fetchSemanticsNodes().isNotEmpty() }
         capture("app-search-az")
-        click(base.getString(R.string.fe_manual))
-        enter(base.getString(R.string.fe_name), "Evdə yemək")
-        enter(base.getString(R.string.fe_amount), "150")
-        click(base.getString(R.string.fe_prepare))
+        click(az.getString(R.string.fe_manual))
+        enter(az.getString(R.string.fe_name), "Evdə yemək")
+        enter(az.getString(R.string.fe_amount), "150")
+        click(az.getString(R.string.fe_prepare))
         compose.activityRule.scenario.recreate()
-        compose.onNodeWithText(base.getString(R.string.fe_portion)).performScrollTo().assertIsDisplayed()
+        compose.onNodeWithText(az.getString(R.string.fe_portion)).performScrollTo().assertIsDisplayed()
         compose.onNodeWithText("Evdə yemək").assertExists()
         capture("app-portion-restored-az")
     }
