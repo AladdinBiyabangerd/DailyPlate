@@ -1,39 +1,49 @@
-# Current task — K13
+# Current task — K08-v2 slices 1–2 integration
 
 ## Completed
-- K13 pure deterministic recipe candidate filter and typed rule results.
-- K03 exact ingredient versions, K05 publication completeness and K08 eligibility
-  reused; production gate stays closed. Internal fixtures remain test-only.
-- Allergy/cross contact/unknown compound or mapping, dietary restrictions,
-  region/equipment, dislikes, total time and recipe portion grid are hard checks.
+- Slice 1 internal NASEM/Mifflin formula dispatch retained.
+- Slice 2 internal serializable research energy contract v2, provenance, typed
+  RuleResults and pure screening/energy preview implemented (NP-07–12/NP-28).
+- Distinct model/product age scope, unrounded BMI/goal checks, ten explicit
+  health answers, measurement/activity confirmation, sex floors and no clamp.
+- Added boundary, exclusion, input, floor and serialization tests; not executed.
 
 ## Current state
-- K13 worktree /private/tmp/callmood-k13; canonical plan 2.0 merged from main.
-  Preserve its canonical JSON and generated MD/TXT/PDF/canvas.
-- See matching-head .local-ci/logs/latest.json for final main CI result.
+- Worktree /private/tmp/callmood-k08-v2; branch feat/k08-v2-formula.
+- User subsequently authorized local merge; mandatory post-merge CI applies. No APK.
+- Integration prepared on fix/k08-v2-integration; feat/k08-v2-formula retained.
+- Existing task branch continued; hooksPath=.local-ci/hooks; initial tree clean.
 
 ## Decisions
-- No UI or APK. No fake policy/publication activation.
-- Missing equipment is unknown when required; onboarding is not expanded.
-- SUCCESS is candidate-stage only; K15 owns day/week/nutrient validation.
-- Plan 2.0 additions C-05/C-08/C-09, D-02/D-05 and A-05 apply.
-  Separate plan task commits remain intact in main history.
+- Frozen research contract retains RESEARCH_PROPOSAL; current canonical candidate
+  separately records SPECIALIST_APPROVAL_REPORTED. This merge does not promote
+  the frozen runtime contract or enable production/G2/G3 execution.
+- Pure preview is an intermediate research energy result, not a complete plan.
+- No v1 payload/schema, storage, FoodLog, specialist or downstream changes.
+- New research input requires all ten explicit health responses, including
+  reproductive responses; it does not reuse legacy male onboarding omissions.
+- Date freshness/reconfirmation migration belongs to slice 4, not this preview.
 
 ## Remaining work
-- K14 pricing next; K15 generator follows. Production G2/G3 remain blocked.
-- Real catalog, device and clinical acceptance remain unverified.
+- Slice 3 macro max/remainder feasibility and typed goal-specific menu bounds.
+- Slice 4 persisted legacy fixtures/migration, freshness, preview/confirm revisions.
+- Slice 5 integration/regressions; authorization required before integration.
 
 ## Relevant files
-- domain/planning/{CandidateContracts,RecipeCandidateFilter}.kt
-- domain/planning/RecipeCandidateFilterTest.kt; docs/qa/android-k13-acceptance.txt
-- planning/coding-tasks.txt; planning/nutrition-science-implementation-plan.txt
+- android/app/src/main/java/com/aladdin/dailyplate/domain/policy/
+  ResearchEnergyContractV2.kt, ResearchEnergyEligibilityV2.kt, EnergyFormula.kt
+- android/app/src/test/java/com/aladdin/dailyplate/domain/policy/ResearchEnergyV2Test.kt
+- docs/qa/android-k08-v2-implementation.md
+- planning/nutrition-policy-candidate.json; docs/nutrition-plan-design.md §26–29
+- planning/nutrition-science-implementation-plan.txt
 
 ## Checks performed
-- See final matching-main CI log for Kotlin compilation/lint, JVM tests, library
-  contracts and canonical export checks. No pre-merge CI or APK checks.
+- Source review and git diff --check only.
+- No compilation, test execution, lint, CI, APK, device or clinical validation.
+- Serialization assertions are new-object tests, not legacy migration evidence.
 
 ## Exact next step
-- Verify matching-main CI, then read K14 and its referenced plan before coding.
+- Verify merged-main CI; next implementation unit is slice 3 (NP-13–23).
 
 ## Latest nutrition-plan status
 - Research proposal 479f7ee merged into main as b775fb2; CI skipped at user request.

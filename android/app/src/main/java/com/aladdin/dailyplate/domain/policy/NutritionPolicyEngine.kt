@@ -6,7 +6,7 @@ import java.time.ZoneId
 
 /** Pure deterministic K08 core. No production activation provider exists until G2 is resolved. */
 object NutritionPolicyEngine {
-    val MIFFLIN_ST_JEOR_V1 = VersionRef("mifflin-st-jeor", 1)
+    val MIFFLIN_ST_JEOR_V1 = EnergyFormula.MIFFLIN_V1
 
     fun assess(profile: UserProfile, policy: NutritionPolicy?, at: RecordedAt): NutritionAssessment =
         evaluate(profile, policy, at, testOnly = false)
@@ -41,9 +41,13 @@ object NutritionPolicyEngine {
         val height = requireNotNull(profile.heightCm)
         val activity = requireNotNull(profile.activityCode)
         val factor = policy.activityMapping.getValue(activity)
-        val resting = 10.0 * weight + 6.25 * height - 5.0 * age +
-            when (sex) { CalculationSex.MALE -> 5.0; CalculationSex.FEMALE -> -161.0 }
-        val maintenance = resting * factor
+        val estimate = EnergyFormula.estimate(policy.formula, age, sex, height, weight,
+            EnergyActivity.LegacyFactor(factor))
+        if (estimate !is EnergyFormulaResult.Estimate) {
+            issue(PolicyReason.NON_FINITE_RESULT); return fallback()
+        }
+        val resting = requireNotNull(estimate.restingKcal)
+        val maintenance = estimate.maintenanceKcal
         val daily = maintenance + rules.goalAdjustmentKcal.getValue(profile.goal)
         if (listOf(resting, maintenance, daily).any { !it.isFinite() || it <= 0 }) {
             issue(PolicyReason.NON_FINITE_RESULT); return fallback()
