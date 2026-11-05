@@ -1,61 +1,57 @@
-# Current task — K12 implemented; next K13
+# Current task — unified nutrition plan 2.0; next implementation K13
 
 ## Completed
-- K12 Today actual totals by current IANA timezone and local midnight; empty day
-  and unknown nutrients stay unknown. No plan dependency; K16 owns forecasts.
-- Remaining energy uses only current persisted K08 specialist assessment plus
-  complete energy. G2/G3 remain closed; neutral above-target text.
-- Success routes to Today or concrete saved ID; portion/nutrients/actual recipe
-  ingredients and committed-day summary. Explicit multiple preview/confirm edits
-  immutable snapshot; retains event/date/source/basis and actual batch.
-- Confirmed deletion appends tombstone; history/event ledger retained, original
-  event retry cannot resurrect it. Latest totals/repeat list omit deletions.
-- Implementation 06df3ae; verification fix 1ebe9ea; main abb1c81 passed 98 JVM
-  tests. Final acceptance 35968ba merged as d2d44c6 passed 103 JVM tests, lint,
-  compilation and all data checks. It includes locale renders and ingredient labels.
+- Merged docs/nutrition-plan-design.md with canonical research-data.json.
+  Preserved §1–19 and T01–T19; added §20–25 (U/R/C/D/B/A requirement IDs).
+- One canonical JSON now generates MD/TXT/canvas; refreshed 39-page PDF.
+- Resolved default calorie/PAL/macro conflicts without inventing clinical
+  approval. No dietitian currently; G2/G3 remain closed, diary path retained.
+- Researched WHO/EFSA/FDC/NIDDK/current DGA/OFF licences/Firebase/Play/Circular33.
+  DGA 2020–2025 no longer labelled current. Source verification scope explicit.
+- Preserved existing K01–K12 implementation; queue corrected to next K13.
+  K12 code/acceptance history is in docs/qa/android-k12-acceptance.txt and commits
+  06df3ae, 1ebe9ea, 35968ba and final share-display fix 01c3589 (main ee22394).
+  Unknown cooked grams remain unknown; actual batch share is displayed.
+  Prior K12 verification: 103 JVM/Room/Compose tests at main d2d44c6; later
+  matching-head CI supersedes it. This task changes planning/export tooling only.
 
 ## Current state
-- K12 code is merged into main and green at d2d44c6. This documentation update
-  follows; require final .local-ci/logs/latest.json passed=true and head == main.
-- Concurrent work switched the primary checkout to docs/nutrition-plan-design.
-  K12 final worktree: /private/tmp/callmood-k12-final, with its own local CI logs
-  and reports. Do not switch or commit unrelated primary-checkout work.
+- Finish this docs/nutrition-plan-design branch through workflow.py finish.
+  Completion requires .local-ci/logs/latest.json passed=true with matching HEAD.
+  After successful finish, main contains plan 2.0; no remote operations.
 
 ## Decisions
-- Current user/device zone defines Today; original entry instant/zone retained.
-- Empty day is not a precise zero intake. Missing/null/unit-mismatched nutrients
-  invalidate that total and remaining energy; known zero is retained.
-- Edits keep K11 event identity; append-only revisions use optimistic concurrency.
-  Deletion is a backward-compatible optional FoodLog.deleted JSON field.
-- Recipes without known gram yield show actual batch share, never invented grams.
-- No automatic targets, fake content approvals, remote sync or APK generation.
+- JSON is authoritative; MD binding instructions point to the same content.
+- Unsupported calorie floors, deficit/surplus/PAL and macro defaults are not
+  active policy. Specialist approval cannot be replaced by source links or CI.
+- AZ/EN/RU, four goals, 3/4/5 slots, guest/offline and T01–T19 remain required.
+- Spark-only + Go/PostgreSQL is an integration target; K25/K26 must document
+  actual configuration and authoritative storage. Current Room flow remains.
+- No application feature or clinical gate activated; no APK generated.
 
 ## Remaining work
-- K13 only in a new chat after final K12 green finish.
-- Real published-food search-to-save E2E blocked by empty production catalog.
-- Device/APK/TalkBack, physical disk-full and clinical approval unverified.
+- G2 clinical policy review; G3 content/rights/translations/yield; G4 local prices;
+  G5 real backend/photo/data lifecycle; G6 monetization; G7 device/user pilot.
+- Current DGA full nutrient mapping and regional datasets/legal scope unverified.
+- Canvas runtime rendering not verified; embedded data regenerated, layout kept.
 
 ## Relevant files
-- domain/diary/TodayDiary.kt; domain/FoodLog.kt
-- data/local/FoodLogRepository.kt; ui/today/{TodayScreen,RecordedIngredients}.kt
-- ui/BootstrapScreen.kt; ui/entry/{FoodEntryScreen,PortionDraftEditor}.kt
-- domain/TodayDiaryTest.kt; data/local/UserPersistenceTest.kt;
-  ui/FoodEntryUiTest.kt; res/values*/today.xml
-- docs/qa/android-k12-acceptance.txt; planning/coding-tasks.txt
-- Canonical plan: planning/research-data.json; derived nutrition-science-implementation-plan.txt
+- planning/research-data.json; docs/nutrition-plan-design.md (generated)
+- planning/nutrition-science-implementation-plan.txt; coding-tasks.txt
+- planning/meal-customization-requirements.txt; library/tools/update_project_plan.py
+- planning/build_plan_pdf.py; qidalanma-elmi-esas-ve-icra-plani.pdf
+- docs/qa/android-k12-acceptance.txt; domain/policy/ (K08 regressions if changed)
 
 ## Checks performed
-- Green code main d2d44c6: 103 JVM/Room/Compose tests, lint, Kotlin compile, AZ/EN/RU
-  key parity/tokens, 15 library tests and canonical export parity.
-- Boundary/DST, missing/unit/zero arithmetic; edit/delete/reopen/conflict/event
-  dedupe; manual save/recreation/edit/delete Compose flow.
-- Native PNGs inspected for AZ/EN/RU 150% text, Today, edit, empty and delete
-  confirmation. Some native English captures omit previously drawn text; earlier
-  full English renders and final individual labels were also inspected. This
-  renderer limitation is not device visual acceptance.
-- Contrast required pairs 4.71–12.70:1. No APK or device tests.
+- PDF rendered: 39 pages; overview sheets inspected, changed source-page layout
+  re-rendered and inspected. Source-only orphan pages corrected.
+- Existing token contrast: primary 4.71, muted 5.36, text 12.70 on white.
+- git diff --check; PDF marked binary to avoid treating its streams as text.
+- Mandatory post-merge CI is the final check; inspect matching-head log for
+  actual test counts/results. Local CI now includes MD export parity too.
+- Clinical approval, new app behavior, APK/device and canvas runtime unverified.
 
 ## Exact next step
-- Check K12 final matching-head CI (worktree local logs), then K13:
-  read coding-tasks K13 and its referenced §6–8/17–18 requirements plus K03/K05
-  publication and K07/K08 policy contracts. Do not create an APK.
+- In a new chat read this handoff, AGENTS.md, local workflow, plan §20–25 and
+  scoped K13 sections (§3/6/7/8/11/12/15). Implement K13 only; retain G2/G3
+  fail-closed filtering, UNKNOWN semantics and production/test separation.

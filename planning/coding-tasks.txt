@@ -1,5 +1,5 @@
 QIDA — ARDICIL KODLAŞDIRMA TAPŞIRIQLARI
-Versiya 1.5 | 5 noyabr 2026 | məhsul planı 1.7
+Versiya 1.6 | 5 noyabr 2026 | məhsul planı 2.0
 
 STATUS VƏ MƏNBƏ
 Bu sənəd icra növbəsidir, tətbiq implementasiyası deyil.
@@ -17,7 +17,7 @@ Kanonik məhsul mənbəyi: planning/research-data.json.
 Dizayn qaydaları: design-concepts/simple-turquoise/implementation-guide.txt,
 new-flows-guide.txt və design-concepts/tokens.css. Bu sənəd vizual dizayn yaratmır.
 Baza: library/README.md, manifest.json, foods.json, recipes.json və tools/.
-K01 minimal Android skeleti android/ daxilindədir; məhsul funksiyaları hələ yoxdur.
+Android tətbiqi android/ daxilindədir; K01–K12 üçün implementasiya və qəbul qeydləri mövcuddur.
 Kitabxanada 500 ərzaq və 224 dərc olunmamış resept layihəsi var.
 İstifadəçi qərarı (4 noyabr 2026): ilk tətbiq Android üçündür.
 iOS yalnız istifadəçi Android nəticəsini bəyənib davam qərarı verəndən sonra ayrıca mərhələdir.
@@ -414,3 +414,18 @@ NÖVBƏTİ DAVAM PROMPTU
 “K13-ü icra et. docs/context/current-task.md, planning/coding-tasks.txt və
 K13-ün istinad etdiyi plan bölmələrini oxu. K03/K05 dərc və K07/K08 uyğunluq
 müqavilələrini istifadə et. G2/G3 bağlıdır. APK yaratma. Yalnız K13.”
+
+VAHİD PLAN 2.0 ƏLAVƏLƏRİ — mövcud növbəni əvəz etmir
+§20 U-01–U-10 bütün qidalanma koduna tətbiq olunur; G2/G3 bağlı qalır.
+K08 dəyişərsə: §22 C-01–C-05, A-02/A-03/A-06 üzrə policy migration və regresiya.
+K13: §22 C-05/C-08/C-09, §23 D-02/D-05, A-05; UNKNOWN sərt filtrdən keçmir.
+K14: §21 R-06, A-07/A-08; qiymət naməlumdursa dəqiq büdcə vədi yoxdur.
+K15: §22 C-01–C-10, A-04/A-06–A-08/A-12; bounded deterministik generator,
+  açıq failure kodları, hər qayda üçün PASS/FAIL/UNKNOWN/NOT_APPLICABLE.
+K16 və K18–K23: C-07/C-11/C-12, A-09; T01–T19 saxlanır.
+K24/K32: §21 R-01/R-05–R-07, §23 D-01–D-08; hüquq/mənbə/geri çağırma izi.
+K25/K26: §24 B-01–B-05/B-08, A-10–A-12; Spark-only + Go/PostgreSQL
+  ADR-i, authoritative store, token ownership, outbox/tombstone və quota failure.
+K29: B-06/B-07, A-11; foto razılığı, real retention/export/delete/backup siyasəti.
+K31–K34: §25 A-01–A-14 tam izləmə; 108 baza kombinasiya və əlavə sərhədlər.
+Bu əlavələr yeni implementasiya və ya keçmiş test statusu iddiası deyil.

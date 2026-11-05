@@ -1,362 +1,718 @@
-# DailyPlate: pəhrizsiz, rəsmi mənbələrə əsaslanan qida planı dizaynı
+# DailyPlate — vahid qidalanma və funksional icra planı
 
-> **Bu sənəd qida hesablamaları üçün məcburi əsasdır.**
-> Bütün nutrition calculation və meal/plan generation kodu `docs/nutrition-plan-design.md` ilə uyğun olmalıdır: rəsmi açıq mənbələr, DB-dən yenidən hesab, tibbi qırmızı bayraqlar, disclaimer. Bu sənədi zəiflətmək və ya nəzərə almamaq olmaz.
+> Versiya 2.0 · 5 noyabr 2026 (Asia/Baku) · Paket: `com.aladdin.dailyplate`
+> Bu fayl `planning/research-data.json`-dan yaradılır. Tələbi əvvəl kanonik JSON-da dəyiş, sonra `python3 library/tools/update_project_plan.py` işlət.
 
+Əvvəlki nutrition-plan-design və məhsul planı birləşdirilib. §1–19 mövcud məhsul qaydalarını, §20–25 ziddiyyət həllərini, dietoloqsuz rejimi, hesablama/backend müqavilələrini və qəbul ssenarilərini əhatə edir. Bu sənəd işlək tətbiq və ya klinik təsdiq iddiası deyil.
 
-> **App:** DailyPlate (Play adı); daxildə Qida / Callmood · **Paket:** `com.aladdin.dailyplate`
-> **Auditoriya:** Google Play 16+; fərdiləşdirilmiş plan yalnız 18+ sağlam böyüklər üçün
-> **Firebase:** Spark yalnız (Blaze / Cloud Functions / Identity Platform yox)
-> **Sirrlər:** API açarları AppBackend-də (Go + PostgreSQL); cihazda açar yoxdur
-> **Status:** yalnız dizayn sənədi — kod yoxdur · Hazırlanıb: 5 noyabr 2026 (Asia/Baku)
+İcra növbəsi: [coding-tasks](../planning/coding-tasks.txt). Əlavə məcburi müqavilə: [T01–T19](../planning/meal-customization-requirements.txt).
 
-Bizdə dietoloq yoxdur. Sistem yalnız rəsmi, açıq və yoxlanıla bilən mənbələrə söykənməlidir. İnsanlara səhv məlumat vermək qəbuledilməzdir: hər kalori, makro və mikro rəqəm rəsmi qida bazasından yenidən hesablanır; LLM və ya blog rəqəminə heç vaxt etibar edilmir.
+## 1. Nə qururuq və elmi əsas nə deməkdir?
 
-## Mündəricat
+Təsdiqlənmiş qida məlumatı + öz resept bazamız + versiyalı hesablama və menyu qaydaları.
 
-1. [Məqsəd və prinsiplər](#1-məqsəd-və-prinsiplər)
-2. [Məlumat mənbələri və lisenziyalar](#2-məlumat-mənbələri-və-lisenziyalar)
-3. [İstifadəçi profili](#3-istifadəçi-profili-girişlər)
-4. [Hesablama boru kəməri](#4-hesablama-boru-kəməri)
-5. [Yemək planı generasiyası](#5-yemək-planı-generasiyası)
-6. [Resept qəbul siyasəti](#6-resept-qəbul-siyasəti-müəllif-hüququ)
-7. [Regional / Azərbaycan yeməkləri](#7-regional--azərbaycan-yeməkləri)
-8. [Çoxqatlı yoxlama](#8-çoxqatlı-yoxlama)
-9. [Tibbi qırmızı bayraqlar](#9-tibbi-qırmızı-bayraqlar-və-istisnalar)
-10. [Disclaimer və Play siyasəti](#10-disclaimer-və-google-play-health-siyasəti)
-11. [Spark-dostu arxitektura](#11-spark-dostu-arxitektura)
-12. [Fazalı MVP roadmap](#12-fazalı-mvp-roadmap)
-13. [Risklər və açıq qərarlar](#13-risklər-və-açıq-qərarlar)
-14. [Mənbə URL-ləri](#14-mənbə-url-ləri)
+1. İlk məhsul sağlam yetkinlərin qidalanmanı planlamasına və qeyd etməsinə kömək edir. Xəstəlik diaqnozu, müalicə dietası, vitamin çatışmazlığı diaqnozu və dərman məsləhəti ilk versiyanın funksiyası deyil.
 
----
+2. Elmi mənbəyə söykənən hesablama, mütəxəssisin yoxladığı resept və klinik təsdiqlənmiş məhsul ayrı anlayışlardır. İstinad vermək tətbiqin effektivliyini avtomatik sübut etmir.
 
-## 1. Məqsəd və prinsiplər
+3. İlk bazar üçün AZ/EN/RU məzmun nəzərdə tutulur. Dil ölkə deyil: ərzaq əlçatanlığı və qiymət üçün ölkə/region ayrıca soruşulur.
 
-### Əsas qayda
+4. Versiya 2.0, 5 noyabr 2026: docs/nutrition-plan-design.md ilə əvvəlki 1.7 planı birləşdirilib. Kanonik mənbə planning/research-data.json; MD, TXT, PDF və canvas ondan yaradılır. Bölmə 20–25 ziddiyyət həllərini, yeni müqavilələri və qəbul ssenarilərini tamamlayır; §1–19 və T01–T19 qüvvədədir.
 
-Bizdə dietoloq yoxdur. Ona görə sistem yalnız rəsmi, açıq və yoxlanıla bilən mənbələrə söykənməlidir. Hər kalori, makro və mikro rəqəm rəsmi qida bazasından yenidən hesablanır; LLM və ya blog rəqəminə heç vaxt etibar edilmir.
+Mənbələr: [S3](https://www.who.int/news-room/fact-sheets/detail/healthy-diet), [S4](https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values)
 
-### Prinsiplər
+## 2. Həqiqətən lazım olan resurslar
 
-- Adekvatlıq, balans, mülayimlik, müxtəliflik — WHO-nun sağlam qida prinsipləri.
-- Rəqəmlər həmişə DB-dən; mətn və təqdimat ayrı təbəqədir.
-- Tibbi vəziyyətlərdə plan yox — həkimə yönləndirmə.
-- Müəllif hüququ: faktlar və inqredient siyahısı kopyalana bilər, ifadəli mətn və foto — yox; yenidən yazılır, ilham göstərilir.
-- AI yemək şəkli tanıma planlanır; plan rəqəmləri AI-dan gəlmir.
+İlk mərhələdə çoxsaylı pullu qida API-si tələb olunmur; əsas xərc yerli məzmunun hazırlanmasıdır.
 
----
+1. Hazırkı resurs vəziyyəti: dietoloq yoxdur. Mənbəli gündəlik, texniki hesablama və ümumi maarifləndirmə yolu inkişaf etdirilə bilər. Avtomatik fərdi tövsiyə üçün mövcud G2/G3 klinik/məzmun yoxlaması tələbi saxlanır; mənbə linki, sahibin yoxlaması və AI bu təsdiqin əvəzi deyil. Tərəzi, ölçü qabı, məzmun müəllifi və versiyalı redaktor axını tələb olunur.
 
-## 2. Məlumat mənbələri və lisenziyalar
+2. Qida bazasının idxalı və ya serverdən API istifadəsi ilə başlayırıq. Mobil tətbiq birbaşa USDA açarı daşımır. Təsdiqlənmiş məlumatın öz nüsxəsi və mənbə tarixi saxlanır; xarici API dayananda gündəlik işləyir.
 
-Aşağıdakı mənbələr 5 noyabr 2026-da yoxlanılıb.
+3. Reseptlər üçün öz test mətbəximiz və ya razılaşdığımız aşpaz/məzmun müəllifi. İstənilən saytdan tapılmış resept və foto avtomatik etibarlı qida məlumatı sayılmır. Mətn və şəkillərin istifadə hüququ qeydə alınır.
 
-| Mənbə | Nə üçün | Lisenziya / şərt | URL |
-| --- | --- | --- | --- |
-| WHO Healthy diet | Şəkər <10% (ideal <5%), yağ ≤30%, doymuş yağ <10%, trans <1%, duz <5 g/gün, meyvə-tərəvəz ≥400 g | Rəsmi fakt vərəqi; sitat + link | https://www.who.int/news-room/fact-sheets/detail/Healthy-diet |
-| EFSA DRV | Avropa üçün makro RI, protein PRI (0,83 g/kg), lif AI 25 g, vitamin/mineral PRI/AI/UL | EFSA elmi rəyləri; DRV Finder | https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values · https://multimedia.efsa.europa.eu/drvs/index.htm |
-| USDA FoodData Central | Əsas qida tərkibi DB (Foundation, SR Legacy, FNDDS); kalori/makro/mikro | **CC0 1.0 / public domain** | https://fdc.nal.usda.gov/api-guide/ |
-| Open Food Facts | Qablaşdırılmış məhsul (barcode), allergen teqləri, Nutri-Score (istəyə bağlı) | **ODbL** (attribution + share-alike) | https://world.openfoodfacts.org/data |
-| DGA 2020–2025 | AMDR: protein 10–35%, yağ 20–35%, karbohidrat 45–65%; Na <2300 mg | ABŞ hökumət nəşri | https://www.dietaryguidelines.gov/ |
-| Mifflin–St Jeor (1990) | BMR / REE formulu (böyüklər) | Elmi nəşr; düstur açıq istifadə olunur | https://pubmed.ncbi.nlm.nih.gov/2305711/ |
-| IOM/NAP DRI | Enerji EER konteksti, AMDR, protein RDA | National Academies nəşri | https://doi.org/10.17226/10490 |
-| FAO/INFOODS (+ CARKFOODS) | Regional/qlobal tərkib cədvəlləri; AZ CARKFOODS şəbəkəsindədir | FAO açıq cədvəllər; mənbə göstər | https://www.fao.org/infoods/infoods/regional-data-centres/carkfoods/en/ |
-| TÜBER 2022 | Regional qida nümunələri və mədəni kontekst (Türkiyə; AZ-a yaxın mətbəx) | T.C. Sağlık Bakanlığı nəşri; sitat | https://ekutuphane.saglik.gov.tr/Yayin/683 |
+4. Qiymət üçün ilkin mərhələdə seçilmiş mağazalarda sənədləşdirilmiş qiymət müşahidələri: məhsul, qablaşdırma, tarix, region, valyuta. Büdcə kateqoriyası təxmini olur. Canlı mağaza inteqrasiyası və dəqiq səbət qiyməti ayrıca layihədir.
 
-### ODbL diqqəti
+5. Şəkil tanıma modeli yalnız əlavə modul kimi qoşulur. Məhsul foto olmadan da axtarış, əl ilə qeyd, resept və menyu ilə işləməlidir.
 
-Open Food Facts-i digər DB ilə birləşdirib törəmə DB paylaşsanız, ODbL share-alike tələb edir. Tövsiyə: FDC (CC0) əsas qida tərkibi olsun; OFF yalnız barcode/etiket/allergen üçün ayrı cədvəldə saxlanılsın, UI-də `Contains data from Open Food Facts` yazılsın, User-Agent təyin olunsun, bulk üçün nightly dump istifadə olunsun.
+6. Nəticə: yeni qida API-lərinə abunə almaqdan əvvəl yerli resept və yoxlama işinə resurs ayırırıq.
 
----
+Mənbələr: [S1](https://fdc.nal.usda.gov/api-guide/), [S2](https://fdc.nal.usda.gov/data-documentation/)
 
-## 3. İstifadəçi profili (girişlər)
+## 3. Qida bazasını necə yaradacağıq?
 
-Plan yalnız bu sahələr doldurulduqdan və tibbi ekrandan keçəndən sonra yaradılır.
+Artıq hazırlanıb: 500 mənbəli ərzaq qeydi + 224 qramlı resept layihəsi + 8 həftəlik ideya rotasiyası.
 
-| Sahə | Məcburi? | Qeyd |
-| --- | --- | --- |
-| Doğum ili / yaş | Bəli | 18-dən aşağı → plan yox |
-| Cins (bioloji, enerji formulu üçün) | Bəli | Mifflin–St Jeor kişi/qadın əmsalı |
-| Boy (sm), çəki (kq) | Bəli | BMI yalnız informasiya; diaqnoz deyil |
-| Aktivlik səviyyəsi | Bəli | Sedentar / az / aktiv / çox aktiv → PAL əmsalı |
-| Məqsəd | Bəli | Saxlama / arıqlama / çəki artırma |
-| Allergenlər və istisna | Bəli | Süd, qlüten, fıstıq, balıq, yumurta, susam və s. |
-| Pəhriz üstünlükləri | Xeyr | Vegetarian, vegan, halal, az-duz… |
-| Yemək sayı / gün | Xeyr | 3–5; default 3+1 qəlyanaltı |
-| Regional üstünlük | Xeyr | AZ / TR / beynəlxalq mətbəx |
-| Tibbi özünü-hesabat | Bəli | Aşağıdakı qırmızı bayraqlar |
+1. 4 noyabr 2026 yeniləməsi: 500 unikal mənbə qeydi USDA ID-sinə bağlanıb; 224 reseptin qramla inqrediyentləri və AZ hazırlanma addımları yazılıb. SQLite-də 8 217 USDA istinad qeydi var: 7 793 SR Legacy və 424 Foundation Foods. Xam/bişmiş variantlar və məhsul növləri ayrı qeydlərdir.
 
-**Gizlilik:** Sağlamlıq məlumatı həssasdır. Privacy policy (terms repo) + Play Health apps declaration + Data safety. Minimum data; API açarları AppBackend-də.
+2. Hər ərzaq: daxili ID, mənbə/FDC ID, AZ/EN/RU adları və sinonimlər, yeyilən hissə, xam/bişmiş vəziyyət, 100 qramda enerji, zülal, yağ, karbohidrat; mövcuddursa lif, natrium, doymuş yağ, ümumi/əlavə şəkər; ölçü vahidi, mənbə versiyası və keyfiyyət statusu.
 
----
+3. Məlumat yoxdursa null saxlanır; 0 yazılmır. Ümumi şəkər, əlavə şəkər və sərbəst şəkər bir-birinin yerinə istifadə olunmur. Natrium və duz ayrılır; çevirmə əmsalı və vahid açıq göstərilir.
 
-## 4. Hesablama boru kəməri
+4. Qida komponentləri mənbədəki identifikator və vahid ilə xəritələnir. Bir API cavabındakı sahə mövqeyinə bağlanmırıq. İki enerji göstəricisi varsa mənbə üzrə seçmə siyasəti tətbiq olunur; sadəcə birincisi götürülmür.
 
-```
-Profil → BMR (Mifflin–St Jeor) → TDEE (BMR × PAL)
-  → Kalori hədəfi (defisit/surplus + min/max)
-  → Makro bölgüsü (EFSA RI + DGA AMDR)
-  → Mikro + limitlər (EFSA PRI/AI/UL, WHO Na/şəkər)
-  → Gündəlik hədəf vektoru
-```
+5. Yerli qablaşdırılmış məhsul üçün istehsalçı etiketinin fotosu, barkod varsa barkod, tarix və məhsul variantı saxlanır. Generik bazadakı qatıq bütün yerli qatıqların tam ekvivalenti deyil.
 
-### 4.1 BMR — Mifflin–St Jeor
+6. Statuslar: qaralama → yoxlanır → təsdiqlənib → dərc olunub → arxiv. Mənbə yenilənəndə keçmiş yemək qeydlərinin rəqəmləri dəyişmir.
 
-1. Kişi: `BMR = 10·W + 6,25·H − 5·A + 5`
-2. Qadın: `BMR = 10·W + 6,25·H − 5·A − 161`
+Mənbələr: [S2](https://fdc.nal.usda.gov/data-documentation/), [S8](https://www.fao.org/infoods/infoods/standards-guidelines/en/)
 
-W = çəki (kq), H = boy (sm), A = yaş (il).
-Mənbə: Mifflin MD et al., Am J Clin Nutr. 1990;51:241–247 — https://pubmed.ncbi.nlm.nih.gov/2305711/
+## 4. Yerli yeməyi ölçülən reseptə necə çeviririk?
 
-### 4.2 TDEE və kalori hədəfi
+Reseptin qramla tərkibi, hazırlanma üsulu və porsiya sayı əsasdır. Hazır yeməyin 100 qramı üçün çıxım ayrıca sənədləşdirilir.
 
-`TDEE = BMR × PAL`
+1. Bir resept üçün əvvəl tərkib və üsul sabitləşir: ətin hissəsi, düyünün quru çəkisi, yağ, duz, su, sous və əlavə məhsullar. Toyuq plovunun fərqli üsulları ayrıca resept variantıdır.
 
-| Aktivlik | PAL (təxmini) | İzah |
-| --- | --- | --- |
-| Sedentar | 1,2 | Ofis, az hərəkət |
-| Az aktiv | 1,375 | Həftədə 1–3 yüngül məşq |
-| Aktiv | 1,55 | Həftədə 3–5 məşq |
-| Çox aktiv | 1,725 | Gündəlik ağır iş / idman |
+2. İnqrediyentlərin yeyilən hissəsinin qramları yazılır; sümük, qabıq və atılan hissə ayrılır. İstifadəçiyə həmin miqdarlar və hazırlanma addımları verilir. Bişmiş 100 qram hesabı lazımdırsa yekun çıxım ölçülür və ya eyni tərkib/üsula uyğun mənbə çıxım əmsalı ilə təxmini sənədləşdirilir.
 
-- **Saxlama:** hədəf ≈ TDEE.
-- **Arıqlama:** defisit 300–500 kcal/gün (təxminən 0,25–0,5 kq/həftə); heç vaxt 750–1000-dən böyük defisit default olmasın.
-- **Çəki artırma:** surplus 200–300 kcal.
-- **Aşağı hədd (təhlükəsizlik):** qadın ≥1200 kcal, kişi ≥1500 kcal — bundan aşağı yalnız həkim nəzarəti ilə; app avtomatik verməsin.
-- **Yuxarı hədd:** hədəf TDEE-nin ~+20%-indən çox olmasın (nəzarətsiz surplus).
+3. Nutrient toplamı = Σ(yeyilən inqrediyent qramı × 100 qram üçün nutrient / 100 × uyğun saxlanma əmsalı). Sonra bişmiş yekun çəkiyə bölünərək 100 qram və porsiya hesablanır. Hazır bişmiş komponent seçilirsə eyni bişmə düzəlişi ikinci dəfə tətbiq edilmir.
 
-> **Qeyd:** 1200/1500 kcal hədləri klinik təcrübə və ADA/idman qidalanma icmallarında geniş yayılmış ehtiyat ölçüləridir; fərdi tibbi tövsiyə deyil. App bunu təhlükəsizlik kilidi kimi təqdim edir, diaqnoz kimi yox.
+4. Daxili metodika nümunəsi: bütün qazana hesablanmış 2 400 kkal və ölçülmüş 1 600 q hazır yemək varsa, 100 q = 150 kkal; 280 q porsiya = 420 kkal. Bu arifmetik nümunədir, toyuq plovu üçün təsdiqlənmiş nəticə deyil.
 
-### 4.3 Makro bölgüsü
+5. Hər resept üzrə Az / Orta / Çox real qramlara bağlanır və həmin miqdarların fotoşəkli çəkilir. Məsələn 180/280/380 q yalnız konkret resept testinin namizədidir; bütün yeməklərə tətbiq olunmur. İstifadəçi istəsə qramla yaza bilir.
 
-| Makro | Default (sağlam böyük) | İcazəli diapazon | Mənbə |
-| --- | --- | --- | --- |
-| Protein | 1,2–1,6 g/kg (arıqlamada yuxarı) | EFSA PRI min 0,83 g/kg; AMDR 10–35% enerji | EFSA + DGA |
-| Yağ | ~25–30% enerji | EFSA RI 20–35%; WHO total ≤30% | EFSA + WHO |
-| Karbohidrat | qalan enerji | EFSA RI 45–60%; DGA AMDR 45–65% | EFSA + DGA |
-| Lif | ≥25 g/gün | EFSA AI 25 g | EFSA |
+6. İnqrediyentlər və elan edilən porsiya sayı ilə təxmini hesab üçün bütün reseptləri özümüz bişirmək universal şərt deyil. Test bişirməsi çıxımın, şəkilli porsiyanın və qeyri-müəyyən reseptlərin dəqiqləşdirilməsi üçün seçilir. Ölçülmüş çəki nutrient laborator analizi demək deyil.
 
-Default split nümunəsi (saxlama): protein 20% · yağ 30% · karbohidrat 50% — hər biri RI/AMDR içində qalmalıdır. Vegetarian/vegan üçün protein qram/kq eyni qalır, mənbə bitki + B12 xəbərdarlığı.
+7. Dərc kartı: resept ID/versiya, inqrediyentlər, yekun çəki, porsiya aralığı, hesablanmış nutrientlər, allergenlər, hazırlıq vaxtı, qiymət mənbəyi, porsiya fotoları, müəllif və yoxlayan şəxs/tarix.
 
-### 4.4 Limitlər və mikro yoxlamalar
+8. Vizual eskizlərdəki hazır yemək şəkilləri ölçü istinadı sayılmır. Porsiya müqayisəsi üçün çəkilmiş real eyni qab/eyni bucaq fotoları hazırlanmalıdır; illüstrativ şəkillər ayrıca işarələnir.
 
-| Limit | Hədəf / tavan | Mənbə |
-| --- | --- | --- |
-| Free sugars | <10% enerji (ideal <5%) | WHO |
-| Natrium | <2000 mg Na ≈ <5 g duz | WHO; DGA <2300 mg |
-| Doymuş yağ | <10% enerji | WHO / DGA |
-| Trans yağ | <1% enerji | WHO |
-| Meyvə-tərəvəz | ≥400 g/gün | WHO |
-| Vitamin/mineral | EFSA PRI/AI-yə yaxın; UL aşılmasın | EFSA DRV Finder |
+Mənbələr: [S9](https://www.fao.org/uploads/media/reinivuvo_laitinen_2007_Eurofir_recipe_harmonisation_D2.2.12_M2.2.4_02.pdf)
 
----
+## 5. Kalori hədəfi və tibbi ölçülər
 
-## 5. Yemək planı generasiyası
+Yaş və hesablama üçün cins elmi baxımdan əhəmiyyətli girişlərdir; boy, çəki, aktivlik və fizioloji vəziyyətlə birlikdə qiymətləndirilir. Ölçülən məlumatı proqnozdan ayırırıq.
 
-### Üç təbəqə
+1. İstifadəçinin daxil etdiyi yaş, boy və çəki ölçmə/məlumat girişidir. İstirahət enerji sərfi formulla proqnozlanır. Gündəlik enerji ehtiyacı isə aktivlik modeli ilə əlavə təxmin edilir. Ekran “metabolizmini ölçdük” demir.
 
-1. Şablon + qayda əsaslı seçici (MVP).
-2. Optimizator (sonra).
-3. LLM yalnız mətn/ideya — rəqəmləri heç vaxt LLM-dən götürmə.
+2. Namizəd Mifflin–St Jeor formulu, kkal/gün: kişilər üçün 10×çəki(kq)+6,25×boy(sm)−5×yaş+5; qadınlar üçün eyni baza−161. İlkin tədqiqatın əhatəsi və fərdi xəta nəzərə alınır. Bu, TDEE formulu deyil.
 
-### Addımlar
+3. Formulun tələb etdiyi məlumat könüllü buraxılırsa, tətbiq gizli olaraq kişi/qadın fərz etmir. Avtomatik dəqiq hədəf əvəzinə ümumi menyu/gündəlik və ya mütəxəssisin verdiyi hədəfi daxil etmə yolu açılır. Əvvəlki onboarding eskizində bu davranış əlavə edilməlidir.
 
-1. **Hədəf vektorunu al** — gündəlik kcal + P/F/C qram + Na/şəkər/lif limitləri + allergen maskası.
-2. **Yemək slotları** — səhər ~25%, nahar ~35%, axşam ~30%, qəlyanaltı ~10% (konfiqurasiya olunan).
-3. **Namizəd yeməklər** — Postgres-dəki curated meal templates: inqredient_id + qram. Hər inqredient FDC (və ya daxili regional) food_id-yə bağlıdır.
-4. **Filtrlə** — allergen, pəhriz teqi, mövsüm/region, dislike, təkrarlanmama (3 gün eyni əsas yemək yox).
-5. **Skorla / seç** — MVP: qayda əsaslı greedy. Sonra: integer linear / local search optimizer.
-6. **Yenidən hesabla** — Σ (qram/100 × nutrient_per_100g) yalnız DB-dən. Heç bir sabit kcal hardcode yox.
-7. **Validator** — gündəlik cəm hədəfin ±10% kcal; protein min; Na/şəkər tavan; allergen sıfır. Keçməsə yenidən seç.
-8. **Mətn təbəqəsi (opsional LLM)** — yalnız bişirmə addımlarının az/ru/en/tr ifadəsi. Çıxışdakı rəqəmlər ignore edilir; UI DB rəqəmini göstərir.
+4. Aktivlik seçimləri mütəxəssisin təsdiqlədiyi izah və əmsallara bağlanır. İnternetdə yayılmış əmsal cədvəli elmi olaraq bu məhsul üçün yoxlanmış sayılmır. NIDDK-nin PAL rəqəmləri də başqa modelə kor-koranə köçürülmür.
 
-### Niyə şablon+DB (və niyə təmiz LLM plan yox)
+5. Arıqlama/saxlama/çəki artırma üçün enerji düzəlişi, minimum hədlər, üst hədlər, xüsusi yaş qrupları və yenidən hesablama qaydası ayrıca NutritionPolicy-də təsdiqlənir. Bu sənəd hamıya avtomatik −500 kkal və ya universal 1 200/1 500 həddi qoymur.
 
-| Şablon+DB üstünlükləri | Təmiz LLM riskləri |
-| --- | --- |
-| Hər rəqəm izlənilə bilir (food_id, versiya, mənbə) | LLM hallüsinasiya (səhv kcal/allergen) |
-| Unit test və regressiya mümkündür | Müəllif hüququ riski (sözbəsöz resept) |
-| Allergen və limitlər deterministikdir | Play health misinformation riski |
-| Spark + ucuz AppBackend-ə uyğundur | Audit və niyə-bu-rəqəm izahı yoxdur |
+6. Zülal üçün EFSA-nın sağlam yetkinlərə aid 0,83 q/kq/gün PRI göstəricisi istinaddır. Bu rəqəm hər istifadəçiyə optimal fərdi hədəf və ya idman proqramı deyil. Çəki bazası, məqsəd və aktivlik üzrə hədəf mütəxəssis tərəfindən seçilir.
 
----
+7. BMI göstərilərsə çəki/boy² hesablanır və fərdi sağlamlıq diaqnozu kimi verilmir. Bədən yağı faizi, qan şəkəri, insulin və vitamin çatışmazlığı fotodan və adi çəki qeydindən çıxarılmır. Bu ölçülər ilkin versiyada vəd edilmir.
 
-## 6. Resept qəbul siyasəti (müəllif hüququ)
+8. Hər nəticədə formula_version, policy_version, daxil edilmiş məlumat və tarix saxlanır. Formula dəyişəndə yeni hesablamanın səbəbi göstərilir.
 
-ABŞ Copyright Office Circular 33: sadə inqredient siyahısı və əsas bişirmə istiqamətləri ümumiyyətlə müəllif hüququ ilə qorunmur; ifadəli mətn, hekayə, foto və orijinal tərtibat qorunur.
-https://www.copyright.gov/circs/circ33.pdf
+9. Yaş və cinsin elmi rolu: EFSA qida ehtiyaclarının yaş, cins, aktivlik və fizioloji vəziyyətə görə dəyişə bildiyini bildirir; onun referensləri qidalanma mütəxəssislərinin qiymətləndirmə və planlaşdırmasına əsas verir. NIDDK enerji planlayıcısı və USDA-nın mütəxəssislər üçün DRI kalkulyatoru yaş və cinsi boy, çəki və aktivliklə birlikdə soruşur. Bu iki giriş təkbaşına şəxsin pəhrizini müəyyən etmir (S4, S7, S17).
 
-| İcazəli | Qadağan |
-| --- | --- |
-| İnqredient siyahısından ilham; öz sözlərimizlə yenidən yazmaq | Blog/kitab/video mətnini sözbəsöz kopyalamaq |
-| Öz foto / illüstrasiya / AI şəkil (lisenziyalı) | Başqasının yemək fotosunu götürmək |
-| Qida dəyərlərini FDC/OFF-dən hesablamaq | Dietoloqun saytındakı hazır kcal rəqəmini olduğu kimi yapışdırmaq |
-| UI-də ilham: [ad/mənbə] (könüllü, etik) | Brend/adla yanıltıcı rəsmi-resept iddiası |
+10. Məhsul qərarı: avtomatik fərdi enerji hədəfi üçün seçilmiş formulun tələb etdiyi yaş, hesablama üçün cins, boy, çəki və aktivlik tam və etibarlı olmalıdır. Kişi/Qadın seçimi və yaş nəticəyə həqiqətən ötürülür; ad, avatar və fotodan fərz edilmir. Cins sahəsini buraxmaq tətbiqdən istifadəni bloklamır, lakin cins tələb edən formula ilə avtomatik hədəf yaradılmır; ümumi gündəlik/menyu və ya mütəxəssisin verdiyi hədəf yolu göstərilir. Bu, məlumatı nəzərə almamaq deyil, məlum olmayan girişi uydurmamaqdır.
 
-### Proses
+11. Yaş və cins yalnız kalori üçün deyil: nutrient referensi tətbiq olunursa uyğun yaş/cins/həyat mərhələsi üzrə, həmin nutrientin öz mənbə cədvəlindən seçilir. Bütün nutrientlərə bir ümumi kişi/qadın əmsalı vurulmur; WHO-nun ümumi qaydası ilə fərdi referens qarışdırılmır. Vitamin/mineral məlumatı kitabxanada çatmırsa tam təminat vədi verilmir; çatışmazlıq diaqnozu və əlavə preparatı avtomatik tövsiyə edilmir (S4, S17).
 
-1. Məşhur dietoloqun açıq paylaşdığı resept → yalnız struktur ilhamı.
-2. İnqredientləri FDC food_id-lərinə map et; qramları ölç.
-3. Bişirmə mətnini sıfırdan yaz (az/ru/en/tr).
-4. Kalori/makro/mikro = DB recompute; mənbə sahəsində FDC release + daxili recipe_version.
-5. Orijinal URL yalnız daxili editorial qeyddə; istifadəçiyə kopyalandı təəssüratı yaratma.
+12. Fizioloji vəziyyət və əhatə: hamiləlik və südvermə ayrıca nəzərə alınır, təkcə Qadın seçimi ilə müəyyən edilmir. 18 yaşdan kiçiklər, hamilə/südverənlər üçün ilkin məhsulun avtomatik fərdi plan məhdudiyyəti bölmə 6-da saxlanır. Hər yaşın sadəcə 18+ olması formulun etibarlı əhatəsinə daxil olması demək deyil; modelin tədqiqat əhatəsi və yaş sərhədləri NutritionPolicy-də yoxlanır. Yaşlı şəxsə avtomatik daha sərt defisit verilmir; mənbə dəstəyi olmayan ayrıca yaş qaydası uydurulmur.
 
----
+13. Məlumat müqaviləsi: UserProfile hesablamada istifadə edilən age_years, age_as_of_date, sex_for_equation(male/female/unspecified), height_cm, weight_kg, activity_level, eligibility_status və profile_version saxlayır. Tam doğum tarixi yalnız ehtiyac varsa toplanır; yaşı yeniləmək üçün təsdiq yolu olur. NutritionPolicy-də formula_required_inputs, model_age_scope və nutrient_reference_mapping mənbə/versiya ilə saxlanır. Formula kateqoriyası uyğun gəlmirsə tətbiq özü kateqoriya təyin etmir, mütəxəssis hədəfi yolu qalır. Dəyişiklik gələcək hədəf/porsiya üçün səbəb və təsdiqlə yeni versiya yaradır; keçmiş qida qeydləri dəyişmir.
 
-## 7. Regional / Azərbaycan yeməkləri
+14. Qəbul yoxlamaları: eyni boy/çəki/aktivlikdə yaş dəyişəndə seçilmiş formula yenidən işləyir; yalnız cins kateqoriyası dəyişəndə formulun uyğun sabiti seçilir. Mifflin namizədi üçün eyni digər girişlərdə kişi və qadın REE fərqi 166 kkal/gündür; bu, universal gündəlik qəbul fərqi deyil və aktivlik/enerji siyasəti ayrıca tətbiq olunur. Yaş və ya tələb olunan cins boşdursa avtomatik formula işləmir; 18 yaşdan aşağı, model əhatəsindən kənar, hamiləlik/südvermə və məlumat yeniləmə halları ayrıca yoxlanır. Bunlar tətbiqdə hələ icra edilməmiş qəbul ssenariləridir.
 
-### CARKFOODS
+Mənbələr: [S6](https://ajcn.nutrition.org/article/S0002-9165%2823%2916698-6/fulltext), [S5](https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2012.2557), [S7](https://www.niddk.nih.gov/bwp), [S4](https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values), [S17](https://www.nal.usda.gov/human-nutrition-and-food-safety/dri-calculator)
 
-FAO/INFOODS CARKFOODS regional mərkəzi Azərbaycanı da əhatə edir (Əfqanıstan, Qazaxıstan, Qırğızıstan, Tacikistan, Türkmənistan, Özbəkistan ilə birlikdə):
-https://www.fao.org/infoods/infoods/regional-data-centres/carkfoods/en/
+## 6. Kimə avtomatik plan veriləcək?
 
-Amma hazırda yüklənə bilən vahid Azerbaijan FCT siyahıda görünmür — yalnız kontakt şəbəkəsidir. Buna görə AZ yeməkləri üçün praktiki yol: FDC-də yaxın analoq + öz ölçülmüş resept + FAO qlobal cədvəllər (paxlalılar, balıq və s.).
+Qısa ilkin uyğunluq yoxlaması, sonra uyğun funksiyaya yönləndirmə.
 
-- Yerli yemək (plov, dolma, qutab, dushbara…): inqredientlərə parçala → hər biri FDC və ya daxili `foods` cədvəlində → bişmiş çəki (yield) əmsalı tətbiq et (FAO Density DB kömək edir).
-- Analoq seçimi: quzu əti bişmiş ↔ FDC lamb; duzlu pendir ↔ white cheese / feta-tipli entry; fərqi `confidence` sahəsində saxla (high/medium/low).
-- TÜBER 2022: regional porsiya və qida qrupu nümunələri üçün istinad (Türkiyə); AZ mətbəxinə yaxın, amma rəsmi AZ FCT əvəzi deyil — https://ekutuphane.saglik.gov.tr/Yayin/683
-- OFF: Azərbaycan/Türkiyə supermarket barcode-ları üçün yaxşı; tərkib keyfiyyəti dəyişkəndir — plan üçün FDC üstün, OFF əlavə.
-- Gələcək: laborator və ya universitetlə kiçik AZ FCT əməkdaşlığı; nəticələr CC0 və ya aydın açıq lisenziya ilə.
+1. İlkin buraxılış üçün məhsul qərarı: 18 yaşdan yuxarı, xüsusi tibbi dietası olmayan sağlam yetkinlər. Yaşın yalnız 18+ olması bütün modellərin həmin şəxs üçün etibarlı olduğunu sübut etmir; mütəxəssis təsdiqli əhatə tətbiq edilir.
 
----
+2. 18 yaşdan kiçik, hamilə/südverən, qidalanma pozuntusu ilə bağlı risk bildirən və ya xəstəliyə görə xüsusi qidalanma planı tələb edən şəxs üçün avtomatik arıqlama/çəki artırma planı açılmır; mütəxəssis istiqaməti verilir.
 
-## 8. Çoxqatlı yoxlama
+3. Böyrək xəstəliyi, insulin və ya qidalanmaya təsir edən müalicə kimi hallar üçün ilkin versiyada klinik menyu və makro hədəfi yaratmamaq konservativ məhsul qərarıdır. Bu qısa suallar diaqnoz qoyan test deyil.
 
-| Təbəqə | Nə edir | Tezlik |
-| --- | --- | --- |
-| DB recompute | Hər plan cavabında nutrient-lər food_id×qram ilə yenidən hesablanır | Hər request |
-| Rule validator | Allergen, min kcal, max defisit, Na/şəkər, makro diapazon | Hər request |
-| Range checks | Hər nutrient üçün fiziki mümkün interval (məs. 100 g alma ≠ 900 kcal) | Ingest + runtime |
-| Unit testlər | Referans hallar: bilinen FDC qidaları, Mifflin nümunələri, WHO limit edge | CI hər PR |
-| Periodic spot check | Ayda N planı insan (sahib və ya könüllü dietetik tələbə) yoxlayır | Aylıq |
-| İstifadəçi feedback | Bu yemək uyğunsuz / allergen → ticket + template disable | Davamlı |
-| Mənbə versiyası | FDC release_id, OFF dump tarixi plan meta-da | Hər plan |
+4. Allergiya seçimi ayrıca ciddi filtrdir. Reseptdə allergen və ya tərkib məlum deyilsə, həmin allergiyaya uyğun təklif kimi göstərilmir. Şəkil gizli inqrediyent və çarpaz təması təsdiqləyə bilmir.
 
-### Referans test nümunələri (spesifikasiya)
+5. Sağlamlıq sualları mümkün qədər az, aydın və məqsədə uyğun soruşulur. Cavab verməyən şəxs üçün təhlükəsiz sadə yol və məhdudiyyət açıq göstərilir.
 
-- (a) 70 kq, 175 sm, 30 yaş kişi, sedentar → BMR və TDEE sabit.
-- (b) 100 g USDA raw apple → sabit kcal.
-- (c) süd allergeni olan istifadəçiyə pendirli şablon heç vaxt düşməsin.
-- (d) arıqlama planı heç vaxt 1200/1500 altındakı hədəf verməsin.
+6. Sərt istisnanı keçmək üçün istifadəçidən daha aşağı təhlükəsizlik seçimi etməsi tələb olunmur. Uyğun plan yoxdursa, səbəb və məqbul alternativ göstərilir.
 
----
+Mənbələr: [S7](https://www.niddk.nih.gov/bwp), [S10](https://www.gov.uk/running-food-business/allergies)
 
-## 9. Tibbi qırmızı bayraqlar və istisnalar
+## 7. Həftəlik menyunun keyfiyyət qaydaları
 
-### Plan verilmir — həkimə yönləndir
+Kalorini tutdurmaq kifayət deyil; qida müxtəlifliyi və məlumat tamlığı da yoxlanır.
 
-Hamiləlik / laktasiya; 18-dən aşağı yaş; yemək pozuntusu tarixçəsi və ya aktiv şübhə; diabet (tip 1/2); böyrək xəstəliyi; ağır ürək-damar; həkim nəzarətində pəhriz; BMI çox aşağı (məs. <18,5) və ya çox yüksək + komorbid öz-hesabat.
+1. WHO yetkinlər üçün ümumi çərçivə verir: meyvə-tərəvəz ≥400 q/gün, təbii lif ≥25 q/gün, sərbəst şəkər <10% enerji, doymuş yağ ≤10%, trans yağ ≤1%, duz <5 q/gün. Bunlar əhali referensləridir; fərdi tətbiq və qida qrupu xəritəsi policy-də sənədləşir. Mənbə: 26 yanvar 2026 vərəqi, 5 noyabr 2026-da yenidən yoxlanıb.
 
-Bu hallarda app yalnız ümumi WHO maarifləndirməsi və həkimə müraciət edin göstərir — fərdiləşdirilmiş kalori planı yox.
+2. Bunlar hər istifadəçiyə resept deyil. Kliniki istisnalar və seçilmiş əhali qrupu ayrıca idarə edilir. WHO ilə EFSA-nın müxtəlif referenslərini “ən sərt rəqəmi seç” üsulu ilə birləşdirmirik.
 
-- Özünü-hesabat çeki siyahısı onboarding-də; Bəli cavabı plan generatorunu bağlayır.
-- Heç bir xəstəlik üçün müalicəvi pəhriz iddiası yoxdur.
-- Dərman-qidalanma qarşılıqlı təsiri modelləşdirilmir.
-- Allergen: şübhəli OFF etiketi və ya map edilməmiş inqredient → yeməyi namizəddən çıxar.
+3. Qida bazasında lif/duz məlumatı çatmırsa menyu həmin göstərici üzrə “yoxlanıb” sayılmır. Sərbəst şəkəri ümumi şəkərdən avtomatik çıxarmaq olmaz; resept inqrediyentlərinin ayrıca xəritəsi lazımdır.
 
----
+4. İlkin mühərrik üçün təklif: eyni əsas yeməyi ardıcıl günlərdə verməmək, həftə ərzində tərəvəz, taxıl və zülal mənbələrini dəyişmək; vaxtı və büdcəni nəzərə almaq. Təkrar sayı və enerji toleransı məhsul parametrləridir, tibbi standart deyil.
 
-## 10. Disclaimer və Google Play health siyasəti
+5. Vegan, vegeterian və digər məhdud seçimlər üçün yetərli təsdiqlənmiş resept yoxdursa “tam balanslı fərdi plan” vədi verilmir. Həmin qrup üçün ayrıca kitabxana və mütəxəssis yoxlaması tamamlanır.
 
-Play Health Content and Services:
-https://support.google.com/googleplay/android-developer/answer/16679511
+6. Bir günlük menyunu ertəsi gün avtomatik cəza ilə azaltmırıq. İstifadəçinin həqiqətən nə yediyi və gündəliyin tamlığı təsdiqlənmədən kompensasiya hesablanmır.
 
-- Store və app mətni (EN nümunə): *DailyPlate is not a medical device and does not diagnose, treat, cure, or prevent any medical condition. Consult a healthcare professional for medical advice.*
-- AZ/RU/TR eyni məna ilə terms səhifəsində: https://aladdinbiyabangerd.github.io/terms/dailyplate/
-- Health apps declaration form (Play Console → App content).
-- Yanıltıcı iddialar yox (Health misinformation).
-- AI şəkil tanıma gələndə cihaz uyğunluğu və xəta ehtimalı açıqlansın.
+Mənbələr: [S3](https://www.who.int/news-room/fact-sheets/detail/healthy-diet), [S4](https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values)
 
----
+## 8. Menyu mühərrikinin konkret axını
 
-## 11. Spark-dostu arxitektura
+Təsdiqlənmiş kitabxanadan seçim → porsiya → yenidən yoxlama → sabit plan versiyası.
 
-```
-Android app ──login/sync──► Firebase Spark (Auth, Firestore profil, Remote Config)
-     │
-     └──Bearer Firebase JWT──► AppBackend (Go + Postgres + API keys)
-                                   ├── Nutrient cache (FDC snapshot, recipes, OFF subset)
-                                   └── Xarici API (FDC / OFF / LLM mətn) — yalnız server
-```
+1. 1) Profil: uyğunluq, məqsəd, hədəf, allergiya, yemədikləri, region, büdcə, vaxt və yemək sayı alınır. Onboarding ev avadanlığı və ərzaq inventarı soruşmur.
 
-- Firebase Spark: Auth (Google + Email), Firestore-da yüngül profil/flag; Cloud Functions yox.
-- AppBackend: plan generate, FDC sync job, OFF dump import, LLM proxy, purchase verify (gələcək).
-- Postgres: `foods` (fdc_id, nutrients jsonb, source, license), `ingredients_map`, `meal_templates`, `plans`, `plan_items`.
-- FDC: hourly 1000 req limit — nightly/full download + lokal cache əsas yoldur; API yalnız yeniləmə üçündür.
-- API açarları yalnız server env-də; `google-services.json` və sirrlər git-də yox.
-- AI image recognition: model çağırışı AppBackend-dən; nəticə → food_id candidate → yenə DB nutrient.
+2. 2) Sərt filtr: təsdiqlənməmiş reseptlər, məlum olmayan allergen tərkibi, qadağan məhsullar və uyğunsuz porsiyalar çıxarılır.
 
----
+3. 3) Namizədlər: seçilmiş 3/4/5 yemək slotu üçün uyğun reseptlər seçilir. Hər gün üçün hər yeməyə ən azı bir real alternativ tapılıb-tapılmadığı yoxlanır.
 
-## 12. Fazalı MVP roadmap
+4. 4) Porsiya: resept üzrə mümkün qram intervalı və addım daxilində günün enerjisi və nutrient qaydalarına yaxın variantlar hesablanır. Bütün tələbləri ödəməyən qida seçimini gizlincə “uyğun” etmirik.
 
-| Faza | Məzmun | Təxmini |
-| --- | --- | --- |
-| P0 | Hədəf + şablon plan | 4–6 həftə |
-| P1 | Barcode + allergen | +3–4 həftə |
-| P2 | Regional + LLM mətn | +4 həftə |
-| P3 | Şəkil tanıma | sonra |
-| P4 | Optimizator | sonra |
+5. 5) Həftə yoxlaması: enerji/nutrient yoxlamaları, müxtəliflik, vaxt, təxmini büdcə və alış-veriş yükü yenidən hesablanır. Büdcə yumşaq şərti ödənmirsə səbəb deyilir; allergiya heç vaxt yumşaldılmır.
 
-1. **P0 — Təhlükəsiz özəyi:** profil + tibbi ekran; Mifflin/TDEE; FDC snapshot Postgres-də; 30–50 şablon yemək; 7 günlük plan API; validator; Play disclaimer; terms link.
-2. **P1 — Real dünya məhsulları:** OFF barcode (ODbL attribution); allergen teqləri; istifadəçi feedback; unit testlər.
-3. **P2 — Region və dil:** 20–40 AZ/TR yemək şablonu; LLM ilə az/ru/en/tr bişirmə mətni; editorial spot-check.
-4. **P3 — AI şəkil:** şəkil → namizəd food_id → istifadəçi təsdiqi → DB nutrient. Plan generatoru dəyişmir.
-5. **P4 — Optimizator:** multi-day diversity, qiymət/mövsüm, mikro PRI-yə yaxınlaşdırma; hələ də DB rəqəmləri.
+6. 6) Nəticə: plan_id, yeddi gün, recipe_version, portion_g, nutrient snapshot, policy_version və başa düşülən səbəb saxlanır: “30 dəqiqəyə hazırdır və seçdiyin məhsullara uyğundur”.
 
-### Checklist (5 noyabr 2026)
+7. 7) Dəyişmə: inqrediyenti çıxar/əlavə et/miqdarını dəyiş; başqa günün yeməyi ilə qarşılıqlı dəyiş; həmin günə uyğun alternativ seç. Yalnız seçilmiş hissələr, proqnoz toplamları və alış-veriş yenilənir. Qalan həftə və yeyilmiş qeydlər dəyişmir. Ətraflı qaydalar 16-cı bölmədədir.
 
-- [x] Dizayn sənədi (bu fayl)
-- [ ] FDC dump + foods sxemi AppBackend-də
-- [ ] BMR/TDEE + validator unit testləri
-- [ ] İlk 30 meal template (FDC map)
-- [ ] Tibbi qırmızı bayraq UI + plan blokası
-- [ ] Play Health declaration + store disclaimer
-- [ ] OFF attribution UI (əgər barcode)
-- [ ] AZ regional şablonlar
+8. 8) Gündəlik: yalnız “Yedim” → porsiya təsdiqi → unikal yemək qeydi. Planın görüntülənməsi kalori qəbuluna yazılmır.
 
----
+9. 9) Həftə sonu: qeydlərin tamlığı və istifadəçi rəyi qiymətləndirilir. Yeni plan seçimlərə uyğunlaşdırılır; çəki hədəfi və kalori dəyişməsi ayrıca izah və təsdiq tələb edir.
 
-## 13. Risklər və açıq qərarlar
+10. AI üçün icazəli rol: təsdiqli namizədləri tapmaq, AZ/EN/RU sadə izahı hazırlamaq, foto namizədi vermək. Hesablamalar, allergen filtri və tibbi hədlər yoxlanmış kodda icra edilir; modelin sərbəst cavabına buraxılmır.
 
-| Risk | Təsir | Mitigasiya |
-| --- | --- | --- |
-| Səhv nutrient / səhv map | Yüksək | Yalnız FDC ID; confidence; spot check; feedback |
-| Allergen buraxılması | Yüksək | Strict exclude; naməlum → çıxar; disclaimer |
-| Həddindən artıq defisit | Yüksək | Min kcal kilidi; max defisit 500 default |
-| ODbL share-alike sürprizi | Orta | OFF-i ayrı saxla; FDC əsas |
-| Müəllif hüququ iddiası | Orta | Yenidən yaz; foto özümüz; ilham siyasəti |
-| Play health rədd / misinfo | Yüksək | Disclaimer; tibbi iddia yox; declaration |
-| AZ FCT boşluğu | Orta | Analoq + yield; TÜBER kontekst; gələcək FCT |
-| LLM rəqəm sızması UI-yə | Yüksək | UI yalnız server-computed nutrients render edir |
-| Firebase Spark limit | Aşağı | Ağır iş AppBackend + Postgres |
+## 9. İlk 7 günlük məzmun nüvəsi
 
-### Aladdindən qərar gözləyən nöqtələr
+Aşağıdakı yeməklər kitabxana üçün ideyadır. Porsiya və qida hesabı təsdiqlənmədən istifadəçiyə balanslı plan kimi təqdim edilmir.
 
-- Default makro split (20/30/50) və arıqlama defisiti (300 vs 500) — razılaşdırmaq.
-- Regional default: AZ şablonları P0-da az sayda, yoxsa P2-yə saxlamaq.
-- OFF-i P1-də açmaq (ODbL öhdəliyi ilə) və ya yalnız FDC ilə getmək.
-- Spot-check üçün kənar dietetik məsləhət (ödənişli qısa audit) — büdcə varmı.
-- Terms-dəki may be rewarded ads sətri ARROW üçündür; DailyPlate-də reklam yoxdur — ayrı qalmalıdır.
+1. Bu menyu hamı üçün hazır pəhriz deyil. Hər sətir test ediləcək reseptlərə bölünür; enerjisi, allergenləri və porsiyası ayrıca hesablanır. Qəlyanaltı, meyvə və süd alternativləri ehtiyaca görə sonradan əlavə edilir.
 
-### Yekun
+2. Həftəlik plan 7 günlük saxlanma təlimatı deyil. Əvvəlcədən bişirmə təklif edilirsə hər reseptə soyutma, soyuducu/dondurucu və yenidən isitmə qaydası qoşulur. Düyülü yeməklər üçün ayrıca rəsmi qida təhlükəsizliyi təlimatı tətbiq olunur.
 
-DailyPlate plan sistemi dietoloqu əvəz etmir; rəsmi açıq məlumat + deterministik hesab + ciddi təhlükəsizlik kilidləri ilə sağlam böyüklərə ümumi qida planı təklif edir. Hər rəqəmin mənbəyi və versiyası olmalıdır. Bu sənəd dizayndır — implementasiya ayrı növbədə, Aladdinin OK-undan sonra.
+- Bazar ertəsi · Yulaf, qatıq və meyvə · Mərci şorbası, göyərti və çörək · Sobada toyuq, bulqur və salat
+- Çərşənbə axşamı · Yumurta, pendir və tərəvəz · Lobya yeməyi və salat · Balıq, kartof və tərəvəz
+- Çərşənbə · Qatıq, yulaf və meyvə · Toyuqlu tərəvəz yeməyi · Göyərti qutabı, qatıq və salat
+- Cümə axşamı · Tərəvəzli omlet və çörək · Noxudlu tərəvəz yeməyi · Standartlaşdırılmış yarpaq dolması, qatıq
+- Cümə · Pendirli çörək və tərəvəz · Mərci salatı və çörək · Ölçülmüş toyuq plovu və salat
+- Şənbə · Yulaf və meyvə · Balıq, bulqur və tərəvəz · Lobya salatı və qatıq
+- Bazar · Yumurta və tərəvəz · Toyuqlu şorba və çörək · Tərəvəzli qarabaşaq və uyğun zülal əlavəsi
 
----
+Mənbələr: [S11](https://www.gov.uk/government/publications/home-food-fact-checker/home-food-fact-checker)
 
-## 14. Mənbə URL-ləri
+## 10. İstifadəçiyə elmi izahı necə verəcəyik?
 
-1. WHO Healthy diet — https://www.who.int/news-room/fact-sheets/detail/Healthy-diet
-2. EFSA Dietary Reference Values — https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values
-3. EFSA DRV Finder — https://multimedia.efsa.europa.eu/drvs/index.htm
-4. USDA FoodData Central API Guide (CC0 1.0) — https://fdc.nal.usda.gov/api-guide/
-5. Open Food Facts data (ODbL) — https://world.openfoodfacts.org/data
-6. Dietary Guidelines for Americans 2020–2025 — https://www.dietaryguidelines.gov/
-7. Mifflin et al. 1990 (PubMed) — https://pubmed.ncbi.nlm.nih.gov/2305711/
-8. IOM/NAP DRI — https://doi.org/10.17226/10490
-9. FAO/INFOODS CARKFOODS — https://www.fao.org/infoods/infoods/regional-data-centres/carkfoods/en/
-10. TÜBER 2022 — https://ekutuphane.saglik.gov.tr/Yayin/683
-11. Google Play Health Content and Services — https://support.google.com/googleplay/android-developer/answer/16679511
-12. US Copyright Circular 33 — https://www.copyright.gov/circs/circ33.pdf
-13. DailyPlate terms — https://aladdinbiyabangerd.github.io/terms/dailyplate/
+Əsas ekran sadə qalır; “Nəyə əsasən?” düyməsi mənbəni və məhdudiyyəti açır.
+
+1. Hədəf kartı: “Bu, yaşın, boyun, çəkin və hərəkətinə əsaslanan başlanğıc təxminidir.” Detalda formula, tarix, istifadə olunan məlumat və mənbə açılır.
+
+2. Yemək kartı: “Bu porsiya üçün təxminən 420 kalori.” Detalda resept versiyası, qram və hesablanmış nutrientlər göstərilir. “Dietoloq yoxlayıb” nişanı yalnız faktiki təsdiq varsa görünür.
+
+3. Porsiya köməyi: “Şəkillər bizim ölçülmüş porsiyalardır. Sənin boşqabın fərqli ola bilər; istəsən qramla yaz.”
+
+4. Foto köməyi: “Yağ, sous və gizli məhsulları şəkildən dəqiq bilmək olmur. Tərkibi və miqdarı yoxla.”
+
+5. Həftəlik nəticə: “Bu həftə 4 gün qeyd etmisən. Qeyd olunmayan günləri hesaba qatmırıq.” Natamam gündəlikdən xəstəlik, metabolik problem və ya kalori pozuntusu nəticəsi çıxarılmır.
+
+6. İlk 12 maarifləndirici kartın mövzuları: kalori təxmini; porsiya; xam/bişmiş çəki; yağ/sous; zülal; lif; tərəvəz-meyvə; duz/natrium; şəkər növləri; çəki dalğalanması; foto məhdudiyyəti; qidanın saxlanması.
+
+7. Hər maarif kartı üçün: qısa istifadəçi mətni, əhatə və istisnalar, konkret mənbə bölməsi, müəllif, klinik redaktor, yoxlama tarixi və növbəti baxış tarixi. Tərcümə eyni qaydanın ID-sinə bağlıdır.
+
+## 11. Komandaya veriləcək məlumat müqavilələri
+
+Sadə ekranların arxasında mənbəni və keçmiş nəticəni qoruyan struktur olmalıdır.
+
+1. Food: id, names{az,en,ru}, aliases, source_id, source_type, preparation_state, nutrients_per_100g, nutrient_units, missing_fields, allergens, source_version, reviewed_by, status.
+
+2. Recipe: id/version, ingredient_food_versions, edible_grams, cooking_method, yield_cooked_g, retention_method, nutrients_total/per_100g, portion_min/max/step_g, portion_photos, allergens, equipment, time, storage_instruction_id, cost_region/date, status.
+
+3. NutritionPolicy: version, eligible_population, exclusion_rules, formula/version, required_inputs, activity_mapping, energy_adjustment, energy_bounds, macro_rules, nutrient_checks, reassessment_rules, evidence_refs, reviewer, approved_at. Təsdiq olunmayan siyasət production-da aktiv ola bilməz.
+
+4. MealPlan: user_profile_version, week, timezone, policy_version, recipe_versions, portions_g, nutrient_snapshot, constraint_results, alternatives və səbəblər.
+
+5. FoodLog: client_event_id, user_id, consumed_at, food/recipe_version, confirmed_portion_g, nutrient_snapshot, entry_method, source_plan_item_id, sync_status. Təkrar cəhd eyni qeydi iki dəfə yaratmır.
+
+6. EvidenceCard: claim_id, sadə mətnlər, dəqiq mənbə linki/bölmə, uyğun əhali, məhdudiyyət, version, reviewed_by/date. “Yoxlanıb” statusu tibbi təsdiqlənmiş məhsul iddiası deyil.
+
+7. Keyfiyyət qaydası: təsdiq zənciri və audit izi olmayan resept, policy və izah avtomatik dərc edilmir; geri qaytarılma və əvvəlki versiyaya baxış mümkün olur.
+
+## 12. Buraxılışdan əvvəl nəyi yoxlayacağıq?
+
+Əvvəl hesablamanın düzgünlüyü, sonra real məzmun və rahat istifadə.
+
+1. Hesablama testləri: 100 q → porsiya, quru → bişmiş, q/kq/sm/kkal, null nutrient, çoxporsiyalı resept, yağ itkisi və saxlanma əmsalı. Müstəqil hesabla müqayisə; yuvarlaqlaşdırma yalnız sonda.
+
+2. Menyu testləri: müxtəlif profillər, büdcə/vaxt, allergiya, məlum olmayan tərkib, sıfır uyğun namizəd, real porsiya sərhədləri, yemək dəyişmə və alış-veriş yenilənməsi. Sərt filtr pozuntusu aşkarlanarsa buraxılış bloklanır.
+
+3. Qida doğruluğu: seçilmiş əsas ərzaqların mənbə uyğunluğu və bütün ilkin reseptlərin dietoloq yoxlaması. Test bişirməsi nutrient laborator analizini əvəz etmir; laborator yoxlama yalnız belə iddia veriləcəksə ayrıca planlanır.
+
+4. Foto pilotu üçün təklif: ən azı 100 çəkilmiş yemək nümunəsi, həm qarışıq/yerli yeməklər, həm sous və müxtəlif işıq. Doğru namizəd, istifadəçi düzəlişi və porsiya xətası ayrı ölçülür. Kalori xətasının müqayisəsi ölçülmüş resept hesabına qarşıdır; klinik dəqiqlik iddiası deyil.
+
+5. Məlumat bütövlüyü: internet olmayanda qeyd, təkrar sinxronlaşma, eyni düyməyə iki toxunuş, resept/policy yenilənməsi və əvvəlki günlərin sabitliyi.
+
+6. Sadə UX üçün daxili pilot: 10–15 müxtəlif rəqəmsal bacarıqlı yetkin iştirakçı köməksiz yemək tapsın, porsiya seçsin, səhv qeydi düzəltsin, yeməyi dəyişsin. Tamamlama vaxtı, səhv və harada kömək istədiyi ölçülür; rəqəmlər məhsul hədəfidir, klinik tədqiqat deyil.
+
+7. Buraxılış meyarı: aktiv policy klinik redaktor tərəfindən təsdiqlənib; dərc edilən reseptlər izlenə bilir; kritik allergen pozuntusu və hesab dublikatı testlərdə yoxdur; UI sadə dildə yoxlanıb. İlk buraxılış sonrası insident və yanlış qida məlumatını bildirmə kanalı işləyir.
+
+## 13. İcra ardıcıllığı və məsul şəxslər
+
+Məzmunun ilkin genişləndirilməsi artıq edilib. Aşağıdakı iş planı qalan ölçmə, yoxlama və məhsula inteqrasiya üçündür; bütün tətbiqin buraxılış tarixi deyil.
+
+1. Rol bölgüsü: məhsul sahibi əhatə və prioritetləri seçir; dietoloq/klinik redaktor qaydaları və məzmunu təsdiqləyir; resept əməkdaşı bişirir/çəkir/foto çəkir; proqramçı baza, hesablama və plan motorunu qurur; QA hesablamanı və istifadəçi axınını yoxlayır.
+
+2. 1-ci mərhələ: hazır 500 ərzaq uyğunlaşdırmasını redaktorla yoxlamaq; klinik əhatə, istisnalar, formula və aktivlik xəritəsini mütəxəssislə təsdiqləmək. Mənbələr və nutrient rəqəmləri artıq idxal edilib.
+
+3. 2-ci mərhələ: hazır 224 resept layihəsinin tərkibi, porsiya sayı və hazırlanma addımlarını yoxlamaq. Bişmiş qram və şəkilli porsiya üçün prioritet reseptlərin çıxımı uyğun mənbədən sənədləşdirilir və ya test bişirməsi ilə ölçülür; bütün reseptləri bişirmək ilkin porsiya hesabının universal şərti deyil.
+
+4. 3-cü mərhələ: hazır JSON/CSV/SQLite paketini hesablama moduluna qoşmaq, profil uyğunluğu və policy versiyalarını qurmaq. Hazır 8 həftəlik rotasiya yalnız ideya bazasıdır; fərdi balanslı pəhriz kimi aktivləşdirilmir.
+
+5. 4-cü həftə: alternativ yemək, alış-veriş, real gündəlik ayrımı, müəllif/yoxlayıcı paneli və qısa elmi izah kartları.
+
+6. 5-ci mərhələ: mövcud 500 ərzaq və 224 resepti redaktor yoxlamasından keçirmək; EN/RU hazırlanma addımlarını və region qiymətlərini tamamlamaq. 3 dildə ərzaq adları və resept başlıqları işçi variantda hazırdır.
+
+7. 6-cı həftə: hesab və filtr testləri, istifadəçi pilotu, səhvlərin düzəlişi; foto modulu hazırdırsa ayrıca ölçmə. Çıxış: təsdiqli ilkin nüvə və qalan işlər siyahısı.
+
+8. Hazır konkret paket: 500 mənbəli ərzaq qeydi + qram və addımları yazılmış 224 resept layihəsi + 8 həftəlik ideya rotasiyası + 8 217 mənbə qeydi olan SQLite + JSON/CSV idxalı. Yoxlamalar tamamlanmadığı üçün publishable=false saxlanır. Bişmiş 100 qram və şəkilli porsiyanın şərtləri ayrıca feature_gates sahəsindədir.
+
+## 14. Hansı qərarlar təsdiqlənmədən kodu aktivləşdirmirik?
+
+Plan hazırdır; bu qərarlar icranın yoxlama nöqtələridir.
+
+1. Klinik redaktorun seçilməsi və təsdiq səlahiyyəti; sağlam yetkinlər üçün dəqiq əhatə/istisnalar; formula və aktivlik xəritəsi; məqsədə görə enerji düzəlişi və sərhədlər; makro qaydaları və yenidən hesablama siyasəti.
+
+2. Resept protokolu: mənbə uyğunlaşdırması, yeyilən çəki, çıxım/saxlanma metodu, minimum test sayı və məqbul dəyişkənlik, ölçülmüş porsiyalar və foto qaydası.
+
+3. Məzmun buraxılışı: dəstəklənən region, allergen taksonomiyası, qida seçimləri üçün kitabxananın yetərliliyi, hüquqları sənədləşmiş foto/mətn və tərcümə yoxlaması.
+
+4. Bu qərarlar rəqəm uydurmaqla doldurulmur. Təsdiq gələnədək texniki hissə sınaq məlumatı və deaktiv siyasətlə hazırlana bilər; real istifadəçiyə fərdi tibbi uyğunluq vədi verilmir.
+
+## 15. Kitabxana indi genişləndirildi: faktiki nəticə
+
+Planlaşdırılan saylar artıq fayllarda var; təsdiq olunmayan hissələr aydın statusla ayrılıb.
+
+1. 500 ərzaq qeydi: 55 süd/yumurta, 55 taxıl/çörək, 35 paxlalı, 70 ət/balıq, 120 tərəvəz/göyərti, 70 meyvə/şirə, 30 çərəz/toxum, 65 yağ/ədviyyat və digər məhsul. Xam və bişmiş variantlar ayrıca mənbə qeydləridir; saylar 500 müxtəlif Azərbaycan məhsulu iddiası deyil.
+
+2. 224 resept: 33 səhər yeməyi, 26 şorba, 47 ətli/balıqlı əsas yemək, 45 bitki əsaslı yemək, 30 salat/qarnir, 25 yerli yemək layihəsi, 18 qəlyanaltı. Qram, porsiya sayı və AZ addımlar mövcuddur.
+
+3. USDA SR Legacy son tarixi 2018 buraxılışı əsas uyğunlaşdırmadır. 2026-10-29 Foundation Foods əlavə istinad olaraq idxal edilib; seçilmiş ərzaqlar həmin məlumatlarla avtomatik əvəz edilməyib. Arxivlər və SHA-256 izləri saxlanır.
+
+4. 500 ərzağın hamısında enerji, zülal, yağ və karbohidrat mövcuddur. Natrium 1, lif 11, ümumi şəkər 72, trans yağ 171 ərzaqda yoxdur; bu sahələr null saxlanıb. Sərbəst və əlavə şəkər ümumi şəkərdən uydurulmayıb.
+
+5. 224 reseptin ilkin enerji və makro cəmi hesablanıb. Bu, bişmə itkisi və nutrient saxlanması ilə düzəldilməmiş inqrediyent hesabıdır. Porsiya sayına əsaslanan təxmini hesab bişmiş 100 qram hesabından ayrılır; bütün reseptləri test bişirmək universal buraxılış şərti deyil.
+
+6. Hazır formatlar: library/foods.json, recipes.json, weekly-ideas.json; foods.csv və recipes.csv; nutrition-library.sqlite; oxunaqlı catalogue-az.txt. Mənbə paketləri sources/ qovluğundadır.
+
+7. 15 avtomatik yoxlama keçib: mənbə rəqəmlərinə uyğunluq, arxiv izləri, qram və porsiya hesabı, xam/bişmiş ayrımı, çatışmayan dəyərin ötürülməsi, allergen yayılması, təkrarsız resept tərkibləri, təhlükəsizlik qaydaları, şərti çıxım qapıları, həftəlik istinadlar və SQLite bütövlüyü.
+
+8. 0 resept və 0 ərzaq klinik/yerli yoxlamadan keçmiş kimi işarələnib. Mənbəli baza hazırdır. Tərkib dəyişəndə yenidən hesab, başqa yemək və günlə dəyişmə, foto sonrası resept redaktəsi üçün 16-cı bölmənin qaydaları tətbiq edilir.
+
+Mənbələr: [S12](https://fdc.nal.usda.gov/download-datasets/), [S13](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+## 16. Məcburi: inqrediyent və yemək dəyişmə
+
+İstifadəçi tərkibi sərbəst dəyişir və həftəlik planı qoruyaraq günlər arasında yemək dəyişir.
+
+1. İnqrediyenti çıxarmaq, əlavə etmək və qramını artırıb-azaltmaq məcburi funksiyadır. Bir porsiya ilə bütün qazan miqdarı aydın ayrılır.
+
+2. Dəyişiklikdə resept/porsiya hesabı, gün və həftə proqnozu, allergen uyğunluğu və alış-veriş yenilənir. Faktiki yeyilən qida toplamı yalnız istifadəçi yeməyi qeyd edəndə dəyişir.
+
+3. Başqa günün yeməyi ilə qarşılıqlı yer dəyişmək mümkündür. Hər iki gün yoxlanır və iki hissə bir əməliyyatla yenilənir. Qalan həftə səssiz yenidən qurulmur.
+
+4. Həmin günə uyğun başqa yemək seçmək mümkündür. Namizədlər günün yeyilmiş və planlanan qidaları, porsiya, allergiya və aktiv NutritionPolicy-yə görə yoxlanır. Uyğun namizəd yoxdursa səbəb deyilir.
+
+5. Əvvəl/sonra nəticəsi yadda saxlamadan əvvəl göstərilir. Digər yeməklərin porsiyasını dəyişmək yalnız ayrıca qəbul edilən təklif ola bilər. Plan versiyası və geri qaytarma saxlanır.
+
+6. Dəyişmiş reseptin ayrıca istifadəçi versiyası yaranır. Əsas kitabxana və keçmiş qeydlər dəyişmir; əvvəlki dietoloq təsdiqi, ölçülmüş çıxım və porsiya fotosu yeni tərkibə avtomatik miras qalmır.
+
+7. İnqrediyent dəyişəndə hazırlanma addımları da uyğunlaşdırılmalıdır. Yeni məhsul üçün yoxlanmış təlimat yoxdursa köhnə resept təlimatı tam uyğun kimi göstərilmir.
+
+8. Foto bizim verilmiş reseptlə əlaqəlidirsə “Reseptdə nəyisə dəyişmisən?” soruşulur. Xeyr → həmin versiya və yeyilən porsiya təsdiqlənir. Bəli → verilmiş son reseptin inqrediyent redaktoru açılır; çıxar/əlavə et/miqdar dəyiş mümkündür, yemək və gün dəyişmək yoxdur. Faktiki hesab istifadəçinin təsdiqlədiyi tərkibə əsaslanır; foto modelinin təxmini bunu səssiz əvəz etmir. Qeyd konkret bişmiş yeməyə aiddir; digər günlər və əsas resept dəyişmir.
+
+9. Ətraflı axınlar, məlumat müqavilələri və 19 qəbul ssenarisi planning/meal-customization-requirements.txt faylındadır. Status: məcburi tələb kimi yazılıb, tətbiqdə hələ kodlaşdırılmayıb.
+
+## 17. Məqsəd, büdcə və dünya mətbəxlərinə uyğun kitabxana
+
+Məcburi məhsul tələbi: istifadəçinin arıqlama, çəki artırma və saxlama seçiminə uyğun porsiya və menyu; regionda əlçatan ərzaq və real həftəlik büdcə.
+
+1. Yeni faktiki genişlənmə: 200 → 224 resept layihəsi; 500 ərzaq qeydi dəyişməyib. G01–G24 üçün qram, AZ addımlar, üç dildə işçi başlıq, mətbəx ilhamı və ilkin büdcə kateqoriyası var. 24 layihədən 14-ü az, 6-sı orta, 4-ü yüksək büdcə namizədidir; bu bölgü yerli qiymətlə yoxlanmalıdır.
+
+2. Mətbəx Azərbaycanla məhdudlaşmır: Levant, Şimali Afrika, Hindistan, Meksika, İtaliya, Yunanıstan və Şərqi Asiya ilhamlı seçimlər daxildir. Bunlar müəllif layihələridir, orijinal milli resept standartı və klinik sınaqdan keçmiş yemək iddiası deyil. Mətbəx ölkəsi istifadəçinin alış-veriş regionundan ayrıdır.
+
+3. Elmi əsasın üç səviyyəsi saxlanır: ərzağın nutrient mənbəsi; ümumi qidalanma qaydasının mənbəsi; konkret reseptin redaktor və dietoloq yoxlaması. USDA-ya bağlanmış qram hesabı və WHO/NHS istinadı həmin reseptin insanı arıqlatdığını və ya kökəltdiyini sübut etmir.
+
+4. Onboarding müqaviləsi: goal=lose|maintain|gain|healthy; yaş, hesablama üçün cins, boy, çəki, aktivlik və uyğunluq məlumatları; region, valyuta, həftəlik büdcə məbləği, büdcənin neçə nəfərə aid olduğu; allergiya, yemədikləri və vaxt. İstifadəçinin 5 noyabr 2026 qərarı: büdcəyə daxil yeməklər ayrıca soruşulmur və boşluğu təsdiqi bloklamır; əvvəlki qaralamadakı bu cavab yeni profilə ötürülmür. Bu giriş toplanmadığından büdcənin yemək əhatəsi müəyyən edilməmiş saxlanır; dəqiq əhatə uydurulmur. Onboarding-də ev avadanlığı və evdəki ərzaqların siyahısı/miqdarı soruşulmur; bu məlumatlar olmadan profil təsdiqlənir. Əvvəlki qaralamadakı həmin sahələr təsdiqi bloklamır və yeni profilə ötürülmür. Sadə az/orta/çox büdcə seçimi məbləğ yoxdursa üstünlükdür, dəqiq limit deyil.
+
+5. Məqsəd məcburi seçim girişidir. Arıqlama üçün təsdiqli enerji çatışmazlığı, saxlama üçün ehtiyac ətrafında hədəf, çəki artırma üçün təsdiqli enerji artığı tətbiq olunur. Rəqəmlər aktiv NutritionPolicy-dən gəlir. Heç bir inqrediyent və resept dəyişməz şəkildə yalnız bir məqsədə aid deyil; porsiya və bütün günün tərkibi yenidən yoxlanır.
+
+6. Arıqlama namizədləri üçün tərəvəz, paxlalı, lif və uyğun zülal mənbələri ilə real porsiya; çəki artırma üçün eyni bazaya uyğun əlavə taxıl, süd/qatıq, yağ, tahin və ya çərəz seçilə bilər. Allergen, qida seçimi və hesab yenidən yoxlanmadan əlavə edilmir. Saxlama üçün də qida müxtəlifliyi və keyfiyyət qaydaları qüvvədədir.
+
+7. Az büdcənin əsas namizədləri mərcimək, noxud, lobya, yumurta, yulaf, bulqur, düyü və mövsümi tərəvəzdir. Orta və yüksək büdcədə balıq, tofu, kinoa və çərəz kimi seçimlər genişlənə bilər. Bunlar universal ucuz/baha siyahısı deyil: region, mövsüm, yeyilən hissə və bişmiş/quru vəziyyət üzrə yoxlanır. Bahalı resept avtomatik daha sağlam və ya daha üstün sayılmır.
+
+8. Qiymət modeli: ingredient_price(food_id, region, currency, retailer, observed_at, package_grams, edible_fraction, package_price, preparation_state, source). İnqrediyentin istifadə dəyəri ilə alınmalı tam qablaşdırma xərci ayrı hesablanır. Həftə üzrə eyni məhsul birləşdirilir, evdəki istifadə edilə bilən miqdar çıxılır, sonra paketlər yuxarı tam ədədə yuvarlaqlaşdırılır. Quru qiymət bişmiş qramlara birbaşa vurulmur.
+
+9. Qiymət çatmırsa və ya təsdiqli qiymət siyasətinə görə köhnədirsə total_cost=null və səbəb göstərilir; büdcəyə uyğundur nişanı verilmir. Uydurma AZN qiyməti yazılmır. Büdcə çatmırsa daha əlçatan alternativ, istifadəçinin qəbul etdiyi sadə təkrar və ya limit dəyişikliyi təklif edilir; limit səssiz aşılmır.
+
+10. Seçim ardıcıllığı: uyğunluq və təsdiqli məzmun → allergiya və qadağalar → region/avadanlıq → hədəfə uyğun mümkün porsiyalar → bütün gün/həftə qida yoxlaması → həftəlik alış-veriş büdcəsi → vaxt, müxtəliflik və zövq üzrə sıralama. Büdcə üçün allergen və klinik sərhəd yumşaldılmır. Uyğun nəticə yoxdursa səbəb açıq verilir.
+
+11. Əvəzetmə müqaviləsi: ucuz alternativ sadəcə eyni qramla kopyalanmır. Məsələn kinoa→bulqur qlüten allergiyası olan şəxs üçün uyğun deyil; somon→mərcimək eyni nutrient profili deyil. Tərkib, porsiya, qida hesabı, allergen, hazırlanma addımı, alış-veriş və həftə xərci yenidən hesablanır; istifadəçi qəbul etdikdən sonra plan versiyası yaranır.
+
+12. Resept müqaviləsi: discovery.cuisine_inspiration, budget_tier_candidate, budget_status, goal_matching, evidence_refs, evidence_scope. Mövcud 200 reseptin discovery=null olması uyğunluq təsdiqi deyil; mərhələli redaktor zənginləşdirməsi tələb olunur. price_estimate=null və publishable=false hazırda bütün 224 resept üçün saxlanır.
+
+13. Növbəti məzmun mərhələsinin məhsul hədəfi 350 fərqli resept layihəsidir; bu elmi tələb deyil. Əvvəl 224 layihənin təkrarı, real porsiyası, təlimatı və mənbə uyğunluğu yoxlanır; sonra az büdcə, sürətli hazırlıq və bitki zülalı boşluqları doldurulur. Məqsəd×büdcə üzrə 12 profil sınağı resept sayından daha vacibdir; hər uyğun profil üçün həftəlik alternativ və qida keyfiyyəti yoxlanmalıdır.
+
+14. Qəbul ssenariləri: 4 məqsəd × 3 büdcə səviyyəsi; eyni reseptin müxtəlif uyğun porsiyası; büdcə məbləği olmadan dəqiq xərc iddiasının olmaması; qiymətsiz region; köhnə qiymət; qablaşdırma yuvarlaqlaşdırması; evdəki məhsul; allergenli ucuz alternativin rəddi; sıfır uyğun namizəd; məqsəd/büdcə dəyişəndə yenidən yoxlama; keçmiş yemək qeydlərinin dəyişməməsi. Bunlar hələ tətbiqdə icra edilmiş testlər deyil, buraxılış tələbləridir.
+
+Mənbələr: [S2](https://fdc.nal.usda.gov/data-documentation/), [S3](https://www.who.int/news-room/fact-sheets/detail/healthy-diet), [S7](https://www.niddk.nih.gov/bwp), [S14](https://www.nhs.uk/live-well/healthy-weight/managing-your-weight/healthy-ways-to-gain-weight/), [S15](https://www.nhs.uk/better-health/lose-weight/healthy-eating-when-trying-to-lose-weight/), [S16](https://www.myplate.gov/sites/default/files/cookbooks/MeetingYourMyPlateGoalsOnABudget_0.pdf)
+
+## 18. Vizual istinadlar: məqsəd, seçimlər və hesab müqaviləsi
+
+00-reference.png və 02-secimler-ve-hesab.png məhsul tələbləridir. Aşağıdakı seçimlər profil, plan yaratma, yemək dəyişmə və gündəlik qeyd axınlarının hamısında nəzərə alınmalıdır; yalnız ekranda göstərilməsi kifayət deyil.
+
+1. İstinadlar: design-concepts/simple-turquoise/00-reference.png — ümumi məhsul məqsədi və əsas axınlar; design-concepts/simple-turquoise/02-secimler-ve-hesab.png — onboarding 4/5 və 5/5, planın saxlanması və hesaba giriş. Bu bölmə istifadəçinin dizayn tələbləridir, elmi mənbə deyil; əvvəlki üçməqsədli müqavilə dörd seçimə genişlənir.
+
+2. Məqsəd ekranı: Arıqlamaq (lose), Çəkini saxlamaq (maintain), Çəki almaq (gain), Sağlam yemək (healthy). Bir seçim edilir və sonradan profildən dəyişdirilir. Healthy ayrıca məqsəddir: avtomatik arıqlama defisiti və ya kökəlmə artığı tətbiq olunmur; təsdiqli siyasət üzrə qida müxtəlifliyi və balans əsas götürülür. Məqsəd resept sıralamasına, porsiyaya, gün/həftə planına və irəliləyiş göstəricilərinə ötürülür.
+
+3. Allergiya ekranı: Süd, Yumurta, Qoz-fındıq, Balıq, Buğda çoxseçimlidir. Allergiyam yoxdur digər seçimlərlə qarşılıqlı istisnadır; cavabsız vəziyyət allergiya yoxdur kimi qəbul edilmir. Şəkildəki beş kart bütün allergenlərin tam siyahısı sayılmır; əlavə allergen daxil etmə yolu olmalıdır. Buğda allergiyası və qlüten məhdudiyyəti ayrı saxlanır; qoz-fındıq qrupunun konkret tərkibi dəqiqləşdirilir. Resept, inqrediyent, əvəzetmə və foto sonrası təsdiq eyni sərt filtri tətbiq edir; məlumatı naməlum məhsul uyğun sayılmır.
+
+4. Sevmədiyim yeməkləri seç ayrıca seçim ekranını açır. Yemək və inqrediyent istəksizliyi allergiyadan ayrı saxlanır, dəyişdirilə və silinə bilir. Plan yaratma və dəyişmə bu istəksizlikləri nəzərə alır; uyğun seçim qalmadıqda səbəb və istifadəçinin təsdiqləyəcəyi alternativ göstərilir, seçim səssiz ləğv edilmir.
+
+5. Bişirməyə vaxtın: 15 dəq, 30 dəq, 1 saat; hər yemək üçün ümumi hazırlanma vaxtı limiti kimi saxlanır, aktiv iş və gözləmə vaxtı ayrıca metadata olur. Şəkildə 30 dəq seçilib, bu hamı üçün təsdiqlənmiş cavab deyil. Vaxtı naməlum resept limitə uyğun kimi təqdim edilmir; uyğun resept yoxdursa limit dəyişikliyi təklif olunur.
+
+6. Qida büdcən: Qənaətli, Orta, Sərbəst. Bunlar keyfiyyət üstünlüyü deyil, xərc üstünlüyüdür; Sərbəst avtomatik limitsiz büdcə demək deyil. Bölmə 17-dəki region, valyuta, həftəlik məbləğ, nəfər/yemək əhatəsi və real qiymət müqaviləsi saxlanır. Şəkildə Qənaətli seçilməsi bütün istifadəçilərin seçimi sayılmır.
+
+7. Gündə neçə dəfə yeyirsən?: 3 dəfə, 4 dəfə, 5 dəfə. Gündəlik yemək slotları və enerjinin paylanması seçilmiş saya uyğun qurulur; 4/5 seçimində əlavə slotlar açıq göstərilir. Səhər/Nahar/Şam/Qəlyanaltı ekran quruluşu seçilmiş sayı əvəz etmir; yemək sayı artanda günlük hədəf avtomatik artırılmır. Şəkildəki 3 dəfə nümunə seçimidir.
+
+8. Planımı hazırla bütün cavabları bir profil versiyası kimi saxlayır və uyğunluq yoxlamasından keçirir. Məqsəd, allergiya, istəksizlik, vaxt, büdcə və yemək sayı həm ilk plan, həm yemək/gün dəyişmə, həm də inqrediyent redaktəsində tətbiq edilir. Profil dəyişəndə təsirlənən gələcək plan yenidən hesablanır və təsdiq olunur; keçmiş yeyilmiş qeydlər qorunur.
+
+9. Planını itirmə: Apple ilə davam et, Google ilə davam et, E-poçtla qeydiyyat, İndi yox və Məxfilik barədə sadə məlumat. Qonaq yolu plan yaratmağı bloklamır; lokal saxlanma və cihaz dəyişəndə bərpa məhdudiyyəti izah edilir. Sonradan hesab açılarkən qonaq profili, plan və qeydlər dublikat yaratmadan köçürülür; başqa telefonda davam yalnız uğurlu sinxronizasiyadan sonra vəd edilir.
+
+10. Hesabına daxil ol: e-poçt və şifrə, şifrəni göstər/gizlət, Daxil ol, Şifrəni unutdum, Yeni hesab yarat və geri dönüş. Qeydiyyat/giriş fərqləndirilir; yüklənmə, səhv məlumat, şəbəkəsiz rejim, provayderdən imtina və sinxronizasiya konfliktləri nəzərdə tutulur. Xəta zamanı onboarding cavabları və yaradılmış plan itmir; məxfilik məlumatı qısa və başadüşülən olur.
+
+11. 00-reference məhsul axını: Bu gün cari yeməyi, gündəlik qalan enerjini və yemək slotlarının vəziyyətini göstərir. Əlavə et üç yol verir: Şəkil çək, Axtar, Əvvəl yediklərim. Az/Orta/Çox şəkilli porsiya ilə yanaşı Dəqiq qramla yaz yolu var; foto və porsiya hesabı təxmini kimi göstərilir və istifadəçi təsdiqindən sonra qeydə düşür. Şəkildəki 860/420/440 və digər rəqəmlər sabit norma deyil, nümunədir.
+
+12. Menyu axını: yemək şəkli, adı, hesablanan enerji, vaxt, Yedim, Resept, Dəyiş və Alış-veriş siyahısı mövcud planın məlumatından gəlir. İrəliləyiş çəki trendini və qeyd davamlılığını göstərir; healthy məqsədində çəki azalması avtomatik uğur sayılmır. Naviqasiya: Bu gün, Menyu, Əlavə et, İrəliləyiş, Profil. Sadə Azərbaycan dili və özünü izah edən şəkillər qorunur; əsas məna yalnız rəng və şəkildən asılı olmur.
+
+13. Qəbul meyarları: 4 məqsəd × 3 büdcə = 12 profil; hər profil üçün 3/4/5 yemək və 15/30/60 dəqiqə seçimlərinin planı dəyişməsi; allergiya yoxdur qarşılıqlı istisnası; cavabsız allergiya; çoxlu allergiya və istəksizlik; vaxtı/qiyməti naməlum resept; uyğun nəticə olmaması; healthy üçün avtomatik defisitin olmaması; qonaqdan hesaba keçid; başqa cihazda bərpa; giriş və sinxronizasiya xətasında məlumatın saxlanması. Bunlar planlaşdırılan yoxlamalardır, işlək tətbiqdə keçmiş test iddiası deyil.
+
+## 19. Digər dizayn ekranları ilə müqayisə və tamamlanan tələblər
+
+01 və 03–11 dizayn dəstləri mövcud planla müqayisə edildi. Elmi/hesablama və fərdiləşdirmə qaydaları saxlanıldı; çatışmayan ekran davranışları, vəziyyətlər və məlumat müqavilələri aşağıda tamamlandı.
+
+1. Əhatə və üstünlük: 01-baslangic.png (01–04), 03-yemek-qeydiyyati.png (09–12), 04-menyu-ve-alisveris.png (13–16), 05-irelileyis-ve-profil.png (17–20), 06-abunelik-ve-veziyyetler.png (21–24), 07-inqrediyent-redaktesi.png (25–28), 08-yemek-ve-gun-deyisme.png (29–32), 09-foto-sonrasi-resept.png (33–36), 10-deyisiklik-ve-xeta-hallari.png (37–40), 11-yenilenmis-plan-ve-tesdiq.png (41–44) vizual yoxlanıb. Hamısı design-concepts/simple-turquoise/ daxilindədir. 00 və 02 bölmə 18-dədir. 07–11 köhnə resept, dəyişmə və foto ekranlarını tamamlayır; ziddiyyətdə new-flows-guide.txt və meal-customization-requirements.txt funksional qaydaları əsasdır. Nümunə tarix, şəxs, qiymət və kalori real istifadəçi məlumatı deyil.
+
+2. 01 / ekran 01–04: Xoş gəldin ekranında dil seçimi, Başlayaq və Hesabım var yolları olmalıdır. Özünü tanıt yaş, boy (sm), çəki (kq), birbaşa rəqəm girişi və artır/azalt idarələrini göstərir; onluq vergül dəstəklənir, boş/mənfi/uyğunsuz giriş izahlı rədd edilir. Hesablama üçün cins könüllüdür və buraxıldıqda bölmə 5-in alternativ yolu işləyir. Aktivlik: Çox otururam, Bir az hərəkət edirəm, Çox hərəkət edirəm — aydın təsvirlə təsdiqli xəritəyə bağlanır. Geri dönüş cavabları saxlayır və addım göstəricisi real ardıcıllığa uyğundur.
+
+3. 01 / ekran 04: Planın hazırdır xülasəsi hesablanan təxmini gündəlik hədəfi (əgər hesablamaq mümkündürsə), seçilmiş yemək sayını, məqsədi və nümunə menyunu göstərir. Menyumu gör və Seçimləri dəyiş ayrıca yollar olur. Şəkildəki saxlama məqsədi və 1 900 kalori istifadəçi məqsədini əvəz etmir; xülasə həmişə faktiki profil və plan versiyasından yaranır.
+
+4. 03 / ekran 09–12: Axtarışda adı yazmaq, mətni təmizləmək, yemək variantını seçmək və Tapmadın? Özün əlavə et yolu var. Əl ilə formaya ad, miqdar/vahid, məlumdursa mənbəli qida dəyəri daxil edilir; bilinməyən nutrient sıfır sayılmır. Əvvəl yediklərim siyahısından təkrar qeyd yeni tarix və təsdiqlənmiş porsiya ilə yaranır. Yüklənmə, boş nəticə və xəta vəziyyətləri aydın ayrılır.
+
+5. 03 / ekran 10–11 və 06 / ekran 24: Kamera çərçivəsi, işıq idarəsi (dəstəklənirsə), qalereyadan seçim, kamera/foto icazəsi rədd ediləndə axtarışa keçid olmalıdır. Sərbəst yemək fotosunda namizəd və Başqa yeməkdir yolu, əlavə yağ/sous üçün Yox/Var və Var üçün məhsul-miqdar girişi verilir; hesabda artıq olan yağ ikinci dəfə əlavə edilmir. Şəkli tanıya bilmədik halında Yenidən şəkil çək, Yeməyin adını axtar, Özüm yazım yolları qalır; heç biri avtomatik qida qeydi yaratmır.
+
+6. 03 / ekran 12 və 11 / ekran 44: Uğurlu qeyd ekranı faktiki saxlanmış yeməyi, şəxsi porsiyanı, təxmini enerjini və mümkün olduqda qalan gündəlik enerjini göstərir. Bu günə qayıt, Başqa yemək əlavə et və Düzəliş et yolları konkret qeyd ID-si ilə işləyir. Qeydi düzəltmək və silmək günlük toplamları yeniləyir; silmə açıq təsdiqlənir. Hədəf aşılması neytral izah edilir, cəza və yeməyə qadağa yoxdur.
+
+7. 04 / ekran 13–16: Həftənin menyusunda həqiqi tarixlər, seçilmiş gün və Bu gün işarəsi, planlı/yeyilmiş vəziyyətlər ayrıdır; Yedim yalnız porsiya təsdiqindən sonra qeyd yaradır. Reseptdə Saxla şəxsi seçilmişlər siyahısına əlavə edir, bu əməl menyuya əlavə və ya yeyilmiş qeyd sayılmır. Vaxt, porsiya əsası, inqrediyent miqdarları və addımlar seçilmiş resept versiyasına bağlıdır. Daha yeni 25-ci ekran bu girişə redaktə və hazırlanmış yemək fotosunu əlavə edir.
+
+8. 04 / ekran 16 və 11 / ekran 42: Alış-veriş siyahısı həftəyə görə kateqoriyalanır, məhsul/vahid/miqdar göstərir. Evdə var ilə Alınıb ayrı statuslardır; hazır məhsul sayğacı unikal məhsul sətirlərindən hesablanır. Eyni ərzaq üzrə çevrilə bilən miqdarlar birləşdirilir; ədəd→qram yalnız məlum çevirmə ilə edilir. Siyahını paylaş sistem paylaşım önbaxışını açır; yalnız siyahı məzmunu daxil edilir və göndərməni istifadəçi seçir. Plan dəyişəndə fərq göstərilir, əvvəlki işarələr və artıq alınmış məhsullar qorunur.
+
+9. 05 / ekran 17–18: Çəki qeydində tarix seçimi, kq ilə birbaşa giriş/artır-azalt, Yadda saxla və Əvvəlki qeydlərim yolları var; tarixçədə düzəliş/silmə mümkündür. Eyni tarixə təkrar qeyd əlavə ediləndə əvəzləmə və ya ayrıca ölçmə açıq seçilir, səssiz dublikat yaranmır. Həftəlik baxış tarix aralığını, əvvəlki həftəyə keçidi, qeyd edilən günləri, ölçmə sayını və faktiki çəki nöqtələrini göstərir. Qeyd edilməyən gün 0 qəbul kimi hesablanmır, bir ölçmə trend sayılmır; ən çox qeyd edilən yemək yalnız mövcud qeydlərdən çıxarılır. Çəki dəyişikliyi məqsədə uyğun, mühakiməsiz göstərilir.
+
+10. 05 / ekran 19–20: Profil redaktəsi, Məqsədim, Yemək seçimlərim, Xatırlatmalar, Dil, Abunəliyim və Kömək bölmələrinin hər birinə işlək keçid tələb olunur. Dil dəyişməsi məzmun ID-lərini və keçmiş rəqəmləri dəyişmir. Yemək xatırlatmaları ayrıca açılıb-söndürülür və vaxtı seçilir; çəki xatırlatması günlük/həftəlik qurulur; Sakit saatlar və Yadda saxla işləyir. Bildirişlər könüllüdür; sistem icazəsi rədd edilərsə tətbiq işləyir. Cədvəl istifadəçinin saat qurşağına və 3/4/5 yemək slotuna uyğun olur, gecə yarısını keçən sakit aralıq nəzərə alınır, səfər/saat dəyişikliyi təkrar bildiriş yaratmır. Şəkildəki 09:00/13:00/19:00 və 22:00–08:00 nümunədir.
+
+11. 06 / ekran 21: Aylıq/İllik seçim, Abunə ol, Pulsuz davam et və Alışı bərpa et yolları nəzərdə tutulur. Həftəlik şəxsi menyu, yemək dəyişmə və alış-veriş vədləri yalnız həqiqi paket imkanlarına bağlanır; pulsuz/ödənişli sərhəd ayrıca məhsul qərarı ilə sənədləşdirilir. 4,99/39,99 USD sabit qiymət deyil: real mağaza qiyməti, valyuta, dövr, yenilənmə və ləğv etmə yolu göstərilir. Aktiv, bitmiş, ləğvi planlaşdırılmış, gözləyən/uğursuz ödəniş və bərpa vəziyyətləri fərqləndirilir; giriş hüququ uğurlu alış yoxlanandan sonra açılır. Ödəniş rəddi mövcud qeydləri silmir. Burada platforma və hüquq uyğunluğunun yoxlandığı iddia edilmir.
+
+12. 06 / ekran 22–23: Boş Bu gün ekranı Hələ yemək əlavə etməmisən mesajı, Yemək əlavə et və Bugünkü menyunu gör yollarını verir; planın olması faktiki qəbul olması sayılmır. Şəbəkəsiz ekranda Yeməyin telefonda saxlanıb yalnız dayanıqlı lokal yazı uğurludursa göstərilir. Gözləyən sinxronizasiya, xəta və tamamlanma ayrıdır; Yenidən yoxla və Davam et qeydi təkrarlamır. Lokal yazı da alınmayıbsa saxlanıb demək əvəzinə bərpa yolu göstərilir.
+
+13. 07–09 / ekran 25–36: Əsas fərdiləşdirmə axınları bölmə 16-da var. Əlavə detalları: su, duz, sarıkök kimi Digər ərzaqlar açılan bölmədə itmir; duz nutrient hesabı üçün əhəmiyyətlidir. Məhsul seçici xam/quru/bişmiş vəziyyəti və mənbəni ayırır, seçilmiş qramı kontekstə qaytarır. Önizləmədən redaktəyə geri dönüş dəyişiklikləri saxlayır. Qazan hissəsi yarım/1/2 porsiya və ya mümkün dəqiq miqdarla seçilir; foto özü qazan çıxımını ölçmür.
+
+14. 10 / ekran 37–40: Uyğunsuz dəyişmədə səbəb, Başqa gün seç və Porsiyalara bax yolları olur; təsdiqə qədər heç bir yemək dəyişmir. Məlumatı çatmayan məhsulda Etiketdəki məlumatı yaz və Bazadan uyğun məhsul tap alternativləri verilir; natamam hesab uyğunluq nişanı almır. Yenilənmiş addımlara və tərkibə geri baxış mövcuddur. Saxlanmamış redaktədən çıxarkən Redaktəyə davam et, Dəyişiklikləri ləğv et, Qaralama kimi saxla seçilir; qaralama baza resept/plan versiyası və redaktə kontekstini saxlayır, bərpa zamanı versiya konflikti yoxlanır. Qaralama təsdiqlənmiş plan və ya gündəlik sayılmır.
+
+15. 11 / ekran 41–44: Menyuda hansı iki hissənin yer dəyişdiyi göstərilir və Son dəyişikliyi geri qaytar plan/alış-veriş üçün vahid əməliyyatdır; sonradan yaranmış qeydlər silinmir. Alış-veriş fərqi artım/azalma kimi görünür; şəkildəki +200 q göbələk/+20 q yağ yalnız dörd porsiyalı nümunədir. Alternativdə əvvəl/sonra yemək və enerji, açılan gün proqnozu, Bununla əvəz et və Başqa variant seç yolları olur. Qeyd olundu ekranı istifadəçinin dəyişdirdiyi tərkibi göstərir və Qeydə düzəliş et həmin faktiki qeydi açır; gələcək günlərə tətbiq ayrıca seçim olmadan edilmir.
+
+16. Kömək və hesab idarəsi: Profilin Kömək bölməsi tez-tez verilən suallar, dəstək və yanlış qida məlumatını bildirmə yolunu açır. Məxfilik, məlumat ixracı, hesabdan çıxış və hesab silmə əlçatandır; hesab silmə nəticəsi açıq izah və təsdiq tələb edir. Plan məlumatı, şəxsi qeydlər və şəkillərin saxlanma/silmə qaydası sənədləşdirilir. Bu bəndlər implementation-guide.txt-də qeyd edilib, hər biri ayrıca raster ekranla çəkilməyib.
+
+17. Əlçatanlıq və vizual müqavilə: design-concepts/tokens.css daxilində simple-* rəngləri, space-* aralıqları və radius-card istifadə olunur; rasterdən təsadüfi rəng götürülmür. implementation-guide.txt-dəki ən azı 16 pt əsas mətn, iOS 44 pt toxunma sahəsi, Android üçün platforma minimumu, sistem mətn böyütməsi, ekran oxuyucu etiketləri, daimi forma adları və rəqəm klaviaturası tətbiq edilir. Seçim rənglə yanaşı işarə/çərçivə ilə göstərilir. İşlək UI-də mətn kontrastı ən azı 4,5 ilə ölçülür; ən uzun AZ/EN/RU mətnlə render və vizual yoxlama aparılır. Bu dəyişiklik yeni UI yaratmır və tətbiqin əlçatanlıq yoxlamasından keçdiyini bildirmir.
+
+18. Əlavə məlumat müqavilələri: WeightEntry(id, measured_at, timezone, weight_kg, revision); ReminderSettings(meal_slot, enabled, local_time, timezone, quiet_hours, weight_frequency, permission_state); RecipeBookmark(user_id, recipe_id, saved_version); ShoppingItem(food_id, preparation_state, quantity, unit, home_quantity, purchased_quantity, plan_version); SubscriptionEntitlement(product_id, store, status, valid_until, verified_at); EditDraft(context, base_version, changes, saved_at). Məxfi ödəniş məlumatı tətbiqin bu modellərinə yazılmır; minimum tələb olunan istinad və status saxlanır.
+
+19. Buraxılış yoxlama siyahısı: ekran 01–44 üçün giriş→hərəkət→nəticə→geri/xəta yolu izlənir. Əlavə ssenarilər: könüllü cins buraxılıb; onluq vergül; plan xülasəsi profillə uyğun; əl ilə naməlum nutrient; kamera icazəsi yoxdur; tanınmayan foto; yağın iki dəfə sayılmaması; seçilmişlərdən təkrar qeyd; tarixli çəki düzəlişi; boş həftə; sakit saatların gecə yarısını keçməsi; bildiriş icazəsi rəddi; aylıq/illik və bərpa/ödəniş xətası; pulsuz davam; lokal yazı xətası; paylaşımın ləğvi; qaralamanın bərpası və konflikti; alış-verişdə evdə/alınıb ayrımı; sonrakı gündəliyi qoruyan undo; dil dəyişməsi və böyük mətn. Bunlar icra edilməli qəbul ssenariləridir, keçmiş tətbiq testləri deyil.
+
+## 20. Vahid plan, üstünlük və ziddiyyətlərin həlli
+
+U-01–U-10: iki planın bir icra müqaviləsinə çevrilməsi; təsdiqsiz rəqəmlər aktiv qayda olmur.
+
+1. U-01 Mənbə üstünlüyü: cari istifadəçi qərarı → bu kanonik plan və onun törəmə görünüşləri → T01–T19 detalları → coding-tasks icra növbəsi → dizayn nümunələri. Ziddiyyət varsa icra dayandırılıb konkret tələb üzrə həll edilir; rəsmi mənbə dəstəyi olmayan klinik qərar uydurulmur. AGENTS.md-də MD-yə istinad eyni kanonik qaydaları göstərir.
+
+2. U-02 docs/nutrition-plan-design.md-nin 5 noyabr ilkin versiyası Git tarixçəsində saxlanır; ayrıca paralel normativ plan kimi davam etmir. Mifflin hesabı, DB-dən nutrient hesabı, mənbə izlənməsi, tibbi istisna, foto təsdiqi və məxfilik prinsipləri vahid plana daxil edilib.
+
+3. U-03 Yeni sənəddəki 1,2/1,375/1,55/1,725 əmsalları, −300/−500 defisit, +200/+300 surplus, 1200/1500 minimum, +20% maksimum və 1,2–1,6 q/kq protein default-u təsdiqli universal qayda deyil. §5, §11 və G2 əsasdır: hər biri dəqiq mənbə/əhali/çəki bazası/versiya və faktiki təsdiqlə policy-də müəyyənləşdirilir. Qeyri-müəyyən hədd canlı plana sızmır.
+
+4. U-04 20/30/50 makro bölgüsü, 25/35/30/10 slot bölgüsü, 3 gün təkrarsızlıq və ±10% enerji toleransı tibbi standart sayılmır. Bunlar təsdiq tələb edən namizəd məhsul parametrləridir. Günlük enerji 3/4/5 slot arasında bölünür; slot sayına görə artırılmır; feasible həll yoxdursa uğur qaytarılmır.
+
+5. U-05 Cins könüllüdür; formula üçün lazım olan məlumat buraxılıbsa avtomatik hədəf yoxdur. Məqsədlər lose/maintain/gain/healthy saxlanır; healthy avtomatik defisit deyil. AZ/EN/RU ilk dil əhatəsidir; TR sonrakı ayrıca redaktə/tərcümə işidir.
+
+6. U-06 16+ mağaza auditoriyası 18 yaşdan aşağı şəxslərə fərdi plan icazəsi deyil; mağaza reytinqi konsolda hələ yoxlanmayıb. İlkin fərdiləşdirmə yalnız təsdiqli yetkin model əhatəsindədir. Diabet, böyrək xəstəliyi, hamiləlik/südvermə, qidalanma pozuntusu və tibbi pəhriz ehtiyacı konservativ istisna marşrutuna düşür; bu diaqnoz testi deyil. BMI üçün yeni avtomatik klinik hədd təsdiqsiz əlavə edilmir.
+
+7. U-07 Məlumatı DB-dən hesablamaq dəqiqlik zəmanəti deyil: qida uyğunlaşdırması, tərkib variantı, çıxım, saxlanma və porsiya qeyri-müəyyənliyi saxlanır. Bütün mikro rəqəmlər bazada yoxdur; naməlum sıfır olmur. Meyvə şirəsi sərbəst şəkər xəritəsinə daxildir; total/added/free sugar fərqləndirilir.
+
+8. U-08 Başdan 30–50 yeni şablon və P0–P4 həftə vədləri köhnə təklifdir. Hazır 500 ərzaq/224 resept layihəsi, K01–K12 işi və K13–K34 növbəsi saxlanır; dərc olunmamış məzmun hazır istehlakçı planı deyil. Hər bitmiş K üçün qəbul sənədi və uyğun main CI sübutu yoxlanır.
+
+9. U-09 Hazırda dietoloq olmadığına görə avtomatik fərdi plan G2 bağlı qalır. Mütəxəssis olmadan işləyə bilən mənbəli gündəlik/ümumi maarif rejimi ayrıca R-01 müqaviləsinə tabedir. G2-ni dəyişmək ayrıca açıq məhsul qərarı və əsaslandırma tələb edir; bu birləşdirmə onu səssiz dəyişmir.
+
+10. U-10 Yeni backend xətti Spark-only + Go/PostgreSQL kimi hədəf məhdudiyyətidir; hazır inteqrasiya iddiası deyil. Android offline Room və mövcud snapshot müqavilələri qorunur. Cloud Functions/Blaze/Identity Platform asılılığı daxil edilmir; uzaq ADR, əməliyyat büdcəsi və faktiki konfiqurasiya K25/K26-da yoxlanır.
+
+Mənbələr: [S1](https://fdc.nal.usda.gov/api-guide/), [S3](https://www.who.int/news-room/fact-sheets/detail/healthy-diet), [S4](https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values), [S7](https://www.niddk.nih.gov/bwp), [S18](https://www.dietaryguidelines.gov/), [S20](https://firebase.google.com/docs/projects/billing/firebase-pricing-plans)
+
+## 21. Dietoloqsuz rejim və aktivləşdirmə matrisi
+
+R-01–R-08: istifadəyə yararlı gündəliklə fərdi tövsiyənin hazır statusu ayrılır.
+
+1. R-01 İndiki rejim: mənbəsi və qeyri-müəyyənliyi göstərilən əl ilə qeyd, dəqiq qramla nutrient arifmetikası, istifadəçinin təsdiqlədiyi keçmiş yeməyin təkrarı, tarixçə və ümumi maarif məzmunu. Sadalanan hər funksiya öz Kxx qəbulundan sonra açılır. Klinik redaktor imzası olmayan EvidenceCard “dietoloq təsdiqləyib” nişanı almır; dərc üçün mövcud baxış tələbləri qorunur.
+
+2. R-02 Avtomatik fərdi kalori/makro, arıqlama/artırma və balanslı fərdi həftəlik plan yalnız G2 + G3 açıq və bütün tətbiq olunan sərt yoxlamalar keçibsə mümkündür. G2/G3 bağlı olduqda qeyd/göstərmə işləyə bilər; boş katalog və ya təsdiqsiz policy üçün nümunə reseptlə süni uğur yoxdur.
+
+3. R-03 İstifadəçinin mütəxəssisdən aldığı hədəf ayrıca mənşə və tarixlə saxlanır; tətbiqin hesabladığı və ya təsdiqlədiyi hədəf adlanmır. Bu yol tibbi istisnanı və allergen təhlükəsizliyini aşmaq üçün avtomatik menyu açmır; K08 uyğunluq müqaviləsi saxlanır.
+
+4. R-04 Uyğunluq nəticələri: ELIGIBLE, INELIGIBLE, INCOMPLETE, POLICY_UNAVAILABLE, MODEL_OUT_OF_SCOPE. Naməlum cavab “xeyr” olmur; natamam profil/policy avtomatik hədəf yaratmır. İstisna səbəbi minimum məlumatla və mühakiməsiz izah edilir; gündəlik və peşəkar dəstək yolu qalır.
+
+5. R-05 Məhsul sahibi G1/platforma və funksional prioriteti; klinik redaktor G2 və qidalanma məzmununu; məzmun əməkdaşı ölçü/hüquq/tərcümə sübutunu; QA proqram davranışını yoxlayır. Rəsmi mənbə, insan baxışı, proqram testi və klinik effektivlik fərqli sübutlardır. Sahibi tərəfindən uydurma reviewer/approved_at yazılmır.
+
+6. R-06 G3 hər resept və versiya üçün ayrıca açılır. Dərc üçün mənbə/tərkib/allergen/təlimat/hüquq/dil yoxlaması; bişmiş 100 q üçün uyğun çıxım; Az/Orta/Çox üçün kalibrasiya tələb olunur. G4 olmadan qiymət naməlum/təxmini; G5 olmadan uzaq bərpa və foto provayderi vədi yoxdur; G6 olmadan ödəniş yoxdur.
+
+7. R-07 Aktiv policy və resept geri çəkilərsə yeni plan/swap/təkrar tövsiyə üçün istifadəsi dayandırılır. Keçmiş faktiki qeydlər snapshot kimi qalır; geri çağırılmış mənbə barədə aydın xəbərdarlıq göstərilir. Plan yeniləməsi istifadəçi təsdiqi ilə ayrıca versiya yaradır.
+
+8. R-08 G7 buraxılış üçün real məzmun, cihaz və istifadəçi pilotu sübutlarını tələb edir. Yaş reytinqi, Play deklarasiyası, məxfilik və faktiki imkanların uyğunluğu təqdimatdan əvvəl yoxlanır. “Tibbi cihaz deyil” mətni zərərli tövsiyəni qəbul edilən etmir; xəstəlik diaqnozu/müalicəsi vədi yoxdur.
+
+Mənbələr: [S4](https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values), [S7](https://www.niddk.nih.gov/bwp), [S21](https://support.google.com/googleplay/android-developer/answer/16679511)
+
+## 22. Hesablama, nutrient əhatəsi və generatorun yekun müqaviləsi
+
+C-01–C-12: nəticənin niyə verildiyini və hansı yoxlamanın mümkün olmadığını maşınla izləmək.
+
+1. C-01 Axın: profil versiyası → uyğunluq → təsdiqli policy → tələb olunan giriş/model əhatəsi → REE → policy-yə uyğun aktivlik/enerji → məqsəd düzəlişi → makro/nutrient qaydaları → dərc edilmiş namizədlər → porsiya axtarışı → gün/həftə validatoru → dəyişməz nəticə. Bir mərhələ uğursuzdursa sonrakı mərhələ təsdiqli nəticə yaratmır.
+
+2. C-02 NutritionPolicy §11-ə əlavə olaraq effective_from/to, evidence_checked_at, source_section, model_age_scope, weight_basis, rule_severity, comparison_operator, unit, evaluation_window, missing_data_action və supersedes saxlayır. Bunlar hədəf müqavilə əlavələridir; mövcud Kotlin modelində hamısının implementasiya edildiyi iddia edilmir. Dəyişiklik geriyə uyğun migration və K08 regresiyası tələb edir.
+
+3. C-03 Müxtəlif standartlar ayrı ReferenceSet kimi saxlanır: WHO population guidance, EFSA yaş/cins/həyat mərhələsi üzrə PRI/AI/RI/UL, ABŞ DRI/DGA nəşri. Ən sərt rəqəmi seçib qarışdırmaq olmaz. Eyni qayda üçün seçilmiş mənbə və əhatə açıq olur; ziddiyyət klinik baxışa qaytarılır. UL hədəf deyil; həmin nutrientin qida/fortifikasiya/əlavə formasına və zaman pəncərəsinə aid məhdudiyyəti tətbiq edilir.
+
+4. C-04 NutrientValue: nutrient_id, amount(nullable), unit, basis(per_100g_edible/per_serving/batch), preparation_state, source_food_version, derivation, completeness, uncertainty_note. Qram/mq/mkq, kkal/kJ, natrium/duz və vitaminlərin müxtəlif ifadə formaları açıq xəritələnir. Enerji komponentlərinin 4/4/9 yoxlaması anomaliya siqnalıdır; lif/poliol/alkoqol və mənbə metodunu nəzərə almadan rəsmi enerjini əvəz etmir.
+
+5. C-05 Hər validator RuleResult(rule_id, policy_version, scope, operator, threshold, observed_value, unit, status=PASS/FAIL/UNKNOWN/NOT_APPLICABLE, evidence_refs, missing_fields, reason) qaytarır. Kritik nutrient/allergen məlum deyilsə UNKNOWN uğur sayılmır. Sərt tələbdə FAIL/UNKNOWN planın dərcini bloklayır; yumşaq keyfiyyət şərtində natamamlıq açıq qalır, “tam balanslı” nişanı verilmir.
+
+6. C-06 Total/added/free sugar ayrı sahələrdir; naməlum trans yağ və sərbəst şəkər 0 deyil. Natriumdan duz ekvivalenti salt_g=sodium_mg×2,5/1000, sodium_mg=salt_g×1000/2,5 ilə, çevrilmiş mənşə ilə saxlanır. Duz inqrediyenti çıxarılmır və iki dəfə sayılmır. Meyvə/tərəvəz çəkisi uyğun qida qrupu və yeyilən hissə xəritəsindən gəlir; istənilən bitki və ya reseptin tam çəkisi avtomatik 400 q hesabına girmir.
+
+7. C-07 Reseptdə çıxım nutrient yaratmır: əvvəl yeyilən inqrediyentlər və uyğun saxlanma ilə batch toplamı, sonra təsdiqli porsiya payı/ölçülmüş çıxım tətbiq edilir. Su itkisi nutrient toplamını artırmır; atılan yağ/bulyon itkisi sənədləşir. Bişmiş komponentə retention ikinci dəfə vurulmur. Məhsula aid sübut yoxdursa qaşıq/ədəd/sıxlıq çevirməsi işləmir.
+
+8. C-08 PlanGenerationRequest(profile_version, policy_version, catalog_version, week_start, timezone, goal, meals_per_day, constraints, seed, request_id). Sərt filtrlər porsiya skorundan əvvəl işləyir. Məhdud axtarış büdcəsi və deterministik seed var; limitsiz yenidən cəhd yoxdur. Hər yemək üçün alternativ yoxdursa ayrıca nəticədir, uydurma alternativ deyil.
+
+9. C-09 Generator nəticəsi SUCCESS / NO_FEASIBLE_PLAN / INCOMPLETE_DATA / POLICY_UNAVAILABLE / STALE_INPUT / TEMPORARY_FAILURE və rule_results/unmet_constraints qaytarır. Enerji uyğun olsa da allergen/tərkib və ya kritik nutrient məlum deyilsə SUCCESS yoxdur. Büdcə/vaxt yumşaldılması yalnız qaydada icazə varsa səbəb və istifadəçi seçimi ilə olur; allergiya və tibbi istisna yumşalmır.
+
+10. C-10 SUCCESS-də profile/policy/catalog/recipe versiyaları, porsiyalar, nutrient snapshot və məlumat əhatəsi saxlanır. Eyni request_id və eyni payload eyni nəticəyə çıxır; dəyişmiş payload üçün açıq konflikt var. Profil/plan versiyası köhnədirsə yazıdan əvvəl yenidən yoxlanır. Hesablamalar tam dəqiqliklə, göstərmə yuvarlaqlaşdırması sonda aparılır.
+
+11. C-11 Günlük proqnoz faktiki qeydlər + yeyilməmiş plan hissəsidir; plan görüntüləmək qəbul sayılmır. Natamam nutrient/gündəlikdə dəqiq qalan enerji deyilmir. Resept redaktəsi enerji hədəfini dəyişmir; keçmiş snapshot və şəxsin faktiki batch-i qorunur. §16 və T01–T19 dəyişməz məcburi müqavilədir.
+
+12. C-12 AI yalnız namizəd və redaktə üçün mətn qaralaması verir. Addımların vaxt/temperatur/allergen təhlükəsizlik mətni təsdiqli reseptdən gəlir; LLM təlimatı birbaşa dərc edilmir. Generativ foto porsiya ölçü istinadı deyil; sərbəst yemək fotosunda namizəd, tərkib və miqdar istifadəçi təsdiqindən əvvəl FoodLog yaratmır.
+
+Mənbələr: [S1](https://fdc.nal.usda.gov/api-guide/), [S2](https://fdc.nal.usda.gov/data-documentation/), [S3](https://www.who.int/news-room/fact-sheets/detail/healthy-diet), [S4](https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values), [S8](https://www.fao.org/infoods/infoods/standards-guidelines/en/), [S9](https://www.fao.org/uploads/media/reinivuvo_laitinen_2007_Eurofir_recipe_harmonisation_D2.2.12_M2.2.4_02.pdf), [S13](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+## 23. Mənbə, regional yemək və hüquq protokolu
+
+D-01–D-08: etibarlı mənbə faktı ilə həmin məhsula uyğunluğu ayrıca yoxlamaq.
+
+1. D-01 USDA əsas tərkib mənbəyidir; Foundation/SR Legacy/FNDDS/Branded məqsədə uyğun seçilir, ad oxşarlığı kifayət deyil. FDC ID, nəşr, alınma tarixi, xam fayl/hash, nutrient ID/vahid və xəritələmə səbəbi saxlanır. API açarı serverdədir; rəsmi API limitinə qarşı keş və rəsmi dump üstün tutulur; servisin dayanması lokal gündəliyi dayandırmır.
+
+2. D-02 Azərbaycan yeməkləri inqrediyentlərə ayrılır; yağ, duz, sous, yeyilən hissə və bişirmə metodu nəzərə alınır. Feta analoqu hər yerli pendiri, generic qatıq hər etiketi əvəz etmir. MappingStatus exact/acceptable_proxy/unresolved, fərq və reviewer saxlanır; unresolved sərt uyğunluqdan keçmir. Resept kitabxanası üçün AZ məzmunun yoxlanması indiki K32 işidir, ayrıca P2-yə kor-koranə təxirə salınmır.
+
+3. D-03 CARKFOODS şəbəkə adı hazır yüklənə bilən Azərbaycan qida cədvəli/lisenziyası sübutu deyil. TÜBER regional kontekst namizədidir, Azərbaycan üçün təsdiqli nutrient bazası deyil. Yeni regional paketə keçməzdən əvvəl konkret dataset, nəşr, istifadə hüququ və metodologiya qeydə alınır; bu işdə həmin paketlərin istifadəyə hazırlığı təsdiqlənməyib.
+
+4. D-04 Open Food Facts barcode üçün gələcək opsional mənbədir; indiki kanonik FDC kitabxanasını əvəz etmir. İnteqrasiyadan əvvəl ODbL/DbCL/CC BY-SA üzrə attribution, törəmə baza/paylaşma və foto hüquqları yoxlanır. Ayrı DB/cədvəl hüquqi istisna zəmanəti deyil; hüquqi uyğunluq göstərilmədən istehsala açılmır.
+
+5. D-05 Barcode uyğunluğu, bazar/variant, etiket tarixi və allergen tamlığı ayrıca yoxlanır. OFF-də allergen teqinin olmaması “allergensiz” deyil; etiket və qarışıq tərkib yoxlanmadan allergiyaya uyğun nişanı yoxdur. Çarpaz təmas, “izləri ola bilər”, çölyak və dözümsüzlük ayrı anlayışlardır; istifadəçi paket etiketini yenə yoxlamalıdır.
+
+6. D-06 İnqrediyent siyahısından ideya götürmək bütün resept mətnini, tərcüməsini, fotonu və DB-ni sərbəst kopyalamaq icazəsi deyil. Öz hazırlanma mətni və hüquqları sənədləşmiş foto istifadə edilir; mənşə URL/müəllif/lisenziya/icazə tarixi editorial qeyddə saxlanır. Attribution tələb olunursa UI-də göstərilir, gizlədilmir. ABŞ Circular 33 digər ölkələr üçün avtomatik hüquqi qərar deyil.
+
+7. D-07 SourceReview(source_id, retrieved_at, publication_version, exact_section, claim_ids, license, reviewer, next_review_at, status) reyestri tutulur. Mənbənin faktiki dəyişməsi və ya geri çəkilməsi həmin claim/policy/recipe-lərin təsir analizini açır; yalnız URL-in işləməsi elmi baxış sayılmır. FDC fayl hash-ları mövcud manifestdən götürülür, yenisi uydurulmur.
+
+8. D-08 5 noyabr araşdırmasında WHO, EFSA, USDA API, NIDDK, cari DGA keçidi, OFF-in rəsmi lisenziya sənədi, Firebase, Play və Circular 33 oxunub. Əvvəlki S1–S17 reyestrinin bütün alt sənədlərinin bu tarixdə yenidən açıldığı iddia edilmir. Yeni DGA nəşrinin bütün nutrient qaydaları, regional bazalar və konkret AZ hüquqi uyğunluğu ayrıca açıq yoxlamadır.
+
+Mənbələr: [S1](https://fdc.nal.usda.gov/api-guide/), [S2](https://fdc.nal.usda.gov/data-documentation/), [S8](https://www.fao.org/infoods/infoods/standards-guidelines/en/), [S10](https://www.gov.uk/running-food-business/allergies), [S18](https://www.dietaryguidelines.gov/), [S19](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/api/tutorials/license-be-on-the-legal-side.md), [S22](https://www.copyright.gov/circs/circ33.pdf)
+
+## 24. Offline Android, Spark və server sərhədləri
+
+B-01–B-08: server planlaması lokal gündəliyin etibarlılığını pozmur.
+
+1. B-01 Mövcud Kotlin/Compose + Room qalır. Room lokal qeydin dayanıqlı saxlanma sərhədidir. Uzaq sync yalnız uğurla təsdiqlənəndə “başqa cihazda bərpa” vədi verir; Auth girişi təkbaşına sync uğuru deyil. Lokal-only, pending, synced və failed statusları ayrıdır.
+
+2. B-02 Hədəf inteqrasiya: Firebase Spark Auth/uyğun yüngül servis → Firebase tokenini yoxlayan Go AppBackend → PostgreSQL-də versiyalı məzmun/policy/plan və şəxsi sync məlumatı. Profilin eyni sahəsi Firestore və PostgreSQL-də iki müstəqil həqiqət kimi saxlanmır; K25/K26 ADR-i authoritative store və konflikt qaydasını müəyyən edir. Ağır nutrient/AI işi cihazda API açarı və ya Cloud Functions tələb etmir.
+
+3. B-03 Server tokenin imza/issuer/audience/expiry-sini, hər resurs üçün user ownership-i yoxlayır. Test/production katalogu və policy ayrıdır; mobil feature flag backend təsdiqini əvəz etmir. Remote Config klinik təsdiqsiz həddi aktivləşdirmir. Xidmət açarları server sirr saxlanmasına, client konfiqurasiyası isə mühitə bağlıdır; gizli açarlar log/şəkil URL-inə yazılmır.
+
+4. B-04 Sync müqaviləsi user_id/client_event_id/revision/base_revision/tombstone və payload uyğunluğunu qoruyur. Təkrar retry dublikat yaratmır; silinmiş qeyd köhnə cihazdan dirilmir; konflikt səssiz last-write-wins ilə faktiki yeməyi itirmir. Giriş və quota xətasında lokal məlumat/qaralama saxlanır.
+
+5. B-05 Xarici API üçün timeout, məhdud retry/backoff, keş, quota ölçümü və circuit-breaker tələb olunur. Kvota bitəndə LLM rəqəmi və ya köhnə təsdiqsiz policy ilə uğur yoxdur. Spark kvotası, xarici server/storage/AI xərci və dəstəklənən Auth üsulları real konfiqurasiyada yoxlanır; “tam pulsuz” vədi verilmir.
+
+6. B-06 Foto serverə göndərilməzdən əvvəl məqsəd/razılıq, saxlanma müddəti və silmə yolu izah edilir; lazımsız metadata çıxarılır. Object storage seçimi, giriş nəzarəti və silmə işi ayrıca G5 qəbuludur; Spark-da foto saxlamanın hazır olduğu fərz edilmir. Foto və tibbi cavablar analitika/crash log-a yazılmır.
+
+7. B-07 K29 əvvəl məlumat inventarı, məqsəd/əsas, minimal toplama, konkret retention cədvəli, ixrac, hesab silmə və backup-dan son silinmə siyasətini sənədləşdirir. Məxfilik səhifəsinin URL-i mövcuddursa da mətnin faktiki data axınına uyğunluğu yoxlanmadan hüquqi hazır sayılmır. Ads yoxdur hədəfi saxlanır; başqa app-in ads mətni DailyPlate-ə daşınmır.
+
+8. B-08 Monitorinq şəxsi qida/foto olmadan generator nəticə kodları, UNKNOWN/FAIL sayı, mənbə versiyası, sync/retry və quota xətasını ölçür. Allergen/mapping insidenti məzmunu karantinə alır, yeni təklifləri dayandırır və məsul baxışı açır. Geri çağırma/audit/geri qaytarma ssenarisi buraxılışdan əvvəl sınaqdan keçir.
+
+Mənbələr: [S1](https://fdc.nal.usda.gov/api-guide/), [S20](https://firebase.google.com/docs/projects/billing/firebase-pricing-plans), [S21](https://support.google.com/googleplay/android-developer/answer/16679511)
+
+## 25. Kodlaşdırma xəritəsi və yekun qəbul ssenariləri
+
+A-01–A-14: yazılı tələb işlək və yoxlanmış funksiya statusu deyil.
+
+1. A-01 İcra ardıcıllığı planning/coding-tasks.txt-dir: K01–K12 mövcud iş sübutları ilə qorunur; növbəti K13. §20–24 əlavələri K13 sərt filtr, K14 qiymət, K15 generator, K16 proqnoz, K18–K23 redaktə/foto, K24 maarif, K25–K26 backend/sync, K29 məxfilik, K31–K34 regresiya/pilot/buraxılışda icra edilir. K08-ə təsir edən müqavilə dəyişikliyi ayrıca migration/regresiya ilə aparılır.
+
+2. A-02 Müstəqil formula fixture-i: 70 kq, 175 sm, 30 yaş kişi üçün Mifflin REE 1648,75 kkal/gün; eyni qadın girişi 1482,75; fərq 166. Bu TDEE və tövsiyə edilən qəbul deyil. Aktivlik nəticəsi yalnız seçilmiş təsdiqli mapping fixture-i ilə yoxlanır. Yaş/cins boş, modeldən kənar və qeyri-sonlu giriş ayrı rədd hallarındadır.
+
+3. A-03 Policy yoxdur/qaralamadır/geri çəkilib və ya uyğunluq natamamdır → avtomatik hədəf və fərdi plan yoxdur. 18 yaşdan aşağı, hamilə/südverən, tibbi pəhriz və xəstəlik risk cavabları düzgün məhdud yola çıxır; mütəxəssis hədəfi sərt istisnanı aşmır. Test policy production-da açıla bilmir.
+
+4. A-04 Sabit source_food_id + release/hash + preparation_state üçün 100 q və porsiya müstəqil hesablanır. “100 q alma” adla sabit kalori fixture-i deyil. mg/mkq/q/kkal/kJ, null/0, total/added/free sugar, duz/natrium və yuvarlaqlaşdırma sərhədləri yoxlanır; bişmə düzəlişi iki dəfə tətbiq edilmir.
+
+5. A-05 Süd allergiyası + pendir; qarışıq tərkib; məlum olmayan allergen; OFF-də teq yoxdur; çapraz təmas; unmapped məhsul → uyğunluq nişanı yoxdur. Allergenə görə sərt blok qiymət/kalori/istifadəçi vaxtına görə yumşalmır. Foto “gizli allergen yoxdur” sübutu deyil.
+
+6. A-06 Hər qaydada dəqiq həddə, həddin aşağı/yuxarı tərəfində və UNKNOWN nəticədə operator/pəncərə siyasətə uyğun yoxlanır. Mənbədə olmayan sərbəst şəkər/trans yağ və natamam mikrodata “bütün limitlər keçdi” nəticəsi vermir. UL ilə PRI/AI və gündəlik/habitual pəncərə qarışmır.
+
+7. A-07 4 məqsəd × 3 büdcə × 3 yemək sayı × 3 vaxt = 108 baza profil kombinasiyası. Hər dəstəklənən kombinasiyada filter/portion/day/week nəticələri yoxlanır; məzmun yetmirsə açıq NO_FEASIBLE_PLAN qəbul edilən təhlükəsiz nəticədir, saxta uğur deyil. Allergiya/istisna/region əlavə sərhəd matrisidir; bu say klinik sübut deyil.
+
+8. A-08 Generator eyni seed/request/versiya ilə təkrarlanan nəticə verir; axtarış vaxtı bitəndə aydın failure var. Tam uyğunsuz katalog, yalnız bir namizəd, alternativ yoxdur, vaxt/qiymət naməlum, kritik nutrient natamam və stale profil ayrıca sınaqdan keçir. ±10% və oxşar namizəd parametrlər təsdiqsiz test oracle-u olmur.
+
+9. A-09 T01–T19 bütün redaktə/swap/foto/batch/idempotency ssenariləri saxlanır. Yeyilmiş və planlı hissə iki dəfə sayılmır; redaktə/undo sonrakı FoodLog-u silmir. Çıxım məlum deyil → bişmiş 100 q və şəkilli porsiya yox; dəqiq məlum pay üçün batch arifmetikası mümkündür.
+
+10. A-10 Lokal yazı xətası, iki toxunuş, retry, restart, DB reopen, timezone/gecə yarısı, edit/delete və köhnə cihazdan tombstone sync sınaqları ayrı sübutlarla aparılır. Simulyasiya fiziki disk-full və real cihazın yoxlanması sayılmır. Sync quota/token xətası məlumatı itirmir.
+
+11. A-11 Hüquq/etiket/attribution, Play deklarasiyası və məxfilik/data inventarı release checklist-də faktiki yoxlanır. K25/K26 ownership/token/replay testləri, K29 retention/delete/export yoxlaması, K30 mağaza entitlement sübutu ayrıdır. Yerli CI bunları avtomatik təsdiqləmir.
+
+12. A-12 Mənbə və policy versiyası dəyişəndə keçmiş snapshot sabit qalır; geri çəkilmiş resept/policy yeni plan/swap üçün görünmür. Update yarımçıq, hash səhv və schema uyğunsuzdursa katalog atomik rədd edilir; təhlükəsiz əvvəlki versiya və aydın status saxlanır.
+
+13. A-13 Bitmə sübutu hər tələb üçün ID → Kxx → test/insan baxışı/cihaz sınağı → artefakt/commit → nəticə → yoxlanmamış məhdudiyyət əlaqəsidir. CI yalnız merge olunmuş main-də APK-sız lint/compile/JVM/data/parity yoxlayır. Tələb yazmaq, mənbə oxumaq və yaşıl CI klinik düzgünlüyə zəmanət deyil.
+
+14. A-14 Bu birləşdirmənin çıxışı tam funksional tətbiqin implementasiya müqaviləsidir. Açıq buraxılış asılılıqları: G2 klinik baxış və konkret policy, G3 məzmun/hüquq/dil/çıxım, G4 region qiyməti, G5 faktiki backend/foto/data lifecycle, G6 monetizasiya sərhədi, G7 cihaz/pilot. Sahibi/kliniki rol/QA bunları sübutla bağlayır; çatışmayan qərarlar məhsulun hazır statusunda gizlədilmir.
+
+Mənbələr: [S1](https://fdc.nal.usda.gov/api-guide/), [S4](https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values), [S6](https://ajcn.nutrition.org/article/S0002-9165%2823%2916698-6/fulltext), [S7](https://www.niddk.nih.gov/bwp), [S21](https://support.google.com/googleplay/android-developer/answer/16679511)
+
+## Mənbə reyestri
+
+### S1 — USDA FoodData Central — API və istifadə şərtləri
+
+[USDA FoodData Central — API və istifadə şərtləri](https://fdc.nal.usda.gov/api-guide/)
+
+Ərzaq axtarışı və qida dəyərləri. Məlumat CC0-dır; API açarı serverdə saxlanır. Yerli resept kitabxanasını əvəz etmir.
+
+### S2 — USDA — məlumat növlərinin sənədləri
+
+[USDA — məlumat növlərinin sənədləri](https://fdc.nal.usda.gov/data-documentation/)
+
+Foundation, FNDDS, Branded və SR Legacy mənbələrini fərqləndirmək. Eyni adlı bütün qeydlər eyni keyfiyyət və hazırlanma vəziyyəti demək deyil.
+
+### S3 — WHO — Healthy diet, 26 yanvar 2026
+
+[WHO — Healthy diet, 26 yanvar 2026](https://www.who.int/news-room/fact-sheets/detail/healthy-diet)
+
+Menyu keyfiyyətinin ümumi çərçivəsi: müxtəliflik, lif, meyvə-tərəvəz, duz və sərbəst şəkər. Fərdi müalicə resepti deyil.
+
+### S4 — EFSA — Dietary reference values
+
+[EFSA — Dietary reference values](https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values)
+
+Sağlam əhali üçün referenslər; fərdi məqsədlə eyniləşdirilmir. Yaş, vəziyyət və seçilmiş standart ayrıca qeyd olunur.
+
+### S5 — EFSA — Protein, 2012
+
+[EFSA — Protein, 2012](https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2012.2557)
+
+Sağlam böyüklər üçün 0,83 q/kq/gün PRI referensi. İdmançı və ya xəstə üçün avtomatik fərdi doza deyil.
+
+### S6 — Mifflin və həmkarları — ilkin REE tədqiqatı, 1990
+
+[Mifflin və həmkarları — ilkin REE tədqiqatı, 1990](https://ajcn.nutrition.org/article/S0002-9165%2823%2916698-6/fulltext)
+
+İstirahət enerji sərfinin proqnoz formulu. 498 sağlam iştirakçı, 19–78 yaş; ölçülmüş metabolizma və gündəlik ümumi sərf deyil.
+
+### S7 — NIDDK — Body Weight Planner
+
+[NIDDK — Body Weight Planner](https://www.niddk.nih.gov/bwp)
+
+Yetkinlər üçün enerji planlamasında başlanğıc məlumatları və məhdudiyyətlər. 18 yaşdan kiçiklər, hamilə və südverənlər üçün nəzərdə tutulmur. Biz bu servisin təsdiqlənməmiş API-sinə bağlanmırıq.
+
+### S8 — FAO/INFOODS — qida uyğunlaşdırma və vahid qaydaları
+
+[FAO/INFOODS — qida uyğunlaşdırma və vahid qaydaları](https://www.fao.org/infoods/infoods/standards-guidelines/en/)
+
+Xam/bişmiş uyğunlaşdırması, vahid çevrilməsi və baza keyfiyyətinin yoxlanması.
+
+### S9 — FAO-da yayımlanmış EuroFIR resept hesablama metodikası
+
+[FAO-da yayımlanmış EuroFIR resept hesablama metodikası](https://www.fao.org/uploads/media/reinivuvo_laitinen_2007_Eurofir_recipe_harmonisation_D2.2.12_M2.2.4_02.pdf)
+
+Yeyilən hissə çəkisi, bişmə çıxımı və nutrient saxlanma əmsalları ilə resept hesablaması.
+
+### S10 — UK Government — allergen siyahısı
+
+[UK Government — allergen siyahısı](https://www.gov.uk/running-food-business/allergies)
+
+14 allergeni əhatə edən başlanğıc taksonomiya. Qlobal qaydaların hamısını əvəz etmir; başqa allergenlər də ayrıca saxlanır.
+
+### S11 — Food Standards Agency — evdə qida təhlükəsizliyi
+
+[Food Standards Agency — evdə qida təhlükəsizliyi](https://www.gov.uk/government/publications/home-food-fact-checker/home-food-fact-checker)
+
+Əvvəlcədən bişirmə və saxlanma məzmunu. Saxlama müddəti yemək və şərait üzrə yoxlanır; 7 günlük plan 7 gün soyuducuda saxlamaq demək deyil.
+
+### S12 — USDA — rəsmi yüklənən məlumat paketləri
+
+[USDA — rəsmi yüklənən məlumat paketləri](https://fdc.nal.usda.gov/download-datasets/)
+
+SR Legacy 2018-04 CSV və Foundation Foods 2026-10-29 JSON paketləri birbaşa yüklənib; arxiv izləri manifestdədir.
+
+### S13 — FoodSafety.gov — təhlükəsiz mərkəz temperaturu
+
+[FoodSafety.gov — təhlükəsiz mərkəz temperaturu](https://www.foodsafety.gov/food-safety-charts/safe-minimum-internal-temperatures)
+
+Resept layihələrində quş əti, qiymə, balıq və yumurta üçün hazırlanma təhlükəsizliyi istinadı. Klinik uyğunluq təsdiqi deyil.
+
+### S14 — NHS — sağlam çəki artırma
+
+[NHS — sağlam çəki artırma](https://www.nhs.uk/live-well/healthy-weight/managing-your-weight/healthy-ways-to-gain-weight/)
+
+Tədricən enerji artırılması, müxtəlif qidalar və səbəbsiz çəki itkisində həkimə müraciət. 300–500 kkal ümumi nümunədir; tətbiqdə universal avtomatik hədd deyil.
+
+### S15 — NHS — arıqlayarkən sağlam qidalanma
+
+[NHS — arıqlayarkən sağlam qidalanma](https://www.nhs.uk/better-health/lose-weight/healthy-eating-when-trying-to-lose-weight/)
+
+Porsiya və ümumi enerji balansı əhəmiyyətlidir. Sağlam hesab edilən qidadan da ehtiyacdan çox yemək çəki artıra bilər.
+
+### S16 — USDA MyPlate — büdcə ilə sağlam qidalanma
+
+[USDA MyPlate — büdcə ilə sağlam qidalanma](https://www.myplate.gov/sites/default/files/cookbooks/MeetingYourMyPlateGoalsOnABudget_0.pdf)
+
+Paxlalılar, əlçatan zülal mənbələri və planlı alış-veriş üzrə praktik yemək ideyaları. Azərbaycan üçün qiymət mənbəyi və fərdi klinik sübut deyil.
+
+### S17 — USDA NAL — DRI Calculator for Healthcare Professionals
+
+[USDA NAL — DRI Calculator for Healthcare Professionals](https://www.nal.usda.gov/human-nutrition-and-food-safety/dri-calculator)
+
+4 noyabr 2026-da yoxlanıb. Yaş, cins, boy, çəki, aktivlik və hamiləlik/südvermə məlumatları ilə enerji və nutrient referenslərinin seçilməsini göstərir. Fərdi ehtiyac referensdən yüksək/aşağı ola bilər; bu kalkulyatorun nəticəsi bizim tətbiqin klinik təsdiqi deyil.
+
+### S18 — DGA — cari nəşrin rəsmi keçidi
+
+[DGA — cari nəşrin rəsmi keçidi](https://www.dietaryguidelines.gov/)
+
+5 noyabr 2026-da yoxlanıb: rəsmi səhifə yeni 2025–2030 nəşrinə yönləndirir. 2020–2025 cari nəşr kimi göstərilmir. ABŞ təlimatı Azərbaycan üçün avtomatik fərdi policy deyil; yeni nəşr ayrıca müqayisə və təsdiqdən keçmədən hədləri dəyişmir.
+
+### S19 — Open Food Facts — məlumat, məzmun və foto lisenziyaları
+
+[Open Food Facts — məlumat, məzmun və foto lisenziyaları](https://github.com/openfoodfacts/openfoodfacts-server/blob/main/docs/api/tutorials/license-be-on-the-legal-side.md)
+
+5 noyabr 2026-da yoxlanıb: DB üçün ODbL, ayrıca məzmun üçün DbCL, məhsul fotoları üçün CC BY-SA göstərilir. Ayrı cədvəl share-alike öhdəliyindən avtomatik azad etmir; real istifadə və birləşdirmə üzrə lisenziya yoxlaması tələb olunur.
+
+### S20 — Firebase — Spark və Blaze planları
+
+[Firebase — Spark və Blaze planları](https://firebase.google.com/docs/projects/billing/firebase-pricing-plans)
+
+5 noyabr 2026-da yoxlanıb: Spark məhdudiyyətli pulsuz plan, Cloud Functions çıxışı Blaze tərəfindədir. Spark bütün xarici backend/AI xərclərinin sıfır olması demək deyil; xidmət və kvotalar inteqrasiya vaxtı yenidən yoxlanır.
+
+### S21 — Google Play — Health Content and Services
+
+[Google Play — Health Content and Services](https://support.google.com/googleplay/android-developer/answer/16679511)
+
+5 noyabr 2026-da yoxlanıb: zərərli/yanıltıcı sağlamlıq funksiyaları qadağandır; sağlamlıq tətbiqləri üçün deklarasiya və həssas məlumatları izah edən məxfilik siyasəti tələb olunur. Disclaimer zərərli funksiyanı qanuniləşdirmir və qəbul zəmanəti deyil.
+
+### S22 — US Copyright Office — Circular 33
+
+[US Copyright Office — Circular 33](https://www.copyright.gov/circs/circ33.pdf)
+
+5 noyabr 2026-da yoxlanıb: ABŞ hüququnda ideya, metod və sadə inqrediyent siyahısı ilə yaradıcı mətn/foto qorunması ayrılır. Bu, qlobal kopyalama icazəsi deyil; sayt şərtləri, verilənlər bazası və digər hüquqlar ayrıca yoxlanır.
