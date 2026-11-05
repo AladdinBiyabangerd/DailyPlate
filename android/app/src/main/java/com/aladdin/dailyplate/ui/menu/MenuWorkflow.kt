@@ -18,6 +18,7 @@ internal data class PendingMenu(
 internal data class MenuData(
     val profile: UserProfile?, val plans: List<MealPlan>, val pending: PendingMenu?,
     val generated: GenerationEnvelope?, val future: FuturePlanRecord?, val inputsAvailable: Boolean,
+    val recipes: Map<VersionRef, Recipe> = emptyMap(),
 )
 
 /** Worker-thread orchestration. Saves exact retry commands before computation or acceptance. */
@@ -32,10 +33,16 @@ internal class MenuWorkflow(context: Context) {
     fun load(): MenuData = UserRepositories.open(context).use { r ->
         val profile = r.profiles.latest(owner, OnboardingStore(context).load().id)
         val p = pending()
-        MenuData(profile, r.plans.current(owner).sortedByDescending { it.week.iso }, p,
+        val plans = r.plans.current(owner).sortedByDescending { it.week.iso }
+        val recipes = CatalogRepository.open(context).use { catalog ->
+            plans.flatMap { it.items }.map { it.recipe }.distinct().mapNotNull { ref ->
+                catalog.recipe(ref)?.let { ref to it }
+            }.toMap()
+        }
+        MenuData(profile, plans, p,
             p?.let { r.planGeneration.receipt(owner, it.request.requestId) },
             p?.future?.let { r.futurePlans.record(owner, it.operationId) },
-            r.planGeneration.currentInputs(owner)?.policy != null)
+            r.planGeneration.currentInputs(owner)?.policy != null, recipes)
     }
     fun start(plan: MealPlan?) {
         UserRepositories.open(context).use { r ->

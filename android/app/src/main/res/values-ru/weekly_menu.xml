@@ -1,0 +1,16 @@
+<resources>
+    <string name="wm_title">Меню на неделю</string>
+    <string name="wm_range">%1$s – %2$s</string>
+    <string name="wm_date_zone">%1$s · %2$s</string>
+    <string name="wm_empty">Меню пока нет</string>
+    <string name="wm_empty_day">На этот день блюда не запланированы.</string>
+    <string name="wm_tools">Замена блюд и покупки</string>
+    <string name="wm_tools_note">Эти функции пока недоступны.</string>
+    <string name="wm_energy">Примерно %1$.0f калорий</string>
+    <string name="wm_energy_unknown">Энергия неизвестна</string>
+    <string name="wm_time">%1$d мин</string>
+    <string name="wm_time_unknown">Время неизвестно</string>
+    <string name="wm_portion">Личных порций по плану: %1$.2f · Осталось: %2$.2f</string>
+    <string name="wm_ate">Я поел(а)</string>
+    <string name="wm_illustration">Иллюстрация блюда</string>
+</resources>
