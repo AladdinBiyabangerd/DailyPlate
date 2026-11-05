@@ -53,4 +53,14 @@
     <string name="pf_estimated_kcal">Təxmini hədəf: %1$s kkal/gün</string>
     <string name="pf_review_due">14 günlük baxış vaxtıdır. Yeni çəki, aktivlik və yaş məlumatını profildə yoxla; hesab yalnız önizləmə və təsdiqdən sonra dəyişəcək.</string>
     <string name="pf_review_date">İlk baxış tarixi: %1$s</string>
+    <string name="nr_suspended">Hədəf dayandırılıb. Qida qeydlərini davam etdirə bilərsən.</string>
+    <string name="nr_support">Həkim və ya dietoloqla əlaqə saxla. Adi profil redaktəsi hədəfi yenidən açmır.</string>
+    <string name="nr_days">Son 14 gündə ölçmə sayı: %1$d</string>
+    <string name="nr_insufficient">Trend üçün son 14 gündə ən azı 3 könüllü ölçmə lazımdır. Ölçmə məcburi deyil.</string>
+    <string name="nr_observed">İlk və son ölçmə arasındakı müşahidə olunan dəyişiklik: %1$s kq. Bu, proqnoz deyil.</string>
+    <string name="nr_review_note">Çəki özü kalorini dəyişmir. Yeni çəki, aktivlik və ya yaşı yoxla; səbəbi və yeni hesabı önizləmədə görüb təsdiqlə.</string>
+    <string name="nr_review">Məlumatları yoxla və hesabı önizlə</string>
+    <string name="nr_report_note">Yeni simptom və ya səbəbsiz çəki dəyişikliyi varsa, aşağıdakı seçim hədəfi dərhal dayandırır.</string>
+    <string name="nr_symptom">Yeni simptom var — hədəfi dayandır</string>
+    <string name="nr_unexplained">Səbəbsiz çəki dəyişikliyi var — hədəfi dayandır</string>
 </resources>
