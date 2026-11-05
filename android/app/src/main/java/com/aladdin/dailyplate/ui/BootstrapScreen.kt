@@ -35,6 +35,7 @@ fun BootstrapScreen() {
     val preferences = remember { base.getSharedPreferences("presentation", 0) }
     var language by rememberSaveable { mutableStateOf(preferences.getString("language", "az") ?: "az") }
     var route by rememberSaveable { mutableStateOf(NavigationState().encode()) }
+    var savedLogId by rememberSaveable { mutableStateOf<String?>(null) }
     val navigation = NavigationState.restore(route)
     val contentScroll = rememberScrollState()
     val scope = rememberCoroutineScope()
@@ -101,7 +102,13 @@ fun BootstrapScreen() {
                             if (navigation.current == Destination.Profile) {
                                 com.aladdin.dailyplate.ui.profile.ProfileScreen({ scope.launch { contentScroll.scrollTo(0) } }) { open(Destination.Setup) }
                             } else if (navigation.current == Destination.Add) {
-                                com.aladdin.dailyplate.ui.entry.FoodEntryScreen { scope.launch { contentScroll.scrollTo(0) } }
+                                com.aladdin.dailyplate.ui.entry.FoodEntryScreen(
+                                    resetScroll = { scope.launch { contentScroll.scrollTo(0) } },
+                                    openSaved = { id -> savedLogId = id; open(Destination.Today) },
+                                    openToday = { savedLogId = null; open(Destination.Today) })
+                            } else if (navigation.current == Destination.Today) {
+                                com.aladdin.dailyplate.ui.today.TodayScreen(savedLogId,
+                                    { savedLogId = null; open(Destination.Add) }, { open(Destination.Menu) })
                             } else {
                                 val art = when (navigation.current) {
                                     Destination.Today -> R.drawable.art_empty
@@ -112,10 +119,7 @@ fun BootstrapScreen() {
                                 QidaArt(art, Modifier.fillMaxWidth().height(QidaDimensions.heroArt))
                                 QidaState(SurfaceState.Empty, stringResource(message))
                             }
-                            if (navigation.current == Destination.Today) {
-                                QidaButton(stringResource(R.string.add_meal), { open(Destination.Add) })
-                                QidaButton(stringResource(R.string.today_menu), { open(Destination.Menu) })
-                            }
+
                         }
                     }
                 }

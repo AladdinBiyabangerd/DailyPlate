@@ -14,6 +14,7 @@ class FoodLogRepository internal constructor(private val database: UserDatabase)
             require(it.payloadSchema == 1) { "Unsupported food log payload schema" }
             snapshotJson.decodeFromString(FoodLog.serializer(), it.payload)
         }
+        .filterNot { it.deleted }
         .sortedByDescending { java.time.Instant.parse(it.consumedAt.instant) }
 
     fun latest(userId: String, id: String): FoodLog? = history.latest(userId, id)
@@ -35,6 +36,16 @@ class FoodLogRepository internal constructor(private val database: UserDatabase)
     fun revise(log: FoodLog, expectedRevision: Long): FoodLog = database.runInTransaction(Callable {
         val original = requireNotNull(history.version(log.userId, VersionRef(log.ref.id, 1)))
         require(original.clientEventId == log.clientEventId)
+        require(original.consumedAt == log.consumedAt)
+        val current = requireNotNull(latest(log.userId, log.ref.id))
+        require(!current.deleted || current == log) { "Deleted entry cannot be restored" }
         history.save(log, expectedRevision)
     })
+}
+
+/** Tombstone preserves the event ledger and immutable history. */
+fun FoodLogRepository.delete(userId: String, ref: VersionRef): FoodLog {
+    val current = requireNotNull(version(userId, ref))
+    return revise(current.copy(ref = ref.copy(version = Math.addExact(ref.version, 1)), deleted = true,
+        syncStatus = com.aladdin.dailyplate.domain.SyncStatus.LOCAL), ref.version)
 }

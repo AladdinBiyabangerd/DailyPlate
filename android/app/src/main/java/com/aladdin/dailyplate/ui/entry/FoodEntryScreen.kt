@@ -20,7 +20,7 @@ import java.time.ZoneId
 
 /** Search and draft navigation; confirmation owns durable recording. */
 @Composable
-fun FoodEntryScreen(resetScroll: () -> Unit) {
+fun FoodEntryScreen(openSaved: (String) -> Unit = {}, openToday: () -> Unit = {}, resetScroll: () -> Unit) {
     val context = LocalContext.current
     val savedForms = rememberSaveableStateHolder()
     var foods by remember { mutableStateOf<List<Food>>(emptyList()) }
@@ -53,7 +53,7 @@ fun FoodEntryScreen(resetScroll: () -> Unit) {
     BackHandler(mode != "search" || draft != null) { if (draft != null) encoded = null else mode = "search" }
     LaunchedEffect(mode, draft != null) { resetScroll() }
     when {
-        draft != null -> PortionDraftEditor(draft, { encoded = null; refresh++ }, ::select)
+        draft != null -> PortionDraftEditor(draft, { encoded = null; refresh++ }, ::select, openSaved = openSaved, openToday = openToday)
         mode == "manual" -> savedForms.SaveableStateProvider("manual") {
             ManualFoodForm(query, { mode = "search" }) { select(it) }
         }

@@ -20,6 +20,8 @@ import java.time.format.DateTimeFormatter
 @Composable
 fun PortionDraftEditor(draft: PortionDraft, back: () -> Unit, update: (PortionDraft) -> Unit,
     record: (suspend (FoodLog) -> FoodLog)? = null,
+    openSaved: (String) -> Unit = {},
+    openToday: () -> Unit = {},
 ) {
     var amount by rememberSaveable(draft.name) { mutableStateOf(draft.quantity.toString()) }
     var invalid by rememberSaveable { mutableStateOf(false) }
@@ -39,6 +41,9 @@ fun PortionDraftEditor(draft: PortionDraft, back: () -> Unit, update: (PortionDr
             PortionNutrients(log.nutrientSnapshot)
             Text(stringResource(R.string.pc_local))
         }
+        com.aladdin.dailyplate.ui.today.SavedDaySummary(log)
+        QidaButton(stringResource(R.string.today), openToday)
+        QidaButton(stringResource(R.string.td_edit), { openSaved(log.ref.id) })
         QidaButton(stringResource(R.string.pc_another), back)
         return
     }

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import com.aladdin.dailyplate.domain.*
+import com.aladdin.dailyplate.domain.diary.resizePortion
 import com.aladdin.dailyplate.domain.entry.repeatDraft
 import com.aladdin.dailyplate.domain.entry.confirm
 import java.util.concurrent.Callable
@@ -30,6 +31,20 @@ class UserPersistenceTest {
     }
 
     @After fun close() = repositories.close()
+
+    @Test fun editedDeletedLogPreservesOriginalAndEventLedger() {
+        val original = repositories.foodLogs.record(log())
+        val changed = original.resizePortion(0.5)
+        repositories.foodLogs.revise(changed, original.ref.version)
+        assertEquals(changed, repositories.foodLogs.recent(original.userId).single())
+        assertEquals(original, repositories.foodLogs.version(original.userId, original.ref))
+        assertThrows(RevisionConflict::class.java) { repositories.foodLogs.revise(original.resizePortion(0.25), 1) }
+        repositories.foodLogs.delete(changed.userId, changed.ref)
+        assertTrue(repositories.foodLogs.recent(original.userId).isEmpty())
+        assertEquals(original, repositories.foodLogs.record(original))
+        assertTrue(repositories.foodLogs.recent(original.userId).isEmpty())
+        assertThrows(IllegalArgumentException::class.java) { repositories.foodLogs.revise(changed.copy(ref = changed.ref.copy(version = 4)), 3) }
+    }
 
     @Test fun nullsUnitsDatesAndVersionsSurviveDatabaseRoundTrip() {
         val original = profile()
