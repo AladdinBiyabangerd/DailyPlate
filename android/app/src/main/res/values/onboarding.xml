@@ -1,5 +1,5 @@
 <resources>
-    <string name="ob_goal">Məqsədin</string>
+    <string name="ob_goal">Nə istəyirsən?</string>
     <string name="ob_lose">Arıqlamaq</string>
     <string name="ob_maintain">Çəkini saxlamaq</string>
     <string name="ob_gain">Çəki almaq</string>
@@ -12,7 +12,7 @@
     <string name="ob_female">Qadın</string>
     <string name="ob_skip">Cavab vermirəm</string>
     <string name="ob_body">Özünü tanıt</string>
-    <string name="ob_activity">Gündəlik hərəkətin</string>
+    <string name="ob_activity">Günün necə keçir?</string>
     <string name="ob_sedentary">Çox otururam — günün çoxu oturaq keçir</string>
     <string name="ob_some">Bir az hərəkət edirəm — gün ərzində gəzirəm</string>
     <string name="ob_active">Çox hərəkət edirəm — günün çoxu hərəkətdə</string>
@@ -24,7 +24,7 @@
     <string name="ob_treatment">İnsulin və ya qidalanmaya təsir edən müalicə</string>
     <string name="ob_yes">Bəli</string>
     <string name="ob_no">Xeyr</string>
-    <string name="ob_allergies">Allergiya və yemək seçimləri</string>
+    <string name="ob_allergies">Nələri yemirsən?</string>
     <string name="ob_milk">Süd</string>
     <string name="ob_egg">Yumurta</string>
     <string name="ob_nuts">Qoz-fındıq — konkret növləri aşağıda yaz</string>

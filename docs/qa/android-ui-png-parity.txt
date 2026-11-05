@@ -1,0 +1,39 @@
+K06/K07 — PNG-based UI alignment
+
+Acceptance scope
+- Implemented surfaces: welcome, five onboarding steps and their supplementary
+  health/allergen/dislike/budget/home-food fields, confirmed profile, five main
+  sections, language selection, unavailable Account, shared loading/empty/error.
+- Use original supplied illustrations, white rounded cards, turquoise selection
+  outlines/checkmarks, progress segments, two-column goals, compact measurement
+  controls, grouped time/budget/meal choices, icon navigation and language menu.
+- New references 12/13/14 cover missing supplementary and empty-state visuals.
+  Mapping, prompts and deliberate platform adaptations are recorded in
+  design-concepts/simple-turquoise/ui-extension-{guide,prompts}.txt.
+- Preserve K07 validation, optional answers, allergy semantics, Back/recreation,
+  durable local storage and same-profile confirmation. No domain/store changes.
+
+Verification
+- APK-free android/tools/check_android.py: lintDebug, compileDebugKotlin,
+  testDebugUnitTest and palette/resource parity. Final result: local CI logs.
+- Native Robolectric renders at 360x800, AZ/EN/RU, system fonts 100% and 150%:
+  welcome in app/build/reports/k06; onboarding top/bottom plus custom-allergen
+  and dislike forms in reports/k07; five main sections in reports/ui-parity.
+  Confirmed summary, unavailable account and shared state cards also rendered.
+- UI navigation tests assert >=48dp tabs, selection after language change,
+  recreation and Back. Existing persistence/domain/Room tests remain required.
+- Contrast checker: white/primary 4.71, muted/bg 5.04, text/bg 11.95; token
+  validator additionally covers text/surface and muted/surface. No new palette.
+- Representative native images visually inspected against the PNGs, including
+  normal goal/measurements/preferences, longest RU labels at 150%, EN Profile,
+  empty Menu/Today, welcome, saved summary and Account. Final supplemental
+  forms/state-card inspection is recorded in docs/context/current-task.md.
+
+Limits
+- Raster mockups have no editable component/font specification. Native font,
+  required full labels, 48dp targets, real route selection, long translations
+  and system scaling are deliberate adaptations; no pixel-diff equivalence is
+  claimed. Supplemental sections remain scrollable within five real steps.
+- No APK/AAB, install, device/instrumentation or physical TalkBack test.
+- Error-card render is component verification, not disk-full/failure injection.
+- No menu/policy/authentication or later milestones are implemented by this task.

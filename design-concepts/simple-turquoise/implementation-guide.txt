@@ -47,3 +47,8 @@ YOXLAMA
 Əsas mətn/fon token cütləri minimum 4.5 kontrast yoxlamasından keçib.
 Generasiya edilmiş piksel rəngləri tokenlərdən fərqlənə bilər; işlək UI-də kontrast və əlçatanlıq yenidən yoxlanmalıdır.
 AI eskizlərindəki söz, rəqəm, tarix və qrafiklər implementasiya zamanı məhsul qaydaları ilə dəqiqləşdirilməlidir.
+
+K06/K07 UI TAMAMLAMALARI
+Hazır kodun PNG uyğunluğu və çatışmayan ekranların 12–14 əlavə dizayn dəstləri:
+ui-extension-guide.txt. Bu əlavələr əsas 00–11 dizaynlarını və planın funksional
+qaydalarını əvəz etmir; tələb olunan əlavə forma və boş/xəta hallarını tamamlayır.

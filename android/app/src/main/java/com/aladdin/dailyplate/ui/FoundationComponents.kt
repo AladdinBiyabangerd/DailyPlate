@@ -16,8 +16,10 @@ import com.aladdin.dailyplate.ui.theme.QidaDimensions
 
 @Composable
 fun QidaButton(label: String, onClick: () -> Unit, modifier: Modifier = Modifier) {
-    Button(onClick, modifier.fillMaxWidth().heightIn(min = QidaDimensions.touchTarget)) {
-        Text(label, style = MaterialTheme.typography.bodyLarge)
+    Button(onClick, modifier.fillMaxWidth().heightIn(min = QidaDimensions.touchTarget),
+        shape = androidx.compose.foundation.shape.RoundedCornerShape(QidaDimensions.buttonRadius),
+        contentPadding = PaddingValues(QidaSpacing.medium)) {
+        Text(label, style = MaterialTheme.typography.bodyLarge, fontWeight = androidx.compose.ui.text.font.FontWeight.Bold)
     }
 }
 
@@ -36,6 +38,8 @@ enum class SurfaceState { Loading, Empty, Error }
 @Composable
 fun QidaState(state: SurfaceState, message: String? = null, retry: (() -> Unit)? = null) {
     QidaCard {
+        if (state == SurfaceState.Error) QidaArt(R.drawable.art_write_error,
+            Modifier.fillMaxWidth().height(QidaDimensions.bannerArt))
         if (state == SurfaceState.Loading) CircularProgressIndicator(trackColor = colorResource(R.color.simple_accent))
         Text(message ?: stringResource(when (state) {
             SurfaceState.Loading -> R.string.loading
@@ -51,7 +55,8 @@ fun QidaState(state: SurfaceState, message: String? = null, retry: (() -> Unit)?
 @Composable
 fun QidaCard(content: @Composable ColumnScope.() -> Unit) {
     Card(shape = MaterialTheme.shapes.large,
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface)) {
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
+        elevation = CardDefaults.cardElevation(defaultElevation = QidaDimensions.cardElevation)) {
         Column(Modifier.fillMaxWidth().padding(QidaSpacing.medium),
             verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium), content = content)
     }
