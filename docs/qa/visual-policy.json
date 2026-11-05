@@ -1,0 +1,6 @@
+{
+  "schema": 1,
+  "legacy_anchor": "93fe1cb6c7dd860d1e67201af7b175bbc4585d68",
+  "debt": "docs/qa/design-discrepancies.md",
+  "meaning": "Source-change checkpoint only. Existing screens are NOT approved baselines. Any changed Android main input, UI test, build configuration or design input requires fresh rendered evidence and explicit review."
+}
