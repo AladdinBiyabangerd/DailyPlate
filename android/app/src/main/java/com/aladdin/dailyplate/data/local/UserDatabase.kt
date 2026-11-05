@@ -30,6 +30,9 @@ internal interface UserSnapshotDao {
     @Query("SELECT * FROM user_snapshots WHERE kind = :kind AND userId = :userId AND id = :id AND revision = :revision")
     fun version(kind: String, userId: String, id: String, revision: Long): UserSnapshotEntity?
 
+    @Query("SELECT * FROM user_snapshots WHERE kind = :kind AND userId = :userId AND id = :id ORDER BY revision DESC")
+    fun history(kind: String, userId: String, id: String): List<UserSnapshotEntity>
+
     @Insert fun insert(snapshot: UserSnapshotEntity)
     @Insert fun insertEvent(event: FoodEventEntity)
 

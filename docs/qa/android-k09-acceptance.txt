@@ -1,0 +1,36 @@
+K09 — Profile changes and target explanation
+
+Scope and applicable requirements
+- Plan §5.8/13, §8.9, §10.1, §17.4/14, §18.2–8, §19.10.
+- Edit profile/body/goal/food preferences through shared K07 controls. Specialist
+  target and explicit age confirmation are optional; age never advances silently.
+- Preview shows changed inputs, before/after values, versions, user reason,
+  assessment limitations and a separate future-menu boundary. Cancel writes nothing.
+- Confirm atomically appends profile, assessment and future-plan request. Retry is
+  idempotent; stale profile rejects; a receipt write failure rolls everything back.
+- History displays saved inputs/date/timezone, formula/policy versions where present,
+  general/specialist/test-only path and readable reasons. No clinical approval is inferred.
+- Currency now survives amount-free profiles; old snapshots decode with a nullable
+  currency. Legacy unknown currency must be supplied in the editor, never guessed.
+- FuturePlanPreview/Acceptance binds exact plan/profile revisions, freezes past and
+  consumed items, and carries before/after aggregates. Actual calculation, display
+  of a computed menu delta and atomic application are K16; K09 only queues a request.
+
+Automated acceptance (execution evidence is merged-main CI, not this document)
+- ProfileEditTest: unchanged data/source IDs, decimal specialist validation,
+  explicit age confirmation, exclusions, general fallback with G2 closed.
+- ProfileEditPersistenceTest: preview/cancel, atomic rollback, confirm/retry,
+  competing edit conflict, DB reopen, user isolation, old assessment/log/plan equality;
+  future plan acceptance rejects stale revisions and consumed-item replacement.
+- ProfileUiTest: edit → preview → cancel, edit → confirm → recreation → reason;
+  native JVM rendering AZ/EN/RU at 100% and 150%, scrollable editor/explanation.
+- Existing K07/K08 tests retained; K07 saved-profile link now opens the editor.
+- Mandatory CI: APK-free lintDebug, compileDebugKotlin, testDebugUnitTest,
+  token/contrast checks, Python/library/canonical-export checks.
+
+Evidence and limits
+- Consult .local-ci/logs/latest.json for final main commit and actual pass status.
+- Render artifacts from merged-main CI are retained locally under
+  .local-ci/reports/k09; visual inspection is recorded in the final handoff.
+- No APK, physical device/emulator, TalkBack, production clinical policy or real
+  menu recalculation has been verified. G2 remains closed. No remote operations.

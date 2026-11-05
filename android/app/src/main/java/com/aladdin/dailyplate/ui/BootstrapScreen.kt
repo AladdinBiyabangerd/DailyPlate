@@ -99,9 +99,7 @@ fun BootstrapScreen() {
                                 else -> R.string.empty_profile
                             }
                             if (navigation.current == Destination.Profile) {
-                                QidaArt(R.drawable.art_account, Modifier.fillMaxWidth().height(QidaDimensions.choiceArt))
-                                QidaCard { Text(stringResource(R.string.ob_local_note)) }
-                                QidaButton(stringResource(R.string.ob_profile), { open(Destination.Setup) })
+                                com.aladdin.dailyplate.ui.profile.ProfileScreen { open(Destination.Setup) }
                             } else {
                                 val art = when (navigation.current) {
                                     Destination.Today -> R.drawable.art_empty

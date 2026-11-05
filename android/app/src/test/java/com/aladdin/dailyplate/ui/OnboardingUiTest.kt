@@ -45,7 +45,7 @@ class OnboardingUiTest {
         compose.onNodeWithText("Davam et").performScrollTo().performClick()
         compose.onNodeWithText("Profil").performClick()
         compose.onNodeWithText("Profil və seçimlərim").performScrollTo().performClick()
-        compose.waitUntil(10000) { compose.onAllNodesWithText("Profil saxlanıb. Menyu hələ yaradılmayıb.").fetchSemanticsNodes().isNotEmpty() }
+        compose.waitUntil(10000) { compose.onAllNodesWithText("Profili redaktə et").fetchSemanticsNodes().isNotEmpty() }
     }
     @Test fun reproductiveQuestionsFollowSexSelectionWhenNavigatingBack() {
         val context = ApplicationProvider.getApplicationContext<Application>()

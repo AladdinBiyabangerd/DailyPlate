@@ -1,0 +1,35 @@
+<resources>
+    <string name="pf_edit">Изменить профиль</string>
+    <string name="pf_basis">На чём это основано?</string>
+    <string name="pf_food_choices">Предпочтения в еде</string>
+    <string name="pf_version">Версия профиля %1$d</string>
+    <string name="pf_versions">Профиль: %1$d → %2$d</string>
+    <string name="pf_preview">Посмотреть изменения</string>
+    <string name="pf_confirm">Подтвердить и сохранить профиль</string>
+    <string name="pf_continue_edit">Продолжить редактирование</string>
+    <string name="pf_cancel">Отменить изменения</string>
+    <string name="pf_reason">Причина изменения</string>
+    <string name="pf_unsaved">Изменения сохранятся после подтверждения.</string>
+    <string name="pf_invalid">Проверь поля, укажи причину и подтверди изменение возраста. Нужно хотя бы одно изменение.</string>
+    <string name="pf_conflict">Не удалось сохранить или профиль изменился. Повтори; при конфликте закрой редактор и открой профиль заново.</string>
+    <string name="pf_future">Подтверждение профиля сохраняет прошлые записи и текущее меню. Будущий план требует отдельного расчёта, просмотра и подтверждения; интеграция пока недоступна.</string>
+    <string name="pf_specialist">Цель специалиста (ккал/день) — необязательно</string>
+    <string name="pf_specialist_note">Это введённая цель специалиста, а не расчёт формулы. Ограничения сохраняются. Пустое поле оставляет общий режим.</string>
+    <string name="pf_general">Общий дневник доступен. Автоматическая персональная цель энергии не активна.</string>
+    <string name="pf_test_only">Только тестовый расчёт; не действующая персональная цель.</string>
+    <string name="pf_kcal">Введённая цель: %1$s ккал/день</string>
+    <string name="pf_formula">Версия формулы</string>
+    <string name="pf_policy">Версия правил</string>
+    <string name="pf_no_formula">Формула не применялась; активных правил и результата формулы нет.</string>
+    <string name="pf_inputs">Сохранённые данные</string>
+    <string name="pf_limit">Это не диагноз. Формула прогнозирует расход энергии, а не измеряет метаболизм.</string>
+    <string name="pf_policy_closed">Одобренные клинические правила не активированы.</string>
+    <string name="pf_age_date">Возраст подтверждён: %1$s</string>
+    <string name="pf_age_confirm">Подтвердить, что возраст верен на сегодня</string>
+    <string name="pf_age_confirmed">✓ Возраст будет подтверждён на сегодня</string>
+    <string name="pf_age_needed">Нужно снова подтвердить возраст.</string>
+    <string name="pf_age_scope">Возраст вне области автоматического расчёта.</string>
+    <string name="pf_specialist_needed">Ответы о здоровье ограничивают автоматический план; обратись к специалисту.</string>
+    <string name="pf_missing">Не все необходимые данные для расчёта заполнены.</string>
+    <string name="pf_calculation_unavailable">Для этих данных и правил автоматический расчёт недоступен.</string>
+</resources>
