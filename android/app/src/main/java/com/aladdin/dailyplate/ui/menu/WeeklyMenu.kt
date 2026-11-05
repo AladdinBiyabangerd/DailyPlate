@@ -157,8 +157,8 @@ private fun MenuMealCard(item: MealPlanItem, summary: MenuRecipeSummary?, recipe
 
 @Composable
 internal fun MenuLoadState(state: SurfaceState, retry: () -> Unit = {}) {
-    QidaState(state, if (state == SurfaceState.Error) stringResource(R.string.mn_error) else null,
-        if (state == SurfaceState.Error) retry else null)
+    QidaState(state, if (state == SurfaceState.Error) stringResource(R.string.mn_error) else null)
+    if (state == SurfaceState.Error) QidaButton(stringResource(R.string.mn_reload), retry)
 }
 
 @Composable
