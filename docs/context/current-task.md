@@ -1,57 +1,36 @@
-# Current task — unified nutrition plan 2.0; next implementation K13
+# Current task — K13
 
 ## Completed
-- Merged docs/nutrition-plan-design.md with canonical research-data.json.
-  Preserved §1–19 and T01–T19; added §20–25 (U/R/C/D/B/A requirement IDs).
-- One canonical JSON now generates MD/TXT/canvas; refreshed 39-page PDF.
-- Resolved default calorie/PAL/macro conflicts without inventing clinical
-  approval. No dietitian currently; G2/G3 remain closed, diary path retained.
-- Researched WHO/EFSA/FDC/NIDDK/current DGA/OFF licences/Firebase/Play/Circular33.
-  DGA 2020–2025 no longer labelled current. Source verification scope explicit.
-- Preserved existing K01–K12 implementation; queue corrected to next K13.
-  K12 code/acceptance history is in docs/qa/android-k12-acceptance.txt and commits
-  06df3ae, 1ebe9ea, 35968ba and final share-display fix 01c3589 (main ee22394).
-  Unknown cooked grams remain unknown; actual batch share is displayed.
-  Prior K12 verification: 103 JVM/Room/Compose tests at main d2d44c6; later
-  matching-head CI supersedes it. This task changes planning/export tooling only.
+- K13 pure deterministic recipe candidate filter and typed rule results.
+- K03 exact ingredient versions, K05 publication completeness and K08 eligibility
+  reused; production gate stays closed. Internal fixtures remain test-only.
+- Allergy/cross contact/unknown compound or mapping, dietary restrictions,
+  region/equipment, dislikes, total time and recipe portion grid are hard checks.
 
 ## Current state
-- Finish this docs/nutrition-plan-design branch through workflow.py finish.
-  Completion requires .local-ci/logs/latest.json passed=true with matching HEAD.
-  After successful finish, main contains plan 2.0; no remote operations.
+- K13 worktree /private/tmp/callmood-k13; canonical plan 2.0 merged from main.
+  Preserve its canonical JSON and generated MD/TXT/PDF/canvas.
+- See matching-head .local-ci/logs/latest.json for final main CI result.
 
 ## Decisions
-- JSON is authoritative; MD binding instructions point to the same content.
-- Unsupported calorie floors, deficit/surplus/PAL and macro defaults are not
-  active policy. Specialist approval cannot be replaced by source links or CI.
-- AZ/EN/RU, four goals, 3/4/5 slots, guest/offline and T01–T19 remain required.
-- Spark-only + Go/PostgreSQL is an integration target; K25/K26 must document
-  actual configuration and authoritative storage. Current Room flow remains.
-- No application feature or clinical gate activated; no APK generated.
+- No UI or APK. No fake policy/publication activation.
+- Missing equipment is unknown when required; onboarding is not expanded.
+- SUCCESS is candidate-stage only; K15 owns day/week/nutrient validation.
+- Plan 2.0 additions C-05/C-08/C-09, D-02/D-05 and A-05 apply.
+  Separate plan task commits remain intact in main history.
 
 ## Remaining work
-- G2 clinical policy review; G3 content/rights/translations/yield; G4 local prices;
-  G5 real backend/photo/data lifecycle; G6 monetization; G7 device/user pilot.
-- Current DGA full nutrient mapping and regional datasets/legal scope unverified.
-- Canvas runtime rendering not verified; embedded data regenerated, layout kept.
+- K14 pricing next; K15 generator follows. Production G2/G3 remain blocked.
+- Real catalog, device and clinical acceptance remain unverified.
 
 ## Relevant files
-- planning/research-data.json; docs/nutrition-plan-design.md (generated)
-- planning/nutrition-science-implementation-plan.txt; coding-tasks.txt
-- planning/meal-customization-requirements.txt; library/tools/update_project_plan.py
-- planning/build_plan_pdf.py; qidalanma-elmi-esas-ve-icra-plani.pdf
-- docs/qa/android-k12-acceptance.txt; domain/policy/ (K08 regressions if changed)
+- domain/planning/{CandidateContracts,RecipeCandidateFilter}.kt
+- domain/planning/RecipeCandidateFilterTest.kt; docs/qa/android-k13-acceptance.txt
+- planning/coding-tasks.txt; planning/nutrition-science-implementation-plan.txt
 
 ## Checks performed
-- PDF rendered: 39 pages; overview sheets inspected, changed source-page layout
-  re-rendered and inspected. Source-only orphan pages corrected.
-- Existing token contrast: primary 4.71, muted 5.36, text 12.70 on white.
-- git diff --check; PDF marked binary to avoid treating its streams as text.
-- Mandatory post-merge CI is the final check; inspect matching-head log for
-  actual test counts/results. Local CI now includes MD export parity too.
-- Clinical approval, new app behavior, APK/device and canvas runtime unverified.
+- See final matching-main CI log for Kotlin compilation/lint, JVM tests, library
+  contracts and canonical export checks. No pre-merge CI or APK checks.
 
 ## Exact next step
-- In a new chat read this handoff, AGENTS.md, local workflow, plan §20–25 and
-  scoped K13 sections (§3/6/7/8/11/12/15). Implement K13 only; retain G2/G3
-  fail-closed filtering, UNKNOWN semantics and production/test separation.
+- Verify matching-main CI, then read K14 and its referenced plan before coding.

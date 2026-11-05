@@ -1,0 +1,20 @@
+K13 — Recipe candidates and hard filters
+Requirements: coding-tasks K13; plan §6–8/17–18; current canonical additions
+C-05/C-08/C-09, D-02/D-05, A-05 read from primary checkout.
+
+Scope: pure domain filter before scoring/generation. K03 exact ingredient versions,
+K05 completeness/publication envelopes, K07 profile choices and K08 eligibility
+are reused. Production remains POLICY_UNAVAILABLE; only internal test entry can
+exercise synthetic publication/policy. No production activation provider added.
+
+Tests: RecipeCandidateFilterTest covers milk, cross contact, unknown/off absent
+allergens, separate wheat/gluten, restrictions, unresolved/mixed/missing ingredients,
+draft/withdrawn content, total time boundary/unknown, region/equipment unknown,
+dislikes, portion grid boundary/empty intersection, stale versions, empty catalog,
+stable ordering, clinical exclusions and specialist targets. Budget tier cannot
+relax hard checks. Result retains per-rule policy/scope/evidence/missing/reason.
+SUCCESS means candidate filtering only, never a balanced menu or nutrient claim.
+
+Not verified: real published catalog/clinical content (G2/G3 closed), device/APK,
+UI, complete day/week generator and nutrient validation (K15), prices (K14).
+No APK requested or generated. No UI changed; no visual verification required.
