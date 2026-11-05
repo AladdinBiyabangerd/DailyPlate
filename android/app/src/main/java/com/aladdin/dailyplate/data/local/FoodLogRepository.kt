@@ -8,6 +8,11 @@ import java.util.concurrent.Callable
 class FoodLogRepository internal constructor(private val database: UserDatabase) {
     private val history = UserSnapshotRepository(database, "food_log", FoodLog.serializer(), FoodLog::userId, FoodLog::ref)
 
+    /** Latest revision of each entry; immutable snapshots supply repeat drafts. */
+    fun recent(userId: String): List<FoodLog> = database.snapshots().all("food_log", userId)
+        .distinctBy { it.id }.map { snapshotJson.decodeFromString(FoodLog.serializer(), it.payload) }
+        .sortedByDescending { java.time.Instant.parse(it.consumedAt.instant) }
+
     fun latest(userId: String, id: String): FoodLog? = history.latest(userId, id)
     fun version(userId: String, ref: VersionRef): FoodLog? = history.version(userId, ref)
 

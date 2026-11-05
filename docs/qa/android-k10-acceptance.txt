@@ -1,0 +1,32 @@
+K10 — Search/manual/previous entry → PortionDraft (K11 boundary)
+
+Requirements: canonical research-data.json §3, §18.11, §19.4/13/17;
+coding-tasks.txt K10; design screen 09. G3 stays closed.
+
+Implementation:
+- Add opens multilingual name/alias search with explicit variant/state/source.
+- Loading/error/retry and empty are distinct; query clear and manual escape.
+- Manual name, positive g/kg quantity, optional source-backed per-100g nutrients;
+  decimal comma; unknown values stay null, zero is explicit.
+- Previous entries read latest per-ID revisions for local guest only, ordered by
+  consumption time. Repeat carries frozen nutrient/recipe snapshot as provenance,
+  a new consumption instant/zone, editable portion multiple, no new FoodLog.
+- PortionDraft retains exact source version/state/quantity/unit, new time,
+  nutrient basis and previous snapshot. No event or plan identity is generated.
+- Preparation shows a draft-only boundary; no save/confirmation action exists.
+  K11 must consume this contract and add durable confirmation/recording.
+- Manual form and selected draft survive saved-instance recreation within Add.
+- Published catalog stays empty while G3 is closed. No fixture content is exposed
+  as production. Existing historical references may be read for display only.
+
+Verification is post-merge only. Expected suites: FoodEntryTest (multilingual,
+variants, serialization, nulls, source, invalid numbers, repeat/time/snapshot),
+FoodEntryUiTest (AZ/EN/RU at 100%/150%, search clear, empty previous, manual to
+portion, explicit draft notice, no FoodLog writes). Existing importer/G3, Room,
+policy, profile and UI suites remain mandatory.
+Native JVM PNGs: android/app/build/reports/k10 in the post-merge CI temp tree;
+retain under .local-ci/reports/k10 and inspect before completion.
+
+Unverified: physical-device/TalkBack/keyboard behavior, APK packaging/install,
+real published search content and clinical/content approval. K11 writes and
+confirmation, camera/photo (K23) and publication approval are outside K10.
