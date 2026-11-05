@@ -44,31 +44,7 @@ class PlanAcceptanceRepository internal constructor(private val database: UserDa
             require(week.request == envelope.request)
             val ref = VersionRef(planId, 1)
             if (plans.latest(userId, planId) != null) throw RevisionConflict("Acceptance requires a new plan ID")
-            fun itemId(day: CalendarDate, slot: Int) = "${day.iso}:$slot"
-            val energyInputs = week.nutritionPreview.energy.inputs
-            val measuredInputs = buildMap {
-                energyInputs.ageYears?.let { put("ageYears", it.toDouble()) }
-                energyInputs.heightCm?.let { put("heightCm", it) }
-                energyInputs.weightKg?.let { put("weightKg", it) }
-            }
-            val plan = MealPlan(ref, userId, envelope.profile.ref, week.request.weekStart,
-                week.request.timezone, week.request.candidate.policy,
-                EnergyEstimate(week.nutritionPreview.energy.contract.formula, week.request.candidate.policy,
-                    envelope.profile.ref, measuredInputs, week.request.candidate.at, week.targetKcal),
-                // One serving here is the generated personal portion, not the entire cooked batch.
-                week.meals.map { meal -> MealPlanItem(itemId(meal.day, meal.slot), meal.day, meal.slot.toString(),
-                    meal.recipe, null, meal.portionGrams, 1.0, 1.0, meal.nutrients,
-                    PlanItemStatus.PLANNED, emptySet()) },
-                week.weeklyNutrients, envelope.result.ruleResults.filter { it.status != RuleStatus.NOT_APPLICABLE }.map { rule -> ConstraintResult(rule.ruleId,
-                    when (rule.status) {
-                        RuleStatus.PASS -> ConstraintOutcome.PASS
-                        RuleStatus.NOT_APPLICABLE -> error("Not applicable rules are not constraints")
-                        RuleStatus.FAIL -> ConstraintOutcome.FAIL
-                        RuleStatus.UNKNOWN -> ConstraintOutcome.UNKNOWN
-                    }, rule.reason) },
-                week.alternatives.map { MealAlternative(itemId(it.day, it.slot), it.recipe, "generated alternative") },
-                week.shoppingCost.lines.map { ShoppingItem(it.product.foodId, it.product.preparationState,
-                    it.requiredEdibleGrams.toDouble(), "g", 0.0, 0.0, 1) }, SyncStatus.LOCAL)
+            val plan = GeneratedMealPlan.create(userId, ref, envelope.profile, envelope.result)
             plans.create(plan)
             val acceptance = PlanAcceptance(userId, requestId, ref)
             database.snapshots().insert(UserSnapshotEntity("plan_acceptance", userId, requestId, 1,

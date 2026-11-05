@@ -1,36 +1,41 @@
-# Current task — K16 explicit initial plan acceptance
+# Current task — K16 future-plan recalculation boundary
 
 ## Completed
-- Durable K15 generation envelope and stale-input transaction checks retained.
-- Added explicit owner/request → new MealPlan acceptance using existing repositories/aggregate.
-- Acceptance atomically persists initial plan + shopping + receipt, checks current profile/input bundle, rejects existing plan IDs and failed/fixture production results.
-- Retry replays initial revision; no FoodLog or changes to existing plan history.
+- Durable generation and explicit initial acceptance retained.
+- Added futurePlans.preview/confirm with durable exact before/after records and transactional stale-version checks.
+- Uses confirmed profile transition + stored generation; preserves entire past/consumed/partial/skipped items and all FoodLogs.
+- Revalidates merged candidate via shared K15 candidate/nutrition/weekly/pricing components.
+- Shopping differences and marks retained, including zero-need purchased products; atomic plan/shopping/receipt acceptance.
 
 ## Current state
-- K16 remains partial. Generation and initial acceptance persistence boundaries exist; no UI route yet.
-- Production catalog/G3, price/G4 and budget scope remain gated.
+- K16 persistence/orchestration boundaries exist. No UI routes yet.
+- Production catalog/G3, price/G4 and budget gates remain closed.
 
 ## Decisions
-- Initial acceptance requires a new plan ID; recalculation is a separate preview/change operation.
-- One planned serving is the generated personal portion. Complete provenance and alternative portions remain in linked generation envelope.
-- Replay returns original accepted revision even after inputs or plan change.
+- Only future untouched slots change. Partial items, including remaining portions, stay intact under existing FuturePlanPreview contract.
+- Rejected merge is an explicit outcome, not proof all possible menus are infeasible; use a new request/seed for another candidate.
+- Missing exact historical/customization evidence blocks rather than inventing nutrition/shopping data.
+- Existing single confirmed profile transition contract retained; skipped transitions fail explicitly.
+- New-week alternatives are not valid for the merge and are explicitly cleared.
+- Preview computes planned-menu totals. Actual/remaining diary projection continues through dailyPlanProjection.
 
 ## Remaining work
-- Authoritative catalog/import activation wiring.
-- Future-plan recalculation preview/acceptance preserving consumed/history items.
-- Screens 04/13/14, dated menu, recipe/portion confirmation and Today E2E.
+- Screens 04/13/14, dated menu, recipe/portion confirmation and Today UI E2E.
+- Authoritative catalog/import activation wiring and real catalog/pricing acceptance.
+- Broader customized historical evidence support and chained profile-change composition if needed.
 
 ## Relevant files
-- data/local/{PlanAcceptanceRepository,PlanGenerationRepository,MealPlanRepository,UserRepositories}.kt
-- data/local/PlanGenerationTest.kt; domain/planning/WeeklyPlanContracts.kt
+- data/local/{FuturePlanRepository,PlanGenerationRepository,PlanAcceptanceRepository,MealPlanRepository,UserRepositories}.kt
+- domain/planning/{FuturePlanCalculation,GeneratedMealPlan,WeeklyPlanChecks,WeeklyPlanGenerator,DailyPlanProjection}.kt
+- domain/profile/FuturePlanPreview.kt; data/local/FuturePlanRepositoryTest.kt
 - docs/qa/android-k16-generation-acceptance.md
-- planning/coding-tasks.txt K16; planning/research-data.json §8/18–19/22
+- planning/coding-tasks.txt K16; planning/research-data.json §8/18–19/22; docs/nutrition-plan-design.md
 
 ## Checks performed
-- Prior main 3023709 CI passed; scoped requirements and organization reviewed.
-- Current acceptance tests added; final merged-main CI result recorded in task response.
+- Prior main f3a642a CI passed; lifecycle, scoped canonical requirements and organization read.
+- New Room/JVM acceptance scenarios added; final merged-main CI result recorded in task response.
 - No UI change/render, APK, device, clinical or real catalog/pricing acceptance claimed.
 
 ## Exact next step
-- Continue K16 future-plan recalculation as a separate scoped unit, reading its profile-change contracts first.
-- Follow start/commit/finish lifecycle; use ui-craft for UI work; no APK without explicit request.
+- Continue K16 UI integration as a new scoped chat after reading ui-craft and relevant design references.
+- Follow start/commit/finish lifecycle; no APK without explicit request.
