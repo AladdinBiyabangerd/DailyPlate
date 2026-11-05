@@ -203,3 +203,15 @@ K14 pricing and K15 generator runtime. No APK was requested or created.
 - Remaining NP-16 acceptance: actual voluntary-weight storage/trend consumer and
   new-symptom target suspension need a separate scoped implementation review.
   Device/self-report pilot and real catalog/menu feasibility remain unverified.
+
+## Explicit calculation activation — 5 November 2026
+
+User requested production_enabled=true. Canonical candidate now records explicit
+user activation for current automatic energy/macros; new energy previews explicitly
+create an enabled contract. The false deserialization default preserves historical
+contracts with omitted activation. Enabled RESEARCH_PROPOSAL remains invalid.
+Screening, goal/floor/macro rules and separate catalog/menu gates are retained.
+No historical payload rewrite or new clinical approval metadata is introduced.
+NutritionEnergyTest covers enabled round-trip and historical false decoding;
+CurrentNutritionTest expects an enabled automatic onboarding/profile result.
+Execution evidence is the post-merge CI log for this section's commit.

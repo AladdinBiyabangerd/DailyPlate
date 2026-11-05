@@ -6,7 +6,7 @@ import com.aladdin.dailyplate.domain.Goal
 /** Pure current energy screening. No repositories or writes. */
 object NutritionEnergyEligibility {
     fun preview(inputs: NutritionInputs,
-                contract: NutritionEnergyContract = NutritionEnergyContract()): NutritionEnergyPreview {
+                contract: NutritionEnergyContract = NutritionEnergyContract(productionEnabled = true)): NutritionEnergyPreview {
         val rules = mutableListOf<NutritionRuleResult>()
         fun check(rule: NutritionEnergyRule, status: NutritionRuleStatus,
                   reason: NutritionEnergyReason? = null, question: NutritionHealthQuestion? = null) {

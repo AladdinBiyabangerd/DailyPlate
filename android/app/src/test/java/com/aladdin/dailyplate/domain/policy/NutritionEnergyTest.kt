@@ -78,14 +78,18 @@ class NutritionEnergyTest {
             NutritionEnergyReason.ENERGY_BELOW_PRODUCT_FLOOR)
     }
 
-    @Test fun researchContractAndPreviewRoundTripWithoutProductionAuthority() {
+    @Test fun currentContractRoundTripsAndHistoricalActivationIsPreserved() {
         val p = preview(input())
         assertEquals(p, Json.decodeFromString<NutritionEnergyPreview>(Json.encodeToString(p)))
-        assertFalse(p.contract.productionEnabled)
+        assertTrue(p.contract.productionEnabled)
+        val historical = NutritionEnergyContract()
+        assertFalse(historical.productionEnabled)
+        assertFalse(Json.decodeFromString<NutritionEnergyContract>("{}").productionEnabled)
+        assertEquals(historical, Json.decodeFromString<NutritionEnergyContract>(Json.encodeToString(historical)))
         assertNull(p.contract.approvedBy)
         for (change in listOf<() -> Unit>(
             { NutritionEnergyContract(contractVersion = 1) },
-            { NutritionEnergyContract(productionEnabled = true) },
+            { NutritionEnergyContract(productionEnabled = true, status = NutritionPolicyStatus.RESEARCH_PROPOSAL) },
             { NutritionEnergyContract(approvedBy = "reviewer") },
             { NutritionEnergyContract(provenance = NutritionEnergyProvenance(formulaEvidence = emptyList())) },
         )) {

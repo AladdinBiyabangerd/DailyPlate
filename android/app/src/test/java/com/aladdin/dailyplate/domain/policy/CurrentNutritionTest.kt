@@ -29,7 +29,7 @@ class CurrentNutritionTest {
         assertEquals(first.assessment.currentCalculation!!.targetKcal, next.assessment.currentCalculation!!.targetKcal)
         assertEquals(3, next.assessment.currentCalculation.slotKcal.size)
         assertEquals(first.profile.ref.version + 1, next.after.ref.version)
-        assertFalse(next.assessment.currentCalculation.energy.contract.productionEnabled)
+        assertTrue(next.assessment.currentCalculation.energy.contract.productionEnabled)
         assertEquals(NutritionPolicyStatus.SPECIALIST_APPROVAL_REPORTED,
             next.assessment.currentCalculation.energy.contract.status)
     }
