@@ -29,7 +29,8 @@
 
 ## Checks performed
 - Read local lifecycle, context, organization, design guides/tokens and scoped plan/nutrition requirements.
-- Initial native AZ dashboard/empty/full-app renders inspected; revised plate artwork and card label corrected from that evidence.
+- Native AZ 100%/150%, EN/RU 150%, full-app Today and log detail renders inspected. Plate artwork/card label corrected; narrow EN 150% plan shortcut found visually and changed to full-width at large fonts.
+- Prior merged-main 80503a0 passed 214 JVM tests, lint/compile and contrast 4.71–12.70. Final main also includes large-font shortcut fix and system Back refresh; authoritative final pass is latest.json.
 - First post-merge run caught explicit AZ string parity; second caught test scroll reuse at locale changes. Both repaired.
 - Final mandatory result: compare main HEAD with .local-ci/logs/latest.json (passed=true required). Native render output: .local-ci/reports/k10/today-dashboard-* and today-log-detail-*.
 - Snapshot nutrients are displayed in details using both manual and recipe keys without recomputation; navigation tests assert saved energy. No branch CI, APK or device tests.

@@ -66,8 +66,10 @@ internal fun TodayDashboard(entries: List<FoodLog>, meals: List<TodayMeal>, date
                 meals.forEach { meal ->
                     TextButton(onClick = { openMeal(meal) },
                         contentPadding = PaddingValues(QidaSpacing.small),
-                        modifier = Modifier.widthIn(min = QidaDimensions.touchTarget,
-                            max = QidaDimensions.choiceArt + QidaSpacing.medium).heightIn(min = QidaDimensions.touchTarget)) {
+                        modifier = (if (LocalConfiguration.current.fontScale > 1.3f) Modifier.fillMaxWidth()
+                            else Modifier.widthIn(min = QidaDimensions.touchTarget,
+                                max = QidaDimensions.choiceArt + QidaSpacing.medium))
+                            .heightIn(min = QidaDimensions.touchTarget)) {
                         Column(horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.spacedBy(QidaSpacing.small)) {
                             Box(contentAlignment = Alignment.BottomEnd) {

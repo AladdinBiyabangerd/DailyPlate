@@ -15,7 +15,8 @@ with existing accepted-plan recipe details and saved-log editor reused.
   dashboard, mutation refreshes it, recipe return reloads plan/log data.
 - Remaining-energy number stays unavailable: current diary has no completeness
   declaration. Missing nutrient data remains unknown, never zero.
-- Existing tokens, 48dp targets and native accessible card actions reused.
+- Existing tokens, 48dp targets and native accessible card actions reused. Large-font
+  plan shortcuts expand to full width; system and on-screen recipe Back refresh data.
 
 Acceptance checks: TodayDashboardUiTest renders AZ at 100% and AZ/EN/RU at 150%,
 opens exact plan/log callbacks into existing details without confirmation, and
