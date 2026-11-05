@@ -65,7 +65,9 @@ fun BootstrapScreen() {
                         Destination.Welcome -> {
                             QidaHeading(stringResource(R.string.welcome_title))
                             QidaArt(R.drawable.art_welcome, Modifier.fillMaxWidth().height(com.aladdin.dailyplate.ui.theme.QidaDimensions.heroArt))
-                            Text(stringResource(R.string.welcome_message), style = MaterialTheme.typography.bodyLarge)
+                            Text(stringResource(R.string.welcome_message), Modifier.fillMaxWidth(),
+                                textAlign = androidx.compose.ui.text.style.TextAlign.Center,
+                                style = MaterialTheme.typography.titleLarge)
                             listOf(R.string.feature_log to R.drawable.art_log, R.string.feature_menu to R.drawable.art_menu,
                                 R.string.feature_progress to R.drawable.art_progress).forEach { (label, art) ->
                                 Surface(shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.surface,
@@ -76,7 +78,7 @@ fun BootstrapScreen() {
                                 } }
                             }
                             QidaButton(stringResource(R.string.begin), { open(Destination.Setup) })
-                            TextButton(onClick = { open(Destination.Account) }, modifier = Modifier.heightIn(min = QidaDimensions.touchTarget)) {
+                            TextButton(onClick = { open(Destination.Account) }, modifier = Modifier.fillMaxWidth().heightIn(min = QidaDimensions.touchTarget)) {
                                 Text(stringResource(R.string.account), style = MaterialTheme.typography.bodyLarge)
                             }
                         }

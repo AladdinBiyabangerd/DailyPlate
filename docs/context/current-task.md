@@ -1,6 +1,11 @@
 # Current task — onboarding simplification
 
 ## Completed
+- Preserved concurrent turquoise UI alignment merged as 432dec5: larger choice
+  artwork, corner selected badges, rounded numeric inputs/circular steppers,
+  centered welcome/account action and separate progress row. Tests assert actual
+  selected semantics. Its clean worktree remains at /private/tmp/callmood-ui-alignment
+  detached at 432dec5; no files were removed or rewritten there.
 - Male selection hides pregnancy/breastfeeding, clears their previous draft answers,
   and ignores stale answers at confirmation. Merged as a9594aa with green branch/main CI.
 - Removed equipment and home-food inventory forms, add/remove actions, artwork and
@@ -31,6 +36,7 @@
 - android/app/src/main/java/com/aladdin/dailyplate/{domain/onboarding/OnboardingDraft,ui/onboarding/OnboardingScreen}.kt
 - android/app/src/test/java/com/aladdin/dailyplate/{domain/OnboardingDraftTest,ui/OnboardingUiTest}.kt
 - android/app/src/main/res/values{,-az,-en,-ru}/onboarding.xml
+- ui/{DesignComponents,FoundationComponents,BootstrapScreen}.kt (concurrent alignment)
 - android/tools/extract_design_art.py
 - planning/research-data.json (canonical), nutrition-science-implementation-plan.txt
   sections 8, 17–19; library/tools/update_project_plan.py generates TXT/canvas.
