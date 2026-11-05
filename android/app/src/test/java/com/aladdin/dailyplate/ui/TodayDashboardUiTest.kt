@@ -38,8 +38,9 @@ class TodayDashboardUiTest {
     @Test fun pictureCardsOpenExactExistingDetailsWithoutRecording() {
         for ((language, scale) in listOf("az" to 1f, "az" to 1.5f, "en" to 1.5f, "ru" to 1.5f)) {
             val detail = RecipeDetailTest().detail()
-            val meal = TodayMeal(detail.plan.ref.id, detail.item, "Tərəvəzli toyuq / Chicken / Курица")
-            val log = PortionDraft("Evdə hazırlanan yemək / Home meal / Домашняя еда",
+            val meal = TodayMeal(detail.plan.ref.id, detail.item, when (language) {
+                "en" -> "Chicken with vegetables"; "ru" -> "Курица с овощами"; else -> "Tərəvəzli toyuq" })
+            val log = PortionDraft(when (language) { "en" -> "Home meal"; "ru" -> "Домашняя еда"; else -> "Evdə hazırlanan yemək" },
                 RecordedAt("2026-11-05T10:00:00Z", "Asia/Baku"), EntryMethod.MANUAL,
                 quantity = 150.0, unit = EntryUnit.GRAM, source = "TEST label",
                 nutrientsPerBasis = NutrientSnapshot(mapOf("energy" to NutrientAmount(100.0, NutrientUnit.KCAL))))
@@ -71,12 +72,16 @@ class TodayDashboardUiTest {
                     } }
                 }
             } }
-            compose.onNodeWithText(localized.getString(R.string.td_greeting)).assertIsDisplayed()
+            compose.onNodeWithText(localized.getString(R.string.td_greeting)).performScrollTo().assertIsDisplayed()
             capture("today-dashboard-$language-$scale")
             compose.onNodeWithText(localized.getString(R.string.td_remaining_unknown)).performScrollTo().assertIsDisplayed()
-            compose.onNodeWithTag("today-log-" + log.ref.id).performScrollTo().performClick()
+            compose.onNodeWithTag("today-log-" + log.ref.id).performScrollTo()
+            capture("today-dashboard-log-card-$language-$scale")
+            compose.onNodeWithTag("today-log-" + log.ref.id).performClick()
             Assert.assertEquals(log.ref.id, openedLog)
+            compose.onNodeWithText(localized.getString(R.string.pc_energy) + ": 150.0 kcal").performScrollTo().assertIsDisplayed()
             compose.onNodeWithText(localized.getString(R.string.td_multiple)).performScrollTo().assertIsDisplayed()
+            capture("today-log-detail-$language-$scale")
             compose.onNodeWithText(localized.getString(R.string.back)).performScrollTo().performClick()
             compose.onNodeWithTag("today-plan-" + meal.item.id).performScrollTo().performClick()
             Assert.assertEquals(meal, openedPlan)

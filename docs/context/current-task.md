@@ -17,7 +17,7 @@
 - Concurrent Add/search work is outside this task; isolated local worktree preserves it.
 
 ## Remaining work
-- Final merged-main CI and visual evidence are recorded below after finish.
+- Real catalog/prices, real meal photography and device/TalkBack acceptance remain unverified.
 - K16 reviewed catalog → version-compatible planning integration remains pending; preserve source-food safety and G3/G4.
 
 ## Relevant files
@@ -29,7 +29,11 @@
 
 ## Checks performed
 - Read local lifecycle, context, organization, design guides/tokens and scoped plan/nutrition requirements.
-- New UI/navigation renders execute in mandatory post-merge JVM suite. No branch CI, APK or device tests.
+- Initial native AZ dashboard/empty/full-app renders inspected; revised plate artwork and card label corrected from that evidence.
+- First post-merge run caught explicit AZ string parity; second caught test scroll reuse at locale changes. Both repaired.
+- Final mandatory result: compare main HEAD with .local-ci/logs/latest.json (passed=true required). Native render output: .local-ci/reports/k10/today-dashboard-* and today-log-detail-*.
+- Snapshot nutrients are displayed in details using both manual and recipe keys without recomputation; navigation tests assert saved energy. No branch CI, APK or device tests.
 
 ## Exact next step
-- Finish current local merge, inspect generated native renders and record CI/visual result; then continue K16 separately if requested.
+- Continue K16 in a new chat only if requested: reviewed catalog → version-compatible planning integration, preserving source-food safety and closed G3/G4.
+- Today acceptance reference: docs/qa/android-today-design-acceptance.md; final CI and native image evidence live under .local-ci/.

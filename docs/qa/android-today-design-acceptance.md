@@ -11,7 +11,7 @@ with existing accepted-plan recipe details and saved-log editor reused.
   meal photograph or measured portion. No hardcoded example calories/name/avatar.
 - Actual diary entries and accepted plans remain separate. No write occurs on
   viewing a card. Recipe Yedim still requires portion confirmation.
-- Existing nutrient summary/edit/delete is in saved-log details; Back returns to
+- Saved snapshot nutrients (manual/recipe keys), edit and delete are in saved-log details; Back returns to
   dashboard, mutation refreshes it, recipe return reloads plan/log data.
 - Remaining-energy number stays unavailable: current diary has no completeness
   declaration. Missing nutrient data remains unknown, never zero.

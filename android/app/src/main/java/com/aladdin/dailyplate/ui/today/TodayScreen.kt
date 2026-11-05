@@ -93,8 +93,6 @@ fun TodayScreen(initialId: String? = null, add: () -> Unit, menu: () -> Unit, re
     }
     val log = logs.firstOrNull { it.ref.id == selected && !it.deleted }
     if (log != null) {
-        // Full nutrients belong in the existing detail/editor, not the dashboard.
-        TodaySummary(listOf(log), null, "", log.consumedAt.timezone)
         LogEditor(log, busy, { selected = null },
             { changed -> mutate { it.revise(changed, log.ref.version) } },
             { mutate { it.delete(log.userId, log.ref) } })
@@ -132,6 +130,7 @@ internal fun LogEditor(log: FoodLog, busy: Boolean, back: () -> Unit, save: (Foo
     var confirmDelete by rememberSaveable { mutableStateOf(false) }
     QidaHeading(log.displayName ?: log.ref.id)
     RecordedPortion(log)
+    RecordedNutrients(log)
     RecordedIngredients(log)
     Text(stringResource(R.string.pc_local))
     QidaField(stringResource(R.string.td_multiple), quantity, { quantity = it; preview = null },
