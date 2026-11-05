@@ -220,9 +220,11 @@ Status: alış/region qiymət nüvəsi implementasiya edilib; docs/qa/android-k1
 Real G4 qiymət/büdcə qəbulu və K17 UI ayrıca qalır.
 Asılılıq: K04, K07. Mənbə: §17, §19.8; customization §6.
 Yazılacaq: ingredient_price, paket/edible_fraction/preparation_state,
-  istifadə xərci ilə tam paket alışının ayrımı, evdəki miqdarın çıxılması.
+  istifadə xərci ilə tam paket alışının ayrımı, həftəlik ümumi ehtiyac.
+  5 noyabr 2026 qərarı: evdəki dəqiq miqdar girişi/çıxılması plandan çıxarılıb;
+  mövcud K14 kodunun home parametrini növbəti kod vahidində uyğunlaşdır.
 Yoxlama: həftə üzrə məhsul birləşir; 750 q/500 q paket → 2 paket;
-  250 q evdə varsa → 1 paket; quru qiymət bişmiş qrama vurulmur;
+  “Evdə var” ümumi 750 q ehtiyacı dəyişmir; quru qiymət bişmiş qrama vurulmur;
   region/qiymət yoxdur və ya köhnədirsə total_cost=null və səbəb var.
 Bitmə: fixture qiyməti test kimi işarələnir; G4 olmadan real büdcə uyğunluğu yoxdur.
 
@@ -248,7 +250,8 @@ Bitmə: ekran 04, 13–14 və Bu gün inteqrasiyası E2E; tarixlər realdır.
 
 K17 — Alış-veriş ekranı və paylaşım
 Asılılıq: K14, K16. Mənbə: §19.8; ekran 16, 42.
-Yazılacaq: həftəlik kateqoriya/vahid/miqdar, ayrı Evdə var və Alınıb,
+Yazılacaq: həftəlik kateqoriya/vahid/ümumi miqdar, ayrı sadə Evdə var və Alınıb işarələri,
+  evdəki dəqiq qram girişi və avtomatik miqdar çıxılması yoxdur,
   unikal məhsul sayğacı, plan fərqi və sistem paylaşım önbaxışı.
 Yoxlama: uyğun vahidlər birləşir; unknown ədəd→qram çevrilmir; işarə restart-da
   qalır; artıq alınmış/lazım olmayan məhsul itmir; paylaşım yalnız siyahıdır,
