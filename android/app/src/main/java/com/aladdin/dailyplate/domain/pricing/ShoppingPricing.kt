@@ -30,7 +30,6 @@ enum class PriceIssue {
 }
 data class ShoppingCostLine(
     val product: ShoppingProduct, val requiredEdibleGrams: BigDecimal,
-    val homeEdibleGrams: BigDecimal, val buyEdibleGrams: BigDecimal,
     val price: VersionRef?, val packages: BigDecimal?,
     val usageCost: Money?, val purchaseCost: Money?, val issues: Set<PriceIssue>,
 )
@@ -42,29 +41,27 @@ data class ShoppingCost(
     val budgetComplianceVerified: Boolean get() = false
 }
 
+/** Prices full weekly needs. Optional home-availability marks are not quantity or cost inputs. */
 object ShoppingPricing {
     fun calculate(
-        needs: List<ShoppingNeed>, home: List<ShoppingNeed>, prices: List<PriceObservation>,
+        needs: List<ShoppingNeed>, prices: List<PriceObservation>,
         region: String?, currency: String, at: RecordedAt, freshness: PriceFreshness?,
-    ): ShoppingCost = estimate(needs, home, prices, region, currency, at, freshness, false)
+    ): ShoppingCost = estimate(needs, prices, region, currency, at, freshness, false)
 
     /** Fixture arithmetic is explicitly isolated from production budget claims. */
     fun calculateTest(
-        needs: List<ShoppingNeed>, home: List<ShoppingNeed>, prices: List<PriceObservation>,
+        needs: List<ShoppingNeed>, prices: List<PriceObservation>,
         region: String?, currency: String, at: RecordedAt, freshness: PriceFreshness?,
-    ): ShoppingCost = estimate(needs, home, prices, region, currency, at, freshness, true)
+    ): ShoppingCost = estimate(needs, prices, region, currency, at, freshness, true)
 
     private fun estimate(
-        needs: List<ShoppingNeed>, home: List<ShoppingNeed>, prices: List<PriceObservation>,
+        needs: List<ShoppingNeed>, prices: List<PriceObservation>,
         region: String?, currency: String, at: RecordedAt, freshness: PriceFreshness?, testOnly: Boolean,
     ): ShoppingCost {
         Money("0", currency)
-        val inventory = home.groupBy { it.product }.mapValues { (_, rows) -> rows.sumOf { it.edibleGrams } }
         val lines = needs.groupBy { it.product }.entries
             .sortedWith(compareBy({ it.key.foodId }, { it.key.preparationState })).map { (product, rows) ->
                 val required = rows.sumOf { it.edibleGrams }
-                val available = inventory[product] ?: BigDecimal.ZERO
-                val buy = (required - available).max(BigDecimal.ZERO)
                 val issues = mutableSetOf<PriceIssue>()
                 if (region.isNullOrBlank()) issues += PriceIssue.REGION_MISSING
                 val regional = prices.filter { it.price.foodId == product.foodId &&
@@ -88,12 +85,12 @@ object ShoppingPricing {
                 var purchase: Money? = null
                 if (price != null && issues.isEmpty()) {
                     val ediblePackage = BigDecimal.valueOf(price.packageGrams) * BigDecimal.valueOf(price.edibleFraction)
-                    packages = buy.divide(ediblePackage, 0, RoundingMode.CEILING)
+                    packages = required.divide(ediblePackage, 0, RoundingMode.CEILING)
                     val amount = price.packagePrice.amount.toBigDecimal()
                     usage = Money(required.multiply(amount).divide(ediblePackage, MathContext.DECIMAL128).toPlainString(), currency)
                     purchase = Money((packages * amount).toPlainString(), currency)
                 }
-                ShoppingCostLine(product, required, available, buy, price?.ref, packages, usage, purchase, issues.toSet())
+                ShoppingCostLine(product, required, price?.ref, packages, usage, purchase, issues.toSet())
             }
         val issues = lines.flatMap { it.issues }.toMutableSet()
         if (!testOnly) issues += PriceIssue.G4_REQUIRED

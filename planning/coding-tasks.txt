@@ -222,7 +222,9 @@ Asılılıq: K04, K07. Mənbə: §17, §19.8; customization §6.
 Yazılacaq: ingredient_price, paket/edible_fraction/preparation_state,
   istifadə xərci ilə tam paket alışının ayrımı, həftəlik ümumi ehtiyac.
   5 noyabr 2026 qərarı: evdəki dəqiq miqdar girişi/çıxılması plandan çıxarılıb;
-  mövcud K14 kodunun home parametrini növbəti kod vahidində uyğunlaşdır.
+  K14 qiymət API-sində home parametri və çıxılma nəticə sahələri silinib.
+  Tarixi ShoppingItem.homeQuantity payload uyğunluğu saxlanır; boolean model
+  keçidi və işarələrin qorunması K17-nin ayrıca işidir.
 Yoxlama: həftə üzrə məhsul birləşir; 750 q/500 q paket → 2 paket;
   “Evdə var” ümumi 750 q ehtiyacı dəyişmir; quru qiymət bişmiş qrama vurulmur;
   region/qiymət yoxdur və ya köhnədirsə total_cost=null və səbəb var.
