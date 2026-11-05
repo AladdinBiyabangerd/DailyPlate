@@ -16,6 +16,7 @@ import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.core.app.ApplicationProvider
 import com.aladdin.dailyplate.R
+import com.aladdin.dailyplate.domain.entry.confirm
 import com.aladdin.dailyplate.ui.entry.FoodEntryScreen
 import com.aladdin.dailyplate.ui.theme.*
 import org.junit.*
@@ -49,6 +50,42 @@ class FoodEntryUiTest {
             file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
         }
     }
+    @Test fun todaySummaryAndEditorRenderInAllLanguagesAtLargeText() {
+        var language by mutableStateOf("az")
+        var editor by mutableStateOf(false)
+        val log = com.aladdin.dailyplate.domain.entry.PortionDraft("Home meal",
+            com.aladdin.dailyplate.domain.RecordedAt("2026-11-05T10:00:00Z", "Asia/Baku"),
+            com.aladdin.dailyplate.domain.EntryMethod.MANUAL, quantity = 150.0,
+            unit = com.aladdin.dailyplate.domain.entry.EntryUnit.GRAM, source = "label",
+            nutrientsPerBasis = com.aladdin.dailyplate.domain.NutrientSnapshot(mapOf(
+                "energy" to com.aladdin.dailyplate.domain.NutrientAmount(100.0, com.aladdin.dailyplate.domain.NutrientUnit.KCAL))))
+        val saved = log.confirm("guest", "today-preview")
+        compose.runOnUiThread { compose.activity.setContent {
+            val config = android.content.res.Configuration(base.resources.configuration).apply {
+                setLocale(Locale.forLanguageTag(language)); fontScale = 1.5f
+            }
+            val context = base.createConfigurationContext(config)
+            CompositionLocalProvider(LocalContext provides context, LocalConfiguration provides config,
+                androidx.compose.ui.platform.LocalDensity provides androidx.compose.ui.unit.Density(base.resources.displayMetrics.density, 1.5f)) {
+                key(language, editor) {
+                    QidaTheme { androidx.compose.material3.Surface {
+                        Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(QidaSpacing.large),
+                            verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
+                            if (editor) com.aladdin.dailyplate.ui.today.LogEditor(saved, false, {}, {}, {})
+                            else com.aladdin.dailyplate.ui.today.TodaySummary(listOf(saved), 100.0, "2026-11-05", "Asia/Baku")
+                        }
+                    } }
+                }
+            }
+        } }
+        for (lang in listOf("az", "en", "ru")) {
+            compose.runOnIdle { language = lang; editor = false }
+            compose.waitForIdle(); capture("k12-summary-$lang-large")
+            compose.runOnIdle { editor = true }
+            compose.waitForIdle(); capture("k12-editor-$lang-large")
+        }
+    }
+
     @Test fun savedRecordSurvivesRestartAndCanBeEditedAndDeleted() {
         val c = base.createConfigurationContext(android.content.res.Configuration(base.resources.configuration).apply {
             setLocale(Locale.forLanguageTag("az"))
@@ -69,9 +106,10 @@ class FoodEntryUiTest {
         compose.waitUntil(10000) { compose.onAllNodesWithText("300.0 " + t(R.string.fe_grams)).fetchSemanticsNodes().isNotEmpty() }
         capture("k12-today-az")
         click(t(R.string.td_edit)); click(t(R.string.td_delete))
+        compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.td_delete_question)).fetchSemanticsNodes().isNotEmpty() }
         compose.onNodeWithText(t(R.string.td_delete_question)).assertExists()
         capture("k12-delete-confirm-az")
-        compose.onAllNodesWithText(t(R.string.td_delete)).onLast().performClick()
+        compose.onAllNodesWithText(t(R.string.td_delete)).onLast().performScrollTo().performClick()
         compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.empty_today)).fetchSemanticsNodes().isNotEmpty() }
         compose.activityRule.scenario.recreate()
         compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.empty_today)).fetchSemanticsNodes().isNotEmpty() }

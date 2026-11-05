@@ -1,6 +1,8 @@
 package com.aladdin.dailyplate.ui.today
 
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
@@ -89,7 +91,10 @@ fun TodayScreen(initialId: String? = null, add: () -> Unit, menu: () -> Unit) {
             { mutate { it.delete(log.userId, log.ref) } })
     } else {
         if (selected != null) Text(stringResource(R.string.td_missing))
-        if (entries.isEmpty()) QidaState(SurfaceState.Empty, stringResource(R.string.empty_today))
+        if (entries.isEmpty()) {
+            QidaArt(R.drawable.art_empty, androidx.compose.ui.Modifier.fillMaxWidth().height(com.aladdin.dailyplate.ui.theme.QidaDimensions.heroArt))
+            QidaState(SurfaceState.Empty, stringResource(R.string.empty_today))
+        }
         entries.forEach { entry ->
             QidaCard {
                 Text(entry.displayName ?: entry.ref.id, style = MaterialTheme.typography.titleMedium)
@@ -121,7 +126,7 @@ fun TodaySummary(entries: List<FoodLog>, target: Double?, date: String, timezone
 }
 
 @Composable
-private fun LogEditor(log: FoodLog, busy: Boolean, back: () -> Unit, save: (FoodLog) -> Unit, delete: () -> Unit) {
+internal fun LogEditor(log: FoodLog, busy: Boolean, back: () -> Unit, save: (FoodLog) -> Unit, delete: () -> Unit) {
     var quantity by rememberSaveable(log.ref.id, log.ref.version) { mutableStateOf("1") }
     var preview by remember { mutableStateOf<FoodLog?>(null) }
     var invalid by remember { mutableStateOf(false) }
@@ -143,11 +148,12 @@ private fun LogEditor(log: FoodLog, busy: Boolean, back: () -> Unit, save: (Food
     }
     QidaButton(stringResource(R.string.td_delete), { confirmDelete = true })
     QidaButton(stringResource(R.string.back), back)
-    if (confirmDelete) AlertDialog(onDismissRequest = { confirmDelete = false },
-        title = { Text(stringResource(R.string.td_delete_question)) },
-        text = { Text(log.displayName ?: log.ref.id) },
-        confirmButton = { TextButton(onClick = { confirmDelete = false; delete() }) { Text(stringResource(R.string.td_delete)) } },
-        dismissButton = { TextButton(onClick = { confirmDelete = false }) { Text(stringResource(R.string.back)) } })
+    if (confirmDelete) QidaCard {
+        Text(stringResource(R.string.td_delete_question), style = MaterialTheme.typography.titleMedium)
+        Text(log.displayName ?: log.ref.id)
+        QidaButton(stringResource(R.string.td_delete), { confirmDelete = false; delete() })
+        QidaButton(stringResource(R.string.back), { confirmDelete = false })
+    }
 }
 
 /** Success summary reads committed data; never derives totals from the pending draft. */
