@@ -66,6 +66,8 @@ class ProfileUiTest {
 
     @Test fun renderEditorAndExplanationInEveryLanguageAndLargeText() {
         seed()
+        click("Başlayaq"); await("Profil saxlanıb. Menyu hələ yaradılmayıb.")
+        click("Davam et"); click("Profil"); await("Profil versiyası 1")
         for (scale in listOf(1f, 1.5f)) for (language in listOf("az", "en", "ru")) {
             compose.onNode(hasContentDescription("Dil") or hasContentDescription("Language") or hasContentDescription("Язык"))
                 .performScrollTo().performClick()
@@ -76,8 +78,6 @@ class ProfileUiTest {
             compose.activityRule.scenario.recreate()
             val c = context.createConfigurationContext(android.content.res.Configuration(config).apply { setLocale(java.util.Locale.forLanguageTag(language)) })
             fun text(id: Int) = c.getString(id)
-            click(text(R.string.begin)); await(text(R.string.ob_saved))
-            click(text(R.string.continue_action)); click(text(R.string.profile))
             await(c.getString(R.string.pf_version, 1))
             capture("profile-$language-$scale")
             click(text(R.string.pf_basis))
@@ -89,10 +89,7 @@ class ProfileUiTest {
             compose.onNodeWithText(text(R.string.pf_reason)).performScrollTo()
             capture("editor-bottom-$language-$scale")
             click(text(R.string.pf_cancel))
-            // Reset navigation to Welcome for the next configuration.
-            compose.activityRule.scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }; compose.waitForIdle()
-            compose.activityRule.scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }; compose.waitForIdle()
-            compose.activityRule.scenario.onActivity { it.onBackPressedDispatcher.onBackPressed() }; compose.waitForIdle()
+
         }
     }
     private fun capture(name: String) {
