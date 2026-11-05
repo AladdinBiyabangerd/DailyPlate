@@ -17,10 +17,15 @@ approved_by/approved_at=null. No new approval or G2/G3 activation.
    overflow/invalid inputs, unsupported versions, activity mismatch, legacy exact
    arithmetic and the v1 activation barrier. These are synthetic arithmetic
    regressions, not scientific/clinical validation.
-2. **Remaining:** separate serializable contract v2 with research-only status,
+2. **Implemented, execution unverified:** separate serializable research energy contract v2 with research-only status,
    formula-specific inputs, evidence/provenance and typed RuleResults. Add
    NP-07–12 age/BMI/goal/explicit extra health screening and sex floors, no clamp.
-   Include model age vs product scope distinction; specialist path stays separate.
+   Model age (19+) and product age (19–64) have distinct RuleResults; specialist
+   path stays separate. Pure internal preview has no storage/production entry point.
+   All ten health answers must explicitly be false; activity and measurements
+   require confirmation. Unknown/failed rules produce no candidate target.
+   Provenance records canonical source and evidence refs without approval.
+   Macro/menu fields remain slice 3; persisted migration remains slice 4.
 3. **Remaining:** max/remainder macros with MACRO_INFEASIBLE; typed goal-specific
    menu L/U and strict lose/gain inequalities (NP-13–23). This prepares the
    generator interface; do not implement a menu generator. Unknown nutrient
@@ -57,7 +62,11 @@ approved_by/approved_at=null. No new approval or G2/G3 activation.
 
 Performed: source/call-site review and git diff --check only. No compilation,
 JVM tests, lint, CI, APK or device checks were run under the isolation instruction.
-New EnergyFormulaTest and existing NutritionPolicyEngineTest are **not executed**.
+EnergyFormulaTest, ResearchEnergyV2Test and existing NutritionPolicyEngineTest are **not executed**.
+Slice 2 adds unexecuted age/BMI/goal boundaries, every missing/positive health answer,
+missing sex/activity, confirmation, invalid/tiny inputs, both sex floors, no-clamp
+examples, research-only invariant and new-contract serialization regressions.
+No legacy payload, persistence adapter, production gate or downstream consumer changed.
 At integration run the configured post-merge checks via workflow finish, including
 APK-free lintDebug, compileDebugKotlin, testDebugUnitTest, library contract and
 canonical export checks; never invoke CI manually or package an APK.

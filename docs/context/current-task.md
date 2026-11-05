@@ -1,38 +1,44 @@
-# Current task — K08-v2 slice 1 (isolated, not integrated)
+# Current task — K08-v2 slice 2 (isolated, not integrated)
 
 ## Completed
-- Read research 479f7ee context, design §26–29 and candidate JSON; compared main
-  K08 arithmetic, snapshots and downstream candidate call sites.
-- Internal formula dispatch with eight NASEM coefficient rows/four categories,
-  explicit failures and nullable resting estimate. V1 Mifflin delegates arithmetic.
-- Added regression tests; none executed. Slice plan/acceptance in
-  docs/qa/android-k08-v2-implementation.md.
+- Slice 1 internal NASEM/Mifflin formula dispatch retained.
+- Slice 2 internal serializable research energy contract v2, provenance, typed
+  RuleResults and pure screening/energy preview implemented (NP-07–12/NP-28).
+- Distinct model/product age scope, unrounded BMI/goal checks, ten explicit
+  health answers, measurement/activity confirmation, sex floors and no clamp.
+- Added boundary, exclusion, input, floor and serialization tests; not executed.
 
 ## Current state
 - Worktree /private/tmp/callmood-k08-v2; branch feat/k08-v2-formula.
-- Base b775fb2 already included research merge before this task; no merge here.
-- Branch retained separately; no finish/CI/APK by explicit user instruction.
+- Explicit user instruction: retain isolated branch; no merge, finish, CI or APK.
+- Existing task branch continued; hooksPath=.local-ci/hooks; initial tree clean.
 
 ## Decisions
-- Arithmetic is internal, not a personal target or v2 persistence contract.
-- V1 engine still rejects NASEM. No silent legacy activity mapping.
-- Candidate remains RESEARCH_PROPOSAL; no G2/G3, approval or production changes.
-- Serialization/storage/FoodLog and menu generator unchanged.
+- Candidate remains RESEARCH_PROPOSAL; no approval/G2/G3 or production activation.
+- Pure preview is an intermediate research energy result, not a complete plan.
+- No v1 payload/schema, storage, FoodLog, specialist or downstream changes.
+- New research input requires all ten explicit health responses, including
+  reproductive responses; it does not reuse legacy male onboarding omissions.
+- Date freshness/reconfirmation migration belongs to slice 4, not this preview.
 
 ## Remaining work
-- Slice 2 v2 typed contract/eligibility; slice 3 macros/menu bounds;
-  slice 4 backward-compatible migration/reconfirmation; slice 5 integration.
-- No claim of full K08-v2 completion or passing runtime acceptance.
+- Slice 3 macro max/remainder feasibility and typed goal-specific menu bounds.
+- Slice 4 persisted legacy fixtures/migration, freshness, preview/confirm revisions.
+- Slice 5 integration/regressions; authorization required before integration.
 
 ## Relevant files
-- domain/policy/{EnergyFormula,NutritionPolicyEngine}.kt and EnergyFormulaTest.kt
-  under android/app/src/{main,test}/java/com/aladdin/dailyplate/.
-- docs/qa/android-k08-v2-implementation.md; planning/nutrition-policy-candidate.json
-- docs/nutrition-plan-design.md §26–29; planning/nutrition-science-implementation-plan.txt
+- android/app/src/main/java/com/aladdin/dailyplate/domain/policy/
+  ResearchEnergyContractV2.kt, ResearchEnergyEligibilityV2.kt, EnergyFormula.kt
+- android/app/src/test/java/com/aladdin/dailyplate/domain/policy/ResearchEnergyV2Test.kt
+- docs/qa/android-k08-v2-implementation.md
+- planning/nutrition-policy-candidate.json; docs/nutrition-plan-design.md §26–29
+- planning/nutrition-science-implementation-plan.txt
 
 ## Checks performed
-- Source review and git diff --check; no CI, compile, tests, APK, device or clinical checks.
+- Source review and git diff --check only.
+- No compilation, test execution, lint, CI, APK, device or clinical validation.
+- Serialization assertions are new-object tests, not legacy migration evidence.
 
 ## Exact next step
-- Review slice 1 diff, then implement only slice 2 on this isolated branch after
-  reading QA slice plan and NP-07–12/NP-28. Preserve v1 payloads and production gate.
+- Read QA slice plan and design NP-13–23; implement only slice 3 on this isolated
+  branch. Preserve v1, production denial and the no-merge/CI/APK instruction.

@@ -4,6 +4,7 @@ import com.aladdin.dailyplate.domain.CalculationSex
 import com.aladdin.dailyplate.domain.VersionRef
 
 /** S23/S24 category codes. These are not PAL multipliers or legacy activity mappings. */
+@kotlinx.serialization.Serializable
 internal enum class EerActivity(val code: String) {
     INACTIVE("inactive"), LOW_ACTIVE("low_active"), ACTIVE("active"), VERY_ACTIVE("very_active");
 }
