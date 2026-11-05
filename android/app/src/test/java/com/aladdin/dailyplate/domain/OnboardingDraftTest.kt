@@ -7,8 +7,7 @@ import org.junit.Test
 fun readyOnboarding() = OnboardingDraft("onboarding-test", answers = mapOf(
     "goal" to "HEALTHY", "age" to "30", "height" to "170,5", "weight" to "65,2",
     "activity" to "some", "allergies" to "unknown", "time" to "30", "meals" to "5",
-    "tier" to "ECONOMICAL", "region" to "Baku", "currency" to "AZN", "people" to "2",
-    "coverage" to "breakfast;lunch;dinner"))
+    "tier" to "ECONOMICAL", "region" to "Baku", "currency" to "AZN", "people" to "2"))
 
 class OnboardingDraftTest {
     @Test fun decimalCommaAndOptionalSexProduceUnassessedProfileWithoutInventedTargets() {
@@ -61,7 +60,7 @@ class OnboardingDraftTest {
         assertEquals("", d.change("extra_allergies", "").answer("extra_allergies"))
         assertTrue(d.change("disliked_foods", "onion").change("disliked_foods", "").items("disliked_foods").isEmpty())
     }
-    @Test fun budgetScopeKeepsItsAmountAndCoverage() {
+    @Test fun budgetKeepsAmountWithoutRequiringMealCoverage() {
         for (tier in BudgetTier.entries) {
             val d = readyOnboarding()
                 .change("tier", tier.name).change("amount", "125,50")
@@ -69,7 +68,9 @@ class OnboardingDraftTest {
             assertEquals("125.50", p.budget.weeklyAmount!!.amount)
             assertEquals("AZN", p.budget.weeklyAmount.currency)
             assertEquals(2, p.budget.people)
-            assertEquals(setOf("breakfast", "lunch", "dinner"), p.budget.coveredMealSlots)
+            assertTrue(p.budget.coveredMealSlots.isEmpty())
+            val legacy = d.change("coverage", "breakfast;lunch;dinner")
+            assertTrue(legacy.profile("ru", p.updatedAt, requireNotNull(p.ageAsOfDate)).budget.coveredMealSlots.isEmpty())
         }
     }
     @Test fun removedInventoryInputsCannotBlockOrInfluenceNewProfilesFromOldDrafts() {

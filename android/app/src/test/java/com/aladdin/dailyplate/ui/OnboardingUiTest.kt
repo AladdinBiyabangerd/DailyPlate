@@ -108,9 +108,9 @@ class OnboardingUiTest {
                 capture("step-$step-$language-$size")
                 if (step == 4) {
                     val removedLabels = when (language) {
-                        "az" -> listOf("Avadanlıq (; ilə ayır)", "Evdəki ərzaq — könüllü")
-                        "en" -> listOf("Equipment (separate with ;)", "Food at home — optional")
-                        "ru" -> listOf("Оборудование (через ;)", "Продукт дома — необязательно")
+                        "az" -> listOf("Avadanlıq (; ilə ayır)", "Evdəki ərzaq — könüllü", "Büdcəyə daxil yeməklər (; ilə ayır)")
+                        "en" -> listOf("Equipment (separate with ;)", "Food at home — optional", "Meals covered by budget (separate with ;)")
+                        "ru" -> listOf("Оборудование (через ;)", "Продукт дома — необязательно", "Приёмы пищи в бюджете (через ;)")
                         else -> error("Unexpected test language")
                     }
                     removedLabels.forEach { compose.onNodeWithText(it).assertDoesNotExist() }

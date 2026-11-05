@@ -48,7 +48,6 @@
     <string name="ob_currency">Валюта (3 заглавные буквы, например AZN)</string>
     <string name="ob_amount">Сумма на неделю — необязательно</string>
     <string name="ob_people">Сколько человек охватывает бюджет</string>
-    <string name="ob_coverage">Приёмы пищи в бюджете (через ;)</string>
     <string name="ob_prepare">Подготовить мой план</string>
     <string name="ob_invalid">Введите корректный ответ. Числа должны быть положительными и конечными.</string>
     <string name="ob_write_error">Не удалось сохранить на устройстве. Повторите; ответы остались на экране.</string>

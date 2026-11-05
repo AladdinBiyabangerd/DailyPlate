@@ -48,7 +48,6 @@
     <string name="ob_currency">Currency (3 uppercase letters, e.g. AZN)</string>
     <string name="ob_amount">Weekly amount — optional</string>
     <string name="ob_people">People covered by budget</string>
-    <string name="ob_coverage">Meals covered by budget (separate with ;)</string>
     <string name="ob_prepare">Prepare my plan</string>
     <string name="ob_invalid">Enter a valid answer. Numbers must be positive and finite.</string>
     <string name="ob_write_error">Could not save locally. Retry; your answers remain on screen.</string>
