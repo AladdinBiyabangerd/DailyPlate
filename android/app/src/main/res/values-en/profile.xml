@@ -32,4 +32,5 @@
     <string name="pf_specialist_needed">Health answers restrict automatic personal plans; consult a specialist.</string>
     <string name="pf_missing">Required calculation answers are incomplete.</string>
     <string name="pf_calculation_unavailable">Automatic calculation is unavailable for these inputs and rules.</string>
+    <string name="pf_formula_source">Source: Mifflin et al., 1990 — REE prediction (S6)</string>
 </resources>

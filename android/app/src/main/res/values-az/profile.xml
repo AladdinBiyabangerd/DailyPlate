@@ -32,4 +32,5 @@
     <string name="pf_specialist_needed">Sağlamlıq cavablarına görə avtomatik fərdi plan bağlıdır; mütəxəssislə məsləhətləş.</string>
     <string name="pf_missing">Hesab üçün tələb olunan cavablar tam deyil.</string>
     <string name="pf_calculation_unavailable">Bu girişlər və qayda ilə avtomatik hesab mövcud deyil.</string>
+    <string name="pf_formula_source">Mənbə: Mifflin və həmkarları, 1990 — REE proqnozu (S6)</string>
 </resources>

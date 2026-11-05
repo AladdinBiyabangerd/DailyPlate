@@ -3,6 +3,7 @@ package com.aladdin.dailyplate.ui.profile
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.platform.LocalUriHandler
 import com.aladdin.dailyplate.R
 import com.aladdin.dailyplate.domain.*
 import com.aladdin.dailyplate.domain.profile.ProfileEdit
@@ -43,6 +44,7 @@ internal fun profileAnswer(key: String, value: String, p: UserProfile): String {
 
 @Composable
 fun TargetExplanation(profile: UserProfile, assessment: NutritionAssessment?) {
+    val uri = LocalUriHandler.current
     QidaCard {
         Text(stringResource(R.string.pf_basis), style = MaterialTheme.typography.titleLarge)
         Text(stringResource(R.string.pf_version, profile.ref.version))
@@ -55,6 +57,11 @@ fun TargetExplanation(profile: UserProfile, assessment: NutritionAssessment?) {
         assessment?.dailyKcal?.let { Text(stringResource(R.string.pf_kcal, it.toString())) }
         assessment?.calculation?.let { c ->
             Text(stringResource(R.string.pf_formula) + ": ${c.formula.id} v${c.formula.version}")
+            if (c.formula == NutritionPolicyEngine.MIFFLIN_ST_JEOR_V1) {
+                TextButton(onClick = { uri.openUri("https://ajcn.nutrition.org/article/S0002-9165%2823%2916698-6/fulltext") }) {
+                    Text(stringResource(R.string.pf_formula_source))
+                }
+            }
             Text(stringResource(R.string.pf_policy) + ": ${c.policy.id} v${c.policy.version}")
             Text("REE: ${c.restingKcal}; ${c.inputs.activityFactor}; ${c.maintenanceKcal}")
             c.nutrientReferences.forEach { row -> Text("${row.nutrient}: ${row.amount.value} ${row.amount.unit} · ${row.source.id} v${row.source.version} · ${row.sourceSection}") }
