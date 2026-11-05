@@ -83,4 +83,17 @@
 
     <string name="rd_personal_nutrients">Пищевая ценность личной порции плана</string>
     <string name="rd_time">Время приготовления (мин): %1$d</string>
+    <string name="td_greeting">Привет!</string>
+    <string name="td_next_meal">Следующий приём пищи</string>
+    <string name="td_latest_meal">Последняя запись</string>
+    <string name="td_start">Начнём день</string>
+    <string name="td_illustration">Иллюстрация</string>
+    <string name="td_recorded_meals">Записанные приёмы пищи</string>
+    <string name="td_recorded">Записано</string>
+    <string name="td_kcal">Примерно %.0f ккал</string>
+    <string name="td_breakfast">Завтрак</string>
+    <string name="td_lunch">Обед</string>
+    <string name="td_dinner">Ужин</string>
+    <string name="td_snack">Перекус</string>
+    <string name="td_numbered_meal">Приём пищи %1$d</string>
 </resources>

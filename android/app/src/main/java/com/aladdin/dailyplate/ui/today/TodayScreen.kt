@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.aladdin.dailyplate.R
@@ -21,12 +22,16 @@ import kotlinx.coroutines.*
 import java.time.*
 
 @Composable
-fun TodayScreen(initialId: String? = null, add: () -> Unit, menu: () -> Unit) {
+fun TodayScreen(initialId: String? = null, add: () -> Unit, menu: () -> Unit, resetScroll: () -> Unit = {}) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     var logs by remember { mutableStateOf<List<FoodLog>>(emptyList()) }
-    var target by remember { mutableStateOf<Double?>(null) }
+    var meals by remember { mutableStateOf<List<TodayMeal>>(emptyList()) }
+    val language = LocalConfiguration.current.locales[0].language
     var selected by rememberSaveable(initialId) { mutableStateOf(initialId) }
+    var recipePlan by rememberSaveable { mutableStateOf<String?>(null) }
+    var recipeItem by rememberSaveable { mutableStateOf<String?>(null) }
+    LaunchedEffect(selected, recipePlan, recipeItem) { resetScroll() }
     var refresh by remember { mutableIntStateOf(0) }
     var state by remember { mutableStateOf(SurfaceState.Loading) }
     var busy by remember { mutableStateOf(false) }
@@ -48,18 +53,14 @@ fun TodayScreen(initialId: String? = null, add: () -> Unit, menu: () -> Unit) {
             delay(1000)
         }
     }
-    LaunchedEffect(refresh, day, zone) {
+    LaunchedEffect(refresh, day, zone, language) {
         state = SurfaceState.Loading
         try {
             val data = withContext(Dispatchers.IO) {
-                val id = OnboardingStore(context).load().id
-                UserRepositories.open(context).use { repositories ->
-                    val profile = profileForDiaryDate(repositories.profiles.history("local-guest", id), day, zone)
-                    val assessment = profile?.let { repositories.nutritionAssessments.version(it.userId, it.ref)?.assessment }
-                    repositories.foodLogs.recent("local-guest") to assessment?.diaryTarget()
-                }
+                val entries = UserRepositories.open(context).use { it.foodLogs.recent("local-guest") }
+                entries to loadTodayMeals(context, language, day)
             }
-            logs = data.first; target = data.second; state = SurfaceState.Empty
+            logs = data.first; meals = data.second; state = SurfaceState.Empty
         } catch (cancelled: CancellationException) { throw cancelled }
         catch (_: Exception) { state = SurfaceState.Error }
     }
@@ -75,38 +76,34 @@ fun TodayScreen(initialId: String? = null, add: () -> Unit, menu: () -> Unit) {
             finally { busy = false }
         }
     }
-    BackHandler(selected != null) { selected = null }
+    BackHandler(selected != null || recipePlan != null) { selected = null; recipePlan = null; recipeItem = null }
+    if (recipePlan != null && recipeItem != null) {
+        com.aladdin.dailyplate.ui.menu.RecipeDetailScreen(requireNotNull(recipePlan), requireNotNull(recipeItem)) {
+            recipePlan = null; recipeItem = null; refresh++
+        }
+        return
+    }
     if (state == SurfaceState.Loading || state == SurfaceState.Error) {
         QidaState(state) { refresh++ }; return
     }
     val entries = diaryDay(logs, day, zone)
-    TodaySummary(entries, null, day.toString(), zone.id)
-    com.aladdin.dailyplate.ui.menu.TodayPlanProjection(logs, refresh, day)
     if (writeError) {
         Text(stringResource(R.string.td_write_error))
         QidaButton(stringResource(R.string.retry), { refresh++ })
     }
-    val log = logs.firstOrNull { it.ref.id == selected }
+    val log = logs.firstOrNull { it.ref.id == selected && !it.deleted }
     if (log != null) {
+        // Full nutrients belong in the existing detail/editor, not the dashboard.
+        TodaySummary(listOf(log), null, "", log.consumedAt.timezone)
         LogEditor(log, busy, { selected = null },
             { changed -> mutate { it.revise(changed, log.ref.version) } },
             { mutate { it.delete(log.userId, log.ref) } })
     } else {
         if (selected != null) Text(stringResource(R.string.td_missing))
-        if (entries.isEmpty()) {
-            QidaArt(R.drawable.art_empty, androidx.compose.ui.Modifier.fillMaxWidth().height(com.aladdin.dailyplate.ui.theme.QidaDimensions.heroArt))
-            QidaState(SurfaceState.Empty, stringResource(R.string.empty_today))
-        }
-        entries.forEach { entry ->
-            QidaCard {
-                Text(entry.displayName ?: entry.ref.id, style = MaterialTheme.typography.titleMedium)
-                Text(Instant.parse(entry.consumedAt.instant).atZone(zone).toLocalTime().withSecond(0).withNano(0).toString())
-                RecordedPortion(entry)
-                QidaButton(stringResource(R.string.td_edit), { selected = entry.ref.id })
-            }
-        }
-        QidaButton(stringResource(R.string.add_meal), add)
-        QidaButton(stringResource(R.string.today_menu), menu)
+        TodayDashboard(entries, meals, day.format(java.time.format.DateTimeFormatter.ofLocalizedDate(
+            java.time.format.FormatStyle.FULL).withLocale(LocalConfiguration.current.locales[0])), zone, add, menu,
+            { selected = it }, { meal -> recipePlan = meal.planId; recipeItem = meal.item.id })
+        com.aladdin.dailyplate.ui.menu.TodayPlanProjection(logs, refresh, day)
     }
 }
 

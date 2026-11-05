@@ -91,7 +91,7 @@ fun BootstrapScreen() {
                             QidaButton(stringResource(R.string.continue_action), { open(Destination.Today) })
                         }
                         else -> {
-                            QidaHeading(stringResource(sections.first { it.first == navigation.current }.second))
+                            if (navigation.current != Destination.Today) QidaHeading(stringResource(sections.first { it.first == navigation.current }.second))
                             val message = when (navigation.current) {
                                 Destination.Today -> R.string.empty_today
                                 Destination.Menu -> R.string.empty_menu
@@ -108,7 +108,8 @@ fun BootstrapScreen() {
                                     openToday = { savedLogId = null; open(Destination.Today) })
                             } else if (navigation.current == Destination.Today) {
                                 com.aladdin.dailyplate.ui.today.TodayScreen(savedLogId,
-                                    { savedLogId = null; open(Destination.Add) }, { open(Destination.Menu) })
+                                    { savedLogId = null; open(Destination.Add) }, { open(Destination.Menu) },
+                                    { scope.launch { contentScroll.scrollTo(0) } })
                             } else if (navigation.current == Destination.Menu) {
                                 com.aladdin.dailyplate.ui.menu.MenuScreen { open(Destination.Profile) }
                             } else {

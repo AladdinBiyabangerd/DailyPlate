@@ -154,9 +154,12 @@ class FoodEntryUiTest {
         capture("k12-edit-az")
         compose.onNodeWithText(t(R.string.td_multiple)).performScrollTo().performTextReplacement("2")
         click(t(R.string.fe_prepare)); click(t(R.string.pc_confirm))
-        compose.waitUntil(10000) { compose.onAllNodesWithText("300.0 " + t(R.string.fe_grams)).fetchSemanticsNodes().isNotEmpty() }
+        compose.waitUntil(10000) { compose.onAllNodesWithTag("today-hero").fetchSemanticsNodes().isNotEmpty() }
+        compose.onNodeWithTag("today-hero").performScrollTo().assertIsDisplayed()
         capture("k12-today-az")
-        click(t(R.string.td_edit)); click(t(R.string.td_delete))
+        compose.onNodeWithTag("today-hero").performClick()
+        compose.onNodeWithText("300.0 " + t(R.string.fe_grams)).performScrollTo().assertIsDisplayed()
+        click(t(R.string.td_delete))
         compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.td_delete_question)).fetchSemanticsNodes().isNotEmpty() }
         compose.onNodeWithText(t(R.string.td_delete_question)).performScrollTo().assertIsDisplayed()
         capture("k12-delete-confirm-az")
