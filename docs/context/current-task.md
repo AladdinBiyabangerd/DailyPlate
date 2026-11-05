@@ -52,6 +52,10 @@
   absent invalid actions, direct portion heading visibility and preview/cancel safety.
 - Evidence: .local-ci/visual/5a6db7c407964a2759ea44a488c773c1afec70d6/{manifest,review}.json.
   Actual comparison completed before review-visual; finish accepted without CI rerun.
+- Documentation completion CI exposed a NavigationUiTest detached-node delayed-press
+  race. Render matrix now invokes real click semantics across language/recreation;
+  the separate navigation behavior test retains pointer clicks. Final main CI is
+  authoritative; no application navigation behavior was changed.
 - Initial lint failure fixed by removing obsolete labels; native review improved hero
   crop, secondary back action and portion-editor scroll entry. No APK/device checks.
 

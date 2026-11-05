@@ -56,8 +56,11 @@ class NavigationUiTest {
     }
     @Test fun renderEverySectionInThreeLanguagesAtBothFontSizes() {
         val context = androidx.test.core.app.ApplicationProvider.getApplicationContext<Application>()
-        compose.onNodeWithText("Hesabım var").performScrollTo().performClick()
-        compose.onNodeWithText("Davam et").performScrollTo().performClick()
+        compose.onNodeWithText("Hesabım var").performScrollTo().performSemanticsAction(androidx.compose.ui.semantics.SemanticsActions.OnClick) { it() }
+        compose.onNodeWithText("Davam et").performScrollTo().performSemanticsAction(androidx.compose.ui.semantics.SemanticsActions.OnClick) { it() }
+        // This matrix checks layout, not pointer timing. A delayed press coroutine can
+        // outlive the node when language changes/recreation replace the whole tree.
+        // Invoke its real click semantics; the navigation behavior test above still taps.
         for (scale in listOf(1f, 1.5f)) {
             val config = android.content.res.Configuration(context.resources.configuration).apply { fontScale = scale }
             @Suppress("DEPRECATION")
@@ -65,17 +68,17 @@ class NavigationUiTest {
             compose.activityRule.scenario.recreate()
             for (language in listOf("az", "en", "ru")) {
                 // Open Profile through its stable selected destination semantics.
-                compose.onAllNodes(hasText("Profil") or hasText("Profile") or hasText("Профиль")).onLast().performClick()
-                compose.onNode(hasContentDescription("Dil") or hasContentDescription("Language") or hasContentDescription("Язык")).performScrollTo().performClick()
+                compose.onAllNodes(hasText("Profil") or hasText("Profile") or hasText("Профиль")).onLast().performSemanticsAction(androidx.compose.ui.semantics.SemanticsActions.OnClick) { it() }
+                compose.onNode(hasContentDescription("Dil") or hasContentDescription("Language") or hasContentDescription("Язык")).performScrollTo().performSemanticsAction(androidx.compose.ui.semantics.SemanticsActions.OnClick) { it() }
                 // The currently selected code also appears on the anchor; choose the menu item.
-                compose.onAllNodesWithText(language.uppercase()).onLast().performClick()
+                compose.onAllNodesWithText(language.uppercase()).onLast().performSemanticsAction(androidx.compose.ui.semantics.SemanticsActions.OnClick) { it() }
                 val localized = context.createConfigurationContext(android.content.res.Configuration(config).apply {
                     setLocale(java.util.Locale.forLanguageTag(language))
                 })
                 for (label in listOf(com.aladdin.dailyplate.R.string.today, com.aladdin.dailyplate.R.string.menu,
                     com.aladdin.dailyplate.R.string.add, com.aladdin.dailyplate.R.string.progress, com.aladdin.dailyplate.R.string.profile)) {
                     val text = localized.getString(label)
-                    compose.onNodeWithText(text).assertHeightIsAtLeast(48.dp).performClick()
+                    compose.onNodeWithText(text).assertHeightIsAtLeast(48.dp).performSemanticsAction(androidx.compose.ui.semantics.SemanticsActions.OnClick) { it() }
                     compose.onNode(isSelected() and hasText(text)).assertExists()
                     compose.mainClock.advanceTimeBy(500)
                     compose.waitForIdle()
