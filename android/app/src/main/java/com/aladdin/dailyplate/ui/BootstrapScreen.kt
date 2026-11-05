@@ -99,7 +99,7 @@ fun BootstrapScreen() {
                                 else -> R.string.empty_profile
                             }
                             if (navigation.current == Destination.Profile) {
-                                com.aladdin.dailyplate.ui.profile.ProfileScreen { open(Destination.Setup) }
+                                com.aladdin.dailyplate.ui.profile.ProfileScreen({ scope.launch { contentScroll.scrollTo(0) } }) { open(Destination.Setup) }
                             } else {
                                 val art = when (navigation.current) {
                                     Destination.Today -> R.drawable.art_empty

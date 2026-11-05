@@ -12,7 +12,7 @@ import com.aladdin.dailyplate.ui.onboarding.ProfileAnswerFields
 import java.time.*
 
 @Composable
-fun ProfileEditor(base: UserProfile, startStep: Int, busy: Boolean, error: Boolean,
+fun ProfileEditor(base: UserProfile, startStep: Int, busy: Boolean, error: Boolean, resetScroll: () -> Unit,
                   cancel: () -> Unit, confirm: (ProfileEditPreview) -> Unit) {
     var draft by remember(base.ref) { mutableStateOf(ProfileEdit.draft(base).copy(step = startStep)) }
     var specialist by remember(base.ref) { mutableStateOf(base.specialistTargetKcal?.toString().orEmpty()) }
@@ -20,6 +20,7 @@ fun ProfileEditor(base: UserProfile, startStep: Int, busy: Boolean, error: Boole
     var reason by remember { mutableStateOf("") }
     var invalid by remember { mutableStateOf(false) }
     var preview by remember { mutableStateOf<ProfileEditPreview?>(null) }
+    LaunchedEffect(preview != null, draft.step) { resetScroll() }
     BackHandler(!busy) { if (preview != null) preview = null else cancel() }
     if (busy) { QidaState(SurfaceState.Loading); return }
     if (error) QidaState(SurfaceState.Error, stringResource(R.string.pf_conflict))

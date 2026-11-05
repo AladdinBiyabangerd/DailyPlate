@@ -16,6 +16,11 @@ data class FuturePlanPreview(
         require(after.ref.version == before.ref.version + 1)
         require(after.userProfile == request.toProfile && explanation.isNotBlank())
         require(before.items.map { it.id }.toSet() == after.items.map { it.id }.toSet())
+        before.items.forEach { old ->
+            val next = after.items.single { it.id == old.id }
+            require(next.date == old.date && next.mealSlot == old.mealSlot)
+            require(next.status == old.status && next.consumedLogIds == old.consumedLogIds)
+        }
         before.items.filter { it.date.iso < effectiveFrom.iso || it.consumedLogIds.isNotEmpty() ||
             it.status != PlanItemStatus.PLANNED }.forEach { old ->
             require(after.items.single { it.id == old.id } == old) { "Past/consumed items are immutable" }

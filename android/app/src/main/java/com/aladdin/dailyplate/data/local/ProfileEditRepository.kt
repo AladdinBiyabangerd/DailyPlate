@@ -20,7 +20,13 @@ class ProfileEditRepository internal constructor(private val database: UserDatab
         if (repositories.profiles.latest(before.userId, before.ref.id) != before)
             throw RevisionConflict("Profile changed; reopen the editor")
         repositories.profiles.save(after, before.ref.version)
-        repositories.nutritionAssessments.save(NutritionAssessmentRecord(after.ref, after.userId, preview.assessment), before.ref.version)
+        val assessment = NutritionAssessmentRecord(after.ref, after.userId, preview.assessment)
+        if (repositories.nutritionAssessments.latest(after.userId, after.ref.id) == null) {
+            // Pre-K08 profiles have no historical assessment. Preserve that absence;
+            // the first real assessment belongs to this confirmation's revision.
+            database.snapshots().insert(UserSnapshotEntity("nutrition_assessment", after.userId, after.ref.id,
+                after.ref.version, snapshotJson.encodeToString(NutritionAssessmentRecord.serializer(), assessment)))
+        } else repositories.nutritionAssessments.save(assessment, before.ref.version)
         // Receipts share the profile revision; the first receipt is revision 2.
         database.snapshots().insert(UserSnapshotEntity("profile_change", after.userId, after.ref.id,
             after.ref.version, snapshotJson.encodeToString(ProfileChangeRecord.serializer(), record)))
