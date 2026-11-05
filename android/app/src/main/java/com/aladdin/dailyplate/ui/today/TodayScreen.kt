@@ -76,7 +76,9 @@ fun TodayScreen(initialId: String? = null, add: () -> Unit, menu: () -> Unit, re
             finally { busy = false }
         }
     }
-    BackHandler(selected != null || recipePlan != null) { selected = null; recipePlan = null; recipeItem = null }
+    BackHandler(selected != null || recipePlan != null) {
+        selected = null; recipePlan = null; recipeItem = null; refresh++
+    }
     if (recipePlan != null && recipeItem != null) {
         com.aladdin.dailyplate.ui.menu.RecipeDetailScreen(requireNotNull(recipePlan), requireNotNull(recipeItem)) {
             recipePlan = null; recipeItem = null; refresh++
