@@ -67,8 +67,11 @@ class PortionDesignUiTest {
     }
 
     private fun capture(surface: String, state: String, language: String, scale: Float) {
-        for (position in listOf("top", "bottom")) {
-            compose.onNodeWithTag("d02-$position").performScrollTo()
+        val positions = if (surface == "recipe-portion" && state in listOf("edit", "selected"))
+            listOf("top", "middle", "bottom") else listOf("top", "bottom")
+        for (position in positions) {
+            if (position == "middle") compose.onNodeWithText(t(R.string.pd_eaten)).performScrollTo()
+            else compose.onNodeWithTag("d02-$position").performScrollTo()
             compose.runOnIdle {
                 val view = compose.activity.window.decorView
                 val bitmap = Bitmap.createBitmap(view.width, view.height, Bitmap.Config.ARGB_8888)
@@ -133,7 +136,8 @@ class PortionDesignUiTest {
 
     @Test fun recipeUsesBatchShareMeasuredGramsPreviewAndExplicitConfirmation() {
         for (language in listOf("az", "en", "ru")) for (scale in listOf(1f, 1.5f)) {
-            val detail = RecipeDetailTest().detail()
+            val detail = RecipeDetailTest().detail().let { value -> value.copy(recipe = value.recipe.copy(names =
+                LocalizedText("TEST · Tərəvəzli toyuq və düyü", "TEST · Chicken with vegetables and rice", "TEST · Курица с овощами и рисом"))) }
             var saved: PlanConsumption? = null
             show(language, scale) { RecipePortionEditor(detail, {}, { saved = it }) }
             capture("recipe-portion", "edit", language, scale)
