@@ -1,0 +1,15 @@
+<resources>
+  <string name="demo_title">Demo · Həftəlik menyu</string>
+  <string name="demo_notice">7 gün, hər gün bir nümunə yemək. Bu, fərdi qidalanma planı deyil. Fotolar yeməklərin görünüşünü göstərir; gündəliyə heç nə yazılmır.</string>
+  <string name="demo_show_real">Öz menyuma bax</string>
+  <string name="demo_show_mock">7 yeməkli demo menyunu göstər</string>
+  <string-array name="demo_meals">
+    <item>Teriyaki souslu toyuq</item>
+    <item>Mal ətli və xardallı piroq</item>
+    <item>Mərcimək şorbası</item>
+    <item>Şakşuka</item>
+    <item>Katsu toyuq körisi</item>
+    <item>Sousda bişmiş toyuq</item>
+    <item>Xırtıldayan qızardılmış toyuq</item>
+  </string-array>
+</resources>

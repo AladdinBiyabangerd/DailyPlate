@@ -21,6 +21,14 @@ import java.time.*
 @Composable
 fun MenuScreen(profile: () -> Unit) {
     val context = LocalContext.current
+    var showDemo by rememberSaveable { mutableStateOf(debugMenuAvailable(context)) }
+    if (debugMenuAvailable(context)) {
+        DebugMenuToggle(showDemo) { showDemo = !showDemo }
+        if (showDemo) {
+            DebugWeeklyMenu()
+            return
+        }
+    }
     val workflow = remember { MenuWorkflow(context) }
     val scope = rememberCoroutineScope()
     var data by remember { mutableStateOf<MenuData?>(null) }

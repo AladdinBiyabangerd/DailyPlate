@@ -1,0 +1,15 @@
+<resources>
+  <string name="demo_title">Demo · Weekly menu</string>
+  <string name="demo_notice">7 days, one sample dish per day. This is not a personal nutrition plan. Photos illustrate the dishes; nothing is added to your diary.</string>
+  <string name="demo_show_real">View my own menu</string>
+  <string name="demo_show_mock">Show the 7-meal demo menu</string>
+  <string-array name="demo_meals">
+    <item>Teriyaki chicken casserole</item>
+    <item>Beef and mustard pie</item>
+    <item>Lentil soup</item>
+    <item>Shakshuka</item>
+    <item>Katsu chicken curry</item>
+    <item>Brown stew chicken</item>
+    <item>Crispy fried chicken</item>
+  </string-array>
+</resources>
