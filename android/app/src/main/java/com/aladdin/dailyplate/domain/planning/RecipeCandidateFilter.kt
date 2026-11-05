@@ -15,8 +15,11 @@ object RecipeCandidateFilter {
     internal fun filterTest(request: CandidateRequest, profile: UserProfile, policy: NutritionPolicy?,
                             catalog: CandidateCatalog): CandidateResult = evaluate(request, profile, policy, catalog, true)
 
+    internal fun filterPlanningTest(request: CandidateRequest, profile: UserProfile, policy: NutritionPolicy?,
+                                    catalog: CandidateCatalog): CandidateResult = evaluate(request, profile, policy, catalog, true, true)
+
     private fun evaluate(q: CandidateRequest, p: UserProfile, policy: NutritionPolicy?,
-                         catalog: CandidateCatalog, test: Boolean): CandidateResult {
+                         catalog: CandidateCatalog, test: Boolean, currentTest: Boolean = false): CandidateResult {
         val results = mutableListOf<CandidateRuleResult>()
         fun rule(id: String, scope: String, status: RuleStatus, reason: String,
                  observed: String? = null, threshold: String? = null, unit: String? = null,
@@ -30,12 +33,15 @@ object RecipeCandidateFilter {
             rule("versions", "request", RuleStatus.FAIL, "Profile, policy or catalog version changed")
             return finish(CandidateStatus.STALE_INPUT)
         }
-        val assessment = if (test) NutritionPolicyEngine.assessTest(p, policy, q.at)
+        val assessment = if (currentTest) NutritionPolicyEngine.assessCurrent(p, q.at).let {
+            if (policy?.status != PolicyStatus.ACTIVE || policy.review == null || policy.approvedAt == null)
+                it.copy(issues = it.issues + PolicyIssue(PolicyReason.PRODUCTION_APPROVAL_REQUIRED)) else it
+        } else if (test) NutritionPolicyEngine.assessTest(p, policy, q.at)
             else NutritionPolicyEngine.assessCurrent(p, q.at).let { current ->
                 // An energy target does not activate catalog/content/menu approval gates.
                 current.copy(issues = current.issues + PolicyIssue(PolicyReason.PRODUCTION_APPROVAL_REQUIRED))
             }
-        if (assessment.issues.isNotEmpty() || assessment.calculation == null) {
+        if (assessment.issues.isNotEmpty() || (assessment.calculation == null && assessment.currentCalculation?.targetKcal == null)) {
             assessment.issues.forEach { rule(it.reason.name, "profile", RuleStatus.FAIL,
                 "Policy/eligibility prevents personalized candidates", it.field) }
             if (assessment.issues.isEmpty()) rule("policy_path", "profile", RuleStatus.FAIL,
