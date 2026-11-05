@@ -8,7 +8,7 @@
   automatic and specialist active targets, survives ordinary edits and restart.
 
 ## Current state
-- Implementation ready for mandatory finish; final merged-main CI is authoritative.
+- Implementation merged; final repair finish must pass matching-head main CI.
 
 ## Decisions
 - Last 14 local calendar days including today; at least 3 measurements, no future
@@ -17,7 +17,7 @@
 - No catalog/menu activation, remote actions or APK creation.
 
 ## Remaining work
-- Confirm matching-head merged-main CI and inspect generated NP-16 PNGs.
+- Confirm final repair main CI; inspect EN/RU PNGs (AZ already inspected).
 - Device/pilot and broader weight-entry/progress milestones remain unverified.
 
 ## Relevant files
@@ -28,7 +28,11 @@
 - Kotlin paths above are under android/app/src/main/java/com/aladdin/dailyplate/.
 
 ## Checks performed
-- git diff --check. Domain, Room and localized UI acceptance added to post-merge CI.
+- git diff --check. Post-merge domain/Room tests passed; APK-free compilation and
+  lint passed. UI test caught retained scroll between locales; fixed by scrolling
+  the asserted review label into view. AZ review/suspended PNGs visually inspected.
+- Explicit values-az locale parity repaired after first CI failure.
+- Final repair CI includes all acceptance tests and refreshed localized PNGs.
 - No branch CI, APK or device checks.
 
 ## Exact next step

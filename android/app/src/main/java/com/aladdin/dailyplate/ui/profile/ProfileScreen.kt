@@ -61,7 +61,7 @@ fun ProfileScreen(resetScroll: () -> Unit, setup: () -> Unit) {
     }
     val step = editing
     if (step != null) {
-        ProfileEditor(p, step, busy, error, resetScroll, { editing = null; error = false; refresh++ }, initialWeight = reviewWeight) { preview ->
+        ProfileEditor(p, step, busy, error, resetScroll, { editing = null; reviewWeight = null; error = false; refresh++ }, initialWeight = reviewWeight) { preview ->
             busy = true
             scope.launch {
                 try {
@@ -76,8 +76,8 @@ fun ProfileScreen(resetScroll: () -> Unit, setup: () -> Unit) {
     if (error) QidaState(SurfaceState.Error, stringResource(R.string.ob_write_error)) { refresh++ }
     Text(stringResource(R.string.pf_version, p.ref.version))
     ProfileAction(stringResource(R.string.ob_profile)) { reviewWeight = null; editing = 1 }
-    ProfileAction(stringResource(R.string.ob_goal)) { editing = 0 }
-    ProfileAction(stringResource(R.string.pf_food_choices)) { editing = 3 }
+    ProfileAction(stringResource(R.string.ob_goal)) { reviewWeight = null; editing = 0 }
+    ProfileAction(stringResource(R.string.pf_food_choices)) { reviewWeight = null; editing = 3 }
     QidaButton(stringResource(R.string.pf_basis), { explain = !explain })
     val zone = java.time.ZoneId.systemDefault()
     val now = RecordedAt(java.time.Instant.now().toString(), zone.id)

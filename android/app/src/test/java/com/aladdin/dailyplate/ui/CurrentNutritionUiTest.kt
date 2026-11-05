@@ -89,7 +89,7 @@ class CurrentNutritionUiTest {
                     }
                 }
             }
-            compose.onNodeWithText(localized.getString(R.string.nr_days, 3)).assertIsDisplayed()
+            compose.onNodeWithText(localized.getString(R.string.nr_days, 3)).performScrollTo().assertIsDisplayed()
             capture("np16-review-$language-large")
             compose.onNodeWithText(localized.getString(R.string.nr_symptom)).performScrollTo().performClick()
             compose.runOnIdle { Assert.assertEquals(NutritionSuspension.NEW_SYMPTOM, reported) }
