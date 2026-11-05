@@ -186,7 +186,6 @@ fun OnboardingScreen(language: String, exit: () -> Unit, resetScroll: () -> Unit
             ChoiceGroup(stringResource(R.string.ob_tier)) {
                 field("region", R.string.ob_region); field("currency", R.string.ob_currency)
                 field("amount", R.string.ob_amount, true); field("people", R.string.ob_people, true)
-                field("coverage", R.string.ob_coverage)
             }
             Text(stringResource(R.string.ob_budget_note))
         }

@@ -50,7 +50,6 @@ data class OnboardingDraft(
                 required("region"); required("currency")
                 if (!answer("currency").matches(Regex("[A-Z]{3}"))) add("currency")
                 numeric("amount", optional = true); numeric("people", integer = true)
-                if (items("coverage").isEmpty()) add("coverage")
             }
         }
     }
@@ -71,7 +70,7 @@ data class OnboardingDraft(
             dislikedRecipeIds = items("disliked_recipes").map { "user:$it" }.toSet(),
             maxPreparationMinutes = answer("time").toInt(), equipment = emptySet(),
             budget = Budget(BudgetTier.valueOf(answer("tier")), answer("amount").takeIf(String::isNotBlank)
-                ?.let { Money(it.replace(',', '.'), answer("currency")) }, answer("region"), number("people")!!.toInt(), items("coverage")),
+                ?.let { Money(it.replace(',', '.'), answer("currency")) }, answer("region"), number("people")!!.toInt(), emptySet()),
             homeFoods = emptyList(),
             mealsPerDay = answer("meals").toInt(), specialistTargetKcal = null, language = language,
             ageAsOfDate = date,

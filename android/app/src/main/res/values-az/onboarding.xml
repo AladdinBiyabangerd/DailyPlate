@@ -48,7 +48,6 @@
     <string name="ob_currency">Valyuta (3 böyük hərf, məsələn AZN)</string>
     <string name="ob_amount">Həftəlik məbləğ — könüllü</string>
     <string name="ob_people">Büdcənin əhatə etdiyi nəfər sayı</string>
-    <string name="ob_coverage">Büdcəyə daxil yeməklər (; ilə ayır)</string>
     <string name="ob_prepare">Planımı hazırla</string>
     <string name="ob_invalid">Etibarlı cavab daxil et. Rəqəm müsbət və sonlu olmalıdır.</string>
     <string name="ob_write_error">Telefona yazmaq alınmadı. Yenidən cəhd et; cavablar ekranda qalıb.</string>
