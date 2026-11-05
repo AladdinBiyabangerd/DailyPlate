@@ -26,6 +26,21 @@ class RecipeDetailTest {
         assertEquals(0.5, c.applyTo(d.plan).items.first().remainingPlannedServings, 0.0)
         assertEquals(d.recipe.ingredients, c.log.actualRecipeSnapshot!!.ingredients)
     }
+    @Test fun scaledBatchKeepsPersonalNutrientsAndOnlyRecordsItsShare() {
+        val d = detail()
+        val c = d.command(0.5, "TEST", "scaled", recordedAt, 8.0)
+        val actual = c.log.actualRecipeSnapshot!!
+        assertEquals(800.0, actual.ingredients.single().edibleGrams, 0.0)
+        assertEquals(1440.0, actual.yieldCookedGrams!!, 0.0)
+        assertEquals(0.0625, actual.consumedShare, 0.0)
+        assertEquals(200.0, c.log.nutrientSnapshot.values.getValue("energy_kcal").value!!, 0.0)
+        assertEquals(90.0, c.log.confirmedPortionGrams!!, 0.0)
+        assertEquals(0.5, c.applyTo(d.plan).items.first().remainingPlannedServings, 0.0)
+        assertEquals(400.0, d.ingredients.single().edibleGrams, 0.0)
+        listOf(0.0, -1.0, Double.NaN, Double.POSITIVE_INFINITY, 0.25, Double.MAX_VALUE).forEach { batch ->
+            assertThrows(IllegalArgumentException::class.java) { d.command(0.5, "TEST", "bad", recordedAt, batch) }
+        }
+    }
     @Test fun exactCustomizationAndMissingYieldArePreserved() {
         val d = detail()
         val custom = RecipeCustomization(VersionRef("custom", 2), d.plan.userId, d.recipe.ref,

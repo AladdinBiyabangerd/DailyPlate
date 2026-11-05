@@ -1,4 +1,1516 @@
 {
   "schema": 1,
-  "surfaces": []
+  "surfaces": [
+    {
+      "id": "portion",
+      "sources": [
+        "android/app/src/main/java/com/aladdin/dailyplate/ui/entry/PortionDraftEditor.kt",
+        "android/app/src/main/res/values/portion_design.xml",
+        "android/app/src/main/res/values-az/portion_design.xml",
+        "android/app/src/main/res/values-en/portion_design.xml",
+        "android/app/src/main/res/values-ru/portion_design.xml",
+        "android/app/src/main/java/com/aladdin/dailyplate/ui/entry/PortionDesign.kt",
+        "design-concepts/simple-turquoise/approved/d02-portions.png",
+        "design-concepts/simple-turquoise/approved/d02-portions.txt",
+        "android/app/src/test/java/com/aladdin/dailyplate/ui/PortionDesignUiTest.kt",
+        "android/app/src/test/java/com/aladdin/dailyplate/ui/FoodEntryUiTest.kt",
+        "android/app/src/test/java/com/aladdin/dailyplate/ui/MenuUiTest.kt",
+        "android/app/src/test/java/com/aladdin/dailyplate/ui/RecipeDetailTest.kt"
+      ],
+      "requirements": [
+        "Approved B design: labelled decorative illustration, white cards and turquoise tokens; no universal plate calories",
+        "Recipe separates scaled prepared batch from consumed share; manual/search keep original grams or kilograms and previous entries keep original basis",
+        "Explicit preview then confirmation; errors never claim success; retry preserves event; unknown nutrients stay unknown",
+        "AZ/EN/RU 100%/150% full top/bottom coverage, 48dp targets, full labels and single-column large text"
+      ],
+      "states": [
+        "edit",
+        "preview",
+        "invalid",
+        "error",
+        "saved",
+        "loading",
+        "search",
+        "previous"
+      ],
+      "cases": [
+        {
+          "id": "d02-portion-edit-az-1.0-top",
+          "image": "k10/d02-portion-edit-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-edit-az-1.0-bottom",
+          "image": "k10/d02-portion-edit-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-edit-az-1.5-top",
+          "image": "k10/d02-portion-edit-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-edit-az-1.5-bottom",
+          "image": "k10/d02-portion-edit-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-edit-en-1.0-top",
+          "image": "k10/d02-portion-edit-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-edit-en-1.0-bottom",
+          "image": "k10/d02-portion-edit-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-edit-en-1.5-top",
+          "image": "k10/d02-portion-edit-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-edit-en-1.5-bottom",
+          "image": "k10/d02-portion-edit-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-edit-ru-1.0-top",
+          "image": "k10/d02-portion-edit-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-edit-ru-1.0-bottom",
+          "image": "k10/d02-portion-edit-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-edit-ru-1.5-top",
+          "image": "k10/d02-portion-edit-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-edit-ru-1.5-bottom",
+          "image": "k10/d02-portion-edit-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-preview-az-1.0-top",
+          "image": "k10/d02-portion-preview-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-preview-az-1.0-bottom",
+          "image": "k10/d02-portion-preview-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-preview-az-1.5-top",
+          "image": "k10/d02-portion-preview-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-preview-az-1.5-bottom",
+          "image": "k10/d02-portion-preview-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-preview-en-1.0-top",
+          "image": "k10/d02-portion-preview-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-preview-en-1.0-bottom",
+          "image": "k10/d02-portion-preview-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-preview-en-1.5-top",
+          "image": "k10/d02-portion-preview-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-preview-en-1.5-bottom",
+          "image": "k10/d02-portion-preview-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-preview-ru-1.0-top",
+          "image": "k10/d02-portion-preview-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-preview-ru-1.0-bottom",
+          "image": "k10/d02-portion-preview-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-preview-ru-1.5-top",
+          "image": "k10/d02-portion-preview-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-preview-ru-1.5-bottom",
+          "image": "k10/d02-portion-preview-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-invalid-az-1.0-top",
+          "image": "k10/d02-portion-invalid-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-invalid-az-1.0-bottom",
+          "image": "k10/d02-portion-invalid-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-invalid-az-1.5-top",
+          "image": "k10/d02-portion-invalid-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-invalid-az-1.5-bottom",
+          "image": "k10/d02-portion-invalid-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-invalid-en-1.0-top",
+          "image": "k10/d02-portion-invalid-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-invalid-en-1.0-bottom",
+          "image": "k10/d02-portion-invalid-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-invalid-en-1.5-top",
+          "image": "k10/d02-portion-invalid-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-invalid-en-1.5-bottom",
+          "image": "k10/d02-portion-invalid-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-invalid-ru-1.0-top",
+          "image": "k10/d02-portion-invalid-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-invalid-ru-1.0-bottom",
+          "image": "k10/d02-portion-invalid-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-invalid-ru-1.5-top",
+          "image": "k10/d02-portion-invalid-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-invalid-ru-1.5-bottom",
+          "image": "k10/d02-portion-invalid-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-error-az-1.0-top",
+          "image": "k10/d02-portion-error-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "error",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-error-az-1.0-bottom",
+          "image": "k10/d02-portion-error-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "error",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-error-az-1.5-top",
+          "image": "k10/d02-portion-error-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "error",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-error-az-1.5-bottom",
+          "image": "k10/d02-portion-error-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "error",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-error-en-1.0-top",
+          "image": "k10/d02-portion-error-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "error",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-error-en-1.0-bottom",
+          "image": "k10/d02-portion-error-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "error",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-error-en-1.5-top",
+          "image": "k10/d02-portion-error-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "error",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-error-en-1.5-bottom",
+          "image": "k10/d02-portion-error-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "error",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-error-ru-1.0-top",
+          "image": "k10/d02-portion-error-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "error",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-error-ru-1.0-bottom",
+          "image": "k10/d02-portion-error-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "error",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-error-ru-1.5-top",
+          "image": "k10/d02-portion-error-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "error",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-error-ru-1.5-bottom",
+          "image": "k10/d02-portion-error-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "error",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-saved-az-1.0-top",
+          "image": "k10/d02-portion-saved-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "saved",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-saved-az-1.0-bottom",
+          "image": "k10/d02-portion-saved-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "saved",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-saved-az-1.5-top",
+          "image": "k10/d02-portion-saved-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "saved",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-saved-az-1.5-bottom",
+          "image": "k10/d02-portion-saved-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "saved",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-saved-en-1.0-top",
+          "image": "k10/d02-portion-saved-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "saved",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-saved-en-1.0-bottom",
+          "image": "k10/d02-portion-saved-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "saved",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-saved-en-1.5-top",
+          "image": "k10/d02-portion-saved-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "saved",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-saved-en-1.5-bottom",
+          "image": "k10/d02-portion-saved-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "saved",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-saved-ru-1.0-top",
+          "image": "k10/d02-portion-saved-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "saved",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-saved-ru-1.0-bottom",
+          "image": "k10/d02-portion-saved-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "saved",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-saved-ru-1.5-top",
+          "image": "k10/d02-portion-saved-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "saved",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-saved-ru-1.5-bottom",
+          "image": "k10/d02-portion-saved-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "saved",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-loading-az-1.0-top",
+          "image": "k10/d02-portion-loading-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "loading",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-loading-az-1.0-bottom",
+          "image": "k10/d02-portion-loading-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "loading",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-loading-az-1.5-top",
+          "image": "k10/d02-portion-loading-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "loading",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-loading-az-1.5-bottom",
+          "image": "k10/d02-portion-loading-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "loading",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-loading-en-1.0-top",
+          "image": "k10/d02-portion-loading-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "loading",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-loading-en-1.0-bottom",
+          "image": "k10/d02-portion-loading-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "loading",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-loading-en-1.5-top",
+          "image": "k10/d02-portion-loading-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "loading",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-loading-en-1.5-bottom",
+          "image": "k10/d02-portion-loading-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "loading",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-loading-ru-1.0-top",
+          "image": "k10/d02-portion-loading-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "loading",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-loading-ru-1.0-bottom",
+          "image": "k10/d02-portion-loading-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "loading",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-loading-ru-1.5-top",
+          "image": "k10/d02-portion-loading-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "loading",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-loading-ru-1.5-bottom",
+          "image": "k10/d02-portion-loading-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "loading",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-search-az-1.0-top",
+          "image": "k10/d02-portion-search-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "search",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-search-az-1.0-bottom",
+          "image": "k10/d02-portion-search-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "search",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-search-az-1.5-top",
+          "image": "k10/d02-portion-search-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "search",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-search-az-1.5-bottom",
+          "image": "k10/d02-portion-search-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "search",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-search-en-1.0-top",
+          "image": "k10/d02-portion-search-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "search",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-search-en-1.0-bottom",
+          "image": "k10/d02-portion-search-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "search",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-search-en-1.5-top",
+          "image": "k10/d02-portion-search-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "search",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-search-en-1.5-bottom",
+          "image": "k10/d02-portion-search-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "search",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-search-ru-1.0-top",
+          "image": "k10/d02-portion-search-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "search",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-search-ru-1.0-bottom",
+          "image": "k10/d02-portion-search-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "search",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-search-ru-1.5-top",
+          "image": "k10/d02-portion-search-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "search",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-search-ru-1.5-bottom",
+          "image": "k10/d02-portion-search-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "search",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-previous-az-1.0-top",
+          "image": "k10/d02-portion-previous-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "previous",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-previous-az-1.0-bottom",
+          "image": "k10/d02-portion-previous-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "previous",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-previous-az-1.5-top",
+          "image": "k10/d02-portion-previous-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "previous",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-previous-az-1.5-bottom",
+          "image": "k10/d02-portion-previous-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "previous",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-previous-en-1.0-top",
+          "image": "k10/d02-portion-previous-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "previous",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-previous-en-1.0-bottom",
+          "image": "k10/d02-portion-previous-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "previous",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-previous-en-1.5-top",
+          "image": "k10/d02-portion-previous-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "previous",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-previous-en-1.5-bottom",
+          "image": "k10/d02-portion-previous-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "previous",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-previous-ru-1.0-top",
+          "image": "k10/d02-portion-previous-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "previous",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-previous-ru-1.0-bottom",
+          "image": "k10/d02-portion-previous-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "previous",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-previous-ru-1.5-top",
+          "image": "k10/d02-portion-previous-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "previous",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-portion-previous-ru-1.5-bottom",
+          "image": "k10/d02-portion-previous-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "previous",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        }
+      ]
+    },
+    {
+      "id": "recipe-portion",
+      "sources": [
+        "android/app/src/main/java/com/aladdin/dailyplate/ui/menu/RecipeDetailScreen.kt",
+        "android/app/src/main/java/com/aladdin/dailyplate/ui/menu/RecipeDetailData.kt",
+        "android/app/src/main/java/com/aladdin/dailyplate/ui/menu/RecipePortionEditor.kt",
+        "android/app/src/main/res/values/portion_design.xml",
+        "android/app/src/main/res/values-az/portion_design.xml",
+        "android/app/src/main/res/values-en/portion_design.xml",
+        "android/app/src/main/res/values-ru/portion_design.xml",
+        "android/app/src/main/java/com/aladdin/dailyplate/ui/entry/PortionDesign.kt",
+        "design-concepts/simple-turquoise/approved/d02-portions.png",
+        "design-concepts/simple-turquoise/approved/d02-portions.txt",
+        "android/app/src/test/java/com/aladdin/dailyplate/ui/PortionDesignUiTest.kt",
+        "android/app/src/test/java/com/aladdin/dailyplate/ui/FoodEntryUiTest.kt",
+        "android/app/src/test/java/com/aladdin/dailyplate/ui/MenuUiTest.kt",
+        "android/app/src/test/java/com/aladdin/dailyplate/ui/RecipeDetailTest.kt"
+      ],
+      "requirements": [
+        "Approved B design: labelled decorative illustration, white cards and turquoise tokens; no universal plate calories",
+        "Recipe separates scaled prepared batch from consumed share; manual/search keep original grams or kilograms and previous entries keep original basis",
+        "Explicit preview then confirmation; errors never claim success; retry preserves event; unknown nutrients stay unknown",
+        "AZ/EN/RU 100%/150% full top/bottom coverage, 48dp targets, full labels and single-column large text"
+      ],
+      "states": [
+        "edit",
+        "exact",
+        "preview",
+        "invalid",
+        "no-basis",
+        "selected",
+        "no-yield"
+      ],
+      "cases": [
+        {
+          "id": "d02-recipe-portion-edit-az-1.0-top",
+          "image": "k10/d02-recipe-portion-edit-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-az-1.0-bottom",
+          "image": "k10/d02-recipe-portion-edit-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-az-1.5-top",
+          "image": "k10/d02-recipe-portion-edit-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-az-1.5-bottom",
+          "image": "k10/d02-recipe-portion-edit-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-en-1.0-top",
+          "image": "k10/d02-recipe-portion-edit-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-en-1.0-bottom",
+          "image": "k10/d02-recipe-portion-edit-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-en-1.5-top",
+          "image": "k10/d02-recipe-portion-edit-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-en-1.5-bottom",
+          "image": "k10/d02-recipe-portion-edit-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-ru-1.0-top",
+          "image": "k10/d02-recipe-portion-edit-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-ru-1.0-bottom",
+          "image": "k10/d02-recipe-portion-edit-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-ru-1.5-top",
+          "image": "k10/d02-recipe-portion-edit-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-ru-1.5-bottom",
+          "image": "k10/d02-recipe-portion-edit-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-exact-az-1.0-top",
+          "image": "k10/d02-recipe-portion-exact-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "exact",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-exact-az-1.0-bottom",
+          "image": "k10/d02-recipe-portion-exact-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "exact",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-exact-az-1.5-top",
+          "image": "k10/d02-recipe-portion-exact-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "exact",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-exact-az-1.5-bottom",
+          "image": "k10/d02-recipe-portion-exact-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "exact",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-exact-en-1.0-top",
+          "image": "k10/d02-recipe-portion-exact-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "exact",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-exact-en-1.0-bottom",
+          "image": "k10/d02-recipe-portion-exact-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "exact",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-exact-en-1.5-top",
+          "image": "k10/d02-recipe-portion-exact-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "exact",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-exact-en-1.5-bottom",
+          "image": "k10/d02-recipe-portion-exact-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "exact",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-exact-ru-1.0-top",
+          "image": "k10/d02-recipe-portion-exact-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "exact",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-exact-ru-1.0-bottom",
+          "image": "k10/d02-recipe-portion-exact-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "exact",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-exact-ru-1.5-top",
+          "image": "k10/d02-recipe-portion-exact-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "exact",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-exact-ru-1.5-bottom",
+          "image": "k10/d02-recipe-portion-exact-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "exact",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-preview-az-1.0-top",
+          "image": "k10/d02-recipe-portion-preview-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-preview-az-1.0-bottom",
+          "image": "k10/d02-recipe-portion-preview-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-preview-az-1.5-top",
+          "image": "k10/d02-recipe-portion-preview-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-preview-az-1.5-bottom",
+          "image": "k10/d02-recipe-portion-preview-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-preview-en-1.0-top",
+          "image": "k10/d02-recipe-portion-preview-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-preview-en-1.0-bottom",
+          "image": "k10/d02-recipe-portion-preview-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-preview-en-1.5-top",
+          "image": "k10/d02-recipe-portion-preview-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-preview-en-1.5-bottom",
+          "image": "k10/d02-recipe-portion-preview-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-preview-ru-1.0-top",
+          "image": "k10/d02-recipe-portion-preview-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-preview-ru-1.0-bottom",
+          "image": "k10/d02-recipe-portion-preview-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-preview-ru-1.5-top",
+          "image": "k10/d02-recipe-portion-preview-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-preview-ru-1.5-bottom",
+          "image": "k10/d02-recipe-portion-preview-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "preview",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-invalid-az-1.0-top",
+          "image": "k10/d02-recipe-portion-invalid-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-invalid-az-1.0-bottom",
+          "image": "k10/d02-recipe-portion-invalid-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-invalid-az-1.5-top",
+          "image": "k10/d02-recipe-portion-invalid-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-invalid-az-1.5-bottom",
+          "image": "k10/d02-recipe-portion-invalid-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-invalid-en-1.0-top",
+          "image": "k10/d02-recipe-portion-invalid-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-invalid-en-1.0-bottom",
+          "image": "k10/d02-recipe-portion-invalid-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-invalid-en-1.5-top",
+          "image": "k10/d02-recipe-portion-invalid-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-invalid-en-1.5-bottom",
+          "image": "k10/d02-recipe-portion-invalid-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-invalid-ru-1.0-top",
+          "image": "k10/d02-recipe-portion-invalid-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-invalid-ru-1.0-bottom",
+          "image": "k10/d02-recipe-portion-invalid-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-invalid-ru-1.5-top",
+          "image": "k10/d02-recipe-portion-invalid-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-invalid-ru-1.5-bottom",
+          "image": "k10/d02-recipe-portion-invalid-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "invalid",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-basis-az-1.0-top",
+          "image": "k10/d02-recipe-portion-no-basis-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-basis-az-1.0-bottom",
+          "image": "k10/d02-recipe-portion-no-basis-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-basis-az-1.5-top",
+          "image": "k10/d02-recipe-portion-no-basis-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-basis-az-1.5-bottom",
+          "image": "k10/d02-recipe-portion-no-basis-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-basis-en-1.0-top",
+          "image": "k10/d02-recipe-portion-no-basis-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-basis-en-1.0-bottom",
+          "image": "k10/d02-recipe-portion-no-basis-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-basis-en-1.5-top",
+          "image": "k10/d02-recipe-portion-no-basis-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-basis-en-1.5-bottom",
+          "image": "k10/d02-recipe-portion-no-basis-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-basis-ru-1.0-top",
+          "image": "k10/d02-recipe-portion-no-basis-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-basis-ru-1.0-bottom",
+          "image": "k10/d02-recipe-portion-no-basis-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-basis-ru-1.5-top",
+          "image": "k10/d02-recipe-portion-no-basis-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-basis-ru-1.5-bottom",
+          "image": "k10/d02-recipe-portion-no-basis-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "no-basis",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-az-1.0-top",
+          "image": "k10/d02-recipe-portion-selected-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-az-1.0-bottom",
+          "image": "k10/d02-recipe-portion-selected-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-az-1.5-top",
+          "image": "k10/d02-recipe-portion-selected-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-az-1.5-bottom",
+          "image": "k10/d02-recipe-portion-selected-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-en-1.0-top",
+          "image": "k10/d02-recipe-portion-selected-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-en-1.0-bottom",
+          "image": "k10/d02-recipe-portion-selected-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-en-1.5-top",
+          "image": "k10/d02-recipe-portion-selected-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-en-1.5-bottom",
+          "image": "k10/d02-recipe-portion-selected-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-ru-1.0-top",
+          "image": "k10/d02-recipe-portion-selected-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-ru-1.0-bottom",
+          "image": "k10/d02-recipe-portion-selected-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-ru-1.5-top",
+          "image": "k10/d02-recipe-portion-selected-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-ru-1.5-bottom",
+          "image": "k10/d02-recipe-portion-selected-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-yield-az-1.0-top",
+          "image": "k10/d02-recipe-portion-no-yield-az-1.0-top.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "no-yield",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-yield-az-1.0-bottom",
+          "image": "k10/d02-recipe-portion-no-yield-az-1.0-bottom.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "no-yield",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-yield-az-1.5-top",
+          "image": "k10/d02-recipe-portion-no-yield-az-1.5-top.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "no-yield",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-yield-az-1.5-bottom",
+          "image": "k10/d02-recipe-portion-no-yield-az-1.5-bottom.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "no-yield",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-yield-en-1.0-top",
+          "image": "k10/d02-recipe-portion-no-yield-en-1.0-top.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "no-yield",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-yield-en-1.0-bottom",
+          "image": "k10/d02-recipe-portion-no-yield-en-1.0-bottom.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "no-yield",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-yield-en-1.5-top",
+          "image": "k10/d02-recipe-portion-no-yield-en-1.5-top.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "no-yield",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-yield-en-1.5-bottom",
+          "image": "k10/d02-recipe-portion-no-yield-en-1.5-bottom.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "no-yield",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-yield-ru-1.0-top",
+          "image": "k10/d02-recipe-portion-no-yield-ru-1.0-top.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "no-yield",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-yield-ru-1.0-bottom",
+          "image": "k10/d02-recipe-portion-no-yield-ru-1.0-bottom.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "no-yield",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-yield-ru-1.5-top",
+          "image": "k10/d02-recipe-portion-no-yield-ru-1.5-top.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "no-yield",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-no-yield-ru-1.5-bottom",
+          "image": "k10/d02-recipe-portion-no-yield-ru-1.5-bottom.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "no-yield",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        }
+      ]
+    }
+  ]
 }

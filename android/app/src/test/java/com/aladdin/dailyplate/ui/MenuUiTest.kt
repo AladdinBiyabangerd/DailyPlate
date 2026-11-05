@@ -108,7 +108,7 @@ class MenuUiTest {
             Assert.assertNull(confirmed)
             compose.onNodeWithText(localized.getString(R.string.rd_ate)).performScrollTo().performClick()
             compose.onNodeWithText(localized.getString(R.string.rd_personal)).performScrollTo().performTextInput("0,5")
-            compose.onNodeWithText(localized.getString(R.string.fe_prepare)).performScrollTo().performClick()
+            compose.onNodeWithText(localized.getString(R.string.pd_preview)).performScrollTo().performClick()
             compose.onNodeWithText(localized.getString(R.string.rd_confirm_portion, 0.5)).performScrollTo().assertIsDisplayed()
             Assert.assertNull(confirmed)
             compose.onNodeWithText(localized.getString(R.string.pc_confirm)).performScrollTo().assertIsDisplayed()
@@ -117,7 +117,7 @@ class MenuUiTest {
             Assert.assertNull(confirmed)
             compose.onNodeWithText(localized.getString(R.string.rd_ate)).performScrollTo().performClick()
             compose.onNodeWithText(localized.getString(R.string.rd_personal)).performScrollTo().performTextInput("0.5")
-            compose.onNodeWithText(localized.getString(R.string.fe_prepare)).performScrollTo().performClick()
+            compose.onNodeWithText(localized.getString(R.string.pd_preview)).performScrollTo().performClick()
             compose.onNodeWithText(localized.getString(R.string.pc_confirm)).performScrollTo().performClick()
             compose.runOnIdle { Assert.assertEquals(0.5, confirmed!!.consumedServings, 0.0) }
         }

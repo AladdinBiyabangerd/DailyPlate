@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pd_quantity">Miqdarı daxil et</string>
+    <string name="pd_illustration">İllüstrasiya · ölçü nümunəsi deyil</string>
+    <string name="pd_no_photo">Bu qida üçün ölçülmüş porsiya şəkli yoxdur.</string>
+    <string name="pd_prepared">Neçə porsiya hazırladın?</string>
+    <string name="pd_eaten">Neçə porsiya yedin?</string>
+    <string name="pd_batch_scale">Porsiya sayı dəyişəndə qazan tərkibi eyni nisbətdə dəyişir.</string>
+    <string name="pd_batch_grams">Bu qazan üçün: %1$s q</string>
+    <string name="pd_half">Yarım</string>
+    <string name="pd_one">1 porsiya</string>
+    <string name="pd_two">2 porsiya</string>
+    <string name="pd_share">Qazanın %1$s / %2$s hissəsi</string>
+    <string name="pd_exact">Dəqiq miqdar daxil et</string>
+    <string name="pd_no_yield">Qram hesabı üçün ölçülmüş bişmiş çəki lazımdır. Porsiya ilə davam edə bilərsən.</string>
+    <string name="pd_grams">Yediyin miqdar (q)</string>
+    <string name="pd_servings_mode">Porsiya ilə seç</string>
+    <string name="pd_energy_unknown">Enerji: məlum deyil</string>
+    <string name="pd_preview">Önizləməyə bax</string>
+    <string name="pd_edit">Miqdarı dəyiş</string>
+    <string name="pd_previous">Əvvəl saxlanmış şəxsi porsiyanın miqdarını seç. 1 əvvəlki qeyddəki eyni paydır.</string>
+    <string name="pd_batch_invalid">Hazırlanmış porsiya sayı müsbət və sonlu olmalıdır.</string>
+    <string name="pd_recipe_title">Nə qədər yedin?</string>
+</resources>
