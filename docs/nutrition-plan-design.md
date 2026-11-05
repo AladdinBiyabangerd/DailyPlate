@@ -1,9 +1,9 @@
 # DailyPlate — vahid qidalanma və funksional icra planı
 
-> Versiya 2.0 · 5 noyabr 2026 (Asia/Baku) · Paket: `com.aladdin.dailyplate`
+> Versiya 2.1-research · 5 noyabr 2026 (Asia/Baku) · Paket: `com.aladdin.dailyplate`
 > Bu fayl `planning/research-data.json`-dan yaradılır. Tələbi əvvəl kanonik JSON-da dəyiş, sonra `python3 library/tools/update_project_plan.py` işlət.
 
-Əvvəlki nutrition-plan-design və məhsul planı birləşdirilib. §1–19 mövcud məhsul qaydalarını, §20–25 ziddiyyət həllərini, dietoloqsuz rejimi, hesablama/backend müqavilələrini və qəbul ssenarilərini əhatə edir. Bu sənəd işlək tətbiq və ya klinik təsdiq iddiası deyil.
+Əvvəlki nutrition-plan-design və məhsul planı birləşdirilib. §1–19 mövcud məhsul qaydalarını, §20–25 ziddiyyət həllərini və müqavilələri, §26–29 konkret enerji/makro policy tədqiqat təklifini əhatə edir. Bu sənəd işlək tətbiq və ya klinik təsdiq iddiası deyil.
 
 İcra növbəsi: [coding-tasks](../planning/coding-tasks.txt). Əlavə məcburi müqavilə: [T01–T19](../planning/meal-customization-requirements.txt).
 
@@ -85,15 +85,15 @@ Yaş və hesablama üçün cins elmi baxımdan əhəmiyyətli girişlərdir; boy
 
 1. İstifadəçinin daxil etdiyi yaş, boy və çəki ölçmə/məlumat girişidir. İstirahət enerji sərfi formulla proqnozlanır. Gündəlik enerji ehtiyacı isə aktivlik modeli ilə əlavə təxmin edilir. Ekran “metabolizmini ölçdük” demir.
 
-2. Namizəd Mifflin–St Jeor formulu, kkal/gün: kişilər üçün 10×çəki(kq)+6,25×boy(sm)−5×yaş+5; qadınlar üçün eyni baza−161. İlkin tədqiqatın əhatəsi və fərdi xəta nəzərə alınır. Bu, TDEE formulu deyil.
+2. Namizəd Mifflin–St Jeor formulu, kkal/gün: kişilər üçün 10×çəki(kq)+6,25×boy(sm)−5×yaş+5; qadınlar üçün eyni baza−161. İlkin tədqiqatın əhatəsi və fərdi xəta nəzərə alınır. Bu, TDEE formulu deyil. Konkret yeni namizəd §26–29-da birbaşa NASEM 2023 EER-dir; Mifflin mövcud K08/test snapshot-ları üçündür, yeni policy-yə avtomatik köçürülmür.
 
 3. Formulun tələb etdiyi məlumat könüllü buraxılırsa, tətbiq gizli olaraq kişi/qadın fərz etmir. Avtomatik dəqiq hədəf əvəzinə ümumi menyu/gündəlik və ya mütəxəssisin verdiyi hədəfi daxil etmə yolu açılır. Əvvəlki onboarding eskizində bu davranış əlavə edilməlidir.
 
-4. Aktivlik seçimləri mütəxəssisin təsdiqlədiyi izah və əmsallara bağlanır. İnternetdə yayılmış əmsal cədvəli elmi olaraq bu məhsul üçün yoxlanmış sayılmır. NIDDK-nin PAL rəqəmləri də başqa modelə kor-koranə köçürülmür.
+4. Aktivlik seçimləri mütəxəssisin təsdiqlədiyi izah və əmsallara bağlanır. İnternetdə yayılmış əmsal cədvəli elmi olaraq bu məhsul üçün yoxlanmış sayılmır. NIDDK-nin PAL rəqəmləri də başqa modelə kor-koranə köçürülmür. §26 dörd EER kateqoriyası üzrə konkret təklif verir; köhnə üç seçim yenidən təsdiqlənir.
 
-5. Arıqlama/saxlama/çəki artırma üçün enerji düzəlişi, minimum hədlər, üst hədlər, xüsusi yaş qrupları və yenidən hesablama qaydası ayrıca NutritionPolicy-də təsdiqlənir. Bu sənəd hamıya avtomatik −500 kkal və ya universal 1 200/1 500 həddi qoymur.
+5. Arıqlama/saxlama/çəki artırma üçün enerji düzəlişi, minimum hədlər, üst hədlər, xüsusi yaş qrupları və yenidən hesablama qaydası ayrıca NutritionPolicy-də təsdiqlənir. Bu sənəd hamıya avtomatik −500 kkal və ya universal 1 200/1 500 həddi qoymur. §27 artıq konkret −500/+300 və 1500/1800 namizəd məhsul qaydalarını, dar əhatəni və NO_TARGET davranışını təyin edir; bunlar G2 təsdiqi deyil.
 
-6. Zülal üçün EFSA-nın sağlam yetkinlərə aid 0,83 q/kq/gün PRI göstəricisi istinaddır. Bu rəqəm hər istifadəçiyə optimal fərdi hədəf və ya idman proqramı deyil. Çəki bazası, məqsəd və aktivlik üzrə hədəf mütəxəssis tərəfindən seçilir.
+6. Zülal üçün EFSA-nın sağlam yetkinlərə aid 0,83 q/kq/gün PRI göstəricisi istinaddır. Bu rəqəm hər istifadəçiyə optimal fərdi hədəf və ya idman proqramı deyil. Çəki bazası, məqsəd və aktivlik üzrə hədəf mütəxəssis tərəfindən seçilir. §28 konkret max/remainder makro alqoritmini və cari çəki bazasını təklif edir.
 
 7. BMI göstərilərsə çəki/boy² hesablanır və fərdi sağlamlıq diaqnozu kimi verilmir. Bədən yağı faizi, qan şəkəri, insulin və vitamin çatışmazlığı fotodan və adi çəki qeydindən çıxarılmır. Bu ölçülər ilkin versiyada vəd edilmir.
 
@@ -435,9 +435,9 @@ U-01–U-10: iki planın bir icra müqaviləsinə çevrilməsi; təsdiqsiz rəq�
 
 2. U-02 docs/nutrition-plan-design.md-nin 5 noyabr ilkin versiyası Git tarixçəsində saxlanır; ayrıca paralel normativ plan kimi davam etmir. Mifflin hesabı, DB-dən nutrient hesabı, mənbə izlənməsi, tibbi istisna, foto təsdiqi və məxfilik prinsipləri vahid plana daxil edilib.
 
-3. U-03 Yeni sənəddəki 1,2/1,375/1,55/1,725 əmsalları, −300/−500 defisit, +200/+300 surplus, 1200/1500 minimum, +20% maksimum və 1,2–1,6 q/kq protein default-u təsdiqli universal qayda deyil. §5, §11 və G2 əsasdır: hər biri dəqiq mənbə/əhali/çəki bazası/versiya və faktiki təsdiqlə policy-də müəyyənləşdirilir. Qeyri-müəyyən hədd canlı plana sızmır.
+3. U-03 Yeni sənəddəki 1,2/1,375/1,55/1,725 əmsalları, −300/−500 defisit, +200/+300 surplus, 1200/1500 minimum, +20% maksimum və 1,2–1,6 q/kq protein default-u təsdiqli universal qayda deyil. §5, §11 və G2 əsasdır: hər biri dəqiq mənbə/əhali/çəki bazası/versiya və faktiki təsdiqlə policy-də müəyyənləşdirilir. Qeyri-müəyyən hədd canlı plana sızmır. Sonrakı §26–29 tədqiqat əlavəsi bu boşluğu konkret, deaktiv policy təklifi ilə tamamlayır; universal qayda kimi aktivləşdirmir.
 
-4. U-04 20/30/50 makro bölgüsü, 25/35/30/10 slot bölgüsü, 3 gün təkrarsızlıq və ±10% enerji toleransı tibbi standart sayılmır. Bunlar təsdiq tələb edən namizəd məhsul parametrləridir. Günlük enerji 3/4/5 slot arasında bölünür; slot sayına görə artırılmır; feasible həll yoxdursa uğur qaytarılmır.
+4. U-04 20/30/50 makro bölgüsü, 25/35/30/10 slot bölgüsü, 3 gün təkrarsızlıq və ±10% enerji toleransı tibbi standart sayılmır. Bunlar təsdiq tələb edən namizəd məhsul parametrləridir. Günlük enerji 3/4/5 slot arasında bölünür; slot sayına görə artırılmır; feasible həll yoxdursa uğur qaytarılmır. §27–28-də bu branch üçün konkret template/tolerans seçilib və məhsul parametri kimi işarələnib; əvvəlki namizəd siyahısı aktiv default deyil.
 
 5. U-05 Cins könüllüdür; formula üçün lazım olan məlumat buraxılıbsa avtomatik hədəf yoxdur. Məqsədlər lose/maintain/gain/healthy saxlanır; healthy avtomatik defisit deyil. AZ/EN/RU ilk dil əhatəsidir; TR sonrakı ayrıca redaktə/tərcümə işidir.
 
@@ -459,7 +459,7 @@ R-01–R-08: istifadəyə yararlı gündəliklə fərdi tövsiyənin hazır stat
 
 1. R-01 İndiki rejim: mənbəsi və qeyri-müəyyənliyi göstərilən əl ilə qeyd, dəqiq qramla nutrient arifmetikası, istifadəçinin təsdiqlədiyi keçmiş yeməyin təkrarı, tarixçə və ümumi maarif məzmunu. Sadalanan hər funksiya öz Kxx qəbulundan sonra açılır. Klinik redaktor imzası olmayan EvidenceCard “dietoloq təsdiqləyib” nişanı almır; dərc üçün mövcud baxış tələbləri qorunur.
 
-2. R-02 Avtomatik fərdi kalori/makro, arıqlama/artırma və balanslı fərdi həftəlik plan yalnız G2 + G3 açıq və bütün tətbiq olunan sərt yoxlamalar keçibsə mümkündür. G2/G3 bağlı olduqda qeyd/göstərmə işləyə bilər; boş katalog və ya təsdiqsiz policy üçün nümunə reseptlə süni uğur yoxdur.
+2. R-02 Avtomatik fərdi kalori/makro, arıqlama/artırma və balanslı fərdi həftəlik plan yalnız G2 + G3 açıq və bütün tətbiq olunan sərt yoxlamalar keçibsə mümkündür. G2/G3 bağlı olduqda qeyd/göstərmə işləyə bilər; boş katalog və ya təsdiqsiz policy üçün nümunə reseptlə süni uğur yoxdur. §26–29 maşınla təsvir edilmiş, amma təsdiqlənməmiş alternativ model təklifidir; gate-ləri açmır.
 
 3. R-03 İstifadəçinin mütəxəssisdən aldığı hədəf ayrıca mənşə və tarixlə saxlanır; tətbiqin hesabladığı və ya təsdiqlədiyi hədəf adlanmır. Bu yol tibbi istisnanı və allergen təhlükəsizliyini aşmaq üçün avtomatik menyu açmır; K08 uyğunluq müqaviləsi saxlanır.
 
@@ -582,6 +582,92 @@ A-01–A-14: yazılı tələb işlək və yoxlanmış funksiya statusu deyil.
 14. A-14 Bu birləşdirmənin çıxışı tam funksional tətbiqin implementasiya müqaviləsidir. Açıq buraxılış asılılıqları: G2 klinik baxış və konkret policy, G3 məzmun/hüquq/dil/çıxım, G4 region qiyməti, G5 faktiki backend/foto/data lifecycle, G6 monetizasiya sərhədi, G7 cihaz/pilot. Sahibi/kliniki rol/QA bunları sübutla bağlayır; çatışmayan qərarlar məhsulun hazır statusunda gizlədilmir.
 
 Mənbələr: [S1](https://fdc.nal.usda.gov/api-guide/), [S4](https://www.efsa.europa.eu/en/topics/topic/dietary-reference-values), [S6](https://ajcn.nutrition.org/article/S0002-9165%2823%2916698-6/fulltext), [S7](https://www.niddk.nih.gov/bwp), [S21](https://support.google.com/googleplay/android-developer/answer/16679511)
+
+## 26. Konkret enerji modeli və aktivlik seçimi — tədqiqat təklifi
+
+NP-01–NP-08: hansı girişdən hansı rəqəmin çıxacağı müəyyən edilib; bu branch-də canlı policy açılmır.
+
+1. NP-01 Bu əlavənin statusu RESEARCH_PROPOSAL-dır. Dəqiq rəqəmlər və failure davranışı artıq müəyyənləşdirilib; clinical approval isə yoxdur. Kanonik nutrition_policy_candidate obyekti JSON maşın müqaviləsidir; ayrıca nutrition-policy-candidate.json onun törəməsidir. Heç biri hazır Kotlin NutritionPolicy payload-u deyil və production-a import edilmir.
+
+2. NP-02 Tövsiyə olunan namizəd model: NASEM 2023 adult EER, Health Canada adult cədvəli ilə tutuşdurulub. Birbaşa gündəlik enerji hesabıdır; Mifflin REE×1,2/1,375/1,55/1,725 üsulu seçilmir. Mifflin §5 və köhnə K08 snapshot-larında tarixi/test model kimi qalır; iki nəticə ortalanmır və ya üstünə əlavə PAL vurulmur.
+
+3. NP-03 A=yaş(il), H=boy(sm), W=cari çəki(kq), nəticə kkal/gün. Kişi: inactive=753,07−10,83A+6,50H+14,10W; low_active=581,47−10,83A+8,30H+14,94W; active=1004,82−10,83A+6,52H+15,91W; very_active=−517,88−10,83A+15,61H+19,11W. Qadın: inactive=584,90−7,01A+5,72H+11,71W; low_active=575,77−7,01A+6,60H+12,14W; active=710,25−7,01A+6,54H+12,34W; very_active=511,83−7,01A+9,07H+12,56W. Əmsallar S23 adult cədvəli və S24 Appendix G §8.3-dəndir.
+
+4. NP-04 Dörd activity_code istifadə edilir: inactive/low_active/active/very_active. Rəsmi adult PAL intervalları kateqoriya kontekstidir, vurulan əmsal deyil: [1,00;1,53), [1,53;1,68), [1,68;1,85), [1,85;2,50). İstifadəçi cihazın ölçdüyü kimi PAL rəqəmi daxil etmir; tipik iş günü və məşq daxil olmaqla bütün günlük hərəkətini S23 nümunələrinə baxıb təsdiqləyir.
+
+5. NP-05 Aktivlik sualı: “Adi günündə iş, ev işi, gediş-gəliş və məşq birlikdə nə qədər hərəkət edirsən?” Konkret seçim köməyi S23 nümunələrinə bağlıdır: inactive — adi günlük işlər, təxminən 30 dəq gəzinti və 90 dəq yüngül/orta ev işi; low_active — adi günlük işlərə əlavə 60–80 dəq 5–7 km/saat gəzinti; active — əlavə 30–50 dəq belə gəzinti, 45 dəq orta velosiped və 40 dəq cüt tennis; very_active — əlavə 45 dəq orta velosiped, 25 dəq 10 km/saat qaçış və 60 dəq cüt tennis. Bunlar tələb olunan məşq resepti və ya dəqiq ekvivalentlik testi deyil, mənbənin gündəlik fəaliyyət nümunələridir. İstifadəçi ən yaxın təsviri təsdiqləyir; uyğun gəlmirsə/əmin deyilsə ACTIVITY_UNCERTAIN və hədəfsiz gündəlik seçilir. Həftəlik məşq sayı təkbaşına kateqoriya yaratmır; bu sadə özünü-hesabat üsulunun ayrıca pilotu tələb olunur.
+
+6. NP-06 Köhnə üç sadə aktivlik seçimi dörd kateqoriyaya səssiz xəritələnmir; yenidən təsdiq tələb olunur. Low_active ayrıca seçimdir; “bir az”ı həmişə active saymaq olmaz. Ölçülmüş PAL sonradan dəstəklənərsə yalnız ayrıca metod və versiya ilə gəlir; bu modelin üzərinə wearable kalorisini ikinci dəfə əlavə etmirik.
+
+7. NP-07 İlkin pilot üçün 19–64 yaş və 18,5≤BMI<30 məhsul əhatəsi təklif edilir. 19 aşağı sərhədi adult EER sətrinə uyğundur; 64 yuxarı və BMI<30 məhdudiyyəti modelin elmi etibarlılıq sərhədi deyil, ilkin fərdiləşdirmə əhatəsini daraldan məhsul təklifidir. 18 yaş və 65+ üçün bu policy hədəf vermir; həmin qruplar üçün ayrıca policy lazımdır. BMI fərdi diaqnoz deyil; etnik risk fərqi və yüksək əzələ kütləsi avtomatik qiymətləndirilmir.
+
+8. NP-08 §6 istisnaları saxlanır və diabet, səbəbsiz çəki itkisi, yüksək performans idmanı/BMI-ni yanıltan bədən tərkibi üçün açıq sual tələb olunur; “xeyr” fərz edilmir. Hamiləlik/südvermə, yemək pozuntusu riski, böyrək xəstəliyi, tibbi pəhriz və qidalanmaya təsir edən müalicədə avtomatik hədəf yoxdur. Boy/çəki/yaş müsbət sonlu və istifadəçi təsdiqli olmalıdır; düzəlişdə vahid qarışıqlığı soruşulur, səssiz çevirmə ilə klinik qərar verilmir.
+
+Mənbələr: [S23](https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/dietary-reference-intakes/tables/equations-estimate-energy-requirement.html), [S24](https://www.ncbi.nlm.nih.gov/books/NBK588659/pdf/Bookshelf_NBK588659.pdf), [S29](https://www.nice.org.uk/guidance/ng246/chapter/Identifying-and-assessing-overweight-obesity-and-central-adiposity), [S7](https://www.niddk.nih.gov/bwp)
+
+## 27. Məqsədə görə düzəliş, minimum və maksimum davranışı
+
+NP-09–NP-16: sabit tövsiyə yox, dar əhatədə yoxlanmağa hazır konkret policy təklifi.
+
+1. NP-09 M=§26 ilə hesablanan maintenance EER. maintain və healthy üçün target=M, enerji düzəlişi 0-dır. lose yalnız 25≤BMI<30 və bütün uyğunluq şərtləri ödənəndə target=M−500. gain yalnız 18,5≤BMI<25 və səbəbsiz çəki itkisi/risk yoxdursa target=M+300. Əhatəyə uyğun olmayan məqsəd GOAL_OUT_OF_SCOPE qaytarır; səssiz maintain-ə çevrilmir. BMI sərhədləri yuvarlaqlaşdırılmadan müqayisə edilir.
+
+2. NP-10 −500 S25-dəki klinik defisit variantının, +300 S14 NHS-dəki +300–500 nümunəsinin aşağı ucundan seçilmiş namizəd məhsul parametridir. Mənbə heç birinin bu app-də hamıya təhlükəsiz olmasını sübut etmir; G2 reviewer-i seçim və dəstək/follow-up üsulunu təsdiqləməlidir. −750, −1000 və ya istifadəçinin sürətli deadline-na uyğun daha böyük defisit bu policy-də yoxdur. Çəki dəyişikliyinin sürəti və tarix üzrə nəticə zəmanəti verilmir.
+
+3. NP-11 Namizəd məhsul aşağı sərhədi: qadın üçün 1500, kişi üçün 1800 kkal/gün. Bunlar S25-dəki nümunə diapazonların yuxarı uclarından götürülmüş ehtiyatlı məhsul guardrail təklifidir; yeni universal klinik minimum və ya təhlükəsizlik zəmanəti deyil. Həm target, həm faktiki təklif olunan gün bu həddən aşağıdırsa NO_TARGET/NO_FEASIBLE_PLAN qaytarılır. Target həddə zorla qaldırılmır, əlavə yemək uydurulmur.
+
+4. NP-12 NICE §1.16.8-də 800–1200 kkal specialist xidmət kontekstindədir; app bu rejimi dəstəkləmir. NIDDK alətindəki 1000 kkal texniki minimum bu app üçün təhlükəsiz minimum kimi götürülmür. Böyük və kiçik enerji ehtiyaclı insanlara 1200/1500 sabit rasion paylanmır; əvvəl M hesablanır, sonra məqsəd və uyğunluq yoxlanır.
+
+5. NP-13 Universal elmi gündəlik maksimum tapıldığı iddia edilmir. Bu policy-də klinik “4000/5000” tavanı uydurulmur: maintain/healthy üçün M ətrafında §27-dəki ±5% məhsul toleransı, lose üçün M-dən aşağı və maksimum 500 defisit, gain üçün M+300. Bundan əlavə dərc edilmiş katalogun real porsiya diapazonlarında uyğun gün yoxdursa NO_FEASIBLE_PLAN; həddən böyük süni porsiya yoxdur. Makro və nutrient yoxlamaları bu enerji hədlərindən ayrıca sərtdir.
+
+6. NP-14 Menyu axtarışında ±5% enerji toleransı daxili məhsul parametridir. maintain/healthy: L=max(0,95M; sex_floor), U=1,05M. lose: L=max(0,95T; sex_floor; M−500), U=min(1,05T; M) və əlavə E<M. gain: L=max(0,95T; sex_floor; M), U=min(1,05T; M+300) və əlavə E>M. Beləliklə arıqlama defisiti 500-dən, gain surplus-u 300-dən böyümür; maintain üçün real porsiya kombinasiyasına tolerans qalır. L>U və ya heç bir real kombinasiya yoxdursa plan yoxdur; müqayisə yuvarlaqlaşdırmadan aparılır.
+
+7. NP-15 Günlük hədəf 3/4/5 slot arasında bölünür; seçilmiş say target-i artırmır. İlk slot template çəkiləri: 3 yemək 0,30/0,35/0,35; 4 yemək 0,25/0,35/0,30/0,10; 5 yemək 0,25/0,10/0,30/0,10/0,25. Bunlar məhsul template parametridir, klinik norma deyil; günün sərt yoxlamaları əsasdır və slot payı real porsiyaya görə dəyişə bilər.
+
+8. NP-16 İlk baxış xatırlatması 14 gün, ən azı 3 könüllü çəki ölçməsi son 14 gündə; bu məhsul workflow parametridir, klinik baxış intervalı deyil. Ölçmə yoxdursa trend/kalori titrasiyası edilmir. Yeni çəki/aktivlik/yaş məlumatı yeni hesab və səbəb önizləməsi yaradır, təsdiqdən sonra gələcəyə tətbiq olunur. Avtomatik həftəlik −100/−200, deadline-a çatdırma və 7700 kkal/kq xətti proqnozu yoxdur. Yeni simptom və səbəbsiz dəyişiklikdə hədəf dayandırılır, peşəkar dəstək yolu verilir.
+
+Mənbələr: [S25](https://www.jacc.org/doi/10.1016/j.jacc.2013.11.004), [S26](https://www.nice.org.uk/guidance/ng246/chapter/Physical-activity-and-diet), [S14](https://www.nhs.uk/live-well/healthy-weight/managing-your-weight/healthy-ways-to-gain-weight/), [S7](https://www.niddk.nih.gov/bwp), [S29](https://www.nice.org.uk/guidance/ng246/chapter/Identifying-and-assessing-overweight-obesity-and-central-adiposity)
+
+## 28. Makro vektorunun konkret hesabı və məlumat tərifi
+
+NP-17–NP-23: hədəf qramları, mümkün olmayan bölüşdürmə və real menyu yoxlaması ayrıdır.
+
+1. NP-17 Əsas reference set EFSA adult-dur: yağ 20–35% enerji, karbohidrat 45–60%, protein PRI 0,83 q/kq/gün və lif AI 25 q/gün. Bunlar müxtəlif növ referenslərdir; PRI optimal idman/arıqlama dozası və UL deyil. WHO duz/sərbəst şəkər/doymuş/trans yağ qaydaları ayrıca nutrient policy kimi saxlanır; ABŞ AMDR diapazonları ilə qarışıq ən-sərt seçim edilmir.
+
+2. NP-18 T=target kkal, W=cari faktiki kq. Namizəd hədəf: P=max(0,83×W; 0,20×T/4) q; F=0,30×T/9 q; C=(T−4P−9F)/4 q. Protein çəki bazası bu dar BMI əhatəsində cari ölçülmüş çəki olur; “ideal/adjusted weight” gizli əvəz edilmir. 20/30/50 bölgüsü planlama başlanğıcıdır, EFSA-nın məcburi default-u deyil. P referensi 20% paydan böyükdürsə C azalır.
+
+3. NP-19 C-nin enerji payı 45–60%-dən çıxırsa, P/F/C sonlu-müsbət deyilsə və ya komponentlər T-yə yığılmırsa MACRO_INFEASIBLE qaytarılır. Bu seçilmiş split-də P>25% enerji C-ni 45%-dən aşağı salır; 25% burada cəbri feasibility sərhədidir, protein üçün klinik maksimum/UL deyil. Başqa rəqəmlə səssiz düzəltmək, protein minimumunu azaltmaq və high-protein diet açmaq olmaz.
+
+4. NP-20 Protein/fat/carbohydrate üçün 4/9/4 faktorları planlama vektoru üçündür. Məhsulun rəsmi enerji sahəsi onlarla zorla əvəz edilmir. EFSA karbohidrat referensinə uyğun available/glycaemic carbohydrate əsası ayrıca normallaşdırılır; FDC carbohydrate-by-difference və lif eyni tərif kimi götürülmür. Çıxma yalnız mənbə metoduna uyğun sübutlu çevirmə ilə mümkündür; əks halda makro reference yoxlaması UNKNOWN-dur.
+
+5. NP-21 Faktiki menyu üçün enerji §27 L/U daxilində; protein ən azı 0,83×W q; yağ 20–35% enerji; uyğun tərifli karbohidrat 45–60%; lif ≥25 q/gün yoxlanır. P/F/C target-lərinə yaxınlıq yumşaq skordur; “optimal protein” vədi yoxdur. Gündə hesablanan qramlar və mənbə nutrientləri ayrıdır. Natamam protein/lif/carbohydrate əsası sərt keçid üçün PASS olmur.
+
+6. NP-22 WHO total fat ≤30% ümumi maarif qaydası ayrıca advisory nəticədir; bu namizədin əsas yağ RI-si EFSA 20–35-dir. F=30% hədəf kimi seçilir; 30%-dən çox faktiki gün WHO üzrə keçdi sayılmır. İstifadəçiyə “bütün təşkilatların qaydaları keçdi” iddiası yoxdur. WHO digər seçilmiş nutrient limitləri öz mənbə operatoru ilə saxlanır; sərbəst şəkər ümumi şəkərdən uydurulmur.
+
+7. NP-23 Vegan/vegetarian və digər məhdud seçimlər eyni rəqəmlə avtomatik tam balanslı sayılmır. Kitabxana, protein keyfiyyəti, B12 və digər nutrient əhatəsi ayrıca yoxlanır; çatışmazlıq diaqnozu və supplement dozası verilmir. İdmançı, xəstəlik və bu pilot əhatəsindən kənar qrup üçün daha yüksək q/kq rəqəmi bu policy-yə əlavə edilmir.
+
+Mənbələr: [S5](https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2012.2557), [S27](https://www.efsa.europa.eu/en/efsajournal/pub/1461), [S28](https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2010.1462), [S3](https://www.who.int/news-room/fact-sheets/detail/healthy-diet)
+
+## 29. Nümunə hesablar, implementasiya fərqi və təsdiq protokolu
+
+NP-24–NP-31: araşdırma tamamlanıb, təklif konkretləşdirilib; live aktivləşmə ayrıca sübut tələb edir.
+
+1. NP-24 Müstəqil arifmetik nümunələr (ölçmə və klinik təsdiq deyil): 30 yaş, 175 sm, 70 kq inactive kişi M=2552,67; eyni qadın M=2195,30 kkal/gün. Məqsəd maintain/healthy olduqda T=M. Bu birbaşa EER rəqəmləri §25-dəki Mifflin REE 1648,75/1482,75 ilə eyni göstərici deyil. İki hesabın fərqi formula xətası kimi gizlədilmir. Kişi maintain üçün real menyu enerji intervalı 2425,0365–2680,3035-dir; tək bir dəqiq floating-point toplam tələb edilmir.
+
+2. NP-25 30 yaş, 175 sm, 85 kq inactive kişi: BMI≈27,7551; M=2764,17; lose T=2264,17; P=113,2085 q, F≈75,4723 q, C=283,02125 q. Günlük enerji axtarışı L=2264,17; U=2377,3785. 30 yaş, 175 sm, 70 kq inactive kişi gain: T=2852,67; P=142,6335; F=95,089; C=356,58375; L=2710,0365; U=2852,67. Bunlar sintetik tədqiqat fixture-ləridir, insana verilmiş plan deyil.
+
+3. NP-26 Floor nümunəsi: 64 yaş, 145 sm, 55 kq inactive qadın: BMI≈26,1593; M=1609,71; lose raw T=1109,71 → ENERGY_BELOW_PRODUCT_FLOOR, nəticə hədəfsizdir. 1500-ə clamp edilmir. Eyni profil maintain T=1609,71 üçün floor keçilə bilər, amma G2/G3 və bütün digər yoxlamalar yenə tələb olunur.
+
+4. NP-27 Sərhəd halları: yaş18/19/64/65; BMI18,5/25/30; cins yoxdur; köhnə activity code; əmin olmayan aktivlik; çox kiçik/NaN/sonsuz giriş; bütün sağlamlıq cavabları boş; gain overweight; lose normal BMI; floor-dan aşağı nəticə; makro remainder uyğunsuz; boş katalog. Hər biri üçün status və heç bir snapshot yazılmaması yoxlanmalıdır. Müsbət halda yalnız yeni versiyalı preview/confirm nəticəsi yaranır.
+
+5. NP-28 Mövcud K08 contractVersion=1 Mifflin-only və activityMapping scalar istifadə edir; bu EER modelini həmin sahələrə zorla yerləşdirmək olmaz. Contract v2 üçün formula dispatch, 4 kateqoriya üzrə əmsal cədvəli, sex-specific floor, goal/BMI scope, əlavə risk cavabları, max/remainder makro ifadəsi və RuleResult-lar lazımdır. Formula və snapshot migration geriyə uyğun olmalı, köhnə tarixçəni dəyişməməlidir. K13/K14 işinə bu branch-dən kod daşınmır.
+
+6. NP-29 Təsdiq addımı artıq rəqəm seçmək üçün boş tapşırıq deyil: reviewer konkret NP-01–NP-28 və maşın obyektinə APPROVE/REVISE/REJECT verir. Ayrıca qiymətləndirilən qərarlar: EER modelinin AZ əhali/özünü-hesabat məhdudiyyəti; dar yaş/BMI əhatəsi; −500/+300; 1500/1800 məhsul guardrail-i; 20/30/50+PRI; 14 günlük workflow və real dəstək/follow-up. Reviewer adı, ixtisas/səlahiyyət, tarix, evidence versiyası və dəyişiklik səbəbi qeyd olunur. G2 təsdiqi uydurulmur.
+
+7. NP-30 Branch tədqiqat statusudur: app kodu dəyişmir, production policy aktivləşmir, main-ə merge yoxdur və branch CI işlədilmir. Bütün derived plan görünüşləri bu branch-də yenilənir. Yalnız istifadəçi sonradan inteqrasiya istəyəndə cari main ilə fərq baxışı, ayrı implementasiya, workflow finish və post-merge CI aparılır; o vaxta qədər əsas işin planı dəyişmir.
+
+8. NP-31 Yoxlama fərqi: bu işdə rəsmi formullar/istinadlar və sintetik hesab arifmetikası tutuşdurulur; runtime K08-v2, 4 seçimli onboarding, real yemək planı, cihaz/klinik pilot və effektivlik sınağı hələ aparılmır. S25 köhnə guideline-dir, NHS S14 baxış tarixi 2023 və növbəti baxış 2026-dır; NICE və NASEM bəzi hissələri yalnız rəsmi indeks çıxarışı ilə yoxlanıb. Mənbə əlçatanlığı və tarix məhdudiyyəti approval paketində açıq saxlanır.
+
+Mənbələr: [S23](https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/dietary-reference-intakes/tables/equations-estimate-energy-requirement.html), [S24](https://www.ncbi.nlm.nih.gov/books/NBK588659/pdf/Bookshelf_NBK588659.pdf), [S25](https://www.jacc.org/doi/10.1016/j.jacc.2013.11.004), [S26](https://www.nice.org.uk/guidance/ng246/chapter/Physical-activity-and-diet), [S5](https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2012.2557), [S14](https://www.nhs.uk/live-well/healthy-weight/managing-your-weight/healthy-ways-to-gain-weight/)
 
 ## Mənbə reyestri
 
@@ -716,3 +802,45 @@ Paxlalılar, əlçatan zülal mənbələri və planlı alış-veriş üzrə prak
 [US Copyright Office — Circular 33](https://www.copyright.gov/circs/circ33.pdf)
 
 5 noyabr 2026-da yoxlanıb: ABŞ hüququnda ideya, metod və sadə inqrediyent siyahısı ilə yaradıcı mətn/foto qorunması ayrılır. Bu, qlobal kopyalama icazəsi deyil; sayt şərtləri, verilənlər bazası və digər hüquqlar ayrıca yoxlanır.
+
+### S23 — Health Canada — adult EER tənlikləri və aktivlik kateqoriyaları
+
+[Health Canada — adult EER tənlikləri və aktivlik kateqoriyaları](https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/dietary-reference-intakes/tables/equations-estimate-energy-requirement.html)
+
+5 noyabr 2026: Adults 19 years and older bölməsində 8 tənlik və adult PA CAT tərifləri oxunub. Birbaşa EER modeli; REE üzərinə PAL vurma üsulu deyil. Kateqoriya özünü-hesabatla yalnız təxmin edilir.
+
+### S24 — NASEM — Dietary Reference Intakes for Energy (2023), Appendix G §8.3
+
+[NASEM — Dietary Reference Intakes for Energy (2023), Appendix G §8.3](https://www.ncbi.nlm.nih.gov/books/NBK588659/pdf/Bookshelf_NBK588659.pdf)
+
+5 noyabr 2026: ilkin hesabatın indekslənmiş Appendix G, çap səhifəsi 301, adult TEE coefficients çıxarışı Health Canada cədvəli ilə tutuşdurulub. Bütün kitabın oxunduğu iddia edilmir; HTML girişində bot yoxlaması var. Formalar enerji balansı üçün başlanğıc proqnozdur, konkret şəxsdə ölçmə deyil.
+
+### S25 — AHA/ACC/TOS — overweight/obesity guideline (2013), recommendation 3
+
+[AHA/ACC/TOS — overweight/obesity guideline (2013), recommendation 3](https://www.jacc.org/doi/10.1016/j.jacc.2013.11.004)
+
+5 noyabr 2026: ilkin təlimatın rəsmi indekslənmiş recommendation 3 çıxarışı yoxlanıb: uyğun overweight/obesity böyüklərdə 500 və ya 750 kkal defisit və fərdiləşdirilmiş yanaşma; 1200–1500 qadın / 1500–1800 kişi alternativ nümunə diapazonlarıdır. Köhnə klinik müdaxilə sübutudur; dietoloqsuz app-in təhlükəsizlik təsdiqi deyil.
+
+### S26 — NICE NG246 — Physical activity and diet, §1.16.5 və §1.16.8
+
+[NICE NG246 — Physical activity and diet, §1.16.5 və §1.16.8](https://www.nice.org.uk/guidance/ng246/chapter/Physical-activity-and-diet)
+
+5 noyabr 2026: rəsmi axtarış çıxarışında defisitə dəstək/follow-up və 800–1200 kkal rejiminin specialist multicomponent xidmətə aidliyi yoxlanıb. Birbaşa HTML/PDF 403 verib; tam sənədin əldə olunduğu iddia edilmir. Bu hədlərdən aşağı rejim bu app təklifinə daxil deyil.
+
+### S27 — EFSA — yağ üçün DRV, 2010, Abstract
+
+[EFSA — yağ üçün DRV, 2010, Abstract](https://www.efsa.europa.eu/en/efsajournal/pub/1461)
+
+5 noyabr 2026: ilkin rəyin abstract-ı oxunub: yetkinlər üçün yağ RI 20–35 enerji %. 30% seçimi bu app-in namizəd planlama parametridir, EFSA-nın məcburi default-u deyil.
+
+### S28 — EFSA — karbohidrat və lif DRV, 2010
+
+[EFSA — karbohidrat və lif DRV, 2010](https://efsa.onlinelibrary.wiley.com/doi/10.2903/j.efsa.2010.1462)
+
+5 noyabr 2026: ilkin rəyin abstract çıxarışı və EFSA-nın rəsmi xülasəsi yoxlanıb: karbohidrat RI 45–60 enerji %, yetkin lif AI 25 q/gün. Faizdən qram hesabı nutrient tərifinin uyğunlaşdırılmasını tələb edir.
+
+### S29 — NICE NG246 — BMI ilə qiymətləndirmə və məhdudiyyətlər
+
+[NICE NG246 — BMI ilə qiymətləndirmə və məhdudiyyətlər](https://www.nice.org.uk/guidance/ng246/chapter/Identifying-and-assessing-overweight-obesity-and-central-adiposity)
+
+5 noyabr 2026: rəsmi indeks çıxarışında 18,5–24,9 və 25–29,9 BMI kateqoriyaları yoxlanıb; tam səhifə 403 verib. BMI diaqnoz və bütün etnik qruplar üçün fərdi risk həddi deyil. Aşağıdakı dar app əhatəsi ayrıca məhsul məhdudiyyətidir.

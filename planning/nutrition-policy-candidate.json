@@ -1,0 +1,331 @@
+{
+  "id": "dailyplate-adult-energy-candidate",
+  "version": 1,
+  "status": "RESEARCH_PROPOSAL",
+  "production_enabled": false,
+  "approved_by": null,
+  "approved_at": null,
+  "formula": {
+    "id": "nasem-2023-adult-eer",
+    "expression": "intercept + age_coefficient*age_years + height_coefficient*height_cm + weight_coefficient*weight_kg",
+    "coefficient_order": [
+      "intercept",
+      "age_years",
+      "height_cm",
+      "weight_kg"
+    ],
+    "coefficients": {
+      "male": {
+        "inactive": [
+          753.07,
+          -10.83,
+          6.5,
+          14.1
+        ],
+        "low_active": [
+          581.47,
+          -10.83,
+          8.3,
+          14.94
+        ],
+        "active": [
+          1004.82,
+          -10.83,
+          6.52,
+          15.91
+        ],
+        "very_active": [
+          -517.88,
+          -10.83,
+          15.61,
+          19.11
+        ]
+      },
+      "female": {
+        "inactive": [
+          584.9,
+          -7.01,
+          5.72,
+          11.71
+        ],
+        "low_active": [
+          575.77,
+          -7.01,
+          6.6,
+          12.14
+        ],
+        "active": [
+          710.25,
+          -7.01,
+          6.54,
+          12.34
+        ],
+        "very_active": [
+          511.83,
+          -7.01,
+          9.07,
+          12.56
+        ]
+      }
+    },
+    "evidence_refs": [
+      "S23",
+      "S24"
+    ],
+    "apply_additional_pal_multiplier": false
+  },
+  "scope": {
+    "age_min_inclusive": 19,
+    "age_max_inclusive": 64,
+    "bmi_min_inclusive": 18.5,
+    "bmi_max_exclusive": 30,
+    "restriction_kind": "PRODUCT_PILOT_SCOPE_NOT_MODEL_LIMIT_OR_DIAGNOSIS",
+    "excluded": [
+      "pregnant",
+      "breastfeeding",
+      "eating_risk",
+      "medical_diet",
+      "kidney",
+      "treatment",
+      "diabetes",
+      "unintentional_weight_loss",
+      "high_performance_sport",
+      "body_composition_affects_bmi"
+    ],
+    "required_answers_must_be_explicit": true
+  },
+  "activity": {
+    "codes": [
+      "inactive",
+      "low_active",
+      "active",
+      "very_active"
+    ],
+    "reference_pal_intervals": [
+      [
+        1,
+        1.53
+      ],
+      [
+        1.53,
+        1.68
+      ],
+      [
+        1.68,
+        1.85
+      ],
+      [
+        1.85,
+        2.5
+      ]
+    ],
+    "interval_upper_exclusive": true,
+    "pal_role": "classification_reference_not_input_multiplier",
+    "selection": "user_confirms_current_daily_pattern_against_S23_examples",
+    "legacy_three_choice_migration": "RECONFIRM_REQUIRED",
+    "uncertain_selection": "ACTIVITY_UNCERTAIN_NO_TARGET",
+    "self_report_is_not_measured_pal": true
+  },
+  "goals": {
+    "maintain": {
+      "adjustment_kcal": 0,
+      "bmi_interval": [
+        18.5,
+        30
+      ]
+    },
+    "healthy": {
+      "adjustment_kcal": 0,
+      "bmi_interval": [
+        18.5,
+        30
+      ]
+    },
+    "lose": {
+      "adjustment_kcal": -500,
+      "bmi_interval": [
+        25,
+        30
+      ],
+      "interval_upper_exclusive": true,
+      "evidence_refs": [
+        "S25",
+        "S26"
+      ],
+      "choice_kind": "PROPOSED_LOWER_END_OF_GUIDELINE_DEFICIT_NOT_UNIVERSAL"
+    },
+    "gain": {
+      "adjustment_kcal": 300,
+      "bmi_interval": [
+        18.5,
+        25
+      ],
+      "interval_upper_exclusive": true,
+      "evidence_refs": [
+        "S14"
+      ],
+      "choice_kind": "PROPOSED_LOWER_END_OF_NHS_EXAMPLE_NOT_UNIVERSAL"
+    }
+  },
+  "energy_bounds": {
+    "candidate_floor_kcal": {
+      "female": 1500,
+      "male": 1800
+    },
+    "floor_kind": "PROPOSED_PRODUCT_GUARDRAIL_USING_UPPER_END_OF_S25_EXAMPLE_NOT_A_PROVEN_SAFETY_THRESHOLD",
+    "clinical_universal_ceiling_kcal": null,
+    "upper_rule": "maintain/healthy menu<=1.05*maintenance (product tolerance); lose<maintenance; gain<=maintenance+300; all require feasible published catalog",
+    "out_of_bounds_action": "NO_TARGET_NO_CLAMP",
+    "maximum_automatic_deficit_kcal": 500,
+    "maximum_automatic_surplus_kcal": 300
+  },
+  "macros": {
+    "protein_g": "max(0.83*actual_weight_kg, 0.20*target_kcal/4)",
+    "fat_g": "0.30*target_kcal/9",
+    "carbohydrate_g": "(target_kcal-4*protein_g-9*fat_g)/4",
+    "protein_reference_g_per_kg": 0.83,
+    "protein_weight_basis": "actual_current_body_weight_within_candidate_scope",
+    "fat_target_fraction": 0.3,
+    "carbohydrate_reference_fraction_range": [
+      0.45,
+      0.6
+    ],
+    "fat_reference_fraction_range": [
+      0.2,
+      0.35
+    ],
+    "protein_fraction_25_percent": "algebraic_feasibility_limit_of_this_target_split_not_UL",
+    "energy_factors_kcal_per_g": {
+      "protein": 4,
+      "fat": 9,
+      "available_carbohydrate": 4
+    },
+    "default_split_kind": "PRODUCT_TEMPLATE_NOT_EFSA_OPTIMAL_PRESCRIPTION",
+    "infeasible_action": "MACRO_INFEASIBLE_NO_TARGET",
+    "evidence_refs": [
+      "S5",
+      "S27",
+      "S28"
+    ]
+  },
+  "menu_energy": {
+    "relative_tolerance": 0.05,
+    "tolerance_kind": "PRODUCT_OPTIMIZATION_PARAMETER_NOT_CLINICAL_STANDARD",
+    "outcome_if_empty": "NO_FEASIBLE_PLAN",
+    "never_increase_deficit_or_surplus_to_make_menu_fit": true,
+    "lower_bound_by_goal": {
+      "maintain": "max(0.95*maintenance, sex_floor)",
+      "healthy": "max(0.95*maintenance, sex_floor)",
+      "lose": "max(0.95*target, sex_floor, maintenance-500)",
+      "gain": "max(0.95*target, sex_floor, maintenance) with actual_energy>maintenance"
+    },
+    "upper_bound_by_goal": {
+      "maintain": "1.05*maintenance",
+      "healthy": "1.05*maintenance",
+      "lose": "min(1.05*target, maintenance) with actual_energy<maintenance",
+      "gain": "min(1.05*target, maintenance+300)"
+    }
+  },
+  "reassessment": {
+    "review_after_days": 14,
+    "fresh_age_confirm_after_days": 365,
+    "measurement_window_days": 14,
+    "minimum_weight_measurements": 3,
+    "automatic_calorie_titration": false,
+    "change_requires_confirmation": true,
+    "schedule_kind": "PRODUCT_WORKFLOW_NOT_CLINICAL_REVIEW_PROTOCOL",
+    "new_symptoms_or_unintentional_change": "STOP_AUTOMATIC_TARGET_AND_REFER"
+  },
+  "compatibility": {
+    "k08_contract_v1_compatible": false,
+    "reasons": [
+      "formula hardcoded to Mifflin",
+      "activity scalar is wrong abstraction for direct EER",
+      "sex-specific floors absent",
+      "BMI/goal/extra risk scope absent",
+      "max/remainder macro expression absent",
+      "catalog bounds and review states absent"
+    ],
+    "activation_requires": [
+      "clinical_review_and_follow_up_design_G2",
+      "new_typed_contract_and_migrations",
+      "regression_and_acceptance_evidence",
+      "published_content_G3"
+    ]
+  },
+  "slot_template_weights": {
+    "3": [
+      0.3,
+      0.35,
+      0.35
+    ],
+    "4": [
+      0.25,
+      0.35,
+      0.3,
+      0.1
+    ],
+    "5": [
+      0.25,
+      0.1,
+      0.3,
+      0.1,
+      0.25
+    ]
+  },
+  "reference_examples": {
+    "kind": "SYNTHETIC_DECIMAL_ARITHMETIC_NOT_OFFICIAL_CALCULATOR_OR_CLINICAL_VALIDATION",
+    "age_years": 30,
+    "height_cm": 175,
+    "weight_kg": 70,
+    "eer_kcal": {
+      "male": {
+        "inactive": 2552.67,
+        "low_active": 2754.87,
+        "active": 2934.62,
+        "very_active": 3226.67
+      },
+      "female": {
+        "inactive": 2195.3,
+        "low_active": 2370.27,
+        "active": 2508.25,
+        "very_active": 2767.98
+      }
+    },
+    "additional_cases": [
+      {
+        "age_years": 30,
+        "height_cm": 175,
+        "weight_kg": 85,
+        "sex": "male",
+        "activity": "inactive",
+        "goal": "lose",
+        "maintenance_kcal": 2764.17,
+        "target_kcal": 2264.17,
+        "protein_g": 113.2085,
+        "fat_g": 75.47233333333332,
+        "carbohydrate_g": 283.02125,
+        "menu_bounds_kcal": [
+          2264.17,
+          2377.3785
+        ]
+      },
+      {
+        "age_years": 64,
+        "height_cm": 145,
+        "weight_kg": 55,
+        "sex": "female",
+        "activity": "inactive",
+        "goal": "lose",
+        "maintenance_kcal": 1609.71,
+        "raw_target_kcal": 1109.71,
+        "result": "ENERGY_BELOW_PRODUCT_FLOOR",
+        "returned_target_kcal": null
+      }
+    ],
+    "maintain_male_menu_bounds_kcal": [
+      2425.0365,
+      2680.3035
+    ]
+  }
+}

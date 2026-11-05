@@ -33,8 +33,8 @@ def p(text, style='BodyAZ'):
 def link(source):
     return Paragraph(f'<link href="{escape(source["url"])}" color="{teal.hexval()}">{escape(source["id"]+" - "+source["name"])}</link>',styles['SmallAZ'])
 story=[]
-story += [Spacer(1,32),p('QİDA / MƏZMUN VƏ HESABLAMA NÜVƏSİ','LeadAZ'),p('Elmi əsasdan\nişlək məhsula','TitleAZ'),p('Mənbələr, yerli reseptlər, fərdi hədəflər və həftəlik menyu üçün real icra planı','LeadAZ'),p('Versiya 2.0 | 5 noyabr 2026 | 500 ərzaq və 224 resept layihəsi','SmallAZ'),Spacer(1,24)]
-story += [p('Əsas qərar','HeadingAZ'),p('Hədəf quruluş: mənbəli ərzaq məlumatı + qramla tərkibi və üsulu yoxlanmış reseptlər + fərdi tövsiyələr üçün təsdiqli qaydalar. AI seçimə və izaha kömək edir; hesablamanı və sərt filtrləri yoxlanmış kod aparır.'),Spacer(1,16),p('Vahid plan 2.0','HeadingAZ'),p('500 mənbəli ərzaq qeydi, qramla tərkibi və addımları yazılmış 224 resept layihəsi, 8 həftəlik ideya rotasiyası. SQLite bazasında 8 217 USDA istinad qeydi. JSON və CSV idxalı hazırdır.'),Spacer(1,16),p('Status','HeadingAZ'),p('Resept miqdarı və porsiya sayı ilə təxmini inqrediyent hesabı hazırdır. Bütün reseptləri fiziki bişirmək bunun universal şərti deyil. Hazır yeməyin 100 qramı və şəkilli porsiya üçün sənədləşdirilmiş çıxım ayrıca lazımdır. Redaktor və fərdi tövsiyə qaydalarının təsdiqi hələ tamamlanmayıb.'),p('Əvvəlki dizayn və məhsul planı birləşdirilib. Bölmə 20–25: ziddiyyət həlləri, dietoloqsuz rejim, hesablama və backend müqavilələri, qəbul ssenariləri. K01–K12 işi və T01–T19 tələbləri qorunur.','SmallAZ'),PageBreak()]
+story += [Spacer(1,32),p('QİDA / MƏZMUN VƏ HESABLAMA NÜVƏSİ','LeadAZ'),p('Elmi əsasdan\nişlək məhsula','TitleAZ'),p('Mənbələr, yerli reseptlər, fərdi hədəflər və həftəlik menyu üçün real icra planı','LeadAZ'),p('Versiya 2.1-research | 5 noyabr 2026 | 500 ərzaq və 224 resept layihəsi','SmallAZ'),Spacer(1,24)]
+story += [p('Əsas qərar','HeadingAZ'),p('Hədəf quruluş: mənbəli ərzaq məlumatı + qramla tərkibi və üsulu yoxlanmış reseptlər + fərdi tövsiyələr üçün təsdiqli qaydalar. AI seçimə və izaha kömək edir; hesablamanı və sərt filtrləri yoxlanmış kod aparır.'),Spacer(1,16),p('Policy tədqiqat əlavəsi','HeadingAZ'),p('500 mənbəli ərzaq qeydi, qramla tərkibi və addımları yazılmış 224 resept layihəsi, 8 həftəlik ideya rotasiyası. SQLite bazasında 8 217 USDA istinad qeydi. JSON və CSV idxalı hazırdır.'),Spacer(1,16),p('Status','HeadingAZ'),p('Resept miqdarı və porsiya sayı ilə təxmini inqrediyent hesabı hazırdır. Bütün reseptləri fiziki bişirmək bunun universal şərti deyil. Hazır yeməyin 100 qramı və şəkilli porsiya üçün sənədləşdirilmiş çıxım ayrıca lazımdır. Redaktor və fərdi tövsiyə qaydalarının təsdiqi hələ tamamlanmayıb.'),p('Əvvəlki dizayn və məhsul planı birləşdirilib. Bölmə 20–25: vahid müqavilə; bölmə 26–29: konkret EER, məqsəd, enerji sərhədi və makro policy təklifi. Bu branch main-ə birləşdirilməyib; clinical approval yoxdur. K01–K12 işi və T01–T19 tələbləri qorunur.','SmallAZ'),PageBreak()]
 story += [p('Planın xəritəsi','HeadingAZ')]
 for section in data['sections']:
     story += [p(section['title'])]
@@ -63,7 +63,7 @@ def footer(c,doc):
     w,h=A4
     c.setFillColor(muted); c.setFont('Arial',8)
     c.drawString(52,h-30,'QİDA / ELMİ ƏSAS VƏ İCRA PLANI')
-    c.drawString(52,29,'Versiya 2.0 / 05.11.2026')
+    c.drawString(52,29,'Versiya 2.1-research / 05.11.2026')
     c.drawRightString(w-52,29,f'{doc.page:02d}')
 out=ROOT/'qidalanma-elmi-esas-ve-icra-plani.pdf'
 doc=SimpleDocTemplate(str(out),pagesize=A4,rightMargin=52,leftMargin=52,topMargin=57,bottomMargin=50,title='Qida - Elmi əsas və real icra planı',author='Qida məhsul planı')
