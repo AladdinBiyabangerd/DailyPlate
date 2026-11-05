@@ -6,7 +6,6 @@
     <string name="pc_error">Yazı təsdiqlənmədi. Eyni qeydi yenidən yoxla.</string>
     <string name="pc_retry">Yenidən yoxla</string>
     <string name="pc_estimate">Şəxsi porsiyanın təxmini qida dəyəri</string>
-    <string name="pc_photo_closed">Az/Orta/Çox yalnız yoxlanmış resept çəkiləri və real porsiya fotoları olduqda açılır. İndi dəqiq miqdarı yaz.</string>
     <string name="pc_energy">Enerji</string>
     <string name="pc_protein">Zülal</string>
     <string name="pc_fat">Yağ</string>

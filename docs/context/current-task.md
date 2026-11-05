@@ -27,7 +27,7 @@
 
 ## Checks performed
 - Initial clean main d9681dd, hooksPath .local-ci/hooks, prior main CI passed.
-- First merged-main 81e2eac: compilation/lint succeeded; 217 JVM tests ran, one new assertion exposed KCAL enum display instead of kcal. Fixed human-readable unit symbols; improved prepared-count label and replaced blurry legacy weight icon with kitchen-scale art. Repaired merged-main CI and visual review still pending; no branch CI/APK/device run.
+- First merged-main 81e2eac: compilation/lint succeeded; 217 JVM tests ran, one new assertion exposed KCAL enum display instead of kcal. Fixed human-readable unit symbols; improved prepared-count label and replaced blurry legacy weight icon with kitchen-scale art. Second merge 581b381: all 217 tests passed; lint found now-unused pc_photo_closed resource. Removed obsolete copy; visual inspection also found cramped Russian serving chips, so Russian choices use a full-width list and long recipe names/middle coverage were added. Final CI and visual review still pending; no branch CI/APK/device run.
 
 ## Exact next step
 - Commit focused D02 changes, run workflow.py finish, inspect fresh .local-ci/visual/<head>/manifest.json and every required render, then write actual comparison review.

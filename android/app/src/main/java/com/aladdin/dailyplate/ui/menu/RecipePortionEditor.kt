@@ -55,8 +55,12 @@ internal fun RecipePortionEditor(detail: RecipeDetailData, back: () -> Unit, con
         Text(stringResource(R.string.pd_batch_scale), color = MaterialTheme.colorScheme.onSurfaceVariant)
         if (!exact) QidaCard {
             Text(stringResource(R.string.pd_eaten), style = MaterialTheme.typography.titleMedium)
-            SegmentedChoices(listOf("0.5" to stringResource(R.string.pd_half), "1.0" to stringResource(R.string.pd_one),
-                "2.0" to stringResource(R.string.pd_two)), parseEntryNumber(amount)?.toString() ?: "", { amount = it; invalid = false })
+            val choices = listOf("0.5" to stringResource(R.string.pd_half), "1.0" to stringResource(R.string.pd_one),
+                "2.0" to stringResource(R.string.pd_two))
+            val selected = parseEntryNumber(amount)?.toString() ?: ""
+            if (LocalConfiguration.current.locales[0].language == "ru") {
+                choices.forEach { (value, label) -> DesignChoice(label, selected == value, { amount = value; invalid = false }) }
+            } else SegmentedChoices(choices, selected, { amount = it; invalid = false })
             QidaField(stringResource(R.string.rd_personal), amount, { amount = it; invalid = false },
                 if (invalid) stringResource(R.string.rd_invalid) else null, numeric = true)
         } else QidaCard {

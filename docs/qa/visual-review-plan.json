@@ -16,7 +16,11 @@
         "android/app/src/test/java/com/aladdin/dailyplate/ui/FoodEntryUiTest.kt",
         "android/app/src/test/java/com/aladdin/dailyplate/ui/MenuUiTest.kt",
         "android/app/src/test/java/com/aladdin/dailyplate/ui/RecipeDetailTest.kt",
-        "android/app/src/main/res/drawable-nodpi/art_portion_scale.png"
+        "android/app/src/main/res/drawable-nodpi/art_portion_scale.png",
+        "android/app/src/main/res/values/portion_confirmation.xml",
+        "android/app/src/main/res/values-az/portion_confirmation.xml",
+        "android/app/src/main/res/values-en/portion_confirmation.xml",
+        "android/app/src/main/res/values-ru/portion_confirmation.xml"
       ],
       "requirements": [
         "Approved B design: labelled decorative illustration, white cards and turquoise tokens; no universal plate calories",
@@ -822,7 +826,11 @@
         "android/app/src/test/java/com/aladdin/dailyplate/ui/FoodEntryUiTest.kt",
         "android/app/src/test/java/com/aladdin/dailyplate/ui/MenuUiTest.kt",
         "android/app/src/test/java/com/aladdin/dailyplate/ui/RecipeDetailTest.kt",
-        "android/app/src/main/res/drawable-nodpi/art_portion_scale.png"
+        "android/app/src/main/res/drawable-nodpi/art_portion_scale.png",
+        "android/app/src/main/res/values/portion_confirmation.xml",
+        "android/app/src/main/res/values-az/portion_confirmation.xml",
+        "android/app/src/main/res/values-en/portion_confirmation.xml",
+        "android/app/src/main/res/values-ru/portion_confirmation.xml"
       ],
       "requirements": [
         "Approved B design: labelled decorative illustration, white cards and turquoise tokens; no universal plate calories",
@@ -1510,6 +1518,102 @@
           "language": "ru",
           "font_scale": 1.5,
           "state": "no-yield",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-az-1.0-middle",
+          "image": "k10/d02-recipe-portion-edit-az-1.0-middle.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-az-1.5-middle",
+          "image": "k10/d02-recipe-portion-edit-az-1.5-middle.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-en-1.0-middle",
+          "image": "k10/d02-recipe-portion-edit-en-1.0-middle.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-en-1.5-middle",
+          "image": "k10/d02-recipe-portion-edit-en-1.5-middle.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-ru-1.0-middle",
+          "image": "k10/d02-recipe-portion-edit-ru-1.0-middle.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-edit-ru-1.5-middle",
+          "image": "k10/d02-recipe-portion-edit-ru-1.5-middle.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "edit",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-az-1.0-middle",
+          "image": "k10/d02-recipe-portion-selected-az-1.0-middle.png",
+          "language": "az",
+          "font_scale": 1.0,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-az-1.5-middle",
+          "image": "k10/d02-recipe-portion-selected-az-1.5-middle.png",
+          "language": "az",
+          "font_scale": 1.5,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-en-1.0-middle",
+          "image": "k10/d02-recipe-portion-selected-en-1.0-middle.png",
+          "language": "en",
+          "font_scale": 1.0,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-en-1.5-middle",
+          "image": "k10/d02-recipe-portion-selected-en-1.5-middle.png",
+          "language": "en",
+          "font_scale": 1.5,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-ru-1.0-middle",
+          "image": "k10/d02-recipe-portion-selected-ru-1.0-middle.png",
+          "language": "ru",
+          "font_scale": 1.0,
+          "state": "selected",
+          "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
+        },
+        {
+          "id": "d02-recipe-portion-selected-ru-1.5-middle",
+          "image": "k10/d02-recipe-portion-selected-ru-1.5-middle.png",
+          "language": "ru",
+          "font_scale": 1.5,
+          "state": "selected",
           "reference": "design-concepts/simple-turquoise/approved/d02-portions.png"
         }
       ]
