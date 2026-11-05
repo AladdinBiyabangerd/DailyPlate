@@ -1,4 +1,4 @@
-# Current task — K14 full weekly shopping needs
+# Current task — K15 handoff after completed K14
 
 ## Completed
 - Removed numeric home input from production/test ShoppingPricing APIs and estimator.
@@ -8,7 +8,9 @@
 ## Current state
 - K14 arithmetic aligned with canonical planning/research-data.json §17.8/14,
   §19.8/18 and customization §6. No UI changes.
-- Final execution evidence is matching-HEAD .local-ci/logs/latest.json passed=true.
+- K14 implementation cb5e9b7 merged as ee00ed0; matching-head CI passed:
+  159 JVM tests, lint, compilation, tokens, library contracts and canonical exports.
+- User requested the next milestone: K15. No K15 code has been written.
 
 ## Decisions
 - Optional “Evdə var” is not a pricing input and cannot imply free purchases.
@@ -38,5 +40,17 @@
   latest.json for result. No APK or device tests authorized or run.
 
 ## Exact next step
-- After green merged-main CI, choose the next separately scoped implementation
-  unit from planning/coding-tasks.txt; do not treat K17 persistence/UI as complete.
+- Implement K15 in a new chat. Read this file, .local-ci/README.md and
+  .cursor/rules/code-organization.mdc; verify status/hooks and start a task branch.
+- Read current canonical planning/research-data.json §7–8, §11–12, §17–18,
+  §21 R-06, §22 C-01–C-10, §25 A-04/A-06–A-08/A-12 and binding
+  docs/nutrition-plan-design.md; consult planning/coding-tasks.txt K15.
+- Inspect existing K08/K13 nutrition screening, portion/feasibility and K14 pricing
+  components before defining bounded deterministic generation. Reuse them.
+- Identify acceptance cases before coding: 7 days × 3/4/5 slots, real portion
+  min/max/step, daily/weekly nutrients, variety/time/package budget, explanations
+  and alternatives; 4 goals × 3 budget tiers × 3 slot counts × 3 time limits = 108.
+- Return an explicit reason when hard rules cannot pass; missing nutrients are
+  UNKNOWN, not verified. No silent budget relaxation or goal inflation by slots.
+- Use approved test fixtures without claiming real catalog/G3/G4 acceptance.
+  Finish through local merge-main CI only. Do not create APKs.
