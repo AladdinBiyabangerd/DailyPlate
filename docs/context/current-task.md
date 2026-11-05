@@ -33,7 +33,8 @@
 ## Checks performed
 - Read local workflow, organization, K16 and scoped canonical/customization requirements.
 - Clean starting tree and expected hooks verified; dedicated local branch used.
-- Tests run only through mandatory finish after merge; inspect matching-head CI result.
+- First merged-main CI passed: 174 JVM/Room tests, lint, Kotlin compilation, tokens, Python/library/export checks.
+- Follow-up validates confirmed batch share/basis; inspect final matching-head CI result.
 - No UI render, APK, device, real catalog, clinical or pricing acceptance claimed.
 
 ## Exact next step
