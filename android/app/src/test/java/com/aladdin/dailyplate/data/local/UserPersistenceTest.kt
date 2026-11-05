@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import com.aladdin.dailyplate.domain.*
+import com.aladdin.dailyplate.domain.entry.repeatDraft
 import java.util.concurrent.Callable
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.Executors
@@ -130,4 +131,22 @@ class UserPersistenceTest {
         repositories.editDrafts.save(draft, 0)
         assertEquals(draft, repositories.editDrafts.version(draft.userId, draft.ref))
     }
+    @Test fun recentEntriesUseLatestRevisionOwnerAndConsumptionOrderWithoutRepeatWrites() {
+        val original = log()
+        repositories.foodLogs.record(original)
+        val revised = original.copy(ref = original.ref.copy(version = 2),
+            consumedAt = RecordedAt("2026-01-01T10:00:00Z", "UTC"))
+        repositories.foodLogs.revise(revised, 1)
+        val newer = original.copy(ref = VersionRef("new-entry", 1), clientEventId = "new-event",
+            consumedAt = RecordedAt("2026-11-05T10:00:00Z", "Asia/Baku"))
+        repositories.foodLogs.record(newer)
+        repositories.foodLogs.record(original.copy(userId = "other"))
+        assertEquals(listOf(newer, revised), repositories.foodLogs.recent(original.userId))
+        val draft = revised.repeatDraft("Previous meal", newer.consumedAt)
+        assertEquals(newer.consumedAt, draft.consumedAt)
+        assertEquals(revised, draft.previous)
+        assertEquals(listOf(newer, revised), repositories.foodLogs.recent(original.userId))
+        assertEquals(original, repositories.foodLogs.version(original.userId, original.ref))
+    }
+
 }

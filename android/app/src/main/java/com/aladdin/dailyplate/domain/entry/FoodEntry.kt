@@ -41,6 +41,7 @@ data class PortionDraft(
         require((method == EntryMethod.PREVIOUS) == (previous != null))
         require((unit == EntryUnit.PREVIOUS_PORTION) == (previous != null))
         require(unit != EntryUnit.KILOGRAM || (quantity * 1000).isFinite())
+        require(grams == null || (requireNotNull(grams).isFinite() && requireNotNull(grams) > 0))
         require(nutrientsPerBasis.values.values.none { it.value != null } || !source.isNullOrBlank())
     }
     val grams: Double? get() = when (unit) {
