@@ -5,6 +5,7 @@ import androidx.test.core.app.ApplicationProvider
 import com.aladdin.dailyplate.domain.VersionRef
 import com.aladdin.dailyplate.domain.planning.CandidateCatalog
 import com.aladdin.dailyplate.domain.planning.WeeklyPlanningData
+import com.aladdin.dailyplate.domain.planning.WeeklyPlanningFixture
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
