@@ -1,46 +1,48 @@
-# Current task — NP-16 review and symptom suspension
+# Current task — execution queue reconciliation
 
 ## Completed
-- Prior calculation activation is merged at 20473a9; matching main CI passed.
-- Added recent voluntary-weight consumer, 14-day review, editor prefill with
-  explicit measurement reconfirmation, and immediate target suspension reports.
-- Suspension is persisted in append-only profile/assessment revisions, blocks
-  automatic and specialist active targets, survives ordinary edits and restart.
+- Reconciled planning/coding-tasks.txt with existing code and acceptance evidence.
+- K13 hard filters exist (00a0ca2); K08-v2 integration/activation is already on main
+  (20473a9). NP-16 is complete (47cb07d; final acceptance/context 5daf7de).
+- Corrected stale K13-next, research-not-integrated and inactive-calculation claims.
 
 ## Current state
-- Implementation merged at 47cb07dfc944; matching main CI passed all 151 JVM tests,
-  lint, compilation, token/contrast, data contracts and export parity.
-- This completion-note commit uses the same mandatory finish lifecycle; latest.json
-  matching current main remains the authoritative final check.
+- Before this documentation update, main 5daf7de had matching green CI: 151 JVM
+  tests, lint/compile, tokens/contrast, library contracts and canonical export parity.
+- This documentation-only unit uses finish; authoritative final result is
+  .local-ci/logs/latest.json with head equal to current main HEAD and passed=true.
+- K14 is next in the implementation queue; it has NOT been started in this unit.
 
 ## Decisions
-- Last 14 local calendar days including today; at least 3 measurements, no future
-  instants, duplicate instants or superseded revisions. No calorie titration.
-- No invented clinical clearance/resume flow; professional support guidance.
-- No catalog/menu activation, remote actions or APK creation.
+- Current automatic energy/macros are explicitly user-enabled under canonical §30.
+  Catalog/menu approval remains separate and blocked; no new clinical approval.
+- NP-17–23 macro/menu-check core exists, but does not complete K15 generation,
+  full nutrient coverage or real published-portion validation.
+- Existing models/contracts are preparation, not acceptance of K14–K34.
+- Only coding-tasks.txt and this context changed. No app/canonical plan/UI changes.
 
 ## Remaining work
-- No remaining NP-16 work in this scoped unit.
-- Device/pilot and broader weight-entry/progress milestones remain unverified.
+- Await a separate instruction before K14 implementation. Inspect pricing contracts
+  and plan §17/19.8, §21 R-06, A-07/A-08 and customization §6 first.
+- K15 generator and K27 broader weight entry/progress remain separate milestones.
+- Device/APK/pilot, clinical effectiveness and real catalog/price acceptance remain
+  unverified. No APK or remote actions authorized/performed.
 
 ## Relevant files
-- domain/profile/NutritionReview.kt; domain/Profile.kt
-- ui/profile/NutritionReviewCard.kt, ProfileScreen.kt, ProfileEditor.kt
-- docs/qa/android-np16-acceptance.md
-- planning/nutrition-science-implementation-plan.txt §27 NP-16
-- Kotlin paths above are under android/app/src/main/java/com/aladdin/dailyplate/.
+- planning/coding-tasks.txt; planning/nutrition-science-implementation-plan.txt
+- docs/nutrition-plan-design.md §30 (canonical source: planning/research-data.json)
+- docs/qa/android-k13-acceptance.txt; android-k08-v2-implementation.md;
+  android-np16-acceptance.md (all under docs/qa/)
+- android/app/src/main/java/com/aladdin/dailyplate/domain/planning/RecipeCandidateFilter.kt
+- android/app/src/main/java/com/aladdin/dailyplate/domain/policy/NutritionPlanning.kt
+- android/app/src/main/java/com/aladdin/dailyplate/domain/policy/NutritionMenuChecks.kt
 
 ## Checks performed
-- git diff --check. Post-merge domain/Room tests passed; APK-free compilation and
-  lint passed. UI test caught retained scroll between locales; fixed by scrolling
-  the asserted review label into view. AZ/EN/RU review/suspended PNGs visually
-  inspected at 1.5x font; no clipping in the visible text/buttons.
-- Explicit values-az locale parity repaired after first CI failure.
-- Final repair CI passed 151 JVM tests with no failures/errors/skips.
-- PNG evidence: .local-ci/np16-screenshots/np16-{review,suspended}-*-large.png.
-- No branch CI, APK or device checks.
+- Read code, acceptance records and commit history; verified clean initial tree,
+  hooksPath=.local-ci/hooks and baseline matching-head green CI.
+- Documentation diff/whitespace review; final post-merge check via workflow finish.
+- No branch/manual CI, new UI render, APK or device checks.
 
 ## Exact next step
-- In a new chat, read this note and planning/coding-tasks.txt, verify the current
-  milestone acceptance records before choosing the next menu/progress unit.
-  This unit does not implement broader weight-entry UI or menu generation.
+- Read this note and coding-tasks.txt. K14 is the next implementation candidate;
+  start it only on a separate user instruction. Do not repeat K13 or NP-16.
