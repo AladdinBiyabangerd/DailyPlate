@@ -29,6 +29,24 @@ class ProfileEditTest {
         assertEquals("pending_k16_preview", preview.request.status)
     }
 
+    @Test fun hiddenReproductiveQuestionsCannotSilentlyWithdrawExplicitRisks() {
+        val p = base().copy(calculationSex = CalculationSex.MALE, pregnant = true, breastfeeding = true)
+        val preview = ProfileEdit.preview(p, ProfileEdit.draft(p).change("goal", "GAIN"), "", false,
+            "Goal only", at, date)
+        assertEquals(true, preview.after.pregnant)
+        assertEquals(true, preview.after.breastfeeding)
+        assertEquals("excluded", preview.after.eligibilityStatus)
+        val changedSex = ProfileEdit.draft(p).change("sex", "MALE").change("goal", "GAIN")
+        val retained = ProfileEdit.preview(p, changedSex, "", false, "Keep explicit risks", at, date)
+        assertEquals(true, retained.after.pregnant)
+        assertEquals(true, retained.after.breastfeeding)
+        val explicit = ProfileEdit.draft(p).change("sex", "FEMALE")
+            .change("pregnant", "no").change("breastfeeding", "no")
+        val corrected = ProfileEdit.preview(p, explicit, "", false, "Corrected answers", at, date)
+        assertEquals(false, corrected.after.pregnant)
+        assertEquals(false, corrected.after.breastfeeding)
+    }
+
     @Test fun ageRequiresExplicitConfirmationAndNeverSilentlyAdvances() {
         val p = base()
         val edited = ProfileEdit.draft(p).change("age", "31")
