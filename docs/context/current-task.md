@@ -1,43 +1,38 @@
-# Current task — K13
+# Current task — K08-v2 slice 1 (isolated, not integrated)
 
 ## Completed
-- K13 pure deterministic recipe candidate filter and typed rule results.
-- K03 exact ingredient versions, K05 publication completeness and K08 eligibility
-  reused; production gate stays closed. Internal fixtures remain test-only.
-- Allergy/cross contact/unknown compound or mapping, dietary restrictions,
-  region/equipment, dislikes, total time and recipe portion grid are hard checks.
+- Read research 479f7ee context, design §26–29 and candidate JSON; compared main
+  K08 arithmetic, snapshots and downstream candidate call sites.
+- Internal formula dispatch with eight NASEM coefficient rows/four categories,
+  explicit failures and nullable resting estimate. V1 Mifflin delegates arithmetic.
+- Added regression tests; none executed. Slice plan/acceptance in
+  docs/qa/android-k08-v2-implementation.md.
 
 ## Current state
-- K13 worktree /private/tmp/callmood-k13; canonical plan 2.0 merged from main.
-  Preserve its canonical JSON and generated MD/TXT/PDF/canvas.
-- See matching-head .local-ci/logs/latest.json for final main CI result.
+- Worktree /private/tmp/callmood-k08-v2; branch feat/k08-v2-formula.
+- Base b775fb2 already included research merge before this task; no merge here.
+- Branch retained separately; no finish/CI/APK by explicit user instruction.
 
 ## Decisions
-- No UI or APK. No fake policy/publication activation.
-- Missing equipment is unknown when required; onboarding is not expanded.
-- SUCCESS is candidate-stage only; K15 owns day/week/nutrient validation.
-- Plan 2.0 additions C-05/C-08/C-09, D-02/D-05 and A-05 apply.
-  Separate plan task commits remain intact in main history.
+- Arithmetic is internal, not a personal target or v2 persistence contract.
+- V1 engine still rejects NASEM. No silent legacy activity mapping.
+- Candidate remains RESEARCH_PROPOSAL; no G2/G3, approval or production changes.
+- Serialization/storage/FoodLog and menu generator unchanged.
 
 ## Remaining work
-- K14 pricing next; K15 generator follows. Production G2/G3 remain blocked.
-- Real catalog, device and clinical acceptance remain unverified.
+- Slice 2 v2 typed contract/eligibility; slice 3 macros/menu bounds;
+  slice 4 backward-compatible migration/reconfirmation; slice 5 integration.
+- No claim of full K08-v2 completion or passing runtime acceptance.
 
 ## Relevant files
-- domain/planning/{CandidateContracts,RecipeCandidateFilter}.kt
-- domain/planning/RecipeCandidateFilterTest.kt; docs/qa/android-k13-acceptance.txt
-- planning/coding-tasks.txt; planning/nutrition-science-implementation-plan.txt
+- domain/policy/{EnergyFormula,NutritionPolicyEngine}.kt and EnergyFormulaTest.kt
+  under android/app/src/{main,test}/java/com/aladdin/dailyplate/.
+- docs/qa/android-k08-v2-implementation.md; planning/nutrition-policy-candidate.json
+- docs/nutrition-plan-design.md §26–29; planning/nutrition-science-implementation-plan.txt
 
 ## Checks performed
-- See final matching-main CI log for Kotlin compilation/lint, JVM tests, library
-  contracts and canonical export checks. No pre-merge CI or APK checks.
+- Source review and git diff --check; no CI, compile, tests, APK, device or clinical checks.
 
 ## Exact next step
-- Verify matching-main CI, then read K14 and its referenced plan before coding.
-
-## Separate nutrition-policy research handoff (not integrated)
-- This worktree/branch adds plan §26–29 and exact disabled policy proposal.
-- Detailed Completed/State/Decisions/Remaining/Files/Checks/Next step:
-  docs/context/nutrition-policy-research.md.
-- User requires a separate branch; no main merge, no CI, no app code activation.
-  Continue K14 in its own worktree using main's plan until integration is requested.
+- Review slice 1 diff, then implement only slice 2 on this isolated branch after
+  reading QA slice plan and NP-07–12/NP-28. Preserve v1 payloads and production gate.
