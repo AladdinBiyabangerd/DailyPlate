@@ -51,6 +51,7 @@ class OnboardingUiTest {
         val context = ApplicationProvider.getApplicationContext<Application>()
         OnboardingStore(context).queueSave(readyOnboarding().change("sex", "MALE").copy(step = 1)).get()
         compose.onNodeWithText("Başlayaq").performScrollTo().performClick()
+        compose.waitUntil(10000) { compose.onAllNodesWithText("65,2").fetchSemanticsNodes().isNotEmpty() }
         compose.onNodeWithText("Davam et").performScrollTo().performClick()
         compose.onNodeWithText("Hamiləlik").assertDoesNotExist()
         compose.onNodeWithText("Südvermə").assertDoesNotExist()
