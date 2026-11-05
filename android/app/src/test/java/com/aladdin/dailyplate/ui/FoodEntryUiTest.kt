@@ -49,6 +49,35 @@ class FoodEntryUiTest {
             file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
         }
     }
+    @Test fun savedRecordSurvivesRestartAndCanBeEditedAndDeleted() {
+        val c = base.createConfigurationContext(android.content.res.Configuration(base.resources.configuration).apply {
+            setLocale(Locale.forLanguageTag("az"))
+        })
+        fun t(id: Int) = c.getString(id)
+        click("Hesabım var"); click("Davam et"); click("Əlavə et")
+        compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.fe_manual)).fetchSemanticsNodes().isNotEmpty() }
+        click(t(R.string.fe_manual))
+        enter(t(R.string.fe_name), "K12 yemək"); enter(t(R.string.fe_amount), "150")
+        click(t(R.string.fe_prepare)); click(t(R.string.fe_prepare)); click(t(R.string.pc_confirm))
+        compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.pc_saved)).fetchSemanticsNodes().isNotEmpty() }
+        compose.activityRule.scenario.recreate()
+        click(t(R.string.td_edit))
+        compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.td_multiple)).fetchSemanticsNodes().isNotEmpty() }
+        capture("k12-edit-az")
+        compose.onNodeWithText(t(R.string.td_multiple)).performScrollTo().performTextReplacement("2")
+        click(t(R.string.fe_prepare)); click(t(R.string.pc_confirm))
+        compose.waitUntil(10000) { compose.onAllNodesWithText("300.0 " + t(R.string.fe_grams)).fetchSemanticsNodes().isNotEmpty() }
+        capture("k12-today-az")
+        click(t(R.string.td_edit)); click(t(R.string.td_delete))
+        compose.onNodeWithText(t(R.string.td_delete_question)).assertExists()
+        capture("k12-delete-confirm-az")
+        compose.onAllNodesWithText(t(R.string.td_delete)).onLast().performClick()
+        compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.empty_today)).fetchSemanticsNodes().isNotEmpty() }
+        compose.activityRule.scenario.recreate()
+        compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.empty_today)).fetchSemanticsNodes().isNotEmpty() }
+        capture("k12-empty-az")
+    }
+
     @Test fun failedWriteRetriesSameEventAndOnlyThenShowsSuccess() {
         val config = android.content.res.Configuration(base.resources.configuration).apply { setLocale(Locale.forLanguageTag("az")) }
         val context = base.createConfigurationContext(config)

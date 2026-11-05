@@ -1,0 +1,11 @@
+<resources>
+    <string name="td_edit">Qeydə düzəliş et</string>
+    <string name="td_delete">Qeydi sil</string>
+    <string name="td_delete_question">Bu qeyd silinsin?</string>
+    <string name="td_multiple">Əvvəlki porsiyanın misli</string>
+    <string name="td_remaining">Qalan təxmini enerji: %1$.1f kcal</string>
+    <string name="td_over">Hədəfdən %1$.1f kcal çox qeyd edilib. Yeməyə davam edə bilərsən.</string>
+    <string name="td_remaining_unknown">Qalan enerji məlum deyil.</string>
+    <string name="td_write_error">Dəyişiklik saxlanmadı. Yenidən yoxla və təkrar təsdiqlə.</string>
+    <string name="td_missing">Qeyd tapılmadı və ya silinib.</string>
+</resources>

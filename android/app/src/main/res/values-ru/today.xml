@@ -1,0 +1,11 @@
+<resources>
+    <string name="td_edit">Изменить запись</string>
+    <string name="td_delete">Удалить запись</string>
+    <string name="td_delete_question">Удалить эту запись?</string>
+    <string name="td_multiple">Доля сохранённой порции</string>
+    <string name="td_remaining">Осталось примерно: %1$.1f ккал</string>
+    <string name="td_over">Записано на %1$.1f ккал больше цели. Можно продолжать есть.</string>
+    <string name="td_remaining_unknown">Оставшаяся энергия неизвестна.</string>
+    <string name="td_write_error">Изменение не сохранено. Обновите и подтвердите снова.</string>
+    <string name="td_missing">Запись не найдена или удалена.</string>
+</resources>
