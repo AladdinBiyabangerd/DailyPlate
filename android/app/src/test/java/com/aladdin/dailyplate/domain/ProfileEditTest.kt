@@ -12,7 +12,7 @@ class ProfileEditTest {
         .change("disliked_foods", "onion").profile("az", at, CalendarDate("2026-11-04"))
 
     @Test fun previewPreservesOldAgeAndUntouchedDataAndDoesNotInventClinicalTarget() {
-        val p = base().copy(dislikedFoodIds = setOf("fdc:123", "user:onion"), equipment = setOf("oven"))
+        val p = base().copy(eligibilityAnswers = mapOf("future_screening" to true), dislikedFoodIds = setOf("fdc:123", "user:onion"), equipment = setOf("oven"))
         val draft = ProfileEdit.draft(p)
         assertEquals("AZN", draft.answer("currency"))
         val preview = ProfileEdit.preview(p, draft.change("goal", "GAIN"), "", false, "New goal", at, date)
@@ -22,6 +22,7 @@ class ProfileEditTest {
         assertEquals(p.allergies, preview.after.allergies)
         assertEquals(p.dislikedFoodIds, preview.after.dislikedFoodIds)
         assertEquals(p.equipment, preview.after.equipment)
+        assertEquals(true, preview.after.eligibilityAnswers["future_screening"])
         assertEquals(TargetPath.GENERAL, preview.assessment.path)
         assertNull(preview.assessment.dailyKcal)
         assertEquals(setOf("goal"), preview.request.changedFields)

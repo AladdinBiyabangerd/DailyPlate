@@ -1,43 +1,59 @@
-# Current task — K09 profile changes and target explanation
+# Current task — K09 completed; next unit K10
 
 ## Completed
-- Shared K07 form controls now drive an isolated profile editor with body/goal/
-  preferences, specialist target, age confirmation, reason and before/after preview.
-- Atomic profile + assessment + K16 request append; cancel has no writes, retries
-  are idempotent, stale edits conflict, historical logs/plans/assessments stay frozen.
-- Profile exposes “Nəyə əsasən?” history with dates, inputs, formula/policy metadata,
-  readable reasons and explicit general/specialist/test-only limitations.
-- FuturePlanPreview/Acceptance defines separate exact-revision confirmation;
-  actual menu calculation/application remains K16. G2 stays closed.
+- K09: isolated profile/body/goal/preference editor, specialist target, explicit age
+  confirmation, reason, before/after preview and cancel/confirm flow.
+- Atomic append of profile + assessment + pending K16 request; idempotent retry,
+  stale-edit conflict, write-failure rollback and legacy profiles without assessments.
+- “Nəyə əsasən?” history exposes saved inputs/date/timezone, formula/policy versions
+  where present, S6 link for Mifflin v1, readable general/specialist/test-only reasons.
+- FuturePlanPreview/Acceptance binds exact revisions and preserves past/consumed
+  items, dates/slots and log references. Real menu computation/application is K16.
+- Feature commit 77ddc7d; fixes b3ec08a, 7e4d158, 81ae53a, cd85fb7.
+  Final acceptance/timestamp commit is discoverable in git log after these commits.
 
 ## Current state
-- Task branch feat/k09-profile-revisions; merge/CI evidence must be checked in
-  git log and .local-ci/logs/latest.json (main HEAD, passed=true).
-- User AGENTS.md change is separately stashed as user-agents-k09; restore after finish.
+- Local main; final merge/CI truth is .local-ci/logs/latest.json: passed=true and
+  head must match git rev-parse HEAD. Last verified implementation main: 3964ca8.
+- User's unrelated AGENTS.md edit is preserved separately and restored after the
+  final finish; never include it in task commits. No remote/push/deployment.
 
 ## Decisions
-- Reuse onboarding validation without writing to the onboarding draft.
-- Keep age-as-of unchanged unless explicitly confirmed; never guess a birthday.
-- Persist nullable budget currency even without an amount; unknown legacy currency
-  is entered by the user. No prices, clinical rules or activation invented.
-- Profile save does not apply a future menu; pending K16 request says so explicitly.
+- Reuse K07 controls/validation without writing edits to the onboarding draft.
+- Preserve age-as-of unless explicitly confirmed; never guess birthday/age.
+- Store nullable currency without requiring a budget amount; legacy unknown
+  currency is entered by the user. Preserve fields outside this editor.
+- Profile confirmation leaves existing menus and past logs unchanged; the K16
+  request remains pending, and a computed menu needs separate preview/acceptance.
+- G2 stays closed; no clinical coefficients, thresholds, prices or approvals invented.
 
 ## Remaining work
-- K10 next. K16 real recalculation/delta/confirmation integration; G2 clinical approval.
-- Device/APK/TalkBack remain unverified. Native JVM render inspection follows CI.
+- K10 next. K16 real recalculation/delta/application integration. G2 approval.
+- APK/device/emulator/TalkBack and clinical acceptance unverified. Formula-source
+  link interaction and test-only calculation UI are not device-tested.
 
 ## Relevant files
 - domain/profile/{ProfileEdit,FuturePlanPreview}.kt; domain/Profile.kt
 - data/local/{ProfileEditRepository,UserRepositories,UserSnapshotRepository}.kt
 - ui/profile/*.kt; ui/onboarding/ProfileAnswerFields.kt; res/values*/profile.xml
-- src/test/.../{domain/ProfileEditTest,data/local/ProfileEditPersistenceTest,ui/ProfileUiTest}.kt
+- tests: domain/ProfileEditTest, data/local/ProfileEditPersistenceTest, ui/ProfileUiTest
 - docs/qa/android-k09-acceptance.txt; planning/coding-tasks.txt
-- planning/research-data.json; nutrition-science-implementation-plan.txt §3/18–19 for K10
+- K10 sources: planning/research-data.json; nutrition-science-implementation-plan.txt §3/18–19
+- K10 reuse: data/local/LibraryCatalog.kt and domain/nutrition; inspect scoped files.
 
 ## Checks performed
-- Source review and git diff --check. Mandatory CI executes only after merge to main;
-  consult latest.json for actual result. No branch CI or APK creation.
+- Implementation main 3964ca8: 80 JVM/Room/Compose tests (no failure/error/skip),
+  lintDebug, compileDebugKotlin; 15 library tests, Python/JSON/export parity.
+- AZ/EN/RU string parity; palette contrast 4.71–12.70:1 (all required pairs >=4.5).
+- Inspected native JVM PNGs: profile/editor/editor-bottom/explanation AZ/EN/RU
+  at 100%/150%, plus AZ changed-input preview and saved-history flow. They wrap
+  and scroll; this does not establish physical-device accessibility acceptance.
+- Artifacts: .local-ci/reports/k09; retained XML: .local-ci/reports/k09-test-results.
+- Final timestamp display uses local zone and minute precision to avoid splitting
+  raw ISO fractions; final merged-main CI rerenders the same matrix.
+- No branch CI, APK packaging, installation, device tests or remote operations.
 
 ## Exact next step
-- Finish K09 merged-main CI and inspect retained native PNGs, then restore AGENTS.md.
-- New chat: execute K10 using the queue continuation prompt; do not start K11.
+- In a new chat, implement only K10 using planning/coding-tasks.txt's continuation
+  prompt. Read this handoff first. Keep K03/K04 contracts, G3 gates and ui-craft.
+- K11 owns actual food-log save/confirmation; do not silently implement it in K10.

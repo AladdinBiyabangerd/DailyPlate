@@ -48,7 +48,9 @@ fun TargetExplanation(profile: UserProfile, assessment: NutritionAssessment?) {
     QidaCard {
         Text(stringResource(R.string.pf_basis), style = MaterialTheme.typography.titleLarge)
         Text(stringResource(R.string.pf_version, profile.ref.version))
-        Text(profile.updatedAt.instant + " · " + profile.updatedAt.timezone)
+        Text(java.time.Instant.parse(profile.updatedAt.instant).atZone(java.time.ZoneId.of(profile.updatedAt.timezone))
+            .format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")))
+        Text(profile.updatedAt.timezone)
         Text(stringResource(when (assessment?.path) {
             TargetPath.SPECIALIST -> R.string.pf_specialist_note
             TargetPath.AUTOMATIC_TEST -> R.string.pf_test_only
