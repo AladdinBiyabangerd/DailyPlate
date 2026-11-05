@@ -49,4 +49,8 @@
     <string name="pf_menu_unverified">This calculation is not a fully balanced menu. Catalog, portions and full nutrient coverage remain unverified. Review after 14 days; no trend or calorie adjustment without at least 3 voluntary measurements in the last 14 days. Stop the target and seek professional support for new symptoms.</string>
     <string name="pf_scope_needed">This goal or BMI is outside automatic target scope. A diary without a target and professional support remain available.</string>
     <string name="ob_review_target">Review and confirm calculation</string>
+    <string name="pf_eer_source">Source: Health Canada — NASEM 2023 adult EER (S23/S24)</string>
+    <string name="pf_estimated_kcal">Estimated target: %1$s kcal/day</string>
+    <string name="pf_review_due">Your 14-day review is due. Check weight, activity and age in your profile; the calculation changes only after preview and confirmation.</string>
+    <string name="pf_review_date">First review date: %1$s</string>
 </resources>

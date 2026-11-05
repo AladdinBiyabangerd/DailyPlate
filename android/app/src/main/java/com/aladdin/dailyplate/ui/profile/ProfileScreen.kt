@@ -12,6 +12,7 @@ import com.aladdin.dailyplate.R
 import com.aladdin.dailyplate.data.local.*
 import com.aladdin.dailyplate.domain.UserProfile
 import com.aladdin.dailyplate.domain.policy.NutritionAssessmentRecord
+import com.aladdin.dailyplate.domain.policy.reviewDate
 import com.aladdin.dailyplate.domain.profile.ProfileChangeRecord
 import com.aladdin.dailyplate.ui.*
 import kotlinx.coroutines.*
@@ -71,7 +72,18 @@ fun ProfileScreen(resetScroll: () -> Unit, setup: () -> Unit) {
     ProfileAction(stringResource(R.string.ob_goal)) { editing = 0 }
     ProfileAction(stringResource(R.string.pf_food_choices)) { editing = 3 }
     QidaButton(stringResource(R.string.pf_basis), { explain = !explain })
-    QidaCard { Text(stringResource(R.string.pf_general)); Text(stringResource(R.string.pf_future)) }
+    history.firstOrNull()?.second?.assessment?.reviewDate()?.let { due ->
+        if (!java.time.LocalDate.now().isBefore(due)) {
+            QidaCard { Text(stringResource(R.string.pf_review_due)) }
+            QidaButton(stringResource(R.string.ob_profile), { editing = 1 })
+        }
+    }
+    QidaCard {
+        val current = history.firstOrNull()?.second?.assessment
+        Text(stringResource(if (current?.path == com.aladdin.dailyplate.domain.policy.TargetPath.AUTOMATIC)
+            R.string.pf_current_target else R.string.pf_general))
+        Text(stringResource(R.string.pf_future))
+    }
     if (explain) history.forEach { (version, assessment) ->
         changes.firstOrNull { it.ref == version.ref }?.let { QidaCard { Text(stringResource(R.string.pf_reason) + ": " + it.request.reason) } }
         TargetExplanation(version, assessment?.assessment)

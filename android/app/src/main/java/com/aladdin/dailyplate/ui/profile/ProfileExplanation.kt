@@ -62,11 +62,12 @@ fun TargetExplanation(profile: UserProfile, assessment: NutritionAssessment?) {
             TargetPath.AUTOMATIC -> R.string.pf_current_target
             else -> R.string.pf_general
         }))
-        assessment?.dailyKcal?.let { Text(stringResource(R.string.pf_kcal, number(it))) }
+        assessment?.dailyKcal?.let { Text(stringResource(
+            if (assessment.path == TargetPath.AUTOMATIC) R.string.pf_estimated_kcal else R.string.pf_kcal, number(it))) }
         assessment?.currentCalculation?.let { current ->
             Text(stringResource(R.string.pf_current_basis))
             TextButton(onClick = { uri.openUri("https://www.canada.ca/en/health-canada/services/food-nutrition/healthy-eating/dietary-reference-intakes/tables/equations-estimate-energy-requirement.html") }) {
-                Text(stringResource(R.string.pf_formula_source))
+                Text(stringResource(R.string.pf_eer_source))
             }
             Text(stringResource(R.string.pf_maintenance, current.energy.maintenanceKcal?.let(::number) ?: "—"))
             current.macros?.let { macros ->
@@ -74,6 +75,7 @@ fun TargetExplanation(profile: UserProfile, assessment: NutritionAssessment?) {
                     number(macros.fatGrams), number(macros.availableCarbohydrateGrams)))
             }
             current.bounds?.let { Text(stringResource(R.string.pf_energy_interval, number(it.lowerKcal), number(it.upperKcal))) }
+            assessment.reviewDate()?.let { Text(stringResource(R.string.pf_review_date, it.toString())) }
             Text(stringResource(R.string.pf_menu_unverified))
         }
         assessment?.calculation?.let { c ->
