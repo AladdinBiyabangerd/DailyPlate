@@ -73,7 +73,8 @@ fun PortionDraftEditor(draft: PortionDraft, back: () -> Unit, update: (PortionDr
     QidaCard {
         Text(draft.name, style = MaterialTheme.typography.titleMedium)
         draft.preparationState?.let { Text(it) }
-        draft.source?.let { Text(it, color = MaterialTheme.colorScheme.onSurfaceVariant) }
+        draft.source?.takeUnless { draft.unit == EntryUnit.PREVIOUS_PORTION }
+            ?.let { Text(it, color = MaterialTheme.colorScheme.onSurfaceVariant) }
         Text(Instant.parse(draft.consumedAt.instant).atZone(ZoneId.of(draft.consumedAt.timezone))
             .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm z")))
     }
