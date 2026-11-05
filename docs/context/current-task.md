@@ -10,11 +10,11 @@
 - FuturePlanPreview/Acceptance binds exact revisions and preserves past/consumed
   items, dates/slots and log references. Real menu computation/application is K16.
 - Feature commit 77ddc7d; fixes b3ec08a, 7e4d158, 81ae53a, cd85fb7.
-  Final acceptance/timestamp commit is discoverable in git log after these commits.
+  Final acceptance/timestamp commit: 3356617.
 
 ## Current state
 - Local main; final merge/CI truth is .local-ci/logs/latest.json: passed=true and
-  head must match git rev-parse HEAD. Last verified implementation main: 3964ca8.
+  head must match git rev-parse HEAD. Last verified implementation main: 1fdd3ac.
 - User's unrelated AGENTS.md edit is preserved separately and restored after the
   final finish; never include it in task commits. No remote/push/deployment.
 
@@ -39,10 +39,10 @@
 - tests: domain/ProfileEditTest, data/local/ProfileEditPersistenceTest, ui/ProfileUiTest
 - docs/qa/android-k09-acceptance.txt; planning/coding-tasks.txt
 - K10 sources: planning/research-data.json; nutrition-science-implementation-plan.txt §3/18–19
-- K10 reuse: data/local/LibraryCatalog.kt and domain/nutrition; inspect scoped files.
+- K10 reuse: data/local/LibraryDatabase.kt (CatalogRepository) and domain/nutrition; inspect scoped files.
 
 ## Checks performed
-- Implementation main 3964ca8: 80 JVM/Room/Compose tests (no failure/error/skip),
+- Implementation main 1fdd3ac: 80 JVM/Room/Compose tests (no failure/error/skip),
   lintDebug, compileDebugKotlin; 15 library tests, Python/JSON/export parity.
 - AZ/EN/RU string parity; palette contrast 4.71–12.70:1 (all required pairs >=4.5).
 - Inspected native JVM PNGs: profile/editor/editor-bottom/explanation AZ/EN/RU
@@ -50,7 +50,7 @@
   and scroll; this does not establish physical-device accessibility acceptance.
 - Artifacts: .local-ci/reports/k09; retained XML: .local-ci/reports/k09-test-results.
 - Final timestamp display uses local zone and minute precision to avoid splitting
-  raw ISO fractions; final merged-main CI rerenders the same matrix.
+  raw ISO fractions; inspected the final AZ/EN/RU 150% explanation renders.
 - No branch CI, APK packaging, installation, device tests or remote operations.
 
 ## Exact next step
