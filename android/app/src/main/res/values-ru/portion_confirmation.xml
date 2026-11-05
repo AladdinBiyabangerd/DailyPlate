@@ -7,4 +7,8 @@
     <string name="pc_retry">Повторить</string>
     <string name="pc_estimate">Приблизительная пищевая ценность вашей порции</string>
     <string name="pc_photo_closed">Мало/Средне/Много доступны только с проверенным весом рецепта и реальными фото порций. Сейчас введите точное количество.</string>
+    <string name="pc_energy">Энергия</string>
+    <string name="pc_protein">Белок</string>
+    <string name="pc_fat">Жиры</string>
+    <string name="pc_carbs">Углеводы</string>
 </resources>

@@ -34,9 +34,10 @@ fun PortionDraftEditor(draft: PortionDraft, back: () -> Unit, update: (PortionDr
         QidaHeading(stringResource(R.string.pc_saved))
         QidaCard {
             Text(requireNotNull(log.displayName))
-            Text("${log.enteredQuantity} ${log.enteredUnit}")
+            Text("${log.enteredQuantity} ${portionUnitLabel(log.enteredUnit)}")
+            Text(stringResource(R.string.pc_estimate))
+            PortionNutrients(log.nutrientSnapshot)
             Text(stringResource(R.string.pc_local))
-            Text(log.ref.id)
         }
         QidaButton(stringResource(R.string.pc_another), back)
         return
@@ -84,12 +85,10 @@ fun PortionDraftEditor(draft: PortionDraft, back: () -> Unit, update: (PortionDr
     if (ready) QidaCard {
         Text(stringResource(R.string.fe_ready))
         Text(stringResource(R.string.fe_unknown))
-        Text("${draft.quantity} ${draft.unit.name}")
+        Text("${draft.quantity} ${portionUnitLabel(draft.unit.name)}")
         draft.grams?.let { Text("$it ${stringResource(R.string.fe_grams)}") }
         Text(stringResource(R.string.pc_estimate))
-        draft.nutrients.values.forEach { (key, nutrient) ->
-            Text("$key: ${nutrient.value?.toString() ?: stringResource(R.string.fe_unknown_value)} ${nutrient.unit}")
-        }
+        PortionNutrients(draft.nutrients)
     }
     Text(stringResource(R.string.pc_photo_closed))
     if (ready) QidaButton(stringResource(R.string.pc_confirm), {
@@ -111,4 +110,26 @@ fun PortionDraftEditor(draft: PortionDraft, back: () -> Unit, update: (PortionDr
         }
     })
     QidaButton(stringResource(R.string.back), back)
+}
+
+@Composable
+private fun portionUnitLabel(unit: String?): String = stringResource(when (unit) {
+    EntryUnit.KILOGRAM.name -> R.string.fe_kilograms
+    EntryUnit.PREVIOUS_PORTION.name -> R.string.fe_previous_portion
+    else -> R.string.fe_grams
+})
+
+@Composable
+private fun PortionNutrients(snapshot: com.aladdin.dailyplate.domain.NutrientSnapshot) {
+    if (snapshot.values.isEmpty()) Text(stringResource(R.string.fe_unknown_value))
+    snapshot.values.forEach { (key, nutrient) ->
+        val label = when (key) {
+            "energy" -> stringResource(R.string.pc_energy)
+            "protein" -> stringResource(R.string.pc_protein)
+            "fat" -> stringResource(R.string.pc_fat)
+            "carbohydrate", "carbs" -> stringResource(R.string.pc_carbs)
+            else -> key
+        }
+        Text("$label: ${nutrient.value?.toString() ?: stringResource(R.string.fe_unknown_value)} ${nutrient.unit}")
+    }
 }
