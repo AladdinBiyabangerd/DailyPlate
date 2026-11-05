@@ -7,7 +7,7 @@
 - D02 visual acceptance completed on main feca156eca1e5a380bed6679e4403a05ab92f1b7, 192 inspected native renders; discrepancy record closed.
 
 ## Current state
-- Final docs-only acceptance-record branch awaiting finish. Authoritative completion requires latest.json head equals main HEAD and passed=true.
+- D02 is complete. Verified main eaf92685a5300bffe2de355840e0d2e3753e7bff passed technical CI and matched all 192 accepted PNG hashes after the acceptance-record merge. Current documentation-only merge status remains authoritative in .local-ci/logs/latest.json.
 - Prior Today/Add/K16 work preserved; concurrent 2d4aa26 design-consistency principle preserved. G3/G4 and real catalog integration unchanged.
 
 ## Decisions
@@ -34,5 +34,4 @@
 - No branch/manual CI, remote/push, APK or device test.
 
 ## Exact next step
-- Finish docs/d02-acceptance-record and verify current-main technical result and unchanged accepted render hashes. If a fresh image changes, inspect actual differences before reacceptance.
-- Then continue D03 only in a new chat: read this context, visual rules, discrepancy inventory and plan §18–19; compare 04/00 references before coding. If plan and design conflict, prepare a new design and ask user approval first.
+- Continue D03 only in a new chat: read this context, visual rules, discrepancy inventory and plan §18–19; compare 04/00 references before coding. If plan and design conflict, prepare a new design and ask user approval first.
