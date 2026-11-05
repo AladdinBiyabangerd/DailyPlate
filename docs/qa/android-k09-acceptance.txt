@@ -46,3 +46,10 @@ Observed implementation acceptance, 5 November 2026
   inspected final AZ/EN/RU 150% explanation images. latest.json is final evidence.
 - Legacy profiles lacking an old assessment can confirm a new one without
   inventing historical results. Unknown screening keys and out-of-editor data stay.
+
+Final K08 compatibility regression
+- Explicit positive pregnancy/breastfeeding answers remain exclusions when an
+  equation-sex selection hides those questions. Unrelated edits cannot silently
+  withdraw them; an explicit No can correct the answer. ProfileEditTest covers it.
+- Final CI requires 81 JVM tests including this regression; latest.json is the
+  actual merged-main result, superseding the prior 80-test execution above.

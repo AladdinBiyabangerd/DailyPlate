@@ -25,6 +25,8 @@
   currency is entered by the user. Preserve fields outside this editor.
 - Profile confirmation leaves existing menus and past logs unchanged; the K16
   request remains pending, and a computed menu needs separate preview/acceptance.
+- Explicit positive pregnancy/breastfeeding answers survive hidden questions and
+  unrelated edits; only an explicit No can withdraw them (K08 screening contract).
 - G2 stays closed; no clinical coefficients, thresholds, prices or approvals invented.
 
 ## Remaining work
@@ -49,6 +51,8 @@
   at 100%/150%, plus AZ changed-input preview and saved-history flow. They wrap
   and scroll; this does not establish physical-device accessibility acceptance.
 - Artifacts: .local-ci/reports/k09; retained XML: .local-ci/reports/k09-test-results.
+- Added ProfileEditTest regression for hidden explicit reproductive risks; final
+  main CI must execute 81 tests. The prior 80-test result above is historical.
 - Final timestamp display uses local zone and minute precision to avoid splitting
   raw ISO fractions; inspected the final AZ/EN/RU 150% explanation renders.
 - No branch CI, APK packaging, installation, device tests or remote operations.

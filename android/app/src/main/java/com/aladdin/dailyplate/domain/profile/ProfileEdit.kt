@@ -66,6 +66,10 @@ object ProfileEdit {
             // Fields outside this editor are retained, including real source IDs.
             equipment = base.equipment, homeFoods = base.homeFoods,
             eligibilityAnswers = base.eligibilityAnswers + edited.eligibilityAnswers,
+            // K08 treats explicit positives as exclusions for every equation sex.
+            // Hiding a question must never silently withdraw an existing positive.
+            pregnant = if (base.pregnant == true && draft.answer("pregnant") != "no") true else edited.pregnant,
+            breastfeeding = if (base.breastfeeding == true && draft.answer("breastfeeding") != "no") true else edited.breastfeeding,
             budget = edited.budget.copy(coveredMealSlots = base.budget.coveredMealSlots),
             dislikedFoodIds = restoreIds(draft.items("disliked_foods"), base.dislikedFoodIds),
             dislikedRecipeIds = restoreIds(draft.items("disliked_recipes"), base.dislikedRecipeIds),
