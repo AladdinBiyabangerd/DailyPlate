@@ -8,16 +8,16 @@
   region/equipment, dislikes, total time and recipe portion grid are hard checks.
 
 ## Current state
-- K13 worktree /private/tmp/callmood-k13; primary checkout has unrelated dirty
-  nutrition-plan work. Do not commit or switch that work.
+- K13 worktree /private/tmp/callmood-k13; canonical plan 2.0 merged from main.
+  Preserve its canonical JSON and generated MD/TXT/PDF/canvas.
 - See matching-head .local-ci/logs/latest.json for final main CI result.
 
 ## Decisions
 - No UI or APK. No fake policy/publication activation.
 - Missing equipment is unknown when required; onboarding is not expanded.
 - SUCCESS is candidate-stage only; K15 owns day/week/nutrient validation.
-- Latest additional requirements read in primary working plan; its pending plan
-  changes are not copied or committed as part of K13.
+- Plan 2.0 additions C-05/C-08/C-09, D-02/D-05 and A-05 apply.
+  Separate plan task commits remain intact in main history.
 
 ## Remaining work
 - K14 pricing next; K15 generator follows. Production G2/G3 remain blocked.

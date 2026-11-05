@@ -51,6 +51,7 @@ circular dependencies and unnecessary abstraction.
 
 This applies to all implementation, fixes, refactors and code reviews in this project.
 
+- **Binding nutrition design:** all nutrition calculations and meal/plan generation code MUST follow `docs/nutrition-plan-design.md` (rəsmi mənbələr, DB recompute, tibbi qırmızı bayraqlar, Play disclaimer). It is generated from `planning/research-data.json`; change the canonical source and regenerate all views together. Sections 20–25 resolve the former parallel plans. Do not weaken or bypass it.
 - Before changing code, read `docs/context/current-task.md` if present, then the
   relevant sections of `planning/nutrition-science-implementation-plan.txt`.
   Most product rules live in the plan; this file is not a replacement for it.
