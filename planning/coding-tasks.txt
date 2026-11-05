@@ -20,10 +20,11 @@ Cari avtomatik enerji/makro hesabı istifadəçinin açıq qərarı ilə aktivdi
 NP-16 review/çəki consumer-i və davamlı hədəf dayandırılması tamamlanıb
 (47cb07d; yekun qəbul/kontekst 5daf7de): docs/qa/android-np16-acceptance.md.
 NP-17–23 makro və menyu yoxlama nüvəsi mövcuddur; tam nutrient əhatəsi,
-real dərc olunmuş porsiya feasibility-si və K15 generatoru hazır sayılmır.
-K14–K34 tam mərhələlər kimi tamamlanmayıb; müqavilə/model/nüvə hazırlığı həmin
+real dərc olunmuş kataloq/porsiya feasibility-si hazır sayılmır; K15 sintetik domen sübutu ayrıdır.
+K14–K34 istehsal mərhələləri kimi tam qəbul edilməyib; müqavilə/model/nüvə hazırlığı həmin
 mərhələlərin qəbulu deyil. K14 alış/qiymət nüvəsi ayrıca implementasiya edilib; sübut: docs/qa/android-k14-acceptance.md.
-Növbəti implementasiya vahidi K15-dir. K27 geniş çəki giriş/progress UI-si qalır.
+K15 domen generatoru və sintetik qəbul testləri implementasiya olunub; sübut:
+  docs/qa/android-k15-acceptance.md. Növbəti implementasiya vahidi K16-dır. K27 geniş çəki giriş/progress UI-si qalır.
 Yoxlanmış baza main 5daf7de: uyğun CI yaşıl, 151 JVM testi, lint/compile,
 token/kontrast, kitabxana müqavilələri və export parity. Cari yekun sübut
 .local-ci/logs/latest.json head-in main HEAD ilə uyğunluğu və passed=true-dur.
@@ -470,5 +471,5 @@ NP-16 tamamlanıb; NP-17–23 nüvəsi real menyu generatoru və tam nutrient se
 Cari sübutlar: docs/qa/android-k08-v2-implementation.md,
 docs/qa/android-np16-acceptance.md və matching-head merged-main CI.
 §30 USER_ATTESTATION bildirilmiş təsdiqdir; reviewer/tarix uydurulmur.
-K14 qiymət, K15 real generator və K27 geniş progress qəbulu hələ ayrıca işdir.
+K14 real qiymət/G4, K15 real kataloq/G3 və K27 geniş progress qəbulu hələ ayrıca işdir.
 Bu sənəd icra statusunu uzlaşdırır; kanonik məhsul qaydalarını dəyişmir.

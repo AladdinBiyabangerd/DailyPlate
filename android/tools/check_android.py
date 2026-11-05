@@ -33,6 +33,8 @@ def main() -> None:
         'com.aladdin.dailyplate.domain.policy.NutritionEnergyTest',
         'com.aladdin.dailyplate.domain.policy.NutritionPlanningTest',
         'com.aladdin.dailyplate.domain.planning.RecipeCandidateFilterTest',
+        'com.aladdin.dailyplate.domain.planning.WeeklyPlanGeneratorTest',
+        'com.aladdin.dailyplate.domain.pricing.ShoppingPricingTest',
         'com.aladdin.dailyplate.domain.entry.PortionConfirmationTest',
         'com.aladdin.dailyplate.domain.entry.FoodEntryTest',
         'com.aladdin.dailyplate.ui.FoodEntryUiTest',
