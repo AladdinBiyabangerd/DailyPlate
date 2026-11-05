@@ -121,7 +121,9 @@ fun OnboardingScreen(language: String, exit: () -> Unit, resetScroll: () -> Unit
             QidaArt(R.drawable.art_health, Modifier.fillMaxWidth().height(QidaDimensions.heroArt))
             listOf("pregnant" to R.string.ob_pregnant, "breastfeeding" to R.string.ob_breastfeeding,
                 "eating_risk" to R.string.ob_eating_risk, "medical_diet" to R.string.ob_medical_diet,
-                "kidney" to R.string.ob_kidney, "treatment" to R.string.ob_treatment).forEach { (key, label) ->
+                "kidney" to R.string.ob_kidney, "treatment" to R.string.ob_treatment)
+                .filter { (key, _) -> d.asksReproductiveHealth || key !in setOf("pregnant", "breastfeeding") }
+                .forEach { (key, label) ->
                 ChoiceGroup(stringResource(label)) {
                     SegmentedChoices(listOf("yes" to stringResource(R.string.ob_yes),
                         "no" to stringResource(R.string.ob_no), "" to stringResource(R.string.ob_skip)), d.answer(key)) { change(key, it) }

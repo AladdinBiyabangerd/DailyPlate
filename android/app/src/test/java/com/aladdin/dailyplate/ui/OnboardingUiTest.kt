@@ -47,6 +47,27 @@ class OnboardingUiTest {
         compose.onNodeWithText("Profil və seçimlərim").performScrollTo().performClick()
         compose.waitUntil(10000) { compose.onAllNodesWithText("Profil saxlanıb. Menyu hələ yaradılmayıb.").fetchSemanticsNodes().isNotEmpty() }
     }
+    @Test fun reproductiveQuestionsFollowSexSelectionWhenNavigatingBack() {
+        val context = ApplicationProvider.getApplicationContext<Application>()
+        OnboardingStore(context).queueSave(readyOnboarding().change("sex", "MALE").copy(step = 1)).get()
+        compose.onNodeWithText("Başlayaq").performScrollTo().performClick()
+        compose.onNodeWithText("Davam et").performScrollTo().performClick()
+        compose.onNodeWithText("Hamiləlik").assertDoesNotExist()
+        compose.onNodeWithText("Südvermə").assertDoesNotExist()
+        compose.onNodeWithText("Qidalanma pozuntusu ilə bağlı risk").performScrollTo().assertIsDisplayed()
+        capture("activity-male-health")
+        compose.onNodeWithText("Geri").performScrollTo().performClick()
+        compose.onNodeWithText("Qadın").performScrollTo().performClick()
+        compose.onNodeWithText("Davam et").performScrollTo().performClick()
+        compose.onNodeWithText("Hamiləlik").performScrollTo().assertIsDisplayed()
+        compose.onNodeWithText("Südvermə").performScrollTo().assertIsDisplayed()
+        capture("activity-female-health")
+        compose.onNodeWithText("Geri").performScrollTo().performClick()
+        compose.onNodeWithText("Kişi").performScrollTo().performClick()
+        compose.onNodeWithText("Davam et").performScrollTo().performClick()
+        compose.onNodeWithText("Hamiləlik").assertDoesNotExist()
+        compose.onNodeWithText("Südvermə").assertDoesNotExist()
+    }
     @Test fun storageRestartAndDoubleConfirmationKeepOneProfileVersion() {
         val context = ApplicationProvider.getApplicationContext<Application>()
         val store = OnboardingStore(context)
