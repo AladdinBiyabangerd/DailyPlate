@@ -71,7 +71,7 @@ data class OnboardingDraft(
             dislikedRecipeIds = items("disliked_recipes").map { "user:$it" }.toSet(),
             maxPreparationMinutes = answer("time").toInt(), equipment = emptySet(),
             budget = Budget(BudgetTier.valueOf(answer("tier")), answer("amount").takeIf(String::isNotBlank)
-                ?.let { Money(it.replace(',', '.'), answer("currency")) }, answer("region"), number("people")!!.toInt(), emptySet()),
+                ?.let { Money(it.replace(',', '.'), answer("currency")) }, answer("region"), number("people")!!.toInt(), emptySet(), answer("currency")),
             homeFoods = emptyList(),
             mealsPerDay = answer("meals").toInt(), specialistTargetKcal = null, language = language,
             ageAsOfDate = date,

@@ -22,7 +22,8 @@ data class Money(val amount: String, val currency: String) {
 data class Budget(
     val tier: BudgetTier?, val weeklyAmount: Money?, val region: String?,
     val people: Int, val coveredMealSlots: Set<String>,
-) { init { require(people > 0) } }
+    val currency: String? = weeklyAmount?.currency,
+) { init { require(people > 0); require(currency == null || currency.matches(Regex("[A-Z]{3}"))) } }
 
 @Serializable
 data class HomeFood(val food: VersionRef, val preparationState: String, val quantity: Double, val unit: String) {

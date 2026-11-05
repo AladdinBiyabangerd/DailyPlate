@@ -1,0 +1,73 @@
+package com.aladdin.dailyplate.ui.profile
+
+import androidx.compose.material3.Text
+import androidx.compose.runtime.*
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.platform.LocalContext
+import com.aladdin.dailyplate.R
+import com.aladdin.dailyplate.data.local.*
+import com.aladdin.dailyplate.domain.UserProfile
+import com.aladdin.dailyplate.domain.policy.NutritionAssessmentRecord
+import com.aladdin.dailyplate.domain.profile.ProfileChangeRecord
+import com.aladdin.dailyplate.ui.*
+import kotlinx.coroutines.*
+
+@Composable
+fun ProfileScreen(setup: () -> Unit) {
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    var profile by remember { mutableStateOf<UserProfile?>(null) }
+    var history by remember { mutableStateOf<List<Pair<UserProfile, NutritionAssessmentRecord?>>>(emptyList()) }
+    var changes by remember { mutableStateOf<List<ProfileChangeRecord>>(emptyList()) }
+    var loaded by remember { mutableStateOf(false) }
+    var error by remember { mutableStateOf(false) }
+    var busy by remember { mutableStateOf(false) }
+    var editing by remember { mutableStateOf<Int?>(null) }
+    var explain by remember { mutableStateOf(false) }
+    var refresh by remember { mutableIntStateOf(0) }
+    LaunchedEffect(refresh) {
+        try {
+            val id = withContext(Dispatchers.IO) { OnboardingStore(context).load().id }
+            val data = withContext(Dispatchers.IO) {
+                UserRepositories.open(context).use { r ->
+                    r.profiles.history("local-guest", id).map { it to r.nutritionAssessments.version(it.userId, it.ref) } to
+                        r.profileChanges.history("local-guest", id)
+                }
+            }
+            history = data.first; changes = data.second; profile = history.firstOrNull()?.first
+            loaded = true; error = false
+        } catch (_: Exception) { error = true }
+    }
+    if (!loaded) {
+        QidaState(if (error) SurfaceState.Error else SurfaceState.Loading) { refresh++ }; return
+    }
+    val p = profile
+    if (p == null) {
+        QidaState(SurfaceState.Empty, stringResource(R.string.empty_profile))
+        QidaButton(stringResource(R.string.ob_profile), setup); return
+    }
+    val step = editing
+    if (step != null) {
+        ProfileEditor(p, step, busy, error, { editing = null; error = false; refresh++ }) { preview ->
+            busy = true
+            scope.launch {
+                try {
+                    withContext(Dispatchers.IO) { UserRepositories.open(context).use { it.profileEdits.confirm(preview) } }
+                    editing = null; explain = true; refresh++
+                } catch (_: Exception) { error = true }
+                finally { busy = false }
+            }
+        }
+        return
+    }
+    Text(stringResource(R.string.pf_version, p.ref.version))
+    QidaButton(stringResource(R.string.ob_profile), { editing = 1 })
+    QidaButton(stringResource(R.string.ob_goal), { editing = 0 })
+    QidaButton(stringResource(R.string.pf_food_choices), { editing = 3 })
+    QidaButton(stringResource(R.string.pf_basis), { explain = !explain })
+    QidaCard { Text(stringResource(R.string.pf_general)); Text(stringResource(R.string.pf_future)) }
+    if (explain) history.forEach { (version, assessment) ->
+        changes.firstOrNull { it.ref == version.ref }?.let { QidaCard { Text(stringResource(R.string.pf_reason) + ": " + it.request.reason) } }
+        TargetExplanation(version, assessment?.assessment)
+    }
+}

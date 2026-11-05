@@ -1,0 +1,35 @@
+<resources>
+    <string name="pf_edit">Edit profile</string>
+    <string name="pf_basis">What is this based on?</string>
+    <string name="pf_food_choices">Food preferences</string>
+    <string name="pf_version">Profile version %1$d</string>
+    <string name="pf_versions">Profile: %1$d → %2$d</string>
+    <string name="pf_preview">Preview changes</string>
+    <string name="pf_confirm">Confirm and save profile</string>
+    <string name="pf_continue_edit">Continue editing</string>
+    <string name="pf_cancel">Discard changes</string>
+    <string name="pf_reason">Reason for change</string>
+    <string name="pf_unsaved">Changes are saved only after confirmation.</string>
+    <string name="pf_invalid">Check all fields, enter a reason, and confirm any age change. At least one change is required.</string>
+    <string name="pf_conflict">Save failed or the profile changed. Retry; if the conflict persists, close the editor and reopen the profile.</string>
+    <string name="pf_future">Profile confirmation preserves past logs and the current menu. Future plans require a separate calculated preview and confirmation; this integration is not available yet.</string>
+    <string name="pf_specialist">Specialist target (kcal/day) — optional</string>
+    <string name="pf_specialist_note">This is your entered specialist target, not a formula prediction. Screening restrictions still apply. Leave blank to use the general path.</string>
+    <string name="pf_general">The general diary is available. Automatic personal energy targets are inactive.</string>
+    <string name="pf_test_only">Test calculation only; not an active personal target.</string>
+    <string name="pf_kcal">Entered target: %1$s kcal/day</string>
+    <string name="pf_formula">Formula version</string>
+    <string name="pf_policy">Policy version</string>
+    <string name="pf_no_formula">No formula was run; there is no active policy or formula result.</string>
+    <string name="pf_inputs">Saved inputs</string>
+    <string name="pf_limit">This is not a diagnosis. A formula predicts energy expenditure; it does not measure metabolism.</string>
+    <string name="pf_policy_closed">Approved clinical rules have not been activated.</string>
+    <string name="pf_age_date">Age confirmed on: %1$s</string>
+    <string name="pf_age_confirm">Confirm my age is correct today</string>
+    <string name="pf_age_confirmed">✓ Age will be confirmed for today</string>
+    <string name="pf_age_needed">Age needs to be confirmed again.</string>
+    <string name="pf_age_scope">Age is outside the automatic calculation scope.</string>
+    <string name="pf_specialist_needed">Health answers restrict automatic personal plans; consult a specialist.</string>
+    <string name="pf_missing">Required calculation answers are incomplete.</string>
+    <string name="pf_calculation_unavailable">Automatic calculation is unavailable for these inputs and rules.</string>
+</resources>

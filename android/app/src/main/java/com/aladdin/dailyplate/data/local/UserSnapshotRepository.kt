@@ -21,6 +21,9 @@ class UserSnapshotRepository<T> internal constructor(
     fun version(userId: String, ref: VersionRef): T? =
         database.snapshots().version(kind, userId, ref.id, ref.version)?.decode()
 
+    fun history(userId: String, id: String): List<T> =
+        database.snapshots().history(kind, userId, id).map { it.decode() }
+
     /** expectedRevision=0 creates an object; subsequent writes must increment by one. */
     fun save(value: T, expectedRevision: Long): T = database.runInTransaction(Callable {
         val userId = userIdOf(value)

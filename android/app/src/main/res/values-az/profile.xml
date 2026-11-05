@@ -1,0 +1,35 @@
+<resources>
+    <string name="pf_edit">Profili redaktə et</string>
+    <string name="pf_basis">Nəyə əsasən?</string>
+    <string name="pf_food_choices">Yemək seçimlərim</string>
+    <string name="pf_version">Profil versiyası %1$d</string>
+    <string name="pf_versions">Profil: %1$d → %2$d</string>
+    <string name="pf_preview">Dəyişikliklərə bax</string>
+    <string name="pf_confirm">Təsdiqlə və profili saxla</string>
+    <string name="pf_continue_edit">Redaktəyə davam et</string>
+    <string name="pf_cancel">Dəyişiklikləri ləğv et</string>
+    <string name="pf_reason">Dəyişiklik səbəbi</string>
+    <string name="pf_unsaved">Bu dəyişikliklər təsdiqə qədər saxlanmır.</string>
+    <string name="pf_invalid">Sahələri yoxla, dəyişiklik səbəbini yaz və yaşı dəyişmisənsə təsdiqlə. Ən azı bir dəyişiklik lazımdır.</string>
+    <string name="pf_conflict">Saxlama alınmadı və ya profil artıq dəyişib. Yenidən cəhd et; konflikt davam edirsə redaktəni bağlayıb profili yenidən aç.</string>
+    <string name="pf_future">Profil təsdiqi keçmiş qeydləri və mövcud menyunu dəyişmir. Gələcək plan üçün ayrıca hesablanmış önbaxış və təsdiq tələb olunur; bu inteqrasiya hələ hazır deyil.</string>
+    <string name="pf_specialist">Mütəxəssisin verdiyi hədəf (kkal/gün) — könüllü</string>
+    <string name="pf_specialist_note">Bu, daxil etdiyin mütəxəssis hədəfidir, formula hesabı deyil. Uyğunluq məhdudiyyətlərini aradan qaldırmır. Boş saxlasan ümumi yol qalır.</string>
+    <string name="pf_general">Ümumi gündəlik yolu açıqdır. Avtomatik fərdi enerji hədəfi aktiv deyil.</string>
+    <string name="pf_test_only">Yalnız sınaq hesabı; canlı fərdi hədəf deyil.</string>
+    <string name="pf_kcal">Daxil edilmiş hədəf: %1$s kkal/gün</string>
+    <string name="pf_formula">Formula versiyası</string>
+    <string name="pf_policy">Qayda versiyası</string>
+    <string name="pf_no_formula">Formula işlədilməyib; aktiv qayda və formula nəticəsi yoxdur.</string>
+    <string name="pf_inputs">Saxlanmış girişlər</string>
+    <string name="pf_limit">Bu məlumat diaqnoz deyil. Formula enerji sərfini proqnozlaşdırır, metabolizmi ölçmür.</string>
+    <string name="pf_policy_closed">Təsdiqli klinik qayda aktivləşdirilməyib.</string>
+    <string name="pf_age_date">Yaşın təsdiq tarixi: %1$s</string>
+    <string name="pf_age_confirm">Yaşımın bu gün doğru olduğunu təsdiqləyirəm</string>
+    <string name="pf_age_confirmed">✓ Yaş bu gün üçün təsdiqlənəcək</string>
+    <string name="pf_age_needed">Yaşı yenidən təsdiqləmək lazımdır.</string>
+    <string name="pf_age_scope">Yaş avtomatik hesabın əhatəsinə daxil deyil.</string>
+    <string name="pf_specialist_needed">Sağlamlıq cavablarına görə avtomatik fərdi plan bağlıdır; mütəxəssislə məsləhətləş.</string>
+    <string name="pf_missing">Hesab üçün tələb olunan cavablar tam deyil.</string>
+    <string name="pf_calculation_unavailable">Bu girişlər və qayda ilə avtomatik hesab mövcud deyil.</string>
+</resources>

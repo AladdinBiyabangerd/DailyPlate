@@ -18,6 +18,9 @@ class UserRepositories internal constructor(private val database: UserDatabase) 
     val profiles = repository("profile", UserProfile.serializer(), UserProfile::userId, UserProfile::ref)
     val nutritionAssessments = repository("nutrition_assessment", NutritionAssessmentRecord.serializer(),
         NutritionAssessmentRecord::userId, NutritionAssessmentRecord::ref)
+    val profileChanges = repository("profile_change", com.aladdin.dailyplate.domain.profile.ProfileChangeRecord.serializer(),
+        com.aladdin.dailyplate.domain.profile.ProfileChangeRecord::userId, com.aladdin.dailyplate.domain.profile.ProfileChangeRecord::ref)
+    val profileEdits = ProfileEditRepository(database, this)
     val customizations = repository("customization", RecipeCustomization.serializer(), RecipeCustomization::userId, RecipeCustomization::ref)
     val photoDrafts = repository("photo_draft", PhotoMealDraft.serializer(), PhotoMealDraft::userId, PhotoMealDraft::ref)
     val weights = repository("weight", WeightEntry.serializer(), WeightEntry::userId, WeightEntry::ref)
