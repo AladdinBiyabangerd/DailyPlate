@@ -7,10 +7,6 @@ təsdiqlənmiş baseline etmir. Agent siyahını düzəliş və faktiki qəbul s
 
 ## Hazır funksiyalarda açıq fərqlər
 
-- **D03 · Həftəlik menyu — açıq.** `ui/menu/MenuScreen.kt` daxilində DatedMenu yeddi
-  tam enli düymə və mətn kartları göstərir. `04-menyu-ve-alisveris.png`/00 istinadındakı
-  yığcam həftə seçicisi, şəkilli yemək kartları, enerji/vaxt və hərəkət iyerarxiyası
-  tam tətbiq edilməyib. Böyük şrift üçün əsaslandırılmış alternativ düzülüş saxlanır.
 - **D04 · Resept detalları — açıq.** `ui/menu/RecipeDetailScreen.kt` mətn əsaslıdır;
   04/07 istinadlarındakı əsas yemək şəkli, şəkilli inqrediyent təqdimatı və vizual
   addım iyerarxiyası çatışmır. Foto və redaktorun gələcək funksiyaları ayrıca scope-dur.
@@ -23,7 +19,33 @@ təsdiqlənmiş baseline etmir. Agent siyahını düzəliş və faktiki qəbul s
   əvəzinə normal axındakı düymə istifadə olunur. Normal ölçüdə uyğunlaşdırma və
   böyük şriftdə əlçatanlıq ayrıca renderlə qiymətləndirilməlidir.
 
-## Bağlanmış hissə — D02
+## Bağlanmış hissələr — D03 və D02
+
+- **D03 · Həftəlik menyu — bağlı (5 noyabr 2026).** İstifadəçi yeni təklifi
+  “Basla” ilə təsdiqlədi. İstinad: `approved/d03-menu.png` və native uyğunlaşdırma
+  qeydi `approved/d03-menu.txt`. Yığcam sürüşən həftə seçicisi, həqiqi tarixlər,
+  seçilmiş işarəsi və ayrıca Bu gün, illüstrasiyalı yemək kartları, saxlanmış
+  nutrient snapshot-dan enerji və dəqiq resept versiyasından məlum vaxt tətbiq edildi.
+  Tərkibi dəyişmiş reseptin vaxtı baza reseptdən uydurulmur; naməlum enerji sıfır deyil.
+- Reseptə bax yalnız detalları açır; Yedim mövcud porsiya önbaxış/təsdiq axınını açır.
+  Yeyilmiş və buraxılmış kartlar əlavə Yedim hərəkəti vermir; qismən yeyilmiş kartın
+  qalan porsiya sərhədi saxlanır. Gün seçimi plan və ya gündəlik yaratmır.
+- Təsdiqlənmiş müvəqqəti fərqlər: real foto əvəzinə etiketli illüstrasiya; hazır
+  olmayan Dəyiş və Alış-veriş üçün tək məlumat bloku. Böyük mətnlə tarixlər sətirlərə,
+  RU 150%-də tam enə keçir. Mövcud naviqasiya D06-nı bağlamır. Hazır olmayan plan
+  məlumatları boş vəziyyətlə izah olunur; nümunə plan istehsalda aktivləşdirilmir.
+- İcra: `7f4fe64`, `f62ca61`, `1e319d0`, `a129164`. Qəbul edilmiş main:
+  `5880677604805947bc5231074464c41c374e1469`. Sübut:
+  `.local-ci/visual/5880677604805947bc5231074464c41c374e1469/{manifest,review}.json`.
+  AZ/EN/RU × 100%/150%, 204 D03 renderi (hər kart ayrıca daxil), 192 D02 regressiya
+  renderi faktiki açılıb müqayisə edildi. D02-nin bütün heşləri əvvəlki qəbulla eynidir.
+- Texniki qəbul: 220 JVM testi, lint, Kotlin kompilyasiyası, token/kontrast,
+  kitabxana/kanonik ixrac və vizual gate yoxlamaları keçib. 3/4/5 slot, statuslar,
+  naməlum enerji/vaxt, dəqiq resept versiyası, gün seçimi, porsiya önbaxışının
+  qeydsiz qalması, boş/yüklənmə/xəta/profilsiz bərpa yolları yoxlanıb.
+  Real istehsal kataloqu ilə dolu menyu, fiziki cihaz, klaviatura və TalkBack
+  yoxlanmayıb; APK hazırlanmayıb. Dəyişmə və alış-verişin funksional UI-si bu qəbulda yoxdur.
+
 
 - **D02 · Porsiya quruluşu — bağlı (5 noyabr 2026).** İstifadəçi B yeni dizaynını
   “okeydir yeni” ilə təsdiqlədi. İstinad:
