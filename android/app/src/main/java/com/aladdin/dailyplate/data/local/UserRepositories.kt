@@ -30,6 +30,7 @@ class UserRepositories internal constructor(private val database: UserDatabase) 
     val editDrafts = repository("edit_draft", EditDraft.serializer(), EditDraft::userId, EditDraft::ref)
     val foodLogs = FoodLogRepository(database)
     val plans = MealPlanRepository(database)
+    val planConsumption = PlanConsumptionRepository(database)
 
     private fun <T> repository(kind: String, serializer: KSerializer<T>, userId: (T) -> String, ref: (T) -> VersionRef) =
         UserSnapshotRepository(database, kind, serializer, userId, ref)
