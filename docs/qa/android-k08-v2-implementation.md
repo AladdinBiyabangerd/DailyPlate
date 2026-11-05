@@ -26,7 +26,7 @@ approved_by/approved_at=null. No new approval or G2/G3 activation.
    require confirmation. Unknown/failed rules produce no candidate target.
    Provenance records canonical source and evidence refs without approval.
    Macro/menu fields remain slice 3; persisted migration remains slice 4.
-3. **Remaining:** max/remainder macros with MACRO_INFEASIBLE; typed goal-specific
+3. **Implemented, execution unverified:** max/remainder macros with MACRO_INFEASIBLE; typed goal-specific
    menu L/U and strict lose/gain inequalities (NP-13–23). This prepares the
    generator interface; do not implement a menu generator. Unknown nutrient
    definitions/completeness never pass actual-menu checks.
@@ -86,3 +86,44 @@ internal v2 research contract remains a frozen RESEARCH_PROPOSAL representation;
 this merge does not import approval metadata or activate a production policy.
 The isolation/unchecked statements above describe the original slice work.
 Post-merge CI is now required; no APK/device checks are authorized.
+
+## Slice 3 — isolated implementation
+
+Branch: feat/k08-v2-macro-menu, based on c6f8342 (slices 1–2 integration).
+That base passed post-merge CI: 129 JVM tests, Android lint/compilation/tokens,
+15 library tests and canonical export checks. This is historical evidence only;
+it does not verify slice 3. User explicitly requests no merge, CI or APK here.
+
+Implemented acceptance mapping:
+- NP-13/14: finite typed L/U, sex floor, ±5% product tolerance and strict E<M/E>M;
+  invalid/empty intervals return NO_FEASIBLE_PLAN. No universal maximum.
+- NP-15: three/four/five slot templates divide the same target; unsupported slot
+  counts fail explicitly. Templates do not prove feasible real portions.
+- NP-17–19: actual-weight max(PRI,20%) protein, 30% fat and available-carbohydrate
+  remainder. Nonpositive/nonfinite vectors or carbohydrate outside 45–60% fail
+  MACRO_INFEASIBLE without a usable planning target or repaired split. Only energy
+  conservation uses an eight-ULP arithmetic tolerance; range checks are unrounded.
+- NP-20/21: separate source-menu totals and per-nutrient completeness; unknown
+  carbohydrate definition is UNKNOWN, not by-difference minus fibre. Source
+  energy is never replaced by a 4/9/4 reconstruction. Checks cover protein PRI,
+  EFSA fat/carbohydrate RI, fibre AI and the hard menu energy interval.
+- NP-22/23: WHO total-fat advisory is separate from the EFSA hard RI. Other WHO
+  nutrients, protein quality, B12 and restricted-diet coverage remain UNKNOWN;
+  this subset cannot certify full balance or production eligibility.
+- Catalog adapter seam has NOT_EVALUATED/EMPTY_CATALOG/NO_REAL_COMBINATION/
+  VERIFIED_PUBLISHED_PORTIONS states. Empty/no-combination returns a typed
+  NO_FEASIBLE_PLAN reason. The verified state must be supplied by a future real
+  catalog/portion validator; slice 3 does not search or validate catalog records.
+- NP-16 reassessment/freshness/confirmation remains slice 4 as scoped by this QA
+  plan. No automatic titration, reminders, persistence or generator added.
+
+ResearchPlanningV2Test adds synthetic plan examples, max/remainder infeasibility,
+strict interval endpoints, slots, blocked screening/floor propagation, per-nutrient
+missing coverage, carbohydrate definitions, empty catalog, separate WHO advisory,
+actual menu boundaries and serializable new-contract round trips.
+
+Checks: source review and git diff --check only. No slice-3 compile, JVM tests,
+lint, CI, APK/device or clinical execution. New tests are unexecuted. Existing
+v1 snapshots, FoodLog, downstream K13/K14 and production gates are untouched.
+On planning failure both the top-level target and nested candidate energy target
+are cleared; screening/maintenance diagnostics remain.

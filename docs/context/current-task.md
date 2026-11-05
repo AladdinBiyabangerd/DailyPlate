@@ -1,57 +1,49 @@
-# Current task — K08-v2 slices 1–2 integration
+# Current task — K08-v2 slice 3 (isolated)
 
 ## Completed
-- Slice 1 internal NASEM/Mifflin formula dispatch retained.
-- Slice 2 internal serializable research energy contract v2, provenance, typed
-  RuleResults and pure screening/energy preview implemented (NP-07–12/NP-28).
-- Distinct model/product age scope, unrounded BMI/goal checks, ten explicit
-  health answers, measurement/activity confirmation, sex floors and no clamp.
-- Added boundary, exclusion, input, floor and serialization tests; not executed.
+- Slices 1–2 merged as c6f8342; post-merge CI passed (129 JVM tests plus lint,
+  compilation, tokens, 15 library tests and canonical export checks).
+- Slice 3 implemented: max/remainder macro vector with MACRO_INFEASIBLE,
+  typed goal-specific menu bounds/strict inequalities and 3/4/5 slot templates.
+- Separate source-menu checks for energy, protein, fat, available carbohydrate,
+  fibre, catalog feasibility, WHO advisory and unknown remaining coverage.
+- Synthetic regression and serialization tests added; slice 3 tests not run.
 
 ## Current state
-- Worktree /private/tmp/callmood-k08-v2; branch feat/k08-v2-formula.
-- User subsequently authorized local merge; mandatory post-merge CI applies. No APK.
-- Integration prepared on fix/k08-v2-integration; feat/k08-v2-formula retained.
-- Existing task branch continued; hooksPath=.local-ci/hooks; initial tree clean.
+- Workspace /Users/mac/My Workspace/callmood; branch feat/k08-v2-macro-menu.
+- User explicitly requests separate branch; no merge, finish, CI or APK.
+- Clean main c6f8342 was the base; local hooks configured and workflow start used.
 
 ## Decisions
-- Frozen research contract retains RESEARCH_PROPOSAL; current canonical candidate
-  separately records SPECIALIST_APPROVAL_REPORTED. This merge does not promote
-  the frozen runtime contract or enable production/G2/G3 execution.
-- Pure preview is an intermediate research energy result, not a complete plan.
-- No v1 payload/schema, storage, FoodLog, specialist or downstream changes.
-- New research input requires all ten explicit health responses, including
-  reproductive responses; it does not reuse legacy male onboarding omissions.
-- Date freshness/reconfirmation migration belongs to slice 4, not this preview.
+- Frozen runtime contract remains RESEARCH_PROPOSAL; canonical plan separately
+  records SPECIALIST_APPROVAL_REPORTED/USER_ATTESTATION. Production stays disabled.
+- Planning failure clears both target fields; screening/maintenance stays diagnostic.
+- Arithmetic success is a search specification, not proof of a real feasible menu.
+- Future catalog adapter supplies verified published-portion feasibility; no solver
+  or catalog validation implemented here. Empty catalog/no combination cannot pass.
+- Other nutrients/protein quality/B12/restricted diet coverage remain UNKNOWN.
+- Eight ULP tolerance only for macro energy conservation; bounds/RI are unrounded.
+- NP-16 review/freshness/confirmation workflow stays in slice 4 per QA scope.
+- V1 payloads, snapshots, FoodLog, specialist path and K13/K14 unchanged.
 
 ## Remaining work
-- Slice 3 macro max/remainder feasibility and typed goal-specific menu bounds.
-- Slice 4 persisted legacy fixtures/migration, freshness, preview/confirm revisions.
-- Slice 5 integration/regressions; authorization required before integration.
+- Execute slice 3 checks only when integration is authorized.
+- Slice 4 persisted legacy fixtures/migration, freshness and future-only confirmation.
+- Slice 5 downstream regressions, eventual K15 catalog/generator consumption.
 
 ## Relevant files
 - android/app/src/main/java/com/aladdin/dailyplate/domain/policy/
-  ResearchEnergyContractV2.kt, ResearchEnergyEligibilityV2.kt, EnergyFormula.kt
-- android/app/src/test/java/com/aladdin/dailyplate/domain/policy/ResearchEnergyV2Test.kt
+  ResearchPlanningContractV2.kt, ResearchPlanningV2.kt, ResearchMenuChecksV2.kt
+- android/app/src/test/java/com/aladdin/dailyplate/domain/policy/ResearchPlanningV2Test.kt
 - docs/qa/android-k08-v2-implementation.md
-- planning/nutrition-policy-candidate.json; docs/nutrition-plan-design.md §26–29
+- docs/nutrition-plan-design.md NP-13–23; planning/nutrition-policy-candidate.json
 - planning/nutrition-science-implementation-plan.txt
 
 ## Checks performed
-- Source review and git diff --check only.
-- No compilation, test execution, lint, CI, APK, device or clinical validation.
-- Serialization assertions are new-object tests, not legacy migration evidence.
+- Slice 3 source review and git diff --check only; compile/tests/lint/CI not run.
+- No APK/device or clinical validation. New serialization tests do not prove migration.
 
 ## Exact next step
-- Verify merged-main CI; next implementation unit is slice 3 (NP-13–23).
-
-## Latest nutrition-plan status
-- Research proposal 479f7ee merged into main as b775fb2; CI skipped at user request.
-- User subsequently reported specialist approval of the entire written plan and
-  requested no reviewer name. Plan 2.2-reported-review records USER_ATTESTATION,
-  scope/version/hash; qualification and review date remain unknown.
-- No fake identity/date/document or independent verification claimed. No Android
-  execution flag enabled; implementation/content/device acceptance remains separate.
-- Canonical research-data.json and generated MD/TXT/canvas/candidate JSON/PDF updated.
-- Exact next step: implement the scoped K08-v2 contract in a separate task using
-  plan §26–30; retain snapshots and verify actual implementation before activation.
+- Review slice 3 diff; if user authorizes merge, use workflow finish and APK-free
+  post-merge CI. Otherwise implement only separately requested slice 4 after reading
+  its QA requirements, legacy snapshot adapters and design NP-06/16/27/28.
