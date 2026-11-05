@@ -22,7 +22,7 @@ print(f'Exported canonical plan {version}: {foods} foods, {recipes} recipe draft
 md = '# DailyPlate — vahid qidalanma və funksional icra planı\n\n'
 md += f"> Versiya {version} · 5 noyabr 2026 (Asia/Baku) · Paket: `com.aladdin.dailyplate`\n"
 md += '> Bu fayl `planning/research-data.json`-dan yaradılır. Tələbi əvvəl kanonik JSON-da dəyiş, sonra `python3 library/tools/update_project_plan.py` işlət.\n\n'
-md += 'Əvvəlki nutrition-plan-design və məhsul planı birləşdirilib. §1–19 mövcud məhsul qaydalarını, §20–25 ziddiyyət həllərini, dietoloqsuz rejimi, hesablama/backend müqavilələrini və qəbul ssenarilərini əhatə edir. Bu sənəd işlək tətbiq və ya klinik təsdiq iddiası deyil.\n\n'
+md += 'Əvvəlki nutrition-plan-design və məhsul planı birləşdirilib. §1–19 mövcud məhsul qaydalarını, §20–25 ziddiyyət həllərini və müqavilələri, §26–29 konkret enerji/makro policy tədqiqat təklifini əhatə edir. Bu sənəd işlək tətbiq və ya klinik təsdiq iddiası deyil.\n\n'
 md += 'İcra növbəsi: [coding-tasks](../planning/coding-tasks.txt). Əlavə məcburi müqavilə: [T01–T19](../planning/meal-customization-requirements.txt).\n\n'
 for section in data['sections']:
  md += '## '+section['title']+'\n\n'+section['summary']+'\n\n'
@@ -34,3 +34,5 @@ for section in data['sections']:
 md += '## Mənbə reyestri\n\n'
 md += '\n\n'.join(f"### {s['id']} — {s['name']}\n\n[{s['name']}]({s['url']})\n\n{s['use']}" for s in data['sources'])+'\n'
 (ROOT/'docs/nutrition-plan-design.md').write_text(md)
+
+(p/'nutrition-policy-candidate.json').write_text(json.dumps(data['nutrition_policy_candidate'], ensure_ascii=False, indent=2)+'\n')

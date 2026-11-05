@@ -34,3 +34,10 @@
 
 ## Exact next step
 - Verify matching-main CI, then read K14 and its referenced plan before coding.
+
+## Separate nutrition-policy research handoff (not integrated)
+- This worktree/branch adds plan §26–29 and exact disabled policy proposal.
+- Detailed Completed/State/Decisions/Remaining/Files/Checks/Next step:
+  docs/context/nutrition-policy-research.md.
+- User requires a separate branch; no main merge, no CI, no app code activation.
+  Continue K14 in its own worktree using main's plan until integration is requested.

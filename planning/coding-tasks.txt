@@ -429,3 +429,10 @@ K25/K26: §24 B-01–B-05/B-08, A-10–A-12; Spark-only + Go/PostgreSQL
 K29: B-06/B-07, A-11; foto razılığı, real retention/export/delete/backup siyasəti.
 K31–K34: §25 A-01–A-14 tam izləmə; 108 baza kombinasiya və əlavə sərhədlər.
 Bu əlavələr yeni implementasiya və ya keçmiş test statusu iddiası deyil.
+
+AYRI TƏDQİQAT BRANCH-İ — inteqrasiya olunmayıb
+§26–29 NP-01–NP-31: birbaşa adult EER, 4 aktivlik kateqoriyası, konkret
+enerji/makro policy təklifi və sintetik arifmetika; G2/G3 açılmır.
+Bu iş K13/K14 koduna daxil deyil. Sonradan ayrıca user inteqrasiya tapşırığı
+olarsa K08 contract v2 + migration + source-defined regressions əvvəl yazılır.
+NASEM EER-ni indiki Mifflin activityMapping sahələrinə yerləşdirmək qadağandır.
