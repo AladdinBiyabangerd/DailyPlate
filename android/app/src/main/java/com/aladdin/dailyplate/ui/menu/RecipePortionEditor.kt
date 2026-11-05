@@ -37,7 +37,7 @@ internal fun RecipePortionEditor(detail: RecipeDetailData, back: () -> Unit, con
     val basis = detail.batchServings
     if (basis == null) {
         PortionNotice(stringResource(R.string.rd_no_basis))
-        QidaButton(stringResource(R.string.mn_cancel), back)
+        PortionSecondaryButton(stringResource(R.string.mn_cancel), back)
         return
     }
     val batch = parseEntryNumber(prepared)?.takeIf { it > 0 }
@@ -69,7 +69,7 @@ internal fun RecipePortionEditor(detail: RecipeDetailData, back: () -> Unit, con
         }
         if (batch != null && serving != null && serving > 0 && serving <= batch)
             QidaCard { Text(stringResource(R.string.pd_share, number(serving), number(batch))) }
-        QidaButton(stringResource(if (exact) R.string.pd_servings_mode else R.string.pd_exact), {
+        PortionSecondaryButton(stringResource(if (exact) R.string.pd_servings_mode else R.string.pd_exact), {
             exact = !exact; invalid = false
         })
         if (exact && gramsPerServing == null) PortionNotice(stringResource(R.string.pd_no_yield))
@@ -97,10 +97,10 @@ internal fun RecipePortionEditor(detail: RecipeDetailData, back: () -> Unit, con
                     ?: ingredient.food.id) + ": " + stringResource(R.string.pd_batch_grams, number(ingredient.edibleGrams)))
             }
         }
-        QidaButton(stringResource(R.string.pd_edit), { preview = null })
+        PortionSecondaryButton(stringResource(R.string.pd_edit), { preview = null })
         QidaButton(stringResource(R.string.pc_confirm), { confirm(command) })
     }
-    QidaButton(stringResource(R.string.mn_cancel), back)
+    PortionSecondaryButton(stringResource(R.string.mn_cancel), back)
 }
 
 private fun number(value: Double): String = java.math.BigDecimal.valueOf(value).stripTrailingZeros().toPlainString()

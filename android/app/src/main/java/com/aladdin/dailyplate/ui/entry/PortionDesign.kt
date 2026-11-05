@@ -31,3 +31,13 @@ internal fun PortionNotice(text: String) {
         Text(text, Modifier.fillMaxWidth().padding(QidaSpacing.medium))
     }
 }
+
+/** Keep the single primary save/preview action visually stronger than navigation. */
+@Composable
+internal fun PortionSecondaryButton(label: String, action: () -> Unit) {
+    TextButton(onClick = action, modifier = Modifier.fillMaxWidth().heightIn(min = QidaDimensions.touchTarget),
+        contentPadding = PaddingValues(QidaSpacing.medium)) {
+        Text(label, style = MaterialTheme.typography.bodyLarge,
+            fontWeight = androidx.compose.ui.text.font.FontWeight.Bold)
+    }
+}
