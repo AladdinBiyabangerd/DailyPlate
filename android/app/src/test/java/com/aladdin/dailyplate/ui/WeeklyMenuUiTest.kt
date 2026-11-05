@@ -76,9 +76,9 @@ class WeeklyMenuUiTest {
         } }
         compose.waitForIdle()
     }
-    private fun capture(state: String, language: String, scale: Float, middle: Boolean = false) {
-        for (position in if (middle) listOf("top", "middle", "bottom") else listOf("top", "bottom")) {
-            if (position == "middle") compose.onNodeWithTag("menu-recipe-slot-2").performScrollTo()
+    private fun capture(state: String, language: String, scale: Float, meals: Int = 0) {
+        for (position in listOf("top") + (0 until meals).map { "meal-$it" } + "bottom") {
+            if (position.startsWith("meal-")) compose.onNodeWithTag("menu-recipe-slot-${position.removePrefix("meal-")}").performScrollTo()
             else compose.onNodeWithTag("d03-$position").performScrollTo()
             compose.runOnIdle {
                 val view = compose.activity.window.decorView
@@ -100,6 +100,8 @@ class WeeklyMenuUiTest {
                 var ate: MealPlanItem? = null
                 show(language, scale) { DatedMenu(plan, recipes, today, openRecipe = { opened = it }, eat = { ate = it }) }
                 compose.onNodeWithTag("menu-day-$today").assertIsSelected()
+                for (index in 0L..6L) compose.onNodeWithTag("menu-day-${LocalDate.parse(plan.week.iso).plusDays(index)}")
+                    .assertWidthIsAtLeast(QidaDimensions.touchTarget).assertHeightIsAtLeast(QidaDimensions.touchTarget)
                 compose.onAllNodesWithText(t(R.string.today)).assertCountEquals(1)
                 compose.onAllNodesWithText(t(R.string.wm_energy_unknown)).assertCountEquals(1)
                 compose.onAllNodesWithText(t(R.string.wm_time_unknown)).assertCountEquals(1)
@@ -108,12 +110,13 @@ class WeeklyMenuUiTest {
                     if (n in listOf(2, 3)) compose.onNodeWithTag("menu-eat-slot-$n").assertDoesNotExist()
                     else compose.onNodeWithTag("menu-eat-slot-$n").performScrollTo().assertIsDisplayed()
                 }
-                capture(when (count) { 3 -> "three-meals"; 4 -> "four-meals"; else -> "five-meals" }, language, scale, count > 3)
+                capture(when (count) { 3 -> "three-meals"; 4 -> "four-meals"; else -> "five-meals" }, language, scale, count)
                 compose.onNodeWithTag("menu-recipe-slot-0").performScrollTo().performClick()
                 compose.runOnIdle { assertEquals(plan.items[0], opened); assertNull(ate) }
                 compose.onNodeWithTag("menu-eat-slot-1").performScrollTo().performClick()
                 compose.runOnIdle { assertEquals(plan.items[1], ate) }
                 val next = today.plusDays(1)
+                compose.onNodeWithTag("d03-top").performScrollTo()
                 compose.onNodeWithTag("menu-day-$next").performScrollTo().performClick()
                 compose.onNodeWithTag("menu-day-$next").assertIsSelected()
                 compose.onNodeWithTag("menu-day-$today").assertIsNotSelected()
@@ -122,6 +125,7 @@ class WeeklyMenuUiTest {
                 // Another populated day proves selection filters cards instead of changing the plan.
                 val other = plan.copy(items = plan.items + plan.items[0].copy(id = "other-day", date = CalendarDate(next.toString())))
                 show(language, scale) { DatedMenu(other, recipes, today) }
+                compose.onNodeWithTag("d03-top").performScrollTo()
                 compose.onNodeWithTag("menu-day-$next").performScrollTo().performClick()
                 compose.onNodeWithTag("menu-recipe-slot-0").assertDoesNotExist()
                 compose.onNodeWithTag("menu-recipe-other-day").performScrollTo().assertIsDisplayed()
@@ -138,9 +142,10 @@ class WeeklyMenuUiTest {
             compose.onNodeWithText(t(R.string.mn_cancel)).performScrollTo().performClick()
             assertNull(confirmed)
         }
+        val context = compose.activity.applicationContext
         val worker = Executors.newSingleThreadExecutor()
         try { worker.submit {
-            UserRepositories.open(compose.activity.applicationContext).use {
+            UserRepositories.open(context).use {
                 assertTrue(it.plans.current("local-guest").isEmpty())
                 assertTrue(it.foodLogs.recent("local-guest").isEmpty())
             }
@@ -149,10 +154,11 @@ class WeeklyMenuUiTest {
 
     @Test fun unavailableEmptyLoadingErrorAndMissingProfileHaveHonestRecovery() {
         // Real profile and repository loader; no fabricated accepted plan is inserted.
+        val context = compose.activity.applicationContext
         val worker = Executors.newSingleThreadExecutor()
         try { worker.submit {
             val draft = readyOnboarding().copy(id = "weekly-menu-ui")
-            OnboardingStore(compose.activity.applicationContext).apply { queueSave(draft).get() }.confirm(draft, "az")
+            OnboardingStore(context).apply { queueSave(draft).get() }.confirm(draft, "az")
         }.get() } finally { worker.shutdown() }
         for (language in listOf("az", "en", "ru")) for (scale in listOf(1f, 1.5f)) {
             var retried = false
