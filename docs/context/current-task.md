@@ -1,41 +1,36 @@
-# Current task — K16 future-plan recalculation boundary
+# Current task — K16 menu UI integration
 
 ## Completed
-- Durable generation and explicit initial acceptance retained.
-- Added futurePlans.preview/confirm with durable exact before/after records and transactional stale-version checks.
-- Uses confirmed profile transition + stored generation; preserves entire past/consumed/partial/skipped items and all FoodLogs.
-- Revalidates merged candidate via shared K15 candidate/nutrition/weekly/pricing components.
-- Shopping differences and marks retained, including zero-need purchased products; atomic plan/shopping/receipt acceptance.
+- Menu route wired to production generation, explicit acceptance and futurePlans preview/confirm.
+- Exact pending request/seed/acceptance IDs saved before compute; retry resumes after recreation/restart.
+- Real dated accepted-plan menu, profile goal/slot summary, AZ/EN/RU empty/failure states.
+- Today uses accepted-plan actual + remaining projection without declaring diary completeness.
 
 ## Current state
-- K16 persistence/orchestration boundaries exist. No UI routes yet.
 - Production catalog/G3, price/G4 and budget gates remain closed.
+- No synthetic success or fixture bypass in UI. No APK authorized.
 
 ## Decisions
-- Only future untouched slots change. Partial items, including remaining portions, stay intact under existing FuturePlanPreview contract.
-- Rejected merge is an explicit outcome, not proof all possible menus are infeasible; use a new request/seed for another candidate.
-- Missing exact historical/customization evidence blocks rather than inventing nutrition/shopping data.
-- Existing single confirmed profile transition contract retained; skipped transitions fail explicitly.
-- New-week alternatives are not valid for the merge and are explicitly cleared.
-- Preview computes planned-menu totals. Actual/remaining diary projection continues through dailyPlanProjection.
+- Existing repository invariants and immutable receipts retained.
+- New initial weeks begin after existing accepted weeks to avoid overlapping generated weeks.
+- Profile recalculation is separate from initial acceptance, preserves protected history.
 
 ## Remaining work
-- Screens 04/13/14, dated menu, recipe/portion confirmation and Today UI E2E.
-- Authoritative catalog/import activation wiring and real catalog/pricing acceptance.
-- Broader customized historical evidence support and chained profile-change composition if needed.
+- Complete recipe detail/name/ingredient/step presentation and portion-confirmed Yedim UI.
+- Successful production UI acceptance/recalculation E2E with authoritative catalog/pricing.
+- Dated-menu/successful-preview visual and device coverage.
 
 ## Relevant files
-- data/local/{FuturePlanRepository,PlanGenerationRepository,PlanAcceptanceRepository,MealPlanRepository,UserRepositories}.kt
-- domain/planning/{FuturePlanCalculation,GeneratedMealPlan,WeeklyPlanChecks,WeeklyPlanGenerator,DailyPlanProjection}.kt
-- domain/profile/FuturePlanPreview.kt; data/local/FuturePlanRepositoryTest.kt
-- docs/qa/android-k16-generation-acceptance.md
+- ui/menu/{MenuWorkflow,MenuScreen,TodayPlanProjection}.kt; ui/BootstrapScreen.kt; ui/today/TodayScreen.kt
+- data/local/{PlanGenerationRepository,PlanAcceptanceRepository,FuturePlanRepository,MealPlanRepository}.kt
+- ui/MenuUiTest.kt; docs/qa/android-k16-generation-acceptance.md
 - planning/coding-tasks.txt K16; planning/research-data.json §8/18–19/22; docs/nutrition-plan-design.md
 
 ## Checks performed
-- Prior main f3a642a CI passed; lifecycle, scoped canonical requirements and organization read.
-- New Room/JVM acceptance scenarios added; final merged-main CI result recorded in task response.
-- No UI change/render, APK, device, clinical or real catalog/pricing acceptance claimed.
+- Read lifecycle, organization, canonical scoped requirements, ui-craft, tokens and design references.
+- Final merged-main CI and render results recorded in chat response after finish.
+- No APK/device/clinical/real catalog acceptance claimed.
 
 ## Exact next step
-- Continue K16 UI integration as a new scoped chat after reading ui-craft and relevant design references.
-- Follow start/commit/finish lifecycle; no APK without explicit request.
+- Finish local lifecycle for this UI integration, inspect generated JVM screenshots.
+- Next scoped unit: recipe detail + idempotent portion-confirmed Yedim, following K16 and customization §2/7.

@@ -48,7 +48,7 @@ fun TodayScreen(initialId: String? = null, add: () -> Unit, menu: () -> Unit) {
             delay(1000)
         }
     }
-    LaunchedEffect(refresh) {
+    LaunchedEffect(refresh, day, zone) {
         state = SurfaceState.Loading
         try {
             val data = withContext(Dispatchers.IO) {
@@ -80,7 +80,8 @@ fun TodayScreen(initialId: String? = null, add: () -> Unit, menu: () -> Unit) {
         QidaState(state) { refresh++ }; return
     }
     val entries = diaryDay(logs, day, zone)
-    TodaySummary(entries, target, day.toString(), zone.id)
+    TodaySummary(entries, null, day.toString(), zone.id)
+    com.aladdin.dailyplate.ui.menu.TodayPlanProjection(logs, refresh)
     if (writeError) {
         Text(stringResource(R.string.td_write_error))
         QidaButton(stringResource(R.string.retry), { refresh++ })
