@@ -22,8 +22,8 @@ NP-16 review/çəki consumer-i və davamlı hədəf dayandırılması tamamlanı
 NP-17–23 makro və menyu yoxlama nüvəsi mövcuddur; tam nutrient əhatəsi,
 real dərc olunmuş porsiya feasibility-si və K15 generatoru hazır sayılmır.
 K14–K34 tam mərhələlər kimi tamamlanmayıb; müqavilə/model/nüvə hazırlığı həmin
-mərhələlərin qəbulu deyil. Növbəti implementasiya vahidi K14-dür; bu status
-yeniləməsi K14-ə başlama göstərişi deyil. K27 geniş çəki giriş/progress UI-si qalır.
+mərhələlərin qəbulu deyil. K14 alış/qiymət nüvəsi ayrıca implementasiya edilib; sübut: docs/qa/android-k14-acceptance.md.
+Növbəti implementasiya vahidi K15-dir. K27 geniş çəki giriş/progress UI-si qalır.
 Yoxlanmış baza main 5daf7de: uyğun CI yaşıl, 151 JVM testi, lint/compile,
 token/kontrast, kitabxana müqavilələri və export parity. Cari yekun sübut
 .local-ci/logs/latest.json head-in main HEAD ilə uyğunluğu və passed=true-dur.
@@ -216,7 +216,8 @@ Yoxlama: allergenli/allergeni naməlum məhsul keçmir; vaxtı naməlum resept 1
 Bitmə: deterministik filtr; draft library canlı namizəd olmur.
 
 K14 — Alış miqdarı və region qiymət modeli
-Status: növbəti vahid; bu uzlaşdırmada implementasiyasına başlanmayıb.
+Status: alış/region qiymət nüvəsi implementasiya edilib; docs/qa/android-k14-acceptance.md.
+Real G4 qiymət/büdcə qəbulu və K17 UI ayrıca qalır.
 Asılılıq: K04, K07. Mənbə: §17, §19.8; customization §6.
 Yazılacaq: ingredient_price, paket/edible_fraction/preparation_state,
   istifadə xərci ilə tam paket alışının ayrımı, evdəki miqdarın çıxılması.
