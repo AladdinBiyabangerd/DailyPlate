@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.selected
@@ -46,10 +47,14 @@ fun BootstrapScreen() {
         Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             Column(Modifier.fillMaxSize().safeDrawingPadding()) {
                 Column(Modifier.weight(1f).verticalScroll(contentScroll)
-                    .padding(QidaSpacing.large), verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
-                    Text(stringResource(R.string.app_name), style = MaterialTheme.typography.titleLarge)
+                    .padding(if (navigation.current == Destination.Welcome) QidaSpacing.medium else QidaSpacing.large),
+                    verticalArrangement = Arrangement.spacedBy(if (navigation.current == Destination.Welcome) QidaSpacing.small else QidaSpacing.medium)) {
                     if (navigation.stack.size > 1 && navigation.current != Destination.Setup) TextButton(onClick = { route = navigation.back().encode() },
-                        modifier = Modifier.heightIn(min = QidaDimensions.touchTarget)) { Text(stringResource(R.string.back)) }
+                        modifier = Modifier.heightIn(min = QidaDimensions.touchTarget),
+                        shape = MaterialTheme.shapes.large,
+                        colors = ButtonDefaults.textButtonColors(containerColor = MaterialTheme.colorScheme.surface)) {
+                        Text("‹"); Text(stringResource(R.string.back))
+                    }
                     if (navigation.current == Destination.Welcome || navigation.current == Destination.Profile) {
                         LanguagePicker(language) { code ->
                             preferences.edit { putString("language", code) }
@@ -59,9 +64,16 @@ fun BootstrapScreen() {
                     when (navigation.current) {
                         Destination.Welcome -> {
                             QidaHeading(stringResource(R.string.welcome_title))
+                            QidaArt(R.drawable.art_welcome, Modifier.fillMaxWidth().height(com.aladdin.dailyplate.ui.theme.QidaDimensions.heroArt))
                             Text(stringResource(R.string.welcome_message), style = MaterialTheme.typography.bodyLarge)
-                            listOf(R.string.feature_log, R.string.feature_menu, R.string.feature_progress).forEach {
-                                QidaCard { Text(stringResource(it), style = MaterialTheme.typography.bodyLarge) }
+                            listOf(R.string.feature_log to R.drawable.art_log, R.string.feature_menu to R.drawable.art_menu,
+                                R.string.feature_progress to R.drawable.art_progress).forEach { (label, art) ->
+                                Surface(shape = MaterialTheme.shapes.large, color = MaterialTheme.colorScheme.surface,
+                                    shadowElevation = QidaDimensions.cardElevation) { Row(Modifier.fillMaxWidth().padding(QidaSpacing.small), verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
+                                    QidaArt(art, Modifier.size(QidaDimensions.touchTarget))
+                                    Text(stringResource(label), style = MaterialTheme.typography.titleMedium)
+                                } }
                             }
                             QidaButton(stringResource(R.string.begin), { open(Destination.Setup) })
                             TextButton(onClick = { open(Destination.Account) }, modifier = Modifier.heightIn(min = QidaDimensions.touchTarget)) {
@@ -70,6 +82,7 @@ fun BootstrapScreen() {
                         }
                         Destination.Setup -> com.aladdin.dailyplate.ui.onboarding.OnboardingScreen(language, { route = navigation.back().encode() }, { scope.launch { contentScroll.scrollTo(0) } }) { open(Destination.Today) }
                         Destination.Account -> {
+                            QidaArt(R.drawable.art_account, Modifier.fillMaxWidth().height(QidaDimensions.heroArt))
                             QidaHeading(stringResource(if (navigation.current == Destination.Setup) R.string.begin else R.string.sign_in))
                             QidaState(SurfaceState.Empty, stringResource(if (navigation.current == Destination.Setup) R.string.setup_pending else R.string.unavailable))
                             QidaButton(stringResource(R.string.continue_action), { open(Destination.Today) })
@@ -84,9 +97,19 @@ fun BootstrapScreen() {
                                 else -> R.string.empty_profile
                             }
                             if (navigation.current == Destination.Profile) {
-                                Text(stringResource(R.string.ob_local_note))
+                                QidaArt(R.drawable.art_account, Modifier.fillMaxWidth().height(QidaDimensions.choiceArt))
+                                QidaCard { Text(stringResource(R.string.ob_local_note)) }
                                 QidaButton(stringResource(R.string.ob_profile), { open(Destination.Setup) })
-                            } else QidaState(SurfaceState.Empty, stringResource(message))
+                            } else {
+                                val art = when (navigation.current) {
+                                    Destination.Today -> R.drawable.art_empty
+                                    Destination.Menu -> R.drawable.art_empty_menu
+                                    Destination.Add -> R.drawable.art_empty_add
+                                    else -> R.drawable.art_empty_progress
+                                }
+                                QidaArt(art, Modifier.fillMaxWidth().height(QidaDimensions.heroArt))
+                                QidaState(SurfaceState.Empty, stringResource(message))
+                            }
                             if (navigation.current == Destination.Today) {
                                 QidaButton(stringResource(R.string.add_meal), { open(Destination.Add) })
                                 QidaButton(stringResource(R.string.today_menu), { open(Destination.Menu) })
@@ -103,9 +126,24 @@ fun BootstrapScreen() {
                                 // Natural label widths flow into additional rows, including at large font sizes.
                                 TextButton(onClick = { open(destination) }, modifier = Modifier
                                     .heightIn(min = QidaDimensions.touchTarget).semantics { role = Role.Tab; this.selected = selected },
+                                    shape = MaterialTheme.shapes.large,
+                                    colors = ButtonDefaults.textButtonColors(
+                                        containerColor = if (destination == Destination.Add) MaterialTheme.colorScheme.primary else if (selected) MaterialTheme.colorScheme.background else MaterialTheme.colorScheme.surface,
+                                        contentColor = if (destination == Destination.Add) MaterialTheme.colorScheme.onPrimary else if (selected) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant),
                                     contentPadding = PaddingValues(QidaSpacing.small)) {
-                                    Text((if (selected) "✓\n" else "") + stringResource(label),
-                                        style = MaterialTheme.typography.bodyLarge)
+                                    Column(horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally) {
+                                        val icon = when (destination) {
+                                            Destination.Today -> R.drawable.nav_today
+                                            Destination.Menu -> R.drawable.nav_menu
+                                            Destination.Add -> R.drawable.nav_add
+                                            Destination.Progress -> R.drawable.nav_progress
+                                            else -> R.drawable.nav_profile
+                                        }
+                                        Icon(androidx.compose.ui.res.painterResource(icon), contentDescription = null,
+                                            modifier = Modifier.size(QidaSpacing.large))
+                                        Text(stringResource(label), style = MaterialTheme.typography.labelLarge,
+                                            fontWeight = if (selected) androidx.compose.ui.text.font.FontWeight.ExtraBold else androidx.compose.ui.text.font.FontWeight.Normal)
+                                    }
                                 }
                             }
                         }
@@ -118,15 +156,21 @@ fun BootstrapScreen() {
 
 @Composable
 private fun LanguagePicker(language: String, select: (String) -> Unit) {
-    Text(stringResource(R.string.language), style = MaterialTheme.typography.bodyLarge)
-    Row(Modifier.fillMaxWidth()) {
-        listOf("az" to "AZ", "en" to "EN", "ru" to "RU").forEach { (code, label) ->
-            FilterChip(selected = language == code, onClick = { select(code) },
-                colors = FilterChipDefaults.filterChipColors(
-                    selectedContainerColor = MaterialTheme.colorScheme.primary,
-                    selectedLabelColor = MaterialTheme.colorScheme.onPrimary),
-                label = { Text((if (language == code) "✓ " else "") + label) },
-                modifier = Modifier.weight(1f).heightIn(min = QidaDimensions.touchTarget))
+    var expanded by remember { mutableStateOf(false) }
+    val languageLabel = stringResource(R.string.language)
+    Box(Modifier.fillMaxWidth().wrapContentWidth(androidx.compose.ui.Alignment.End)) {
+        TextButton(onClick = { expanded = true },
+            modifier = Modifier.heightIn(min = QidaDimensions.touchTarget).semantics { contentDescription = languageLabel },
+            colors = ButtonDefaults.textButtonColors(containerColor = MaterialTheme.colorScheme.surface),
+            shape = MaterialTheme.shapes.large) {
+            Text(language.uppercase(), fontWeight = androidx.compose.ui.text.font.FontWeight.Bold)
+            Text(" ⌄")
+        }
+        DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
+            listOf("az", "en", "ru").forEach { code ->
+                DropdownMenuItem(text = { Text(code.uppercase()) },
+                    onClick = { select(code); expanded = false })
+            }
         }
     }
 }

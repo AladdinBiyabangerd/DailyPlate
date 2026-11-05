@@ -1,0 +1,43 @@
+UI implementation references — K06/K07
+
+Existing PNGs remain the primary visual references. Never use a screenshot of an
+entire screen as an interactive screen: artwork is decorative raster; labels,
+inputs, selections, buttons, Back and navigation are native accessible controls.
+
+01-baslangic: welcome hero/three benefits; body input illustrations and activity
+cards. 00-reference: two-column illustrated goal cards. 02-secimler-ve-hesab:
+allergen illustrations and cooking header; white rounded preference groups with
+segmented time/budget/meal choices. 06: empty Today illustration.
+
+New 12-elave-profil-secimleri.png: visual reference for the additional health,
+budget/kitchen, home-food and saved-profile sections required by the current
+plan but absent from the original onboarding PNGs. In K07 these supplemental
+sections remain scrollable inside steps 3 and 5; the real five-step sequence,
+validation and durable draft contract are unchanged. Every existing health
+question stays present. The illustration's three health questions are examples,
+not a replacement for the complete six-question implementation.
+
+New 13-bos-veziyyetler.png: empty Menu/Add/Progress and unavailable Account.
+The mockup repeats an active Today tab; implementation always selects the actual
+route. These images do not authorize food logging, authentication or planning.
+Profile uses the existing profile direction with only the currently implemented
+language and saved-profile actions. No name, plan, calories, chart points or
+account functions are fabricated.
+
+Native differences required by the plan: token colours (not sampled raster
+colours), contrast >=4.5, Android 48dp targets, persistent full labels, optional
+skip/custom-allergen paths and AZ/EN/RU. Above 130% system font, grids and
+segments become vertical to keep full text visible. Overflow scrolls. Goal
+cards have equal height and the primary action rests at the bottom when content
+fits. Main navigation can wrap at large text. These adaptations are deliberate;
+no pixel-perfect equivalence across platforms/fonts is claimed.
+
+Artwork crops and source coordinates: android/tools/extract_design_art.py.
+The 2880x4080 original reference is scaled only when converting documented
+preview coordinates; cropping uses full-resolution pixels. New PNGs generated
+with built-in image_gen; prompt records: ui-extension-prompts.txt.
+
+New 14-elave-formalar-ve-veziyyetler.png: inline custom-allergen/restriction and
+editable-dislike forms, native loading indicator, and local write-error card.
+The generated food prohibition illustration is decorative; explicit user labels
+control restrictions and dislikes. It is never used as medical advice or a rule.

@@ -1,5 +1,5 @@
 <resources>
-    <string name="ob_goal">Your goal</string>
+    <string name="ob_goal">What is your goal?</string>
     <string name="ob_lose">Lose weight</string>
     <string name="ob_maintain">Maintain weight</string>
     <string name="ob_gain">Gain weight</string>
@@ -12,7 +12,7 @@
     <string name="ob_female">Female</string>
     <string name="ob_skip">Prefer not to answer</string>
     <string name="ob_body">About you</string>
-    <string name="ob_activity">Daily activity</string>
+    <string name="ob_activity">How does your day go?</string>
     <string name="ob_sedentary">Mostly sitting — much of the day seated</string>
     <string name="ob_some">Some movement — walking during the day</string>
     <string name="ob_active">Very active — moving much of the day</string>
@@ -24,7 +24,7 @@
     <string name="ob_treatment">Insulin or treatment affecting nutrition</string>
     <string name="ob_yes">Yes</string>
     <string name="ob_no">No</string>
-    <string name="ob_allergies">Allergies and food preferences</string>
+    <string name="ob_allergies">What do you avoid?</string>
     <string name="ob_milk">Milk</string>
     <string name="ob_egg">Egg</string>
     <string name="ob_nuts">Tree nuts — specify types below</string>

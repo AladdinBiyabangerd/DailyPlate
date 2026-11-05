@@ -5,6 +5,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalWindowInfo
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.aladdin.dailyplate.R
@@ -49,6 +51,7 @@ fun OnboardingScreen(language: String, exit: () -> Unit, resetScroll: () -> Unit
     LaunchedEffect(d.step, saved) { resetScroll() }
     if (busy) { QidaState(SurfaceState.Loading); return }
     if (saved) {
+        QidaArt(R.drawable.art_saved, Modifier.fillMaxWidth().height(QidaDimensions.heroArt))
         QidaHeading(stringResource(R.string.ob_saved))
         val profile = requireNotNull(confirmed)
         Text(stringResource(when (profile.goal) {
@@ -58,13 +61,17 @@ fun OnboardingScreen(language: String, exit: () -> Unit, resetScroll: () -> Unit
             com.aladdin.dailyplate.domain.Goal.HEALTHY -> R.string.ob_healthy
         }))
         Text(stringResource(R.string.ob_meals) + ": " + profile.mealsPerDay)
-        Text(stringResource(R.string.ob_boundary)); Text(stringResource(R.string.ob_local_note))
+        QidaCard { Text(stringResource(R.string.ob_boundary)); Text(stringResource(R.string.ob_local_note)) }
         QidaButton(stringResource(R.string.continue_action), done)
         return
     }
     BackHandler(d.step > 0 && !busy) { update(d.copy(step = d.step - 1)) }
-    TextButton(onClick = { if (d.step == 0) exit() else update(d.copy(step = d.step - 1)) }, enabled = !busy) { Text(stringResource(R.string.back)) }
-    Text("${d.step + 1}/5", style = MaterialTheme.typography.bodyLarge)
+    val windowHeight = with(LocalDensity.current) { LocalWindowInfo.current.containerSize.height.toDp() }
+    val safePadding = WindowInsets.safeDrawing.asPaddingValues()
+    Column(Modifier.fillMaxWidth().heightIn(min = windowHeight - safePadding.calculateTopPadding() - safePadding.calculateBottomPadding() - QidaSpacing.large * 2),
+        verticalArrangement = Arrangement.SpaceBetween) {
+    Column(verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
+    StepHeader(d.step) { if (d.step == 0) exit() else update(d.copy(step = d.step - 1)) }
     QidaHeading(stringResource(listOf(R.string.ob_goal, R.string.ob_body, R.string.ob_activity,
         R.string.ob_allergies, R.string.ob_preferences)[d.step]))
     if (invalid) Text(stringResource(R.string.ob_invalid), style = MaterialTheme.typography.bodyLarge)
@@ -77,74 +84,111 @@ fun OnboardingScreen(language: String, exit: () -> Unit, resetScroll: () -> Unit
         OnboardingChoice(stringResource(label), d.answer(key) == value) { change(key, value) }
     }
     when (d.step) {
-        0 -> listOf("LOSE" to R.string.ob_lose, "MAINTAIN" to R.string.ob_maintain,
-            "GAIN" to R.string.ob_gain, "HEALTHY" to R.string.ob_healthy).forEach { (v, l) -> choice("goal", v, l) }
+        0 -> {
+            val goals = listOf(Triple("LOSE", R.string.ob_lose, R.drawable.art_lose),
+                Triple("MAINTAIN", R.string.ob_maintain, R.drawable.art_maintain),
+                Triple("GAIN", R.string.ob_gain, R.drawable.art_gain),
+                Triple("HEALTHY", R.string.ob_healthy, R.drawable.art_healthy))
+            DesignGrid(goals.map { (value, label, art) -> value to { modifier ->
+                DesignChoice(stringResource(label), d.answer("goal") == value, { change("goal", value) },
+                    modifier, art, tile = true)
+            } })
+        }
         1 -> {
-            listOf("age" to R.string.ob_age, "height" to R.string.ob_height, "weight" to R.string.ob_weight).forEach { (key, label) ->
-                field(key, label, true)
-                Row(horizontalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
-                    listOf(-1, 1).forEach { delta ->
-                        TextButton(onClick = { change(key, ((d.number(key) ?: 0.0) + delta).toString()) },
-                            modifier = Modifier.weight(1f).heightIn(min = QidaDimensions.touchTarget)) {
-                            Text(stringResource(label) + if (delta > 0) " +1" else " −1")
-                        }
-                    }
-                }
+            listOf(Triple("age", R.string.ob_age, R.drawable.art_age),
+                Triple("height", R.string.ob_height, R.drawable.art_height),
+                Triple("weight", R.string.ob_weight, R.drawable.art_weight)).forEach { (key, label, art) ->
+                MeasurementCard(stringResource(label), d.answer(key), art,
+                    if (invalid && key in d.errors(d.step)) stringResource(R.string.ob_invalid) else null,
+                    { change(key, it) }, { delta -> change(key, ((d.number(key) ?: 0.0) + delta).toString()) })
             }
             Text(stringResource(R.string.ob_age_date))
             Text(stringResource(R.string.ob_sex))
-            choice("sex", "MALE", R.string.ob_male); choice("sex", "FEMALE", R.string.ob_female); choice("sex", "", R.string.ob_skip)
+            DesignGrid(listOf("MALE" to { modifier ->
+                DesignChoice(stringResource(R.string.ob_male), d.answer("sex") == "MALE", { change("sex", "MALE") }, modifier, R.drawable.art_male, true)
+            }, "FEMALE" to { modifier ->
+                DesignChoice(stringResource(R.string.ob_female), d.answer("sex") == "FEMALE", { change("sex", "FEMALE") }, modifier, R.drawable.art_female, true)
+            }))
+            choice("sex", "", R.string.ob_skip)
             Text(stringResource(R.string.ob_boundary))
         }
         2 -> {
-            choice("activity", "sedentary", R.string.ob_sedentary)
-            choice("activity", "some", R.string.ob_some); choice("activity", "active", R.string.ob_active)
+            listOf(Triple("sedentary", R.string.ob_sedentary, R.drawable.art_sedentary),
+                Triple("some", R.string.ob_some, R.drawable.art_walking),
+                Triple("active", R.string.ob_active, R.drawable.art_active)).forEach { (value, label, art) ->
+                DesignChoice(stringResource(label), d.answer("activity") == value, { change("activity", value) }, art = art)
+            }
+            QidaArt(R.drawable.art_health, Modifier.fillMaxWidth().height(QidaDimensions.heroArt))
             listOf("pregnant" to R.string.ob_pregnant, "breastfeeding" to R.string.ob_breastfeeding,
                 "eating_risk" to R.string.ob_eating_risk, "medical_diet" to R.string.ob_medical_diet,
                 "kidney" to R.string.ob_kidney, "treatment" to R.string.ob_treatment).forEach { (key, label) ->
-                QidaCard { Text(stringResource(label)); choice(key, "yes", R.string.ob_yes)
-                    choice(key, "no", R.string.ob_no); choice(key, "", R.string.ob_skip) }
+                ChoiceGroup(stringResource(label)) {
+                    SegmentedChoices(listOf("yes" to stringResource(R.string.ob_yes),
+                        "no" to stringResource(R.string.ob_no), "" to stringResource(R.string.ob_skip)), d.answer(key)) { change(key, it) }
+                }
             }
             Text(stringResource(R.string.ob_boundary))
         }
         3 -> {
-            listOf("milk" to R.string.ob_milk, "egg" to R.string.ob_egg, "tree_nuts" to R.string.ob_nuts,
-                "fish" to R.string.ob_fish, "wheat" to R.string.ob_wheat, "none" to R.string.ob_none).forEach { (code, label) ->
-                OnboardingChoice(stringResource(label), code in d.items("allergies")) {
-                    update(d.toggleAllergen(code).let { if (code == "none") it.change("extra_allergies", "") else it })
-                }
+            val allergens = listOf(Triple("milk", R.string.ob_milk, R.drawable.art_milk),
+                Triple("egg", R.string.ob_egg, R.drawable.art_egg), Triple("tree_nuts", R.string.ob_nuts, R.drawable.art_nuts),
+                Triple("fish", R.string.ob_fish, R.drawable.art_fish), Triple("wheat", R.string.ob_wheat, R.drawable.art_wheat))
+            DesignGrid(allergens.map { (code, label, art) -> code to { modifier ->
+                DesignChoice(stringResource(label), code in d.items("allergies"), { update(d.toggleAllergen(code)) },
+                    modifier, art, true)
+            } })
+            OnboardingChoice(stringResource(R.string.ob_none), "none" in d.items("allergies")) {
+                update(d.toggleAllergen("none").change("extra_allergies", ""))
             }
             OnboardingChoice(stringResource(R.string.ob_skip), d.answer("allergies") == "unknown") {
                 update(d.change("allergies", "unknown").change("extra_allergies", ""))
             }
+            QidaArt(R.drawable.art_other_choices, Modifier.fillMaxWidth().height(QidaDimensions.bannerArt))
+            QidaCard {
             QidaField(stringResource(R.string.ob_extra_allergies), d.answer("extra_allergies"), {
                 update(d.change("extra_allergies", it).let { v -> if (d.answer("allergies") in listOf("none", "unknown")) v.change("allergies", "") else v })
             })
+            }
             OnboardingChoice(stringResource(R.string.ob_gluten), "gluten" in d.items("restrictions")) {
                 val values = d.items("restrictions")
                 change("restrictions", (if ("gluten" in values) values - "gluten" else values + "gluten").joinToString(";"))
             }
-            field("restrictions", R.string.ob_restrictions)
+            QidaCard { field("restrictions", R.string.ob_restrictions) }
             var dislikesOpen by remember { mutableStateOf(false) }
             QidaButton(stringResource(R.string.ob_dislikes), { dislikesOpen = !dislikesOpen })
-            if (dislikesOpen) { field("disliked_foods", R.string.ob_disliked_foods); field("disliked_recipes", R.string.ob_disliked_recipes) }
+            if (dislikesOpen) {
+                QidaArt(R.drawable.art_dislikes, Modifier.fillMaxWidth().height(QidaDimensions.bannerArt))
+                QidaCard { field("disliked_foods", R.string.ob_disliked_foods); field("disliked_recipes", R.string.ob_disliked_recipes) }
+            }
         }
         4 -> {
-            Text(stringResource(R.string.ob_time))
-            listOf("15", "30", "60").forEach { value -> OnboardingChoice(value, d.answer("time") == value) { change("time", value) } }
-            Text(stringResource(R.string.ob_meals))
-            listOf("3", "4", "5").forEach { value -> OnboardingChoice(value, d.answer("meals") == value) { change("meals", value) } }
+            QidaArt(R.drawable.art_cooking, Modifier.fillMaxWidth().height(QidaDimensions.bannerArt))
+            ChoiceGroup(stringResource(R.string.ob_time)) {
+                SegmentedChoices(listOf("15", "30", "60").map { it to it }, d.answer("time")) { change("time", it) }
+            }
+            ChoiceGroup(stringResource(R.string.ob_tier)) {
+                SegmentedChoices(listOf("ECONOMICAL" to stringResource(R.string.ob_economical),
+                    "MEDIUM" to stringResource(R.string.ob_medium), "FLEXIBLE" to stringResource(R.string.ob_flexible)),
+                    d.answer("tier")) { change("tier", it) }
+            }
+            ChoiceGroup(stringResource(R.string.ob_meals)) {
+                SegmentedChoices(listOf("3", "4", "5").map { it to it }, d.answer("meals")) { change("meals", it) }
+            }
             val slots = when (d.answer("meals")) {
                 "3" -> R.string.ob_slots_3; "4" -> R.string.ob_slots_4; "5" -> R.string.ob_slots_5; else -> null
             }
             slots?.let { Text(stringResource(it)) }
-            Text(stringResource(R.string.ob_tier))
-            choice("tier", "ECONOMICAL", R.string.ob_economical); choice("tier", "MEDIUM", R.string.ob_medium); choice("tier", "FLEXIBLE", R.string.ob_flexible)
-            field("region", R.string.ob_region); field("currency", R.string.ob_currency)
-            field("amount", R.string.ob_amount, true); field("people", R.string.ob_people, true)
-            field("coverage", R.string.ob_coverage); field("equipment", R.string.ob_equipment)
-            field("home_name", R.string.ob_home_name); field("home_quantity", R.string.ob_home_quantity, true)
-            field("home_unit", R.string.ob_home_unit); field("home_state", R.string.ob_home_state)
+            QidaArt(R.drawable.art_budget, Modifier.fillMaxWidth().height(QidaDimensions.heroArt))
+            ChoiceGroup(stringResource(R.string.ob_tier)) {
+                field("region", R.string.ob_region); field("currency", R.string.ob_currency)
+                field("amount", R.string.ob_amount, true); field("people", R.string.ob_people, true)
+                field("coverage", R.string.ob_coverage); field("equipment", R.string.ob_equipment)
+            }
+            QidaArt(R.drawable.art_home_food, Modifier.fillMaxWidth().height(QidaDimensions.heroArt))
+            ChoiceGroup(stringResource(R.string.ob_home_name)) {
+                field("home_name", R.string.ob_home_name); field("home_quantity", R.string.ob_home_quantity, true)
+                field("home_unit", R.string.ob_home_unit); field("home_state", R.string.ob_home_state)
+            }
             d.storedHomeFoods.forEachIndexed { index, food ->
                 QidaCard {
                     Text(food.food.id.removePrefix("user:") + " · ${food.quantity} ${food.unit} · ${food.preparationState}")
@@ -162,6 +206,8 @@ fun OnboardingScreen(language: String, exit: () -> Unit, resetScroll: () -> Unit
             Text(stringResource(R.string.ob_budget_note))
         }
     }
+    }
+    Spacer(Modifier.height(QidaSpacing.medium))
     Button(onClick = {
         if (busy) return@Button
         if (d.errors(d.step).isNotEmpty()) { invalid = true; return@Button }
@@ -173,15 +219,15 @@ fun OnboardingScreen(language: String, exit: () -> Unit, resetScroll: () -> Unit
                 finally { busy = false }
             }
         }
-    }, enabled = !busy, modifier = Modifier.fillMaxWidth().heightIn(min = QidaDimensions.touchTarget)) {
+    }, enabled = !busy, modifier = Modifier.fillMaxWidth().heightIn(min = QidaDimensions.touchTarget),
+        shape = androidx.compose.foundation.shape.RoundedCornerShape(QidaDimensions.buttonRadius),
+        contentPadding = PaddingValues(QidaSpacing.medium)) {
         Text(stringResource(if (busy) R.string.loading else if (d.step == 4) R.string.ob_prepare else R.string.continue_action))
+    }
     }
 }
 
 @Composable
 private fun OnboardingChoice(label: String, selected: Boolean, action: () -> Unit) {
-    FilterChip(selected = selected, onClick = action, modifier = Modifier.fillMaxWidth().heightIn(min = QidaDimensions.touchTarget),
-        colors = FilterChipDefaults.filterChipColors(selectedContainerColor = MaterialTheme.colorScheme.primary,
-            selectedLabelColor = MaterialTheme.colorScheme.onPrimary),
-        label = { Text((if (selected) "✓ " else "") + label, style = MaterialTheme.typography.bodyLarge) })
+    DesignChoice(label, selected, action)
 }

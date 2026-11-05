@@ -5,6 +5,7 @@ import androidx.compose.material3.Typography
 import androidx.compose.material3.Shapes
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.colorResource
@@ -23,6 +24,14 @@ object QidaDimensions {
     // Android platform minimum, separate from the design spacing scale.
     val touchTarget = 48.dp
     val cardRadius = 24.dp
+    // Native rendering metrics for the supplied PNG components.
+    val selectionStroke = 2.dp
+    val cardElevation = 2.dp
+    val buttonRadius = 16.dp
+    val choiceArt = 64.dp
+    val heroArt = 184.dp
+    val bannerArt = 112.dp
+    val fieldArt = 32.dp
 }
 
 @Composable
@@ -55,8 +64,12 @@ fun QidaTheme(content: @Composable () -> Unit) {
             onErrorContainer = colorResource(R.color.simple_text),
         ),
         shapes = Shapes(large = RoundedCornerShape(QidaDimensions.cardRadius)),
-        typography = Typography().let { it.copy(bodyMedium = it.bodyMedium.copy(fontSize = 16.sp),
-            labelLarge = it.labelLarge.copy(fontSize = 16.sp)) },
+        typography = Typography().let { it.copy(
+            headlineMedium = it.headlineMedium.copy(fontSize = 28.sp, fontWeight = FontWeight.ExtraBold),
+            titleLarge = it.titleLarge.copy(fontWeight = FontWeight.Bold),
+            titleMedium = it.titleMedium.copy(fontWeight = FontWeight.Bold),
+            bodyMedium = it.bodyMedium.copy(fontSize = 16.sp),
+            labelLarge = it.labelLarge.copy(fontSize = 16.sp, fontWeight = FontWeight.Bold)) },
         content = content,
     )
 }

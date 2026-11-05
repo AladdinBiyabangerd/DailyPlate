@@ -60,11 +60,16 @@ class OnboardingUiTest {
             Assert.assertEquals(one, two); Assert.assertEquals(1L, one.ref.version)
         } finally { worker.shutdown() }
     }
-    @Test fun renderGoalInThreeLanguagesAtLargeFont() {
+    @Test fun renderGoalInThreeLanguagesAtLargeFont() = renderAllSteps(1.5f, "large")
+    @Test fun renderAllStepsAtNormalFont() = renderAllSteps(1f, "normal")
+    private fun renderAllSteps(scale: Float, size: String) {
         val context = ApplicationProvider.getApplicationContext<Application>()
         for (language in listOf("az", "en", "ru")) {
-            if (language != "az") compose.onNodeWithText(language.uppercase()).performScrollTo().performClick()
-            val config = android.content.res.Configuration(context.resources.configuration).apply { fontScale = 1.5f }
+            if (language != "az") {
+                compose.onNode(hasContentDescription("Dil") or hasContentDescription("Language") or hasContentDescription("Язык")).performScrollTo().performClick()
+                compose.onNodeWithText(language.uppercase()).performClick()
+            }
+            val config = android.content.res.Configuration(context.resources.configuration).apply { fontScale = scale }
             @Suppress("DEPRECATION")
             context.resources.updateConfiguration(config, context.resources.displayMetrics)
             OnboardingStore(context).queueSave(readyOnboarding()).get()
@@ -78,10 +83,18 @@ class OnboardingUiTest {
                 com.aladdin.dailyplate.R.string.ob_preferences)
             headings.forEachIndexed { step, heading ->
                 compose.onNodeWithText(c.getString(heading)).performScrollTo()
-                capture("step-$step-$language-large")
+                capture("step-$step-$language-$size")
+                if (step == 3) {
+                    compose.onNodeWithText(c.getString(com.aladdin.dailyplate.R.string.ob_extra_allergies)).performScrollTo()
+                    capture("allergen-details-$language-$size")
+                    compose.onNodeWithText(c.getString(com.aladdin.dailyplate.R.string.ob_dislikes)).performScrollTo().performClick()
+                    compose.onNodeWithText(c.getString(com.aladdin.dailyplate.R.string.ob_disliked_foods)).performScrollTo()
+                    capture("dislikes-$language-$size")
+                    compose.onNodeWithText(c.getString(com.aladdin.dailyplate.R.string.ob_dislikes)).performScrollTo().performClick()
+                }
                 val action = c.getString(if (step == 4) com.aladdin.dailyplate.R.string.ob_prepare else com.aladdin.dailyplate.R.string.continue_action)
                 compose.onNodeWithText(action).performScrollTo()
-                capture("step-$step-$language-bottom-large")
+                capture("step-$step-$language-bottom-$size")
                 if (step < 4) compose.onNodeWithText(action).performClick()
             }
             repeat(5) { compose.onNodeWithText(c.getString(com.aladdin.dailyplate.R.string.back)).performScrollTo().performClick() }
