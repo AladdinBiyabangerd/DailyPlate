@@ -62,3 +62,29 @@ UI screens 04/13/14 and Today routes, automatic catalog import activation, real 
 - Test-only editorial envelopes and price observations are rejected. Every current editorial envelope is test-only, so this boundary currently supports empty/unavailable catalogs only. It does not turn K05 workflow approval into production publication.
 - No library DB is imported or mutated here. No menu, diary or historical snapshot is rewritten. Library import adapter, automatic application invocation, approved production catalog representation and production E2E remain outstanding. G3/G4 remain closed.
 - APK-free Room tests cover exact selection/replay, owner isolation, conflict/downgrade/stale/schema rejection, fixture rejection, on-disk restart and receipt-write rollback/retry. Check merged-main CI for the actual result.
+
+## Production reviewed-content representation
+
+`domain/editorial/ReviewedRecipeContent.kt` defines a separate schema-1 production
+wire record; it does not convert or promote K05 `EditorialSnapshot`. A trusted
+publisher supplies an exact recipe version, published recipe review, full
+`EditorialMetadata`, publication identity/time, and SHA-256 of the exact UTF-8
+`ReviewedRecipePayload` JSON bytes. `requireUsable(at)` checks hash/version,
+publication completeness, review/publication chronology, optional review expiry
+and withdrawal. Unknown reviewer/date values must not be fabricated. This record
+represents per-recipe evidence, not §30's approval of the written plan.
+
+Requirements: canonical `planning/research-data.json` §8 hard publication filter,
+§21 R-05/R-06/R-07, §22 C-01/C-07/C-12, §25 A-12 and §30. Contract scenarios in
+`ReviewedRecipeContentTest`: serialization, altered bytes/hash/version, missing
+allergen/rights/translation evidence, withdrawal, expiry, chronology, schema and
+rejection of the test-editor wire format. Synthetic test records are test-source
+only; no real review record or catalog is bundled.
+
+This model is not an authentication mechanism. The future trusted library import
+must authenticate its source, select the latest publication/withdrawal state,
+recompute nutrients from exact ingredient versions and verify source manifests,
+then atomically activate the complete catalog. The current `CandidateCatalog`
+and `PlanningInputImporter` deliberately retain their fixture rejection; this
+unit does not wire the new record into generation, open G3/G4 or claim real
+catalog/device E2E acceptance. An empty/unavailable catalog remains supported.
