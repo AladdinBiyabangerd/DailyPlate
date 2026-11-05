@@ -1,6 +1,9 @@
 package com.aladdin.dailyplate.ui.menu
 
 import androidx.compose.material3.*
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
+import com.aladdin.dailyplate.ui.theme.QidaDimensions
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.relocation.BringIntoViewRequester
@@ -63,7 +66,7 @@ internal fun RecipeDetailScreen(planId: String, itemId: String, startEating: Boo
             RecipeNutrients(retry.log.nutrientSnapshot)
             QidaButton(stringResource(R.string.retry), { load(resume = true) })
         } else if (!saved) detail?.let { RecipeDetailContent(it, startEating = startEating) { command -> load(command = command) } }
-        QidaButton(stringResource(R.string.back), back)
+        RecipeDetailBack(back)
     }
 }
 
@@ -87,5 +90,12 @@ internal fun RecipeNutrients(snapshot: NutrientSnapshot) {
         "fat_g" to R.string.pc_fat, "available_carbohydrate_g" to R.string.pc_carbs).forEach { (key, label) ->
         val amount = snapshot.values[key]
         Text("${stringResource(label)}: ${amount?.value?.toString() ?: stringResource(R.string.fe_unknown_value)} ${if (key == "energy_kcal") "kcal" else "g"}")
+    }
+}
+
+@Composable
+internal fun RecipeDetailBack(back: () -> Unit) {
+    TextButton(onClick = back, modifier = Modifier.fillMaxWidth().heightIn(min = QidaDimensions.touchTarget)) {
+        Text(stringResource(R.string.back), style = MaterialTheme.typography.bodyLarge)
     }
 }

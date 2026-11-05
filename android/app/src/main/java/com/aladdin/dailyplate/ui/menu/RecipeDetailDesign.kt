@@ -29,7 +29,7 @@ internal fun RecipeDetailDesign(detail: RecipeDetailData, eat: () -> Unit) {
         DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(locale)) + " · " + slotLabel(detail.item.mealSlot),
         color = MaterialTheme.colorScheme.onSurfaceVariant)
     Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
-        QidaArt(R.drawable.art_menu, Modifier.size(QidaDimensions.heroArt))
+        QidaArt(R.drawable.art_recipe, Modifier.size(QidaDimensions.heroArt))
     }
     Text(stringResource(R.string.rdd_art), style = MaterialTheme.typography.bodyMedium,
         color = MaterialTheme.colorScheme.onSurfaceVariant)
