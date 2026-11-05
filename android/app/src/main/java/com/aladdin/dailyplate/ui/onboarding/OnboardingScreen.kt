@@ -145,11 +145,13 @@ fun OnboardingScreen(language: String, exit: () -> Unit, resetScroll: () -> Unit
             OnboardingChoice(stringResource(R.string.ob_skip), d.answer("allergies") == "unknown") {
                 update(d.change("allergies", "unknown").change("extra_allergies", ""))
             }
-            QidaArt(R.drawable.art_other_choices, Modifier.fillMaxWidth().height(QidaDimensions.bannerArt))
-            QidaCard {
-            QidaField(stringResource(R.string.ob_extra_allergies), d.answer("extra_allergies"), {
-                update(d.change("extra_allergies", it).let { v -> if (d.answer("allergies") in listOf("none", "unknown")) v.change("allergies", "") else v })
-            })
+            if (d.answer("allergies") != "none") {
+                QidaArt(R.drawable.art_other_choices, Modifier.fillMaxWidth().height(QidaDimensions.bannerArt))
+                QidaCard {
+                QidaField(stringResource(R.string.ob_extra_allergies), d.answer("extra_allergies"), {
+                    update(d.change("extra_allergies", it).let { v -> if (d.answer("allergies") in listOf("none", "unknown")) v.change("allergies", "") else v })
+                })
+                }
             }
             OnboardingChoice(stringResource(R.string.ob_gluten), "gluten" in d.items("restrictions")) {
                 val values = d.items("restrictions")

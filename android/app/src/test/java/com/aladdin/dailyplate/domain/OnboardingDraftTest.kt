@@ -54,7 +54,10 @@ class OnboardingDraftTest {
         val p = d.profile("az", RecordedAt("2026-11-04T10:00:00Z", "UTC"), CalendarDate("2026-11-04"))
         assertEquals(setOf("wheat", "custom:sesame"), p.allergies)
         assertEquals(setOf("gluten"), p.dietaryRestrictions)
-        assertEquals("none", d.toggleAllergen("none").answer("allergies"))
+        val none = d.toggleAllergen("none")
+        assertEquals("none", none.answer("allergies"))
+        assertEquals("", none.answer("extra_allergies"))
+        assertTrue(none.profile("az", p.updatedAt, requireNotNull(p.ageAsOfDate)).allergies!!.isEmpty())
         assertEquals("", d.change("extra_allergies", "").answer("extra_allergies"))
         assertTrue(d.change("disliked_foods", "onion").change("disliked_foods", "").items("disliked_foods").isEmpty())
     }
