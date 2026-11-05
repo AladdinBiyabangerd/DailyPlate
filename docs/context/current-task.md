@@ -28,9 +28,11 @@
 
 ## Checks performed
 - Read lifecycle, organization, canonical scoped requirements, ui-craft, tokens and design references.
-- Final merged-main CI and render results recorded in chat response after finish.
+- APK-free Kotlin compilation and all six token contrast pairs passed during post-merge checks.
+- AZ/EN/RU missing-input screens rendered and inspected at 1.5 font scale.
+- Lint found plural-candidate and SharedPreferences extension guidance; repaired without losing synchronous commit failure detection.
+- Final full merged-main CI result recorded in chat response.
 - No APK/device/clinical/real catalog acceptance claimed.
 
 ## Exact next step
-- Finish local lifecycle for this UI integration, inspect generated JVM screenshots.
 - Next scoped unit: recipe detail + idempotent portion-confirmed Yedim, following K16 and customization §2/7.
