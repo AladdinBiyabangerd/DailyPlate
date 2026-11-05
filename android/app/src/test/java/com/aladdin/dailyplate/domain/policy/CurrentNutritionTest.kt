@@ -22,6 +22,7 @@ class CurrentNutritionTest {
         assertEquals(TargetPath.AUTOMATIC, first.assessment.path)
         assertEquals(2552.67, first.assessment.dailyKcal!!, 0.000001)
         assertNull(first.assessment.calculation)
+        assertEquals(LocalDate.parse("2026-11-19"), first.assessment.reviewDate())
         assertEquals(first.assessment.dailyKcal, first.assessment.diaryTarget())
         val next = ProfileEdit.preview(first.profile, ProfileEdit.draft(first.profile).change("meals", "3"),
             "", false, "Meal slots", at, date)

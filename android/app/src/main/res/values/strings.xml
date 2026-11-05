@@ -49,4 +49,8 @@
     <string name="pf_menu_unverified">Bu hesab tam balanslı menyu deyil. Katalog, porsiyalar və bütün nutrient əhatəsi hələ yoxlanmayıb. İlk baxış 14 gündən sonra; son 14 gündə ən azı 3 könüllü ölçmə olmadan trend və kalori düzəlişi yoxdur. Yeni simptomda hədəfi dayandır və peşəkar dəstək al.</string>
     <string name="pf_scope_needed">Bu məqsəd və ya BMI avtomatik hədəfin əhatəsindən kənardır. Hədəfsiz gündəlik və peşəkar dəstək yolu qalır.</string>
     <string name="ob_review_target">Hesaba bax və təsdiqlə</string>
+    <string name="pf_eer_source">Mənbə: Health Canada — NASEM 2023 adult EER (S23/S24)</string>
+    <string name="pf_estimated_kcal">Təxmini hədəf: %1$s kkal/gün</string>
+    <string name="pf_review_due">14 günlük baxış vaxtıdır. Yeni çəki, aktivlik və yaş məlumatını profildə yoxla; hesab yalnız önizləmə və təsdiqdən sonra dəyişəcək.</string>
+    <string name="pf_review_date">İlk baxış tarixi: %1$s</string>
 </resources>

@@ -10,6 +10,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalConfiguration
+import com.aladdin.dailyplate.R
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -39,17 +42,26 @@ class CurrentNutritionUiTest {
             }
         val preview = OnboardingPreview.create(d, "az", RecordedAt("2026-11-05T10:00:00Z", "Asia/Baku"), CalendarDate("2026-11-05"))
         Assert.assertNotNull(preview.assessment.dailyKcal)
-        compose.activityRule.scenario.onActivity { activity ->
-            activity.setContentForNutritionTest(d, preview)
+        for (language in listOf("az", "en", "ru")) {
+            val config = android.content.res.Configuration(compose.activity.resources.configuration).apply {
+                setLocale(java.util.Locale.forLanguageTag(language))
+            }
+            val localized = compose.activity.createConfigurationContext(config)
+            compose.activityRule.scenario.onActivity { activity ->
+                activity.setContentForNutritionTest(d, preview, localized)
+            }
+            compose.onNodeWithText(localized.getString(R.string.pf_current_basis)).performScrollTo().assertIsDisplayed()
+            capture("target-$language-large")
+            compose.onNodeWithText(localized.getString(R.string.pf_eer_source)).performScrollTo().assertIsDisplayed()
+            // Exact numeric values are domain-tested. Here verify the actual localized interval label.
+            compose.onNodeWithText(localized.getString(R.string.pf_energy_interval).substringBefore("%"), substring = true)
+                .performScrollTo().assertIsDisplayed()
+            capture("bounds-$language-large")
+            compose.onNodeWithText(localized.getString(R.string.ob_very_active)).performScrollTo().assertIsDisplayed()
+            capture("four-activities-$language-large")
+            compose.onNodeWithText(localized.getString(R.string.ob_body_composition)).performScrollTo().assertIsDisplayed()
+            capture("health-$language-large")
         }
-        compose.onNodeWithText("NASEM 2023", substring = true).performScrollTo().assertIsDisplayed()
-        capture("target-large")
-        compose.onNodeWithText("Menyu enerji intervalı:", substring = true).performScrollTo().assertIsDisplayed()
-        capture("bounds-large")
-        compose.onNodeWithText("Çox aktiv:", substring = true).performScrollTo().assertIsDisplayed()
-        capture("four-activities-large")
-        compose.onNodeWithText("Bədən tərkibin BMI", substring = true).performScrollTo().assertIsDisplayed()
-        capture("health-large")
     }
     private fun capture(name: String) {
         compose.waitForIdle()
@@ -65,10 +77,11 @@ class CurrentNutritionUiTest {
 }
 
 private fun MainActivity.setContentForNutritionTest(draft: com.aladdin.dailyplate.domain.onboarding.OnboardingDraft,
-                                                    preview: OnboardingPreview) {
+                                                    preview: OnboardingPreview, localized: android.content.Context) {
     setContent {
         QidaTheme {
-            CompositionLocalProvider(LocalDensity provides Density(LocalDensity.current.density, 1.5f)) {
+            CompositionLocalProvider(LocalDensity provides Density(LocalDensity.current.density, 1.5f),
+                LocalContext provides localized, LocalConfiguration provides localized.resources.configuration) {
                 Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(QidaSpacing.medium),
                     verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
                     TargetExplanation(preview.profile, preview.assessment)
