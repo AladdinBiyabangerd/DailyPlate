@@ -184,27 +184,8 @@ fun OnboardingScreen(language: String, exit: () -> Unit, resetScroll: () -> Unit
             ChoiceGroup(stringResource(R.string.ob_tier)) {
                 field("region", R.string.ob_region); field("currency", R.string.ob_currency)
                 field("amount", R.string.ob_amount, true); field("people", R.string.ob_people, true)
-                field("coverage", R.string.ob_coverage); field("equipment", R.string.ob_equipment)
+                field("coverage", R.string.ob_coverage)
             }
-            QidaArt(R.drawable.art_home_food, Modifier.fillMaxWidth().height(QidaDimensions.heroArt))
-            ChoiceGroup(stringResource(R.string.ob_home_name)) {
-                field("home_name", R.string.ob_home_name); field("home_quantity", R.string.ob_home_quantity, true)
-                field("home_unit", R.string.ob_home_unit); field("home_state", R.string.ob_home_state)
-            }
-            d.storedHomeFoods.forEachIndexed { index, food ->
-                QidaCard {
-                    Text(food.food.id.removePrefix("user:") + " · ${food.quantity} ${food.unit} · ${food.preparationState}")
-                    QidaButton(stringResource(R.string.ob_remove), { update(d.copy(storedHomeFoods = d.storedHomeFoods.filterIndexed { i, _ -> i != index })) })
-                }
-            }
-            QidaButton(stringResource(R.string.ob_home_add), {
-                if (d.answer("home_name").isBlank() || d.number("home_quantity") == null || d.answer("home_unit").isBlank() || d.answer("home_state").isBlank()) invalid = true
-                else {
-                    val food = com.aladdin.dailyplate.domain.HomeFood(com.aladdin.dailyplate.domain.VersionRef("user:" + d.answer("home_name"), 1),
-                        d.answer("home_state"), d.number("home_quantity")!!, d.answer("home_unit"))
-                    update(d.copy(storedHomeFoods = d.storedHomeFoods + food, answers = d.answers - setOf("home_name", "home_quantity", "home_unit", "home_state")))
-                }
-            })
             Text(stringResource(R.string.ob_budget_note))
         }
     }
