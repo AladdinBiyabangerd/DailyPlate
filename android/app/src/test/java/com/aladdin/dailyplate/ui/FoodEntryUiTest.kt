@@ -45,6 +45,21 @@ class FoodEntryUiTest {
             file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
         }
     }
+    @Test fun appNavigationRestoresSelectedDraftWithoutWritingFoodLog() {
+        click("Hesabım var")
+        click("Davam et")
+        click("Əlavə et")
+        compose.waitUntil(10000) { compose.onAllNodesWithText("Nə yemisən?").fetchSemanticsNodes().isNotEmpty() }
+        capture("app-search-az")
+        click(base.getString(R.string.fe_manual))
+        enter(base.getString(R.string.fe_name), "Evdə yemək")
+        enter(base.getString(R.string.fe_amount), "150")
+        click(base.getString(R.string.fe_prepare))
+        compose.activityRule.scenario.recreate()
+        compose.onNodeWithText(base.getString(R.string.fe_portion)).performScrollTo().assertIsDisplayed()
+        compose.onNodeWithText("Evdə yemək").assertExists()
+        capture("app-portion-restored-az")
+    }
     @Test fun manualUnknownDraftAndSearchClearInAllLanguagesAtLargeText() {
         var language by androidx.compose.runtime.mutableStateOf("az")
         var scale by androidx.compose.runtime.mutableFloatStateOf(1f)
@@ -56,7 +71,7 @@ class FoodEntryUiTest {
             CompositionLocalProvider(LocalContext provides context, LocalConfiguration provides config,
                 androidx.compose.ui.platform.LocalDensity provides androidx.compose.ui.unit.Density(base.resources.displayMetrics.density, scale)) {
                 androidx.compose.runtime.key(language, scale) {
-                    QidaTheme { androidx.compose.material3.Surface {
+                    QidaTheme { androidx.compose.material3.Surface(color = androidx.compose.material3.MaterialTheme.colorScheme.background) {
                         Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(QidaSpacing.large),
                             verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) { FoodEntryScreen {} }
                     } }
