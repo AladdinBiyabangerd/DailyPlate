@@ -15,9 +15,9 @@ class ShoppingPricingTest {
     private fun need(grams: String, p: ShoppingProduct = product) = ShoppingNeed(p, grams.toBigDecimal())
     private fun run(
         needs: List<ShoppingNeed> = listOf(need("250"), need("500")),
-        home: List<ShoppingNeed> = emptyList(), observations: List<PriceObservation> = listOf(PriceObservation(price, true)),
+        observations: List<PriceObservation> = listOf(PriceObservation(price, true)),
         region: String? = "TEST-region", policy: PriceFreshness? = freshness,
-    ) = ShoppingPricing.calculateTest(needs, home, observations, region, "AZN", at, policy)
+    ) = ShoppingPricing.calculateTest(needs, observations, region, "AZN", at, policy)
     private fun decimal(expected: String, actual: BigDecimal?) {
         assertNotNull(actual); assertEquals(0, expected.toBigDecimal().compareTo(actual!!))
     }
@@ -30,10 +30,13 @@ class ShoppingPricingTest {
         decimal("6.50", r.totalCost!!.amount.toBigDecimal())
         assertTrue(r.testOnly); assertFalse(r.budgetComplianceVerified)
     }
-    @Test fun homeIsDeductedOnceAfterAggregationAndNeverMakesNegativePurchase() {
-        decimal("1", run(home = listOf(need("100"), need("150"))).lines.single().packages)
-        decimal("0", run(home = listOf(need("1000"))).lines.single().packages)
-        decimal("2", run(home = listOf(need("250", product.copy(preparationState = "cooked")))).lines.single().packages)
+    @Test fun fullWeeklyNeedIsPricedRegardlessOfAggregationOrder() {
+        val r = run(needs = listOf(need("100"), need("150"), need("500")))
+        assertEquals(run(), r)
+        assertEquals(r, run(needs = listOf(need("500"), need("150"), need("100"))))
+        decimal("750", r.lines.single().requiredEdibleGrams)
+        decimal("2", r.lines.single().packages)
+        decimal("6.50", r.lines.single().purchaseCost!!.amount.toBigDecimal())
     }
     @Test fun edibleFractionAndExactPackageBoundary() {
         val observations = listOf(PriceObservation(price.copy(edibleFraction = 0.5), true))
@@ -63,12 +66,12 @@ class ShoppingPricingTest {
         val current = PriceObservation(price, true)
         assertEquals(run(observations = listOf(older, current)), run(observations = listOf(current, older)))
         for (fixture in listOf(true, false)) {
-            val r = ShoppingPricing.calculate(listOf(need("750")), emptyList(), listOf(PriceObservation(price, fixture)),
+            val r = ShoppingPricing.calculate(listOf(need("750")), listOf(PriceObservation(price, fixture)),
                 "TEST-region", "AZN", at, freshness)
             assertNull(r.totalCost); assertFalse(r.budgetComplianceVerified)
             assertTrue(PriceIssue.G4_REQUIRED in r.issues)
             assertEquals(fixture, PriceIssue.FIXTURE_PRICE in r.issues)
         }
     }
-    @Test(expected = IllegalArgumentException::class) fun rejectsNegativeInventory() { need("-1") }
+    @Test(expected = IllegalArgumentException::class) fun rejectsNegativeNeed() { need("-1") }
 }

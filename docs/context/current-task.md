@@ -1,42 +1,42 @@
-# Current task — simplify home stock requirements
+# Current task — K14 full weekly shopping needs
 
 ## Completed
-- K14 arithmetic merged previously: 33381f3 / 39e3efe, green CI, 159 JVM tests.
-- User removed exact home-stock quantity entry/deduction from the product plan
-  entirely, including deferred scope. Weekly total needs remain visible.
-- Only optional boolean “Evdə var” mark remains, separate from “Alınıb”.
-- Canonical JSON, TXT/MD/canvas/PDF and authored K14/K17/customization requirements
-  updated together. ShoppingItem planned contract uses home_available.
+- Removed numeric home input from production/test ShoppingPricing APIs and estimator.
+- Removed home/buy gram result fields; packages use full aggregated weekly need.
+- Updated eight pricing tests and K14 acceptance/status notes for revised §17/19.
 
 ## Current state
-- Documentation-only revision; existing K14 code still has numeric home deduction.
-  This is a known implementation mismatch, not current product acceptance.
-- Final merged-main CI evidence: .local-ci/logs/latest.json must match HEAD.
+- K14 arithmetic aligned with canonical planning/research-data.json §17.8/14,
+  §19.8/18 and customization §6. No UI changes.
+- Final execution evidence is matching-HEAD .local-ci/logs/latest.json passed=true.
 
 ## Decisions
-- Home mark never changes displayed weekly total or implies exact grams.
-- No invented zero purchase cost from a boolean mark; budget remains subject to G4.
-- No app UI, schema, pricing code or old acceptance records rewritten in this unit.
+- Optional “Evdə var” is not a pricing input and cannot imply free purchases.
+- G4 gate remains; no real prices or budget acceptance invented.
+- Persistence reviewed: schema-1 snapshots decode strictly and writes compare exact
+  JSON for idempotency. Legacy ShoppingItem.homeQuantity is unchanged to preserve
+  historical payloads. Pricing does not consume this model/field.
 
 ## Remaining work
-- Next code unit: remove numeric home-stock input/deduction from ShoppingPricing
-  and align tests. Review persisted ShoppingItem.homeQuantity compatibility before
-  replacing it with a mark; preserve existing snapshots/history.
-- Then K15 generator and K17 shopping UI. G4/real prices remain unverified.
+- Backward-compatible ShoppingItem.homeAvailable transition and shopping mark
+  preservation remain for K17; boolean model contract is not yet implemented.
+- K15 generator and K17 UI; real prices/G4 remain unverified.
 
 ## Relevant files
-- planning/research-data.json §17.8/14 and §19.8/18
-- planning/coding-tasks.txt K14/K17; planning/meal-customization-requirements.txt §6
+- planning/research-data.json §17/19; planning/coding-tasks.txt K14/K17
 - android/app/src/main/java/com/aladdin/dailyplate/domain/pricing/ShoppingPricing.kt
 - android/app/src/test/java/com/aladdin/dailyplate/domain/pricing/ShoppingPricingTest.kt
 - android/app/src/main/java/com/aladdin/dailyplate/domain/PersonalRecords.kt
-- docs/qa/android-k14-acceptance.md (historical implementation evidence)
+- android/app/src/main/java/com/aladdin/dailyplate/data/local/SnapshotJson.kt
+- android/app/src/main/java/com/aladdin/dailyplate/data/local/UserSnapshotRepository.kt
+- docs/qa/android-k14-acceptance.md
 
 ## Checks performed
-- Clean initial tree, hooksPath and local workflow checked; diff whitespace review.
-- All canonical views regenerated; PDF changed §17 page rendered and inspected.
-- Mandatory CI only through workflow finish after merge. No APK/device checks.
+- Initial clean tree and .local-ci/hooks verified; local workflow start used.
+- Scoped usage/persistence review and git diff --check.
+- Mandatory checks run only by workflow finish on merged main; consult matching
+  latest.json for result. No APK or device tests authorized or run.
 
 ## Exact next step
-- Start separate fix branch for the K14 home-stock API/model alignment above;
-  read relevant plan requirements and persistence usages before editing code.
+- After green merged-main CI, choose the next separately scoped implementation
+  unit from planning/coding-tasks.txt; do not treat K17 persistence/UI as complete.
