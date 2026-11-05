@@ -1,37 +1,35 @@
-# Current task — K16 recipe detail and confirmed intake
+# Current task — K16 planning input transport
 
 ## Completed
-- Existing K16 production generation/explicit acceptance/future preview and Today projection retained.
-- Menu recipe entry resolves exact library/customization revision; localized names, batch ingredients/preparation state, instructions and verification status.
-- Personal portion input → nutrient/gram preview → explicit Yedim confirmation; cancellation/viewing does not log.
-- Durable exact consumption command saved before atomic log/remaining-plan write; restart and post-commit retry reuse event and snapshot.
+- Previous recipe detail/portion-confirmed intake retained; previous main 43c3167 passed 197 JVM tests and APK-free CI.
+- Added complete schema-versioned planning input package transport through UserRepositories.planningImports.
+- Atomic active-revision + receipt write, monotonic source revisions, exact replay without reactivation, owner isolation and fixture rejection.
 
 ## Current state
-- Scoped implementation and tests committed for mandatory merged-main CI; consult `.local-ci/logs/latest.json` and chat for actual result.
-- G3/catalog and G4/pricing remain closed; no fixture bypass in production. No APK authorized.
+- This unit is a trusted local transport API, not automatic library/application integration or production approval.
+- All current EditorialSnapshot objects are testOnly; production import rejects them. Empty/unavailable catalogs are supported; successful real catalog import requires a separate reviewed representation.
+- G3/G4 remain closed. Current energy/macro activation and reported specialist approval follow canonical §30; do not describe absence of specialist as the current blocker.
 
 ## Decisions
-- Base batch conversion requires stored cooked yield and personal grams; missing basis blocks intake here.
-- Customized ingredients/instructions come from exact saved revision; cooked yield/verification are not inherited.
-- Stale uncommitted commands are cleared only on repository RevisionConflict; require reload/new confirmation. Temporary failures retain the exact command.
-- One generated serving denotes a personal portion, distinct from a full batch.
+- Complete replacement includes policy/catalog/evidence/coverage/prices/freshness; no mixing with older selection.
+- Package ref uses planning-import; same source version + changed payload conflicts. Old receipt replay never restores old active inputs.
+- User DB transaction owns activation + receipt; library DB is outside this API. No authenticity/signature claim.
 
 ## Remaining work
-- Production acceptance/recalculation/detail E2E with authoritative catalog/prices and device coverage.
-- K18 ingredient editor and other later milestones remain separate.
+- Production reviewed catalog representation and library import/activation orchestration with application invocation.
+- Authoritative G3 catalog/G4 prices and successful generation/acceptance/recalculation/detail/Today device E2E.
+- K18 remains separate. No APK authorized.
 
 ## Relevant files
-- ui/menu/{RecipeDetailData,RecipeDetailScreen,RecipeWorkflow,MenuScreen}.kt
-- data/local/PlanConsumptionRepository.kt; domain/planning/PlanConsumption.kt
-- ui/{RecipeDetailTest,RecipeWorkflowTest,MenuUiTest}.kt
+- data/local/{PlanningInputImporter,PlanGenerationRepository,UserRepositories}.kt
+- data/local/PlanningInputImporterTest.kt (test source set)
+- domain/editorial/EditorialContent.kt; domain/planning/RecipeCandidateFilter.kt
 - docs/qa/android-k16-generation-acceptance.md
-- planning/research-data.json §8/18–19/22; planning/meal-customization-requirements.txt §2/7
+- planning/research-data.json §8/22/25/30; planning/coding-tasks.txt K16
 
 ## Checks performed
-- Read lifecycle, organization, canonical scoped requirements, nutrition design, design references and ui-craft; inspected recipe reference image.
-- Added APK-free JVM behavioral tests and native Compose rendering for AZ/EN/RU at font scale 1.5.
-- Earlier CI caught AZ override keys and test harness thread/scroll assumptions (fixed). Third merged run passed all 197 JVM tests; lint required a preparation-time label adjustment (fixed).
-- Inspected native AZ/EN/RU detail/portion previews at font scale 1.5; text wraps and confirmation is visible. Six contrast pairs passed. Final merged CI result is recorded in chat.
+- Read lifecycle/organization/current context and scoped plan/design contracts; inspected library importer and production gates.
+- Added five Room/JVM tests, including disk reopen and transactional rollback. Mandatory post-merge CI outcome: consult .local-ci/logs/latest.json; no branch/manual CI and no APK.
 
 ## Exact next step
-- Check merged-main CI outcome and screenshot evidence, then plan the next scoped unit using planning/coding-tasks.txt. Do not claim production/device acceptance without evidence.
+- Confirm latest merged-main CI, then design a production reviewed-content representation without promoting test EditorialSnapshot or bypassing G3/G4. Automatic application wiring remains unimplemented.

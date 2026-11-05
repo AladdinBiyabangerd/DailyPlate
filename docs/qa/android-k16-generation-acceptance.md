@@ -55,3 +55,10 @@ UI screens 04/13/14 and Today routes, automatic catalog import activation, real 
 - Revision conflict clears only the uncommitted stale command (repository replay check precedes revision check), requires reload and a new portion confirmation. Temporary/uncertain write failures retain the exact command.
 - All 197 JVM tests passed in the third merged run; lint caught the preparation-time string plural candidate (reworded as a unit-labelled field). AZ/EN/RU native previews inspected at 1.5 scale. Save success is set before refreshing details, so a read failure cannot misreport the committed intake as an uncommitted one.
 - Restart workflow test also verifies stale uncommitted command rejection/cleanup without adding a second log.
+
+## Planning input transport continuation
+- `UserRepositories.planningImports.importJson(owner, payload, expectedRevision)` accepts a complete schema-1 `PlanningInputPackage` with monotonic `planning-import` version, policy and all weekly planning inputs. It is a trusted local transport boundary, not an authenticity/signature or content-approval mechanism.
+- Active input revision and exact package receipt commit in one user-DB transaction. Same owner/package version replays the original activation without restoring it over newer inputs; changed content conflicts. Unseen older versions, stale active revisions, unknown schema and malformed payloads leave the current selection unchanged.
+- Test-only editorial envelopes and price observations are rejected. Every current editorial envelope is test-only, so this boundary currently supports empty/unavailable catalogs only. It does not turn K05 workflow approval into production publication.
+- No library DB is imported or mutated here. No menu, diary or historical snapshot is rewritten. Library import adapter, automatic application invocation, approved production catalog representation and production E2E remain outstanding. G3/G4 remain closed.
+- APK-free Room tests cover exact selection/replay, owner isolation, conflict/downgrade/stale/schema rejection, fixture rejection, on-disk restart and receipt-write rollback/retry. Check merged-main CI for the actual result.
