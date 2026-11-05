@@ -1,43 +1,36 @@
-# Current task — K08 preview preservation acceptance
+# Current task — enable current automatic nutrition calculation
 
 ## Completed
-- Prior evidence commit c68c96d is merged in main 844d3a2; its post-merge CI passed
-  145 JVM tests, lint/compile/tokens, library contracts and canonical exports.
-- Inspected final 1.5x AZ target, RU activity, AZ health and EN bounds PNGs under
-  .local-ci/reports/nutrition-integration; visible text wraps inside cards.
-- Added blocked/cancelled profile-preview Room regression: no revision writes,
-  unchanged literal legacy payloads and FoodLog. See QA appendix for exact scope.
+- User explicitly requested production_enabled=true on 5 November 2026.
+- Canonical candidate and new NutritionEnergyEligibility previews now enable
+  current energy/macro calculation. Derived TXT/MD/canvas/PDF updated together.
+- Contract decoding retains false as the historical missing-field default;
+  new calculations explicitly select true. Research status cannot enable it.
+- Prior preview-preservation main 1a6bc01 passed 146 JVM tests and APK-free CI.
 
 ## Current state
-- Current acceptance branch must be committed and finished; its post-merge CI
-  result is authoritative in .local-ci/logs/latest.json (match main HEAD).
-- No APK, device checks, remote or production activation.
+- Activation commit must finish through workflow.py finish; authoritative final
+  result is .local-ci/logs/latest.json matching main HEAD.
 
 ## Decisions
-- Preview/cancel writes nothing. Explicitly confirmed failed screening may retain
-  diagnostics with no usable target; this is separate from successful planning.
-- §30 user-reported review is retained; unknown reviewer/date remain null.
-- No automatic titration, retrospective recomputation or synthetic menu success.
+- Existing screening, floors and macro feasibility remain enforced.
+- No catalog/menu activation, remote actions, APK or fabricated approval metadata.
+- Existing assessment payloads are not rewritten; prior approval hash retained.
 
 ## Remaining work
-- NP-16: assess voluntary-measurement storage and implement the three-measurement
-  /14-day consumer; separately verify symptom-triggered suspension semantics.
-- Device/self-report pilot, optional notifications and K15 real catalog/portion/
-  nutrient feasibility remain open; green local CI does not verify these.
+- NP-16 voluntary-weight trend consumer and symptom suspension acceptance.
+- Real device/pilot and real catalog/portion/nutrient feasibility unverified.
 
 ## Relevant files
-- docs/qa/android-k08-v2-implementation.md
-- docs/nutrition-plan-design.md §26–30
-- planning/research-data.json and planning/nutrition-science-implementation-plan.txt
-- android/app/src/test/java/com/aladdin/dailyplate/data/local/CurrentNutritionPersistenceTest.kt
-- android/app/src/main/java/com/aladdin/dailyplate/domain/profile/ProfileEdit.kt
-- android/app/src/main/java/com/aladdin/dailyplate/data/local/ProfileEditRepository.kt
+- planning/research-data.json; docs/nutrition-plan-design.md §26–30
+- android/app/src/main/java/com/aladdin/dailyplate/domain/policy/NutritionEnergyContract.kt
+- android/app/src/main/java/com/aladdin/dailyplate/domain/policy/NutritionEnergyEligibility.kt
+- android/app/src/test/java/com/aladdin/dailyplate/domain/policy/NutritionEnergyTest.kt
 
 ## Checks performed
-- Prior main 844d3a2 green CI verified from log; final large-font images inspected.
-- Current unit: git diff --check; execution only through post-merge finish.
+- git diff --check; regenerated all plan views; inspected PDF page 44.
+- Activation tests execute only in merged-main CI. No APK/device check.
 
 ## Exact next step
-- Finish current acceptance branch and verify merged-main CI. Then scope NP-16
-  voluntary-weight trend acceptance from canonical requirements, preserving
-  frozen history and avoiding invented clinical thresholds. APK creation forbidden.
+- Confirm activation merged-main CI result, then continue remaining NP-16 work
+  in a new chat. APK creation remains forbidden.

@@ -683,6 +683,8 @@ Mənbələr: [S23](https://www.canada.ca/en/health-canada/services/food-nutritio
 
 5. Növbəti texniki işdə mütəxəssis tapılmaması plan üzrə açıq blok kimi göstərilmir; istifadəçinin bildirdiyi baxış statusu nəzərə alınır. Aktivləşdirmə üçün hələ lazım olan implementasiya və yoxlama tələbləri konkret sübutlarla tamamlanır; naməlum reviewer/date sahələri saxta dəyərlə doldurulmur.
 
+6. 5 noyabr 2026: istifadəçinin açıq göstərişi ilə nutrition_policy_candidate.production_enabled=true edilir; aktivləşmə cari avtomatik enerji/makro hesabına aiddir. Yaş/BMI, sağlamlıq, aktivlik və ölçmə təsdiqi, minimum enerji və makro feasibility yoxlamaları saxlanır. Bu texniki aktivləşmə yeni klinik təsdiq deyil; əvvəlki təsdiqin hash-i dəyişmir. Katalog/real menyu buraxılışı ayrıca qalır; köhnə snapshot-lar yenidən yazılmır.
+
 ## Mənbə reyestri
 
 ### S1 — USDA FoodData Central — API və istifadə şərtləri

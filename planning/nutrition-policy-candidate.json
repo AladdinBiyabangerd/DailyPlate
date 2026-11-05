@@ -2,7 +2,7 @@
   "id": "dailyplate-adult-energy-candidate",
   "version": 1,
   "status": "SPECIALIST_APPROVAL_REPORTED",
-  "production_enabled": false,
+  "production_enabled": true,
   "approved_by": null,
   "approved_at": null,
   "formula": {
@@ -343,5 +343,11 @@
     "supporting_document_provided": false,
     "independently_verified": false,
     "statement_az": "İstifadəçinin bildirişinə əsasən planın hamısı mütəxəssis tərəfindən yoxlanıb təsdiqlənib. İstifadəçi mütəxəssisin adının yazılmamasını istəyib; yoxlama tarixi və ixtisas bildirilməyib."
+  },
+  "activation": {
+    "authorized_by": "USER_REQUEST",
+    "authorized_on": "2026-11-05",
+    "scope": "CURRENT_AUTOMATIC_ENERGY_AND_MACRO_CALCULATION",
+    "catalog_menu_activation": false
   }
 }

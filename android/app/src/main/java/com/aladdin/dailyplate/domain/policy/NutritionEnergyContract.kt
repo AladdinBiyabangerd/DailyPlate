@@ -12,6 +12,7 @@ data class NutritionEnergyContract(
     val candidate: VersionRef = VersionRef("dailyplate-adult-energy-candidate", 1),
     val formula: VersionRef = VersionRef("nasem-2023-adult-eer", 1),
     val status: NutritionPolicyStatus = NutritionPolicyStatus.SPECIALIST_APPROVAL_REPORTED,
+    // False default preserves historical payloads that omitted this field.
     val productionEnabled: Boolean = false,
     val approvedBy: String? = null,
     val approvedAt: String? = null,
@@ -21,7 +22,8 @@ data class NutritionEnergyContract(
         require(contractVersion == 2)
         require(candidate == VersionRef("dailyplate-adult-energy-candidate", 1))
         require(formula == VersionRef("nasem-2023-adult-eer", 1))
-        require(!productionEnabled && approvedBy == null && approvedAt == null)
+        require(approvedBy == null && approvedAt == null)
+        require(!productionEnabled || status == NutritionPolicyStatus.SPECIALIST_APPROVAL_REPORTED)
         require(provenance == NutritionEnergyProvenance())
     }
 }

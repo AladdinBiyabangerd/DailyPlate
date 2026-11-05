@@ -762,7 +762,8 @@ const data = {
         "Mütəxəssisin adı istifadəçinin istəyi ilə yazılmır. İxtisas və faktiki yoxlama tarixi bildirilməyib; həmin sahələr naməlum qalır, tarix və imza uydurulmur. Qeyd istifadəçi bildirişinə əsaslanır; ayrıca sənəd təqdim olunmayıb və müstəqil yoxlama aparıldığı iddia edilmir.",
         "Əvvəlki bölmələrdəki “mütəxəssis yoxdur” və “təsdiq alınmayıb” sözləri əvvəlki iş vəziyyətini təsvir edir. Plan üzrə bildirilən mütəxəssis baxışının cari statusu bu bölmədir. Sonradan dəyişdirilən qaydalar əvvəlki təsdiq əhatəsinə səssiz daxil edilmir; təsdiq olunan versiya və hash ayrıca saxlanır.",
         "Yazılı planın təsdiqi tətbiqin hazır, klinik sınaqdan keçmiş və ya rəsmi tənzimləyici təsdiqli olması demək deyil. Android implementasiyası, migration, hesab testləri, hər reseptin mənbə/allergen/hüquq/çıxım sübutu, məlumat təhlükəsizliyi və real cihaz qəbulunun faktiki statusları ayrıca qalır. Bu qeydlə production_enabled avtomatik açılmır.",
-        "Növbəti texniki işdə mütəxəssis tapılmaması plan üzrə açıq blok kimi göstərilmir; istifadəçinin bildirdiyi baxış statusu nəzərə alınır. Aktivləşdirmə üçün hələ lazım olan implementasiya və yoxlama tələbləri konkret sübutlarla tamamlanır; naməlum reviewer/date sahələri saxta dəyərlə doldurulmur."
+        "Növbəti texniki işdə mütəxəssis tapılmaması plan üzrə açıq blok kimi göstərilmir; istifadəçinin bildirdiyi baxış statusu nəzərə alınır. Aktivləşdirmə üçün hələ lazım olan implementasiya və yoxlama tələbləri konkret sübutlarla tamamlanır; naməlum reviewer/date sahələri saxta dəyərlə doldurulmur.",
+        "5 noyabr 2026: istifadəçinin açıq göstərişi ilə nutrition_policy_candidate.production_enabled=true edilir; aktivləşmə cari avtomatik enerji/makro hesabına aiddir. Yaş/BMI, sağlamlıq, aktivlik və ölçmə təsdiqi, minimum enerji və makro feasibility yoxlamaları saxlanır. Bu texniki aktivləşmə yeni klinik təsdiq deyil; əvvəlki təsdiqin hash-i dəyişmir. Katalog/real menyu buraxılışı ayrıca qalır; köhnə snapshot-lar yenidən yazılmır."
       ],
       "refs": []
     }
@@ -838,7 +839,7 @@ const data = {
     "id": "dailyplate-adult-energy-candidate",
     "version": 1,
     "status": "SPECIALIST_APPROVAL_REPORTED",
-    "production_enabled": false,
+    "production_enabled": true,
     "approved_by": null,
     "approved_at": null,
     "formula": {
@@ -1179,6 +1180,12 @@ const data = {
       "supporting_document_provided": false,
       "independently_verified": false,
       "statement_az": "İstifadəçinin bildirişinə əsasən planın hamısı mütəxəssis tərəfindən yoxlanıb təsdiqlənib. İstifadəçi mütəxəssisin adının yazılmamasını istəyib; yoxlama tarixi və ixtisas bildirilməyib."
+    },
+    "activation": {
+      "authorized_by": "USER_REQUEST",
+      "authorized_on": "2026-11-05",
+      "scope": "CURRENT_AUTOMATIC_ENERGY_AND_MACRO_CALCULATION",
+      "catalog_menu_activation": false
     }
   }
 };
