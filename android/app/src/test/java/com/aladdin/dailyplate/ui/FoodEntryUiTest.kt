@@ -50,6 +50,50 @@ class FoodEntryUiTest {
             file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
         }
     }
+    @Test fun approvedEntryAndResultLayouts() {
+        var language by mutableStateOf("az")
+        var scale by mutableFloatStateOf(1f)
+        var result by mutableStateOf(false)
+        var selected by mutableStateOf(false)
+        compose.runOnUiThread { compose.activity.setContent {
+            val config = android.content.res.Configuration(base.resources.configuration).apply {
+                setLocale(Locale.forLanguageTag(language)); fontScale = scale
+            }
+            val context = base.createConfigurationContext(config)
+            CompositionLocalProvider(LocalContext provides context, LocalConfiguration provides config,
+                androidx.compose.ui.platform.LocalDensity provides androidx.compose.ui.unit.Density(base.resources.displayMetrics.density, scale)) {
+                QidaTheme { androidx.compose.material3.Surface(color = androidx.compose.material3.MaterialTheme.colorScheme.background) {
+                    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(QidaSpacing.large),
+                        verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
+                        if (!result) com.aladdin.dailyplate.ui.entry.EntryLanding { }
+                        else {
+                            QidaHeading(context.getString(R.string.fe_title))
+                            com.aladdin.dailyplate.ui.entry.FoodResultCard(
+                                com.aladdin.dailyplate.domain.Food(
+                                    com.aladdin.dailyplate.domain.VersionRef("preview", 1),
+                                    com.aladdin.dailyplate.domain.LocalizedText("Düyü"), emptyList(),
+                                    "source", "DB", "cooked", com.aladdin.dailyplate.domain.NutrientSnapshot(emptyMap()),
+                                    emptySet(), null, "v1", null, com.aladdin.dailyplate.domain.ContentStatus.DRAFT),
+                                when(language) { "en" -> "Cooked long-grain rice without added salt"; "ru" -> "Варёный длиннозёрный рис без добавления соли"; else -> "Duz əlavə edilmədən bişmiş uzun düyü" }) { selected = true }
+                        }
+                    }
+                } }
+            }
+        } }
+        for (lang in listOf("az", "en", "ru")) for (size in listOf(1f, 1.5f)) {
+            compose.runOnIdle { language = lang; scale = size; result = false }
+            capture("approved-entry-$lang-$size")
+            compose.runOnIdle { result = true }
+            capture("approved-result-$lang-$size")
+            val context = base.createConfigurationContext(android.content.res.Configuration(base.resources.configuration).apply {
+                setLocale(Locale.forLanguageTag(lang))
+            })
+            compose.onNodeWithText(context.getString(R.string.fe_unknown_value)).assertExists()
+            click(context.getString(R.string.fe_choose))
+            compose.runOnIdle { org.junit.Assert.assertTrue(selected); selected = false }
+        }
+    }
+
     @Test fun todaySummaryAzLarge() = renderToday("az", false)
     @Test fun todaySummaryEnLarge() = renderToday("en", false)
     @Test fun todaySummaryRuLarge() = renderToday("ru", false)
@@ -166,7 +210,7 @@ class FoodEntryUiTest {
         click("Hesabım var")
         click("Davam et")
         click("Əlavə et")
-        compose.waitUntil(10000) { compose.onAllNodesWithText("Nə yemisən?").fetchSemanticsNodes().isNotEmpty() }
+        compose.waitUntil(10000) { compose.onAllNodesWithText(az.getString(R.string.fe_entry_title)).fetchSemanticsNodes().isNotEmpty() }
         capture("app-search-az")
         click(az.getString(R.string.fe_manual))
         enter(az.getString(R.string.fe_name), "Evdə yemək")
@@ -200,6 +244,7 @@ class FoodEntryUiTest {
             compose.runOnIdle { language = lang; scale = s }
             val c = base.createConfigurationContext(android.content.res.Configuration(base.resources.configuration).apply { setLocale(Locale.forLanguageTag(lang)) })
             fun t(id: Int) = c.getString(id)
+            click(t(R.string.fe_search))
             compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.fe_no_results)).fetchSemanticsNodes().isNotEmpty() }
             enter(t(R.string.fe_query), "Missing")
             click(t(R.string.fe_clear))

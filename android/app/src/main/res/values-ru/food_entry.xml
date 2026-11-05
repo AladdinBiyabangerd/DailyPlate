@@ -27,4 +27,13 @@
     <string name="fe_fat">Жиры (г / 100 г)</string>
     <string name="fe_carbs">Углеводы (г / 100 г)</string>
     <string name="fe_source">Источник / этикетка и дата</string>
+    <string name="fe_entry_title">Как добавим еду?</string>
+    <string name="fe_entry_hint">Выбери удобный способ.</string>
+    <string name="fe_camera">Сфотографировать</string>
+    <string name="fe_camera_hint">Сфотографируй свою еду.</string>
+    <string name="fe_search_hint">Введи название: плов, долма…</string>
+    <string name="fe_previous_hint">Быстро добавь прошлую еду снова.</string>
+    <string name="fe_camera_unavailable">Распознавание фото пока недоступно. Найди еду по названию или введи её сам.</string>
+    <string name="fe_illustration">Иллюстрация</string>
+    <string name="fe_result_energy">Примерно %1$.0f ккал на 100 г</string>
 </resources>

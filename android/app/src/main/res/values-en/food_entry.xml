@@ -27,4 +27,13 @@
     <string name="fe_fat">Fat (g / 100 g)</string>
     <string name="fe_carbs">Carbohydrate (g / 100 g)</string>
     <string name="fe_source">Source / label and date</string>
+    <string name="fe_entry_title">How would you like to add your meal?</string>
+    <string name="fe_entry_hint">Choose an option — each is easy.</string>
+    <string name="fe_camera">Take a photo</string>
+    <string name="fe_camera_hint">Take a photo of your meal.</string>
+    <string name="fe_search_hint">Type a name: rice, dolma…</string>
+    <string name="fe_previous_hint">Quickly add a previous meal again.</string>
+    <string name="fe_camera_unavailable">Photo recognition is not available yet. Search for your food or enter it yourself.</string>
+    <string name="fe_illustration">Illustration</string>
+    <string name="fe_result_energy">Approx. %1$.0f kcal per 100 g</string>
 </resources>
