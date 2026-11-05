@@ -7,6 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -70,26 +71,33 @@ internal fun FoodResultCard(food: Food, name: String, select: () -> Unit) {
         shape = MaterialTheme.shapes.large,
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = QidaDimensions.cardElevation)) {
-        Row(Modifier.fillMaxWidth().padding(QidaSpacing.medium),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(Modifier.fillMaxWidth().padding(QidaSpacing.medium),
+            verticalArrangement = Arrangement.spacedBy(QidaSpacing.small)) {
+            val largeText = LocalConfiguration.current.fontScale > 1.3f
+            if (largeText) {
                 QidaArt(R.drawable.art_entry_previous, Modifier.size(QidaDimensions.choiceArt))
-                Text(stringResource(R.string.fe_illustration), style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant)
+                FoodResultSummary(food, name)
+            } else Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
+                QidaArt(R.drawable.art_entry_previous, Modifier.size(QidaDimensions.choiceArt))
+                Column(Modifier.weight(1f)) { FoodResultSummary(food, name) }
+                EntryArrow()
             }
-            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(QidaSpacing.small)) {
-                Text(name, style = MaterialTheme.typography.titleMedium)
-                val energy = food.nutrientsPer100g.values["energy"]?.value
-                Text(if (energy == null) stringResource(R.string.fe_unknown_value)
-                    else stringResource(R.string.fe_result_energy, energy),
-                    color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Text(food.preparationState, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Text("${food.sourceType} / ${food.sourceId} / ${food.sourceVersion}",
-                    color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Text(stringResource(R.string.fe_choose), color = MaterialTheme.colorScheme.primary)
-            }
-            EntryArrow()
+            Text(stringResource(R.string.fe_illustration), style = MaterialTheme.typography.labelSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text(food.preparationState, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text("${food.sourceType} / ${food.sourceId} / ${food.sourceVersion}",
+                color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text(stringResource(R.string.fe_choose), color = MaterialTheme.colorScheme.primary)
         }
     }
+}
+
+@Composable
+private fun FoodResultSummary(food: Food, name: String) {
+    Text(name, style = MaterialTheme.typography.titleMedium)
+    val energy = food.nutrientsPer100g.values["energy"]?.value
+    Text(if (energy == null) stringResource(R.string.fe_unknown_value)
+        else stringResource(R.string.fe_result_energy, energy),
+        color = MaterialTheme.colorScheme.onSurfaceVariant)
 }
