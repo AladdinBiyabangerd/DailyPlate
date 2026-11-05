@@ -52,10 +52,14 @@
   and scroll; this does not establish physical-device accessibility acceptance.
 - Artifacts: .local-ci/reports/k09; retained XML: .local-ci/reports/k09-test-results.
 - Added ProfileEditTest regression for hidden explicit reproductive risks; final
-  main CI must execute 81 tests. The prior 80-test result above is historical.
+  branch/main CI must execute 82 tests. The prior 80-test result above is historical.
 - Final timestamp display uses local zone and minute precision to avoid splitting
   raw ISO fractions; inspected the final AZ/EN/RU 150% explanation renders.
-- No branch CI, APK packaging, installation, device tests or remote operations.
+- Earlier user instructions required main-only CI. Latest replacement AGENTS.md
+  requires branch + main CI; local workflow restored accordingly for the final fix.
+- Future meal-count changes may add/remove future unconsumed slots; protected
+  past/consumed items remain immutable. Added a contract regression (82 tests).
+- No APK packaging, installation, device tests or remote operations.
 
 ## Exact next step
 - In a new chat, implement only K10 using planning/coding-tasks.txt's continuation

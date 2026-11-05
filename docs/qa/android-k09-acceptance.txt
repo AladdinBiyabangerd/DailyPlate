@@ -53,3 +53,9 @@ Final K08 compatibility regression
   withdraw them; an explicit No can correct the answer. ProfileEditTest covers it.
 - Final CI requires 81 JVM tests including this regression; latest.json is the
   actual merged-main result, superseding the prior 80-test execution above.
+
+Final slot-count contract and revised workflow
+- Future unconsumed slots can be added/removed for meal-count changes. New past
+  slots or actual-intake references are rejected; protected old items stay exact.
+- Latest replacement AGENTS.md requires branch and merged-main CI. Final fix
+  follows both; expected 82 JVM tests. Prior main-only records follow earlier rules.

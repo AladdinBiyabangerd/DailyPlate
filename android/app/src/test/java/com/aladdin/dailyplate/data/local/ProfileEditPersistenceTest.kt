@@ -29,6 +29,25 @@ class ProfileEditPersistenceTest {
         }
     }
 
+    @Test fun mealCountChangeCanAddFutureSlotsButNeverPastOrConsumedOnes() {
+        val p = readyOnboarding().profile("az", recordedAt, date)
+        val request = ProfileEdit.preview(p, ProfileEdit.draft(p).change("meals", "3"), "", false,
+            "Meal count", recordedAt, date).request
+        val before = plan().copy(userId = p.userId, userProfile = p.ref)
+        val added = item("new-snack").copy(date = CalendarDate("2026-11-06"), mealSlot = "snack")
+        val after = before.copy(ref = before.ref.copy(version = 2), userProfile = request.toProfile,
+            items = before.items + added, shopping = before.shopping.map { it.copy(planVersion = 2) })
+        assertEquals(after, FuturePlanPreview(request, before, after, date, "Future slots").after)
+        assertThrows(IllegalArgumentException::class.java) {
+            FuturePlanPreview(request, before, after.copy(items = before.items + added.copy(date = CalendarDate("2026-11-03"))),
+                date, "Past slot is forbidden")
+        }
+        val consumed = added.copy(consumedLogIds = setOf("log"))
+        assertThrows(IllegalArgumentException::class.java) {
+            FuturePlanPreview(request, before, after.copy(items = before.items + consumed), date, "No actual intake")
+        }
+    }
+
     @Test fun futurePlanAcceptanceBindsExactVersionsAndProtectsConsumedItems() {
         val p = readyOnboarding().profile("az", recordedAt, date)
         val request = ProfileEdit.preview(p, ProfileEdit.draft(p).change("goal", "LOSE"), "", false,
