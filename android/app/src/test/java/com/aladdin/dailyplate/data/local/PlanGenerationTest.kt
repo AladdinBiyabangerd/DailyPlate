@@ -80,12 +80,16 @@ class PlanGenerationTest : WeeklyPlanningFixture() {
             val expected = try {
                 first.profiles.save(p, 0)
                 first.planGeneration.activate(bundle, 0)
-                first.planGeneration.generateTest(p.userId, q)
+                first.planGeneration.generateTest(p.userId, q).also {
+                    first.planAcceptance.acceptTest(p.userId, q.requestId, "disk-plan")
+                }
             } finally { first.close() }
             val reopened = UserRepositories(disk())
             try {
                 assertEquals(expected, reopened.planGeneration.generateTest(p.userId, q))
                 assertEquals(bundle, reopened.planGeneration.receipt(p.userId, q.requestId)!!.inputs)
+                assertEquals(reopened.plans.latest(p.userId, "disk-plan"),
+                    reopened.planAcceptance.acceptTest(p.userId, q.requestId, "disk-plan"))
             } finally { reopened.close() }
         } finally { context.deleteDatabase(name) }
     }
@@ -122,4 +126,88 @@ class PlanGenerationTest : WeeklyPlanningFixture() {
         database.openHelper.writableDatabase.execSQL("DROP TRIGGER reject_generation")
         assertEquals(GenerationStatus.SUCCESS, repositories.planGeneration.generateTest(p.userId, q).status)
     }
+    @Test fun explicitAcceptanceMapsFrozenResultAndReplaysInitialVersion() {
+        val result = repositories.planGeneration.generateTest(p.userId, q)
+        assertNull(repositories.plans.latest(p.userId, "accepted"))
+        assertThrows(IllegalArgumentException::class.java) {
+            repositories.planAcceptance.accept(p.userId, q.requestId, "accepted")
+        }
+        val plan = repositories.planAcceptance.acceptTest(p.userId, q.requestId, "accepted")
+        val generated = result.plan!!
+        assertEquals(generated.meals.size, plan.items.size)
+        generated.meals.zip(plan.items).forEach { (meal, item) ->
+            assertEquals(meal.day, item.date)
+            assertEquals(meal.recipe, item.recipe)
+            assertEquals(meal.portionGrams, item.portionGrams)
+            assertEquals(meal.nutrients, item.nutrientSnapshot)
+            assertEquals(1.0, item.remainingPlannedServings, 0.0)
+            assertEquals(PlanItemStatus.PLANNED, item.status)
+            assertTrue(item.consumedLogIds.isEmpty())
+        }
+        assertEquals(generated.weeklyNutrients, plan.nutrientSnapshot)
+        assertEquals(generated.targetKcal, plan.energyEstimate!!.dailyKcal, 0.0)
+        assertEquals(generated.shoppingCost.lines.size, plan.shopping.size)
+        generated.shoppingCost.lines.zip(plan.shopping).forEach { (line, item) ->
+            assertEquals(line.requiredEdibleGrams.toDouble(), item.quantity, 0.0)
+            assertEquals(line.product.foodId, item.foodId)
+        }
+        val unaccepted = q.copy(requestId = "profile-stale")
+        repositories.planGeneration.generateTest(p.userId, unaccepted)
+        repositories.profiles.save(p.copy(ref = p.ref.copy(version = 2)), 1)
+        assertThrows(RevisionConflict::class.java) {
+            repositories.planAcceptance.acceptTest(p.userId, unaccepted.requestId, "stale-plan")
+        }
+        assertNull(repositories.plans.latest(p.userId, "stale-plan"))
+        assertEquals(plan, PlanAcceptanceRepository(database).acceptTest(p.userId, q.requestId, "accepted"))
+        assertThrows(IdempotencyConflict::class.java) {
+            repositories.planAcceptance.acceptTest(p.userId, q.requestId, "different")
+        }
+        assertNull(repositories.planAcceptance.receipt("other", q.requestId))
+        assertTrue(repositories.foodLogs.recent(p.userId).isEmpty())
+    }
+
+    @Test fun acceptanceRejectsStaleInputsAndOccupiedPlanWithoutChangingHistory() {
+        repositories.planGeneration.generateTest(p.userId, q)
+        val original = repositories.planAcceptance.acceptTest(p.userId, q.requestId, "occupied")
+        val second = q.copy(requestId = "second")
+        repositories.planGeneration.generateTest(p.userId, second)
+        assertThrows(RevisionConflict::class.java) {
+            repositories.planAcceptance.acceptTest(p.userId, second.requestId, "occupied")
+        }
+        repositories.planGeneration.activate(bundle.copy(ref = VersionRef("active", 2)), 1)
+        assertThrows(RevisionConflict::class.java) {
+            repositories.planAcceptance.acceptTest(p.userId, second.requestId, "new")
+        }
+        assertNull(repositories.plans.latest(p.userId, "new"))
+        assertEquals(original, repositories.plans.latest(p.userId, "occupied"))
+        assertNull(repositories.planAcceptance.receipt(p.userId, second.requestId))
+    }
+
+    @Test fun acceptanceFailureRollsBackPlanAndCanRetry() {
+        repositories.planGeneration.generateTest(p.userId, q)
+        database.openHelper.writableDatabase.execSQL("""
+            CREATE TRIGGER reject_acceptance BEFORE INSERT ON user_snapshots
+            WHEN NEW.kind = 'plan_acceptance'
+            BEGIN SELECT RAISE(ABORT, 'injected failure'); END
+        """.trimIndent())
+        assertThrows(android.database.sqlite.SQLiteConstraintException::class.java) {
+            repositories.planAcceptance.acceptTest(p.userId, q.requestId, "accepted")
+        }
+        assertNull(repositories.plans.latest(p.userId, "accepted"))
+        assertNull(repositories.planAcceptance.receipt(p.userId, q.requestId))
+        database.openHelper.writableDatabase.execSQL("DROP TRIGGER reject_acceptance")
+        assertNotNull(repositories.planAcceptance.acceptTest(p.userId, q.requestId, "accepted"))
+    }
+
+    @Test fun failedOrForeignGenerationCannotBeAccepted() {
+        repositories.planGeneration.generate(p.userId, q)
+        assertThrows(IllegalArgumentException::class.java) {
+            repositories.planAcceptance.accept(p.userId, q.requestId, "failed")
+        }
+        assertThrows(IllegalArgumentException::class.java) {
+            repositories.planAcceptance.acceptTest("other", q.requestId, "foreign")
+        }
+        assertNull(repositories.plans.latest(p.userId, "failed"))
+    }
+
 }

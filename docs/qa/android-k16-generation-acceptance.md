@@ -10,3 +10,13 @@ Scope: canonical research-data.json §22 C-08–C-10; coding-tasks K16 continuat
 - JVM/Room acceptance: successful result and full-input round trip; database close/reopen; original replay after edits; owner isolation; conflicting payload/mode; stale profile/policy/catalog; changes during computation; write-failure rollback/retry; production gate/failure replay.
 
 UI routes 04/13/14, explicit plan acceptance/recalculation, import activation wiring, real G3/G4 catalog/price acceptance and device checks remain unverified. No APK is required or authorized.
+
+## Explicit acceptance boundary
+
+- `UserRepositories.planAcceptance.accept(owner, requestId, newPlanId)` accepts only a persisted successful production generation. Internal fixture acceptance cannot bypass the production API.
+- In one user-DB transaction it rechecks the exact profile and active input bundle, creates revision 1 of a new MealPlan including shopping, and stores an immutable owner/request → initial-plan receipt. It refuses an existing plan ID; existing plan history and consumption are untouched.
+- Meal dates, slots, exact recipe versions, personal portion grams, nutrients, alternatives and daily energy target come from the stored generation, never from caller-made UI data. One planned serving denotes that generated personal portion. Full alternative portions, catalog, rule/coverage and decimal pricing provenance remain in the linked generation envelope.
+- Retry returns the original revision even after profile/input changes; using another plan ID conflicts. Preview and acceptance create no FoodLog. Input staleness requires a new generation request.
+- Added Room/JVM scenarios: mapping, production/fixture isolation, owner isolation, stale profile/input rejection, plan-ID collision, transaction rollback/retry, disk reopen and acceptance replay.
+
+This completes the separate initial acceptance persistence flow only. UI routes, future-plan recalculation preview/acceptance, active catalog import integration and device checks remain outside this unit.

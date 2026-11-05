@@ -1,39 +1,36 @@
-# Current task — K16 durable generation boundary
+# Current task — K16 explicit initial plan acceptance
 
 ## Completed
-- Earlier: confirmed consumption + atomic log/plan/event receipt and actual/remaining projection.
-- Added durable K15 generation envelope: exact request, profile, policy/catalog/evidence/prices and full result.
-- Current profile and active input bundle checked inside receipt write transaction; stale input cannot persist SUCCESS.
-- Owner/request replay survives restart; changed request/mode conflicts. Production gates retained.
+- Durable K15 generation envelope and stale-input transaction checks retained.
+- Added explicit owner/request → new MealPlan acceptance using existing repositories/aggregate.
+- Acceptance atomically persists initial plan + shopping + receipt, checks current profile/input bundle, rejects existing plan IDs and failed/fixture production results.
+- Retry replays initial revision; no FoodLog or changes to existing plan history.
 
 ## Current state
-- K16 remains partial; persistence boundaries have no UI route yet.
-- Active planning inputs use user-DB append-only CAS revisions; importer/orchestrator must activate updates.
-- No accepted MealPlan or diary log is implicitly created by generation.
+- K16 remains partial. Generation and initial acceptance persistence boundaries exist; no UI route yet.
+- Production catalog/G3, price/G4 and budget scope remain gated.
 
 ## Decisions
-- Original request outcome replays even after inputs change; refresh requires a new request ID.
-- Full-precision decimal strings and ISO durations preserve pricing snapshots.
-- Real catalog/G3, price/G4 and budget scope remain gated.
-- Earlier consumption decisions remain in PlanConsumption contracts/tests and QA notes.
+- Initial acceptance requires a new plan ID; recalculation is a separate preview/change operation.
+- One planned serving is the generated personal portion. Complete provenance and alternative portions remain in linked generation envelope.
+- Replay returns original accepted revision even after inputs or plan change.
 
 ## Remaining work
-- Wire authoritative catalog/import selection to active planning inputs.
-- Explicit generation acceptance into MealPlan and future recalculation preview/acceptance, preserving history/consumed items.
+- Authoritative catalog/import activation wiring.
+- Future-plan recalculation preview/acceptance preserving consumed/history items.
 - Screens 04/13/14, dated menu, recipe/portion confirmation and Today E2E.
 
 ## Relevant files
-- data/local/{PlanGenerationRepository,UserRepositories,MealPlanRepository,PlanConsumptionRepository}.kt
-- domain/planning/{WeeklyPlanContracts,WeeklyPlanGenerator,WeeklyPlanSession}.kt
-- tests: data/local/PlanGenerationTest.kt; domain/planning/WeeklyPlanningFixture.kt
-- docs/qa/android-k16-generation-acceptance.md; planning/coding-tasks.txt K16
-- planning/research-data.json §8/18–19/22; docs/nutrition-plan-design.md
+- data/local/{PlanAcceptanceRepository,PlanGenerationRepository,MealPlanRepository,UserRepositories}.kt
+- data/local/PlanGenerationTest.kt; domain/planning/WeeklyPlanContracts.kt
+- docs/qa/android-k16-generation-acceptance.md
+- planning/coding-tasks.txt K16; planning/research-data.json §8/18–19/22
 
 ## Checks performed
-- Scoped plan, local CI, clean tree/hooks and organization requirements read.
-- Dedicated branch; merge-main CI result must be checked against final HEAD.
-- No UI render, APK, device, clinical or real catalog/pricing acceptance claimed.
+- Prior main 3023709 CI passed; scoped requirements and organization reviewed.
+- Current acceptance tests added; final merged-main CI result recorded in task response.
+- No UI change/render, APK, device, clinical or real catalog/pricing acceptance claimed.
 
 ## Exact next step
-- Verify latest merged-main CI, then continue explicit plan acceptance/recalculation as a separate scoped unit.
-- Follow start/commit/finish lifecycle; use ui-craft before UI work; no APK without explicit request.
+- Continue K16 future-plan recalculation as a separate scoped unit, reading its profile-change contracts first.
+- Follow start/commit/finish lifecycle; use ui-craft for UI work; no APK without explicit request.
