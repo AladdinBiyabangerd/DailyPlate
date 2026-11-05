@@ -65,6 +65,7 @@ object ProfileEdit {
             specialistTargetKcal = specialist.takeIf { it.isNotBlank() }?.replace(',', '.')?.toDouble(),
             // Fields outside this editor are retained, including real source IDs.
             equipment = base.equipment, homeFoods = base.homeFoods,
+            eligibilityAnswers = base.eligibilityAnswers + edited.eligibilityAnswers,
             budget = edited.budget.copy(coveredMealSlots = base.budget.coveredMealSlots),
             dislikedFoodIds = restoreIds(draft.items("disliked_foods"), base.dislikedFoodIds),
             dislikedRecipeIds = restoreIds(draft.items("disliked_recipes"), base.dislikedRecipeIds),
