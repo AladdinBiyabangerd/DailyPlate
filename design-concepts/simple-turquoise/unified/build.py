@@ -8,6 +8,7 @@ from components import panel, sheet, measurements
 from legacy import build as legacy
 from states import build as states
 from style import TOKENS, CSS
+from onboarding import build as onboarding
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
@@ -48,6 +49,7 @@ def build():
                 p['disabled']=True
         sheets.append(s)
     sheets+=states()
+    sheets+=onboarding()
     (HERE/'assets').mkdir(exist_ok=True)
     for p in (ROOT/'android/app/src/main/res/drawable-nodpi').glob('art_*.png'):
         shutil.copyfile(p,HERE/'assets'/p.name)
@@ -65,6 +67,8 @@ def build():
     mapping['24-inqrediyent-redaktoru-xetalar.png']=['34-resept-redaktoru-xetalar.png','35-resept-allergen-ve-vahid.png']
     for s in sheets:
         if 19<=s['num']<=30: mapping[f'completion/{s["num"]}']=s['file']+'.png'
+    mapping['completion/31']='47-allergiya-ilkin-sual.png'
+    mapping['completion/32']='48-plan-hazirdir-basla.png'
     (HERE/'replacement-map.json').write_text(json.dumps(mapping,ensure_ascii=False,indent=2)+'\n')
     print(f'{len(sheets)} sheets / {sum(len(s["panels"]) for s in sheets)} panels')
 

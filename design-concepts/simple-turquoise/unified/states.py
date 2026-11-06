@@ -2,6 +2,8 @@
 from components import card as C, note as N, field as F, options as O, row as R, stepper as S, panel as P, sheet as D, measurements as M, preference_body as B, nutrients as V
 
 
+from onboarding import allergy
+
 def build():
     data=[]
     def add(n,slug,title,ps,requirements=None):
@@ -17,8 +19,8 @@ def build():
       P('32-C','Girişi yoxla',M({2:'Bu rəqəm qəbul edilmir. Ölçünü və vahidi yoxla.'},['28','172','1e999']),'Davam et','Məqsədə qayıt','art_weight',step=2,disabled=True),
     ],['19.2','26.8'])
     add(33,'allergiya-ve-budce-xetalari','Onboarding · allergiya və büdcə xətaları',[
-      P('33-A','Allergiya seçimini tamamla',O(['Süd','Yumurta','Qoz-fındıq','Balıq','Buğda'])+C('Allergiyam yoxdur','□ Seçilməyib')+N('Allergen seç və ya “Allergiyam yoxdur” cavabını ver. Cavabsızlıq allergiya yoxdur sayılmır.')+R('Digər allergiya əlavə et','Siyahıda olmayan allergen'),'Davam et','Sağlamlıq suallarına qayıt','art_milk',step=4,disabled=True),
-      P('33-B','Çoxlu allergiya',O(['Süd','Yumurta'],'Süd')+R('Küncüt','✓ Əlavə allergen',None,True)+F('Qoz-fındıq növü','Badam')+N('Yeni allergen seçiləndə “Allergiyam yoxdur” ləğv olunur. Tanınmayan ad dəqiqləşmədən uyğunluq təsdiqlənmir.'),'Seçimləri saxla','Allergiyalara qayıt','art_nuts',step=4),
+      P('33-A','Allergiya seçimini tamamla',allergy(error=True),'Davam et','Sağlamlıq suallarına qayıt','art_milk',step=4,disabled=True),
+      P('33-B','Çoxlu allergiya',C('Allergiyan varmı?',O(['Bəli','Xeyr'],'Bəli'))+O(['Süd','Yumurta'],'Süd')+R('Küncüt','✓ Əlavə allergen',None,True)+F('Qoz-fındıq növü','Badam')+N('Yeni allergen seçiləndə “Allergiyam yoxdur” ləğv olunur. Tanınmayan ad dəqiqləşmədən uyğunluq təsdiqlənmir.'),'Seçimləri saxla','Allergiyalara qayıt','art_nuts',step=4),
       P('33-C','Büdcəni düzəlt',F('Region','Azərbaycan')+F('Valyuta','AZN')+F('Həftəlik büdcə','−10','Məbləğ sıfırdan böyük, sonlu rəqəm olmalıdır.','AZN')+F('Neçə nəfər üçün?','0','Ən azı 1 nəfər daxil et.')+N('Digər vaxt, məqsəd və allergiya cavabların qalır.'),'Planımı hazırla','Büdcəyə qayıt','art_budget',step=5,disabled=True),
     ],['17.4','18.3','18.8'])
     add(34,'resept-redaktoru-xetalar','Resept redaktoru · boş, yanlış və sıfır miqdar',[

@@ -105,7 +105,7 @@
       {
         "id": "02-A",
         "title": "Allergiya və seçimlər",
-        "body": "<div class=\"allergen-grid\"><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_milk.png\" alt=\"\"><div><h3>Süd</h3><p>□ Seç</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_egg.png\" alt=\"\"><div><h3>Yumurta</h3><p>□ Seç</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_nuts.png\" alt=\"\"><div><h3>Qoz-fındıq</h3><p>□ Seç</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_fish.png\" alt=\"\"><div><h3>Balıq</h3><p>□ Seç</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_wheat.png\" alt=\"\"><div><h3>Buğda</h3><p>□ Seç</p></div></section></div><section class=\"card row selected\"><div><h3>✓ Allergiyam yoxdur</h3><p>Digər allergiya seçimləri ilə birləşmir</p></div></section><section class=\"card \"><h3>Digər allergiyalar</h3><p>Əlavə allergen daxil et →</p></section><section class=\"card \"><h3>Sevmədiyim yeməklər</h3><p>Allergiyadan ayrı, könüllü seçim →</p></section>",
+        "body": "<section class=\"card \"><h3>Allergiyan varmı?</h3><p><div class=\"options\"><div class=\"option \">○ Bəli</div><div class=\"option \">○ Xeyr</div></div></p></section><p>Bir cavab seç. “Bəli” seçsən, allergenlərin siyahısı açılacaq.</p><label>Yemədiklərin · könüllü<span class=\"field\">Məsələn: qırmızı ət, göbələk…</span></label>",
         "cta": "Davam et",
         "back": "Sağlamlıq suallarına qayıt",
         "art": "art_milk",
@@ -1577,7 +1577,7 @@
       {
         "id": "33-A",
         "title": "Allergiya seçimini tamamla",
-        "body": "<div class=\"options\"><div class=\"option \">○ Süd</div><div class=\"option \">○ Yumurta</div><div class=\"option \">○ Qoz-fındıq</div><div class=\"option \">○ Balıq</div><div class=\"option \">○ Buğda</div></div><section class=\"card \"><h3>Allergiyam yoxdur</h3><p>□ Seçilməyib</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Allergen seç və ya “Allergiyam yoxdur” cavabını ver. Cavabsızlıq allergiya yoxdur sayılmır.</p></section><section class=\"card row \"><div><h3>Digər allergiya əlavə et</h3><p>Siyahıda olmayan allergen</p></div></section>",
+        "body": "<section class=\"card \"><h3>Allergiyan varmı?</h3><p><div class=\"options\"><div class=\"option \">○ Bəli</div><div class=\"option \">○ Xeyr</div></div></p></section><div class=\"error\">⚠ Davam etmək üçün “Bəli” və ya “Xeyr” seç.</div><p>Bir cavab seç. “Bəli” seçsən, allergenlərin siyahısı açılacaq.</p><label>Yemədiklərin · könüllü<span class=\"field\">Məsələn: qırmızı ət, göbələk…</span></label>",
         "cta": "Davam et",
         "back": "Sağlamlıq suallarına qayıt",
         "art": "art_milk",
@@ -1588,7 +1588,7 @@
       {
         "id": "33-B",
         "title": "Çoxlu allergiya",
-        "body": "<div class=\"options\"><div class=\"option selected\">✓ Süd</div><div class=\"option \">○ Yumurta</div></div><section class=\"card row selected\"><div><h3>✓ Küncüt</h3><p>✓ Əlavə allergen</p></div></section><label>Qoz-fındıq növü<span class=\"field\">Badam</span></label><section class=\"card notice\"><h3>Diqqət</h3><p>Yeni allergen seçiləndə “Allergiyam yoxdur” ləğv olunur. Tanınmayan ad dəqiqləşmədən uyğunluq təsdiqlənmir.</p></section>",
+        "body": "<section class=\"card \"><h3>Allergiyan varmı?</h3><p><div class=\"options\"><div class=\"option selected\">✓ Bəli</div><div class=\"option \">○ Xeyr</div></div></p></section><div class=\"options\"><div class=\"option selected\">✓ Süd</div><div class=\"option \">○ Yumurta</div></div><section class=\"card row selected\"><div><h3>✓ Küncüt</h3><p>✓ Əlavə allergen</p></div></section><label>Qoz-fındıq növü<span class=\"field\">Badam</span></label><section class=\"card notice\"><h3>Diqqət</h3><p>Yeni allergen seçiləndə “Allergiyam yoxdur” ləğv olunur. Tanınmayan ad dəqiqləşmədən uyğunluq təsdiqlənmir.</p></section>",
         "cta": "Seçimləri saxla",
         "back": "Allergiyalara qayıt",
         "art": "art_nuts",
@@ -2218,5 +2218,95 @@
       "27.8"
     ],
     "file": "46-destek-ve-xatirlatma"
+  },
+  {
+    "num": 47,
+    "slug": "allergiya-ilkin-sual",
+    "title": "Allergiya · ilkin sual və cavablar",
+    "panels": [
+      {
+        "id": "47-A",
+        "title": "Allergiya və seçimlər",
+        "body": "<section class=\"card \"><h3>Allergiyan varmı?</h3><p><div class=\"options\"><div class=\"option \">○ Bəli</div><div class=\"option \">○ Xeyr</div></div></p></section><p>Bir cavab seç. “Bəli” seçsən, allergenlərin siyahısı açılacaq.</p><label>Yemədiklərin · könüllü<span class=\"field\">Məsələn: qırmızı ət, göbələk…</span></label>",
+        "cta": "Davam et",
+        "back": "Əvvəlki addıma qayıt",
+        "art": "art_milk",
+        "tab": null,
+        "step": 4
+      },
+      {
+        "id": "47-B",
+        "title": "Allergiya və seçimlər",
+        "body": "<section class=\"card \"><h3>Allergiyan varmı?</h3><p><div class=\"options\"><div class=\"option \">○ Bəli</div><div class=\"option \">○ Xeyr</div></div></p></section><div class=\"error\">⚠ Davam etmək üçün “Bəli” və ya “Xeyr” seç.</div><p>Bir cavab seç. “Bəli” seçsən, allergenlərin siyahısı açılacaq.</p><label>Yemədiklərin · könüllü<span class=\"field\">Məsələn: qırmızı ət, göbələk…</span></label>",
+        "cta": "Davam et",
+        "back": "Əvvəlki addıma qayıt",
+        "art": "art_milk",
+        "tab": null,
+        "step": 4
+      },
+      {
+        "id": "47-C",
+        "title": "Allergiya və seçimlər",
+        "body": "<section class=\"card \"><h3>Allergiyan varmı?</h3><p><div class=\"options\"><div class=\"option selected\">✓ Bəli</div><div class=\"option \">○ Xeyr</div></div></p></section><div class=\"allergen-grid\"><section class=\"card row selected\"><img class=\"row-art\" src=\"assets/art_milk.png\" alt=\"\"><div><h3>✓ Süd</h3><p>☑ Seçilib</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_egg.png\" alt=\"\"><div><h3>Yumurta</h3><p>□ Seç</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_nuts.png\" alt=\"\"><div><h3>Qoz-fındıq</h3><p>□ Seç</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_fish.png\" alt=\"\"><div><h3>Balıq</h3><p>□ Seç</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_wheat.png\" alt=\"\"><div><h3>Buğda</h3><p>□ Seç</p></div></section></div><section class=\"card row \"><div><h3>Digər allergiya əlavə et</h3><p>Qoz-fındıq növünü ayrıca dəqiqləşdir.</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bir neçəsini seçə bilərsən. Ən azı bir allergen və ya dəqiqləşdirilmiş əlavə allergiya tələb olunur. Buğda və qlüten məhdudiyyəti ayrıdır.</p></section><label>Yemədiklərin · könüllü<span class=\"field\">Məsələn: qırmızı ət, göbələk…</span></label>",
+        "cta": "Davam et",
+        "back": "Əvvəlki addıma qayıt",
+        "art": "art_milk",
+        "tab": null,
+        "step": 4
+      },
+      {
+        "id": "47-D",
+        "title": "Allergiya və seçimlər",
+        "body": "<section class=\"card \"><h3>Allergiyan varmı?</h3><p><div class=\"options\"><div class=\"option \">○ Bəli</div><div class=\"option selected\">✓ Xeyr</div></div></p></section><section class=\"card row selected\"><div><h3>✓ Allergiyam yoxdur</h3><p>Allergen seçimin yoxdur.</p></div></section><label>Yemədiklərin · könüllü<span class=\"field\">Məsələn: qırmızı ət, göbələk…</span></label>",
+        "cta": "Davam et",
+        "back": "Əvvəlki addıma qayıt",
+        "art": "art_milk",
+        "tab": null,
+        "step": 4
+      }
+    ],
+    "legacy": [
+      "completion/31"
+    ],
+    "requirements": [
+      "18.3",
+      "18.8"
+    ],
+    "file": "47-allergiya-ilkin-sual"
+  },
+  {
+    "num": 48,
+    "slug": "plan-hazirdir-basla",
+    "title": "Planın hazırdır → Başla → Bu gün",
+    "panels": [
+      {
+        "id": "48-A",
+        "title": "Planın hazırdır",
+        "body": "<section class=\"card \"><h3>Seçimlərin nəzərə alınıb</h3><p>Məqsəd və ölçülər<br>Aktivlik və sağlamlıq<br>Allergiya və seçimlər<br>Vaxt, büdcə və yemək sayı</p></section><section class=\"card \"><h3>İlk gününə başlaya bilərsən</h3><p>Günün menyusuna bax və yediklərini əlavə et. Seçimlərini profildən dəyişə bilərsən.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Nümunə plan · fərdi qidalanma hesabı aparılmayıb.</p></section>",
+        "cta": "Başla",
+        "back": "Cavablarıma bax",
+        "art": "art_healthy",
+        "tab": null,
+        "step": 5,
+        "hero": true
+      },
+      {
+        "id": "48-B",
+        "title": "Bu gün",
+        "body": "<section class=\"card \"><h3>Salam! İlk gününə xoş gəldin</h3><p>Hələ yemək qeyd etməmisən.</p></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_menu.png\" alt=\"\"><div><h3>İndi · Səhər yeməyi</h3><p>Yumurta və tərəvəz · nümunə menyu</p></div></section><section class=\"card \"><h3>Günün yeməkləri</h3><p>○ Səhər · Planlı<br>○ Nahar · Planlı<br>○ Şam · Planlı</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Nümunə plan · hədəf və enerji hesablanmayıb. Başla yeməyi yeyilmiş saymır.</p></section>",
+        "cta": "Menyuya bax",
+        "back": "Nə yediyini əlavə et",
+        "art": null,
+        "tab": "Bu gün"
+      }
+    ],
+    "legacy": [
+      "completion/32"
+    ],
+    "requirements": [
+      "18.8",
+      "18.11"
+    ],
+    "file": "48-plan-hazirdir-basla"
   }
 ]

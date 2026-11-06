@@ -40,7 +40,7 @@
     {
       "sheet": "02-secimler-ve-hesab",
       "image": "02-secimler-ve-hesab.png",
-      "sha256": "d3a60377388058be5cb482e011cfb9cd4d985df98d15538e1fc14282f1347f5b",
+      "sha256": "d25ee1c8ae360c61c496247b37aafdb1b541a57a1baeeb9a3261a1f79350fe04",
       "viewed": true,
       "panels": [
         "02-A",
@@ -51,7 +51,7 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 02: all five illustrated allergens, explicit none/other/dislike paths and 5/5 time/budget/meal controls are visible; auth and guest back paths remain separate.",
+      "comparison": "Compared with 02 and current completion/31: initial allergy Yes/No is unanswered and allergen list remains closed; the conditional list is fully shown in 47. Budget 5/5, guest/account paths and persistent labels stay visible.",
       "unresolved_visual_differences": []
     },
     {
@@ -555,7 +555,7 @@
     {
       "sheet": "33-allergiya-ve-budce-xetalari",
       "image": "33-allergiya-ve-budce-xetalari.png",
-      "sha256": "d6db0caee132f467b569183783bf0109577a97497adb504e388eaf996bf426bf",
+      "sha256": "484871e7dbafba890b50780aab056ad320c0e1e84ea3b67a0d25d02703934f66",
       "viewed": true,
       "panels": [
         "33-A",
@@ -565,7 +565,7 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 02/14: unanswered allergen, multiple/custom allergy and invalid budget/person count are distinct; none is exclusive, data preserved and errors actionable.",
+      "comparison": "Compared with current completion/31: unanswered allergy error now sits under the same Yes/No question; Yes enables multiple/custom allergy, No excludes allergens. Invalid budget/person count retains inline recovery and other answers.",
       "unresolved_visual_differences": []
     },
     {
@@ -781,6 +781,38 @@
       },
       "comparison": "Compared with 26/27/30: support send failure keeps actual entered form; optional 14-day reminder does not change target, invalid fractional age retains complete form and inline correction.",
       "unresolved_visual_differences": []
+    },
+    {
+      "sheet": "47-allergiya-ilkin-sual",
+      "image": "47-allergiya-ilkin-sual.png",
+      "viewed": true,
+      "panels": [
+        "47-A",
+        "47-B",
+        "47-C",
+        "47-D"
+      ],
+      "reference_sha256": {
+        "references/31-allergiya-ilkin-veziyyet.png": "bb23f7a168367da79478a82976b76a6807c2c6c39c4731be629ae2fa5fd8b916"
+      },
+      "unresolved_visual_differences": [],
+      "sha256": "4bfecb40cefb25c1c164b643530c05237d0063a5a0d40d71b8dc1d3063fc5f60",
+      "comparison": "Opened all four panels and original completion/31. Preserved unanswered initial question/list closed, Continue error, Yes with all five illustrated multi-select allergens/other path, and No with exclusive none. Shared 4/5 progress, fields and actions match the unified set; all text visible."
+    },
+    {
+      "sheet": "48-plan-hazirdir-basla",
+      "image": "48-plan-hazirdir-basla.png",
+      "viewed": true,
+      "panels": [
+        "48-A",
+        "48-B"
+      ],
+      "reference_sha256": {
+        "references/32-plan-hazirdir.png": "1770b8a3dfc905c4d74e16e2aef1a4a5fb8e7fbe9673084ac985bf2b62485197"
+      },
+      "unresolved_visual_differences": [],
+      "sha256": "8f116f955d72c2f883f11ef3855ff7f35c2126af20a9a2bf8675218a088c25fe",
+      "comparison": "Opened both panels and original completion/32. Ready screen retains five completed groups, labelled sample plan and Başla/Cavablarıma bax. Today is active with three planned slots and zero logged meals; no calorie target invented. Same frame, cards, imagery and actions; no clipping."
     }
   ],
   "unverified": [

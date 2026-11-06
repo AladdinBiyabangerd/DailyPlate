@@ -16,7 +16,9 @@
         31,
         32,
         33,
-        46
+        46,
+        47,
+        48
       ],
       "status": "rendered-inspected-design-state-covered"
     },
@@ -166,7 +168,9 @@
         43,
         44,
         45,
-        46
+        46,
+        47,
+        48
       ],
       "status": "rendered-inspected-design-state-covered"
     }

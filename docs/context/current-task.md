@@ -2,9 +2,9 @@
 
 ## Completed
 - User explicitly requested every old selected turquoise design set aligned, all eleven listed design gaps closed, and a final ZIP.
-- Recreated 00–18, onboarding/ingredient-error references and completion 19–30 through shared components; added 31–46 state sheets. Total: 47 AZ sheets / 159 panels.
+- Recreated 00–18, onboarding/ingredient-error references and completion 19–30 through shared components; added 31–48 state sheets. Total: 49 AZ sheets / 165 panels.
 - Every output PNG opened and compared with original sheets and 00/D02/D03 references. Hash-bound static review: unified/visual-review.json. No observed clipping after fixing missing art, cramped age text and error spacing.
-- Final ZIP: design-concepts/qida-turquoise-designs-final.zip; 158 entries including MANIFEST. Every archive hash verified. Extracted portable build regenerates identical HTML; all local links/assets resolve.
+- Final ZIP: design-concepts/qida-turquoise-designs-final.zip; 166 entries including MANIFEST. Every archive hash verified. Extracted portable build regenerates identical HTML; all local links/assets resolve.
 
 ## Current state
 - Work done in isolated /private/tmp/callmood-design-package on docs/unified-design-delivery; original shared branch/user edits preserved.
@@ -29,13 +29,13 @@
 - planning/nutrition-science-implementation-plan.txt §§16–19,26–30; planning/meal-customization-requirements.txt T01–T19; docs/nutrition-plan-design.md.
 
 ## Checks performed
-- All 47 rendered sheets inspected. Chrome reports zero missing images and zero horizontal overflow.
+- All 49 rendered sheets inspected. Chrome reports zero missing images and zero horizontal overflow.
 - Contrast: text/background 11.95; muted/background 5.04; white/primary 4.71; all >=4.5.
-- 158 ZIP entries CRC and SHA-256 verified, HTML local links/assets checked, extracted portable rebuild byte-identical.
+- 166 ZIP entries CRC and SHA-256 verified, HTML local links/assets checked, extracted portable rebuild byte-identical.
 - Post-merge CI is mandatory and its exact fresh outcome lives in .local-ci/logs/latest.json, not inferred from concept rendering.
 
 ## Exact next step
 - Inspect the current merged-main CI outcome and preserve this delivery. Future native acceptance work must compare actual fresh manifest renders with approved references; do not treat the static ZIP as runtime proof.
 
 ## Concurrent onboarding integration
-- Main also contains completion/31 allergy Yes/No initial states and completion/32 ready-to-Today flow from another task. Preserve those sources and incorporate their current decisions into the unified package before final delivery.
+- Main also contains completion/31 allergy Yes/No initial states and completion/32 ready-to-Today flow from another task. Preserved those sources and integrated their decisions as unified/47 (initial Yes/No) and unified/48 (ready → Start → Today), including aligned 02/33 screens.

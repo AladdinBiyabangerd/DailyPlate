@@ -1,5 +1,5 @@
 QİDA — YEKUN VAHİD DİZAYN PAKETİ
-6 noyabr 2026 · AZ · 47 dəst / 159 ekran
+6 noyabr 2026 · AZ · 49 dəst / 165 ekran
 
 BAŞLAMAQ
 index.html faylını brauzerdə aç. İnternet tələb olunmur. Hər dəstin PNG və
@@ -8,11 +8,11 @@ HTML keçidi var. HTML statik dizayn mənbəyidir; tətbiq/prototip deyil.
 ƏSAS VERSİYA
 Bu paketdə 00–18 köhnə firuzəyi dəstlərin, onboarding və inqrediyent xəta
 panellərinin, 19–30 əlavələrinin vahid komponentlərlə yeni versiyaları var.
-31–46 əlavə validasiya, açılmış iki-gün önbaxışı və nəticə hallarıdır.
+31–48 əlavə validasiya, açılmış iki-gün önbaxışı və nəticə hallarıdır.
 replacement-map.json bütün əvvəlki seçilmiş firuzəyi dəstlərin qarşılığını göstərir.
 Əvvəlki natural/warm/dark istiqamətləri seçilmiş firuzəyi kitabxanaya daxil deyil.
 Köhnə rasterlər repoda tarixçə kimi qalır; yekun paketdə aktiv ekran kimi yoxdur.
-references/ yalnız ilkin 00 və təsdiqli D02/D03 istinadlarıdır; yeni setlə qarışdırma.
+references/ ilkin 00, təsdiqli D02/D03 və son 31/32 axın istinadlarıdır; yeni setlə qarışdırma.
 Yeni maketlərin istifadəçi tərəfindən təsdiqləndiyi iddia edilmir.
 
 VAHİD QAYDALAR
@@ -21,7 +21,9 @@ firuzəyi əsas hərəkət və şaftalı xəbərdarlıqlar. Seçim çərçivə v
 Rənglər dəyişdirilməyib: design-concepts/tokens.css-dən mövcud simple-* tokenləri.
 Aralıqlar 8/16/24/32; kart radiusu 24; mətn/idarələr üçün mövcud ölçü qaydaları.
 Alt menyu: Bu gün / Menyu / Əlavə et / İrəliləyiş / Profil. Yalnız aid bölmə aktivdir.
-Tapşırıq/formalarda görünən geri dönüş var. Onboarding beş addımdır; sağlamlıq 3/5-dədir.
+Tapşırıq/formalarda görünən geri dönüş var. Allergiya əvvəl Bəli/Xeyr sualıdır; cavabsızlıq Xeyr deyil. Bəli siyahını açır.
+Planın hazırdır → Başla → Bu gün keçidi faktiki qeyd yaratmır.
+Onboarding beş addımdır; sağlamlıq 3/5-dədir.
 kkal / q / kq / sm, onluq vergül, 6 noyabr 2026 / 2–8 noyabr 2026 istifadə edilir.
 Əvvəl–sonra = faktiki qəbul + qalan planlı hissə; yeyilmiş hissə təkrar sayılmır.
 Bişmiş qram və 100 q üçün nəticə yalnız ölçülmüş çıxım əsasında göstərilir.
@@ -42,7 +44,7 @@ Qiymət, xidmət tələbi və saxlanma siyasəti asılılıqları maketdə şər
 onların real mətnləri inteqrasiya zamanı faktiki konfiqurasiyadan gəlməlidir.
 
 YOXLAMA
-47 PNG agent tərəfindən açılıb istinadlarla müqayisə olunub; visual-review.json
+49 PNG agent tərəfindən açılıb istinadlarla müqayisə olunub; visual-review.json
 konkret şəkil hash-lərini və baxış qeydlərini saxlayır. Bu native qəbul sənədi deyil.
 render-report.json hər dəst üçün təzə Chrome ölçməsini, şəkil və daşma nəticəsini verir.
 Kontrast: simple-text/simple-bg 11,95; simple-muted/simple-bg 5,04;

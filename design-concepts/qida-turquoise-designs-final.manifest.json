@@ -2,8 +2,8 @@
   "date": "2026-11-06",
   "scope": "uniform-design-artifacts-not-runtime-acceptance",
   "entrypoint": "index.html",
-  "sheets": 47,
-  "panels": 159,
+  "sheets": 49,
+  "panels": 165,
   "files": [
     {
       "path": "00-esas-istiqamet.html",
@@ -23,11 +23,11 @@
     },
     {
       "path": "02-secimler-ve-hesab.html",
-      "sha256": "f304b8b5f6e30082836b919ff037deaf8d3caa1f6827cd0fe8424e39ac3b797d"
+      "sha256": "1dfde189558f52c51fbbd067a12417cf4a887c5364017ca099509a12577e642c"
     },
     {
       "path": "02-secimler-ve-hesab.png",
-      "sha256": "d3a60377388058be5cb482e011cfb9cd4d985df98d15538e1fc14282f1347f5b"
+      "sha256": "d25ee1c8ae360c61c496247b37aafdb1b541a57a1baeeb9a3261a1f79350fe04"
     },
     {
       "path": "03-yemek-qeydiyyati.html",
@@ -271,11 +271,11 @@
     },
     {
       "path": "33-allergiya-ve-budce-xetalari.html",
-      "sha256": "f77b6a24af504de502c4cb3d663e4d57c84d214f8ce9a25d04a0a640ec183609"
+      "sha256": "a1cb885059e606b1d0b4b25ae4cdc20e96a5180b77e6cae2e296339165555339"
     },
     {
       "path": "33-allergiya-ve-budce-xetalari.png",
-      "sha256": "d6db0caee132f467b569183783bf0109577a97497adb504e388eaf996bf426bf"
+      "sha256": "484871e7dbafba890b50780aab056ad320c0e1e84ea3b67a0d25d02703934f66"
     },
     {
       "path": "34-resept-redaktoru-xetalar.html",
@@ -382,8 +382,24 @@
       "sha256": "63d58fd2cd6b4c3bb4082d83d832c2007fc973880efa830c70a15ea9c1a8c25c"
     },
     {
+      "path": "47-allergiya-ilkin-sual.html",
+      "sha256": "a9922ce6d208cfd1328541db7ed2760fcbd25068682ff44601b5ca4858d646d7"
+    },
+    {
+      "path": "47-allergiya-ilkin-sual.png",
+      "sha256": "4bfecb40cefb25c1c164b643530c05237d0063a5a0d40d71b8dc1d3063fc5f60"
+    },
+    {
+      "path": "48-plan-hazirdir-basla.html",
+      "sha256": "7af349a047ce3d447bb0439e85e19d38cf951338634404afa1557053658a1199"
+    },
+    {
+      "path": "48-plan-hazirdir-basla.png",
+      "sha256": "8f116f955d72c2f883f11ef3855ff7f35c2126af20a9a2bf8675218a088c25fe"
+    },
+    {
       "path": "README.txt",
-      "sha256": "1bb2a82e3e59f34e6bb8eb5d5f2f287c6dc5172fdb99daf7840f584d3bb9ff96"
+      "sha256": "f5bd8ca59cbe4cdaed29cf66854d231001df14beb83050d3d1fd953563c8b71d"
     },
     {
       "path": "assets/art_account.png",
@@ -559,7 +575,7 @@
     },
     {
       "path": "build.py",
-      "sha256": "75623be7282a2b313204252571223ebd7346ee1ad636e8a973a30d287a6bd7cc"
+      "sha256": "929e3fcaf5ab7428844e8020424580efce7f858b2af2c057269ce30ca2b984e4"
     },
     {
       "path": "components.py",
@@ -567,15 +583,19 @@
     },
     {
       "path": "coverage.json",
-      "sha256": "37983240f8b80d1324e997cd63b50390274ec430d3650152ce06b5c68347258e"
+      "sha256": "0b55d28c6f68b4eea931f2ea887827d3e54abdb4025797c93c0eab1cea53d6cd"
     },
     {
       "path": "index.html",
-      "sha256": "232b05a87109e4fd65e47c6685505f572fdf2c69be35b43e5e52b6ccc11c4301"
+      "sha256": "463727541de24a4f01afa15c9017ad5d5fb9aabbb4a2171dcca2b0ebbc104c2e"
     },
     {
       "path": "legacy.py",
-      "sha256": "91ed4383a4f89610218900e841990b2690c43777355cfdc92981586853e61234"
+      "sha256": "413619e5aa13169c40f5823d734d0c65aaaaa56378bf4597206b87506d44ef07"
+    },
+    {
+      "path": "onboarding.py",
+      "sha256": "d5fec0cd3c08c30ff64eaf39bcca6f2f7b1bebd006b27e9b67783198e0fa559c"
     },
     {
       "path": "package.py",
@@ -584,6 +604,18 @@
     {
       "path": "references/00-reference.png",
       "sha256": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
+    },
+    {
+      "path": "references/31-32-flow-notes.txt",
+      "sha256": "1d60f03a6d974c6667f792c998f0fbc68400619522ed347ca1f3b4a469de4e86"
+    },
+    {
+      "path": "references/31-allergiya-ilkin-veziyyet.png",
+      "sha256": "bb23f7a168367da79478a82976b76a6807c2c6c39c4731be629ae2fa5fd8b916"
+    },
+    {
+      "path": "references/32-plan-hazirdir.png",
+      "sha256": "1770b8a3dfc905c4d74e16e2aef1a4a5fb8e7fbe9673084ac985bf2b62485197"
     },
     {
       "path": "references/d02-portions.png",
@@ -603,7 +635,7 @@
     },
     {
       "path": "render-report.json",
-      "sha256": "6aa3dbb03a174d44cb0c09df02fea27c53f0ebdb45de7990825d0e7c43de8fd1"
+      "sha256": "dbac7b75cb6c332943d73f717bf55fc7ec95ff316204b7786500ca8f81f01238"
     },
     {
       "path": "render.mjs",
@@ -611,11 +643,11 @@
     },
     {
       "path": "replacement-map.json",
-      "sha256": "c4f1ab9de7b665a148c28ce1f31c1a48f24678c36462e11c66d24c61e0416879"
+      "sha256": "5795eb3f8e6e218172af822f409a8348acff3a76eea59657a408a5f34d1be6ff"
     },
     {
       "path": "screens.json",
-      "sha256": "9d39ead0f460d01cb019e4825b812f20738fb8738ad1b9dcc491702fe1ba1996"
+      "sha256": "3c36bf93937036585656a95955915809ba914c3a3c7010f6d9ac358cac1d8e7a"
     },
     {
       "path": "source-inputs/completion-screens.json",
@@ -623,7 +655,7 @@
     },
     {
       "path": "states.py",
-      "sha256": "71ee8e116086557d718c3e0ffbf58f26c943009acec8a4f17f6b9a7aeb26fa76"
+      "sha256": "b2956874810d65c48d0ffbdcf6440153b290e4abab7cd38a50c16ff89d18dbdb"
     },
     {
       "path": "style.py",
@@ -631,7 +663,7 @@
     },
     {
       "path": "visual-review.json",
-      "sha256": "5bd7ce9adbb5e806f709985de6dcf7636b4c1ae27cfeaa8eecff278626272bf5"
+      "sha256": "74669ba260e586262d0e7975f739b656a5598e350a1fe27262b2367aab9b0449"
     }
   ]
 }

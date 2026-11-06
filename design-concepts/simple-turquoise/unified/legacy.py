@@ -2,13 +2,14 @@
 from components import card as C, note as N, field as F, options as O, row as R, stepper as S, panel as P, sheet as D, measurements as M, preference_body as B, week as W, nutrients as V, ingredient as I
 
 
+from onboarding import allergy
+
 def build():
     result=[]
     def add(n,slug,title,panels):
         result.append(D(n,slug,title,panels,legacy=[f'{n:02d}']))
     activity=R('Az hərəkətli','Adi günlük hərəkət','art_sedentary')+R('Yüngül fəal','İzahına bax və təsdiqlə','art_walking',True)+R('Fəal','İzahına bax və təsdiqlə','art_active')+R('Çox fəal','İzahına bax və təsdiqlə','art_active')+'<p>Əmin deyiləm → hədəfsiz gündəlik.</p>'
     goals='<div class="goal-grid">'+''.join(R(t,'Bir seçim et',a,t=='Çəkini saxlamaq') for t,a in [('Arıqlamaq','art_lose'),('Çəkini saxlamaq','art_maintain'),('Çəki almaq','art_gain'),('Sağlam yemək','art_healthy')])+'</div>'
-    allergies='<div class="allergen-grid">'+''.join(R(t,'□ Seç',a) for t,a in [('Süd','art_milk'),('Yumurta','art_egg'),('Qoz-fındıq','art_nuts'),('Balıq','art_fish'),('Buğda','art_wheat')])+'</div>'+R('Allergiyam yoxdur','Digər allergiya seçimləri ilə birləşmir',None,True)+C('Digər allergiyalar','Əlavə allergen daxil et →')+C('Sevmədiyim yeməklər','Allergiyadan ayrı, könüllü seçim →')
     add(0,'esas-istiqamet','Əsas ekranlar və vahid komponentlər',[
       P('00-A','Salam!',R('Şam · planlı','Toyuq plovu · 1 porsiya','art_recipe')+C('Faktiki qəbul',V('900','50','100','33,3'))+N('Planlı yemək yalnız təsdiqlə gündəliyə yazılır. Gündəlik natamamdırsa dəqiq qalan enerji göstərilmir.'),'Nə yediyini əlavə et','Bugünkü menyunu gör',tab='Bu gün'),
       P('00-B','Nə yediyini necə əlavə edək?',R('Şəkil çək','Yeməyi və porsiyanı sonra təsdiqləyəcəksən','art_entry_camera')+R('Axtar','Adı ilə tap və miqdarı seç','art_entry_search')+R('Əvvəl yediklərim','Saxlanmış porsiyanı yenidən təsdiqlə','art_entry_previous'),'Yemək axtar','Bu günə qayıt',tab='Əlavə et'),
@@ -21,7 +22,7 @@ def build():
       P('01-D','Planına bax',C('Seçimlərin','Çəkini saxlamaq · gündə 3 yemək')+C('Təxmini enerji hədəfi','Hesab nəticəsi olduqda burada göstərilir; rəqəm uydurulmur.')+R('Nümunə yeməklər','Səhər · Nahar · Şam','art_menu')+N('Plan nəticəsi və gündəlik qəbul ayrı məlumatlardır.'),'Menyumu gör','Seçimləri dəyiş','art_saved',hero=True),
     ])
     add(2,'secimler-ve-hesab','Seçimlər və hesab',[
-      P('02-A','Allergiya və seçimlər',allergies,'Davam et','Sağlamlıq suallarına qayıt','art_milk',step=4),
+      P('02-A','Allergiya və seçimlər',allergy(),'Davam et','Sağlamlıq suallarına qayıt','art_milk',step=4),
       P('02-B','Vaxt və büdcə',B(),'Planımı hazırla','Allergiyalara qayıt','art_cooking',step=5),
       P('02-C','Planını saxla',R('Apple ilə davam et','Hesaba giriş','art_account')+R('Google ilə davam et','Hesaba giriş','art_account')+R('E-poçtla qeydiyyat','Yeni hesab yarat','art_account')+N('Başqa cihazda bərpa yalnız uğurlu sinxronizasiyadan sonra mümkündür.')+C('Məxfilik barədə sadə məlumat','Məlumatların saxlanması və silinməsi →'),'E-poçtla qeydiyyat','İndi yox','art_account',hero=True),
       P('02-D','Hesabına daxil ol',F('E-poçt','ad@example.com')+F('Şifrə','•••••••• · Göstər')+R('Şifrəni unutdum','Bərpa linki istə')+R('Yeni hesab yarat','Qeydiyyata keç'),'Daxil ol','Geri qayıt','art_account'),
