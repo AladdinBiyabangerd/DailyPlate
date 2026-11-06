@@ -7,7 +7,7 @@
     {
       "sheet": "00-esas-istiqamet",
       "image": "00-esas-istiqamet.png",
-      "sha256": "362f0ddf35b494a6aad23f98da97de2925db787475c37eddec02eb3eb0d27e86",
+      "sha256": "97337033bef585f935c4993bca3552b5564902a5d26fd5fe8b2dc2c61b8740db",
       "viewed": true,
       "panels": [
         "00-A",
@@ -17,13 +17,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 00: retained four illustrated goals in two columns, three illustrated Add routes and distinct Today actual/plan content; common navigation and selected check are visible.",
+      "comparison": "Compared with 00: retained four illustrated goals in two columns, three illustrated Add routes and distinct Today actual/plan content; common navigation and selected check are visible. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "01-baslangic",
       "image": "01-baslangic.png",
-      "sha256": "ec29eb972622315968028441ef3ea8241293b41ff6e9ce3eb274710a9c6732ae",
+      "sha256": "930f7dbc95cce8088a55c8dbe5b3a178b5539e174b74ba519ac3cac0bdb9898d",
       "viewed": true,
       "panels": [
         "01-A",
@@ -34,13 +34,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 01 and completed onboarding: welcome benefits/language and direct numeric steppers retained; four activity categories replace legacy three; 2/5 and 3/5 match progress.",
+      "comparison": "Compared with 01 and completed onboarding: welcome benefits/language and direct numeric steppers retained; four activity categories replace legacy three; 2/5 and 3/5 match progress. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "02-secimler-ve-hesab",
       "image": "02-secimler-ve-hesab.png",
-      "sha256": "d25ee1c8ae360c61c496247b37aafdb1b541a57a1baeeb9a3261a1f79350fe04",
+      "sha256": "842f299350cb3f9d0dae9840b2c48fe571cde9a47d3c19f997a2fd0f795056e1",
       "viewed": true,
       "panels": [
         "02-A",
@@ -51,13 +51,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 02 and current completion/31: initial allergy Yes/No is unanswered and allergen list remains closed; the conditional list is fully shown in 47. Budget 5/5, guest/account paths and persistent labels stay visible.",
+      "comparison": "Compared with 02 and current completion/31: initial allergy Yes/No is unanswered and allergen list remains closed; the conditional list is fully shown in 47. Budget 5/5, guest/account paths and persistent labels stay visible. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "03-yemek-qeydiyyati",
       "image": "03-yemek-qeydiyyati.png",
-      "sha256": "ef3265128210892eec6ba928e2e1bcd1df7e9898ddfe8d5737520be646bd86b4",
+      "sha256": "75fdbaa4ca32f9a3504c64aa94ecd192d8e84b45ff0bd192b632fde99e164300",
       "viewed": true,
       "panels": [
         "03-A",
@@ -68,13 +68,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 03: search, camera frame, food/oil confirmation and saved result remain separate; no photo-only automatic log. No observed clipped labels.",
+      "comparison": "Compared with 03: search, camera frame, food/oil confirmation and saved result remain separate; no photo-only automatic log. No observed clipped labels. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "04-menyu-ve-alisveris",
       "image": "04-menyu-ve-alisveris.png",
-      "sha256": "951df7a73fb9b04ed6ab64cb195debaa016103efbf3494dd147d75924cbdb75b",
+      "sha256": "8cef10cb99b45ce4f37b9130d219b53bdaf6f6516de4c430b106385fccebf856",
       "viewed": true,
       "panels": [
         "04-A",
@@ -86,13 +86,13 @@
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c",
         "references/d03-menu.png": "5cc43a3291ee6a1a4136c908c4267d5e2103221d61a66412e072e2a04ce00702"
       },
-      "comparison": "Compared with 04 and D03: seven actual dates, selected/Today marker, plan/partial statuses and portion entry retained. Recipe, shopping categories and separate home/purchased states visible.",
+      "comparison": "Compared with 04 and D03: seven actual dates, selected/Today marker, plan/partial statuses and portion entry retained. Recipe, shopping categories and separate home/purchased states visible. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "05-irelileyis-ve-profil",
       "image": "05-irelileyis-ve-profil.png",
-      "sha256": "b443f4be2123b2c275a4e496ea855a9f0033f8f50828797ab15617073c696711",
+      "sha256": "a78cc6e59f45987ac23a300048c789a3550b8e312363cb37ae7d6bb277bde277",
       "viewed": true,
       "panels": [
         "05-A",
@@ -103,13 +103,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 05: dated weight entry, measurement count, weekly history, profile destinations and optional reminder times/quiet hours remain readable; actual active routes match each surface.",
+      "comparison": "Compared with 05: dated weight entry, measurement count, weekly history, profile destinations and optional reminder times/quiet hours remain readable; actual active routes match each surface. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "06-abunelik-ve-veziyyetler",
       "image": "06-abunelik-ve-veziyyetler.png",
-      "sha256": "85e1407533d4b4046e36f6f2b0808dccd41293161d027fa78b523a4886cc6b55",
+      "sha256": "9d6f438c062834937a949f24bd679342f94be869a3960d1634745e65c68e7d8f",
       "viewed": true,
       "panels": [
         "06-A",
@@ -120,13 +120,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 06: store-price-unavailable subscription, empty Today, durable local save awaiting sync and photo failure are distinct; visible recovery actions remain.",
+      "comparison": "Compared with 06: store-price-unavailable subscription, empty Today, durable local save awaiting sync and photo failure are distinct; visible recovery actions remain. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "07-inqrediyent-redaktesi",
       "image": "07-inqrediyent-redaktesi.png",
-      "sha256": "1a79209307e7021d6bc8093465b070b59c8f7c432b862ea6f2cc361d6bb1e863",
+      "sha256": "14253f5c0616c98f00f24f00976c7d0ff2b4b55285ab56c3e86ea67a5ac0914b",
       "viewed": true,
       "panels": [
         "07-A",
@@ -137,13 +137,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 07: ingredient steppers/removal/add, expanded other ingredients and prepared count are visible. Full scroll-content capture keeps all controls; preview uses labelled synthetic 500-to-555 fixture.",
+      "comparison": "Compared with 07: ingredient steppers/removal/add, expanded other ingredients and prepared count are visible. Full scroll-content capture keeps all controls; preview uses labelled synthetic 500-to-555 fixture. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "08-yemek-ve-gun-deyisme",
       "image": "08-yemek-ve-gun-deyisme.png",
-      "sha256": "1e5a1d218ae4cea6f55dd7e584e4ab96c3e74c0f4fbf07c37104cc79c49be994",
+      "sha256": "2410b182e2f3ca8ea7268219446aa7c08dc260f8b41a9720ad1f016fa9425ab6",
       "viewed": true,
       "panels": [
         "08-A",
@@ -154,13 +154,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 08: edit/replace/swap/move paths are distinct, consumed items excluded, both-day confirmation separated from selecting a meal; no unwarranted suitability badge.",
+      "comparison": "Compared with 08: edit/replace/swap/move paths are distinct, consumed items excluded, both-day confirmation separated from selecting a meal; no unwarranted suitability badge. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "09-foto-sonrasi-resept",
       "image": "09-foto-sonrasi-resept.png",
-      "sha256": "16188d324c988a5bd317687ae8173f40327d962bd7e04b0f757c341035f427f0",
+      "sha256": "b2b492d119bcff43e41f45bb277ca238d7c98d099d5495c3c7421576a20d1f4d",
       "viewed": true,
       "panels": [
         "09-A",
@@ -172,13 +172,13 @@
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c",
         "references/d02-portions.png": "e185e3dbde893306722b8b4ffc0f0ed4e98a1de62fe7367f56cfeba0969870e5"
       },
-      "comparison": "Compared with 09 and D02: actual-batch editor has no swap actions; prepared four and consumed one remain separate; quarter-share summary precedes explicit diary confirmation.",
+      "comparison": "Compared with 09 and D02: actual-batch editor has no swap actions; prepared four and consumed one remain separate; quarter-share summary precedes explicit diary confirmation. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "10-deyisiklik-ve-xeta-hallari",
       "image": "10-deyisiklik-ve-xeta-hallari.png",
-      "sha256": "2911c61bd0c9442838e23f4ea1ee363282abc6eb459c5b94e117a6cbcf7a73a9",
+      "sha256": "e50380a6ef07ac7ff54047f202e7a9e7fba718224f71100c374265ba47c8ae31",
       "viewed": true,
       "panels": [
         "10-A",
@@ -189,13 +189,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 10: incompatible swap, missing nutrient, changed instructions and draft exit provide concrete back paths; unknown data is not zero and old imagery is not a yield measurement.",
+      "comparison": "Compared with 10: incompatible swap, missing nutrient, changed instructions and draft exit provide concrete back paths; unknown data is not zero and old imagery is not a yield measurement. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "11-yenilenmis-plan-ve-tesdiq",
       "image": "11-yenilenmis-plan-ve-tesdiq.png",
-      "sha256": "4e6af86a2ae3344d609de0d47003ae0bb3a0ae79a268fc8af90129f97259aa74",
+      "sha256": "edaec8681c006b173e9fb5788786927549fc138fbac5d6b9c1b4ae0dd67ae113",
       "viewed": true,
       "panels": [
         "11-A",
@@ -207,13 +207,13 @@
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c",
         "references/d03-menu.png": "5cc43a3291ee6a1a4136c908c4267d5e2103221d61a66412e072e2a04ce00702"
       },
-      "comparison": "Compared with 11 and D03: named swapped slots, atomic undo, shopping delta/preserved marks, replacement preview and actual saved snapshot are visible; future plans remain separate.",
+      "comparison": "Compared with 11 and D03: named swapped slots, atomic undo, shopping delta/preserved marks, replacement preview and actual saved snapshot are visible; future plans remain separate. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "12-elave-profil-secimleri",
       "image": "12-elave-profil-secimleri.png",
-      "sha256": "53e2a1f3342e43bd05dd809741784c97f6ed7497f8d4cba5e9610e70a3cc5a47",
+      "sha256": "67662152bb41644b5004e5b0ff80fff09bf3c1e94a4d17d16e9245fdcaa9acb3",
       "viewed": true,
       "panels": [
         "12-A",
@@ -224,13 +224,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 12 and current plan: all ten health questions visible with unanswered state; removed obsolete equipment/exact inventory onboarding forms, retained numeric budget/person count and saved profile.",
+      "comparison": "Compared with 12 and current plan: all ten health questions visible with unanswered state; removed obsolete equipment/exact inventory onboarding forms, retained numeric budget/person count and saved profile. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "13-bos-veziyyetler",
       "image": "13-bos-veziyyetler.png",
-      "sha256": "cfac82ab1df9efa1c84196409c2cdb90c81f49d39d9905a3554297d64a15cfde",
+      "sha256": "c00071db94927aa31928ee9e31754a50f9a4d1978d0d7f387d98c79db45d29e4",
       "viewed": true,
       "panels": [
         "13-A",
@@ -242,13 +242,13 @@
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c",
         "references/d03-menu.png": "5cc43a3291ee6a1a4136c908c4267d5e2103221d61a66412e072e2a04ce00702"
       },
-      "comparison": "Compared with 13 and D03: Menu/Add/Progress use their own active tabs, real empty-state text and recovery action; account unavailability retains local data.",
+      "comparison": "Compared with 13 and D03: Menu/Add/Progress use their own active tabs, real empty-state text and recovery action; account unavailability retains local data. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "14-elave-formalar-ve-veziyyetler",
       "image": "14-elave-formalar-ve-veziyyetler.png",
-      "sha256": "acb737425c7e388b1beebf1a4279e5c10f500858e522fd7f8666af7fa8883092",
+      "sha256": "e4b27d9d6e700e6791a7d3f166b3d15024aaebb5bb51d16b4e5840a105155738",
       "viewed": true,
       "panels": [
         "14-A",
@@ -259,13 +259,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 14: custom allergen/gluten and dislikes stay separate, loading has disabled confirmation, write failure does not claim saved. Persistent field labels visible.",
+      "comparison": "Compared with 14: custom allergen/gluten and dislikes stay separate, loading has disabled confirmation, write failure does not claim saved. Persistent field labels visible. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "15-aktivlik-ve-hedefsiz-davam",
       "image": "15-aktivlik-ve-hedefsiz-davam.png",
-      "sha256": "6ed05d6c770474d3cf1a9873447156eb5f9b3efaaf44096c8410215f2f2e141d",
+      "sha256": "f56797d9364020c4683ec7a1e8a0638442b026d1a2b1459b3cbf13754e0b8c2f",
       "viewed": true,
       "panels": [
         "15-A",
@@ -276,13 +276,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 15: four activity choices and legacy answer reconfirmation remain; uncertainty leads to target-free diary, source example is not exercise prescription.",
+      "comparison": "Compared with 15: four activity choices and legacy answer reconfirmation remain; uncertainty leads to target-free diary, source example is not exercise prescription. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "16-aktivlik-izahlari",
       "image": "16-aktivlik-izahlari.png",
-      "sha256": "fbd841b53e1949493168a3d3e33c229172fc2d5da737bc5cf0039a168c012d50",
+      "sha256": "eaab9c376d4709ffb746b88fc0d2f585bcdffdc2cca909c804dfbb4fe4679055",
       "viewed": true,
       "panels": [
         "16-1",
@@ -292,13 +292,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 16: source activity examples preserve durations and caveat, with confirm/other/uncertain paths and common illustrated shell.",
+      "comparison": "Compared with 16: source activity examples preserve durations and caveat, with confirm/other/uncertain paths and common illustrated shell. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "17-hedefsiz-davam-sebebleri",
       "image": "17-hedefsiz-davam-sebebleri.png",
-      "sha256": "4bb38953c8c7e1b6200bf224843c39d80818d3cc0db9e4a5644fa829622ab5a5",
+      "sha256": "f781c217064b3e3b8d407a12500925ef8b6eb4447ef86b8e57e5a866d34e0f4d",
       "viewed": true,
       "panels": [
         "17-1",
@@ -308,13 +308,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 17: missing sex, health exclusion and model scope remain distinct reasons; diary path visible and no clinical approval/bypass invented.",
+      "comparison": "Compared with 17: missing sex, health exclusion and model scope remain distinct reasons; diary path visible and no clinical approval/bypass invented. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "18-hedefsiz-hesablama-sebebleri",
       "image": "18-hedefsiz-hesablama-sebebleri.png",
-      "sha256": "633def7ad1b0f708b75836ac0317cb0dec4625054bd9df2b0966a4329683ec78",
+      "sha256": "cf0655500e5ef2b13b6cefeb9866ffef6fa50f2f5123391d103713a953a2b65b",
       "viewed": true,
       "panels": [
         "18-A",
@@ -323,13 +323,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 18: energy floor and macro infeasibility remain distinct, no artificial clamp or reduced minimum; input review and target-free paths visible.",
+      "comparison": "Compared with 18: energy floor and macro infeasibility remain distinct, no artificial clamp or reduced minimum; input review and target-free paths visible. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "19-telimat-yoxdur",
       "image": "19-telimat-yoxdur.png",
-      "sha256": "37d8a65a660e3aafa1c299adba44620c85f7276360ace8b5db1ef684960d9751",
+      "sha256": "ed583b8c943fa000e73abf00093a6e71536cd9b0fe92b9a744b71b1cacba7bc8",
       "viewed": true,
       "panels": [
         "19-A",
@@ -338,13 +338,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with prior completion 19 and 10: unavailable revised instructions clearly blocks misleading old steps; explicit original-recipe return describes discarded draft.",
+      "comparison": "Compared with prior completion 19 and 10: unavailable revised instructions clearly blocks misleading old steps; explicit original-recipe return describes discarded draft. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "20-gun-hefte-onbaxis",
       "image": "20-gun-hefte-onbaxis.png",
-      "sha256": "f2c377428460b23a22dff26c89e1ceae659bcbb87094d75eebecb2c96430fa0c",
+      "sha256": "bb0b48715eca6aaaec20b6934b511819f7f8a7ceca2b005be593b8bc7b1c6174",
       "viewed": true,
       "panels": [
         "20-A",
@@ -353,13 +353,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with completion 20: both expanded day/week panels show actual unchanged, remaining-plan before/after and projected macro totals; full nutrient names now replace abbreviations.",
+      "comparison": "Compared with completion 20: both expanded day/week panels show actual unchanged, remaining-plan before/after and projected macro totals; full nutrient names now replace abbreviations. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "21-deyisme-yollari",
       "image": "21-deyisme-yollari.png",
-      "sha256": "55e400ece61724f9c37f22d3ae4088bcf3740fc159e5ece92a51b7d0c100af44",
+      "sha256": "e8ad15454bc72d4427518bbc7a9e6080597be9696fb34d19d328ebc7b251e33f",
       "viewed": true,
       "panels": [
         "21-A",
@@ -370,13 +370,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with completion 21 and 08: no-alternative, proposed 0.8 portion, consumed guard and empty-slot move retain all four distinct branches and recovery paths.",
+      "comparison": "Compared with completion 21 and 08: no-alternative, proposed 0.8 portion, consumed guard and empty-slot move retain all four distinct branches and recovery paths. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "22-plan-konfliktleri",
       "image": "22-plan-konfliktleri.png",
-      "sha256": "b3a3a9b8aaf401aad4f87f5a589203cee3ee811e462eb439c6a8261b88336431",
+      "sha256": "1b161c279307d6ce409e716d00f9758332443ef3a04a7e1d1ec086a20a079172",
       "viewed": true,
       "panels": [
         "22-A",
@@ -385,13 +385,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with completion 22 and 11: undo preserves actual snapshot; stale-plan conflict preserves draft and does not overwrite newer plan. Both visible without clipping.",
+      "comparison": "Compared with completion 22 and 11: undo preserves actual snapshot; stale-plan conflict preserves draft and does not overwrite newer plan. Both visible without clipping. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "23-foto-deqiqlesdirme",
       "image": "23-foto-deqiqlesdirme.png",
-      "sha256": "c5d3676a68d5cf47a19b31ec816776b2d0293d9340016bff2a18def7c10aabe9",
+      "sha256": "ef7c0493a0099759f72282faf6e9dd34b8486cd9eea544e85f3170d2eecd047b",
       "viewed": true,
       "panels": [
         "23-A",
@@ -402,13 +402,13 @@
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c",
         "references/d02-portions.png": "e185e3dbde893306722b8b4ffc0f0ed4e98a1de62fe7367f56cfeba0969870e5"
       },
-      "comparison": "Compared with completion 23 and 09: explicit recipe association precedes model discrepancy confirmation; user recipe remains authoritative and quarter-batch consumption stays separate.",
+      "comparison": "Compared with completion 23 and 09: explicit recipe association precedes model discrepancy confirmation; user recipe remains authoritative and quarter-batch consumption stays separate. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "24-alisveris-hallari",
       "image": "24-alisveris-hallari.png",
-      "sha256": "89fc7352c785d3611b93da72605cfbc9a249b28fb4486a1849966ddeffa9aedd",
+      "sha256": "1bb8c00caf49ea8366f4e80bddf026bbbc8253f58e81ac797703a1ddda81473a",
       "viewed": true,
       "panels": [
         "24-A",
@@ -418,13 +418,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with completion 24 and 04: purchased-but-removed item retained, empty week and unsent sharing preview distinct; replaced missing art with existing basket. No broken image remains.",
+      "comparison": "Compared with completion 24 and 04: purchased-but-removed item retained, empty week and unsent sharing preview distinct; replaced missing art with existing basket. No broken image remains. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "25-hesab-formalari",
       "image": "25-hesab-formalari.png",
-      "sha256": "68748416840f7f432f3e7091ac790f2c0b474db33750fbb0a785135dd59cdda7",
+      "sha256": "ebdb191be1bdd6d1702d82a86a634d96beda5999b8e71bda930dcabf9836491f",
       "viewed": true,
       "panels": [
         "25-A",
@@ -435,13 +435,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with completion 25 and 02: mismatch error now uses padded common error surface; registration failure, expired link and new password keep persistent labels and return actions.",
+      "comparison": "Compared with completion 25 and 02: mismatch error now uses padded common error surface; registration failure, expired link and new password keep persistent labels and return actions. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "26-komek-formalari",
       "image": "26-komek-formalari.png",
-      "sha256": "43542507cf5a9eb132bcdd743e4c5ae8269b5b261e9f92cef32f66a4fbd76214",
+      "sha256": "1a8c8c91ac95a518a41ff5254d6772a440f0c3bfc35a7b2c42fd93ac6ef1848c",
       "viewed": true,
       "panels": [
         "26-A",
@@ -450,13 +450,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with completion 26 and 14: FAQ answer and support form use common cards/fields; optional recipe and privacy-limited form content are visible.",
+      "comparison": "Compared with completion 26 and 14: FAQ answer and support form use common cards/fields; optional recipe and privacy-limited form content are visible. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "27-baxis-ve-bos-siyahilar",
       "image": "27-baxis-ve-bos-siyahilar.png",
-      "sha256": "c111e23b115e29b15a4c767769fc1644100cde9c0756baf662e6114edf259b61",
+      "sha256": "cec4d722a8600944fd406403454975e47f7cbb955286f2b5dde6b675e2f16be7",
       "viewed": true,
       "panels": [
         "27-A",
@@ -467,13 +467,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with completion 27 and 13: optional 14-day review, empty previous foods, saved recipes and photos remain separate; selected navigation matches each list.",
+      "comparison": "Compared with completion 27 and 13: optional 14-day review, empty previous foods, saved recipes and photos remain separate; selected navigation matches each list. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "28-vahid-vizual-qaydalar",
       "image": "28-vahid-vizual-qaydalar.png",
-      "sha256": "2eb62995618381805795449571aec3f7c88a530d990bebdc50a9d8d6100c55cb",
+      "sha256": "2eef80e2dbe13dcc2e6782492a7a2d7773ba46ae12cd2db0d438470dac060ec8",
       "viewed": true,
       "panels": [
         "28-A",
@@ -484,13 +484,13 @@
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c",
         "references/d02-portions.png": "e185e3dbde893306722b8b4ffc0f0ed4e98a1de62fe7367f56cfeba0969870e5"
       },
-      "comparison": "Compared with completion 28 and D02: partial eaten safeguards, measured 300g/100g basis and unknown cooked-yield cases remain distinct. Units and missing-data text consistent.",
+      "comparison": "Compared with completion 28 and D02: partial eaten safeguards, measured 300g/100g basis and unknown cooked-yield cases remain distinct. Units and missing-data text consistent. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "29-elave-faktiki-porsiya",
       "image": "29-elave-faktiki-porsiya.png",
-      "sha256": "e68032cf3b6d7e30f0db9610925ea5a6cbe63c71c0ff57c433c1e6a450f203af",
+      "sha256": "d24ba48e72790d7eb90312f06d79d961212539cddcba2468b8d4a36a5047ad12",
       "viewed": true,
       "panels": [
         "29-A",
@@ -501,13 +501,13 @@
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c",
         "references/d02-portions.png": "e185e3dbde893306722b8b4ffc0f0ed4e98a1de62fe7367f56cfeba0969870e5"
       },
-      "comparison": "Compared with completion 29 and D02: additional 0.5 intake alone is previewed/saved, prior one serving preserved and totals reach 1.5 servings once; cooked grams absent when unknown.",
+      "comparison": "Compared with completion 29 and D02: additional 0.5 intake alone is previewed/saved, prior one serving preserved and totals reach 1.5 servings once; cooked grams absent when unknown. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "30-onboarding-giris-xetalari",
       "image": "30-onboarding-giris-xetalari.png",
-      "sha256": "e2060cb83b7220a4844ad2f35cc965850ca99a6eccfec4dc2cb166497834e971",
+      "sha256": "a5459920c182112778957973b97d281baee5a98a80e983314b674ce1ee2f3ad1",
       "viewed": true,
       "panels": [
         "30-A",
@@ -517,13 +517,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with completed onboarding and 01: all three errors now use exactly the same full age/height/weight component, inline error, confirmation and optional sex. Long invalid age stays readable.",
+      "comparison": "Compared with completed onboarding and 01: all three errors now use exactly the same full age/height/weight component, inline error, confirmation and optional sex. Long invalid age stays readable. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "31-onboarding-tamamlanma",
       "image": "31-onboarding-tamamlanma.png",
-      "sha256": "882b0948fd6f69fe423116f42489a04cec78bc9274976c865c399d4466e0a7e4",
+      "sha256": "5a1d720a7ea82fbf6b5bb936df8a9804154b47e64f6f5a82a7ea40c8da2ad005",
       "viewed": true,
       "panels": [
         "31-A",
@@ -533,13 +533,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with completed onboarding: five completed groups and 5/5 summary, explicit unit confirmation and incomplete budget stay separate; no silent conversion, disabled incomplete action.",
+      "comparison": "Compared with completed onboarding: five completed groups and 5/5 summary, explicit unit confirmation and incomplete budget stay separate; no silent conversion, disabled incomplete action. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "32-olcu-giris-serhedleri",
       "image": "32-olcu-giris-serhedleri.png",
-      "sha256": "d34194fc0327aa71ea8ad88b3a620aa0199489d4d2065b12e3b477e098c775b3",
+      "sha256": "2a82b9902cd7cec6970b7b64e3b98c1b1de025116420c2f5853424361c047ed8",
       "viewed": true,
       "panels": [
         "32-A",
@@ -549,13 +549,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 01/30: blank/zero/negative, infinite and excessive numeric inputs retain full form and units, inline explanations and disabled Continue. No clipping observed.",
+      "comparison": "Compared with 01/30: blank/zero/negative, infinite and excessive numeric inputs retain full form and units, inline explanations and disabled Continue. No clipping observed. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "33-allergiya-ve-budce-xetalari",
       "image": "33-allergiya-ve-budce-xetalari.png",
-      "sha256": "484871e7dbafba890b50780aab056ad320c0e1e84ea3b67a0d25d02703934f66",
+      "sha256": "8212cfad92271439fc84c72f2e47b87f63cbf8434cef338bda0a5b59ceae522f",
       "viewed": true,
       "panels": [
         "33-A",
@@ -565,13 +565,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with current completion/31: unanswered allergy error now sits under the same Yes/No question; Yes enables multiple/custom allergy, No excludes allergens. Invalid budget/person count retains inline recovery and other answers.",
+      "comparison": "Compared with current completion/31: unanswered allergy error now sits under the same Yes/No question; Yes enables multiple/custom allergy, No excludes allergens. Invalid budget/person count retains inline recovery and other answers. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "34-resept-redaktoru-xetalar",
       "image": "34-resept-redaktoru-xetalar.png",
-      "sha256": "5a6f7bd6d142cc035938934763fa3ea57c40ccabd94db98ca74ed260c22051c9",
+      "sha256": "237078a7db6c817825aeb58f7204bb396ec30cea66e116be63cf9f549d29c142",
       "viewed": true,
       "panels": [
         "34-A",
@@ -581,13 +581,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with original ingredient-error sheet/07: empty recipe offers add/undo; blank and negative are inline; zero has separate removal confirmation before changing recipe.",
+      "comparison": "Compared with original ingredient-error sheet/07: empty recipe offers add/undo; blank and negative are inline; zero has separate removal confirmation before changing recipe. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "35-resept-allergen-ve-vahid",
       "image": "35-resept-allergen-ve-vahid.png",
-      "sha256": "261f2bfe05dd011db24917158cb98cda2e232cc87da6cc87e699d277a1b19025",
+      "sha256": "553c4581c1a64b9f55bbdbe8f0e18a7c3aa45fd9f64cefc576f881a0cd6200c4",
       "viewed": true,
       "panels": [
         "35-A",
@@ -598,13 +598,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with original ingredient-error sheet/07: allergy conflict, unknown allergens, nonfinite quantities and unsupported spoon conversion are separate; safety blocks have recovery actions.",
+      "comparison": "Compared with original ingredient-error sheet/07: allergy conflict, unknown allergens, nonfinite quantities and unsupported spoon conversion are separate; safety blocks have recovery actions. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "36-iki-gun-ve-kocurme-onbaxis",
       "image": "36-iki-gun-ve-kocurme-onbaxis.png",
-      "sha256": "94b717f637fe856dc6c11c8633cf10bb4b0e7858ce10e9e947fd7d0f1f00a3b1",
+      "sha256": "2931c566688d83590c85fc77bc0914c3e752359a6e352680843e291646689e3d",
       "viewed": true,
       "panels": [
         "36-A",
@@ -614,13 +614,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 08/20: both dates have expanded actual/remaining/projected energy and macro comparisons; swap versus empty-slot move and saved result remain distinct. Synthetic totals conserve weekly intake.",
+      "comparison": "Compared with 08/20: both dates have expanded actual/remaining/projected energy and macro comparisons; swap versus empty-slot move and saved result remain distinct. Synthetic totals conserve weekly intake. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "37-geri-qaytarma-netice",
       "image": "37-geri-qaytarma-netice.png",
-      "sha256": "3e5052e93e3e434e07897370578986812f6903014498c4ddfd1c750940ccb24c",
+      "sha256": "6a7a2c948066a29474e73182b7f3de5b35e6841aa7bf8b8b2bc33ee2f0f591ec",
       "viewed": true,
       "panels": [
         "37-A",
@@ -630,13 +630,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 11/22: undo preflight, intervening plan conflict and success are shown as separate states; diary snapshots are never silently deleted.",
+      "comparison": "Compared with 11/22: undo preflight, intervening plan conflict and success are shown as separate states; diary snapshots are never silently deleted. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "38-foto-icaze-ve-yag",
       "image": "38-foto-icaze-ve-yag.png",
-      "sha256": "4cc14364434e5f36edc73789c38d0ed3ddfba2b0585761255caf272a08f37c9d",
+      "sha256": "b5377d36d7fe43e23ff8b6c12cff03f5ca6cb86674e7a2778f2fdd3483698f80",
       "viewed": true,
       "panels": [
         "38-A",
@@ -646,13 +646,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 03/09: camera refusal retains search fallback, sending requires real privacy information, oil addition asks whether extra so original oil cannot be double counted.",
+      "comparison": "Compared with 03/09: camera refusal retains search fallback, sending requires real privacy information, oil addition asks whether extra so original oil cannot be double counted. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "39-hesab-forma-xetalari",
       "image": "39-hesab-forma-xetalari.png",
-      "sha256": "94b84191b3c21f63af99b64eefde618cc2e8ea70ff66f6d91de033115e6adc9c",
+      "sha256": "d8ac7dad0e41847cbbc1a0f601f0f53b3be551125cc4441c9c4a829b39a8ad82",
       "viewed": true,
       "panels": [
         "39-A",
@@ -663,13 +663,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 02/25: inline email error, generic credential error, provider cancellation and recovery send failure retain inputs/back path; no account enumeration promise.",
+      "comparison": "Compared with 02/25: inline email error, generic credential error, provider cancellation and recovery send failure retain inputs/back path; no account enumeration promise. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "40-yeni-sifre-ve-destek",
       "image": "40-yeni-sifre-ve-destek.png",
-      "sha256": "8da8568eb8c8e7bfa961604ab7a80a17904e211ff6efe9bdccca753c525954a2",
+      "sha256": "567bd16e6197f58016ebea30140bc39be90d337e12ca5cfe6f636f36df2a238e",
       "viewed": true,
       "panels": [
         "40-A",
@@ -680,13 +680,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 25/26: password requirement/mismatch, saved password, support inline validation and submitted result use common hierarchy and visible return actions.",
+      "comparison": "Compared with 25/26: password requirement/mismatch, saved password, support inline validation and submitted result use common hierarchy and visible return actions. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "41-hesab-mexfilik-idare",
       "image": "41-hesab-mexfilik-idare.png",
-      "sha256": "27e3869f78d0cced96e2f2d43aedcecf49864949550f2ae85425ebdb4f8e69df",
+      "sha256": "cb1c3a5930cce9d87ee102bea0cdd5344b439c9955907cefc1837d805d8acdc1",
       "viewed": true,
       "panels": [
         "41-A",
@@ -697,13 +697,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 05 and plan 19.16: privacy/export/logout/delete have separate screens; unsynced data and destructive confirmation are explicit, actual retention remains a documented integration dependency.",
+      "comparison": "Compared with 05 and plan 19.16: privacy/export/logout/delete have separate screens; unsynced data and destructive confirmation are explicit, actual retention remains a documented integration dependency. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "42-abunelik-statuslari",
       "image": "42-abunelik-statuslari.png",
-      "sha256": "2f962a37abb754690baf90e1fe61afaa09acf6796cf3d0b5bfa35d270c2ab4e5",
+      "sha256": "1debd62cd70e08bc1bff86f9097eb9cf083c6d61cdf16d8327a30816f27194d5",
       "viewed": true,
       "panels": [
         "42-A",
@@ -714,13 +714,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 06: active, pending, failed and restore request states use same shell; store data is required and existing records remain. Actual entitlement/runtime is not claimed.",
+      "comparison": "Compared with 06: active, pending, failed and restore request states use same shell; store data is required and existing records remain. Actual entitlement/runtime is not claimed. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "43-el-ile-ve-tarixce",
       "image": "43-el-ile-ve-tarixce.png",
-      "sha256": "cbeb2106786f7cda1f78b0f3e53385f751a85fbcd43bd62a6c85da26778d47a0",
+      "sha256": "a0a8d52806e35fb66e005df3fecf21aeba0f07358adc10654217e95cf8a4aaca",
       "viewed": true,
       "panels": [
         "43-A",
@@ -731,13 +731,13 @@
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c",
         "references/d02-portions.png": "e185e3dbde893306722b8b4ffc0f0ed4e98a1de62fe7367f56cfeba0969870e5"
       },
-      "comparison": "Compared with D02: manual original grams preserve unknown nutrients, previous entry multiplier is not grams, measured 1200g batch enables correct 150g/eighth-batch input.",
+      "comparison": "Compared with D02: manual original grams preserve unknown nutrients, previous entry multiplier is not grams, measured 1200g batch enables correct 150g/eighth-batch input. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "44-qeyd-ve-ceki-duzelis",
       "image": "44-qeyd-ve-ceki-duzelis.png",
-      "sha256": "ea77ff705022ede56abc29f3b0877e5f5adad12880e931a21da2ab64ef1ae961",
+      "sha256": "fc546ad9791662a9ec0cddbd57a2566d867ae4aa957d437fca2fd470e103f81a",
       "viewed": true,
       "panels": [
         "44-A",
@@ -747,13 +747,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 05/11: diary edit/delete and same-date weight collision each have explicit preview/confirmation path; no silent duplicate or plan-history rewrite.",
+      "comparison": "Compared with 05/11: diary edit/delete and same-date weight collision each have explicit preview/confirmation path; no silent duplicate or plan-history rewrite. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "45-qosulma-ve-axtaris",
       "image": "45-qosulma-ve-axtaris.png",
-      "sha256": "b74e1ba1a42011b34d5fab1bebe4a256622ea1d59633bfd75f264ed1a4e1cf3a",
+      "sha256": "5aa3f7c9d042cd2e2139f9c860d3b6934359cfed5d58b28b4ce74dd248fa1577",
       "viewed": true,
       "panels": [
         "45-A",
@@ -763,13 +763,13 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 03/06/13: empty search, transport failure and no feasible plan have separate actionable states; no fabricated success or relaxed allergy gate.",
+      "comparison": "Compared with 03/06/13: empty search, transport failure and no feasible plan have separate actionable states; no fabricated success or relaxed allergy gate. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
       "sheet": "46-destek-ve-xatirlatma",
       "image": "46-destek-ve-xatirlatma.png",
-      "sha256": "63d58fd2cd6b4c3bb4082d83d832c2007fc973880efa830c70a15ea9c1a8c25c",
+      "sha256": "8859e9dca62a57c7016ad3e5039bac669e635ffee872c8b0b9d419d3f41a60e3",
       "viewed": true,
       "panels": [
         "46-A",
@@ -779,7 +779,7 @@
       "reference_sha256": {
         "references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
       },
-      "comparison": "Compared with 26/27/30: support send failure keeps actual entered form; optional 14-day reminder does not change target, invalid fractional age retains complete form and inline correction.",
+      "comparison": "Compared with 26/27/30: support send failure keeps actual entered form; optional 14-day reminder does not change target, invalid fractional age retains complete form and inline correction. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible.",
       "unresolved_visual_differences": []
     },
     {
@@ -796,8 +796,8 @@
         "references/31-allergiya-ilkin-veziyyet.png": "bb23f7a168367da79478a82976b76a6807c2c6c39c4731be629ae2fa5fd8b916"
       },
       "unresolved_visual_differences": [],
-      "sha256": "4bfecb40cefb25c1c164b643530c05237d0063a5a0d40d71b8dc1d3063fc5f60",
-      "comparison": "Opened all four panels and original completion/31. Preserved unanswered initial question/list closed, Continue error, Yes with all five illustrated multi-select allergens/other path, and No with exclusive none. Shared 4/5 progress, fields and actions match the unified set; all text visible."
+      "sha256": "0ff226bc233f3f3136fc224463f7bc8948c5d8b8af568511c4baffeedd738ada",
+      "comparison": "Opened all four panels and original completion/31. Preserved unanswered initial question/list closed, Continue error, Yes with all five illustrated multi-select allergens/other path, and No with exclusive none. Shared 4/5 progress, fields and actions match the unified set; all text visible. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible."
     },
     {
       "sheet": "48-plan-hazirdir-basla",
@@ -811,8 +811,8 @@
         "references/32-plan-hazirdir.png": "1770b8a3dfc905c4d74e16e2aef1a4a5fb8e7fbe9673084ac985bf2b62485197"
       },
       "unresolved_visual_differences": [],
-      "sha256": "8f116f955d72c2f883f11ef3855ff7f35c2126af20a9a2bf8675218a088c25fe",
-      "comparison": "Opened both panels and original completion/32. Ready screen retains five completed groups, labelled sample plan and Başla/Cavablarıma bax. Today is active with three planned slots and zero logged meals; no calorie target invented. Same frame, cards, imagery and actions; no clipping."
+      "sha256": "9edec65bb420a5696b24ef10be8e11f8bd85aabbff6d70296de3bfd53e7ea8cd",
+      "comparison": "Opened both panels and original completion/32. Ready screen retains five completed groups, labelled sample plan and Başla/Cavablarıma bax. Today is active with three planned slots and zero logged meals; no calorie target invented. Same frame, cards, imagery and actions; no clipping. Final contrast render reopened: small links, secondary actions and active navigation use existing dark text token; labels and layout remain visible."
     }
   ],
   "unverified": [
