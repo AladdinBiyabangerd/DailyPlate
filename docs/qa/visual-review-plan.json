@@ -6997,16 +6997,20 @@
         "Open all three panels and D02 reference; inspect labels, separation and clipping"
       ],
       "sha256": "4b7418a0dc32b95347246d07d1b518c8b49ea20927dffece04c777472d79b4b0",
-      "comparison": "Opened all three final panels and D02 portion reference. Turquoise palette, white rounded cards, portion illustration, persistent amount label, preview then explicit confirmation retained. Existing 1 portion and new 0.5 portion clearly separated; no cooked grams fabricated. No clipping observed. Simplified small illustration follows completion sheets; concept only, user approval and native behavior remain unverified.",
+      "comparison": "Opened all three final panels and D02 portion reference. Turquoise palette, white rounded cards, portion illustration, persistent amount label, preview then explicit confirmation retained. Existing 1 portion and new 0.5 portion clearly separated; no cooked grams fabricated. No clipping observed. Simplified small illustration follows completion sheets; concept only, user approval and native behavior remain unverified. Distribution archive integrity and all 74 per-file hashes verified; archive classifies draft concepts only, not native approval.",
       "sources": [
         "design-concepts/simple-turquoise/completion/29-elave-faktiki-porsiya.png",
         "design-concepts/simple-turquoise/completion/screens.json",
-        "design-concepts/simple-turquoise/completion/29-elave-faktiki-porsiya.html"
+        "design-concepts/simple-turquoise/completion/29-elave-faktiki-porsiya.html",
+        "design-concepts/package-manifest.json",
+        "design-concepts/qida-turquoise-designs-complete.zip"
       ],
       "source_hashes": {
         "design-concepts/simple-turquoise/completion/29-elave-faktiki-porsiya.png": "4b7418a0dc32b95347246d07d1b518c8b49ea20927dffece04c777472d79b4b0",
         "design-concepts/simple-turquoise/completion/screens.json": "b00785fc83c0f6b3b72f40664b605ff4077a77965e54af82a145e0a10a410d27",
-        "design-concepts/simple-turquoise/completion/29-elave-faktiki-porsiya.html": "e0ff51dc04aea3abd302b5dda7724afc036d4ec0aaf5dc0a5ad0c051b322932b"
+        "design-concepts/simple-turquoise/completion/29-elave-faktiki-porsiya.html": "e0ff51dc04aea3abd302b5dda7724afc036d4ec0aaf5dc0a5ad0c051b322932b",
+        "design-concepts/package-manifest.json": "e7f2706102677317ae7dffbd262e93735fc190b895a81bb51402369a32444fd2",
+        "design-concepts/qida-turquoise-designs-complete.zip": "76364095607e7735cdb5e55fb4f64c9f701a3847e8e96dde1bdea30a2e49fd67"
       }
     },
     {
