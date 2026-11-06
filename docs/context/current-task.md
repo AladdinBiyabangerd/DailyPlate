@@ -7,8 +7,9 @@
 - Repeatable JSON/Markdown generation rejects unmapped items. Git-excluded local post-merge CI checks export freshness.
 
 ## Current state
-- Work branch: docs/plan-png-state-map; documentation/generator only, application and design assets unchanged.
-- Commit/merge/CI outcome: read Git and .local-ci/logs/latest.json; this handoff precedes finish.
+- Map commit 90a03a2 merged to main as ce8a47b. Map validation passed in post-merge CI.
+- CI failed on four pre-existing MissingTranslation errors in debug demo_menu.xml; visual acceptance remains pending from earlier app work.
+- Repair branch fix/demo-explicit-az-resources adds values-az with the exact existing default AZ strings/array. No displayed text/layout changes intended. Read latest CI report for subsequent finish outcome.
 - Main had failed technical CI and pending visual acceptance at 518a404 before this task. The map does not close that debt.
 
 ## Decisions
@@ -20,7 +21,7 @@
 - No APK requested/created; no automatic visual acceptance.
 
 ## Remaining work
-- Finish documentation branch with merged-main CI. Report inherited app failures/visual debt explicitly if they persist.
+- Finish AZ resource repair with merged-main CI. Report inherited visual debt explicitly if it persists; do not approve the earlier standalone demo through this map.
 - Future UI work: expand selected requirement gaps into concrete visual-review-plan cases; implement one surface, render APK-free, inspect before acceptance.
 - Separate mock-menu repair stays unmerged on fix/mock-existing-menu (7fa11b6). It feeds seven fixture meals into real menu/recipe flows. Previous user requested no CI for that repair; do not silently merge it into this audit.
 
@@ -34,8 +35,8 @@
 ## Checks performed
 - Generation resolves all 274 IDs and PNG paths; rejects duplicate/orphan/unmapped dispositions.
 - All 17 relevant concept images opened at inventory resolution; original hashes recorded.
-- git diff --check passed before commit. No branch CI/JVM tests run.
+- git diff --check passed before map commit. Map source/PNG/freshness, canonical exports and 15 library tests passed on merged main ce8a47b; lint failed on pre-existing missing AZ translations. No branch CI/JVM tests run.
 - Runtime behavior, full-resolution pixel/contrast, device/TalkBack and new hash-bound visual acceptance unverified.
 
 ## Exact next step
-- Read Git/latest CI result. Run workflow.py finish for this map if not yet merged. Keep inherited app/visual repair separately scoped; map supplies requirement IDs and missing design states for that work.
+- Read Git/latest CI result after resource repair finish. If technical checks pass but visual remains pending, keep the earlier app visual repair separately scoped; map supplies requirement IDs and missing design states for that work. Do not report full merged-main completion while that gate is open.
