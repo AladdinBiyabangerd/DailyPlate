@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <!-- UI preview only: retain production integration but do not initialize it here. -->
+    <application android:name="android.app.Application" tools:replace="android:name">
+        <provider android:name="com.google.firebase.provider.FirebaseInitProvider" android:authorities="${applicationId}.firebaseinitprovider" tools:node="remove" />
+        <activity android:name=".MainActivity" android:exported="false" tools:replace="android:exported"><intent-filter tools:node="removeAll" /></activity>
+        <activity android:name=".OnboardingPreviewActivity" android:exported="true">
+            <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
+        </activity>
+    </application>
+</manifest>

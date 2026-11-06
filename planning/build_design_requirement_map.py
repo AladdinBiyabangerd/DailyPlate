@@ -11,6 +11,9 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
+import sys
+sys.path.insert(0, str(ROOT / 'android/tools'))
+from design_archive import reference_file
 DEST = ROOT / 'docs/qa'
 DESIGN = 'design-concepts/simple-turquoise/'
 
@@ -331,7 +334,9 @@ T_REFS = {
 
 
 def sha(path):
-    return hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
+    value = Path(path)
+    relative = str(value.relative_to(ROOT)) if value.is_absolute() else str(value)
+    return hashlib.sha256(reference_file(ROOT, relative).read_bytes()).hexdigest()
 
 
 def refs(spec):
@@ -346,7 +351,7 @@ def refs(spec):
 
 def concept_supplements(rows):
     """Derive later draft coverage without rewriting the historical 17-image audit."""
-    inventory = json.loads((ROOT / 'design-concepts/simple-turquoise/missing-state-pngs.json').read_text())
+    inventory = json.loads(reference_file(ROOT, 'design-concepts/simple-turquoise/missing-state-pngs.json').read_text())
     requirements = {row['id'] for row in rows}
     supplements = []
     for entry in inventory['sets']:

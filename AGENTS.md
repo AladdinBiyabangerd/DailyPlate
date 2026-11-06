@@ -1,5 +1,15 @@
 # Working notes
 
+For all visual work, read `design-concepts/README.md` first. Only its canonical
+phone/tablet directories are current UI references; old approved/unified/completion
+boards are historical evidence, not alternative designs to choose from.
+
+Use one working project folder: `/Users/mac/My Workspace/callmood`, with
+`feat/onboarding-original-style` authoritative. Switch task branches in that
+folder; do not create a new worktree/folder for each flow. Preserve all user data
+and existing branch history. Small edits use focused relevant tests; run the full
+required checks at task end and mandatory CI after merge, not after every save.
+
 ## Mandatory local development workflow — every chat
 
 This is standing user authorization for all code work in this project, including

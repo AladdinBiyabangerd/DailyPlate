@@ -1,8 +1,10 @@
-"""Extract decorative artwork from approved boards; macOS sips, no bitmap redesign.
-Run manually after inspecting source images. Not part of CI.
+"""Historical artwork extraction only, not current UI references; macOS sips, no bitmap redesign.
+For current UI use canonical transparent assets (design-concepts/README.md).
+Run historical regeneration manually after inspecting source images. Not part of CI.
 """
 import subprocess
 from pathlib import Path
+from design_archive import reference_file
 root=Path(__file__).resolve().parents[2]
 out=root/'android/app/src/main/res/drawable-nodpi'
 specs={
@@ -18,4 +20,4 @@ for file,items in specs.items():
  for name,(left,top,right,bottom) in items.items():
   if file == '00-reference.png':
    left,top,right,bottom = [round(v*2880/1333) for v in (left,top,right,bottom)]
-  subprocess.run(['sips','-c',str(bottom-top),str(right-left),'--cropOffset',str(top),str(left),str(root/'design-concepts/simple-turquoise'/file),'--out',str(out/(name+'.png'))],check=True,stdout=subprocess.DEVNULL)
+  subprocess.run(['sips','-c',str(bottom-top),str(right-left),'--cropOffset',str(top),str(left),str(reference_file(root,'design-concepts/simple-turquoise/'+file)),'--out',str(out/(name+'.png'))],check=True,stdout=subprocess.DEVNULL)

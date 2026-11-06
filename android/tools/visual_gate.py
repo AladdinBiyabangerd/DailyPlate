@@ -8,7 +8,8 @@ MATRIX = {(language, scale) for language in ('az', 'en', 'ru') for scale in (1.0
 def protected(path):
     return (path.startswith(('android/app/src/main/', 'android/app/src/test/java/com/aladdin/dailyplate/ui/',
                              'design-concepts/')) or path in (
-        'android/app/build.gradle.kts', 'android/build.gradle.kts', 'android/gradle.properties'))
+        'android/app/build.gradle.kts', 'android/build.gradle.kts', 'android/gradle.properties',
+        'docs/qa/design-archive.json'))
 
 
 def digest(data):
@@ -20,6 +21,28 @@ def safe_file(root, relative):
     if not path.is_relative_to(root.resolve()) or not path.is_file():
         raise ValueError(f'Missing or unsafe evidence path: {relative}')
     return path
+
+
+
+def historical_api(root):
+    if not (root / 'docs/qa/design-archive.json').is_file():
+        return None
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('historical_design_archive', root / 'android/tools/design_archive.py')
+    module = _archive_modules.get(str(root.resolve()))
+    if module is None:
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        _archive_modules[str(root.resolve())] = module
+    return module
+
+
+_archive_modules = {}
+
+
+def reference_file(root, relative):
+    module = historical_api(root)
+    return module.reference_file(root, relative) if module else safe_file(root, relative)
 
 
 def proposal_sources(plan, references):
@@ -42,14 +65,14 @@ def proposal_sources(plan, references):
             if (not source.startswith('design-concepts/') or source in native_references
                     or source in native_sources or source.endswith(('.css', '.kt', '.xml'))):
                 raise ValueError('Proposal cannot cover runtime inputs, tokens or native references')
-            content = safe_file(references, source).read_bytes()
+            content = reference_file(references, source).read_bytes()
             if proposal.get('source_hashes', {}).get(source) != digest(content):
                 raise ValueError('Proposal source hash missing or stale')
-        content = safe_file(references, proposal['output']).read_bytes()
+        content = reference_file(references, proposal['output']).read_bytes()
         if not content.startswith(b'\x89PNG\r\n\x1a\n') or digest(content) != proposal.get('sha256'):
             raise ValueError('Proposal must identify inspected PNG')
         for reference in proposal['references']:
-            safe_file(references, reference)
+            reference_file(references, reference)
         covered.update(sources)
     return covered
 
@@ -60,6 +83,9 @@ def validate_plan(plan, changed, artifacts, references):
     if not surfaces:
         raise ValueError('Visual changes require docs/qa/visual-review-plan.json surfaces')
     covered, cases, ids = proposal_sources(plan, references), [], set()
+    module = historical_api(references)
+    if module:
+        covered.update(module.archived_deletions(references))
     for surface in surfaces:
         if not surface.get('requirements') or not surface.get('states'):
             raise ValueError('Each surface needs concrete requirements and required states')
@@ -76,7 +102,7 @@ def validate_plan(plan, changed, artifacts, references):
             content = path.read_bytes()
             if not content.startswith(b'\x89PNG\r\n\x1a\n'):
                 raise ValueError(f'Not a rendered PNG: {path}')
-            reference = safe_file(references, case['reference'])
+            reference = reference_file(references, case['reference'])
             if not case['reference'].startswith('design-concepts/'):
                 raise ValueError('Reference must be an agreed design-concepts asset/guide')
             cases.append({**case, 'sha256': digest(content),
@@ -104,7 +130,7 @@ def validate_review(review, manifest, artifacts, references):
         record = reviews[case['id']]
         if (record.get('sha256') != case['sha256'] or
                 digest(safe_file(artifacts, case['image']).read_bytes()) != case['sha256'] or
-                digest(safe_file(references, case['reference']).read_bytes()) != case['reference_sha256']):
+                digest(reference_file(references, case['reference']).read_bytes()) != case['reference_sha256']):
             raise ValueError('Render/reference changed or wrong image hash')
         if record.get('reference_sha256') != case['reference_sha256']:
             raise ValueError('Review must identify exact design reference')

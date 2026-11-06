@@ -228,7 +228,9 @@ Yazılacaq: ingredient_price, paket/edible_fraction/preparation_state,
   keçidi və işarələrin qorunması K17-nin ayrıca işidir.
 Yoxlama: həftə üzrə məhsul birləşir; 750 q/500 q paket → 2 paket;
   “Evdə var” ümumi 750 q ehtiyacı dəyişmir; quru qiymət bişmiş qrama vurulmur;
-  region/qiymət yoxdur və ya köhnədirsə total_cost=null və səbəb var.
+  region/qiymət yoxdur və ya köhnədirsə daxili nəticədə total_cost=null və səbəb var.
+  6 noyabr 2026 qərarı: məhsul qiyməti/yekun xərc istifadəçiyə göstərilmir;
+  naməlum/köhnə qiymət ekranı və xəbərdarlıq axını plandan çıxarılıb.
 Bitmə: fixture qiyməti test kimi işarələnir; G4 olmadan real büdcə uyğunluğu yoxdur.
 
 K15 — Yeddi günlük plan və porsiyalar
@@ -256,6 +258,8 @@ Asılılıq: K14, K16. Mənbə: §19.8; ekran 16, 42.
 Yazılacaq: həftəlik kateqoriya/vahid/ümumi miqdar, ayrı sadə Evdə var və Alınıb işarələri,
   evdəki dəqiq qram girişi və avtomatik miqdar çıxılması yoxdur,
   unikal məhsul sayğacı, plan fərqi və sistem paylaşım önbaxışı.
+  6 noyabr 2026 qərarı: ekran/paylaşım məhsul qiyməti və yekun xərc göstərmir;
+  naməlum/köhnə qiymət ekranı, nişanı və bərpa axını yoxdur.
 Yoxlama: uyğun vahidlər birləşir; unknown ədəd→qram çevrilmir; işarə restart-da
   qalır; artıq alınmış/lazım olmayan məhsul itmir; paylaşım yalnız siyahıdır,
   ləğv dəyişiklik etmir və avtomatik göndərmir.
