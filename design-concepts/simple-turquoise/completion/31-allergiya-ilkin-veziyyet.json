@@ -1,0 +1,43 @@
+{
+  "num": 31,
+  "slug": "allergiya-ilkin-veziyyet",
+  "title": "Allergiya · ilkin sual və cavablar",
+  "panels": [
+    {
+      "id": "31-A",
+      "title": "Allergiya və seçimlər",
+      "body": "<h3>Allergiyan varmı?</h3><div class=\"answers\"><div class=\"answer \">○ Bəli</div><div class=\"answer \">○ Xeyr</div></div><p class=\"helper\">Bir cavab seç. “Bəli” seçsən, allergenlərin siyahısı açılacaq.</p><label>Yemədiklərin · könüllü<div class=\"field\">Məsələn: qırmızı ət, göbələk…</div></label>",
+      "cta": "Davam et",
+      "back": "Əvvəlki addıma qayıt",
+      "art": "art_milk",
+      "tab": null
+    },
+    {
+      "id": "31-B",
+      "title": "Allergiya və seçimlər",
+      "body": "<h3>Allergiyan varmı?</h3><div class=\"answers\"><div class=\"answer \">○ Bəli</div><div class=\"answer \">○ Xeyr</div></div><div class=\"error\">⚠ Davam etmək üçün “Bəli” və ya “Xeyr” seç.</div><label>Yemədiklərin · könüllü<div class=\"field\">Məsələn: qırmızı ət, göbələk…</div></label>",
+      "cta": "Davam et",
+      "back": "Əvvəlki addıma qayıt",
+      "art": "art_milk",
+      "tab": null
+    },
+    {
+      "id": "31-C",
+      "title": "Allergiya və seçimlər",
+      "body": "<h3>Allergiyan varmı?</h3><div class=\"answers\"><div class=\"answer selected\">◉ Bəli</div><div class=\"answer \">○ Xeyr</div></div><h3>Allergiyan olanları seç</h3><div class=\"allergens\"><div class=\"allergen selected\"><img src=\"../../../android/app/src/main/res/drawable-nodpi/art_milk.png\"><b>Süd</b><span>☑</span></div><div class=\"allergen \"><img src=\"../../../android/app/src/main/res/drawable-nodpi/art_egg.png\"><b>Yumurta</b><span>☐</span></div><div class=\"allergen \"><img src=\"../../../android/app/src/main/res/drawable-nodpi/art_nuts.png\"><b>Qoz-fındıq</b><span>☐</span></div><div class=\"allergen \"><img src=\"../../../android/app/src/main/res/drawable-nodpi/art_fish.png\"><b>Balıq</b><span>☐</span></div><div class=\"allergen \"><img src=\"../../../android/app/src/main/res/drawable-nodpi/art_wheat.png\"><b>Buğda</b><span>☐</span></div></div><div class=\"link\">＋ Digər allergiya əlavə et</div><p class=\"helper\">Bir neçəsini seçə bilərsən. Qoz-fındıq növünü ayrıca dəqiqləşdir.</p><label>Yemədiklərin · könüllü<div class=\"field\">Məsələn: qırmızı ət, göbələk…</div></label>",
+      "cta": "Davam et",
+      "back": "Əvvəlki addıma qayıt",
+      "art": "art_milk",
+      "tab": null
+    },
+    {
+      "id": "31-D",
+      "title": "Allergiya və seçimlər",
+      "body": "<h3>Allergiyan varmı?</h3><div class=\"answers\"><div class=\"answer \">○ Bəli</div><div class=\"answer selected\">◉ Xeyr</div></div><section class=\"card selected\"><b>✓ Allergiyam yoxdur</b><p>Allergen seçimin yoxdur.</p></section><label>Yemədiklərin · könüllü<div class=\"field\">Məsələn: qırmızı ət, göbələk…</div></label>",
+      "cta": "Davam et",
+      "back": "Əvvəlki addıma qayıt",
+      "art": "art_milk",
+      "tab": null
+    }
+  ]
+}
