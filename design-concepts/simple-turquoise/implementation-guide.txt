@@ -55,3 +55,9 @@ K06/K07 UI TAMAMLAMALARI
 Hazır kodun PNG uyğunluğu və çatışmayan ekranların 12–14 əlavə dizayn dəstləri:
 ui-extension-guide.txt. Bu əlavələr əsas 00–11 dizaynlarını və planın funksional
 qaydalarını əvəz etmir; tələb olunan əlavə forma və boş/xəta hallarını tamamlayır.
+
+ONBOARDING — VAHİD AXIN İSTİNADI
+19-onboarding-tamamlanmis-axin.png və 19-onboarding-reference.txt: beşaddımlı
+axın, sağlamlıq davamı, giriş/vahid xətaları və məcburi cavablara görə düymə halları.
+Konseptdir; köhnə 01/02 sayğaclarını ardıcıllıq üçün əsas götürməyin.
+Native vizual və funksional qəbul ayrıca açıqdır.
