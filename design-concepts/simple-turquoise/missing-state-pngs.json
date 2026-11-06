@@ -536,6 +536,133 @@
       ],
       "sha256": "04a1d1e787b093930699ddbe97308f5d4df28c551866ce16f88b7eb0ec93b759",
       "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "19-onboarding",
+      "image": "design-concepts/simple-turquoise/19-onboarding-tamamlanmis-axin.png",
+      "requirements": [
+        "17.4",
+        "18.2",
+        "18.8",
+        "19.2",
+        "26.8"
+      ],
+      "gap_groups": [
+        "inputs",
+        "health",
+        "allergen",
+        "budget"
+      ],
+      "panels": [
+        {
+          "id": "19-A",
+          "state": "goal-selected"
+        },
+        {
+          "id": "19-B",
+          "state": "measurements-valid-optional-sex"
+        },
+        {
+          "id": "19-C",
+          "state": "activity-selected"
+        },
+        {
+          "id": "19-D",
+          "state": "health-unanswered"
+        },
+        {
+          "id": "19-E",
+          "state": "no-allergy-selected"
+        },
+        {
+          "id": "19-F",
+          "state": "budget-incomplete"
+        },
+        {
+          "id": "19-G",
+          "state": "measurements-invalid"
+        },
+        {
+          "id": "19-H",
+          "state": "unit-confirmation-pending"
+        },
+        {
+          "id": "19-I",
+          "state": "all-required-answers-complete"
+        }
+      ],
+      "limitations": [
+        "AZ draft concept only; not implementation or user design approval.",
+        "Partial input coverage: missing age, zero height, negative weight and unit confusion; invalid age syntax/range, nonfinite values and all field permutations remain open.",
+        "Health questions and unanswered state shown; exclusion destinations remain in set17.",
+        "Native AZ/EN/RU 100/150%, scrolling, TalkBack, touch targets and raster contrast remain unverified.",
+        "Medical, budget and plan-generation validation are not proven by this PNG."
+      ],
+      "sha256": "e73358ae4c1631cf4534af06ff1f9ac15b4ef847cfc416818cc56455557544f0",
+      "review_status": "agent-inspected-draft-user-approval-pending",
+      "comparison": "Inspected final corrected nine-panel PNG against 01/15 style references. Five-step fractions and filled segments match; health continues within3/5. Invalid inputs, explicit unit confirmation, disabled incomplete and enabled complete states visible. Health labels are compact; native accessible layout remains unverified."
+    },
+    {
+      "id": "29-extra-intake",
+      "image": "design-concepts/simple-turquoise/completion/29-elave-faktiki-porsiya.png",
+      "requirements": [
+        "16.7",
+        "T13",
+        "T17",
+        "T19"
+      ],
+      "gap_groups": [
+        "extra-actual-intake"
+      ],
+      "panels": [
+        {
+          "id": "29-A",
+          "state": "Əlavə yediyini ayrıca qeyd et"
+        },
+        {
+          "id": "29-B",
+          "state": "Əlavə qəbulu təsdiqlə"
+        },
+        {
+          "id": "29-C",
+          "state": "Əlavə hissə qeyd edildi"
+        }
+      ],
+      "sha256": "4b7418a0dc32b95347246d07d1b518c8b49ea20927dffece04c777472d79b4b0",
+      "review_status": "agent-inspected-draft-user-approval-pending",
+      "limitations": [
+        "AZ design proposal only; native/backend/idempotency not tested."
+      ]
+    },
+    {
+      "id": "30-onboarding-validation",
+      "image": "design-concepts/simple-turquoise/completion/30-onboarding-giris-xetalari.png",
+      "requirements": [
+        "18.2",
+        "19.2"
+      ],
+      "gap_groups": [
+        "inputs"
+      ],
+      "panels": [
+        {
+          "id": "30-A",
+          "state": "age-format-error"
+        },
+        {
+          "id": "30-B",
+          "state": "height-nonfinite"
+        },
+        {
+          "id": "30-C",
+          "state": "weight-negative"
+        }
+      ],
+      "sha256": "686ee27d9532113ad022ac8cd39cfb857b1cf3cc6b9a105a9969daf2f2287b6e",
+      "review_status": "agent-inspected-draft-user-approval-pending",
+      "limitations": [
+        "Draft AZ concept only; native behavior and eligibility checks not verified."
+      ]
     }
   ]
 }

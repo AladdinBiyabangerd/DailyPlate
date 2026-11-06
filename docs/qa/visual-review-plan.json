@@ -6330,7 +6330,7 @@
         "design-concepts/simple-turquoise/16-aktivlik-izahlari.png": "a50993a8ee4c180d469258ca214c9f6e25ab236b4a72cee9f6da188e57d042eb",
         "design-concepts/simple-turquoise/16-activity-help-prompt.txt": "e7d1415c95ecdcc812bd18e65a12e952e8d0684cb4227fe6813955213b43a807",
         "design-concepts/simple-turquoise/missing-state-png-prompts.txt": "03fc2d447cd841dc34c860e5e709b843d0e8a256b00093abefb59ee93011ab66",
-        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "44fe8835aaa483dad9add4dac5b90a6ddba419cf483c579ff3f6b5be7d63757a"
       }
     },
     {
@@ -6493,10 +6493,10 @@
       "source_hashes": {
         "design-concepts/simple-turquoise/completion/19-telimat-yoxdur.png": "1e834cf1651ea8ffdb088c8bd2b73c52ae20427cff67d80ec4903579a50d2dcc",
         "design-concepts/simple-turquoise/completion/19-telimat-yoxdur.html": "cae3b2e1fa8439f518e4284be4454eb0d6b0020a7570f18296705773f1b3426b",
-        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/screens.json": "b00785fc83c0f6b3b72f40664b605ff4077a77965e54af82a145e0a10a410d27",
         "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
-        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
-        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+        "design-concepts/simple-turquoise/completion/README.md": "822fe2a58fedaa3c0d7f9a04908f2e62bdf3b90c93f2aae6de7c1672691b4368",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "44fe8835aaa483dad9add4dac5b90a6ddba419cf483c579ff3f6b5be7d63757a"
       }
     },
     {
@@ -6538,10 +6538,10 @@
       "source_hashes": {
         "design-concepts/simple-turquoise/completion/20-gun-hefte-onbaxis.png": "e33619fdb2b3417e1bc5868c08c93811133685a54a85f35cd5409300315dc5aa",
         "design-concepts/simple-turquoise/completion/20-gun-hefte-onbaxis.html": "8355d7f60f46b6555c1cff21d29bce69cd3c2000be3b1af2a510cf0482312f14",
-        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/screens.json": "b00785fc83c0f6b3b72f40664b605ff4077a77965e54af82a145e0a10a410d27",
         "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
-        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
-        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+        "design-concepts/simple-turquoise/completion/README.md": "822fe2a58fedaa3c0d7f9a04908f2e62bdf3b90c93f2aae6de7c1672691b4368",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "44fe8835aaa483dad9add4dac5b90a6ddba419cf483c579ff3f6b5be7d63757a"
       }
     },
     {
@@ -6588,10 +6588,10 @@
       "source_hashes": {
         "design-concepts/simple-turquoise/completion/21-deyisme-yollari.png": "5d2aed7d3f4fac6002f497a30efc8b7834a25d65bf91dca8728a3dff90e9f74e",
         "design-concepts/simple-turquoise/completion/21-deyisme-yollari.html": "3fb9f82b192815ae54021961b33c83828354a651fd8b6028faf71ab17e49a719",
-        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/screens.json": "b00785fc83c0f6b3b72f40664b605ff4077a77965e54af82a145e0a10a410d27",
         "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
-        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
-        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+        "design-concepts/simple-turquoise/completion/README.md": "822fe2a58fedaa3c0d7f9a04908f2e62bdf3b90c93f2aae6de7c1672691b4368",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "44fe8835aaa483dad9add4dac5b90a6ddba419cf483c579ff3f6b5be7d63757a"
       }
     },
     {
@@ -6633,10 +6633,10 @@
       "source_hashes": {
         "design-concepts/simple-turquoise/completion/22-plan-konfliktleri.png": "55954dcc7bb8472327c099d72f235cf2c95d3cab3c0380cbb2d2ec6d44329223",
         "design-concepts/simple-turquoise/completion/22-plan-konfliktleri.html": "82b90c19313dccddc936561aad07bf40ae6cc44f5b1118a852cbd2c54455c06b",
-        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/screens.json": "b00785fc83c0f6b3b72f40664b605ff4077a77965e54af82a145e0a10a410d27",
         "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
-        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
-        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+        "design-concepts/simple-turquoise/completion/README.md": "822fe2a58fedaa3c0d7f9a04908f2e62bdf3b90c93f2aae6de7c1672691b4368",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "44fe8835aaa483dad9add4dac5b90a6ddba419cf483c579ff3f6b5be7d63757a"
       }
     },
     {
@@ -6680,10 +6680,10 @@
       "source_hashes": {
         "design-concepts/simple-turquoise/completion/23-foto-deqiqlesdirme.png": "30d58f5eead66a99497822de0b6f6dfd48b127b2bf4ef9d2ff84b90060a488bb",
         "design-concepts/simple-turquoise/completion/23-foto-deqiqlesdirme.html": "15ed1b4aca8e128d0ab0477c024280d9d5860f9affa7b798cbb447569eb44434",
-        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/screens.json": "b00785fc83c0f6b3b72f40664b605ff4077a77965e54af82a145e0a10a410d27",
         "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
-        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
-        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+        "design-concepts/simple-turquoise/completion/README.md": "822fe2a58fedaa3c0d7f9a04908f2e62bdf3b90c93f2aae6de7c1672691b4368",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "44fe8835aaa483dad9add4dac5b90a6ddba419cf483c579ff3f6b5be7d63757a"
       }
     },
     {
@@ -6726,10 +6726,10 @@
       "source_hashes": {
         "design-concepts/simple-turquoise/completion/24-alisveris-hallari.png": "153dec33e330711ee126ac1dc570d84514de02820ee19106d9edd7094bd46d33",
         "design-concepts/simple-turquoise/completion/24-alisveris-hallari.html": "fcba8811ff118c4e3eb97db06f4c69c84cf41b5aba33c6ce46635208f697d018",
-        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/screens.json": "b00785fc83c0f6b3b72f40664b605ff4077a77965e54af82a145e0a10a410d27",
         "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
-        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
-        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+        "design-concepts/simple-turquoise/completion/README.md": "822fe2a58fedaa3c0d7f9a04908f2e62bdf3b90c93f2aae6de7c1672691b4368",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "44fe8835aaa483dad9add4dac5b90a6ddba419cf483c579ff3f6b5be7d63757a"
       }
     },
     {
@@ -6774,10 +6774,10 @@
       "source_hashes": {
         "design-concepts/simple-turquoise/completion/25-hesab-formalari.png": "18cc8fc097d0467481734a6a05d8e64e149326fa7840e8671c055a1e460b4eaa",
         "design-concepts/simple-turquoise/completion/25-hesab-formalari.html": "71caaa8ddf591d4b66b378416058b69b5a43b37fb3ccc7d542b5de7fb5be9f51",
-        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/screens.json": "b00785fc83c0f6b3b72f40664b605ff4077a77965e54af82a145e0a10a410d27",
         "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
-        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
-        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+        "design-concepts/simple-turquoise/completion/README.md": "822fe2a58fedaa3c0d7f9a04908f2e62bdf3b90c93f2aae6de7c1672691b4368",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "44fe8835aaa483dad9add4dac5b90a6ddba419cf483c579ff3f6b5be7d63757a"
       }
     },
     {
@@ -6817,10 +6817,10 @@
       "source_hashes": {
         "design-concepts/simple-turquoise/completion/26-komek-formalari.png": "bacc971398eb185cce4e350c5d9ad9cbd2fffefe0879a28123c9a2f6ba2e79fc",
         "design-concepts/simple-turquoise/completion/26-komek-formalari.html": "5434ef5d2b48e94e2c175c53815024b9f9f662a1f90499e54444706af4600748",
-        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/screens.json": "b00785fc83c0f6b3b72f40664b605ff4077a77965e54af82a145e0a10a410d27",
         "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
-        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
-        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+        "design-concepts/simple-turquoise/completion/README.md": "822fe2a58fedaa3c0d7f9a04908f2e62bdf3b90c93f2aae6de7c1672691b4368",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "44fe8835aaa483dad9add4dac5b90a6ddba419cf483c579ff3f6b5be7d63757a"
       }
     },
     {
@@ -6866,10 +6866,10 @@
       "source_hashes": {
         "design-concepts/simple-turquoise/completion/27-baxis-ve-bos-siyahilar.png": "22626723a428b73a9012a8406329086fff08898b570fe5748995c23a096254ed",
         "design-concepts/simple-turquoise/completion/27-baxis-ve-bos-siyahilar.html": "7dd91df85a0473ebd765898aa188aac2df871ce29327d903e7a6b6177910b51e",
-        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/screens.json": "b00785fc83c0f6b3b72f40664b605ff4077a77965e54af82a145e0a10a410d27",
         "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
-        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
-        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+        "design-concepts/simple-turquoise/completion/README.md": "822fe2a58fedaa3c0d7f9a04908f2e62bdf3b90c93f2aae6de7c1672691b4368",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "44fe8835aaa483dad9add4dac5b90a6ddba419cf483c579ff3f6b5be7d63757a"
       }
     },
     {
@@ -6913,10 +6913,136 @@
       "source_hashes": {
         "design-concepts/simple-turquoise/completion/28-vahid-vizual-qaydalar.png": "04a1d1e787b093930699ddbe97308f5d4df28c551866ce16f88b7eb0ec93b759",
         "design-concepts/simple-turquoise/completion/28-vahid-vizual-qaydalar.html": "6547af2f5e7df04a43058575701f1c690faf745ff3c5bc3947386806af285f38",
-        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/screens.json": "b00785fc83c0f6b3b72f40664b605ff4077a77965e54af82a145e0a10a410d27",
         "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
-        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
-        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+        "design-concepts/simple-turquoise/completion/README.md": "822fe2a58fedaa3c0d7f9a04908f2e62bdf3b90c93f2aae6de7c1672691b4368",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "44fe8835aaa483dad9add4dac5b90a6ddba419cf483c579ff3f6b5be7d63757a"
+      }
+    },
+    {
+      "id": "concept-19-onboarding",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/19-onboarding-tamamlanmis-axin.png",
+      "references": [
+        "design-concepts/simple-turquoise/01-baslangic.png",
+        "design-concepts/simple-turquoise/15-aktivlik-ve-hedefsiz-davam.png",
+        "design-concepts/tokens.css"
+      ],
+      "requirements": [
+        "17.4",
+        "18.2",
+        "18.8",
+        "19.2",
+        "26.8"
+      ],
+      "elements": [
+        "Consistent five-step indicator",
+        "All ten health questions; unanswered is not no",
+        "Explicit units and validation",
+        "Required responses gate primary action"
+      ],
+      "states": [
+        "goal-selected",
+        "measurements-valid-optional-sex",
+        "activity-selected",
+        "health-unanswered",
+        "no-allergy-selected",
+        "budget-incomplete",
+        "measurements-invalid",
+        "unit-confirmation-pending",
+        "all-required-answers-complete"
+      ],
+      "required_review": [
+        "Inspect nine panels and original style references",
+        "Native localization/accessibility and user approval remain unverified"
+      ],
+      "sha256": "e73358ae4c1631cf4534af06ff1f9ac15b4ef847cfc416818cc56455557544f0",
+      "comparison": "Inspected final corrected nine-panel PNG against 01/15 style references. Five-step fractions and filled segments match; health continues within3/5. Invalid inputs, explicit unit confirmation, disabled incomplete and enabled complete states visible. Health labels are compact; native accessible layout remains unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/19-onboarding-tamamlanmis-axin.png",
+        "design-concepts/simple-turquoise/19-onboarding-reference.txt"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/19-onboarding-tamamlanmis-axin.png": "e73358ae4c1631cf4534af06ff1f9ac15b4ef847cfc416818cc56455557544f0",
+        "design-concepts/simple-turquoise/19-onboarding-reference.txt": "c229176723f9c2691a0fee7da87c70cade5a1c6e58293fa9a6ae00b30a2385d3"
+      }
+    },
+    {
+      "id": "concept-29-extra-intake",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/completion/29-elave-faktiki-porsiya.png",
+      "references": [
+        "design-concepts/simple-turquoise/approved/d02-portions.png",
+        "design-concepts/simple-turquoise/completion/28-vahid-vizual-qaydalar.png",
+        "design-concepts/tokens.css"
+      ],
+      "requirements": [
+        "16.7",
+        "T13",
+        "T17",
+        "T19"
+      ],
+      "elements": [
+        "Persistent extra amount label",
+        "Existing intake separate from new amount",
+        "Explicit preview and confirmation",
+        "Saved result and correction path"
+      ],
+      "states": [
+        "extra-amount-form",
+        "extra-preview",
+        "extra-saved"
+      ],
+      "required_review": [
+        "Open all three panels and D02 reference; inspect labels, separation and clipping"
+      ],
+      "sha256": "4b7418a0dc32b95347246d07d1b518c8b49ea20927dffece04c777472d79b4b0",
+      "comparison": "Opened all three final panels and D02 portion reference. Turquoise palette, white rounded cards, portion illustration, persistent amount label, preview then explicit confirmation retained. Existing 1 portion and new 0.5 portion clearly separated; no cooked grams fabricated. No clipping observed. Simplified small illustration follows completion sheets; concept only, user approval and native behavior remain unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/completion/29-elave-faktiki-porsiya.png",
+        "design-concepts/simple-turquoise/completion/screens.json",
+        "design-concepts/simple-turquoise/completion/29-elave-faktiki-porsiya.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/completion/29-elave-faktiki-porsiya.png": "4b7418a0dc32b95347246d07d1b518c8b49ea20927dffece04c777472d79b4b0",
+        "design-concepts/simple-turquoise/completion/screens.json": "b00785fc83c0f6b3b72f40664b605ff4077a77965e54af82a145e0a10a410d27",
+        "design-concepts/simple-turquoise/completion/29-elave-faktiki-porsiya.html": "e0ff51dc04aea3abd302b5dda7724afc036d4ec0aaf5dc0a5ad0c051b322932b"
+      }
+    },
+    {
+      "id": "concept-30-validation",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/completion/30-onboarding-giris-xetalari.png",
+      "references": [
+        "design-concepts/simple-turquoise/19-onboarding-tamamlanmis-axin.png"
+      ],
+      "requirements": [
+        "18.2",
+        "19.2"
+      ],
+      "elements": [
+        "Step 2/5",
+        "Persistent field/unit",
+        "Inline error and correction",
+        "No invented eligibility threshold"
+      ],
+      "states": [
+        "age-format-error",
+        "height-nonfinite",
+        "weight-negative"
+      ],
+      "required_review": [
+        "Inspect three panels against onboarding reference"
+      ],
+      "sha256": "686ee27d9532113ad022ac8cd39cfb857b1cf3cc6b9a105a9969daf2f2287b6e",
+      "comparison": "Opened all three panels and nine-panel onboarding reference. Step 2/5 and persistent units retained; age syntax, nonfinite height and negative weight errors visible with correction and back actions. No clipping observed. Simplified completion-sheet layout; draft only, native/user acceptance pending.",
+      "sources": [
+        "design-concepts/simple-turquoise/completion/30-onboarding-giris-xetalari.png",
+        "design-concepts/simple-turquoise/completion/30-onboarding-giris-xetalari.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/completion/30-onboarding-giris-xetalari.png": "686ee27d9532113ad022ac8cd39cfb857b1cf3cc6b9a105a9969daf2f2287b6e",
+        "design-concepts/simple-turquoise/completion/30-onboarding-giris-xetalari.html": "b9d69c966c5f7f8a7ba3683ee5a38b5beab058525e818cfe1cce254fc75d9765"
       }
     }
   ]

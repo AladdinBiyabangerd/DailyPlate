@@ -24,3 +24,10 @@ Resept dəyərinin əsası hər dəfə porsiya/pay və məlumdursa bişmiş qram
 `screens.json` mətn və vəziyyət mənbəyidir; `render.py` tokenləri və mövcud illüstrasiyaları istifadə edib HTML/PNG yaradır. Yenidən render: `python3 design-concepts/simple-turquoise/completion/render.py`. Chrome tələb olunur. Şəbəkə, APK, tətbiq və hesab əməliyyatı edilmir. HTML-lər yalnız PNG mənbəyidir, işlək prototip deyil.
 
 Bütün 10 yekun PNG və 00/10/14/D03 istinadları agent tərəfindən açılıb müqayisə edilir; dəqiq hash və müqayisə `docs/qa/visual-review-plan.json`-dadır. Token kontrastı: mətn/ağ 12,70; köməkçi mətn/fon 5,04; ağ/əsas düymə 4,71. Cihaz, TalkBack, native AZ/EN/RU × 100/150%, backend və klik davranışı yoxlanmayıb. Əvvəlki native qəbul borcu bununla bağlanmır.
+
+## 29 · Əlavə faktiki porsiya
+Əlavə miqdar forması → ayrıca önbaxış/təsdiq → saxlanmış əlavə qeyd. Əvvəlki planlı qəbul təkrar yazılmır. 3 panel açılıb D02 ilə müqayisə edildi; kəsilmə müşahidə olunmadı. 250/500/750 kkal və makrolar sintetikdir. Native/backend davranışı yoxlanmayıb.
+
+Tam paket: `../../qida-turquoise-designs-complete.zip`; onboarding, redaktor, 19–29 dəstləri və mənbələri daxildir.
+
+30 — yanlış yaş formatı, sonlu olmayan boy və mənfi çəki üçün üç əlavə xəta paneli. Onboarding 19 ilə birlikdə oxunur; native davranış deyil.
