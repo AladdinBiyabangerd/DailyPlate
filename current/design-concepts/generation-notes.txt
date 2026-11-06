@@ -1,0 +1,11 @@
+Tool: built-in image_gen. Three independent ui-mockup generations.
+Purpose: visual direction selection, not implemented application screens.
+Working title: Qida (not a final brand decision).
+
+Shared prompt: Create a polished portrait mobile nutrition home screen in Azerbaijani. Show calorie intake, macro targets, an explicit add-food action, separately logged breakfast/lunch and planned dinner, and bottom navigation. Consumed 1240 of 1900 kcal; remaining 660. Breakfast 380, lunch 860; planned dinner 520 excluded until confirmed. No ads, upsells, water tracker or streak pressure. Readable type, generous spacing, clear icons and meal photography.
+
+01-natural.png: Quiet Scandinavian organic wellness, offwhite and forest green palette from tokens.css, greeting, week selector, white calorie ring card and macro bars, green add button, next meal card and logged meal summary.
+02-warm.png: Warm editorial companion, ivory and terracotta palette, serif headline, horizontal calorie progress, daily meal timeline, large dinner photo and add button.
+03-dark.png: Premium focused dashboard, charcoal green and pale lime palette, large intake numerals, segmented arc, separate macro tiles, add button and next meal card.
+
+Review: all three rendered images visually inspected. Concept palettes passed contrast.py at 4.5 minimum for the checked text/background pairs. Raster output is not pixel-level WCAG validation or interaction testing. Generated sample macro numbers and navigation labels differ between concepts; standardize these during implementation. Natural concept week strip dates also need calendar alignment during implementation. No nutrition calculation or mobile interaction is implemented.

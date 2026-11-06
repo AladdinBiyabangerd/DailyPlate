@@ -1,0 +1,12 @@
+Reproduction specification for generated set 17 (AZ draft, not runtime evidence).
+Three full phone panels; pale simple-bg, white simple-surface cards, simple-text headings,
+simple-muted body, simple-primary actions, simple-peach informational cards, radius-card.
+Continue 15/01 illustrated Qida style; no fabricated calorie targets or clinical thresholds.
+A missing sex: voluntary omission, never infer male/female; no automatic target;
+diary primary, complete information secondary, expert target tertiary.
+B health exclusion: no automatic calorie target or personal menu; not diagnosis;
+expert support; expert target cannot bypass exclusion; review answers secondary.
+C model/product scope: profile outside product scope; no automatic target;
+not scientific model boundary or diagnosis; separate assessment; profile secondary.
+All panels: Gündəliyə keç primary. Footer: Dizayn təklifi · tətbiq ekranı deyil.
+Source requirements: 5.3, 21.3, 25.3, 26.7, 26.8 in canonical research-data.json.

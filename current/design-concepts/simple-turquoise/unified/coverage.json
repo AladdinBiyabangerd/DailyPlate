@@ -1,0 +1,179 @@
+{
+  "scope": "design-artifacts-only",
+  "groups": [
+    {
+      "id": "onboarding",
+      "requirement": "Yekun ardıcıllıq, səhv girişlər və tamamlanmış seçimlər",
+      "sheets": [
+        0,
+        1,
+        2,
+        12,
+        15,
+        17,
+        18,
+        30,
+        31,
+        32,
+        33,
+        46,
+        47,
+        48
+      ],
+      "status": "rendered-inspected-design-state-covered"
+    },
+    {
+      "id": "recipe-editor",
+      "requirement": "Boş resept, yanlış/sıfır miqdar, allergen və naməlum allergen",
+      "sheets": [
+        7,
+        10,
+        34,
+        35
+      ],
+      "status": "rendered-inspected-design-state-covered"
+    },
+    {
+      "id": "instructions",
+      "requirement": "Uyğun hazırlanma təlimatı tapılmaması",
+      "sheets": [
+        10,
+        19
+      ],
+      "status": "rendered-inspected-design-state-covered"
+    },
+    {
+      "id": "preview",
+      "requirement": "Açılmış gün/həftə əvvəl–sonra",
+      "sheets": [
+        20,
+        36
+      ],
+      "status": "rendered-inspected-design-state-covered"
+    },
+    {
+      "id": "swap",
+      "requirement": "Alternativ yoxdur, porsiya, yeyilmiş hissə, boş vaxta köçürmə",
+      "sheets": [
+        8,
+        21,
+        29,
+        36
+      ],
+      "status": "rendered-inspected-design-state-covered"
+    },
+    {
+      "id": "undo",
+      "requirement": "Geri qaytarma və dəyişmiş plan konflikti",
+      "sheets": [
+        11,
+        22,
+        37
+      ],
+      "status": "rendered-inspected-design-state-covered"
+    },
+    {
+      "id": "photo",
+      "requirement": "İstifadəçi məlumatı ilə ziddiyyət və plan reseptinə bağlanma",
+      "sheets": [
+        9,
+        23,
+        38
+      ],
+      "status": "rendered-inspected-design-state-covered"
+    },
+    {
+      "id": "shopping",
+      "requirement": "Alınıb/evdə var, plandan çıxan məhsul, boş siyahı, paylaşım",
+      "sheets": [
+        4,
+        11,
+        12,
+        24
+      ],
+      "status": "rendered-inspected-design-state-covered"
+    },
+    {
+      "id": "account-help",
+      "requirement": "Forma xətaları, yeni şifrə, FAQ cavabı və dəstək",
+      "sheets": [
+        2,
+        25,
+        26,
+        39,
+        40,
+        41,
+        46
+      ],
+      "status": "rendered-inspected-design-state-covered"
+    },
+    {
+      "id": "review-empty",
+      "requirement": "14 günlük xatırlatma, boş tarixçə/seçilmişlər/foto",
+      "sheets": [
+        5,
+        13,
+        27,
+        46
+      ],
+      "status": "rendered-inspected-design-state-covered"
+    },
+    {
+      "id": "consistency",
+      "requirement": "Bütün köhnə və yeni dəstlərdə vahid komponent/naviqasiya/termin/vahid",
+      "sheets": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "status": "rendered-inspected-design-state-covered"
+    }
+  ],
+  "runtime_acceptance": "not-claimed"
+}

@@ -1,0 +1,541 @@
+{
+  "schema_version": 1,
+  "status": "draft-concepts-not-runtime-acceptance",
+  "source_map": "docs/qa/design-requirement-map.json",
+  "sets": [
+    {
+      "id": "15-activity",
+      "image": "design-concepts/simple-turquoise/15-aktivlik-ve-hedefsiz-davam.png",
+      "requirements": [
+        "26.4",
+        "26.5",
+        "26.6",
+        "5.3"
+      ],
+      "gap_groups": [
+        "activity",
+        "no-target"
+      ],
+      "panels": [
+        {
+          "id": "15-A",
+          "state": "unselected-four-options",
+          "description": "Four EER categories; nothing silently selected; explicit uncertain path."
+        },
+        {
+          "id": "15-B",
+          "state": "low-active-help",
+          "description": "Source-aligned daily-activity example, not exercise advice."
+        },
+        {
+          "id": "15-C",
+          "state": "legacy-reconfirmation",
+          "description": "Existing three-choice answer requires a new explicit choice."
+        },
+        {
+          "id": "15-D",
+          "state": "uncertain-no-target",
+          "description": "ACTIVITY_UNCERTAIN permits diary use without automatic energy target."
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept; no implementation or user design approval asserted.",
+        "Remaining category help concepts are in set 16; native behavior and selected-state variants remain unverified.",
+        "Missing sex, health exclusions and model-out-of-scope need separate no-target designs.",
+        "Native AZ/EN/RU at 100/150 percent, scrolling, touch targets and TalkBack remain unverified.",
+        "The original 17-PNG audit is retained; these concepts do not close its runtime gaps."
+      ],
+      "sha256": "85dd1ccd4eab431af2f6190c34e7e88521b559855c4ce305f3b6277a47ecf4aa",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "16-activity-help",
+      "image": "design-concepts/simple-turquoise/16-aktivlik-izahlari.png",
+      "requirements": [
+        "26.4",
+        "26.5"
+      ],
+      "gap_groups": [
+        "activity"
+      ],
+      "panels": [
+        {
+          "id": "16-A",
+          "state": "inactive-help",
+          "description": "Ordinary daily activity, approximately 30 min walking and 90 min light/moderate housework."
+        },
+        {
+          "id": "16-B",
+          "state": "active-help",
+          "description": "Additional 30–50 min walking at 5–7 km/h, 45 min moderate cycling and 40 min doubles tennis."
+        },
+        {
+          "id": "16-C",
+          "state": "very-active-help",
+          "description": "Additional 45 min moderate cycling, 25 min running at 10 km/h and 60 min doubles tennis."
+        }
+      ],
+      "limitations": [
+        "Draft AZ concepts; not user-approved or runtime acceptance.",
+        "Selected states, native AZ/EN/RU at 100/150%, pixel contrast, touch targets and TalkBack remain unverified.",
+        "Other missing-state groups and inherited runtime visual debt remain open."
+      ],
+      "sha256": "a50993a8ee4c180d469258ca214c9f6e25ab236b4a72cee9f6da188e57d042eb",
+      "review_status": "agent-inspected-draft-user-approval-pending",
+      "comparison": "Opened final corrected PNG and 15/01 references. Three full panels preserve turquoise background, white cards, friendly illustrations, peach disclaimer and primary/secondary hierarchy. Read all AZ copy: inactive 30/90 minutes; active 30–50 at 5–7 km/h plus 45 cycling and 40 doubles tennis; very-active 45 cycling, 25 at 10 km/h and 60 doubles tennis. Repeated conjunction corrected. No clipping observed. All three disclaimers and confirmation/other/uncertain actions visible. Pixel contrast, native accessibility/localization and user approval remain unverified."
+    },
+    {
+      "id": "17-no-target",
+      "image": "design-concepts/simple-turquoise/17-hedefsiz-davam-sebebleri.png",
+      "requirements": [
+        "5.3",
+        "21.3",
+        "25.3",
+        "26.7",
+        "26.8"
+      ],
+      "gap_groups": [
+        "no-target",
+        "health"
+      ],
+      "panels": [
+        {
+          "id": "17-A",
+          "state": "missing-sex"
+        },
+        {
+          "id": "17-B",
+          "state": "health-excluded"
+        },
+        {
+          "id": "17-C",
+          "state": "model-out-of-scope"
+        }
+      ],
+      "sha256": "6f9858991411797844765edcad65e0e3d3c28ebd6ba1896c5ad1a96e5287badc",
+      "review_status": "agent-inspected-draft-user-approval-pending",
+      "comparison": "Opened all three full AZ panels and 15/01 references. Pale turquoise background, white cards, peach notices, illustrated notebook/profile/support and clear primary diary action follow the established direction. Read missing-sex no-inference copy, separate health exclusion and no-bypass notice, and product-scope versus diagnosis distinction. All correction actions and expert-target link visible; no clipping observed. Phone frame differs cosmetically from reference. Concept only; native localization, pixel contrast, touch targets, TalkBack and user approval unverified.",
+      "limitations": [
+        "AZ concept only; no runtime or clinical approval asserted.",
+        "Native AZ/EN/RU 100/150%, pixel contrast, device and TalkBack unverified.",
+        "Inherited native acceptance debt remains open; expert-target entry form/provenance and reason subvariants remain separate work."
+      ]
+    },
+    {
+      "id": "18-no-target-calculation",
+      "image": "design-concepts/simple-turquoise/18-hedefsiz-hesablama-sebebleri.png",
+      "requirements": [
+        "27.3",
+        "28.3"
+      ],
+      "gap_groups": [
+        "floor",
+        "macro",
+        "no-target"
+      ],
+      "panels": [
+        {
+          "id": "18-A",
+          "state": "energy-below-product-floor"
+        },
+        {
+          "id": "18-B",
+          "state": "macro-infeasible"
+        }
+      ],
+      "sha256": "ff1963cef11510587b1545aca9c867f0cad0051a0684156a68dacaf506827e55",
+      "review_status": "agent-inspected-draft-user-approval-pending",
+      "comparison": "Opened both full AZ panels and 15/01 references. White cards, turquoise actions, peach notices and notebook/food illustrations preserve the established direction. Energy-floor panel explicitly rejects universal medical minimum/safety guarantee and artificial target increase. Macro panel rejects silent number changes/protein-minimum reduction and supplies no automatic calorie/macro target. Diary, input review and expert-support paths visible, no clipping observed. Phone framing and decorative outer food imagery vary from 15; draft only. Native localization, pixel contrast, touch targets, TalkBack and user approval unverified.",
+      "limitations": [
+        "AZ concept only; no runtime or clinical approval asserted.",
+        "Native AZ/EN/RU 100/150%, pixel contrast, device and TalkBack unverified.",
+        "Inherited native acceptance debt remains open; expert-target entry form/provenance and reason subvariants remain separate work."
+      ]
+    },
+    {
+      "id": "24-ingredient-editor-errors",
+      "image": "design-concepts/simple-turquoise/24-inqrediyent-redaktoru-xetalar.png",
+      "requirements": [
+        "16.1",
+        "16.2",
+        "16.9"
+      ],
+      "gap_groups": [
+        "editor",
+        "allergen"
+      ],
+      "panels": [
+        {
+          "id": "24-01",
+          "state": "empty-recipe"
+        },
+        {
+          "id": "24-02",
+          "state": "blank-negative-quantity"
+        },
+        {
+          "id": "24-03",
+          "state": "zero-removal-confirmation"
+        },
+        {
+          "id": "24-04",
+          "state": "allergen-conflict"
+        },
+        {
+          "id": "24-05",
+          "state": "unknown-allergen"
+        }
+      ],
+      "sha256": "3c7f72bdbee795e64b27c9eaaf41a731f35621416d04f98ea5fa74ccbd49538a",
+      "review_status": "agent-inspected-draft-user-approval-pending",
+      "comparison": "Opened all five AZ panels and 07 ingredient-editor reference. Pale turquoise background, white rounded cards, food cutouts, dark headings and teal actions preserve the reference direction. Empty recipe blocks saving and offers add/undo; blank and negative inputs have inline explanations; zero has a separate removal confirmation; allergen conflict blocks plan application while actual logging remains separate; unknown allergen does not claim safety. All labels/actions visible without observed clipping. Raster red error accent has no existing token and is not approved for implementation. Native behavior, pixel contrast, localization/accessibility and user approval unverified.",
+      "limitations": [
+        "AZ concept only; no runtime or user design acceptance.",
+        "NaN, infinite/excessive quantity, missing unit conversion and expanded other-food controls remain open.",
+        "Native AZ/EN/RU at 100/150%, keyboard/focus, TalkBack, touch targets and pixel contrast remain unverified.",
+        "Inherited native visual acceptance debt remains open."
+      ]
+    },
+    {
+      "id": "19-completion",
+      "image": "design-concepts/simple-turquoise/completion/19-telimat-yoxdur.png",
+      "requirements": [
+        "16.3",
+        "19.14"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "19-A",
+          "state": "19-A-Bu variantın təlimatı yoxdur",
+          "description": "Bu variantın təlimatı yoxdur"
+        },
+        {
+          "id": "19-B",
+          "state": "19-B-İlkin reseptə qayıt?",
+          "description": "İlkin reseptə qayıt?"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "1e834cf1651ea8ffdb088c8bd2b73c52ae20427cff67d80ec4903579a50d2dcc",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "20-completion",
+      "image": "design-concepts/simple-turquoise/completion/20-gun-hefte-onbaxis.png",
+      "requirements": [
+        "16.2",
+        "16.6",
+        "19.15"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "20-A",
+          "state": "20-A-Günün yenilənmiş planı",
+          "description": "Günün yenilənmiş planı"
+        },
+        {
+          "id": "20-B",
+          "state": "20-B-Həftəyə təsiri",
+          "description": "Həftəyə təsiri"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "e33619fdb2b3417e1bc5868c08c93811133685a54a85f35cd5409300315dc5aa",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "21-completion",
+      "image": "design-concepts/simple-turquoise/completion/21-deyisme-yollari.png",
+      "requirements": [
+        "16.4",
+        "16.5",
+        "T06",
+        "T09"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "21-A",
+          "state": "21-A-Uyğun alternativ tapılmadı",
+          "description": "Uyğun alternativ tapılmadı"
+        },
+        {
+          "id": "21-B",
+          "state": "21-B-Porsiyanı uyğunlaşdıraq?",
+          "description": "Porsiyanı uyğunlaşdıraq?"
+        },
+        {
+          "id": "21-C",
+          "state": "21-C-Bu hissə artıq yeyilib",
+          "description": "Bu hissə artıq yeyilib"
+        },
+        {
+          "id": "21-D",
+          "state": "21-D-Bu günə köçür",
+          "description": "Bu günə köçür"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "5d2aed7d3f4fac6002f497a30efc8b7834a25d65bf91dca8728a3dff90e9f74e",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "22-completion",
+      "image": "design-concepts/simple-turquoise/completion/22-plan-konfliktleri.png",
+      "requirements": [
+        "16.6",
+        "16.8",
+        "T12"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "22-A",
+          "state": "22-A-Faktiki qeyd qorunacaq",
+          "description": "Faktiki qeyd qorunacaq"
+        },
+        {
+          "id": "22-B",
+          "state": "22-B-Plan başqa cihazda dəyişib",
+          "description": "Plan başqa cihazda dəyişib"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "55954dcc7bb8472327c099d72f235cf2c95d3cab3c0380cbb2d2ec6d44329223",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "23-completion",
+      "image": "design-concepts/simple-turquoise/completion/23-foto-deqiqlesdirme.png",
+      "requirements": [
+        "16.9",
+        "T18",
+        "T13"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "23-A",
+          "state": "23-A-Bu foto hansı yeməkdir?",
+          "description": "Bu foto hansı yeməkdir?"
+        },
+        {
+          "id": "23-B",
+          "state": "23-B-Bir şeyi dəqiqləşdirək",
+          "description": "Bir şeyi dəqiqləşdirək"
+        },
+        {
+          "id": "23-C",
+          "state": "23-C-Nə qədər yedin?",
+          "description": "Nə qədər yedin?"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "30d58f5eead66a99497822de0b6f6dfd48b127b2bf4ef9d2ff84b90060a488bb",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "24-completion",
+      "image": "design-concepts/simple-turquoise/completion/24-alisveris-hallari.png",
+      "requirements": [
+        "16.6",
+        "19.8"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "24-A",
+          "state": "24-A-Alınmış məhsul saxlanıb",
+          "description": "Alınmış məhsul saxlanıb"
+        },
+        {
+          "id": "24-B",
+          "state": "24-B-Siyahın hələ boşdur",
+          "description": "Siyahın hələ boşdur"
+        },
+        {
+          "id": "24-C",
+          "state": "24-C-Paylaşılacaq mətn",
+          "description": "Paylaşılacaq mətn"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "153dec33e330711ee126ac1dc570d84514de02820ee19106d9edd7094bd46d33",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "25-completion",
+      "image": "design-concepts/simple-turquoise/completion/25-hesab-formalari.png",
+      "requirements": [
+        "18.9",
+        "18.10"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "25-A",
+          "state": "25-A-Yeni hesab yarat",
+          "description": "Yeni hesab yarat"
+        },
+        {
+          "id": "25-B",
+          "state": "25-B-Qeydiyyat alınmadı",
+          "description": "Qeydiyyat alınmadı"
+        },
+        {
+          "id": "25-C",
+          "state": "25-C-Bərpa linki işləmir",
+          "description": "Bərpa linki işləmir"
+        },
+        {
+          "id": "25-D",
+          "state": "25-D-Yeni şifrə seç",
+          "description": "Yeni şifrə seç"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "18cc8fc097d0467481734a6a05d8e64e149326fa7840e8671c055a1e460b4eaa",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "26-completion",
+      "image": "design-concepts/simple-turquoise/completion/26-komek-formalari.png",
+      "requirements": [
+        "19.16"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "26-A",
+          "state": "26-A-Foto kalorisi niyə təxminidir?",
+          "description": "Foto kalorisi niyə təxminidir?"
+        },
+        {
+          "id": "26-B",
+          "state": "26-B-Dəstəyə müraciət",
+          "description": "Dəstəyə müraciət"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "bacc971398eb185cce4e350c5d9ad9cbd2fffefe0879a28123c9a2f6ba2e79fc",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "27-completion",
+      "image": "design-concepts/simple-turquoise/completion/27-baxis-ve-bos-siyahilar.png",
+      "requirements": [
+        "27.8",
+        "19.3",
+        "19.16"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "27-A",
+          "state": "27-A-Hədəfə yenidən baxaq",
+          "description": "Hədəfə yenidən baxaq"
+        },
+        {
+          "id": "27-B",
+          "state": "27-B-Əvvəl yediklərim",
+          "description": "Əvvəl yediklərim"
+        },
+        {
+          "id": "27-C",
+          "state": "27-C-Saxlanmış reseptlər",
+          "description": "Saxlanmış reseptlər"
+        },
+        {
+          "id": "27-D",
+          "state": "27-D-Foto siyahısı",
+          "description": "Foto siyahısı"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "22626723a428b73a9012a8406329086fff08898b570fe5748995c23a096254ed",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "28-completion",
+      "image": "design-concepts/simple-turquoise/completion/28-vahid-vizual-qaydalar.png",
+      "requirements": [
+        "18.12",
+        "19.17",
+        "28.4"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "28-A",
+          "state": "28-A-Bugünkü menyun",
+          "description": "Bugünkü menyun"
+        },
+        {
+          "id": "28-B",
+          "state": "28-B-Qida dəyərlərinin əsası",
+          "description": "Qida dəyərlərinin əsası"
+        },
+        {
+          "id": "28-C",
+          "state": "28-C-Bişmiş çəki məlum deyil",
+          "description": "Bişmiş çəki məlum deyil"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "04a1d1e787b093930699ddbe97308f5d4df28c551866ce16f88b7eb0ec93b759",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    }
+  ]
+}

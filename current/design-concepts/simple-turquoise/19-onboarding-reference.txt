@@ -1,0 +1,22 @@
+ONBOARDING — TAMAMLANMIŞ AXIN
+İstinad: 19-onboarding-tamamlanmis-axin.png
+Status: AZ dizayn təklifi; tətbiq və ya istifadəçi təsdiqi deyil.
+
+Ardıcıllıq: 1/5 Məqsəd → 2/5 Özünü tanıt → 3/5 Aktivlik və sağlamlıq
+(aktivlik 1/2, sağlamlıq 2/2) → 4/5 Allergiya və seçimlər → 5/5 Vaxt və büdcə.
+Alt sıra: səhv girişlər; vahid təsdiqi; bütün məcburi cavablar tamamdır.
+Hər addımda eyni beşhissəli göstərici; geri dönüş cavabları saxlamalıdır.
+Məqsəd, ölçülərin/vahidlərin təsdiqi və fərdi plan üçün vacib cavablar məcburidir.
+Cins könüllüdür. Sağlamlıqda cavabsızlıq “xeyr” deyil; hədəfsiz yol fərdi planın
+uyğunluq yoxlamasını keçmir. Aktiv Planımı hazırla yalnız yoxlamanı başladır.
+Vahid səssiz çevrilmir; 1,72 sm → 172 sm yalnız istifadəçinin açıq təsdiqi ilə.
+
+PNG ilə konseptdə əhatə olundu: əsas ardıcıllıq, sağlamlıq suallarının davamı,
+boş yaş, sıfır boy, mənfi çəki, onluq vergül, vahid qarışıqlığı, passiv/aktiv düymə.
+Açıq qalanlar: yanlış yaş formatı/əhatəsi, NaN/sonsuz/çox böyük girişlər, bütün
+sahə kombinasiyaları, çoxlu/naməlum allergiya, büdcə validasiyası, native dillər,
+böyük şrift, sürüşmə, klaviatura, ekran oxuyucu və real davranış sınaqları.
+Büdcəyə yemək əhatəsi, mətbəx avadanlığı və ev inventarı sualları əlavə edilmir.
+Mənbə: planning/nutrition-science-implementation-plan.txt §§17–19,26.8.
+Üslub: 01-baslangic.png, 15-aktivlik-ve-hedefsiz-davam.png, ../tokens.css.
+Generasiya: built-in image_gen; son düzəliş 5/5 göstəricisinin beş hissəsini doldurdu.

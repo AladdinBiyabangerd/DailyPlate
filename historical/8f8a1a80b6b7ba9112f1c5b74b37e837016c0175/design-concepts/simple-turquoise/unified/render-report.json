@@ -1,0 +1,331 @@
+[
+  {
+    "sheet": "00-esas-istiqamet",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "01-baslangic",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "02-secimler-ve-hesab",
+    "width": 1736,
+    "height": 1529,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "03-yemek-qeydiyyati",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "04-menyu-ve-alisveris",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "05-irelileyis-ve-profil",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "06-abunelik-ve-veziyyetler",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "07-inqrediyent-redaktesi",
+    "width": 1736,
+    "height": 1849,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "08-yemek-ve-gun-deyisme",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "09-foto-sonrasi-resept",
+    "width": 1736,
+    "height": 2192,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "10-deyisiklik-ve-xeta-hallari",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "11-yenilenmis-plan-ve-tesdiq",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "12-elave-profil-secimleri",
+    "width": 1736,
+    "height": 1508,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "13-bos-veziyyetler",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "14-elave-formalar-ve-veziyyetler",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "15-aktivlik-ve-hedefsiz-davam",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "16-aktivlik-izahlari",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "17-hedefsiz-davam-sebebleri",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "18-hedefsiz-hesablama-sebebleri",
+    "width": 888,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "19-telimat-yoxdur",
+    "width": 888,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "20-gun-hefte-onbaxis",
+    "width": 888,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "21-deyisme-yollari",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "22-plan-konfliktleri",
+    "width": 888,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "23-foto-deqiqlesdirme",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "24-alisveris-hallari",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "25-hesab-formalari",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "26-komek-formalari",
+    "width": 888,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "27-baxis-ve-bos-siyahilar",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "28-vahid-vizual-qaydalar",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "29-elave-faktiki-porsiya",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "30-onboarding-giris-xetalari",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "31-onboarding-tamamlanma",
+    "width": 1312,
+    "height": 1658,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "32-olcu-giris-serhedleri",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "33-allergiya-ve-budce-xetalari",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "34-resept-redaktoru-xetalar",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "35-resept-allergen-ve-vahid",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "36-iki-gun-ve-kocurme-onbaxis",
+    "width": 1312,
+    "height": 1436,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "37-geri-qaytarma-netice",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "38-foto-icaze-ve-yag",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "39-hesab-forma-xetalari",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "40-yeni-sifre-ve-destek",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "41-hesab-mexfilik-idare",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "42-abunelik-statuslari",
+    "width": 1736,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "43-el-ile-ve-tarixce",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "44-qeyd-ve-ceki-duzelis",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "45-qosulma-ve-axtaris",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  },
+  {
+    "sheet": "46-destek-ve-xatirlatma",
+    "width": 1312,
+    "height": 1370,
+    "images": [],
+    "overflow": []
+  }
+]

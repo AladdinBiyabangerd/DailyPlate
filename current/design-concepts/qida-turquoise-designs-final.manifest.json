@@ -1,0 +1,669 @@
+{
+  "date": "2026-11-06",
+  "scope": "uniform-design-artifacts-not-runtime-acceptance",
+  "entrypoint": "index.html",
+  "sheets": 49,
+  "panels": 165,
+  "files": [
+    {
+      "path": "00-esas-istiqamet.html",
+      "sha256": "b936bebcc35e8003760af92b2c6dc565eb84b65ebf227653fa730cb3da2e68b2"
+    },
+    {
+      "path": "00-esas-istiqamet.png",
+      "sha256": "97337033bef585f935c4993bca3552b5564902a5d26fd5fe8b2dc2c61b8740db"
+    },
+    {
+      "path": "01-baslangic.html",
+      "sha256": "7193c86fc87893d02c9580ff84385e912aa13de44a0bfe9663b49763866ae183"
+    },
+    {
+      "path": "01-baslangic.png",
+      "sha256": "930f7dbc95cce8088a55c8dbe5b3a178b5539e174b74ba519ac3cac0bdb9898d"
+    },
+    {
+      "path": "02-secimler-ve-hesab.html",
+      "sha256": "1e0ae3f1f1777075b3c557af4055daf72d2119e6c566c1d2120536073a1adfe7"
+    },
+    {
+      "path": "02-secimler-ve-hesab.png",
+      "sha256": "842f299350cb3f9d0dae9840b2c48fe571cde9a47d3c19f997a2fd0f795056e1"
+    },
+    {
+      "path": "03-yemek-qeydiyyati.html",
+      "sha256": "47ecbbc3c51adf5688ad7325b2e8fd7d9ed4fb1b41d110cf8f81ce03163e3305"
+    },
+    {
+      "path": "03-yemek-qeydiyyati.png",
+      "sha256": "75fdbaa4ca32f9a3504c64aa94ecd192d8e84b45ff0bd192b632fde99e164300"
+    },
+    {
+      "path": "04-menyu-ve-alisveris.html",
+      "sha256": "eb498d2d65d74c3cc9049ce160882306c836c3d772bc06b693c011f4e92c986e"
+    },
+    {
+      "path": "04-menyu-ve-alisveris.png",
+      "sha256": "8cef10cb99b45ce4f37b9130d219b53bdaf6f6516de4c430b106385fccebf856"
+    },
+    {
+      "path": "05-irelileyis-ve-profil.html",
+      "sha256": "b1f9cc799941d1981592f0393fef9e9937f7d4490a408b91d050ae4ed9f4584e"
+    },
+    {
+      "path": "05-irelileyis-ve-profil.png",
+      "sha256": "a78cc6e59f45987ac23a300048c789a3550b8e312363cb37ae7d6bb277bde277"
+    },
+    {
+      "path": "06-abunelik-ve-veziyyetler.html",
+      "sha256": "b0acbc591fa66407f0ee04d95ce6a70cca4dfb9e1d4bf585eccf9e8ee2254e51"
+    },
+    {
+      "path": "06-abunelik-ve-veziyyetler.png",
+      "sha256": "9d6f438c062834937a949f24bd679342f94be869a3960d1634745e65c68e7d8f"
+    },
+    {
+      "path": "07-inqrediyent-redaktesi.html",
+      "sha256": "9452f73239b88ab2ddadcfbe98e836d3f667d60dbb36aa0f5cba530a6c7730ec"
+    },
+    {
+      "path": "07-inqrediyent-redaktesi.png",
+      "sha256": "14253f5c0616c98f00f24f00976c7d0ff2b4b55285ab56c3e86ea67a5ac0914b"
+    },
+    {
+      "path": "08-yemek-ve-gun-deyisme.html",
+      "sha256": "0a5bd1bb13cc9aa716f5b2cc26eefc4e914ee72b1d31409b145df49b1b86c7a6"
+    },
+    {
+      "path": "08-yemek-ve-gun-deyisme.png",
+      "sha256": "2410b182e2f3ca8ea7268219446aa7c08dc260f8b41a9720ad1f016fa9425ab6"
+    },
+    {
+      "path": "09-foto-sonrasi-resept.html",
+      "sha256": "84b58be6a2eedf7656d61f7cef2d65162a4e75bdbd4a16fd3100939a745d43e5"
+    },
+    {
+      "path": "09-foto-sonrasi-resept.png",
+      "sha256": "b2b492d119bcff43e41f45bb277ca238d7c98d099d5495c3c7421576a20d1f4d"
+    },
+    {
+      "path": "10-deyisiklik-ve-xeta-hallari.html",
+      "sha256": "4de4e70f0f2c42dab094bb163afe0a4c1211c3eb666c5197528cf65c60aad099"
+    },
+    {
+      "path": "10-deyisiklik-ve-xeta-hallari.png",
+      "sha256": "e50380a6ef07ac7ff54047f202e7a9e7fba718224f71100c374265ba47c8ae31"
+    },
+    {
+      "path": "11-yenilenmis-plan-ve-tesdiq.html",
+      "sha256": "3997fdf2e830f774c2e6358912c1e5a8dbd50288479a8fde7cd318c8b11be986"
+    },
+    {
+      "path": "11-yenilenmis-plan-ve-tesdiq.png",
+      "sha256": "edaec8681c006b173e9fb5788786927549fc138fbac5d6b9c1b4ae0dd67ae113"
+    },
+    {
+      "path": "12-elave-profil-secimleri.html",
+      "sha256": "4806b8d3d4020bc3472d299b4cb82239014e5f69181a326e758c2e434b6720b4"
+    },
+    {
+      "path": "12-elave-profil-secimleri.png",
+      "sha256": "67662152bb41644b5004e5b0ff80fff09bf3c1e94a4d17d16e9245fdcaa9acb3"
+    },
+    {
+      "path": "13-bos-veziyyetler.html",
+      "sha256": "c04a514fcb6eec4ee52ace26ba95ab8713803272af52f5cf52d128430f378250"
+    },
+    {
+      "path": "13-bos-veziyyetler.png",
+      "sha256": "c00071db94927aa31928ee9e31754a50f9a4d1978d0d7f387d98c79db45d29e4"
+    },
+    {
+      "path": "14-elave-formalar-ve-veziyyetler.html",
+      "sha256": "1313b8d97c7c5a49ae4e922dc54fd01b9f4c16e737c5701744b81bde8e861355"
+    },
+    {
+      "path": "14-elave-formalar-ve-veziyyetler.png",
+      "sha256": "e4b27d9d6e700e6791a7d3f166b3d15024aaebb5bb51d16b4e5840a105155738"
+    },
+    {
+      "path": "15-aktivlik-ve-hedefsiz-davam.html",
+      "sha256": "8051c75ae38c6c41e3d5cacd6a751c7e2ce8571a64a33ed9cde72465db0aff1d"
+    },
+    {
+      "path": "15-aktivlik-ve-hedefsiz-davam.png",
+      "sha256": "f56797d9364020c4683ec7a1e8a0638442b026d1a2b1459b3cbf13754e0b8c2f"
+    },
+    {
+      "path": "16-aktivlik-izahlari.html",
+      "sha256": "49cdf0823d9598a083f5659044437fda71799ab19924fa82df96afa2f5731936"
+    },
+    {
+      "path": "16-aktivlik-izahlari.png",
+      "sha256": "eaab9c376d4709ffb746b88fc0d2f585bcdffdc2cca909c804dfbb4fe4679055"
+    },
+    {
+      "path": "17-hedefsiz-davam-sebebleri.html",
+      "sha256": "285a257b0f36aa948891a629e180cedd34d96924d0b147acc94e9577a035a3c9"
+    },
+    {
+      "path": "17-hedefsiz-davam-sebebleri.png",
+      "sha256": "f781c217064b3e3b8d407a12500925ef8b6eb4447ef86b8e57e5a866d34e0f4d"
+    },
+    {
+      "path": "18-hedefsiz-hesablama-sebebleri.html",
+      "sha256": "9008eb09ad55181649cfd02f9547f27ac4e8a8a05f64b2df858ff9efa052f82b"
+    },
+    {
+      "path": "18-hedefsiz-hesablama-sebebleri.png",
+      "sha256": "cf0655500e5ef2b13b6cefeb9866ffef6fa50f2f5123391d103713a953a2b65b"
+    },
+    {
+      "path": "19-telimat-yoxdur.html",
+      "sha256": "8a34d6c691a81902978834f4e8fcb3850d0f18b2a9603709444bf12e6e52f208"
+    },
+    {
+      "path": "19-telimat-yoxdur.png",
+      "sha256": "ed583b8c943fa000e73abf00093a6e71536cd9b0fe92b9a744b71b1cacba7bc8"
+    },
+    {
+      "path": "20-gun-hefte-onbaxis.html",
+      "sha256": "4c7bbeae8486afc934643eac8268de0c6efdd1144a10ebef9e82ce1588c1c560"
+    },
+    {
+      "path": "20-gun-hefte-onbaxis.png",
+      "sha256": "bb0b48715eca6aaaec20b6934b511819f7f8a7ceca2b005be593b8bc7b1c6174"
+    },
+    {
+      "path": "21-deyisme-yollari.html",
+      "sha256": "4a57c3d6d16be2ba9510ba1f595331aedea16e063dc8925e14ceef3d79f398fa"
+    },
+    {
+      "path": "21-deyisme-yollari.png",
+      "sha256": "e8ad15454bc72d4427518bbc7a9e6080597be9696fb34d19d328ebc7b251e33f"
+    },
+    {
+      "path": "22-plan-konfliktleri.html",
+      "sha256": "00c2e04d7f3d38946ba34d6bb03ef0050f8705cb495dcdc3367325b3fefe45d8"
+    },
+    {
+      "path": "22-plan-konfliktleri.png",
+      "sha256": "1b161c279307d6ce409e716d00f9758332443ef3a04a7e1d1ec086a20a079172"
+    },
+    {
+      "path": "23-foto-deqiqlesdirme.html",
+      "sha256": "43cbd0a5e8786011bb6332031283137c32b51e12dab679603215eb337ebacb8c"
+    },
+    {
+      "path": "23-foto-deqiqlesdirme.png",
+      "sha256": "ef7c0493a0099759f72282faf6e9dd34b8486cd9eea544e85f3170d2eecd047b"
+    },
+    {
+      "path": "24-alisveris-hallari.html",
+      "sha256": "bec144a7cdccdb0fee0c3c3b7bda1a4b1eb85f6c3bfdb694cf378443f0ebfc28"
+    },
+    {
+      "path": "24-alisveris-hallari.png",
+      "sha256": "1bb8c00caf49ea8366f4e80bddf026bbbc8253f58e81ac797703a1ddda81473a"
+    },
+    {
+      "path": "25-hesab-formalari.html",
+      "sha256": "3b75eb508d394c6ca3a0c8fbd5b16a25f24cc4d51f8b3609e1d8a5fa2a1f1335"
+    },
+    {
+      "path": "25-hesab-formalari.png",
+      "sha256": "ebdb191be1bdd6d1702d82a86a634d96beda5999b8e71bda930dcabf9836491f"
+    },
+    {
+      "path": "26-komek-formalari.html",
+      "sha256": "4101789b764cc9bfb9377d837740202961bb1240bcf049a8152e1c44c9571d9e"
+    },
+    {
+      "path": "26-komek-formalari.png",
+      "sha256": "1a8c8c91ac95a518a41ff5254d6772a440f0c3bfc35a7b2c42fd93ac6ef1848c"
+    },
+    {
+      "path": "27-baxis-ve-bos-siyahilar.html",
+      "sha256": "7300d2e6017a351fe8384cb586d25d06423690594dbe315a299271a3ea96c54a"
+    },
+    {
+      "path": "27-baxis-ve-bos-siyahilar.png",
+      "sha256": "cec4d722a8600944fd406403454975e47f7cbb955286f2b5dde6b675e2f16be7"
+    },
+    {
+      "path": "28-vahid-vizual-qaydalar.html",
+      "sha256": "2207eee94ec6cc853e88b1e46b3c9fd4035a98683824058efee026dfdac804cf"
+    },
+    {
+      "path": "28-vahid-vizual-qaydalar.png",
+      "sha256": "2eef80e2dbe13dcc2e6782492a7a2d7773ba46ae12cd2db0d438470dac060ec8"
+    },
+    {
+      "path": "29-elave-faktiki-porsiya.html",
+      "sha256": "0f0d6bf2c0d147220fa553c69144fa7ba582c0d7a3e67ce80891f454ce329f5f"
+    },
+    {
+      "path": "29-elave-faktiki-porsiya.png",
+      "sha256": "d24ba48e72790d7eb90312f06d79d961212539cddcba2468b8d4a36a5047ad12"
+    },
+    {
+      "path": "30-onboarding-giris-xetalari.html",
+      "sha256": "887ab6b45cfb46eb408b765b7f08792356ab78a2174e75cd7377797d45fc9114"
+    },
+    {
+      "path": "30-onboarding-giris-xetalari.png",
+      "sha256": "a5459920c182112778957973b97d281baee5a98a80e983314b674ce1ee2f3ad1"
+    },
+    {
+      "path": "31-onboarding-tamamlanma.html",
+      "sha256": "20cba84afc8015919791b5bb78ed5ac42b58f1d29e3813c2f394a3b93e4bc1d3"
+    },
+    {
+      "path": "31-onboarding-tamamlanma.png",
+      "sha256": "5a1d720a7ea82fbf6b5bb936df8a9804154b47e64f6f5a82a7ea40c8da2ad005"
+    },
+    {
+      "path": "32-olcu-giris-serhedleri.html",
+      "sha256": "53595bd762022dcddfa3262f7c5f49459b68b42a6101ed7d1a1db876a307e5bc"
+    },
+    {
+      "path": "32-olcu-giris-serhedleri.png",
+      "sha256": "2a82b9902cd7cec6970b7b64e3b98c1b1de025116420c2f5853424361c047ed8"
+    },
+    {
+      "path": "33-allergiya-ve-budce-xetalari.html",
+      "sha256": "9af54326799b62c3822b30fb63ea37b0af46bfef2ad0d0fbe4efe20e5c7ce1e5"
+    },
+    {
+      "path": "33-allergiya-ve-budce-xetalari.png",
+      "sha256": "8212cfad92271439fc84c72f2e47b87f63cbf8434cef338bda0a5b59ceae522f"
+    },
+    {
+      "path": "34-resept-redaktoru-xetalar.html",
+      "sha256": "65f10aa51d93665acd20dd51be8bc42568754b975d8cd1d0120c66d441a81654"
+    },
+    {
+      "path": "34-resept-redaktoru-xetalar.png",
+      "sha256": "237078a7db6c817825aeb58f7204bb396ec30cea66e116be63cf9f549d29c142"
+    },
+    {
+      "path": "35-resept-allergen-ve-vahid.html",
+      "sha256": "336b21d63b1e02ce3b1d3585ae2566d7324ac35bcb866040e917004440f7404e"
+    },
+    {
+      "path": "35-resept-allergen-ve-vahid.png",
+      "sha256": "553c4581c1a64b9f55bbdbe8f0e18a7c3aa45fd9f64cefc576f881a0cd6200c4"
+    },
+    {
+      "path": "36-iki-gun-ve-kocurme-onbaxis.html",
+      "sha256": "485d61e4ef1e308ba0da12e3dd76630669c0492268d711a24a2a1ac4155a8aaf"
+    },
+    {
+      "path": "36-iki-gun-ve-kocurme-onbaxis.png",
+      "sha256": "2931c566688d83590c85fc77bc0914c3e752359a6e352680843e291646689e3d"
+    },
+    {
+      "path": "37-geri-qaytarma-netice.html",
+      "sha256": "cbb095fa439fd821ffd4edfb7a0732702c3b6708d4aef7914d04362d8af4b1f8"
+    },
+    {
+      "path": "37-geri-qaytarma-netice.png",
+      "sha256": "6a7a2c948066a29474e73182b7f3de5b35e6841aa7bf8b8b2bc33ee2f0f591ec"
+    },
+    {
+      "path": "38-foto-icaze-ve-yag.html",
+      "sha256": "e9ccdd412e7c38c7b386e22b1de54e113fde6b659af7a8b3b0cff39f3132c28c"
+    },
+    {
+      "path": "38-foto-icaze-ve-yag.png",
+      "sha256": "b5377d36d7fe43e23ff8b6c12cff03f5ca6cb86674e7a2778f2fdd3483698f80"
+    },
+    {
+      "path": "39-hesab-forma-xetalari.html",
+      "sha256": "d75412ae7e02b02cebf1e26cef6b1e75a225070f4ee8493768bf8d57a6df80d7"
+    },
+    {
+      "path": "39-hesab-forma-xetalari.png",
+      "sha256": "d8ac7dad0e41847cbbc1a0f601f0f53b3be551125cc4441c9c4a829b39a8ad82"
+    },
+    {
+      "path": "40-yeni-sifre-ve-destek.html",
+      "sha256": "d36bc87965bba43e095184bce352559211c2d6dcf71082fccc844ed5b7f40001"
+    },
+    {
+      "path": "40-yeni-sifre-ve-destek.png",
+      "sha256": "567bd16e6197f58016ebea30140bc39be90d337e12ca5cfe6f636f36df2a238e"
+    },
+    {
+      "path": "41-hesab-mexfilik-idare.html",
+      "sha256": "4303d06b297d7d7a8053b023983ba91f5aab62c3ffde2de990dcc1843acf1a54"
+    },
+    {
+      "path": "41-hesab-mexfilik-idare.png",
+      "sha256": "cb1c3a5930cce9d87ee102bea0cdd5344b439c9955907cefc1837d805d8acdc1"
+    },
+    {
+      "path": "42-abunelik-statuslari.html",
+      "sha256": "694b228dc01f824ccb17d6088dad2c92f4cd5c540ed1fc8cbc4760d5cd864ece"
+    },
+    {
+      "path": "42-abunelik-statuslari.png",
+      "sha256": "1debd62cd70e08bc1bff86f9097eb9cf083c6d61cdf16d8327a30816f27194d5"
+    },
+    {
+      "path": "43-el-ile-ve-tarixce.html",
+      "sha256": "4dbed11379247978e47de26cecb9a8b443f23a0d5c640dbc1805ab927fab421f"
+    },
+    {
+      "path": "43-el-ile-ve-tarixce.png",
+      "sha256": "a0a8d52806e35fb66e005df3fecf21aeba0f07358adc10654217e95cf8a4aaca"
+    },
+    {
+      "path": "44-qeyd-ve-ceki-duzelis.html",
+      "sha256": "a174cb45a554648746fc3f8d8df90fc709e04fcca37010a0776765e69b0a115c"
+    },
+    {
+      "path": "44-qeyd-ve-ceki-duzelis.png",
+      "sha256": "fc546ad9791662a9ec0cddbd57a2566d867ae4aa957d437fca2fd470e103f81a"
+    },
+    {
+      "path": "45-qosulma-ve-axtaris.html",
+      "sha256": "b89cca8fb9dc65e2041087d6aac2164212bdd3970552733fbd7c9ec0a9c5ec46"
+    },
+    {
+      "path": "45-qosulma-ve-axtaris.png",
+      "sha256": "5aa3f7c9d042cd2e2139f9c860d3b6934359cfed5d58b28b4ce74dd248fa1577"
+    },
+    {
+      "path": "46-destek-ve-xatirlatma.html",
+      "sha256": "e5d22f2ba015aad781351c8850d6c37ec74e24e183401eb5ecfeced423da4967"
+    },
+    {
+      "path": "46-destek-ve-xatirlatma.png",
+      "sha256": "8859e9dca62a57c7016ad3e5039bac669e635ffee872c8b0b9d419d3f41a60e3"
+    },
+    {
+      "path": "47-allergiya-ilkin-sual.html",
+      "sha256": "5f079db968439f0527942c62c3ab6b948690956c337712eac4e7f87147573059"
+    },
+    {
+      "path": "47-allergiya-ilkin-sual.png",
+      "sha256": "0ff226bc233f3f3136fc224463f7bc8948c5d8b8af568511c4baffeedd738ada"
+    },
+    {
+      "path": "48-plan-hazirdir-basla.html",
+      "sha256": "30828e9082a7bd4c2c4afa44d05ffe7b81331b0e29fa4378e9977706c94f5886"
+    },
+    {
+      "path": "48-plan-hazirdir-basla.png",
+      "sha256": "9edec65bb420a5696b24ef10be8e11f8bd85aabbff6d70296de3bfd53e7ea8cd"
+    },
+    {
+      "path": "README.txt",
+      "sha256": "46f5c512dd11d7db0cec87f524e0dfd67ce2f3d708ba673390b26aafd936ac9e"
+    },
+    {
+      "path": "assets/art_account.png",
+      "sha256": "910843e3a4241f69d4687ee0e8ec8e79ae5936de2560f3e16cc97131796bd3e3"
+    },
+    {
+      "path": "assets/art_active.png",
+      "sha256": "bc6d3db79480ca71c26d1d0551ba646c441481dac7642ab256bb69cf0fb1899b"
+    },
+    {
+      "path": "assets/art_age.png",
+      "sha256": "373818c263801c686202a0bebcf7986b2b3856b0bff9448a415b62aa02cfee5e"
+    },
+    {
+      "path": "assets/art_budget.png",
+      "sha256": "fad428e2c514b953028919ca6465cffe48c22bba46a4b80b55ceaba6cdae004c"
+    },
+    {
+      "path": "assets/art_cooking.png",
+      "sha256": "1ea114727c4f0fce683277e69ccf2d52355979bdffc65a211487589c273941d1"
+    },
+    {
+      "path": "assets/art_dislikes.png",
+      "sha256": "49055b3194ff7ff89d1663e288d1da4cbb09e8382f2925820dcf698ea726b6d7"
+    },
+    {
+      "path": "assets/art_egg.png",
+      "sha256": "96989e9989ff9d8cac94d13b87987be48727ab36b5293c498c05592332842bb5"
+    },
+    {
+      "path": "assets/art_empty.png",
+      "sha256": "a660e9498bd053246b9978f1db33c0f62d263f8402326e7482f0876a9d28a3eb"
+    },
+    {
+      "path": "assets/art_empty_add.png",
+      "sha256": "9e9bc62acd3e94ff074dfde06ae6ebb198141b7d96e06cc87783afa0a6a1459d"
+    },
+    {
+      "path": "assets/art_empty_menu.png",
+      "sha256": "37d4ee95d9bdd819837511ee51ac13b9a6fc440b634b4952c4454e6242e67b93"
+    },
+    {
+      "path": "assets/art_empty_progress.png",
+      "sha256": "72ae08aec4bf6a6e84c21c60a74b77d479c1136b763fcea2153a128bcb0324ab"
+    },
+    {
+      "path": "assets/art_entry_camera.png",
+      "sha256": "88152a819d21f76b7306879378e26c2e3fc246c382f48b8a73f69134eabc5cb4"
+    },
+    {
+      "path": "assets/art_entry_previous.png",
+      "sha256": "93589e4af6dbf21dd6905138d281752fccdbda3f95a0112461870ddc2ca7d5ec"
+    },
+    {
+      "path": "assets/art_entry_search.png",
+      "sha256": "189e0d540ca882984af13d5ba2b0bf181f02a7e6119e215177be99745144107a"
+    },
+    {
+      "path": "assets/art_female.png",
+      "sha256": "2765a3296f73f761baf3654603322918d2bce16272592256c19485cae84dd302"
+    },
+    {
+      "path": "assets/art_fish.png",
+      "sha256": "0696695b3b62e081c33a987d531ba058f05491f440a69c03430d9ed505be4c03"
+    },
+    {
+      "path": "assets/art_gain.png",
+      "sha256": "866d3140ffcc921c98d521a62a1973a8eec441e15e052bd62a3496b9477247c4"
+    },
+    {
+      "path": "assets/art_health.png",
+      "sha256": "46c6494dc68aeecef2b39b46eeafbf0d356d1ac798579f8244a92a5e68a6590a"
+    },
+    {
+      "path": "assets/art_healthy.png",
+      "sha256": "2786200748e473925be12442a2c5e07ad5f1faeb37611389d7fedc6cc84e17a6"
+    },
+    {
+      "path": "assets/art_height.png",
+      "sha256": "f3266ed0d0f918a8aff54bed902a4a240ad43ee614118284604c2e7192b2d2b2"
+    },
+    {
+      "path": "assets/art_ingredient_carrot.png",
+      "sha256": "a733c9f59719bf30ecfd68c7bb18d29764093680535eba36235b995a09bf2cf1"
+    },
+    {
+      "path": "assets/art_ingredient_chicken.png",
+      "sha256": "516e0afa2dd16528703689ce8e75add85fc988abfbc36f2b8790bf613e5c494c"
+    },
+    {
+      "path": "assets/art_ingredient_oil.png",
+      "sha256": "17da448febfc3abdda320fee18a36348f19394b0b5ec704b5ebd62775b2a8383"
+    },
+    {
+      "path": "assets/art_ingredient_onion.png",
+      "sha256": "ede54b7764ac356cc541c3c79eaa70fa7645754ebdc2d36d1918b4976aa76a26"
+    },
+    {
+      "path": "assets/art_ingredient_rice.png",
+      "sha256": "496a4965dfd0e74783730ee81aad037d88126f2de481196a042cac5cf15ef341"
+    },
+    {
+      "path": "assets/art_log.png",
+      "sha256": "2f4e2cf4e84f88ffe65e020c0f382c646d869f05986045d5ac15b414a93d73de"
+    },
+    {
+      "path": "assets/art_lose.png",
+      "sha256": "200c602165a65a8b7af7d0c78e8ea8a57e0a52d81dd805fb2a6ed613d467c3e3"
+    },
+    {
+      "path": "assets/art_maintain.png",
+      "sha256": "a6de2139c5fff7ebe10f44b86a56599b1dabf2050d4f51297ce939c96d18c33e"
+    },
+    {
+      "path": "assets/art_male.png",
+      "sha256": "67185e131956bb506971797d5d9c678ceaecc1d4e6381b891f4c4748dc78dbe7"
+    },
+    {
+      "path": "assets/art_menu.png",
+      "sha256": "de98ff43d5fb810725e83b71f8c66da5c3089360124c2004ea07e949a21c90d4"
+    },
+    {
+      "path": "assets/art_milk.png",
+      "sha256": "817cf13c2ff8f2e273ab3c7c8a77bfea56ea2175b6e9379ac7ee63026b015b66"
+    },
+    {
+      "path": "assets/art_nuts.png",
+      "sha256": "f39090e10fad14b1693a05b3efd9e25e5f416eaa5b39f265d8dafdf63ee7a443"
+    },
+    {
+      "path": "assets/art_other_choices.png",
+      "sha256": "68617807b152435eb5293682846fbb4d8895a1d461c3cb0b0a1da18ed543d97b"
+    },
+    {
+      "path": "assets/art_portion_scale.png",
+      "sha256": "2688d3e3b61c128dae160c3735452e4a84d8557c972752ebbc2fdfa935fd947e"
+    },
+    {
+      "path": "assets/art_progress.png",
+      "sha256": "a76fe5a5277347771074bd378925ca236560a1ffbe35d47b6e86b520bcc7af5e"
+    },
+    {
+      "path": "assets/art_recipe.png",
+      "sha256": "ebf8a6670103e1672973509e04400ddd033cc4443e15595c6d03cfdf87794adb"
+    },
+    {
+      "path": "assets/art_saved.png",
+      "sha256": "24913f6e57c9c0b1a33bd2b399c5adb6157fd4c952dfdabd5cf9451d91e9ebfd"
+    },
+    {
+      "path": "assets/art_sedentary.png",
+      "sha256": "a59b273a9f48871244666d5e9204ebea3fcdbf50a9e94ae08f037d07955d5791"
+    },
+    {
+      "path": "assets/art_walking.png",
+      "sha256": "60de4bdaf5d200b8b9956abfb7a0be6621a52b5fabc9d26ccf808eedd8c09300"
+    },
+    {
+      "path": "assets/art_weight.png",
+      "sha256": "a7063b77c362937487e0446bab8c3deebc4e8c59d787c5019fc56fb28e0c6f96"
+    },
+    {
+      "path": "assets/art_welcome.png",
+      "sha256": "c1bc161cc930abf293ac2cd9d8236272c393d9cadf37359407516c238d9ff3bb"
+    },
+    {
+      "path": "assets/art_wheat.png",
+      "sha256": "5536b79b092e0650756eb4a71df041299ad8793cea6969d5c8dc571f2b4005c7"
+    },
+    {
+      "path": "assets/art_write_error.png",
+      "sha256": "aaba1c3df7ab969974b3ae6ffc5a0b057364345627da53914ef183004a5d71a1"
+    },
+    {
+      "path": "build.py",
+      "sha256": "929e3fcaf5ab7428844e8020424580efce7f858b2af2c057269ce30ca2b984e4"
+    },
+    {
+      "path": "components.py",
+      "sha256": "b8409bcd1960801cc9cbcfd58a9eaa5109bc224d4c772cc26970a70c66e9277a"
+    },
+    {
+      "path": "coverage.json",
+      "sha256": "0b55d28c6f68b4eea931f2ea887827d3e54abdb4025797c93c0eab1cea53d6cd"
+    },
+    {
+      "path": "index.html",
+      "sha256": "9b4e4c298da9df648b8a8772625d770a415856be744dee8400e44ef6855f1330"
+    },
+    {
+      "path": "legacy.py",
+      "sha256": "413619e5aa13169c40f5823d734d0c65aaaaa56378bf4597206b87506d44ef07"
+    },
+    {
+      "path": "onboarding.py",
+      "sha256": "d5fec0cd3c08c30ff64eaf39bcca6f2f7b1bebd006b27e9b67783198e0fa559c"
+    },
+    {
+      "path": "package.py",
+      "sha256": "8a2a8a321a7accc789fda26dd2d97e6758d0337bdd8e96ade8ae835bb1f93815"
+    },
+    {
+      "path": "references/00-reference.png",
+      "sha256": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
+    },
+    {
+      "path": "references/31-32-flow-notes.txt",
+      "sha256": "1d60f03a6d974c6667f792c998f0fbc68400619522ed347ca1f3b4a469de4e86"
+    },
+    {
+      "path": "references/31-allergiya-ilkin-veziyyet.png",
+      "sha256": "bb23f7a168367da79478a82976b76a6807c2c6c39c4731be629ae2fa5fd8b916"
+    },
+    {
+      "path": "references/32-plan-hazirdir.png",
+      "sha256": "1770b8a3dfc905c4d74e16e2aef1a4a5fb8e7fbe9673084ac985bf2b62485197"
+    },
+    {
+      "path": "references/d02-portions.png",
+      "sha256": "e185e3dbde893306722b8b4ffc0f0ed4e98a1de62fe7367f56cfeba0969870e5"
+    },
+    {
+      "path": "references/d02-portions.txt",
+      "sha256": "c8d4258910213a1d50b07262bed3957404357a76adff6c41a147ecad7c7f0138"
+    },
+    {
+      "path": "references/d03-menu.png",
+      "sha256": "5cc43a3291ee6a1a4136c908c4267d5e2103221d61a66412e072e2a04ce00702"
+    },
+    {
+      "path": "references/d03-menu.txt",
+      "sha256": "617f4c3155f7a6eb15b1c416ad07db3392d6716cf7202fb42a43535edf4126d5"
+    },
+    {
+      "path": "render-report.json",
+      "sha256": "dbac7b75cb6c332943d73f717bf55fc7ec95ff316204b7786500ca8f81f01238"
+    },
+    {
+      "path": "render.mjs",
+      "sha256": "86c761c9deeb7ddc1ac0a30975c8a3d908d84b8648da7c41917ea6707bd470b9"
+    },
+    {
+      "path": "replacement-map.json",
+      "sha256": "5795eb3f8e6e218172af822f409a8348acff3a76eea59657a408a5f34d1be6ff"
+    },
+    {
+      "path": "screens.json",
+      "sha256": "3c36bf93937036585656a95955915809ba914c3a3c7010f6d9ac358cac1d8e7a"
+    },
+    {
+      "path": "source-inputs/completion-screens.json",
+      "sha256": "641bb39856786de4afc9a81bbedc8071ad8229df72c5f7bae524a9d0501d8aaf"
+    },
+    {
+      "path": "states.py",
+      "sha256": "b2956874810d65c48d0ffbdcf6440153b290e4abab7cd38a50c16ff89d18dbdb"
+    },
+    {
+      "path": "style.py",
+      "sha256": "52991b0f0afb307ce340992cbdf940132b0fa68bb6499f4331fb87a3b1ddd38e"
+    },
+    {
+      "path": "visual-review.json",
+      "sha256": "0ed492cf2747cae143bc67c3e5c155a6c57cc48db2152792519f030c7a503586"
+    }
+  ]
+}

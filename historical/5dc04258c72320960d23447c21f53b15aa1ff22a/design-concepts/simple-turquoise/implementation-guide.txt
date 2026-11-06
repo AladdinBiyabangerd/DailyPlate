@@ -1,0 +1,57 @@
+QIDA — SADƏ FİRUZƏYİ DİZAYN
+
+YENİ QƏRARLAR: 07–11 nömrəli əlavə dizayn dəstləri 25–44-cü ekran nümunələrini əhatə edir.
+İnqrediyent redaktəsi, günlərarası dəyişmə, alternativ təsdiqi və foto sonrası resept düzəlişi üçün new-flows-guide.txt əsas götürülsün.
+Köhnə resept/alternativ/foto ekranlarını bu əlavələrsiz son axın kimi tətbiq etməyin.
+
+Əsas vizual istinad: 00-reference.png. İstifadəçinin seçdiyi istiqamət budur.
+Bu dəst vizual ekran nümunələridir; işlək tətbiq və ya Figma komponent kitabxanası deyil.
+
+DİZAYN QAYDALARI
+Məcburi ümumi prinsip: hər yeni ekran, axın və yenidən dizayn mövcud dizayn prinsiplərinə uyğun hazırlanmalıdır. İşə başlamazdan əvvəl təsdiqlənmiş istinadlar və əlaqəli ekranlar nəzərdən keçirilməlidir.
+İnterfeys sadə, asan başa düşülən, rahat istifadə olunan və keyfiyyətli olmalıdır. Ekranlar arasında düzülüş, komponentlər, terminlər və qarşılıqlı əlaqə davranışlarında ardıcıllıq qorunmalıdır.
+Lazımsız mürəkkəblikdən qaçın; əsas hərəkət və növbəti addım aydın olsun. Bu prinsip hər yeni dizayn və yenidən dizayn üçün mövcud vizual qəbul yoxlaması ilə birlikdə tətbiq olunur.
+Rəng tokenləri: ../tokens.css faylında simple-* adları.
+Fon simple-bg; kart simple-surface; mətn simple-text; köməkçi mətn simple-muted.
+Düymələrdə simple-primary üzərində ağ mətn. Parlaq simple-accent şəkil və dekorativ vurğular üçündür.
+Əsas mətn ən azı 16 pt, toxunma sahəsi ən azı 44 pt. Sistem şrift ölçüsünə uyğun böyümə dəstəklənməlidir.
+Aralıqlar 8/16/24/32; kart radiusu 24. Platformaya uyğun ölçü vahidləri ilə tətbiq olunur.
+Şəkil və aydın söz birlikdə: tək ikonla əməliyyat izah olunmur.
+Hər tapşırıq ekranında bir əsas hərəkət. Geri qayıtmaq görünəndir.
+Seçili kart rənglə yanaşı çərçivə və işarə ilə fərqlənir.
+Alt menyu əsas bölmələrdə: Bu gün / Menyu / Əlavə et / İrəliləyiş / Profil.
+Formalar: daimi sahə adları, uyğun klaviatura, sadə xəta mətni və ekran oxuyucu etiketləri.
+
+ƏSAS AXINLAR
+İlk giriş → məqsəd (istinad ekranı) → şəxsi məlumat → aktivlik → allergiya → vaxt və büdcə → plan.
+Bu gün → Əlavə et (istinad ekranı) → axtar və ya şəkil çək → yeməyi təsdiqlə → porsiya (istinad ekranı) → əlavə olundu.
+Menyu → resept → Yedim → porsiya → qeyd. Yemək dəyişmək yalnız planı dəyişir.
+Menyu → alış-veriş → evdə olanı və alınanı işarələ.
+İrəliləyiş → çəki qeydi → yadda saxla → həftəlik baxış.
+Profil → seçimlər, bildirişlər, dil, abunəlik və yardım.
+
+MƏHSUL MƏNTİQİ
+Planlanan yemək faktiki qəbul toplamına daxil deyil; yalnız istifadəçinin təsdiqi ilə yazılır.
+Foto yalnız yemək namizədi verir; istifadəçi yemək, yağ/sous və porsiyanı təsdiqləyir. Dəqiqlik faizi uydurulmur.
+Az / Orta / Çox seçimləri hər resept üzrə real çəkiyə bağlanmalıdır. Boşqab ölçüsü universal kalori deyil.
+Qramla daxil etmə alternativi saxlanır. Enerji hədəfi və foto əsaslı nəticələr təxmini kimi göstərilir.
+Hədəf aşılırsa neytral mətn işlədilir; qırmızı cəza və yeməyə qadağa yoxdur.
+Çəki artımı və azalma istifadəçinin məqsədinə uyğun, mühakiməsiz göstərilir.
+İnternet olmayanda yalnız həqiqətən lokal saxlanmış qeydə “saxlanıb” deyilir. Sinxronlaşma təkrar qeyd yaratmır.
+Abunəlik qiymətləri eskiz nümunəsidir; tətbiqdə real mağaza qiyməti, valyutası və dövrü göstərilir.
+
+TƏTBİQ MƏRHƏLƏSİ ÜÇÜN ƏLAVƏ VƏZİYYƏTLƏR
+Yüklənmə, boş axtarış, kamera icazəsi yoxdur, səhv e-poçt/şifrə, şifrənin sıfırlanması.
+Əl ilə qida forması, əvvəl yeyilənlərin siyahısı, dəqiq qram, qida qeydini düzəltmək və silmək.
+Hesab silmə, məlumat ixracı, məxfilik, dəstək, abunəliyi idarə etmək, gözləyən/uğursuz ödəniş və alışın bərpası.
+Bu əlavə hallar 24 yeni ekranın hamısında ayrıca təsvir edilmir; tətbiq zamanı komponentlərdən törəyir.
+
+YOXLAMA
+Əsas mətn/fon token cütləri minimum 4.5 kontrast yoxlamasından keçib.
+Generasiya edilmiş piksel rəngləri tokenlərdən fərqlənə bilər; işlək UI-də kontrast və əlçatanlıq yenidən yoxlanmalıdır.
+AI eskizlərindəki söz, rəqəm, tarix və qrafiklər implementasiya zamanı məhsul qaydaları ilə dəqiqləşdirilməlidir.
+
+K06/K07 UI TAMAMLAMALARI
+Hazır kodun PNG uyğunluğu və çatışmayan ekranların 12–14 əlavə dizayn dəstləri:
+ui-extension-guide.txt. Bu əlavələr əsas 00–11 dizaynlarını və planın funksional
+qaydalarını əvəz etmir; tələb olunan əlavə forma və boş/xəta hallarını tamamlayır.

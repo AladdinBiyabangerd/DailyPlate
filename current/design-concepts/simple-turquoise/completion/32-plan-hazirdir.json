@@ -1,0 +1,25 @@
+{
+  "num": 32,
+  "slug": "plan-hazirdir",
+  "title": "İlkin məlumat axını · uğurlu bitiş",
+  "panels": [
+    {
+      "id": "32-A",
+      "title": "Planın hazırdır",
+      "body": "<p class=\"lead\">İlk gününə başlaya bilərsən.</p><section class=\"card \"><h3>Seçimlərin nəzərə alınıb</h3><p>Məqsəd və şəxsi məlumatlar<br>Aktivlik və sağlamlıq cavabları<br>Allergiya və yemək seçimləri<br>Vaxt, büdcə və yemək sayı</p></section><section class=\"card \"><h3>Bu gün səni nə gözləyir?</h3><p>Günün menyusuna bax və yediklərini əlavə et. Seçimlərini profildən dəyişə bilərsən.</p></section><section class=\"card notice\"><b>Nümunə plan</b><p>Bu UI mərhələsində plan nümayiş üçündür. Fərdi qidalanma hesabı aparılmayıb.</p></section>",
+      "cta": "Başla",
+      "back": "Cavablarıma bax",
+      "art": "art_healthy",
+      "tab": null
+    },
+    {
+      "id": "32-B",
+      "title": "Bu gün",
+      "body": "<p class=\"lead\">Salam! İlk gününə xoş gəldin.</p><section class=\"card notice\"><b>Nümunə plan · UI mərhələsi</b><p>Hədəf və kalori hesablanmayıb.</p></section><section class=\"card \"><h3>☀ İndi · Səhər yeməyi</h3><p>Yumurta və tərəvəz<br>Nümunə menyu</p><div class=\"link\">Nə yediyini əlavə et →</div></section><section class=\"card \"><h3>Günün yeməkləri</h3><p>○ Səhər · planlaşdırılıb<br>○ Nahar · planlaşdırılıb<br>○ Şam · planlaşdırılıb</p></section><p>Hələ yemək qeyd etməmisən.</p>",
+      "cta": "Menyuya bax",
+      "back": "Nə yediyini əlavə et",
+      "art": "art_menu",
+      "tab": "Bu gün"
+    }
+  ]
+}

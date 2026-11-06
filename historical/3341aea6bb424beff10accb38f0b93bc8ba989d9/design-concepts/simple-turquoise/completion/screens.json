@@ -1,0 +1,457 @@
+[
+  {
+    "num": 19,
+    "slug": "telimat-yoxdur",
+    "title": "Dəyişən resept · uyğun təlimat yoxdur",
+    "requirements": [
+      "16.3",
+      "19.14"
+    ],
+    "panels": [
+      {
+        "id": "19-A",
+        "title": "Bu variantın təlimatı yoxdur",
+        "body": "<section class=\"card \"><h3>Toyuq əvəzinə mərci</h3><p>Tərkibi dəyişmisən. Köhnə hazırlanma addımları bu varianta tam uyğun deyil.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bu dəyişiklik üçün yoxlanmış hazırlanma təlimatı tapılmadı. Köhnə vaxt və porsiya şəkli də bu variant üçün təsdiqlənməyib.</p></section><section class=\"card \"><h3>Necə davam edək?</h3><p>Tərkibə qayıdıb seçimini dəyiş və ya uyğun təlimatı olan başqa resept seç. Dəyişiklik hələ plana tətbiq edilməyib.</p></section>",
+        "cta": "Tərkibə qayıt",
+        "back": "Başqa resept seç",
+        "tab": null,
+        "art": "art_cooking"
+      },
+      {
+        "id": "19-B",
+        "title": "İlkin reseptə qayıt?",
+        "body": "<section class=\"card \"><h3>Qaralamanı ləğv et</h3><p>Mərci ilə etdiyin saxlanmamış düzəlişlər atılacaq. Plan və alış-veriş siyahısı dəyişməyəcək.</p></section><section class=\"card selected\"><h3>İlkin toyuq resepti</h3><p>Öz tərkibi və həmin versiyanın hazırlanma addımları ilə açılacaq.</p></section>",
+        "cta": "İlkin reseptə qayıt",
+        "back": "Redaktəyə davam et",
+        "tab": null,
+        "art": "art_recipe"
+      }
+    ]
+  },
+  {
+    "num": 20,
+    "slug": "gun-hefte-onbaxis",
+    "title": "Açılmış gün və həftə önbaxışı",
+    "requirements": [
+      "16.2",
+      "16.6",
+      "19.15"
+    ],
+    "panels": [
+      {
+        "id": "20-A",
+        "title": "Günün yenilənmiş planı",
+        "body": "<div class=\"chip\">6 noyabr 2026 · Cümə</div><section class=\"card \"><h3>Faktiki yeyilən · dəyişmir</h3><p>Səhər və nahar qeydləri<br><b>900 kkal · Z 50 q · K 100 q · Y 33,3 q</b></p></section><section class=\"card selected\"><h3>Qalan planlı hissə</h3><p>Şam və qalan qəlyanaltı<br>Əvvəl: 900 kkal · Z 50 q · K 100 q · Y 33,3 q<br><b>Sonra: 1 000 kkal · Z 55 q · K 105 q · Y 40 q</b></p></section><section class=\"card \"><h3>Günün proqnozu · əvvəl → sonra</h3><p>Enerji: <b>1 800 → 1 900 kkal</b><br>Zülal: 100 → 105 q<br>Karbohidrat: 200 → 205 q<br>Yağ: 66,7 → 73,3 q</p></section><p>Faktiki + qalan plan. Yeyilmiş hissə ikinci dəfə sayılmır. Hədəf dəyişmir.</p>",
+        "cta": "Həftə təsirinə bax",
+        "back": "Redaktəyə qayıt",
+        "tab": null,
+        "art": null
+      },
+      {
+        "id": "20-B",
+        "title": "Həftəyə təsiri",
+        "body": "<div class=\"chip\">2–8 noyabr 2026</div><section class=\"card \"><h3>Faktiki yeyilən · dəyişmir</h3><p>Qeyd olunmuş hissələr:<br><b>8 100 kkal · Z 450 q · K 900 q · Y 300 q</b></p></section><section class=\"card selected\"><h3>Qalan planlı hissələr</h3><p>Əvvəl: 4 500 kkal · Z 250 q · K 500 q · Y 166,7 q<br><b>Sonra: 4 600 kkal · Z 255 q · K 505 q · Y 173,3 q</b></p></section><section class=\"card \"><h3>Həftə proqnozu · əvvəl → sonra</h3><p>Enerji: <b>12 600 → 12 700 kkal</b><br>Zülal: 700 → 705 q<br>Karbohidrat: 1 400 → 1 405 q<br>Yağ: 466,7 → 473,3 q</p></section><p>Yalnız seçilmiş şam dəyişir. Qeyd edilməyən qəbul hesablanmır; bu, tam faktiki həftə yekunu deyil.</p>",
+        "cta": "Dəyişikliyi təsdiqlə",
+        "back": "Günə qayıt",
+        "tab": null,
+        "art": null
+      }
+    ]
+  },
+  {
+    "num": 21,
+    "slug": "deyisme-yollari",
+    "title": "Yeməyi dəyişməyin əlavə halları",
+    "requirements": [
+      "16.4",
+      "16.5",
+      "T06",
+      "T09"
+    ],
+    "panels": [
+      {
+        "id": "21-A",
+        "title": "Uyğun alternativ tapılmadı",
+        "body": "<section class=\"card \"><h3>Mövcud seçimlərlə nəticə yoxdur</h3><p>Allergiya və digər qəti məhdudiyyətlər saxlanılıb. Heç bir yemək dəyişdirilməyib.</p></section><section class=\"card \"><h3>Başqa yol seç</h3><p>Uyğun qramlarla porsiyaya baxa və ya başqa yemək vaxtını yoxlaya bilərsən. Allergiya qaydası yumşaldılmır.</p></section>",
+        "cta": "Porsiyalara bax",
+        "back": "Başqa vaxt seç",
+        "tab": null,
+        "art": "art_empty"
+      },
+      {
+        "id": "21-B",
+        "title": "Porsiyanı uyğunlaşdıraq?",
+        "body": "<section class=\"card selected\"><h3>Təklif · hələ tətbiq edilməyib</h3><p>Seçilmiş yemək:<br><b>1 porsiya → 0,8 porsiya</b><br>Ölçülmüş bişmiş çəki: 300 → 240 q</p></section><section class=\"card \"><h3>Porsiya üçün · əvvəl → sonra</h3><p>Enerji: 500 → 400 kkal<br>Zülal: 30 → 24 q<br>Karbohidrat: 50 → 40 q<br>Yağ: 20 → 16 q</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Yeni miqdarı qəbul etdikdən sonra hər iki günün enerji, makro və məhdudiyyət yoxlaması göstəriləcək. Hələ uyğunluq təsdiqi deyil.</p></section>",
+        "cta": "İki günün nəticəsinə bax",
+        "back": "Porsiyanı dəyişmə",
+        "tab": null,
+        "art": null
+      },
+      {
+        "id": "21-C",
+        "title": "Bu hissə artıq yeyilib",
+        "body": "<section class=\"card \"><h3>6 noyabr · Nahar</h3><p>Bu plan hissəsinə faktiki yemək qeydi bağlıdır. Yeyilmiş hissəni başqa günə köçürmək və ya dəyişmək olmur.</p></section><section class=\"card \"><h3>Qeydi düzəltmək istəyirsən?</h3><p>Həqiqətən yediyin tərkib və miqdarı ayrıca qeyddən düzəlt. Plan əməliyyatı tarixçəni dəyişmir.</p></section>",
+        "cta": "Faktiki qeydi aç",
+        "back": "Menyuya qayıt",
+        "tab": null,
+        "art": "art_saved"
+      },
+      {
+        "id": "21-D",
+        "title": "Bu günə köçür",
+        "body": "<div class=\"chip\">7 noyabr şam → 6 noyabr şam</div><section class=\"card selected\"><h3>Hədəf yemək vaxtı boşdur</h3><p>Bu gün · Şam<br>Tərəvəzli bulqur · 0,8 porsiya (240 q)<br><b>Boş vaxt seçilib ✓</b></p></section><section class=\"card \"><h3>Köçürmənin nəticəsi</h3><p>Yemək 7 noyabrın şamından çıxıb 6 noyabrın boş şamına keçir. Qarşılıqlı yer dəyişmə deyil. İki gün birlikdə saxlanacaq.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Təsdiqdən əvvəl hər iki günün proqnozu, məhdudiyyətlər və alış-veriş fərqi yoxlanır. Dolu vaxt bu əməliyyat üçün seçilmir.</p></section>",
+        "cta": "İki günün önbaxışına bax",
+        "back": "Başqa boş vaxt seç",
+        "tab": null,
+        "art": null
+      }
+    ]
+  },
+  {
+    "num": 22,
+    "slug": "plan-konfliktleri",
+    "title": "Geri qaytarma və saxlama konfliktləri",
+    "requirements": [
+      "16.6",
+      "16.8",
+      "T12"
+    ],
+    "panels": [
+      {
+        "id": "22-A",
+        "title": "Faktiki qeyd qorunacaq",
+        "body": "<section class=\"card \"><h3>Dəyişiklikdən sonra yemək yeyilib</h3><p>Toyuq plovu · 6 noyabr, Şam<br>Faktiki qəbul artıq gündəlikdə saxlanıb.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Geri qaytarma yalnız planı və alış-veriş siyahısını birlikdə əvvəlki vəziyyətə qaytarır. Faktiki yemək qeydi, onun tərkibi və qida dəyərləri silinmir.</p></section><section class=\"card \"><h3>Proqnoz necə hesablanır?</h3><p>Yeyilmiş hissə yenidən qalan plan kimi sayılmır. Faktiki qeydə düzəliş ayrıca əməliyyatdır.</p></section>",
+        "cta": "Planı geri qaytar",
+        "back": "Dəyişikliyi saxla",
+        "tab": null,
+        "art": "art_saved"
+      },
+      {
+        "id": "22-B",
+        "title": "Plan başqa cihazda dəyişib",
+        "body": "<section class=\"card \"><h3>Dəyişiklik saxlanmadı</h3><p>Sən redaktə edərkən planın daha yeni versiyası yaranıb. Sənin düzəlişin onun üzərinə yazılmadı.</p></section><section class=\"card selected\"><h3>Qaralaman qorunur</h3><p>Son planı aç, fərqlərə bax və bu düzəlişi yenidən yoxla. Uyğunluq yoxlanmadan tətbiq edilmir.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Heç bir yarımçıq plan və ya alış-veriş dəyişikliyi tətbiq olunmayıb.</p></section>",
+        "cta": "Son planla müqayisə et",
+        "back": "Qaralamaya qayıt",
+        "tab": null,
+        "art": "art_write_error"
+      }
+    ]
+  },
+  {
+    "num": 23,
+    "slug": "foto-deqiqlesdirme",
+    "title": "Foto · resept əlaqəsi və qısa dəqiqləşdirmə",
+    "requirements": [
+      "16.9",
+      "T18",
+      "T13"
+    ],
+    "panels": [
+      {
+        "id": "23-A",
+        "title": "Bu foto hansı yeməkdir?",
+        "body": "<section class=\"card \"><h3>Fotodakı yeməyi sən seç</h3><p>Plan reseptinə bağlı olduğunu saatdan və foto oxşarlığından fərz etmirik.</p></section><section class=\"card selected\"><h3>Planımdakı reseptdir</h3><p>6 noyabr · Şam<br>Toyuq plovu · son saxlanmış versiya<br>✓ Bu resepti seçdin</p></section><section class=\"card \"><h3>Başqa plan yeməyi</h3><p>Gün və yemək vaxtına görə seç</p></section><section class=\"card \"><h3>Planda olmayan yemək</h3><p>Ümumi yemək əlavə etmə axınına keç</p></section>",
+        "cta": "Seçilmiş reseptlə davam et",
+        "back": "Ümumi yemək əlavə et",
+        "tab": null,
+        "art": "art_entry_camera"
+      },
+      {
+        "id": "23-B",
+        "title": "Bir şeyi dəqiqləşdirək",
+        "body": "<section class=\"card selected\"><h3>Sən təsdiqlədin</h3><p>Toyuq plovu · resept olduğu kimi hazırlanıb.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Fotoda model başqa yemək və ya əlavə sous ola biləcəyini təxmin edir. Şəkildən gizli yağı və dəqiq tərkibi bilmək olmur.</p></section><section class=\"card \"><h3>Hansı məlumat əsas olsun?</h3><p>Sənin təsdiqin əsasdır. Resept və qramlar səssiz dəyişməyəcək. Lazımdırsa tərkibi özün düzəldə bilərsən.</p></section>",
+        "cta": "Resepti təsdiqləyirəm",
+        "back": "Tərkibi dəqiqləşdir",
+        "tab": null,
+        "art": "art_recipe"
+      },
+      {
+        "id": "23-C",
+        "title": "Nə qədər yedin?",
+        "body": "<section class=\"card \"><h3>Resept seçimin saxlanıb</h3><p>Toyuq plovu · son saxlanmış versiya<br>Foto təxmini resepti əvəz etmədi.</p></section><section class=\"card \"><h3>Hazırlanan qazan</h3><p>4 porsiya hazırlanıb</p></section><section class=\"card selected\"><h3>Sənin yediyin hissə</h3><p>✓ 1 porsiya · qazanın ¼ hissəsi</p></section><p>Ölçülmüş bişmiş çıxım yoxdursa qram və 100 q dəyəri göstərilmir. Bu seçim hələ gündəlik qeydi yaratmır.</p>",
+        "cta": "Qeydin önbaxışına bax",
+        "back": "Resept seçiminə qayıt",
+        "tab": null,
+        "art": "art_portion_scale"
+      }
+    ]
+  },
+  {
+    "num": 24,
+    "slug": "alisveris-hallari",
+    "title": "Alış-veriş · qorunan məhsullar və paylaşım",
+    "requirements": [
+      "16.6",
+      "19.8"
+    ],
+    "panels": [
+      {
+        "id": "24-A",
+        "title": "Alınmış məhsul saxlanıb",
+        "body": "<div class=\"chip\">2–8 noyabr 2026</div><section class=\"card selected\"><h3>Yeni planda lazım deyil</h3><p>✓ Göbələk · Alınıb<br>Əvvəlki siyahı miqdarı: 200 q</p></section><section class=\"card \"><h3>Niyə burada qalır?</h3><p>Plan dəyişib, amma bu məhsulu artıq almısan. İşarə və məhsul səssiz silinməyib; ayrıca bölmədə saxlanılıb.</p></section><section class=\"card \"><h3>Həftəyə lazım olanlar</h3><p>Düyü · 700 q · □ Evdə var · □ Alınıb<br>Yağ · 70 q · ✓ Evdə var · □ Alınıb</p></section><p>Evdə var işarəsi ümumi ehtiyacdan avtomatik miqdar çıxmır.</p>",
+        "cta": "Siyahıya qayıt",
+        "back": "Məhsulu siyahıdan çıxar",
+        "tab": null,
+        "art": "art_ingredient_mushroom"
+      },
+      {
+        "id": "24-B",
+        "title": "Siyahın hələ boşdur",
+        "body": "<section class=\"card \"><h3>Bu həftə məhsul yoxdur</h3><p>Seçilmiş plan üçün alış-veriş məhsulu yoxdur. Plan seçəndə lazım olan ərzaqlar burada görünəcək.</p></section><section class=\"card \"><h3>Menyuya bax</h3><p>Planın varsa həftəni yoxla. Məhsul əlavə etmədən boş mətn paylaşılmır.</p></section>",
+        "cta": "Menyuya bax",
+        "back": "Başqa həftə seç",
+        "tab": "Menyu",
+        "art": "art_empty"
+      },
+      {
+        "id": "24-C",
+        "title": "Paylaşılacaq mətn",
+        "body": "<div class=\"chip\">Mətn önbaxışı · göndərilməyib</div><section class=\"card \"><h3>Alış-veriş · 2–8 noyabr 2026</h3><p>Həftəyə lazım olan ümumi miqdar:<br>• Düyü — 700 q<br>• Yağ — 70 q (Evdə var)<br><br>Artıq alınıb, yeni planda lazım deyil:<br>• Göbələk — əvvəlki siyahı: 200 q (Alınıb)</p></section><section class=\"card \"><h3>Yalnız siyahı paylaşılır</h3><p>Profil, çəki, hədəf və qida gündəliyi mətnə daxil edilmir. Növbəti addımda sistem paylaşım pəncərəsindən alıcını sən seçirsən.</p></section>",
+        "cta": "Paylaşım pəncərəsini aç",
+        "back": "Ləğv et",
+        "tab": null,
+        "art": null
+      }
+    ]
+  },
+  {
+    "num": 25,
+    "slug": "hesab-formalari",
+    "title": "Hesab · tamamlanan forma və xəta halları",
+    "requirements": [
+      "18.9",
+      "18.10"
+    ],
+    "panels": [
+      {
+        "id": "25-A",
+        "title": "Yeni hesab yarat",
+        "body": "<label>E-poçt<div class=\"field\">ad@example.com</div></label><label>Şifrə<div class=\"field\">•••••••• · Göstər</div></label><label>Şifrəni təkrar yaz<div class=\"field\">•••••••• · Göstər</div></label><p class=\"error\">! Şifrələr uyğun deyil. Təkrar şifrəni yoxla.</p><section class=\"card \"><h3>Məlumatların qorunur</h3><p>Bu xəta planını və əvvəlki cavablarını silmir.</p></section>",
+        "cta": "Şifrəni düzəlt",
+        "back": "Girişə qayıt",
+        "tab": null,
+        "art": "art_account"
+      },
+      {
+        "id": "25-B",
+        "title": "Qeydiyyat alınmadı",
+        "body": "<section class=\"card \"><h3>Hesab yaratmaq tamamlanmadı</h3><p>Hazırda bağlantını yoxlamaq lazımdır. E-poçtun və formadakı məlumatların ekranda qalıb.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Planın və lokal qeydlərin qorunur. Başqa cihazda bərpa yalnız uğurlu sinxronizasiyadan sonra mümkündür.</p></section>",
+        "cta": "Yenidən yoxla",
+        "back": "Hələlik hesab açmadan davam et",
+        "tab": null,
+        "art": "art_write_error"
+      },
+      {
+        "id": "25-C",
+        "title": "Bərpa linki işləmir",
+        "body": "<section class=\"card \"><h3>Link etibarsızdır və ya vaxtı bitib</h3><p>Yeni bərpa linki istə. Bu linklə şifrəni dəyişmək olmur.</p></section><label>E-poçt<div class=\"field\">ad@example.com</div></label><section class=\"card \"><h3>Növbəti addım</h3><p>Uyğun hesab varsa yeni link üçün təlimat göndəriləcək. Planın və qeydlərin dəyişmir.</p></section>",
+        "cta": "Yeni link istə",
+        "back": "Girişə qayıt",
+        "tab": null,
+        "art": "art_account"
+      },
+      {
+        "id": "25-D",
+        "title": "Yeni şifrə seç",
+        "body": "<section class=\"card \"><h3>Bərpa linki yoxlanıb</h3><p>Yeni şifrəni iki dəfə daxil et.</p></section><label>Yeni şifrə<div class=\"field\">•••••••• · Göstər</div></label><label>Yeni şifrəni təkrar yaz<div class=\"field\">•••••••• · Göstər</div></label><p>Başqa hesabda istifadə etmədiyin şifrə seç. Hər iki sahəyə eyni şifrəni yaz.</p>",
+        "cta": "Yeni şifrəni saxla",
+        "back": "Girişə qayıt",
+        "tab": null,
+        "art": "art_account"
+      }
+    ]
+  },
+  {
+    "num": 26,
+    "slug": "komek-formalari",
+    "title": "Kömək · FAQ cavabı və dəstək forması",
+    "requirements": [
+      "19.16"
+    ],
+    "panels": [
+      {
+        "id": "26-A",
+        "title": "Foto kalorisi niyə təxminidir?",
+        "body": "<section class=\"card \"><h3>Tez-tez verilən suallar</h3><p>Şəkildən yağ, sous və gizli inqrediyentlərin miqdarını dəqiq bilmək olmur. Ona görə yeməyi, tərkibi və yediyin porsiyanı təsdiqləyirsən.</p></section><section class=\"card \"><h3>Dəqiqləşdirmək üçün</h3><p>Tərkibi düzəlt və məlum miqdarı daxil et. Bişmiş çəki ölçülməyibsə dəqiq qram uydurmaq lazım deyil. Foto özü gündəlik qeydi yaratmır.</p></section>",
+        "cta": "Dəstəyə yaz",
+        "back": "Bütün suallara qayıt",
+        "tab": null,
+        "art": "art_entry_camera"
+      },
+      {
+        "id": "26-B",
+        "title": "Dəstəyə müraciət",
+        "body": "<label>Cavab üçün e-poçt<div class=\"field\">ad@example.com</div></label><label>Mövzu<div class=\"field\">Qida məlumatında səhv</div></label><label>Resept və ya qeyd (istəyə bağlı)<div class=\"field\">Toyuq plovu</div></label><label>Mesajın<div class=\"field\">Porsiya məlumatını dəqiqləşdirmək istəyirəm…</div></label><section class=\"card notice\"><h3>Diqqət</h3><p>Şəxsi gündəlik və fotolar avtomatik əlavə edilmir. Yalnız bu formadakı məlumat göndəriləcək.</p></section>",
+        "cta": "Müraciəti göndər",
+        "back": "Qaralamaya qayıt",
+        "tab": null,
+        "art": null
+      }
+    ]
+  },
+  {
+    "num": 27,
+    "slug": "baxis-ve-bos-siyahilar",
+    "title": "14 günlük baxış və boş siyahılar",
+    "requirements": [
+      "27.8",
+      "19.3",
+      "19.16"
+    ],
+    "panels": [
+      {
+        "id": "27-A",
+        "title": "Hədəfə yenidən baxaq",
+        "body": "<div class=\"chip\">6 noyabr 2026 · 14 günlük baxış</div><section class=\"card \"><h3>Son 14 gündə 2 çəki ölçməsi</h3><p>Trend üçün ən azı 3 könüllü ölçmə lazımdır. Hazırda trend və avtomatik kalori düzəlişi verilmir.</p></section><section class=\"card \"><h3>Nəyi yoxlaya bilərsən?</h3><p>Çəki, aktivlik və məqsəd məlumatlarını nəzərdən keçir. Yeni hesabın səbəbi və nəticəsi təsdiqdən əvvəl göstəriləcək.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bu, məhsul xatırlatmasıdır, klinik baxış müddəti deyil. Yeni simptom və səbəbsiz çəki dəyişməsi varsa avtomatik hədəf dayandırılır; peşəkar dəstək al.</p></section>",
+        "cta": "Məlumatlarıma bax",
+        "back": "İndi yox",
+        "tab": "İrəliləyiş",
+        "art": "art_weight"
+      },
+      {
+        "id": "27-B",
+        "title": "Əvvəl yediklərim",
+        "body": "<section class=\"card \"><h3>Hələ yemək qeydin yoxdur</h3><p>Təsdiqlədiyin yeməklər burada görünəcək. Planlı yeməklər faktiki tarixçə sayılmır.</p></section><section class=\"card \"><h3>İlk yeməyini əlavə et</h3><p>Yeməyi axtar və ya əl ilə yaz. Tərkibi və porsiyanı təsdiqlədikdən sonra qeyd yaranır.</p></section>",
+        "cta": "Yemək axtar",
+        "back": "Əl ilə əlavə et",
+        "tab": "Əlavə et",
+        "art": "art_entry_previous"
+      },
+      {
+        "id": "27-C",
+        "title": "Saxlanmış reseptlər",
+        "body": "<section class=\"card \"><h3>Hələ resept saxlamamısan</h3><p>Bəyəndiyin reseptdə “Resepti saxla” seç. Sonra onu burada rahat tapa bilərsən.</p></section><section class=\"card \"><h3>Reseptə baxış</h3><p>Resepti saxlamaq onu plana və ya gündəliyə avtomatik əlavə etmir.</p></section>",
+        "cta": "Reseptlərə bax",
+        "back": "Menyuya qayıt",
+        "tab": "Menyu",
+        "art": "art_saved"
+      },
+      {
+        "id": "27-D",
+        "title": "Foto siyahısı",
+        "body": "<section class=\"card \"><h3>Hələ foto yoxdur</h3><p>Yemək şəkillərin burada görünəcək. Foto əlavə etmək yemək qeydi yaratmır.</p></section><section class=\"card \"><h3>Foto olmadan da davam et</h3><p>Axtarış və əl ilə qeyd həmişə əlçatandır. Şəkil göndərməzdən əvvəl razılıq və saxlanma məlumatı göstərilir.</p></section>",
+        "cta": "Şəkil çək",
+        "back": "Yemək axtar",
+        "tab": "Əlavə et",
+        "art": "art_entry_camera"
+      }
+    ]
+  },
+  {
+    "num": 28,
+    "slug": "vahid-vizual-qaydalar",
+    "title": "Vahid naviqasiya və qida dəyərlərinin əsası",
+    "requirements": [
+      "18.12",
+      "19.17",
+      "28.4"
+    ],
+    "panels": [
+      {
+        "id": "28-A",
+        "title": "Bugünkü menyun",
+        "body": "<div class=\"chip\">6 noyabr 2026 · Cümə</div><section class=\"card selected\"><h3>Nahar · Qismən yeyilib</h3><p>Toyuq plovu<br>Plan: 1 porsiya · yeyilib: ½<br>Qalan: ½ porsiya</p></section><section class=\"card \"><h3>Qalan ½ porsiya üçün</h3><p><b>250 kkal</b><br>Zülal 15 q · Karbohidrat 25 q · Yağ 10 q</p></section><section class=\"card \"><h3>Qalan planlı hissə</h3><p>Yalnız qalan hissə günün proqnozuna əlavə olunur. Yeyilmiş ½ porsiya faktiki qeyddə qorunur.</p></section>",
+        "cta": "Reseptə bax",
+        "back": "Alış-veriş siyahısı",
+        "tab": "Menyu",
+        "art": "art_recipe"
+      },
+      {
+        "id": "28-B",
+        "title": "Qida dəyərlərinin əsası",
+        "body": "<div class=\"chip\">Ölçülmüş çıxımı olan resept nümunəsi</div><section class=\"card selected\"><h3>Porsiya üçün · 300 q</h3><p><b>500 kkal</b><br>Zülal 30 q · Karbohidrat 50 q · Yağ 20 q</p></section><section class=\"card \"><h3>100 q üçün · bişmiş</h3><p><b>Təxminən 167 kkal</b><br>Zülal 10 q · Karbohidrat 16,7 q · Yağ 6,7 q</p></section><section class=\"card \"><h3>Mənbə və ölçü</h3><p>Resept versiyası və ölçülmüş bişmiş çıxım ilə hesablanır. Yuvarlaqlaşdırma fərqi mümkündür.</p></section>",
+        "cta": "Porsiya seçiminə bax",
+        "back": "Reseptə qayıt",
+        "tab": null,
+        "art": null
+      },
+      {
+        "id": "28-C",
+        "title": "Bişmiş çəki məlum deyil",
+        "body": "<section class=\"card selected\"><h3>Məlum resept payı üçün</h3><p>1 porsiya = hazırlanmış qazanın ¼ hissəsi<br>Qida dəyərləri bu payın inqrediyent hesabına əsaslanır.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bişmiş çıxım ölçülməyib. 100 q üçün dəyər və qramla porsiya göstərilmir. Köhnə porsiya fotosu yeni variant üçün ölçü deyil.</p></section><section class=\"card \"><h3>Məlumat çatmırsa</h3><p>Mənbədə olmayan nutrient “Məlum deyil” görünür, 0 yazılmır. Plan uyğunluğu ayrıca yoxlanır.</p></section>",
+        "cta": "Məlum payla davam et",
+        "back": "Tərkibə qayıt",
+        "tab": null,
+        "art": "art_portion_scale"
+      }
+    ]
+  },
+  {
+    "num": 29,
+    "slug": "elave-faktiki-porsiya",
+    "title": "Planlı hissədən artıq qəbul · ayrıca qeyd",
+    "requirements": [
+      "16.7",
+      "T13",
+      "T17",
+      "T19"
+    ],
+    "panels": [
+      {
+        "id": "29-A",
+        "title": "Əlavə yediyini ayrıca qeyd et",
+        "body": "<section class=\"card \"><h3>Toyuq plovu · 6 noyabr, Nahar</h3><p>Plan: 1 porsiya · artıq qeyd edilib: 1 porsiya<br>Qalan planlı hissə: 0</p></section><label>İndi əlavə yediyin miqdar<div class=\"field\">0,5 porsiya</div></label><section class=\"card notice\"><h3>Yalnız əlavə hissəni yaz</h3><p>Cəmi 1,5 porsiya yemisənsə, burada əlavə 0,5 porsiya yaz. Əvvəlki 1 porsiya yenidən əlavə olunmur.</p></section><section class=\"card \"><h3>Tərkib və ölçü</h3><p>Son təsdiqlənmiş resept versiyası · 4 porsiyalı qazan.<br>Bişmiş çəki məlum deyil; qram göstərilmir.</p></section><p>Tərkib fərqlidirsə: Tərkibi düzəlt. Miqdar boş, sıfır, mənfi və ya sonlu rəqəm deyilsə önbaxış açılmır.</p>",
+        "cta": "Əlavə hissənin önbaxışına bax",
+        "back": "Planlı hissəyə qayıt",
+        "tab": null,
+        "art": "art_portion_scale"
+      },
+      {
+        "id": "29-B",
+        "title": "Əlavə qəbulu təsdiqlə",
+        "body": "<section class=\"card selected\"><h3>Ayrıca faktiki qeyd · hələ saxlanmayıb</h3><p>Toyuq plovu · əlavə 0,5 porsiya<br>4 porsiyalı qazanın ⅛ hissəsi</p></section><section class=\"card \"><h3>Əlavə 0,5 porsiya üçün</h3><p>250 kkal · Zülal 15 q<br>Karbohidrat 25 q · Yağ 10 q</p></section><section class=\"card \"><h3>Bu yemək üzrə faktiki qəbul</h3><p>Əvvəl: 1 porsiya · 500 kkal<br>Sonra: 1,5 porsiya · 750 kkal<br>Qalan planlı hissə: 0 → 0</p></section><section class=\"card notice\"><h3>Plan dəyişmir</h3><p>Yalnız əlavə qəbul gündəliyə yazılır. Hədəf, digər yeməklər və alış-veriş dəyişmir. Bu, yeni plan tövsiyəsi deyil.</p></section><p>Rəqəmlər sintetik nümunədir. Təsdiqədək qeyd yaranmır; təkrar basma ikinci qeyd yaratmamalıdır.</p>",
+        "cta": "Əlavə 0,5 porsiyanı qeyd et",
+        "back": "Miqdarı düzəlt",
+        "tab": null,
+        "art": "art_portion_scale"
+      },
+      {
+        "id": "29-C",
+        "title": "Əlavə hissə qeyd edildi",
+        "body": "<section class=\"card selected\"><h3>Gündəlikdə ayrıca qeyd</h3><p>Toyuq plovu · əlavə 0,5 porsiya<br>Əvvəlki 1 porsiyalı qeyd qorunur.</p></section><section class=\"card \"><h3>Bu yemək üzrə cəmi</h3><p>Faktiki: 1,5 porsiya · 750 kkal<br>Qalan planlı hissə: 0<br>Günün proqnozunda əlavə hissə yalnız bir dəfə sayılır.</p></section><section class=\"card \"><h3>Düzəliş yolu</h3><p>Səhv miqdar yazmısansa yalnız yeni əlavə qeydi açıb düzəlt və ya sil. Əvvəlki qeyd səssiz dəyişmir.</p></section>",
+        "cta": "Əlavə qeydi aç",
+        "back": "Gündəliyə qayıt",
+        "tab": null,
+        "art": "art_portion_scale"
+      }
+    ]
+  },
+  {
+    "num": 30,
+    "slug": "onboarding-giris-xetalari",
+    "title": "Onboarding · yanlış yaş, boy və çəki",
+    "requirements": [
+      "18.2",
+      "19.2"
+    ],
+    "panels": [
+      {
+        "id": "30-A",
+        "title": "Yaşı rəqəmlə yaz",
+        "body": "<div class=\"chip\">Addım 2/5 · Özünü tanıt</div><label>Yaş · tam il<div class=\"field\">iyirmi səkkiz</div></label><div class=\"error\">! Yaşı tamamlanmış illə, tam rəqəm olaraq yaz. Məsələn: 28.</div><section class=\"card\"><h3>Cavabların saxlanıb</h3><p>Yalnız səhv sahəni düzəlt. Məqsəd və digər cavablar dəyişmir. Səhv girişlə növbəti addıma keçilmir.</p></section><section class=\"card notice\"><h3>Uyğunluq ayrıca yoxlanır</h3><p>Düzgün rəqəm fərdi plana uyğunluq təsdiqi deyil. Yaş və digər məhdudiyyətlər məhsul qaydaları ilə yoxlanır; bu konsept yeni tibbi hədd müəyyən etmir.</p></section>",
+        "cta": "Sahəni düzəlt",
+        "back": "Əvvəlki addıma qayıt",
+        "tab": null,
+        "art": "art_account"
+      },
+      {
+        "id": "30-B",
+        "title": "Boyu yoxla",
+        "body": "<div class=\"chip\">Addım 2/5 · Özünü tanıt</div><label>Boy · sm<div class=\"field\">NaN</div></label><div class=\"error\">! Boy sıfırdan böyük, sonlu rəqəm olmalıdır. Vahidi də yoxla.</div><section class=\"card\"><h3>Cavabların saxlanıb</h3><p>Yalnız səhv sahəni düzəlt. Məqsəd və digər cavablar dəyişmir. Səhv girişlə növbəti addıma keçilmir.</p></section><section class=\"card notice\"><h3>Uyğunluq ayrıca yoxlanır</h3><p>Düzgün rəqəm fərdi plana uyğunluq təsdiqi deyil. Yaş və digər məhdudiyyətlər məhsul qaydaları ilə yoxlanır; bu konsept yeni tibbi hədd müəyyən etmir.</p></section>",
+        "cta": "Sahəni düzəlt",
+        "back": "Əvvəlki addıma qayıt",
+        "tab": null,
+        "art": "art_account"
+      },
+      {
+        "id": "30-C",
+        "title": "Çəkini yoxla",
+        "body": "<div class=\"chip\">Addım 2/5 · Özünü tanıt</div><label>Çəki · kq<div class=\"field\">−5</div></label><div class=\"error\">! Çəki sıfırdan böyük, sonlu rəqəm olmalıdır. Məsələn: 78,4.</div><section class=\"card\"><h3>Cavabların saxlanıb</h3><p>Yalnız səhv sahəni düzəlt. Məqsəd və digər cavablar dəyişmir. Səhv girişlə növbəti addıma keçilmir.</p></section><section class=\"card notice\"><h3>Uyğunluq ayrıca yoxlanır</h3><p>Düzgün rəqəm fərdi plana uyğunluq təsdiqi deyil. Yaş və digər məhdudiyyətlər məhsul qaydaları ilə yoxlanır; bu konsept yeni tibbi hədd müəyyən etmir.</p></section>",
+        "cta": "Sahəni düzəlt",
+        "back": "Əvvəlki addıma qayıt",
+        "tab": null,
+        "art": "art_account"
+      }
+    ]
+  }
+]

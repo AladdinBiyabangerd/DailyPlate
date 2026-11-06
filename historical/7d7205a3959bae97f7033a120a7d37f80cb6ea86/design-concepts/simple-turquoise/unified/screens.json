@@ -1,0 +1,2222 @@
+[
+  {
+    "num": 0,
+    "slug": "esas-istiqamet",
+    "title": "Əsas ekranlar və vahid komponentlər",
+    "panels": [
+      {
+        "id": "00-A",
+        "title": "Salam!",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Şam · planlı</h3><p>Toyuq plovu · 1 porsiya</p></div></section><section class=\"card \"><h3>Faktiki qəbul</h3><p><b>900 kkal</b><br>Zülal 50 q · Karbohidrat 100 q · Yağ 33,3 q</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Planlı yemək yalnız təsdiqlə gündəliyə yazılır. Gündəlik natamamdırsa dəqiq qalan enerji göstərilmir.</p></section>",
+        "cta": "Nə yediyini əlavə et",
+        "back": "Bugünkü menyunu gör",
+        "art": null,
+        "tab": "Bu gün"
+      },
+      {
+        "id": "00-B",
+        "title": "Nə yediyini necə əlavə edək?",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_entry_camera.png\" alt=\"\"><div><h3>Şəkil çək</h3><p>Yeməyi və porsiyanı sonra təsdiqləyəcəksən</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_entry_search.png\" alt=\"\"><div><h3>Axtar</h3><p>Adı ilə tap və miqdarı seç</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_entry_previous.png\" alt=\"\"><div><h3>Əvvəl yediklərim</h3><p>Saxlanmış porsiyanı yenidən təsdiqlə</p></div></section>",
+        "cta": "Yemək axtar",
+        "back": "Bu günə qayıt",
+        "art": null,
+        "tab": "Əlavə et"
+      },
+      {
+        "id": "00-C",
+        "title": "Məqsədin nədir?",
+        "body": "<div class=\"goal-grid\"><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_lose.png\" alt=\"\"><div><h3>Arıqlamaq</h3><p>Bir seçim et</p></div></section><section class=\"card row selected\"><img class=\"row-art\" src=\"assets/art_maintain.png\" alt=\"\"><div><h3>✓ Çəkini saxlamaq</h3><p>Bir seçim et</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_gain.png\" alt=\"\"><div><h3>Çəki almaq</h3><p>Bir seçim et</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_healthy.png\" alt=\"\"><div><h3>Sağlam yemək</h3><p>Bir seçim et</p></div></section></div>",
+        "cta": "Davam et",
+        "back": "Xoş gəldin ekranına qayıt",
+        "art": null,
+        "tab": null,
+        "step": 1
+      }
+    ],
+    "legacy": [
+      "00"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "00-esas-istiqamet"
+  },
+  {
+    "num": 1,
+    "slug": "baslangic",
+    "title": "Başlanğıc və fərdi plan",
+    "panels": [
+      {
+        "id": "01-A",
+        "title": "Xoş gəldin!",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_log.png\" alt=\"\"><div><h3>Yeməyini asan qeyd et</h3><p>Təsdiqlədiyin yemək gündəlikdə saxlanır</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_menu.png\" alt=\"\"><div><h3>Menyuna bax</h3><p>Seçimlərinə uyğun planı nəzərdən keçir</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_progress.png\" alt=\"\"><div><h3>Dəyişiklikləri gör</h3><p>Qeydlər və çəki ölçmələri</p></div></section><section class=\"card \"><h3>Dil</h3><p>Azərbaycan dili · English · Русский</p></section>",
+        "cta": "Başlayaq",
+        "back": "Hesabım var",
+        "art": "art_welcome",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "01-B",
+        "title": "Özünü tanıt",
+        "body": "<div class=\"measure\"><div class=\"measure-row\"><b>Yaş · il</b><div class=\"stepper\"><span>−</span><b>28</b><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Boy · sm</b><div class=\"stepper\"><span>−</span><b>172</b><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Çəki · kq</b><div class=\"stepper\"><span>−</span><b>78,4</b><span>+</span></div></div></div><p class=\"check\">✓ Ölçüləri və vahidləri təsdiqləyirəm.</p><section class=\"card \"><h3>Hesablama üçün cins · könüllüdür</h3><p><div class=\"options\"><div class=\"option \">○ Kişi</div><div class=\"option \">○ Qadın</div><div class=\"option \">○ İndi seçmirəm</div></div></p></section><p>Cins verilməsə avtomatik hədəf yaradılmır.</p>",
+        "cta": "Davam et",
+        "back": "Məqsədə qayıt",
+        "art": "art_age",
+        "tab": null,
+        "step": 2
+      },
+      {
+        "id": "01-C",
+        "title": "Aktivlik və sağlamlıq",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_sedentary.png\" alt=\"\"><div><h3>Az hərəkətli</h3><p>Adi günlük hərəkət</p></div></section><section class=\"card row selected\"><img class=\"row-art\" src=\"assets/art_walking.png\" alt=\"\"><div><h3>✓ Yüngül fəal</h3><p>İzahına bax və təsdiqlə</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_active.png\" alt=\"\"><div><h3>Fəal</h3><p>İzahına bax və təsdiqlə</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_active.png\" alt=\"\"><div><h3>Çox fəal</h3><p>İzahına bax və təsdiqlə</p></div></section><p>Əmin deyiləm → hədəfsiz gündəlik.</p>",
+        "cta": "Sağlamlıq suallarına keç",
+        "back": "Seçimlərin izahına bax",
+        "art": null,
+        "tab": null,
+        "step": 3
+      },
+      {
+        "id": "01-D",
+        "title": "Planına bax",
+        "body": "<section class=\"card \"><h3>Seçimlərin</h3><p>Çəkini saxlamaq · gündə 3 yemək</p></section><section class=\"card \"><h3>Təxmini enerji hədəfi</h3><p>Hesab nəticəsi olduqda burada göstərilir; rəqəm uydurulmur.</p></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_menu.png\" alt=\"\"><div><h3>Nümunə yeməklər</h3><p>Səhər · Nahar · Şam</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Plan nəticəsi və gündəlik qəbul ayrı məlumatlardır.</p></section>",
+        "cta": "Menyumu gör",
+        "back": "Seçimləri dəyiş",
+        "art": "art_saved",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [
+      "01"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "01-baslangic"
+  },
+  {
+    "num": 2,
+    "slug": "secimler-ve-hesab",
+    "title": "Seçimlər və hesab",
+    "panels": [
+      {
+        "id": "02-A",
+        "title": "Allergiya və seçimlər",
+        "body": "<div class=\"allergen-grid\"><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_milk.png\" alt=\"\"><div><h3>Süd</h3><p>□ Seç</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_egg.png\" alt=\"\"><div><h3>Yumurta</h3><p>□ Seç</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_nuts.png\" alt=\"\"><div><h3>Qoz-fındıq</h3><p>□ Seç</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_fish.png\" alt=\"\"><div><h3>Balıq</h3><p>□ Seç</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_wheat.png\" alt=\"\"><div><h3>Buğda</h3><p>□ Seç</p></div></section></div><section class=\"card row selected\"><div><h3>✓ Allergiyam yoxdur</h3><p>Digər allergiya seçimləri ilə birləşmir</p></div></section><section class=\"card \"><h3>Digər allergiyalar</h3><p>Əlavə allergen daxil et →</p></section><section class=\"card \"><h3>Sevmədiyim yeməklər</h3><p>Allergiyadan ayrı, könüllü seçim →</p></section>",
+        "cta": "Davam et",
+        "back": "Sağlamlıq suallarına qayıt",
+        "art": "art_milk",
+        "tab": null,
+        "step": 4
+      },
+      {
+        "id": "02-B",
+        "title": "Vaxt və büdcə",
+        "body": "<section class=\"card \"><h3>Hazırlanma vaxtı</h3><p><div class=\"options\"><div class=\"option \">○ 15 dəq</div><div class=\"option selected\">✓ 30 dəq</div><div class=\"option \">○ 60 dəq</div></div></p></section><section class=\"card \"><h3>Büdcə seçimi</h3><p><div class=\"options\"><div class=\"option \">○ Qənaətli</div><div class=\"option selected\">✓ Orta</div><div class=\"option \">○ Sərbəst</div></div></p></section><section class=\"card \"><h3>Gündə yemək sayı</h3><p><div class=\"options\"><div class=\"option selected\">✓ 3</div><div class=\"option \">○ 4</div><div class=\"option \">○ 5</div></div></p></section><label>Region<span class=\"field\">Azərbaycan</span></label><label>Valyuta<span class=\"field\">AZN</span></label><label>Həftəlik büdcə<span class=\"field\">100<b>AZN</b></span></label><section class=\"card\"><h3>Neçə nəfər üçün?</h3><div class=\"stepper\"><span>−</span><b>1 </b><span>+</span></div></section>",
+        "cta": "Planımı hazırla",
+        "back": "Allergiyalara qayıt",
+        "art": "art_cooking",
+        "tab": null,
+        "step": 5
+      },
+      {
+        "id": "02-C",
+        "title": "Planını saxla",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_account.png\" alt=\"\"><div><h3>Apple ilə davam et</h3><p>Hesaba giriş</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_account.png\" alt=\"\"><div><h3>Google ilə davam et</h3><p>Hesaba giriş</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_account.png\" alt=\"\"><div><h3>E-poçtla qeydiyyat</h3><p>Yeni hesab yarat</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Başqa cihazda bərpa yalnız uğurlu sinxronizasiyadan sonra mümkündür.</p></section><section class=\"card \"><h3>Məxfilik barədə sadə məlumat</h3><p>Məlumatların saxlanması və silinməsi →</p></section>",
+        "cta": "E-poçtla qeydiyyat",
+        "back": "İndi yox",
+        "art": "art_account",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "02-D",
+        "title": "Hesabına daxil ol",
+        "body": "<label>E-poçt<span class=\"field\">ad@example.com</span></label><label>Şifrə<span class=\"field\">•••••••• · Göstər</span></label><section class=\"card row \"><div><h3>Şifrəni unutdum</h3><p>Bərpa linki istə</p></div></section><section class=\"card row \"><div><h3>Yeni hesab yarat</h3><p>Qeydiyyata keç</p></div></section>",
+        "cta": "Daxil ol",
+        "back": "Geri qayıt",
+        "art": "art_account",
+        "tab": null
+      }
+    ],
+    "legacy": [
+      "02"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "02-secimler-ve-hesab"
+  },
+  {
+    "num": 3,
+    "slug": "yemek-qeydiyyati",
+    "title": "Yeməyi tap və əlavə et",
+    "panels": [
+      {
+        "id": "03-A",
+        "title": "Nə yemisən?",
+        "body": "<label>Yemək axtar<span class=\"field\">plov · ×</span></label><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Toyuq plovu</h3><p>Resept versiyasını və porsiyanı seç</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Başqa plov</h3><p>Hazırlanma vəziyyətini yoxla</p></div></section><section class=\"card \"><h3>Tapmadın?</h3><p>Özün əlavə et →</p></section>",
+        "cta": "Nəticəni seç",
+        "back": "Əlavə et bölməsinə qayıt",
+        "art": null,
+        "tab": "Əlavə et"
+      },
+      {
+        "id": "03-B",
+        "title": "Yeməyin şəklini çək",
+        "body": "<section class=\"card \"><h3>Foto sahəsi</h3><p>Boşqabı çərçivəyə yerləşdir.<div class=\"camera-frame\"><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_entry_camera.png\" alt=\"\"><div><h3>Kamera önbaxışı</h3><p>Canlı görüntü üçün yer</p></div></section></div></p></section><div class=\"options\"><div class=\"option \">İşıq</div><div class=\"option \">Qalereyadan seç</div></div><section class=\"card notice\"><h3>Diqqət</h3><p>Foto təxmini namizəd verir. Hələ gündəlik qeydi yaranmır.</p></section>",
+        "cta": "Şəkil çək",
+        "back": "Axtarışa keç",
+        "art": "art_entry_camera",
+        "tab": null
+      },
+      {
+        "id": "03-C",
+        "title": "Bu yeməkdir?",
+        "body": "<section class=\"card row selected\"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>✓ Toyuq plovu</h3><p>Foto nəticəsi · sən təsdiqlə</p></div></section><section class=\"card row \"><div><h3>Başqa yeməkdir</h3><p>Yenidən axtar</p></div></section><section class=\"card \"><h3>Əlavə yağ və ya sous varmı?</h3><p><div class=\"options\"><div class=\"option selected\">✓ Yox</div><div class=\"option \">○ Var</div></div></p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Miqdar növbəti addımda seçilir. Reseptdə olan yağ ikinci dəfə əlavə edilmir.</p></section>",
+        "cta": "Bəli, davam et",
+        "back": "Fotoya qayıt",
+        "art": null,
+        "tab": null
+      },
+      {
+        "id": "03-D",
+        "title": "Əlavə olundu!",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Toyuq plovu · 1 porsiya</h3><p>Saxlanmış faktiki qeyd</p></div></section><section class=\"card \"><h3>Porsiya üçün</h3><p><b>500 kkal</b><br>Zülal 30 q · Karbohidrat 50 q · Yağ 20 q</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Yalnız dayanıqlı yazı tamamlandıqdan sonra bu nəticə göstərilir.</p></section><section class=\"card row \"><div><h3>Düzəliş et</h3><p>Məhz bu qeydi aç</p></div></section>",
+        "cta": "Bu günə qayıt",
+        "back": "Başqa yemək əlavə et",
+        "art": "art_saved",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [
+      "03"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "03-yemek-qeydiyyati"
+  },
+  {
+    "num": 4,
+    "slug": "menyu-ve-alisveris",
+    "title": "Menyu, resept və alış-veriş",
+    "panels": [
+      {
+        "id": "04-A",
+        "title": "Həftənin menyusu",
+        "body": "<p>2–8 noyabr 2026</p><div class=\"week\"><div class=\"day \">B.e.<b>2</b></div><div class=\"day \">Ç.a.<b>3</b></div><div class=\"day \">Ç.<b>4</b></div><div class=\"day \">C.a.<b>5</b></div><div class=\"day selected\">C.<b>6</b>✓ Bu gün</div><div class=\"day \">Ş.<b>7</b></div><div class=\"day \">B.<b>8</b></div></div><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_menu.png\" alt=\"\"><div><h3>Səhər · Planlı</h3><p>Yumurta və pendir · enerji məlum deyil · 15 dəq</p></div></section><div class=\"options\"><div class=\"option \">Resept</div><div class=\"option \">Yedim</div></div><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Nahar · Qismən yeyilib</h3><p>Mərci şorbası · qalan ½ porsiya</p></div></section><div class=\"options\"><div class=\"option \">Resept</div><div class=\"option \">Yedim</div></div><section class=\"card notice\"><h3>Diqqət</h3><p>Planı dəyişmək yediyini qeyd etmir. Gündəlik qeydi yalnız porsiya təsdiqindən sonra yaranır.</p></section>",
+        "cta": "Alış-veriş siyahısı",
+        "back": "Başqa həftəyə bax",
+        "art": null,
+        "tab": "Menyu"
+      },
+      {
+        "id": "04-B",
+        "title": "Toyuq plovu",
+        "body": "<section class=\"card \"><h3>Reseptin son versiyası</h3><p>1 porsiya üçün · vaxt məlum deyil<br><b>500 kkal</b><br>Zülal 30 q · Karbohidrat 50 q · Yağ 20 q</p></section><section class=\"card \"><h3>Nə lazımdır?</h3><p>Toyuq · xam 150 q<br>Düyü · quru 70 q<br>Kök · xam 62,5 q<br>Soğan 37,5 q · Yağ 7,5 q</p></section><section class=\"card row \"><div><h3>Necə bişirim?</h3><p>Bu versiyanın yoxlanmış addımlarına bax</p></div></section><div class=\"options\"><div class=\"option \">Resepti saxla</div><div class=\"option \">İnqrediyentləri dəyiş</div></div>",
+        "cta": "Yedim — porsiyanı seç",
+        "back": "Yeməyi dəyiş",
+        "art": "art_recipe",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "04-C",
+        "title": "Nə ilə dəyişək?",
+        "body": "<section class=\"card row selected\"><img class=\"row-art\" src=\"assets/art_menu.png\" alt=\"\"><div><h3>✓ Tərəvəzli toyuq</h3><p>Porsiya üçün 400 kkal · 30 dəq · nümunə</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Başqa yemək</h3><p>Məlumatı və uyğunluğu yoxlanacaq</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Eyni enerji eyni makro demək deyil. Əvvəlcə gün/həftə yoxlanır.</p></section>",
+        "cta": "Seçimə bax",
+        "back": "Reseptə qayıt",
+        "art": null,
+        "tab": null
+      },
+      {
+        "id": "04-D",
+        "title": "Alış-veriş siyahısı",
+        "body": "<section class=\"card \"><h3>2–8 noyabr 2026</h3><p>Həftəyə lazım olan ümumi miqdar</p></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_ingredient_carrot.png\" alt=\"\"><div><h3>Tərəvəzlər</h3><p>Kök · 250 q · □ Evdə var · □ Alınıb</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_ingredient_rice.png\" alt=\"\"><div><h3>Taxıl</h3><p>Düyü · quru 700 q · □ Evdə var · ✓ Alınıb</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_ingredient_chicken.png\" alt=\"\"><div><h3>Ət</h3><p>Toyuq · xam 600 q · ✓ Evdə var · □ Alınıb</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Evdə var işarəsi həftəlik ümumi miqdarı azaltmır.</p></section>",
+        "cta": "Paylaşım önbaxışına bax",
+        "back": "Menyuya qayıt",
+        "art": null,
+        "tab": null
+      }
+    ],
+    "legacy": [
+      "04"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "04-menyu-ve-alisveris"
+  },
+  {
+    "num": 5,
+    "slug": "irelileyis-ve-profil",
+    "title": "İrəliləyiş və şəxsi seçimlər",
+    "panels": [
+      {
+        "id": "05-A",
+        "title": "Çəkini qeyd et",
+        "body": "<label>Ölçmə tarixi<span class=\"field\">6 noyabr 2026</span></label><section class=\"card\"><h3>Çəki</h3><div class=\"stepper\"><span>−</span><b>78,4 kq</b><span>+</span></div></section><section class=\"card \"><h3>Ölçmə qeydi</h3><p>Mümkünsə eyni şəraitdə ölçül. Bu gün üçün əvvəlki ölçmə varsa ayrıca seçim göstərilir.</p></section>",
+        "cta": "Çəkini yadda saxla",
+        "back": "Əvvəlki qeydlərim",
+        "art": "art_weight",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "05-B",
+        "title": "Həftəyə baxaq",
+        "body": "<section class=\"card \"><h3>2–8 noyabr 2026</h3><p>6 gündə yemək qeydi · 3 çəki ölçməsi</p></section><section class=\"card \"><h3>Çəki ölçmələri</h3><p>2 noyabr · 79,0 kq<br>4 noyabr · 78,7 kq<br>6 noyabr · 78,4 kq</p></section><section class=\"card \"><h3>Qeyd davamlılığı</h3><p><div class=\"options\"><div class=\"option \">○ B.e. ✓</div><div class=\"option \">○ Ç.a. ✓</div><div class=\"option \">○ Ç. ✓</div><div class=\"option \">○ C.a. ✓</div><div class=\"option \">○ C. ✓</div><div class=\"option \">○ Ş. ✓</div><div class=\"option \">○ B. ○</div></div></p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Qeyd olmayan gün 0 qəbul deyil. Çəki azalması hər məqsəd üçün uğur sayılmır.</p></section>",
+        "cta": "Çəki əlavə et",
+        "back": "Əvvəlki həftə",
+        "art": "art_progress",
+        "tab": "İrəliləyiş"
+      },
+      {
+        "id": "05-C",
+        "title": "Profilin",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_account.png\" alt=\"\"><div><h3>Profili redaktə et</h3><p>Məqsədim · ölçülər · aktivlik</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_healthy.png\" alt=\"\"><div><h3>Yemək seçimlərim</h3><p>Allergiya, istəksizlik, vaxt və büdcə</p></div></section><section class=\"card row \"><div><h3>Xatırlatmalar</h3><p>Saatlar və bildiriş icazəsi</p></div></section><section class=\"card row \"><div><h3>Dil</h3><p>Azərbaycan dili</p></div></section><section class=\"card row \"><div><h3>Abunəliyim</h3><p>Mağaza və paket məlumatı</p></div></section><section class=\"card row \"><div><h3>Kömək və hesab</h3><p>FAQ · dəstək · məxfilik · ixrac · silmə</p></div></section>",
+        "cta": "Seçimlərimə bax",
+        "back": "Bu günə qayıt",
+        "art": null,
+        "tab": "Profil"
+      },
+      {
+        "id": "05-D",
+        "title": "Nə vaxt xatırladaq?",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_menu.png\" alt=\"\"><div><h3>Səhər</h3><p>✓ Açıq · 09:00</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Nahar</h3><p>✓ Açıq · 13:00</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Şam</h3><p>✓ Açıq · 19:00</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_weight.png\" alt=\"\"><div><h3>Çəki ölçməsi</h3><p>○ Bağlı · günlük / həftəlik</p></div></section><section class=\"card \"><h3>Sakit saatlar</h3><p>22:00–08:00 · Asia/Baku</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bildirişlər könüllüdür. İcazə olmasa tətbiqdən istifadə davam edir.</p></section>",
+        "cta": "Yadda saxla",
+        "back": "Profilə qayıt",
+        "art": null,
+        "tab": null
+      }
+    ],
+    "legacy": [
+      "05"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "05-irelileyis-ve-profil"
+  },
+  {
+    "num": 6,
+    "slug": "abunelik-ve-veziyyetler",
+    "title": "Abunəlik və ümumi hallar",
+    "panels": [
+      {
+        "id": "06-A",
+        "title": "Abunəliyə bax",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_menu.png\" alt=\"\"><div><h3>Həftəlik şəxsi menyu</h3><p>Yalnız paketdə həqiqətən varsa göstərilir</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_budget.png\" alt=\"\"><div><h3>Dəyişmə və alış-veriş</h3><p>İmkanlar mağaza məhsuluna bağlıdır</p></div></section><div class=\"options\"><div class=\"option selected\">✓ Aylıq</div><div class=\"option \">○ İllik</div></div><section class=\"card notice\"><h3>Diqqət</h3><p>Qiymət, valyuta, dövr və yenilənmə şərti mağazadan gəlir. Yüklənməyibsə alış bağlıdır.</p></section><section class=\"card row \"><div><h3>Alışı bərpa et</h3><p>Mağaza yoxlaması açılır</p></div></section>",
+        "cta": "Abunə ol",
+        "back": "Pulsuz davam et",
+        "art": "art_menu",
+        "tab": null,
+        "disabled": true
+      },
+      {
+        "id": "06-B",
+        "title": "Hələ yemək əlavə etməmisən",
+        "body": "<section class=\"card \"><h3>Günün burada görünəcək</h3><p>İlk yeməyini təsdiqlə və gündəlikdə saxla. Planın olması faktiki qəbul deyil.</p></section>",
+        "cta": "Yemək əlavə et",
+        "back": "Bugünkü menyunu gör",
+        "art": "art_empty",
+        "tab": "Bu gün",
+        "hero": true
+      },
+      {
+        "id": "06-C",
+        "title": "İnternet yoxdur",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Toyuq plovu</h3><p>Telefonda saxlanıb · sinxronizasiya gözləyir</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bu mesaj yalnız lokal yazı uğurludursa göstərilir. Təkrar cəhd ikinci qeyd yaratmır.</p></section>",
+        "cta": "Davam et",
+        "back": "Yenidən yoxla",
+        "art": "art_log",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "06-D",
+        "title": "Şəkli tanıya bilmədik",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_entry_camera.png\" alt=\"\"><div><h3>Yenidən şəkil çək</h3><p>Daha aydın və işıqlı foto</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_entry_search.png\" alt=\"\"><div><h3>Yeməyin adını axtar</h3><p>Axtarışla davam et</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_log.png\" alt=\"\"><div><h3>Özüm yazım</h3><p>Əl ilə yemək daxil et</p></div></section>",
+        "cta": "Yenidən şəkil çək",
+        "back": "Axtarışa keç",
+        "art": "art_entry_camera",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [
+      "06"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "06-abunelik-ve-veziyyetler"
+  },
+  {
+    "num": 7,
+    "slug": "inqrediyent-redaktesi",
+    "title": "Resepti özünə uyğunlaşdır",
+    "panels": [
+      {
+        "id": "07-A",
+        "title": "Toyuq plovu",
+        "body": "<section class=\"card \"><h3>Menyudakı resept</h3><p>Son saxlanmış versiya · 1 porsiya</p></section><section class=\"card \"><h3>1 porsiya üçün</h3><p>Toyuq · xam 150 q · − / + · Çıxar<br>Düyü · quru 70 q · − / + · Çıxar<br>Kök · xam 62,5 q · − / + · Çıxar<br>Soğan 37,5 q · Yağ 12,5 q</p></section><section class=\"card row \"><div><h3>İnqrediyentləri dəyiş</h3><p>Əlavə et, çıxar, miqdarı dəyiş</p></div></section><section class=\"card row \"><div><h3>Necə bişirim?</h3><p>Yoxlanmış addımlara bax</p></div></section>",
+        "cta": "Hazırladım — şəkil çək",
+        "back": "Yeməyi dəyiş",
+        "art": "art_recipe",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "07-B",
+        "title": "İnqrediyentləri dəyiş",
+        "body": "<section class=\"card\"><h3>Neçə porsiya hazırlayırsan?</h3><div class=\"stepper\"><span>−</span><b>1 </b><span>+</span></div></section><section class=\"card ingredient\"><h3>Toyuq · xam</h3><div class=\"stepper\"><span>−</span><b>150 q</b><span>+</span></div><div class=\"text-action\">Çıxar</div></section><section class=\"card ingredient\"><h3>Düyü · quru</h3><div class=\"stepper\"><span>−</span><b>70 q</b><span>+</span></div><div class=\"text-action\">Çıxar</div></section><section class=\"card ingredient\"><h3>Kök · xam</h3><div class=\"stepper\"><span>−</span><b>62,5 q</b><span>+</span></div><div class=\"text-action\">Çıxar</div></section><section class=\"card ingredient\"><h3>Soğan · xam</h3><div class=\"stepper\"><span>−</span><b>37,5 q</b><span>+</span></div><div class=\"text-action\">Çıxar</div></section><section class=\"card ingredient\"><h3>Yağ · mənbə qeydi</h3><div class=\"stepper\"><span>−</span><b>12,5 q</b><span>+</span></div><div class=\"text-action\">Çıxar</div></section><section class=\"card row \"><div><h3>İnqrediyent əlavə et</h3><p>Mənbəli məhsul axtar</p></div></section><section class=\"card \"><h3>Digər ərzaqlar · açıq</h3><p>Su · miqdar ayrıca<br>Duz 1 q · Sarıkök 0,5 q<br>Duz hesabdan çıxarılmır.</p></section>",
+        "cta": "Dəyişikliyə bax",
+        "back": "Reseptə qayıt",
+        "art": "art_cooking",
+        "tab": null
+      },
+      {
+        "id": "07-C",
+        "title": "Nə əlavə edək?",
+        "body": "<label>Məhsul axtar<span class=\"field\">göbələk</span></label><section class=\"card row selected\"><img class=\"row-art\" src=\"assets/art_healthy.png\" alt=\"\"><div><h3>✓ Ağ şampinyon · xam</h3><p>Mənbə qeydi və hazırlanma vəziyyətini yoxla</p></div></section><label>Miqdar<span class=\"field\">50<b>q</b></span></label><section class=\"card row \"><div><h3>Digər nəticələr</h3><p>İstiridyə göbələyi · ayrıca mənbə qeydi</p></div></section>",
+        "cta": "50 q əlavə et",
+        "back": "Redaktəyə qayıt",
+        "art": null,
+        "tab": null
+      },
+      {
+        "id": "07-D",
+        "title": "Dəyişikliklərə bax",
+        "body": "<section class=\"card \"><h3>1 porsiya üçün</h3><p>Yağ 7,5 → 12,5 q · Göbələk +50 q</p></section><section class=\"card \"><h3>Əvvəl → sonra</h3><p>500 → 555 kkal · inqrediyent hesabı nümunəsi</p></section><section class=\"card row \"><div><h3>Yenilənmiş addımlar</h3><p>Yoxlanmış uyğun təlimata bax</p></div></section><section class=\"card \"><h3>Alış-veriş fərqi</h3><p>4 porsiyalı qazan: yağ +20 q · göbələk +200 q</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bişmiş çıxım və köhnə porsiya fotosu avtomatik miras qalmır.</p></section>",
+        "cta": "Gün və həftə önbaxışına bax",
+        "back": "Redaktəyə qayıt",
+        "art": "art_recipe",
+        "tab": null
+      }
+    ],
+    "legacy": [
+      "07"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "07-inqrediyent-redaktesi"
+  },
+  {
+    "num": 8,
+    "slug": "yemek-ve-gun-deyisme",
+    "title": "Həftəni qoruyaraq yeməyi dəyiş",
+    "panels": [
+      {
+        "id": "08-A",
+        "title": "Nəyi dəyişmək istəyirsən?",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>6 noyabr · Şam</h3><p>Toyuq plovu · planlı</p></div></section><section class=\"card row \"><div><h3>İnqrediyentləri dəyiş</h3><p>Əlavə et, çıxar, miqdarı dəyiş</p></div></section><section class=\"card row \"><div><h3>Başqa yemək seç</h3><p>Həmin günə uyğun namizədlər</p></div></section><section class=\"card row \"><div><h3>Başqa günlə dəyiş</h3><p>İki yeməyin qarşılıqlı yeri dəyişir</p></div></section><section class=\"card row \"><div><h3>Bu günə köçür</h3><p>Yalnız boş yemək vaxtına</p></div></section>",
+        "cta": "Başqa yemək seç",
+        "back": "Menyuya qayıt",
+        "art": null,
+        "tab": null
+      },
+      {
+        "id": "08-B",
+        "title": "Bu günə uyğun yeməklər",
+        "body": "<section class=\"card row selected\"><img class=\"row-art\" src=\"assets/art_menu.png\" alt=\"\"><div><h3>✓ Tərəvəzli toyuq</h3><p>Yeni porsiya və bütün gün yoxlanır</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_fish.png\" alt=\"\"><div><h3>Limonlu balıq</h3><p>Allergen, vaxt və mənbə ayrıca yoxlanır</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Toyuq və qarabaşaq</h3><p>Porsiyanı seç</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Uyğunluq nişanı yalnız real yoxlama nəticəsi ilə görünür.</p></section>",
+        "cta": "Seçimə bax",
+        "back": "Başqa dəyişmə yolu seç",
+        "art": null,
+        "tab": null
+      },
+      {
+        "id": "08-C",
+        "title": "Hansı günlə dəyişək?",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>6 noyabr · Şam</h3><p>Toyuq plovu · seçilmiş yemək</p></div></section><section class=\"card row selected\"><img class=\"row-art\" src=\"assets/art_menu.png\" alt=\"\"><div><h3>✓ 7 noyabr · Şam</h3><p>Tərəvəzli toyuq · ✓ seçilib</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>8 noyabr · Şam</h3><p>Başqa planlı yemək</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Artıq yeyilmiş və keçmiş hissə seçilmir. Boş vaxt üçün ayrıca köçürmə yolu var.</p></section>",
+        "cta": "İki günü yoxla",
+        "back": "Geri qayıt",
+        "art": null,
+        "tab": null
+      },
+      {
+        "id": "08-D",
+        "title": "İki yeməyin yeri dəyişəcək",
+        "body": "<section class=\"card \"><h3>6 noyabr · Şam</h3><p>Toyuq plovu → Tərəvəzli toyuq</p></section><section class=\"card \"><h3>7 noyabr · Şam</h3><p>Tərəvəzli toyuq → Toyuq plovu</p></section><section class=\"card \"><h3>Hər iki günün nəticəsi</h3><p>Enerji, makro, məhdudiyyət və alış-veriş fərqi açılır.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>İki hissə bir əməliyyatla saxlanır. Digər günlər və faktiki qeydlər dəyişmir.</p></section>",
+        "cta": "İki günün önbaxışına bax",
+        "back": "Seçimə qayıt",
+        "art": "art_menu",
+        "tab": null
+      }
+    ],
+    "legacy": [
+      "08"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "08-yemek-ve-gun-deyisme"
+  },
+  {
+    "num": 9,
+    "slug": "foto-sonrasi-resept",
+    "title": "Hazırladığın yeməyi düzgün qeyd et",
+    "panels": [
+      {
+        "id": "09-A",
+        "title": "Reseptdə nəyisə dəyişmisən?",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Toyuq plovu</h3><p>Sənə verilmiş son resept versiyası</p></div></section><section class=\"card row \"><div><h3>Xeyr, olduğu kimi hazırladım</h3><p>Həmin versiya ilə porsiya seç</p></div></section><section class=\"card row \"><div><h3>Bəli, dəyişdim</h3><p>Faktiki tərkibi düzəlt</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bütün qazanı deyil, yalnız yediyin hissəni təsdiqləyəcəksən.</p></section>",
+        "cta": "Xeyr — porsiyanı seç",
+        "back": "Bəli — tərkibi düzəlt",
+        "art": null,
+        "tab": null
+      },
+      {
+        "id": "09-B",
+        "title": "Hazırladığın yemək",
+        "body": "<section class=\"card \"><h3>Bütün qazan üçün · 4 porsiya</h3><p>Faktiki tərkibi düzəlt</p></section><section class=\"card ingredient\"><h3>Toyuq · xam</h3><div class=\"stepper\"><span>−</span><b>600 q</b><span>+</span></div><div class=\"text-action\">Çıxar</div></section><section class=\"card ingredient\"><h3>Düyü · quru</h3><div class=\"stepper\"><span>−</span><b>280 q</b><span>+</span></div><div class=\"text-action\">Çıxar</div></section><section class=\"card ingredient\"><h3>Kök · xam</h3><div class=\"stepper\"><span>−</span><b>250 q</b><span>+</span></div><div class=\"text-action\">Çıxar</div></section><section class=\"card ingredient\"><h3>Soğan · xam</h3><div class=\"stepper\"><span>−</span><b>150 q</b><span>+</span></div><div class=\"text-action\">Çıxar</div></section><section class=\"card ingredient\"><h3>Yağ · mənbə qeydi</h3><div class=\"stepper\"><span>−</span><b>50 q</b><span>+</span></div><div class=\"text-action\">Çıxar</div></section><section class=\"card ingredient\"><h3>Göbələk · xam</h3><div class=\"stepper\"><span>−</span><b>200 q</b><span>+</span></div><div class=\"text-action\">Çıxar</div></section><section class=\"card row \"><div><h3>Miqdarı dəyiş / çıxar</h3><p>Məhsulun xam və ya bişmiş vəziyyəti saxlanır</p></div></section><section class=\"card row \"><div><h3>İnqrediyent əlavə et</h3><p>Mənbəli məhsul seç</p></div></section><section class=\"card \"><h3>Digər ərzaqlar · açıq</h3><p>Su · Duz · Sarıkök</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Burada planın günlərini və başqa yeməyi dəyişmək yoxdur.</p></section>",
+        "cta": "Nə qədər yediyini seç",
+        "back": "Suala qayıt",
+        "art": "art_cooking",
+        "tab": null
+      },
+      {
+        "id": "09-C",
+        "title": "Nə qədər yedin?",
+        "body": "<section class=\"card\"><h3>Neçə porsiya hazırladın?</h3><div class=\"stepper\"><span>−</span><b>4 </b><span>+</span></div></section><section class=\"card \"><h3>Neçə porsiya yedin?</h3><p><div class=\"options\"><div class=\"option \">○ Yarım</div><div class=\"option selected\">✓ 1 porsiya</div><div class=\"option \">○ 2 porsiya</div></div></p></section><section class=\"card \"><h3>Qazanın ¼ hissəsi</h3><p>Yalnız bu hissə gündəliyə yazılacaq.</p></section><section class=\"card row \"><div><h3>Dəqiq miqdar daxil et</h3><p>Qram hesabı üçün ölçülmüş bişmiş çəki lazımdır</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>İllüstrasiya ölçü nümunəsi deyil.</p></section>",
+        "cta": "Önbaxışa bax",
+        "back": "Tərkibə qayıt",
+        "art": "art_cooking",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "09-D",
+        "title": "Gündəliyə əlavə edək?",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Toyuq plovu · dəyişdirilmiş</h3><p>1 porsiya · qazanın ¼ hissəsi</p></div></section><section class=\"card \"><h3>Təxmini enerji</h3><p>555 kkal · təsdiqlədiyin inqrediyentlərdən</p></section><section class=\"card row \"><div><h3>Tərkibə yenidən bax</h3><p>Son faktiki versiyanı aç</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Gələcək plan və əsas kitabxana dəyişmir. Hələ gündəlik qeydi yaranmayıb.</p></section>",
+        "cta": "Gündəliyə əlavə et",
+        "back": "Porsiyaya qayıt",
+        "art": null,
+        "tab": null
+      }
+    ],
+    "legacy": [
+      "09"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "09-foto-sonrasi-resept"
+  },
+  {
+    "num": 10,
+    "slug": "deyisiklik-ve-xeta-hallari",
+    "title": "Dəyişiklik aydın və geri qaytarılan olsun",
+    "panels": [
+      {
+        "id": "10-A",
+        "title": "Bu dəyişmə uyğun gəlmir",
+        "body": "<section class=\"card \"><h3>7 noyabr · Şam</h3><p>Seçilmiş porsiya günün şərtlərinə uyğun gəlmədi.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Heç bir yemək dəyişməyib. Hər iki gün birlikdə keçməlidir.</p></section>",
+        "cta": "Başqa gün seç",
+        "back": "Porsiyalara bax",
+        "art": "art_menu",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "10-B",
+        "title": "Məlumat çatmır",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_healthy.png\" alt=\"\"><div><h3>Evdə hazırlanmış sous</h3><p>30 q · enerji məlum deyil</p></div></section><section class=\"card \"><h3>Hesab natamamdır</h3><p>Mənbədə olmayan dəyər 0 sayılmır; uyğunluq təsdiqlənmir.</p></section><section class=\"card row \"><div><h3>Etiketdəki məlumatı yaz</h3><p>Mənbəni dəqiqləşdir</p></div></section><section class=\"card row \"><div><h3>Bazadan uyğun məhsul tap</h3><p>Tərkib və vəziyyəti yoxla</p></div></section>",
+        "cta": "Məhsulu dəqiqləşdir",
+        "back": "Redaktəyə qayıt",
+        "art": "art_portion_scale",
+        "tab": null
+      },
+      {
+        "id": "10-C",
+        "title": "Hazırlanma qaydası da dəyişir",
+        "body": "<section class=\"card \"><h3>Kök çıxarıldı · göbələk əlavə edildi</h3><p>Köhnə addımlar yeni tərkibə olduğu kimi tətbiq olunmur.</p></section><section class=\"card \"><h3>Yenilənmiş addımlar</h3><p>Bu versiyaya uyğun yoxlanmış təlimat açılır. Uyğun təlimat yoxdursa ayrıca xəta ekranına keçilir.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Köhnə porsiya fotosu və bişmiş çıxım yeni variant üçün dəqiq ölçü deyil.</p></section>",
+        "cta": "Uyğun addımlara bax",
+        "back": "Tərkibə qayıt",
+        "art": "art_cooking",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "10-D",
+        "title": "Saxlamadan çıxırsan?",
+        "body": "<section class=\"card \"><h3>Qaralama dəyişiklikləri</h3><p>Plan və alış-veriş hələ dəyişməyib.</p></section><section class=\"card row \"><div><h3>Dəyişiklikləri ləğv et</h3><p>Saxlanmamış düzəlişlər atılır</p></div></section><section class=\"card row \"><div><h3>Qaralama kimi saxla</h3><p>Kontekst və baza versiyası qorunur</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Qaralama təsdiqlənmiş plan və gündəlik deyil.</p></section>",
+        "cta": "Redaktəyə davam et",
+        "back": "Dəyişiklikləri ləğv et",
+        "art": "art_write_error",
+        "tab": null
+      }
+    ],
+    "legacy": [
+      "10"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "10-deyisiklik-ve-xeta-hallari"
+  },
+  {
+    "num": 11,
+    "slug": "yenilenmis-plan-ve-tesdiq",
+    "title": "Nəticə, alış-veriş və gündəlik",
+    "panels": [
+      {
+        "id": "11-A",
+        "title": "Həftənin menyusu",
+        "body": "<div class=\"week\"><div class=\"day \">B.e.<b>2</b></div><div class=\"day \">Ç.a.<b>3</b></div><div class=\"day \">Ç.<b>4</b></div><div class=\"day \">C.a.<b>5</b></div><div class=\"day selected\">C.<b>6</b>✓ Bu gün</div><div class=\"day \">Ş.<b>7</b></div><div class=\"day \">B.<b>8</b></div></div><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_menu.png\" alt=\"\"><div><h3>6 noyabr · Şam</h3><p>Tərəvəzli toyuq · 7 noyabrdan dəyişdirildi</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>7 noyabr · Şam</h3><p>Toyuq plovu · 6 noyabrdan dəyişdirildi</p></div></section><section class=\"card \"><h3>Son dəyişikliyi geri qaytar</h3><p>Plan və alış-veriş birlikdə əvvəlki vəziyyətə dönür.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Digər günlər və faktiki yeyilmiş qeydlər saxlanıb.</p></section>",
+        "cta": "Son dəyişikliyi geri qaytar",
+        "back": "Menyuya qayıt",
+        "art": null,
+        "tab": "Menyu"
+      },
+      {
+        "id": "11-B",
+        "title": "Alış-veriş yeniləndi",
+        "body": "<section class=\"card \"><h3>4 porsiyalı qazan · fərq</h3><p>Göbələk +200 q · Yağ +20 q</p></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_ingredient_rice.png\" alt=\"\"><div><h3>Düyü · Alınıb</h3><p>Əvvəlki işarə qorunub</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_ingredient_chicken.png\" alt=\"\"><div><h3>Toyuq · Evdə var</h3><p>Ümumi ehtiyacdan avtomatik çıxılmır</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Artıq alınmış, yeni planda lazım olmayan məhsul ayrıca saxlanır.</p></section>",
+        "cta": "Siyahıya qayıt",
+        "back": "Dəyişikliyə bax",
+        "art": "art_budget",
+        "tab": null
+      },
+      {
+        "id": "11-C",
+        "title": "Bu yeməklə əvəz edək?",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Əvvəl · Toyuq plovu</h3><p>1 porsiya · 500 kkal · nümunə</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_menu.png\" alt=\"\"><div><h3>Sonra · Tərəvəzli toyuq</h3><p>Yeni porsiya · 400 kkal · nümunə</p></div></section><section class=\"card row \"><div><h3>Günün yenilənmiş planı</h3><p>Faktiki + qalan planlı hissələr</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Digər yeməklərin porsiyası ayrıca qəbul edilmədən dəyişmir.</p></section>",
+        "cta": "Gün və həftə önbaxışına bax",
+        "back": "Başqa variant seç",
+        "art": null,
+        "tab": null
+      },
+      {
+        "id": "11-D",
+        "title": "Qeyd olundu!",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Toyuq plovu · 1 porsiya</h3><p>Sənin dəyişdirdiyin faktiki tərkib</p></div></section><section class=\"card \"><h3>Təxmini enerji</h3><p>555 kkal · nümunə</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Gələcək günlərin menyusu dəyişməyib. Bu, planı dəyişmə əməliyyatı deyil.</p></section>",
+        "cta": "Bu günə qayıt",
+        "back": "Qeydə düzəliş et",
+        "art": "art_saved",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [
+      "11"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "11-yenilenmis-plan-ve-tesdiq"
+  },
+  {
+    "num": 12,
+    "slug": "elave-profil-secimleri",
+    "title": "Profil məlumatları · cari müqavilə",
+    "panels": [
+      {
+        "id": "12-A",
+        "title": "Sağlamlıq sualları",
+        "body": "<div class=\"health-list\"><div class=\"health-row\"><b>Hamiləlik</b><span>○ Bəli &nbsp; ○ Xeyr</span></div><div class=\"health-row\"><b>Südvermə</b><span>○ Bəli &nbsp; ○ Xeyr</span></div><div class=\"health-row\"><b>Qidalanma pozuntusu riski</b><span>○ Bəli &nbsp; ○ Xeyr</span></div><div class=\"health-row\"><b>Tibbi pəhriz ehtiyacı</b><span>○ Bəli &nbsp; ○ Xeyr</span></div><div class=\"health-row\"><b>Böyrək xəstəliyi</b><span>○ Bəli &nbsp; ○ Xeyr</span></div><div class=\"health-row\"><b>Qidalanmaya təsir edən dərman</b><span>○ Bəli &nbsp; ○ Xeyr</span></div><div class=\"health-row\"><b>Diabet</b><span>○ Bəli &nbsp; ○ Xeyr</span></div><div class=\"health-row\"><b>Səbəbsiz çəki itkisi</b><span>○ Bəli &nbsp; ○ Xeyr</span></div><div class=\"health-row\"><b>Yüksək performans idmanı</b><span>○ Bəli &nbsp; ○ Xeyr</span></div><div class=\"health-row\"><b>BMI-yə təsir edən bədən tərkibi</b><span>○ Bəli &nbsp; ○ Xeyr</span></div></div><section class=\"card notice\"><h3>Diqqət</h3><p>Cavabsız “Xeyr” deyil. Risk cavabında avtomatik fərdi plan verilmir.</p></section>",
+        "cta": "Davam et",
+        "back": "Cavab vermədən hədəfsiz davam et",
+        "art": "art_health",
+        "tab": null,
+        "step": 3,
+        "disabled": true
+      },
+      {
+        "id": "12-B",
+        "title": "Büdcə məlumatları",
+        "body": "<label>Region<span class=\"field\">Azərbaycan</span></label><label>Valyuta<span class=\"field\">AZN</span></label><label>Həftəlik büdcə<span class=\"field\">100<b>AZN</b></span></label><section class=\"card\"><h3>Neçə nəfər üçün?</h3><div class=\"stepper\"><span>−</span><b>1 </b><span>+</span></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Yemək əhatəsi və mətbəx avadanlığı onboarding-də soruşulmur.</p></section>",
+        "cta": "Davam et",
+        "back": "Seçimlərə qayıt",
+        "art": "art_budget",
+        "tab": null,
+        "step": 5
+      },
+      {
+        "id": "12-C",
+        "title": "Evdə var işarəsi",
+        "body": "<section class=\"card row selected\"><img class=\"row-art\" src=\"assets/art_ingredient_rice.png\" alt=\"\"><div><h3>✓ Düyü · quru</h3><p>700 q həftəlik ehtiyac · ✓ Evdə var</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_ingredient_chicken.png\" alt=\"\"><div><h3>Toyuq · xam</h3><p>600 q həftəlik ehtiyac · □ Evdə var</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Evdəki dəqiq miqdar toplanmır və ehtiyacdan çıxılmır. Köhnə inventar forması ləğv edilib.</p></section>",
+        "cta": "Alış-verişə qayıt",
+        "back": "Menyuya qayıt",
+        "art": "art_budget",
+        "tab": null
+      },
+      {
+        "id": "12-D",
+        "title": "Profil saxlanıb",
+        "body": "<section class=\"card \"><h3>Bu telefonda saxlanır</h3><p>Məqsəd və seçimlər son versiya ilə saxlanıb. Menyu ayrıca uyğunluq yoxlamasından sonra yaranır.</p></section><section class=\"card row \"><div><h3>Məqsədim</h3><p>Çəkini saxlamaq</p></div></section><section class=\"card row \"><div><h3>Yemək sayı</h3><p>Gündə 3 yemək</p></div></section>",
+        "cta": "Menyuya bax",
+        "back": "Seçimləri dəyiş",
+        "art": "art_saved",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [
+      "12"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "12-elave-profil-secimleri"
+  },
+  {
+    "num": 13,
+    "slug": "bos-veziyyetler",
+    "title": "Əsas bölmələrin boş halları",
+    "panels": [
+      {
+        "id": "13-A",
+        "title": "Hələ menyu yoxdur",
+        "body": "<section class=\"card \"><h3>Plan hazır deyil</h3><p>Seçimlərini tamamla və mövcud planın yaradılma vəziyyətinə bax. Gündəlikdən istifadə edə bilərsən.</p></section>",
+        "cta": "Seçimlərimə bax",
+        "back": "Yemək əlavə et",
+        "art": "art_empty_menu",
+        "tab": "Menyu",
+        "hero": true
+      },
+      {
+        "id": "13-B",
+        "title": "İlk yeməyini əlavə et",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_entry_camera.png\" alt=\"\"><div><h3>Şəkil çək</h3><p>Foto və porsiyanı təsdiqlə</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_entry_search.png\" alt=\"\"><div><h3>Axtar</h3><p>Yeməyi adı ilə tap</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_log.png\" alt=\"\"><div><h3>Özüm yazım</h3><p>Əl ilə daxil et</p></div></section>",
+        "cta": "Yemək axtar",
+        "back": "Bu günə qayıt",
+        "art": "art_empty_add",
+        "tab": "Əlavə et",
+        "hero": true
+      },
+      {
+        "id": "13-C",
+        "title": "Hələ irəliləyiş qeydi yoxdur",
+        "body": "<section class=\"card \"><h3>İlk ölçmədən başla</h3><p>Bir ölçmə trend sayılmır. Yemək qeydi olmayan gün 0 qəbul kimi hesablanmır.</p></section>",
+        "cta": "Çəki əlavə et",
+        "back": "Bu günə qayıt",
+        "art": "art_empty_progress",
+        "tab": "İrəliləyiş",
+        "hero": true
+      },
+      {
+        "id": "13-D",
+        "title": "Hesaba giriş əlçatan deyil",
+        "body": "<section class=\"card \"><h3>Hazırda qoşulmaq alınmır</h3><p>Lokal məlumatların qalır. Sonra yenidən cəhd edə bilərsən.</p></section>",
+        "cta": "Yenidən yoxla",
+        "back": "Hesabsız davam et",
+        "art": "art_account",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [
+      "13"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "13-bos-veziyyetler"
+  },
+  {
+    "num": 14,
+    "slug": "elave-formalar-ve-veziyyetler",
+    "title": "Əlavə seçimlər və formalar",
+    "panels": [
+      {
+        "id": "14-A",
+        "title": "Digər seçimlər",
+        "body": "<label>Əlavə allergen<span class=\"field\">Küncüt</span></label><div class=\"options\"><div class=\"option \">○ Qlüten məhdudiyyəti</div></div><label>Qida məhdudiyyəti<span class=\"field\">Daxil et</span></label><section class=\"card notice\"><h3>Diqqət</h3><p>Buğda allergiyası və qlüten məhdudiyyəti ayrı saxlanır. Naməlum allergen uyğun sayılmır.</p></section>",
+        "cta": "Seçimi saxla",
+        "back": "Allergiyalara qayıt",
+        "art": "art_other_choices",
+        "tab": null,
+        "step": 4
+      },
+      {
+        "id": "14-B",
+        "title": "Sevmədiyim yeməklər",
+        "body": "<label>Yemədiyin ərzaqlar<span class=\"field\">Göbələk · ×</span></label><label>Yemədiyin yeməklər<span class=\"field\">Daxil et</span></label><section class=\"card notice\"><h3>Diqqət</h3><p>İstəksizlik allergiya deyil. Silmək və dəyişmək mümkündür.</p></section>",
+        "cta": "Seçimi saxla",
+        "back": "Allergiyalara qayıt",
+        "art": "art_dislikes",
+        "tab": null
+      },
+      {
+        "id": "14-C",
+        "title": "Yüklənir…",
+        "body": "<section class=\"card \"><h3>Seçimlərin yoxlanır</h3><p><div class=\"loader\"></div>Plan nəticəsi hazır olduqda göstəriləcək. Hələ heç nə təsdiqlənməyib.</p></section>",
+        "cta": "Yoxlanır…",
+        "back": "Geri qayıt",
+        "art": "art_cooking",
+        "tab": null,
+        "disabled": true,
+        "hero": true
+      },
+      {
+        "id": "14-D",
+        "title": "Telefona yazmaq alınmadı",
+        "body": "<section class=\"card \"><h3>Cavabların ekranda qalıb</h3><p>Hələ saxlanıb demirik. Yeri və tətbiq vəziyyətini yoxlayıb yenidən cəhd et.</p></section>",
+        "cta": "Yenidən yoxla",
+        "back": "Redaktəyə qayıt",
+        "art": "art_write_error",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [
+      "14"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "14-elave-formalar-ve-veziyyetler"
+  },
+  {
+    "num": 15,
+    "slug": "aktivlik-ve-hedefsiz-davam",
+    "title": "Aktivlik və hədəfsiz davam",
+    "panels": [
+      {
+        "id": "15-A",
+        "title": "Günün necə keçir?",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_sedentary.png\" alt=\"\"><div><h3>Az hərəkətli</h3><p>Adi günlük hərəkət</p></div></section><section class=\"card row selected\"><img class=\"row-art\" src=\"assets/art_walking.png\" alt=\"\"><div><h3>✓ Yüngül fəal</h3><p>İzahına bax və təsdiqlə</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_active.png\" alt=\"\"><div><h3>Fəal</h3><p>İzahına bax və təsdiqlə</p></div></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_active.png\" alt=\"\"><div><h3>Çox fəal</h3><p>İzahına bax və təsdiqlə</p></div></section><p>Əmin deyiləm → hədəfsiz gündəlik.</p>",
+        "cta": "Seçimi təsdiqlə",
+        "back": "Əmin deyiləm",
+        "art": "art_active",
+        "tab": null,
+        "step": 3
+      },
+      {
+        "id": "15-B",
+        "title": "Yüngül fəal",
+        "body": "<section class=\"card \"><h3>Gündəlik fəaliyyət nümunəsi</h3><p>Adi günlük işlərə əlavə 60–80 dəq, 5–7 km/saat sürətlə gəzinti.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bu məşq resepti deyil; adi gününü müqayisə etmək üçün mənbə nümunəsidir.</p></section>",
+        "cta": "Bu seçim mənə uyğundur",
+        "back": "Digər seçimlərə bax",
+        "art": "art_walking",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "15-C",
+        "title": "Seçimini yenidən yoxla",
+        "body": "<section class=\"card \"><h3>Əvvəlki cavab</h3><p>Bir az hərəkət edirəm</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Dörd kateqoriya yenilənib. Köhnə cavab avtomatik xəritələnmir; yenidən təsdiq et.</p></section>",
+        "cta": "Seçimlərə bax",
+        "back": "Hədəfsiz davam et",
+        "art": "art_other_choices",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "15-D",
+        "title": "Hədəfsiz davam edə bilərsən",
+        "body": "<section class=\"card \"><h3>Aktivlik dəqiqləşməyib</h3><p>Avtomatik enerji hədəfi yaradılmır.</p></section><section class=\"card row \"><img class=\"row-art\" src=\"assets/art_log.png\" alt=\"\"><div><h3>Yeməklərini qeyd et</h3><p>Porsiyanı özün təsdiqlə</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Sonra profildən aktivliyi yenidən seçə bilərsən.</p></section>",
+        "cta": "Gündəliyə keç",
+        "back": "Aktivliyi yenidən seç",
+        "art": "art_empty_add",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [
+      "15"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "15-aktivlik-ve-hedefsiz-davam"
+  },
+  {
+    "num": 16,
+    "slug": "aktivlik-izahlari",
+    "title": "Aktivlik seçimlərinin izahı",
+    "panels": [
+      {
+        "id": "16-1",
+        "title": "Az hərəkətli",
+        "body": "<section class=\"card \"><h3>Gündəlik fəaliyyət nümunəsi</h3><p>Adi günlük işlər, təxminən 30 dəq gəzinti və 90 dəq yüngül/orta ev işi.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Məşq tövsiyəsi və dəqiq ekvivalentlik testi deyil. Gününə ən yaxın təsviri təsdiqlə.</p></section><section class=\"card row \"><div><h3>Əmin deyiləm</h3><p>Hədəfsiz gündəliklə davam et</p></div></section>",
+        "cta": "Bu seçim mənə uyğundur",
+        "back": "Digər seçimlərə bax",
+        "art": "art_sedentary",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "16-2",
+        "title": "Fəal",
+        "body": "<section class=\"card \"><h3>Gündəlik fəaliyyət nümunəsi</h3><p>Adi günlük işlərə əlavə: 30–50 dəq, 5–7 km/saat gəzinti; 45 dəq orta velosiped; 40 dəq cüt tennis.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Məşq tövsiyəsi və dəqiq ekvivalentlik testi deyil. Gününə ən yaxın təsviri təsdiqlə.</p></section><section class=\"card row \"><div><h3>Əmin deyiləm</h3><p>Hədəfsiz gündəliklə davam et</p></div></section>",
+        "cta": "Bu seçim mənə uyğundur",
+        "back": "Digər seçimlərə bax",
+        "art": "art_active",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "16-3",
+        "title": "Çox fəal",
+        "body": "<section class=\"card \"><h3>Gündəlik fəaliyyət nümunəsi</h3><p>Adi günlük işlərə əlavə: 45 dəq orta velosiped; 25 dəq, 10 km/saat qaçış; 60 dəq cüt tennis.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Məşq tövsiyəsi və dəqiq ekvivalentlik testi deyil. Gününə ən yaxın təsviri təsdiqlə.</p></section><section class=\"card row \"><div><h3>Əmin deyiləm</h3><p>Hədəfsiz gündəliklə davam et</p></div></section>",
+        "cta": "Bu seçim mənə uyğundur",
+        "back": "Digər seçimlərə bax",
+        "art": "art_active",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [
+      "16"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "16-aktivlik-izahlari"
+  },
+  {
+    "num": 17,
+    "slug": "hedefsiz-davam-sebebleri",
+    "title": "Hədəfsiz davamın səbəbləri",
+    "panels": [
+      {
+        "id": "17-1",
+        "title": "Məlumatı verməyə bilərsən",
+        "body": "<section class=\"card \"><h3>Avtomatik hədəf verilmir</h3><p>Cins məlumatı verilməyib. Formula üçün fərz etmirik. Avtomatik hədəf yaradılmır.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Yeməklərini hədəfsiz qeyd edə bilərsən.</p></section>",
+        "cta": "Gündəliyə keç",
+        "back": "Məlumatı tamamla",
+        "art": "art_account",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "17-2",
+        "title": "Fərdi dəstək daha uyğundur",
+        "body": "<section class=\"card \"><h3>Avtomatik hədəf verilmir</h3><p>Sağlamlıq cavablarına görə avtomatik enerji hədəfi və fərdi menyu verilmir. Bu diaqnoz deyil. Mütəxəssis hədəfi sərt istisnanı aşmır.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Yeməklərini hədəfsiz qeyd edə bilərsən.</p></section>",
+        "cta": "Gündəliyə keç",
+        "back": "Cavabları nəzərdən keçir",
+        "art": "art_health",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "17-3",
+        "title": "Hesablamanın əhatəsi məhduddur",
+        "body": "<section class=\"card \"><h3>Avtomatik hədəf verilmir</h3><p>Profil məhsulun avtomatik hesab əhatəsinə daxil deyil. Bu modelin elmi sərhədi və ya diaqnoz deyil.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Yeməklərini hədəfsiz qeyd edə bilərsən.</p></section>",
+        "cta": "Gündəliyə keç",
+        "back": "Profilə bax",
+        "art": "art_account",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [
+      "17"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "17-hedefsiz-davam-sebebleri"
+  },
+  {
+    "num": 18,
+    "slug": "hedefsiz-hesablama-sebebleri",
+    "title": "Hesablama nəticəsi uyğun deyil",
+    "panels": [
+      {
+        "id": "18-A",
+        "title": "Avtomatik hədəf verilmir",
+        "body": "<section class=\"card \"><h3>Enerji məhsul sərhədindən aşağıdır</h3><p>Hesablanan nəticə bu tətbiqin enerji alt sərhədinə uyğun gəlmir.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Universal tibbi minimum və ya təhlükəsizlik zəmanəti deyil. Hədəfi süni artırmırıq; uyğun plan yaradılmır.</p></section><section class=\"card row \"><div><h3>Mütəxəssislə dəqiqləşdir</h3><p>Fərdi dəstək al</p></div></section>",
+        "cta": "Gündəliyə keç",
+        "back": "Məlumatları yoxla",
+        "art": "art_progress",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "18-B",
+        "title": "Uyğun bölgü alınmadı",
+        "body": "<section class=\"card \"><h3>Makro bölgüsü uyğun gəlmir</h3><p>Zülal, yağ və karbohidrat seçilmiş qaydalara uyğun bölünmədi.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Rəqəmlər səssiz dəyişmir və zülal minimumu azaldılmır. Avtomatik enerji/makro hədəfi yaradılmır.</p></section>",
+        "cta": "Gündəliyə keç",
+        "back": "Məlumatları yoxla",
+        "art": "art_healthy",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [
+      "18"
+    ],
+    "requirements": [
+      "18",
+      "19"
+    ],
+    "file": "18-hedefsiz-hesablama-sebebleri"
+  },
+  {
+    "num": 19,
+    "slug": "telimat-yoxdur",
+    "title": "Dəyişən resept · uyğun təlimat yoxdur",
+    "requirements": [
+      "16.3",
+      "19.14"
+    ],
+    "panels": [
+      {
+        "id": "19-A",
+        "title": "Bu variantın təlimatı yoxdur",
+        "body": "<section class=\"card \"><h3>Toyuq əvəzinə mərci</h3><p>Tərkibi dəyişmisən. Köhnə hazırlanma addımları bu varianta tam uyğun deyil.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bu dəyişiklik üçün yoxlanmış hazırlanma təlimatı tapılmadı. Köhnə vaxt və porsiya şəkli də bu variant üçün təsdiqlənməyib.</p></section><section class=\"card \"><h3>Necə davam edək?</h3><p>Tərkibə qayıdıb seçimini dəyiş və ya uyğun təlimatı olan başqa resept seç. Dəyişiklik hələ plana tətbiq edilməyib.</p></section>",
+        "cta": "Tərkibə qayıt",
+        "back": "Başqa resept seç",
+        "tab": null,
+        "art": "art_cooking"
+      },
+      {
+        "id": "19-B",
+        "title": "İlkin reseptə qayıt?",
+        "body": "<section class=\"card \"><h3>Qaralamanı ləğv et</h3><p>Mərci ilə etdiyin saxlanmamış düzəlişlər atılacaq. Plan və alış-veriş siyahısı dəyişməyəcək.</p></section><section class=\"card selected\"><h3>İlkin toyuq resepti</h3><p>Öz tərkibi və həmin versiyanın hazırlanma addımları ilə açılacaq.</p></section>",
+        "cta": "İlkin reseptə qayıt",
+        "back": "Redaktəyə davam et",
+        "tab": null,
+        "art": "art_recipe"
+      }
+    ],
+    "legacy": [
+      "completion/19"
+    ],
+    "file": "19-telimat-yoxdur"
+  },
+  {
+    "num": 20,
+    "slug": "gun-hefte-onbaxis",
+    "title": "Açılmış gün və həftə önbaxışı",
+    "requirements": [
+      "16.2",
+      "16.6",
+      "19.15"
+    ],
+    "panels": [
+      {
+        "id": "20-A",
+        "title": "Günün yenilənmiş planı",
+        "body": "<div class=\"chip\">6 noyabr 2026 · Cümə</div><section class=\"card \"><h3>Faktiki yeyilən · dəyişmir</h3><p>Səhər və nahar qeydləri<br><b>900 kkal · Zülal 50 q · Karbohidrat 100 q · Yağ 33,3 q</b></p></section><section class=\"card selected\"><h3>Qalan planlı hissə</h3><p>Şam və qalan qəlyanaltı<br>Əvvəl: 900 kkal · Zülal 50 q · Karbohidrat 100 q · Yağ 33,3 q<br><b>Sonra: 1 000 kkal · Zülal 55 q · Karbohidrat 105 q · Yağ 40 q</b></p></section><section class=\"card \"><h3>Günün proqnozu · əvvəl → sonra</h3><p>Enerji: <b>1 800 → 1 900 kkal</b><br>Zülal: 100 → 105 q<br>Karbohidrat: 200 → 205 q<br>Yağ: 66,7 → 73,3 q</p></section><p>Faktiki + qalan plan. Yeyilmiş hissə ikinci dəfə sayılmır. Hədəf dəyişmir.</p>",
+        "cta": "Həftə təsirinə bax",
+        "back": "Redaktəyə qayıt",
+        "tab": null,
+        "art": null
+      },
+      {
+        "id": "20-B",
+        "title": "Həftəyə təsiri",
+        "body": "<div class=\"chip\">2–8 noyabr 2026</div><section class=\"card \"><h3>Faktiki yeyilən · dəyişmir</h3><p>Qeyd olunmuş hissələr:<br><b>8 100 kkal · Zülal 450 q · Karbohidrat 900 q · Yağ 300 q</b></p></section><section class=\"card selected\"><h3>Qalan planlı hissələr</h3><p>Əvvəl: 4 500 kkal · Zülal 250 q · Karbohidrat 500 q · Yağ 166,7 q<br><b>Sonra: 4 600 kkal · Zülal 255 q · Karbohidrat 505 q · Yağ 173,3 q</b></p></section><section class=\"card \"><h3>Həftə proqnozu · əvvəl → sonra</h3><p>Enerji: <b>12 600 → 12 700 kkal</b><br>Zülal: 700 → 705 q<br>Karbohidrat: 1 400 → 1 405 q<br>Yağ: 466,7 → 473,3 q</p></section><p>Yalnız seçilmiş şam dəyişir. Qeyd edilməyən qəbul hesablanmır; bu, tam faktiki həftə yekunu deyil.</p>",
+        "cta": "Dəyişikliyi təsdiqlə",
+        "back": "Günə qayıt",
+        "tab": null,
+        "art": null
+      }
+    ],
+    "legacy": [
+      "completion/20"
+    ],
+    "file": "20-gun-hefte-onbaxis"
+  },
+  {
+    "num": 21,
+    "slug": "deyisme-yollari",
+    "title": "Yeməyi dəyişməyin əlavə halları",
+    "requirements": [
+      "16.4",
+      "16.5",
+      "T06",
+      "T09"
+    ],
+    "panels": [
+      {
+        "id": "21-A",
+        "title": "Uyğun alternativ tapılmadı",
+        "body": "<section class=\"card \"><h3>Mövcud seçimlərlə nəticə yoxdur</h3><p>Allergiya və digər qəti məhdudiyyətlər saxlanılıb. Heç bir yemək dəyişdirilməyib.</p></section><section class=\"card \"><h3>Başqa yol seç</h3><p>Uyğun qramlarla porsiyaya baxa və ya başqa yemək vaxtını yoxlaya bilərsən. Allergiya qaydası yumşaldılmır.</p></section>",
+        "cta": "Porsiyalara bax",
+        "back": "Başqa vaxt seç",
+        "tab": null,
+        "art": "art_empty"
+      },
+      {
+        "id": "21-B",
+        "title": "Porsiyanı uyğunlaşdıraq?",
+        "body": "<section class=\"card selected\"><h3>Təklif · hələ tətbiq edilməyib</h3><p>Seçilmiş yemək:<br><b>1 porsiya → 0,8 porsiya</b><br>Ölçülmüş bişmiş çəki: 300 → 240 q</p></section><section class=\"card \"><h3>Porsiya üçün · əvvəl → sonra</h3><p>Enerji: 500 → 400 kkal<br>Zülal: 30 → 24 q<br>Karbohidrat: 50 → 40 q<br>Yağ: 20 → 16 q</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Yeni miqdarı qəbul etdikdən sonra hər iki günün enerji, makro və məhdudiyyət yoxlaması göstəriləcək. Hələ uyğunluq təsdiqi deyil.</p></section>",
+        "cta": "İki günün nəticəsinə bax",
+        "back": "Porsiyanı dəyişmə",
+        "tab": null,
+        "art": null
+      },
+      {
+        "id": "21-C",
+        "title": "Bu hissə artıq yeyilib",
+        "body": "<section class=\"card \"><h3>6 noyabr · Nahar</h3><p>Bu plan hissəsinə faktiki yemək qeydi bağlıdır. Yeyilmiş hissəni başqa günə köçürmək və ya dəyişmək olmur.</p></section><section class=\"card \"><h3>Qeydi düzəltmək istəyirsən?</h3><p>Həqiqətən yediyin tərkib və miqdarı ayrıca qeyddən düzəlt. Plan əməliyyatı tarixçəni dəyişmir.</p></section>",
+        "cta": "Faktiki qeydi aç",
+        "back": "Menyuya qayıt",
+        "tab": null,
+        "art": "art_saved"
+      },
+      {
+        "id": "21-D",
+        "title": "Bu günə köçür",
+        "body": "<div class=\"chip\">7 noyabr şam → 6 noyabr şam</div><section class=\"card selected\"><h3>Hədəf yemək vaxtı boşdur</h3><p>Bu gün · Şam<br>Tərəvəzli bulqur · 0,8 porsiya (240 q)<br><b>Boş vaxt seçilib ✓</b></p></section><section class=\"card \"><h3>Köçürmənin nəticəsi</h3><p>Yemək 7 noyabrın şamından çıxıb 6 noyabrın boş şamına keçir. Qarşılıqlı yer dəyişmə deyil. İki gün birlikdə saxlanacaq.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Təsdiqdən əvvəl hər iki günün proqnozu, məhdudiyyətlər və alış-veriş fərqi yoxlanır. Dolu vaxt bu əməliyyat üçün seçilmir.</p></section>",
+        "cta": "İki günün önbaxışına bax",
+        "back": "Başqa boş vaxt seç",
+        "tab": null,
+        "art": null
+      }
+    ],
+    "legacy": [
+      "completion/21"
+    ],
+    "file": "21-deyisme-yollari"
+  },
+  {
+    "num": 22,
+    "slug": "plan-konfliktleri",
+    "title": "Geri qaytarma və saxlama konfliktləri",
+    "requirements": [
+      "16.6",
+      "16.8",
+      "T12"
+    ],
+    "panels": [
+      {
+        "id": "22-A",
+        "title": "Faktiki qeyd qorunacaq",
+        "body": "<section class=\"card \"><h3>Dəyişiklikdən sonra yemək yeyilib</h3><p>Toyuq plovu · 6 noyabr, Şam<br>Faktiki qəbul artıq gündəlikdə saxlanıb.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Geri qaytarma yalnız planı və alış-veriş siyahısını birlikdə əvvəlki vəziyyətə qaytarır. Faktiki yemək qeydi, onun tərkibi və qida dəyərləri silinmir.</p></section><section class=\"card \"><h3>Proqnoz necə hesablanır?</h3><p>Yeyilmiş hissə yenidən qalan plan kimi sayılmır. Faktiki qeydə düzəliş ayrıca əməliyyatdır.</p></section>",
+        "cta": "Planı geri qaytar",
+        "back": "Dəyişikliyi saxla",
+        "tab": null,
+        "art": "art_saved"
+      },
+      {
+        "id": "22-B",
+        "title": "Plan başqa cihazda dəyişib",
+        "body": "<section class=\"card \"><h3>Dəyişiklik saxlanmadı</h3><p>Sən redaktə edərkən planın daha yeni versiyası yaranıb. Sənin düzəlişin onun üzərinə yazılmadı.</p></section><section class=\"card selected\"><h3>Qaralaman qorunur</h3><p>Son planı aç, fərqlərə bax və bu düzəlişi yenidən yoxla. Uyğunluq yoxlanmadan tətbiq edilmir.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Heç bir yarımçıq plan və ya alış-veriş dəyişikliyi tətbiq olunmayıb.</p></section>",
+        "cta": "Son planla müqayisə et",
+        "back": "Qaralamaya qayıt",
+        "tab": null,
+        "art": "art_write_error"
+      }
+    ],
+    "legacy": [
+      "completion/22"
+    ],
+    "file": "22-plan-konfliktleri"
+  },
+  {
+    "num": 23,
+    "slug": "foto-deqiqlesdirme",
+    "title": "Foto · resept əlaqəsi və qısa dəqiqləşdirmə",
+    "requirements": [
+      "16.9",
+      "T18",
+      "T13"
+    ],
+    "panels": [
+      {
+        "id": "23-A",
+        "title": "Bu foto hansı yeməkdir?",
+        "body": "<section class=\"card \"><h3>Fotodakı yeməyi sən seç</h3><p>Plan reseptinə bağlı olduğunu saatdan və foto oxşarlığından fərz etmirik.</p></section><section class=\"card selected\"><h3>Planımdakı reseptdir</h3><p>6 noyabr · Şam<br>Toyuq plovu · son saxlanmış versiya<br>✓ Bu resepti seçdin</p></section><section class=\"card \"><h3>Başqa plan yeməyi</h3><p>Gün və yemək vaxtına görə seç</p></section><section class=\"card \"><h3>Planda olmayan yemək</h3><p>Ümumi yemək əlavə etmə axınına keç</p></section>",
+        "cta": "Seçilmiş reseptlə davam et",
+        "back": "Ümumi yemək əlavə et",
+        "tab": null,
+        "art": "art_entry_camera"
+      },
+      {
+        "id": "23-B",
+        "title": "Bir şeyi dəqiqləşdirək",
+        "body": "<section class=\"card selected\"><h3>Sən təsdiqlədin</h3><p>Toyuq plovu · resept olduğu kimi hazırlanıb.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Fotoda model başqa yemək və ya əlavə sous ola biləcəyini təxmin edir. Şəkildən gizli yağı və dəqiq tərkibi bilmək olmur.</p></section><section class=\"card \"><h3>Hansı məlumat əsas olsun?</h3><p>Sənin təsdiqin əsasdır. Resept və qramlar səssiz dəyişməyəcək. Lazımdırsa tərkibi özün düzəldə bilərsən.</p></section>",
+        "cta": "Resepti təsdiqləyirəm",
+        "back": "Tərkibi dəqiqləşdir",
+        "tab": null,
+        "art": "art_recipe"
+      },
+      {
+        "id": "23-C",
+        "title": "Nə qədər yedin?",
+        "body": "<section class=\"card \"><h3>Resept seçimin saxlanıb</h3><p>Toyuq plovu · son saxlanmış versiya<br>Foto təxmini resepti əvəz etmədi.</p></section><section class=\"card \"><h3>Hazırlanan qazan</h3><p>4 porsiya hazırlanıb</p></section><section class=\"card selected\"><h3>Sənin yediyin hissə</h3><p>✓ 1 porsiya · qazanın ¼ hissəsi</p></section><p>Ölçülmüş bişmiş çıxım yoxdursa qram və 100 q dəyəri göstərilmir. Bu seçim hələ gündəlik qeydi yaratmır.</p>",
+        "cta": "Qeydin önbaxışına bax",
+        "back": "Resept seçiminə qayıt",
+        "tab": null,
+        "art": "art_portion_scale"
+      }
+    ],
+    "legacy": [
+      "completion/23"
+    ],
+    "file": "23-foto-deqiqlesdirme"
+  },
+  {
+    "num": 24,
+    "slug": "alisveris-hallari",
+    "title": "Alış-veriş · qorunan məhsullar və paylaşım",
+    "requirements": [
+      "16.6",
+      "19.8"
+    ],
+    "panels": [
+      {
+        "id": "24-A",
+        "title": "Alınmış məhsul saxlanıb",
+        "body": "<div class=\"chip\">2–8 noyabr 2026</div><section class=\"card selected\"><h3>Yeni planda lazım deyil</h3><p>✓ Göbələk · Alınıb<br>Əvvəlki siyahı miqdarı: 200 q</p></section><section class=\"card \"><h3>Niyə burada qalır?</h3><p>Plan dəyişib, amma bu məhsulu artıq almısan. İşarə və məhsul səssiz silinməyib; ayrıca bölmədə saxlanılıb.</p></section><section class=\"card \"><h3>Həftəyə lazım olanlar</h3><p>Düyü · 700 q · □ Evdə var · □ Alınıb<br>Yağ · 70 q · ✓ Evdə var · □ Alınıb</p></section><p>Evdə var işarəsi ümumi ehtiyacdan avtomatik miqdar çıxmır.</p>",
+        "cta": "Siyahıya qayıt",
+        "back": "Məhsulu siyahıdan çıxar",
+        "tab": null,
+        "art": "art_budget"
+      },
+      {
+        "id": "24-B",
+        "title": "Siyahın hələ boşdur",
+        "body": "<section class=\"card \"><h3>Bu həftə məhsul yoxdur</h3><p>Seçilmiş plan üçün alış-veriş məhsulu yoxdur. Plan seçəndə lazım olan ərzaqlar burada görünəcək.</p></section><section class=\"card \"><h3>Menyuya bax</h3><p>Planın varsa həftəni yoxla. Məhsul əlavə etmədən boş mətn paylaşılmır.</p></section>",
+        "cta": "Menyuya bax",
+        "back": "Başqa həftə seç",
+        "tab": "Menyu",
+        "art": "art_empty"
+      },
+      {
+        "id": "24-C",
+        "title": "Paylaşılacaq mətn",
+        "body": "<div class=\"chip\">Mətn önbaxışı · göndərilməyib</div><section class=\"card \"><h3>Alış-veriş · 2–8 noyabr 2026</h3><p>Həftəyə lazım olan ümumi miqdar:<br>• Düyü — 700 q<br>• Yağ — 70 q (Evdə var)<br><br>Artıq alınıb, yeni planda lazım deyil:<br>• Göbələk — əvvəlki siyahı: 200 q (Alınıb)</p></section><section class=\"card \"><h3>Yalnız siyahı paylaşılır</h3><p>Profil, çəki, hədəf və qida gündəliyi mətnə daxil edilmir. Növbəti addımda sistem paylaşım pəncərəsindən alıcını sən seçirsən.</p></section>",
+        "cta": "Paylaşım pəncərəsini aç",
+        "back": "Ləğv et",
+        "tab": null,
+        "art": null
+      }
+    ],
+    "legacy": [
+      "completion/24"
+    ],
+    "file": "24-alisveris-hallari"
+  },
+  {
+    "num": 25,
+    "slug": "hesab-formalari",
+    "title": "Hesab · tamamlanan forma və xəta halları",
+    "requirements": [
+      "18.9",
+      "18.10"
+    ],
+    "panels": [
+      {
+        "id": "25-A",
+        "title": "Yeni hesab yarat",
+        "body": "<label>E-poçt<div class=\"field\">ad@example.com</div></label><label>Şifrə<div class=\"field\">•••••••• · Göstər</div></label><label>Şifrəni təkrar yaz<div class=\"field\">•••••••• · Göstər</div></label><p class=\"error\">! Şifrələr uyğun deyil. Təkrar şifrəni yoxla.</p><section class=\"card \"><h3>Məlumatların qorunur</h3><p>Bu xəta planını və əvvəlki cavablarını silmir.</p></section>",
+        "cta": "Şifrəni düzəlt",
+        "back": "Girişə qayıt",
+        "tab": null,
+        "art": "art_account"
+      },
+      {
+        "id": "25-B",
+        "title": "Qeydiyyat alınmadı",
+        "body": "<section class=\"card \"><h3>Hesab yaratmaq tamamlanmadı</h3><p>Hazırda bağlantını yoxlamaq lazımdır. E-poçtun və formadakı məlumatların ekranda qalıb.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Planın və lokal qeydlərin qorunur. Başqa cihazda bərpa yalnız uğurlu sinxronizasiyadan sonra mümkündür.</p></section>",
+        "cta": "Yenidən yoxla",
+        "back": "Hələlik hesab açmadan davam et",
+        "tab": null,
+        "art": "art_write_error"
+      },
+      {
+        "id": "25-C",
+        "title": "Bərpa linki işləmir",
+        "body": "<section class=\"card \"><h3>Link etibarsızdır və ya vaxtı bitib</h3><p>Yeni bərpa linki istə. Bu linklə şifrəni dəyişmək olmur.</p></section><label>E-poçt<div class=\"field\">ad@example.com</div></label><section class=\"card \"><h3>Növbəti addım</h3><p>Uyğun hesab varsa yeni link üçün təlimat göndəriləcək. Planın və qeydlərin dəyişmir.</p></section>",
+        "cta": "Yeni link istə",
+        "back": "Girişə qayıt",
+        "tab": null,
+        "art": "art_account"
+      },
+      {
+        "id": "25-D",
+        "title": "Yeni şifrə seç",
+        "body": "<section class=\"card \"><h3>Bərpa linki yoxlanıb</h3><p>Yeni şifrəni iki dəfə daxil et.</p></section><label>Yeni şifrə<div class=\"field\">•••••••• · Göstər</div></label><label>Yeni şifrəni təkrar yaz<div class=\"field\">•••••••• · Göstər</div></label><p>Başqa hesabda istifadə etmədiyin şifrə seç. Hər iki sahəyə eyni şifrəni yaz.</p>",
+        "cta": "Yeni şifrəni saxla",
+        "back": "Girişə qayıt",
+        "tab": null,
+        "art": "art_account"
+      }
+    ],
+    "legacy": [
+      "completion/25"
+    ],
+    "file": "25-hesab-formalari"
+  },
+  {
+    "num": 26,
+    "slug": "komek-formalari",
+    "title": "Kömək · FAQ cavabı və dəstək forması",
+    "requirements": [
+      "19.16"
+    ],
+    "panels": [
+      {
+        "id": "26-A",
+        "title": "Foto kalorisi niyə təxminidir?",
+        "body": "<section class=\"card \"><h3>Tez-tez verilən suallar</h3><p>Şəkildən yağ, sous və gizli inqrediyentlərin miqdarını dəqiq bilmək olmur. Ona görə yeməyi, tərkibi və yediyin porsiyanı təsdiqləyirsən.</p></section><section class=\"card \"><h3>Dəqiqləşdirmək üçün</h3><p>Tərkibi düzəlt və məlum miqdarı daxil et. Bişmiş çəki ölçülməyibsə dəqiq qram uydurmaq lazım deyil. Foto özü gündəlik qeydi yaratmır.</p></section>",
+        "cta": "Dəstəyə yaz",
+        "back": "Bütün suallara qayıt",
+        "tab": null,
+        "art": "art_entry_camera"
+      },
+      {
+        "id": "26-B",
+        "title": "Dəstəyə müraciət",
+        "body": "<label>Cavab üçün e-poçt<div class=\"field\">ad@example.com</div></label><label>Mövzu<div class=\"field\">Qida məlumatında səhv</div></label><label>Resept və ya qeyd (istəyə bağlı)<div class=\"field\">Toyuq plovu</div></label><label>Mesajın<div class=\"field\">Porsiya məlumatını dəqiqləşdirmək istəyirəm…</div></label><section class=\"card notice\"><h3>Diqqət</h3><p>Şəxsi gündəlik və fotolar avtomatik əlavə edilmir. Yalnız bu formadakı məlumat göndəriləcək.</p></section>",
+        "cta": "Müraciəti göndər",
+        "back": "Qaralamaya qayıt",
+        "tab": null,
+        "art": null
+      }
+    ],
+    "legacy": [
+      "completion/26"
+    ],
+    "file": "26-komek-formalari"
+  },
+  {
+    "num": 27,
+    "slug": "baxis-ve-bos-siyahilar",
+    "title": "14 günlük baxış və boş siyahılar",
+    "requirements": [
+      "27.8",
+      "19.3",
+      "19.16"
+    ],
+    "panels": [
+      {
+        "id": "27-A",
+        "title": "Hədəfə yenidən baxaq",
+        "body": "<div class=\"chip\">6 noyabr 2026 · 14 günlük baxış</div><section class=\"card \"><h3>Son 14 gündə 2 çəki ölçməsi</h3><p>Trend üçün ən azı 3 könüllü ölçmə lazımdır. Hazırda trend və avtomatik kalori düzəlişi verilmir.</p></section><section class=\"card \"><h3>Nəyi yoxlaya bilərsən?</h3><p>Çəki, aktivlik və məqsəd məlumatlarını nəzərdən keçir. Yeni hesabın səbəbi və nəticəsi təsdiqdən əvvəl göstəriləcək.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bu, məhsul xatırlatmasıdır, klinik baxış müddəti deyil. Yeni simptom və səbəbsiz çəki dəyişməsi varsa avtomatik hədəf dayandırılır; peşəkar dəstək al.</p></section>",
+        "cta": "Məlumatlarıma bax",
+        "back": "İndi yox",
+        "tab": "İrəliləyiş",
+        "art": "art_weight"
+      },
+      {
+        "id": "27-B",
+        "title": "Əvvəl yediklərim",
+        "body": "<section class=\"card \"><h3>Hələ yemək qeydin yoxdur</h3><p>Təsdiqlədiyin yeməklər burada görünəcək. Planlı yeməklər faktiki tarixçə sayılmır.</p></section><section class=\"card \"><h3>İlk yeməyini əlavə et</h3><p>Yeməyi axtar və ya əl ilə yaz. Tərkibi və porsiyanı təsdiqlədikdən sonra qeyd yaranır.</p></section>",
+        "cta": "Yemək axtar",
+        "back": "Əl ilə əlavə et",
+        "tab": "Əlavə et",
+        "art": "art_entry_previous"
+      },
+      {
+        "id": "27-C",
+        "title": "Saxlanmış reseptlər",
+        "body": "<section class=\"card \"><h3>Hələ resept saxlamamısan</h3><p>Bəyəndiyin reseptdə “Resepti saxla” seç. Sonra onu burada rahat tapa bilərsən.</p></section><section class=\"card \"><h3>Reseptə baxış</h3><p>Resepti saxlamaq onu plana və ya gündəliyə avtomatik əlavə etmir.</p></section>",
+        "cta": "Reseptlərə bax",
+        "back": "Menyuya qayıt",
+        "tab": "Menyu",
+        "art": "art_saved"
+      },
+      {
+        "id": "27-D",
+        "title": "Foto siyahısı",
+        "body": "<section class=\"card \"><h3>Hələ foto yoxdur</h3><p>Yemək şəkillərin burada görünəcək. Foto əlavə etmək yemək qeydi yaratmır.</p></section><section class=\"card \"><h3>Foto olmadan da davam et</h3><p>Axtarış və əl ilə qeyd həmişə əlçatandır. Şəkil göndərməzdən əvvəl razılıq və saxlanma məlumatı göstərilir.</p></section>",
+        "cta": "Şəkil çək",
+        "back": "Yemək axtar",
+        "tab": "Əlavə et",
+        "art": "art_entry_camera"
+      }
+    ],
+    "legacy": [
+      "completion/27"
+    ],
+    "file": "27-baxis-ve-bos-siyahilar"
+  },
+  {
+    "num": 28,
+    "slug": "vahid-vizual-qaydalar",
+    "title": "Vahid naviqasiya və qida dəyərlərinin əsası",
+    "requirements": [
+      "18.12",
+      "19.17",
+      "28.4"
+    ],
+    "panels": [
+      {
+        "id": "28-A",
+        "title": "Bugünkü menyun",
+        "body": "<div class=\"chip\">6 noyabr 2026 · Cümə</div><section class=\"card selected\"><h3>Nahar · Qismən yeyilib</h3><p>Toyuq plovu<br>Plan: 1 porsiya · yeyilib: ½<br>Qalan: ½ porsiya</p></section><section class=\"card \"><h3>Qalan ½ porsiya üçün</h3><p><b>250 kkal</b><br>Zülal 15 q · Karbohidrat 25 q · Yağ 10 q</p></section><section class=\"card \"><h3>Qalan planlı hissə</h3><p>Yalnız qalan hissə günün proqnozuna əlavə olunur. Yeyilmiş ½ porsiya faktiki qeyddə qorunur.</p></section>",
+        "cta": "Reseptə bax",
+        "back": "Alış-veriş siyahısı",
+        "tab": "Menyu",
+        "art": "art_recipe"
+      },
+      {
+        "id": "28-B",
+        "title": "Qida dəyərlərinin əsası",
+        "body": "<div class=\"chip\">Ölçülmüş çıxımı olan resept nümunəsi</div><section class=\"card selected\"><h3>Porsiya üçün · 300 q</h3><p><b>500 kkal</b><br>Zülal 30 q · Karbohidrat 50 q · Yağ 20 q</p></section><section class=\"card \"><h3>100 q üçün · bişmiş</h3><p><b>Təxminən 167 kkal</b><br>Zülal 10 q · Karbohidrat 16,7 q · Yağ 6,7 q</p></section><section class=\"card \"><h3>Mənbə və ölçü</h3><p>Resept versiyası və ölçülmüş bişmiş çıxım ilə hesablanır. Yuvarlaqlaşdırma fərqi mümkündür.</p></section>",
+        "cta": "Porsiya seçiminə bax",
+        "back": "Reseptə qayıt",
+        "tab": null,
+        "art": null
+      },
+      {
+        "id": "28-C",
+        "title": "Bişmiş çəki məlum deyil",
+        "body": "<section class=\"card selected\"><h3>Məlum resept payı üçün</h3><p>1 porsiya = hazırlanmış qazanın ¼ hissəsi<br>Qida dəyərləri bu payın inqrediyent hesabına əsaslanır.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bişmiş çıxım ölçülməyib. 100 q üçün dəyər və qramla porsiya göstərilmir. Köhnə porsiya fotosu yeni variant üçün ölçü deyil.</p></section><section class=\"card \"><h3>Məlumat çatmırsa</h3><p>Mənbədə olmayan nutrient “Məlum deyil” görünür, 0 yazılmır. Plan uyğunluğu ayrıca yoxlanır.</p></section>",
+        "cta": "Məlum payla davam et",
+        "back": "Tərkibə qayıt",
+        "tab": null,
+        "art": "art_portion_scale"
+      }
+    ],
+    "legacy": [
+      "completion/28"
+    ],
+    "file": "28-vahid-vizual-qaydalar"
+  },
+  {
+    "num": 29,
+    "slug": "elave-faktiki-porsiya",
+    "title": "Planlı hissədən artıq qəbul · ayrıca qeyd",
+    "requirements": [
+      "16.7",
+      "T13",
+      "T17",
+      "T19"
+    ],
+    "panels": [
+      {
+        "id": "29-A",
+        "title": "Əlavə yediyini ayrıca qeyd et",
+        "body": "<section class=\"card \"><h3>Toyuq plovu · 6 noyabr, Nahar</h3><p>Plan: 1 porsiya · artıq qeyd edilib: 1 porsiya<br>Qalan planlı hissə: 0</p></section><label>İndi əlavə yediyin miqdar<div class=\"field\">0,5 porsiya</div></label><section class=\"card notice\"><h3>Yalnız əlavə hissəni yaz</h3><p>Cəmi 1,5 porsiya yemisənsə, burada əlavə 0,5 porsiya yaz. Əvvəlki 1 porsiya yenidən əlavə olunmur.</p></section><section class=\"card \"><h3>Tərkib və ölçü</h3><p>Son təsdiqlənmiş resept versiyası · 4 porsiyalı qazan.<br>Bişmiş çəki məlum deyil; qram göstərilmir.</p></section><p>Tərkib fərqlidirsə: Tərkibi düzəlt. Miqdar boş, sıfır, mənfi və ya sonlu rəqəm deyilsə önbaxış açılmır.</p>",
+        "cta": "Əlavə hissənin önbaxışına bax",
+        "back": "Planlı hissəyə qayıt",
+        "tab": null,
+        "art": "art_portion_scale"
+      },
+      {
+        "id": "29-B",
+        "title": "Əlavə qəbulu təsdiqlə",
+        "body": "<section class=\"card selected\"><h3>Ayrıca faktiki qeyd · hələ saxlanmayıb</h3><p>Toyuq plovu · əlavə 0,5 porsiya<br>4 porsiyalı qazanın ⅛ hissəsi</p></section><section class=\"card \"><h3>Əlavə 0,5 porsiya üçün</h3><p>250 kkal · Zülal 15 q<br>Karbohidrat 25 q · Yağ 10 q</p></section><section class=\"card \"><h3>Bu yemək üzrə faktiki qəbul</h3><p>Əvvəl: 1 porsiya · 500 kkal<br>Sonra: 1,5 porsiya · 750 kkal<br>Qalan planlı hissə: 0 → 0</p></section><section class=\"card notice\"><h3>Plan dəyişmir</h3><p>Yalnız əlavə qəbul gündəliyə yazılır. Hədəf, digər yeməklər və alış-veriş dəyişmir. Bu, yeni plan tövsiyəsi deyil.</p></section><p>Rəqəmlər sintetik nümunədir. Təsdiqədək qeyd yaranmır; təkrar basma ikinci qeyd yaratmamalıdır.</p>",
+        "cta": "Əlavə 0,5 porsiyanı qeyd et",
+        "back": "Miqdarı düzəlt",
+        "tab": null,
+        "art": "art_portion_scale"
+      },
+      {
+        "id": "29-C",
+        "title": "Əlavə hissə qeyd edildi",
+        "body": "<section class=\"card selected\"><h3>Gündəlikdə ayrıca qeyd</h3><p>Toyuq plovu · əlavə 0,5 porsiya<br>Əvvəlki 1 porsiyalı qeyd qorunur.</p></section><section class=\"card \"><h3>Bu yemək üzrə cəmi</h3><p>Faktiki: 1,5 porsiya · 750 kkal<br>Qalan planlı hissə: 0<br>Günün proqnozunda əlavə hissə yalnız bir dəfə sayılır.</p></section><section class=\"card \"><h3>Düzəliş yolu</h3><p>Səhv miqdar yazmısansa yalnız yeni əlavə qeydi açıb düzəlt və ya sil. Əvvəlki qeyd səssiz dəyişmir.</p></section>",
+        "cta": "Əlavə qeydi aç",
+        "back": "Gündəliyə qayıt",
+        "tab": null,
+        "art": "art_portion_scale"
+      }
+    ],
+    "legacy": [
+      "completion/29"
+    ],
+    "file": "29-elave-faktiki-porsiya"
+  },
+  {
+    "num": 30,
+    "slug": "onboarding-giris-xetalari",
+    "title": "Onboarding · məlumatları düzəlt",
+    "requirements": [
+      "18.2",
+      "19.2"
+    ],
+    "panels": [
+      {
+        "id": "30-A",
+        "title": "Özünü tanıt",
+        "body": "<div class=\"measure\"><div class=\"measure-row\"><b>Yaş · il</b><div class=\"stepper\"><span>−</span><b>iyirmi səkkiz</b><span>+</span></div></div><p class=\"inline-error\">⚠ Yaşı rəqəmlə yaz. Məsələn: 28.</p></div><div class=\"measure\"><div class=\"measure-row\"><b>Boy · sm</b><div class=\"stepper\"><span>−</span><b>172</b><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Çəki · kq</b><div class=\"stepper\"><span>−</span><b>78,4</b><span>+</span></div></div></div><p class=\"check\">□ Ölçüləri və vahidləri təsdiqləyirəm.</p><section class=\"card \"><h3>Hesablama üçün cins · könüllüdür</h3><p><div class=\"options\"><div class=\"option \">○ Kişi</div><div class=\"option \">○ Qadın</div><div class=\"option \">○ İndi seçmirəm</div></div></p></section><p>Cins verilməsə avtomatik hədəf yaradılmır.</p><p>Digər cavabların saxlanıb.</p>",
+        "cta": "Davam et",
+        "back": "Əvvəlki addıma qayıt",
+        "tab": null,
+        "art": "art_account",
+        "step": 2,
+        "disabled": true
+      },
+      {
+        "id": "30-B",
+        "title": "Özünü tanıt",
+        "body": "<div class=\"measure\"><div class=\"measure-row\"><b>Yaş · il</b><div class=\"stepper\"><span>−</span><b>28</b><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Boy · sm</b><div class=\"stepper\"><span>−</span><b>NaN</b><span>+</span></div></div><p class=\"inline-error\">⚠ Boyunu sm ilə yaz. Məsələn: 172.</p></div><div class=\"measure\"><div class=\"measure-row\"><b>Çəki · kq</b><div class=\"stepper\"><span>−</span><b>78,4</b><span>+</span></div></div></div><p class=\"check\">□ Ölçüləri və vahidləri təsdiqləyirəm.</p><section class=\"card \"><h3>Hesablama üçün cins · könüllüdür</h3><p><div class=\"options\"><div class=\"option \">○ Kişi</div><div class=\"option \">○ Qadın</div><div class=\"option \">○ İndi seçmirəm</div></div></p></section><p>Cins verilməsə avtomatik hədəf yaradılmır.</p><p>Digər cavabların saxlanıb.</p>",
+        "cta": "Davam et",
+        "back": "Əvvəlki addıma qayıt",
+        "tab": null,
+        "art": "art_account",
+        "step": 2,
+        "disabled": true
+      },
+      {
+        "id": "30-C",
+        "title": "Özünü tanıt",
+        "body": "<div class=\"measure\"><div class=\"measure-row\"><b>Yaş · il</b><div class=\"stepper\"><span>−</span><b>28</b><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Boy · sm</b><div class=\"stepper\"><span>−</span><b>172</b><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Çəki · kq</b><div class=\"stepper\"><span>−</span><b>−5</b><span>+</span></div></div><p class=\"inline-error\">⚠ Çəki sıfırdan böyük olmalıdır. Məsələn: 78,4.</p></div><p class=\"check\">□ Ölçüləri və vahidləri təsdiqləyirəm.</p><section class=\"card \"><h3>Hesablama üçün cins · könüllüdür</h3><p><div class=\"options\"><div class=\"option \">○ Kişi</div><div class=\"option \">○ Qadın</div><div class=\"option \">○ İndi seçmirəm</div></div></p></section><p>Cins verilməsə avtomatik hədəf yaradılmır.</p><p>Digər cavabların saxlanıb.</p>",
+        "cta": "Davam et",
+        "back": "Əvvəlki addıma qayıt",
+        "tab": null,
+        "art": "art_account",
+        "step": 2,
+        "disabled": true
+      }
+    ],
+    "legacy": [
+      "completion/30"
+    ],
+    "file": "30-onboarding-giris-xetalari"
+  },
+  {
+    "num": 31,
+    "slug": "onboarding-tamamlanma",
+    "title": "Onboarding · ardıcıllıq və yekun seçimlər",
+    "panels": [
+      {
+        "id": "31-A",
+        "title": "Seçimlərin tamamdır",
+        "body": "<section class=\"card \"><h3>Beş addım tamamlandı</h3><p>✓ Məqsəd<br>✓ Ölçülər və vahidlər<br>✓ Aktivlik və sağlamlıq<br>✓ Allergiya və seçimlər<br>✓ Vaxt və büdcə</p></section><section class=\"card \"><h3>Seçim xülasəsi</h3><p>Çəkini saxlamaq · yüngül fəal<br>Allergiyam yoxdur · 30 dəq · 3 yemək<br>Azərbaycan · AZN · 100 AZN/həftə · 1 nəfər</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Əvvəl uyğunluq yoxlanır. Bu, tibbi məsləhət deyil.</p></section>",
+        "cta": "Planımı hazırla",
+        "back": "Cavabları dəyiş",
+        "art": "art_saved",
+        "tab": null,
+        "step": 5
+      },
+      {
+        "id": "31-B",
+        "title": "Vahidi dəqiqləşdir",
+        "body": "<div class=\"measure\"><div class=\"measure-row\"><b>Yaş · il</b><div class=\"stepper\"><span>−</span><b>28</b><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Boy · sm</b><div class=\"stepper\"><span>−</span><b>1,72</b><span>+</span></div></div><p class=\"inline-error\">⚠ 1,72 sm yazmısan. 1,72 metr nəzərdə tutursan?</p></div><div class=\"measure\"><div class=\"measure-row\"><b>Çəki · kq</b><div class=\"stepper\"><span>−</span><b>78,4</b><span>+</span></div></div></div><p class=\"check\">□ Ölçüləri və vahidləri təsdiqləyirəm.</p><section class=\"card \"><h3>Hesablama üçün cins · könüllüdür</h3><p><div class=\"options\"><div class=\"option \">○ Kişi</div><div class=\"option \">○ Qadın</div><div class=\"option \">○ İndi seçmirəm</div></div></p></section><p>Cins verilməsə avtomatik hədəf yaradılmır.</p><div class=\"options\"><div class=\"option \">○ Bəli, 172 sm kimi saxla</div><div class=\"option \">○ Xeyr, özüm düzəldim</div></div><section class=\"card notice\"><h3>Diqqət</h3><p>Vahid açıq təsdiq olmadan çevrilmir.</p></section>",
+        "cta": "Vahidi təsdiqlə",
+        "back": "Özüm düzəldim",
+        "art": "art_height",
+        "tab": null,
+        "step": 2,
+        "disabled": true
+      },
+      {
+        "id": "31-C",
+        "title": "Vaxt və büdcə",
+        "body": "<section class=\"card \"><h3>Hazırlanma vaxtı</h3><p><div class=\"options\"><div class=\"option \">○ 15 dəq</div><div class=\"option selected\">✓ 30 dəq</div><div class=\"option \">○ 60 dəq</div></div></p></section><section class=\"card \"><h3>Büdcə seçimi</h3><p><div class=\"options\"><div class=\"option \">○ Qənaətli</div><div class=\"option selected\">✓ Orta</div><div class=\"option \">○ Sərbəst</div></div></p></section><section class=\"card \"><h3>Gündə yemək sayı</h3><p><div class=\"options\"><div class=\"option selected\">✓ 3</div><div class=\"option \">○ 4</div><div class=\"option \">○ 5</div></div></p></section><label>Region<span class=\"field\">Azərbaycan</span></label><label>Valyuta<span class=\"field\">AZN</span></label><label>Həftəlik büdcə<span class=\"field\">Daxil et<b>AZN</b></span></label><section class=\"card\"><h3>Neçə nəfər üçün?</h3><div class=\"stepper\"><span>−</span><b>1 </b><span>+</span></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Həftəlik büdcə məbləğini tamamla. Digər cavabların saxlanır.</p></section>",
+        "cta": "Planımı hazırla",
+        "back": "Allergiyalara qayıt",
+        "art": "art_budget",
+        "tab": null,
+        "step": 5,
+        "disabled": true
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "17.4",
+      "18.2",
+      "18.8",
+      "26.8"
+    ],
+    "file": "31-onboarding-tamamlanma"
+  },
+  {
+    "num": 32,
+    "slug": "olcu-giris-serhedleri",
+    "title": "Onboarding · boş və yanlış ölçülər",
+    "panels": [
+      {
+        "id": "32-A",
+        "title": "Ölçüləri tamamla",
+        "body": "<div class=\"measure\"><div class=\"measure-row\"><b>Yaş · il</b><div class=\"stepper\"><span>−</span><b>—</b><span>+</span></div></div><p class=\"inline-error\">⚠ Yaşını rəqəmlə daxil et.</p></div><div class=\"measure\"><div class=\"measure-row\"><b>Boy · sm</b><div class=\"stepper\"><span>−</span><b>0</b><span>+</span></div></div><p class=\"inline-error\">⚠ Boy sıfırdan böyük olmalıdır.</p></div><div class=\"measure\"><div class=\"measure-row\"><b>Çəki · kq</b><div class=\"stepper\"><span>−</span><b>−5</b><span>+</span></div></div><p class=\"inline-error\">⚠ Çəki sıfırdan böyük olmalıdır.</p></div><p class=\"check\">□ Ölçüləri və vahidləri təsdiqləyirəm.</p><section class=\"card \"><h3>Hesablama üçün cins · könüllüdür</h3><p><div class=\"options\"><div class=\"option \">○ Kişi</div><div class=\"option \">○ Qadın</div><div class=\"option \">○ İndi seçmirəm</div></div></p></section><p>Cins verilməsə avtomatik hədəf yaradılmır.</p>",
+        "cta": "Davam et",
+        "back": "Məqsədə qayıt",
+        "art": "art_age",
+        "tab": null,
+        "step": 2,
+        "disabled": true
+      },
+      {
+        "id": "32-B",
+        "title": "Boyu düzəlt",
+        "body": "<div class=\"measure\"><div class=\"measure-row\"><b>Yaş · il</b><div class=\"stepper\"><span>−</span><b>28</b><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Boy · sm</b><div class=\"stepper\"><span>−</span><b>∞</b><span>+</span></div></div><p class=\"inline-error\">⚠ Düzgün, sonlu boy rəqəmi daxil et. Məsələn: 172.</p></div><div class=\"measure\"><div class=\"measure-row\"><b>Çəki · kq</b><div class=\"stepper\"><span>−</span><b>78,4</b><span>+</span></div></div></div><p class=\"check\">□ Ölçüləri və vahidləri təsdiqləyirəm.</p><section class=\"card \"><h3>Hesablama üçün cins · könüllüdür</h3><p><div class=\"options\"><div class=\"option \">○ Kişi</div><div class=\"option \">○ Qadın</div><div class=\"option \">○ İndi seçmirəm</div></div></p></section><p>Cins verilməsə avtomatik hədəf yaradılmır.</p>",
+        "cta": "Davam et",
+        "back": "Məqsədə qayıt",
+        "art": "art_height",
+        "tab": null,
+        "step": 2,
+        "disabled": true
+      },
+      {
+        "id": "32-C",
+        "title": "Girişi yoxla",
+        "body": "<div class=\"measure\"><div class=\"measure-row\"><b>Yaş · il</b><div class=\"stepper\"><span>−</span><b>28</b><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Boy · sm</b><div class=\"stepper\"><span>−</span><b>172</b><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Çəki · kq</b><div class=\"stepper\"><span>−</span><b>1e999</b><span>+</span></div></div><p class=\"inline-error\">⚠ Bu rəqəm qəbul edilmir. Ölçünü və vahidi yoxla.</p></div><p class=\"check\">□ Ölçüləri və vahidləri təsdiqləyirəm.</p><section class=\"card \"><h3>Hesablama üçün cins · könüllüdür</h3><p><div class=\"options\"><div class=\"option \">○ Kişi</div><div class=\"option \">○ Qadın</div><div class=\"option \">○ İndi seçmirəm</div></div></p></section><p>Cins verilməsə avtomatik hədəf yaradılmır.</p>",
+        "cta": "Davam et",
+        "back": "Məqsədə qayıt",
+        "art": "art_weight",
+        "tab": null,
+        "step": 2,
+        "disabled": true
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "19.2",
+      "26.8"
+    ],
+    "file": "32-olcu-giris-serhedleri"
+  },
+  {
+    "num": 33,
+    "slug": "allergiya-ve-budce-xetalari",
+    "title": "Onboarding · allergiya və büdcə xətaları",
+    "panels": [
+      {
+        "id": "33-A",
+        "title": "Allergiya seçimini tamamla",
+        "body": "<div class=\"options\"><div class=\"option \">○ Süd</div><div class=\"option \">○ Yumurta</div><div class=\"option \">○ Qoz-fındıq</div><div class=\"option \">○ Balıq</div><div class=\"option \">○ Buğda</div></div><section class=\"card \"><h3>Allergiyam yoxdur</h3><p>□ Seçilməyib</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Allergen seç və ya “Allergiyam yoxdur” cavabını ver. Cavabsızlıq allergiya yoxdur sayılmır.</p></section><section class=\"card row \"><div><h3>Digər allergiya əlavə et</h3><p>Siyahıda olmayan allergen</p></div></section>",
+        "cta": "Davam et",
+        "back": "Sağlamlıq suallarına qayıt",
+        "art": "art_milk",
+        "tab": null,
+        "step": 4,
+        "disabled": true
+      },
+      {
+        "id": "33-B",
+        "title": "Çoxlu allergiya",
+        "body": "<div class=\"options\"><div class=\"option selected\">✓ Süd</div><div class=\"option \">○ Yumurta</div></div><section class=\"card row selected\"><div><h3>✓ Küncüt</h3><p>✓ Əlavə allergen</p></div></section><label>Qoz-fındıq növü<span class=\"field\">Badam</span></label><section class=\"card notice\"><h3>Diqqət</h3><p>Yeni allergen seçiləndə “Allergiyam yoxdur” ləğv olunur. Tanınmayan ad dəqiqləşmədən uyğunluq təsdiqlənmir.</p></section>",
+        "cta": "Seçimləri saxla",
+        "back": "Allergiyalara qayıt",
+        "art": "art_nuts",
+        "tab": null,
+        "step": 4
+      },
+      {
+        "id": "33-C",
+        "title": "Büdcəni düzəlt",
+        "body": "<label>Region<span class=\"field\">Azərbaycan</span></label><label>Valyuta<span class=\"field\">AZN</span></label><label>Həftəlik büdcə<span class=\"field\">−10<b>AZN</b></span></label><p class=\"inline-error\">⚠ Məbləğ sıfırdan böyük, sonlu rəqəm olmalıdır.</p><label>Neçə nəfər üçün?<span class=\"field\">0</span></label><p class=\"inline-error\">⚠ Ən azı 1 nəfər daxil et.</p><section class=\"card notice\"><h3>Diqqət</h3><p>Digər vaxt, məqsəd və allergiya cavabların qalır.</p></section>",
+        "cta": "Planımı hazırla",
+        "back": "Büdcəyə qayıt",
+        "art": "art_budget",
+        "tab": null,
+        "step": 5,
+        "disabled": true
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "17.4",
+      "18.3",
+      "18.8"
+    ],
+    "file": "33-allergiya-ve-budce-xetalari"
+  },
+  {
+    "num": 34,
+    "slug": "resept-redaktoru-xetalar",
+    "title": "Resept redaktoru · boş, yanlış və sıfır miqdar",
+    "panels": [
+      {
+        "id": "34-A",
+        "title": "İnqrediyent qalmayıb",
+        "body": "<section class=\"card \"><h3>Boş resept saxlanmır</h3><p>Ən azı bir inqrediyent əlavə et.</p></section><section class=\"card row \"><div><h3>Son silinməni geri qaytar</h3><p>Silinmiş inqrediyenti bərpa et</p></div></section>",
+        "cta": "İnqrediyent əlavə et",
+        "back": "Son silinməni geri qaytar",
+        "art": "art_empty_menu",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "34-B",
+        "title": "Miqdarları düzəlt",
+        "body": "<label>Toyuq · xam · miqdar<span class=\"field\">—<b>q</b></span></label><p class=\"inline-error\">⚠ Miqdarı daxil et.</p><label>Düyü · quru · miqdar<span class=\"field\">−20<b>q</b></span></label><p class=\"inline-error\">⚠ Miqdar mənfi ola bilməz.</p><section class=\"card notice\"><h3>Diqqət</h3><p>Boş və mənfi miqdar düzələnədək önbaxış bağlıdır.</p></section>",
+        "cta": "Dəyişikliyə bax",
+        "back": "Redaktəyə qayıt",
+        "art": "art_ingredient_rice",
+        "tab": null,
+        "disabled": true
+      },
+      {
+        "id": "34-C",
+        "title": "Kökü reseptdən çıxaraq?",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_ingredient_carrot.png\" alt=\"\"><div><h3>Kök · xam</h3><p>0 q daxil etmisən</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Təsdiqləsən kök reseptdən, hesabdan və uyğun təlimatdan çıxarılacaq. Hələ dəyişiklik saxlanmayıb.</p></section>",
+        "cta": "Bəli, kökü çıxar",
+        "back": "Miqdara qayıt",
+        "art": null,
+        "tab": null
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "16.1",
+      "16.2",
+      "T01"
+    ],
+    "file": "34-resept-redaktoru-xetalar"
+  },
+  {
+    "num": 35,
+    "slug": "resept-allergen-ve-vahid",
+    "title": "Resept redaktoru · allergen və ölçü təhlükəsizliyi",
+    "panels": [
+      {
+        "id": "35-A",
+        "title": "Allergen ziddiyyəti var",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_nuts.png\" alt=\"\"><div><h3>Fıstıq · 20 q</h3><p>Profilindəki allergiya ilə ziddiyyət</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bu resept plana tətbiq edilə bilməz. Məhsulu çıxar və ya başqa məhsul seç.</p></section><section class=\"card row \"><div><h3>Faktiki yediyini qeyd etmək</h3><p>Ayrı gündəlik axınıdır; plan tövsiyəsi deyil</p></div></section>",
+        "cta": "Fıstığı çıxar",
+        "back": "Başqa məhsul seç",
+        "art": null,
+        "tab": null
+      },
+      {
+        "id": "35-B",
+        "title": "Allergen məlumatı yoxdur",
+        "body": "<section class=\"card \"><h3>Hazır sous · 30 q</h3><p>Tərkibi məlum deyil; təhlükəsiz uyğunluq təsdiqlənmir.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Məlumatın olmaması allergenin olmaması deyil.</p></section>",
+        "cta": "Başqa məhsul seç",
+        "back": "Sousu çıxar",
+        "art": "art_healthy",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "35-C",
+        "title": "Miqdarı yoxla",
+        "body": "<label>Yağ · miqdar<span class=\"field\">NaN<b>q</b></span></label><p class=\"inline-error\">⚠ Müsbət və sonlu rəqəm daxil et.</p><label>Göbələk · miqdar<span class=\"field\">∞<b>q</b></span></label><p class=\"inline-error\">⚠ Sonsuz miqdar qəbul edilmir.</p><label>Düyü · miqdar<span class=\"field\">1e999<b>q</b></span></label><p class=\"inline-error\">⚠ Bu rəqəm qəbul edilmir; miqdarı yoxla.</p>",
+        "cta": "Dəyişikliyə bax",
+        "back": "Redaktəyə qayıt",
+        "art": null,
+        "tab": null,
+        "disabled": true
+      },
+      {
+        "id": "35-D",
+        "title": "Bu vahid çevrilmir",
+        "body": "<label>Yağ · miqdar<span class=\"field\">1<b>qaşıq</b></span></label><section class=\"card notice\"><h3>Diqqət</h3><p>Bu məhsul üçün qaşıqdan qrama təsdiqli çevirmə yoxdur. Universal qaşıq çəkisi tətbiq edilmir.</p></section><label>Qramla miqdar<span class=\"field\">Daxil et<b>q</b></span></label>",
+        "cta": "Qramla davam et",
+        "back": "Məhsula qayıt",
+        "art": "art_portion_scale",
+        "tab": null,
+        "disabled": true
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "16.1",
+      "16.9",
+      "T08",
+      "T11"
+    ],
+    "file": "35-resept-allergen-ve-vahid"
+  },
+  {
+    "num": 36,
+    "slug": "iki-gun-ve-kocurme-onbaxis",
+    "title": "İki günün açılmış önbaxışı",
+    "panels": [
+      {
+        "id": "36-A",
+        "title": "Yer dəyişmə · iki gün",
+        "body": "<section class=\"card \"><h3>6 noyabr</h3><p>Faktiki qəbul: 900 kkal · dəyişmir</p></section><section class=\"card \"><h3>Qalan planlı hissə</h3><p>500 → 400 kkal</p></section><section class=\"card \"><h3>6 noyabr · proqnoz</h3><p>Enerji 1 400 → 1 300 kkal<br>Zülal 80 → 74 q · Karbohidrat 150 → 140 q · Yağ 53,3 → 49,3 q</p></section><section class=\"card \"><h3>7 noyabr</h3><p>Faktiki qəbul: 800 kkal · dəyişmir</p></section><section class=\"card \"><h3>Qalan planlı hissə</h3><p>400 → 500 kkal</p></section><section class=\"card \"><h3>7 noyabr · proqnoz</h3><p>Enerji 1 200 → 1 300 kkal<br>Zülal 74 → 80 q · Karbohidrat 130 → 140 q · Yağ 42,7 → 46,7 q</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Nümunə cəmlərdir. Həftənin toplamı dəyişmir; hər iki gün ayrıca yoxlanır.</p></section>",
+        "cta": "İki yeməyin yerini dəyiş",
+        "back": "Seçimə qayıt",
+        "art": null,
+        "tab": null
+      },
+      {
+        "id": "36-B",
+        "title": "Boş vaxta köçürmə",
+        "body": "<section class=\"card \"><h3>6 noyabr · hədəf boş şam</h3><p>Faktiki qəbul: 900 kkal · dəyişmir</p></section><section class=\"card \"><h3>Qalan planlı hissə</h3><p>0 → 400 kkal</p></section><section class=\"card \"><h3>6 noyabr · proqnoz</h3><p>Enerji 900 → 1 300 kkal<br>Zülal 50 → 74 q · Karbohidrat 100 → 140 q · Yağ 33,3 → 49,3 q</p></section><section class=\"card \"><h3>7 noyabr · mənbə şam</h3><p>Faktiki qəbul: 800 kkal · dəyişmir</p></section><section class=\"card \"><h3>Qalan planlı hissə</h3><p>400 → 0 kkal</p></section><section class=\"card \"><h3>7 noyabr · proqnoz</h3><p>Enerji 1 200 → 800 kkal<br>Zülal 74 → 50 q · Karbohidrat 130 → 90 q · Yağ 42,7 → 26,7 q</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Qarşılıqlı dəyişmə deyil. Hər iki gün və həftə yoxlanır; başqa porsiyalar səssiz dəyişmir.</p></section>",
+        "cta": "Bu günə köçür",
+        "back": "Başqa boş vaxt seç",
+        "art": null,
+        "tab": null
+      },
+      {
+        "id": "36-C",
+        "title": "Dəyişiklik saxlanıb",
+        "body": "<section class=\"card \"><h3>İki gün birlikdə yeniləndi</h3><p>6 noyabr şam və 7 noyabr şam üçün əməliyyat tamamlandı.</p></section><section class=\"card \"><h3>Alış-veriş</h3><p>Fərq tətbiq edilib; əvvəlki Evdə var/Alınıb işarələri saxlanıb.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Tam sinxronlaşma yalnız server təsdiqi ilə göstərilir. Faktiki qeydlər dəyişməyib.</p></section>",
+        "cta": "Menyuya qayıt",
+        "back": "Son dəyişikliyi geri qaytar",
+        "art": "art_saved",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "16.3",
+      "16.5",
+      "16.9",
+      "T05",
+      "T06",
+      "T09",
+      "T10"
+    ],
+    "file": "36-iki-gun-ve-kocurme-onbaxis"
+  },
+  {
+    "num": 37,
+    "slug": "geri-qaytarma-netice",
+    "title": "Geri qaytarma · təsdiq və konflikt",
+    "panels": [
+      {
+        "id": "37-A",
+        "title": "Son dəyişikliyi geri qaytaraq?",
+        "body": "<section class=\"card \"><h3>Plan və alış-veriş</h3><p>Son əməliyyatın əvvəlki versiyası birlikdə bərpa olunacaq.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Hələ heç nə geri qaytarılmayıb. Faktiki yemək qeydləri bu əməliyyatla silinmir.</p></section>",
+        "cta": "Bəli, geri qaytar",
+        "back": "Dəyişikliyi saxla",
+        "art": "art_menu",
+        "tab": null
+      },
+      {
+        "id": "37-B",
+        "title": "Plan yenilənib",
+        "body": "<section class=\"card \"><h3>Geri qaytarma tətbiq edilmədi</h3><p>Son əməliyyatdan sonra planın başqa versiyası yaranıb.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Köhnə vəziyyət yenisinin üzərinə yazılmır. Son planı açıb fərqlərə bax.</p></section>",
+        "cta": "Son plana bax",
+        "back": "Geri qayıt",
+        "art": "art_write_error",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "37-C",
+        "title": "Geri qaytarıldı",
+        "body": "<section class=\"card \"><h3>Əvvəlki plan bərpa olundu</h3><p>Alış-veriş fərqi də geri çevrildi. Sonradan yaranan faktiki qeydlər saxlanıb.</p></section>",
+        "cta": "Menyuya qayıt",
+        "back": "Alış-verişə bax",
+        "art": "art_saved",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "16.5",
+      "16.9",
+      "T12"
+    ],
+    "file": "37-geri-qaytarma-netice"
+  },
+  {
+    "num": 38,
+    "slug": "foto-icaze-ve-yag",
+    "title": "Foto · icazə, razılıq və əlavə tərkib",
+    "panels": [
+      {
+        "id": "38-A",
+        "title": "Kamera icazəsi yoxdur",
+        "body": "<section class=\"card \"><h3>Foto çəkmək üçün icazə lazımdır</h3><p>Sistem ayarlarında icazə verə bilərsən. Yeməyi axtarışla və ya əl ilə də əlavə etmək mümkündür.</p></section>",
+        "cta": "Ayarları aç",
+        "back": "Yemək axtar",
+        "art": "art_entry_camera",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "38-B",
+        "title": "Fotonu göndərək?",
+        "body": "<section class=\"card \"><h3>Nə üçün göndərilir?</h3><p>Yemək namizədini tapmaq üçün analiz ediləcək. Foto özü gündəlik qeydi yaratmır.</p></section><section class=\"card \"><h3>Məxfilik məlumatı</h3><p>Göndərmədən əvvəl faktiki saxlanma müddəti, silmə yolu və xidmət məlumatı göstərilməlidir. Hazır olmayan siyasətə razılıq alınmır.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bu eskizdə real xidmət və saxlanma müddəti təsdiqlənməyib.</p></section>",
+        "cta": "Məxfilik məlumatına bax",
+        "back": "Foto göndərmədən davam et",
+        "art": "art_entry_camera",
+        "tab": null
+      },
+      {
+        "id": "38-C",
+        "title": "Əlavə yağ və sous",
+        "body": "<label>Məhsul<span class=\"field\">Zeytun yağı</span></label><label>Əlavə miqdar<span class=\"field\">5<b>q</b></span></label><section class=\"card notice\"><h3>Diqqət</h3><p>Bu, reseptdəki miqdardan əlavədir? Artıq hesablanan yağ ikinci dəfə əlavə edilmir.</p></section><div class=\"options\"><div class=\"option \">○ Bəli, əlavədir</div><div class=\"option \">○ Xeyr, reseptdəki yağdır</div></div>",
+        "cta": "Seçimi təsdiqlə",
+        "back": "Yeməyə qayıt",
+        "art": "art_ingredient_oil",
+        "tab": null,
+        "disabled": true
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "19.5",
+      "24.6",
+      "T18"
+    ],
+    "file": "38-foto-icaze-ve-yag"
+  },
+  {
+    "num": 39,
+    "slug": "hesab-forma-xetalari",
+    "title": "Hesab · giriş və bərpa xətaları",
+    "panels": [
+      {
+        "id": "39-A",
+        "title": "Girişi düzəlt",
+        "body": "<label>E-poçt<span class=\"field\">adexample.com</span></label><p class=\"inline-error\">⚠ Düzgün e-poçt ünvanı yaz.</p><label>Şifrə<span class=\"field\">•••••••• · Göstər</span></label><section class=\"card notice\"><h3>Diqqət</h3><p>Planın və onboarding cavabların qalır.</p></section>",
+        "cta": "Daxil ol",
+        "back": "Şifrəni unutdum",
+        "art": "art_account",
+        "tab": null,
+        "disabled": true
+      },
+      {
+        "id": "39-B",
+        "title": "Daxil olmaq alınmadı",
+        "body": "<label>E-poçt<span class=\"field\">ad@example.com</span></label><label>Şifrə<span class=\"field\">•••••••• · Göstər</span></label><p class=\"inline-error\">⚠ E-poçt və ya şifrə uyğun gəlmir. Yoxlayıb yenidən cəhd et.</p><section class=\"card row \"><div><h3>Şifrəni unutdum</h3><p>Yeni bərpa linki istə</p></div></section>",
+        "cta": "Yenidən yoxla",
+        "back": "Hesabsız davam et",
+        "art": "art_account",
+        "tab": null
+      },
+      {
+        "id": "39-C",
+        "title": "Giriş dayandırıldı",
+        "body": "<section class=\"card \"><h3>Provayderlə giriş tamamlanmadı</h3><p>Sən imtina etmisən və ya bağlantı kəsilib. Lokal məlumatlar qalır.</p></section><section class=\"card row \"><div><h3>Başqa üsulla giriş</h3><p>E-poçtla davam et</p></div></section>",
+        "cta": "Yenidən cəhd et",
+        "back": "İndi yox",
+        "art": "art_account",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "39-D",
+        "title": "Bərpa linki istə",
+        "body": "<label>E-poçt<span class=\"field\">ad@example.com</span></label><section class=\"card \"><h3>Link göndərmək alınmadı</h3><p>Bağlantını yoxla və yenidən cəhd et. Hesabın olub-olmadığı açıqlanmır.</p></section>",
+        "cta": "Yenidən göndər",
+        "back": "Girişə qayıt",
+        "art": "art_write_error",
+        "tab": null
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "18.9",
+      "18.10"
+    ],
+    "file": "39-hesab-forma-xetalari"
+  },
+  {
+    "num": 40,
+    "slug": "yeni-sifre-ve-destek",
+    "title": "Yeni şifrə və dəstək nəticələri",
+    "panels": [
+      {
+        "id": "40-A",
+        "title": "Yeni şifrəni düzəlt",
+        "body": "<label>Yeni şifrə<span class=\"field\">•••• · Göstər</span></label><p class=\"inline-error\">⚠ Şifrə xidmətin göstərdiyi tələblərə uyğun deyil.</p><label>Yeni şifrəni təkrar yaz<span class=\"field\">•••••• · Göstər</span></label><p class=\"inline-error\">⚠ Şifrələr uyğun deyil.</p><section class=\"card notice\"><h3>Diqqət</h3><p>Rəqəmsal minimum bu dizaynda uydurulmur; real xidmət tələbi göstərilir.</p></section>",
+        "cta": "Yeni şifrəni saxla",
+        "back": "Girişə qayıt",
+        "art": "art_account",
+        "tab": null,
+        "disabled": true
+      },
+      {
+        "id": "40-B",
+        "title": "Şifrə yeniləndi",
+        "body": "<section class=\"card \"><h3>Yeni şifrən saxlanıb</h3><p>Hesabına yeni şifrə ilə daxil ola bilərsən. Plan və qeydlərin dəyişməyib.</p></section>",
+        "cta": "Girişə keç",
+        "back": "Geri qayıt",
+        "art": "art_saved",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "40-C",
+        "title": "Müraciəti tamamla",
+        "body": "<label>Cavab üçün e-poçt<span class=\"field\">adexample.com</span></label><p class=\"inline-error\">⚠ Düzgün e-poçt yaz.</p><label>Mövzu<span class=\"field\">Daxil et</span></label><p class=\"inline-error\">⚠ Mövzunu yaz.</p><label>Mesajın<span class=\"field\">Daxil et</span></label><p class=\"inline-error\">⚠ Göndərmək istədiyin mesajı yaz.</p><section class=\"card notice\"><h3>Diqqət</h3><p>Şəxsi gündəlik və fotolar avtomatik əlavə edilmir.</p></section>",
+        "cta": "Müraciət göndər",
+        "back": "Qaralamaya qayıt",
+        "art": null,
+        "tab": null,
+        "disabled": true
+      },
+      {
+        "id": "40-D",
+        "title": "Müraciət göndərildi",
+        "body": "<section class=\"card \"><h3>Müraciətin qəbul olundu</h3><p>Göndərilən mətnə və cavab üçün verdiyin e-poçta baxa bilərsən. Cavab müddəti vəd edilmir.</p></section><section class=\"card row \"><div><h3>Göndərilmə alınmadıqda</h3><p>Eyni forma və mətn saxlanır; Yenidən yoxla görünür.</p></div></section>",
+        "cta": "Köməyə qayıt",
+        "back": "Müraciətə bax",
+        "art": "art_saved",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "18.10",
+      "19.16"
+    ],
+    "file": "40-yeni-sifre-ve-destek"
+  },
+  {
+    "num": 41,
+    "slug": "hesab-mexfilik-idare",
+    "title": "Hesab və məxfilik idarəsi",
+    "panels": [
+      {
+        "id": "41-A",
+        "title": "Məlumatlarını idarə et",
+        "body": "<section class=\"card row \"><div><h3>Məxfilik</h3><p>Məlumat axını, saxlanma və silmə qaydası</p></div></section><section class=\"card row \"><div><h3>Məlumat ixracı</h3><p>Format və məzmun önbaxışı</p></div></section><section class=\"card row \"><div><h3>Hesabdan çıxış</h3><p>Lokal və sinxron məlumatın vəziyyətinə bax</p></div></section><section class=\"card row \"><div><h3>Hesabı sil</h3><p>Nəticəni oxu və ayrıca təsdiqlə</p></div></section>",
+        "cta": "Məxfilik məlumatına bax",
+        "back": "Profilə qayıt",
+        "art": "art_account",
+        "tab": null
+      },
+      {
+        "id": "41-B",
+        "title": "İxrac önbaxışı",
+        "body": "<section class=\"card \"><h3>Daxil ediləcək məlumat</h3><p>Profil · plan versiyaları · faktiki qeydlər · çəki ölçmələri</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Foto və digər məlumatların daxil olub-olmadığı real ixrac siyasətinə görə ayrıca göstərilir.</p></section><section class=\"card row \"><div><h3>Hazırlanma alınmadıqda</h3><p>Məlumat silinmir; yenidən cəhd yolu qalır.</p></div></section>",
+        "cta": "İxracı hazırla",
+        "back": "Ləğv et",
+        "art": "art_log",
+        "tab": null
+      },
+      {
+        "id": "41-C",
+        "title": "Hesabdan çıxaq?",
+        "body": "<section class=\"card \"><h3>Sinxronizasiya tamamlanmayıb</h3><p>Bu telefondakı qeydlərin bərpa vəziyyətini yoxla. Girişdən çıxmaq uğurlu ehtiyat nüsxə demək deyil.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Lokal məlumatın necə saxlanacağı çıxışdan əvvəl faktiki siyasətə uyğun izah edilir.</p></section>",
+        "cta": "Sinxronizasiya vəziyyətinə bax",
+        "back": "Hesabda qal",
+        "art": "art_account",
+        "tab": null
+      },
+      {
+        "id": "41-D",
+        "title": "Hesabı silməyi təsdiqlə",
+        "body": "<section class=\"card \"><h3>Nə silinəcək?</h3><p>Hesab, əlaqəli plan və şəxsi qeydlərin silinmə əhatəsi açıq göstərilir.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Foto, ehtiyat nüsxə və saxlama müddətləri faktiki siyasətdən gəlir. Əməliyyat göndərilənədək heç nə silinmir.</p></section><div class=\"options\"><div class=\"option \">○ □ Nəticəni oxudum və başa düşdüm</div></div>",
+        "cta": "Hesabı sil",
+        "back": "Hesabı saxla",
+        "art": "art_write_error",
+        "tab": null,
+        "disabled": true
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "19.16",
+      "24.7"
+    ],
+    "file": "41-hesab-mexfilik-idare"
+  },
+  {
+    "num": 42,
+    "slug": "abunelik-statuslari",
+    "title": "Abunəlik · qiymət və ödəniş vəziyyətləri",
+    "panels": [
+      {
+        "id": "42-A",
+        "title": "Abunəlik aktivdir",
+        "body": "<section class=\"card \"><h3>Paket məlumatı</h3><p>Mağazanın məhsul adı, qiyməti və dövrü göstərilir.</p></section><section class=\"card row \"><div><h3>Yenilənmə / bitmə tarixi</h3><p>Təsdiqlənmiş mağaza məlumatından</p></div></section><section class=\"card row \"><div><h3>Ləğvi planlaşdırılmış</h3><p>Cari girişin son tarixi ayrıca göstərilir.</p></div></section>",
+        "cta": "Mağazada idarə et",
+        "back": "Profilə qayıt",
+        "art": "art_menu",
+        "tab": null
+      },
+      {
+        "id": "42-B",
+        "title": "Ödəniş gözləyir",
+        "body": "<section class=\"card \"><h3>Alış hələ təsdiqlənməyib</h3><p>Giriş hüququ mağaza təsdiqi gələnədək açılmır. Yenidən alış başlatma.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Mövcud yemək qeydlərin saxlanır.</p></section>",
+        "cta": "Vəziyyəti yenilə",
+        "back": "Pulsuz davam et",
+        "art": "art_budget",
+        "tab": null
+      },
+      {
+        "id": "42-C",
+        "title": "Ödəniş alınmadı",
+        "body": "<section class=\"card \"><h3>Alış tamamlanmadı</h3><p>Mağazanın göstərdiyi səbəbə bax. Heç bir uğurlu ödəniş vədi verilmir.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Qeydlərin və plan tarixçən silinmir.</p></section>",
+        "cta": "Mağazada yoxla",
+        "back": "Pulsuz davam et",
+        "art": "art_write_error",
+        "tab": null
+      },
+      {
+        "id": "42-D",
+        "title": "Alışı bərpa et",
+        "body": "<section class=\"card \"><h3>Mağaza yoxlaması</h3><p>Yüklənir → təsdiqlənmiş aktiv alış və ya bərpa ediləcək alış yoxdur nəticəsi göstərilir.</p></section><section class=\"card row \"><div><h3>Bərpa alınmadıqda</h3><p>Şəbəkə/mağaza xətası ayrıca görünür; təkrar yoxla yolu var.</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bərpa uyğun məhsulun faktiki təsdiqinə əsaslanır.</p></section>",
+        "cta": "Alışı yoxla",
+        "back": "Profilə qayıt",
+        "art": "art_account",
+        "tab": null
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "19.11"
+    ],
+    "file": "42-abunelik-statuslari"
+  },
+  {
+    "num": 43,
+    "slug": "el-ile-ve-tarixce",
+    "title": "Əl ilə yemək, tarixçə və dəqiq porsiya",
+    "panels": [
+      {
+        "id": "43-A",
+        "title": "Yeməyi özün əlavə et",
+        "body": "<label>Yeməyin adı<span class=\"field\">Ev yeməyi</span></label><label>Miqdar<span class=\"field\">250<b>q</b></span></label><label>Mənbə / etiket<span class=\"field\">İstəyə bağlı</span></label><section class=\"card \"><h3>Qida dəyərləri</h3><p>Enerji məlum deyil · Zülal məlum deyil<br>Karbohidrat məlum deyil · Yağ məlum deyil</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bilinməyən dəyər sıfır deyil. Əsaslandırılmamış dəqiq nəticə göstərilmir.</p></section>",
+        "cta": "Önbaxışa bax",
+        "back": "Axtarışa qayıt",
+        "art": "art_portion_scale",
+        "tab": null
+      },
+      {
+        "id": "43-B",
+        "title": "Əvvəl yediklərim",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Toyuq plovu</h3><p>Əvvəl saxlanmış 1 porsiya</p></div></section><section class=\"card\"><h3>Saxlanmış porsiyanın misli</h3><div class=\"stepper\"><span>−</span><b>0,5 </b><span>+</span></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bu qram deyil. Yeni tarix və porsiya ayrıca təsdiqlənir.</p></section>",
+        "cta": "Önbaxışa bax",
+        "back": "Tarixçəyə qayıt",
+        "art": "art_entry_previous",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "43-C",
+        "title": "Dəqiq miqdar daxil et",
+        "body": "<label>Yediyin miqdar<span class=\"field\">150<b>q</b></span></label><section class=\"card \"><h3>Ölçülmüş bişmiş çıxım</h3><p>Bütün qazan 1 200 q · 4 porsiya<br>150 q = qazanın ⅛ hissəsi = ½ porsiya</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Bu nümunədə ölçülmüş çıxım var. Çıxım yoxdursa qram yolu bağlı, məlum pay yolu açıqdır.</p></section>",
+        "cta": "Önbaxışa bax",
+        "back": "Porsiyaya qayıt",
+        "art": "art_portion_scale",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "19.4",
+      "19.13",
+      "T04",
+      "T17"
+    ],
+    "file": "43-el-ile-ve-tarixce"
+  },
+  {
+    "num": 44,
+    "slug": "qeyd-ve-ceki-duzelis",
+    "title": "Qida və çəki qeydlərinə düzəliş",
+    "panels": [
+      {
+        "id": "44-A",
+        "title": "Qeydə düzəliş et",
+        "body": "<section class=\"card row \"><img class=\"row-art\" src=\"assets/art_recipe.png\" alt=\"\"><div><h3>Toyuq plovu</h3><p>6 noyabr · Şam · saxlanmış faktiki versiya</p></div></section><section class=\"card\"><h3>Yediyin porsiya</h3><div class=\"stepper\"><span>−</span><b>0,5 </b><span>+</span></div></section><section class=\"card row \"><div><h3>Qeydi sil</h3><p>Ayrıca təsdiq tələb edir</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Yalnız bu faktiki qeyd və günlük toplam yenilənəcək.</p></section>",
+        "cta": "Düzəlişin önbaxışına bax",
+        "back": "Qeydə qayıt",
+        "art": null,
+        "tab": null
+      },
+      {
+        "id": "44-B",
+        "title": "Bu qeydi silək?",
+        "body": "<section class=\"card \"><h3>Toyuq plovu · 6 noyabr</h3><p>Faktiki qeyd və ona bağlı gündəlik toplam yenilənəcək. Planı silmə əməliyyatı deyil.</p></section>",
+        "cta": "Bəli, qeydi sil",
+        "back": "Qeydi saxla",
+        "art": "art_write_error",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "44-C",
+        "title": "Bu tarixdə ölçmə var",
+        "body": "<section class=\"card \"><h3>6 noyabr 2026</h3><p>Əvvəlki: 78,4 kq · Yeni: 78,5 kq</p></section><section class=\"card row \"><div><h3>Əvvəlki ölçməni əvəz et</h3><p>Aydın düzəliş kimi saxla</p></div></section><section class=\"card row \"><div><h3>Ayrıca ölçmə saxla</h3><p>Eyni tarixdə ikinci ölçmə olduğunu təsdiqlə</p></div></section><section class=\"card notice\"><h3>Diqqət</h3><p>Səssiz dublikat yaranmır.</p></section>",
+        "cta": "Əvvəlkini əvəz et",
+        "back": "Çəkiyə qayıt",
+        "art": "art_weight",
+        "tab": null
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "19.6",
+      "19.9"
+    ],
+    "file": "44-qeyd-ve-ceki-duzelis"
+  },
+  {
+    "num": 45,
+    "slug": "qosulma-ve-axtaris",
+    "title": "Axtarış və plan nəticəsinin əlavə halları",
+    "panels": [
+      {
+        "id": "45-A",
+        "title": "Nəticə tapılmadı",
+        "body": "<label>Yemək axtar<span class=\"field\">axtarılan yemək</span></label><section class=\"card \"><h3>Bu adla nəticə yoxdur</h3><p>Adı dəyiş və ya yeməyi əl ilə daxil et.</p></section>",
+        "cta": "Özüm yazım",
+        "back": "Axtarışı dəyiş",
+        "art": "art_entry_search",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "45-B",
+        "title": "Axtarış alınmadı",
+        "body": "<section class=\"card \"><h3>Bağlantını yoxla</h3><p>Yazdığın ad saxlanıb. Lokal saxlanmış məzmun varsa axtarış davam edir.</p></section>",
+        "cta": "Yenidən yoxla",
+        "back": "Əl ilə daxil et",
+        "art": "art_write_error",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "45-C",
+        "title": "Plan hazırlamaq alınmadı",
+        "body": "<section class=\"card \"><h3>Uyğun plan tapılmadı</h3><p>Məhdudiyyətləri qarşılayan məzmun kifayət etmir. Heç bir saxta plan yaradılmır.</p></section><section class=\"card notice\"><h3>Diqqət</h3><p>Allergiya və tibbi məhdudiyyət yumşaldılmır; vaxt/büdcə təklifi yalnız sənin təsdiqinlə dəyişir.</p></section>",
+        "cta": "Seçimlərə bax",
+        "back": "Hədəfsiz gündəliyə keç",
+        "art": "art_empty_menu",
+        "tab": null,
+        "hero": true
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "18.13",
+      "19.4",
+      "22.9"
+    ],
+    "file": "45-qosulma-ve-axtaris"
+  },
+  {
+    "num": 46,
+    "slug": "destek-ve-xatirlatma",
+    "title": "Dəstək forması xətası və baxış xatırlatması",
+    "panels": [
+      {
+        "id": "46-A",
+        "title": "Göndərmək alınmadı",
+        "body": "<label>Cavab üçün e-poçt<span class=\"field\">ad@example.com</span></label><label>Mövzu<span class=\"field\">Qida məlumatında səhv</span></label><label>Mesajın<span class=\"field\">Porsiya məlumatını dəqiqləşdirmək istəyirəm…</span></label><section class=\"card notice\"><h3>Diqqət</h3><p>Bağlantını yoxlayıb yenidən cəhd et. Yazdığın mətn ekranda qalıb; müraciət göndərilməyib.</p></section>",
+        "cta": "Yenidən göndər",
+        "back": "Qaralamanı saxla",
+        "art": "art_write_error",
+        "tab": null
+      },
+      {
+        "id": "46-B",
+        "title": "Hədəfə yenidən baxaq",
+        "body": "<section class=\"card \"><h3>14 günlük baxış vaxtıdır</h3><p>Ölçü, aktivlik və məqsəd məlumatlarına nəzər salmaq istəyirsən?</p></section><div class=\"options\"><div class=\"option \">○ İndi bax</div><div class=\"option \">○ Sonra xatırlat</div></div><section class=\"card notice\"><h3>Diqqət</h3><p>Könüllü məhsul xatırlatmasıdır. Açmaq heç bir hədəfi avtomatik dəyişmir.</p></section>",
+        "cta": "Baxışı aç",
+        "back": "İndi yox",
+        "art": "art_progress",
+        "tab": null,
+        "hero": true
+      },
+      {
+        "id": "46-C",
+        "title": "Yaşı yoxla",
+        "body": "<div class=\"measure\"><div class=\"measure-row\"><b>Yaş · il</b><div class=\"stepper\"><span>−</span><b>28,5</b><span>+</span></div></div><p class=\"inline-error\">⚠ Yaşı tam, sıfırdan böyük rəqəmlə daxil et.</p></div><div class=\"measure\"><div class=\"measure-row\"><b>Boy · sm</b><div class=\"stepper\"><span>−</span><b>172</b><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Çəki · kq</b><div class=\"stepper\"><span>−</span><b>78,4</b><span>+</span></div></div></div><p class=\"check\">□ Ölçüləri və vahidləri təsdiqləyirəm.</p><section class=\"card \"><h3>Hesablama üçün cins · könüllüdür</h3><p><div class=\"options\"><div class=\"option \">○ Kişi</div><div class=\"option \">○ Qadın</div><div class=\"option \">○ İndi seçmirəm</div></div></p></section><p>Cins verilməsə avtomatik hədəf yaradılmır.</p>",
+        "cta": "Davam et",
+        "back": "Məqsədə qayıt",
+        "art": "art_age",
+        "tab": null,
+        "step": 2,
+        "disabled": true
+      }
+    ],
+    "legacy": [],
+    "requirements": [
+      "19.16",
+      "19.2",
+      "27.8"
+    ],
+    "file": "46-destek-ve-xatirlatma"
+  }
+]

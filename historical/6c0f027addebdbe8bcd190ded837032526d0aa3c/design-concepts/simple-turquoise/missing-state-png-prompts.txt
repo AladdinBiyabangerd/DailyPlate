@@ -1,0 +1,23 @@
+QIDA — missing-state concept PNGs
+Built-in image_gen; ui-mockup; no CLI/API fallback.
+Status: draft design proposals, not app screenshots or implementation acceptance.
+
+Set 15: 15-aktivlik-ve-hedefsiz-davam.png
+Style reference: 01-baslangic.png; approved direction 00-reference.png.
+Tokens: ../tokens.css; simple-* palette, space-* and radius-card intent.
+Requirements: canonical plan 26.4–26.6, with hədəfsiz diary behavior in 5.3.
+Four panels: unselected four EER options; low_active explanation; old choice
+reconfirmation; uncertain activity/no automatic energy target.
+The full generation prompt is recorded in 15-activity-prompt.txt.
+
+Canonical copy/interaction notes:
+- Codes: inactive / low_active / active / very_active. Labels: Az hərəkətli /
+  Yüngül fəal / Fəal / Çox fəal. Labels alone do not define category assignment.
+- Open detail help before confirmation; help for all four categories must use
+  canonical NP-05 examples. Only low_active help is drawn in this sheet.
+- Low_active example: additional 60–80 minutes walking at 5–7 km/hour, alongside
+  ordinary daily activity. This is a source example, never prescribed exercise.
+- Old “Bir az hərəkət edirəm” must not map automatically to active/low_active.
+- Uncertain activity: ACTIVITY_UNCERTAIN; diary allowed, automatic target absent.
+- No calories, price, clinical threshold or fabricated measured PAL in this sheet.
+- The four-screen sheet is a first unit, not closure of all 51 gap groups.
