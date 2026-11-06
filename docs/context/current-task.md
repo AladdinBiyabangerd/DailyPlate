@@ -1,28 +1,38 @@
-# Current task — design gap package
+# Current task — uniform final design package
 
 ## Completed
-Existing onboarding and ingredient-error concepts included with completion 19–28. Added 29: extra actual intake form, explicit preview/confirmation and saved result (3 panels). Updated full ZIP and manifest.
+- User explicitly requested every old selected turquoise design set aligned, all eleven listed design gaps closed, and a final ZIP.
+- Recreated 00–18, onboarding/ingredient-error references and completion 19–30 through shared components; added 31–46 state sheets. Total: 47 AZ sheets / 159 panels.
+- Every output PNG opened and compared with original sheets and 00/D02/D03 references. Hash-bound static review: unified/visual-review.json. No observed clipping after fixing missing art, cramped age text and error spacing.
+- Final ZIP: design-concepts/qida-turquoise-designs-final.zip; 158 entries including MANIFEST. Every archive hash verified. Extracted portable build regenerates identical HTML; all local links/assets resolve.
 
 ## Current state
-Draft AZ design delivery; no native or user acceptance asserted. Existing shared worktree edits preserved via isolated worktree /private/tmp/callmood-design-package.
+- Work done in isolated /private/tmp/callmood-design-package on docs/unified-design-delivery; original shared branch/user edits preserved.
+- Mandatory merge/technical results are recorded in that worktree's .local-ci/logs/latest.json; consult the actual result before claiming lifecycle completion.
+- The concept review resolves design artifact coverage only. Inherited native visual acceptance remains pending; docs/qa/design-discrepancies.md is unchanged open debt. No false native review-visual record submitted.
 
 ## Decisions
-Extra intake is a separate actual record, never a second copy of the original plan portion. Synthetic nutrients; no fabricated cooked grams. D02 approval remains authoritative for native portion bounds.
+- Unified directory/ZIP is the current complete AZ design delivery. Old raster sets stay as historical repo references; natural/warm/dark alternatives are outside the selected turquoise style.
+- D02 prepared/consumed separation and D03 dated selector/status structure retained; new designs do not silently approve/change native runtime references.
+- Removed obsolete exact home-inventory/equipment/meal-coverage onboarding forms per current plan. Evdə var is only a simple shopping flag.
+- Values are labelled synthetic fixtures, not DB nutrition recompute. Existing token palette unchanged. No invented clinical threshold, store price, retention duration or approval.
+- New source generator embeds existing token/style snapshot in HTML for self-contained export. No application code, APK, network publication or remote Git changes.
 
 ## Remaining work
-Native implementation, AZ/EN/RU 100/150%, device/TalkBack/backend checks; inherited native visual acceptance remains open. 30 now adds age-format, nonfinite-height and negative-weight error concepts; exhaustive input permutations remain unverified.
+- User visual approval of final concepts; actual store/service/privacy strings depend on implementation configuration.
+- Native localization, keyboard, TalkBack, device and backend transaction behavior remain unverified. Those are implementation acceptance, not missing AZ concept PNGs.
 
 ## Relevant files
-design-concepts/simple-turquoise/completion/29-elave-faktiki-porsiya.{png,html}; completion/screens.json; design-concepts/qida-turquoise-designs-complete.zip.
+- design-concepts/simple-turquoise/unified/{index.html,README.txt,screens.json,coverage.json,replacement-map.json,visual-review.json,render-report.json,MANIFEST.json}
+- Shared source: components.py, legacy.py, states.py, style.py, build.py, render.mjs, package.py; assets/ and references/.
+- docs/qa/visual-review-plan.json (explicit new concept source/hash mappings); docs/qa/design-discrepancies.md (native debt, unchanged).
+- planning/nutrition-science-implementation-plan.txt §§16–19,26–30; planning/meal-customization-requirements.txt T01–T19; docs/nutrition-plan-design.md.
 
 ## Checks performed
-Opened new three-panel PNG, D02 reference, onboarding and ingredient-error sheets. ZIP content/hash verification recorded in package manifest. Merge CI result to be reported separately.
+- All 47 rendered sheets inspected. Chrome reports zero missing images and zero horizontal overflow.
+- Contrast: text/background 11.95; muted/background 5.04; white/primary 4.71; all >=4.5.
+- 158 ZIP entries CRC and SHA-256 verified, HTML local links/assets checked, extracted portable rebuild byte-identical.
+- Post-merge CI is mandatory and its exact fresh outcome lives in .local-ci/logs/latest.json, not inferred from concept rendering.
 
 ## Exact next step
-Review draft PNGs; resolve inherited native gate separately before claiming application completion.
-
-## 30 full-form alignment — 6 November
-- Reworked all three 30 panels to the existing full onboarding step 2/5; age/height/weight remain together, errors directly under the relevant field, confirmation/optional sex/disabled Continue retained. Simplified technical text.
-- Rendered and opened PNG; compared with 19 onboarding reference. No visible clipping; contrast 12.70/5.04/4.71 passed. Package and source hashes refreshed.
-- No native code or APK changes. Inherited 756-case native review remains separate and pending.
-- Next: inspect post-merge CI outcome; native acceptance requires actual comparison of every current manifest case before review-visual.
+- Inspect the current merged-main CI outcome and preserve this delivery. Future native acceptance work must compare actual fresh manifest renders with approved references; do not treat the static ZIP as runtime proof.
