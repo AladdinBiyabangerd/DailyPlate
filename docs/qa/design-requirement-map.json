@@ -6540,7 +6540,7 @@
     {
       "id": "30-onboarding-validation",
       "image": "design-concepts/simple-turquoise/completion/30-onboarding-giris-xetalari.png",
-      "sha256": "686ee27d9532113ad022ac8cd39cfb857b1cf3cc6b9a105a9969daf2f2287b6e",
+      "sha256": "e6ece09298c6a9d92535a24494ad7e88f219815bc19919d9ed55af60b3e87d3f",
       "requirements": [
         "18.2",
         "19.2"
