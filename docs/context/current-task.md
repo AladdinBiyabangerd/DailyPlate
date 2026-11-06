@@ -1,28 +1,29 @@
-# Current task — design gap package
+# Current task — onboarding missing design states 31–32
 
 ## Completed
-Existing onboarding and ingredient-error concepts included with completion 19–28. Added 29: extra actual intake form, explicit preview/confirmation and saved result (3 panels). Updated full ZIP and manifest.
+- Two draft AZ PNG/HTML sets: four allergy states and success → Today (six panels).
+- Editable JSON and scoped renderer; flow requirements in completion/31-32-flow-notes.txt.
+- Opened both final PNGs and 19/00/02 references. No clipping observed. Token contrast 12.70/5.04/4.71 passes.
 
 ## Current state
-Draft AZ design delivery; no native or user acceptance asserted. Existing shared worktree edits preserved via isolated worktree /private/tmp/callmood-design-package.
+- Isolated worktree /private/tmp/callmood-onboarding-states preserves unrelated shared-workspace edits.
+- Local merge/CI result to be recorded after finish; no native implementation or APK.
 
 ## Decisions
-Extra intake is a separate actual record, never a second copy of the original plan portion. Synthetic nutrients; no fabricated cooked grams. D02 approval remains authoritative for native portion bounds.
+- Unanswered allergy never means No. Yes opens multi-select; No excludes allergens.
+- Success uses explicitly labelled fixture; Başla destination is Today with zero logged meals.
+- Drafts are not user/native acceptance; existing native visual debt stays open.
 
 ## Remaining work
-Native implementation, AZ/EN/RU 100/150%, device/TalkBack/backend checks; inherited native visual acceptance remains open. 30 now adds age-format, nonfinite-height and negative-weight error concepts; exhaustive input permutations remain unverified.
+- User design review; native behaviors, localization, large fonts and accessibility unverified.
 
 ## Relevant files
-design-concepts/simple-turquoise/completion/29-elave-faktiki-porsiya.{png,html}; completion/screens.json; design-concepts/qida-turquoise-designs-complete.zip.
+- design-concepts/simple-turquoise/completion/{31-*,32-*,onboarding_states.py}
+- docs/qa/visual-review-plan.json
+- planning/nutrition-science-implementation-plan.txt §18.3/18.8/18.11
 
 ## Checks performed
-Opened new three-panel PNG, D02 reference, onboarding and ingredient-error sheets. ZIP content/hash verification recorded in package manifest. Merge CI result to be reported separately.
+- Rendered and inspected six panels against references; contrast passed.
 
 ## Exact next step
-Review draft PNGs; resolve inherited native gate separately before claiming application completion.
-
-## 30 full-form alignment — 6 November
-- Reworked all three 30 panels to the existing full onboarding step 2/5; age/height/weight remain together, errors directly under the relevant field, confirmation/optional sex/disabled Continue retained. Simplified technical text.
-- Rendered and opened PNG; compared with 19 onboarding reference. No visible clipping; contrast 12.70/5.04/4.71 passed. Package and source hashes refreshed.
-- No native code or APK changes. Inherited 756-case native review remains separate and pending.
-- Next: inspect post-merge CI outcome; native acceptance requires actual comparison of every current manifest case before review-visual.
+- Read post-merge .local-ci/logs/latest.json and report technical CI separately from inherited visual acceptance.

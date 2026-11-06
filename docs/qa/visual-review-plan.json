@@ -7051,6 +7051,99 @@
         "design-concepts/simple-turquoise/completion/30-onboarding-giris-xetalari.html": "d79e473d39177fb1e5a8ba6e4374bc801e0d2791adef5213c8f1ee47aea32330",
         "design-concepts/simple-turquoise/completion/onboarding_form.py": "c870579f15f9c1d44a4194c1093f8ce28e63c85237bfd0b44cb5ac2b920a6029"
       }
+    },
+    {
+      "id": "concept-31-onboarding",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/completion/31-allergiya-ilkin-veziyyet.png",
+      "references": [
+        "design-concepts/simple-turquoise/19-onboarding-tamamlanmis-axin.png",
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/02-secimler-ve-hesab.png",
+        "design-concepts/tokens.css"
+      ],
+      "requirements": [
+        "18.3",
+        "18.8",
+        "18.11"
+      ],
+      "elements": [
+        "4/5 five-part progress",
+        "Bəli / Xeyr unselected initially",
+        "Inline warning after Continue attempt",
+        "Yes expands multi-select; No hides it",
+        "Dislikes remain separate and optional"
+      ],
+      "states": [
+        "unanswered",
+        "validation-error",
+        "yes-expanded",
+        "no-selected"
+      ],
+      "required_review": [
+        "Open each panel and references; draft only"
+      ],
+      "sources": [
+        "design-concepts/simple-turquoise/completion/31-allergiya-ilkin-veziyyet.json",
+        "design-concepts/simple-turquoise/completion/31-allergiya-ilkin-veziyyet.html",
+        "design-concepts/simple-turquoise/completion/31-allergiya-ilkin-veziyyet.png",
+        "design-concepts/simple-turquoise/completion/onboarding_states.py",
+        "design-concepts/simple-turquoise/completion/31-32-flow-notes.txt"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/completion/31-allergiya-ilkin-veziyyet.json": "375e2de25489d86a5dc625975e4e3ef44c1103463133037f4566cb1d4c752390",
+        "design-concepts/simple-turquoise/completion/31-allergiya-ilkin-veziyyet.html": "646019e2c8b2b77a8f12392f41650ec2cbbf21bfb48117afeb1f662b42d89e6b",
+        "design-concepts/simple-turquoise/completion/31-allergiya-ilkin-veziyyet.png": "bb23f7a168367da79478a82976b76a6807c2c6c39c4731be629ae2fa5fd8b916",
+        "design-concepts/simple-turquoise/completion/onboarding_states.py": "62dc71c63185e4cd71d0290addc366134efbb5f08ad185daf9f38445f4f13344",
+        "design-concepts/simple-turquoise/completion/31-32-flow-notes.txt": "1d60f03a6d974c6667f792c998f0fbc68400619522ed347ca1f3b4a469de4e86"
+      },
+      "sha256": "bb23f7a168367da79478a82976b76a6807c2c6c39c4731be629ae2fa5fd8b916",
+      "comparison": "Opened every final AZ panel and 19/00/02 references. Five-part progress, back action, white rounded surfaces, teal actions and existing food artwork retain the onboarding direction. 31 has initially empty radios, inline warning, expanded multi-select and mutually exclusive No state. 32 completes 5/5 and shows Başla with Today destination and explicit synthetic-plan labeling, no invented energy target or logged meals. No observed clipping. Today is a transition illustration, not approval of a dashboard redesign. Native/localization/accessibility and user approval remain unverified."
+    },
+    {
+      "id": "concept-32-onboarding",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/completion/32-plan-hazirdir.png",
+      "references": [
+        "design-concepts/simple-turquoise/19-onboarding-tamamlanmis-axin.png",
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/02-secimler-ve-hesab.png",
+        "design-concepts/tokens.css"
+      ],
+      "requirements": [
+        "18.3",
+        "18.8",
+        "18.11"
+      ],
+      "elements": [
+        "Completed five-part progress",
+        "Planın hazırdır with Başla",
+        "Başla opens Bu gün with selected tab",
+        "Fixture label; no clinical safety claim; no meals logged"
+      ],
+      "states": [
+        "success-fixture",
+        "today-fixture"
+      ],
+      "required_review": [
+        "Open each panel and references; draft only"
+      ],
+      "sources": [
+        "design-concepts/simple-turquoise/completion/32-plan-hazirdir.json",
+        "design-concepts/simple-turquoise/completion/32-plan-hazirdir.html",
+        "design-concepts/simple-turquoise/completion/32-plan-hazirdir.png",
+        "design-concepts/simple-turquoise/completion/onboarding_states.py",
+        "design-concepts/simple-turquoise/completion/31-32-flow-notes.txt"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/completion/32-plan-hazirdir.json": "694c2920e4dcddfe3609b7a82e9a7c0b069f79176ef9c2a0f27903eae12c0901",
+        "design-concepts/simple-turquoise/completion/32-plan-hazirdir.html": "e4ba9943461191cf11304eebbd3aa00fc1257d10a56eac9b0f12aae15ad670c3",
+        "design-concepts/simple-turquoise/completion/32-plan-hazirdir.png": "1770b8a3dfc905c4d74e16e2aef1a4a5fb8e7fbe9673084ac985bf2b62485197",
+        "design-concepts/simple-turquoise/completion/onboarding_states.py": "62dc71c63185e4cd71d0290addc366134efbb5f08ad185daf9f38445f4f13344",
+        "design-concepts/simple-turquoise/completion/31-32-flow-notes.txt": "1d60f03a6d974c6667f792c998f0fbc68400619522ed347ca1f3b4a469de4e86"
+      },
+      "sha256": "1770b8a3dfc905c4d74e16e2aef1a4a5fb8e7fbe9673084ac985bf2b62485197",
+      "comparison": "Opened every final AZ panel and 19/00/02 references. Five-part progress, back action, white rounded surfaces, teal actions and existing food artwork retain the onboarding direction. 31 has initially empty radios, inline warning, expanded multi-select and mutually exclusive No state. 32 completes 5/5 and shows Başla with Today destination and explicit synthetic-plan labeling, no invented energy target or logged meals. No observed clipping. Today is a transition illustration, not approval of a dashboard redesign. Native/localization/accessibility and user approval remain unverified."
     }
   ]
 }
