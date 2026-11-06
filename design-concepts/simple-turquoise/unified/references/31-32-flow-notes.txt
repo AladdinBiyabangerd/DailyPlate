@@ -1,0 +1,17 @@
+31–32 — Yeni onboarding üçün iki çatışmayan dizayn dəsti
+Status: AZ dizayn təklifi; native tətbiq, işlək prototip və istifadəçi təsdiqi deyil.
+İstinad: 19-onboarding-tamamlanmis-axin.png, 00-reference.png, 02-secimler-ve-hesab.png, ../tokens.css.
+Tələb: planning/nutrition-science-implementation-plan.txt §18.3,18.8,18.11; istifadəçinin cari tapşırığı.
+
+31-A: İlk girişdə Bəli və Xeyr seçilməyib; allergen siyahısı bağlıdır.
+31-B: Cavabsız Davam et cəhdi ekranı dəyişmir. Sualın altında “Davam etmək üçün ‘Bəli’ və ya ‘Xeyr’ seç.” xəbərdarlığı görünür; fokus sual/xəbərdarlığa keçir. Xeyr səssiz seçilmir.
+31-C: Bəli siyahını açır; çoxlu allergen seçimi mümkündür. Nümunədə Süd seçilib. Ən azı bir allergen və ya dəqiqləşdirilmiş əlavə allergiya olmadan növbəti addım açılmır. Digər allergiya yolu və qoz-fındıq növünü dəqiqləşdirmə saxlanır. Beş kart tam taksonomiya deyil. Buğda və qlüten ayrı saxlanır.
+31-D: Xeyr allergen siyahısını bağlayır və Allergiyam yoxdur cavabını göstərir. Aktiv allergenlər və Xeyr eyni anda profilə ötürülmür. Bəli/Xeyr dəyişməsi digər onboarding cavablarını silmir. Yemədiklərin könüllüdür və allergiya deyil.
+Əvvəlki addıma qayıt cavabları saxlayır; Davam et 5/5 Vaxt və büdcə addımına keçir.
+
+32-A: Beş addım tamamlanıb; Planımı hazırla əməliyyatının uğurlu UI nəticəsi “Planın hazırdır”. UI mərhələsində lokal fixture göstərilir: real generator, hesab və klinik/allergen təhlükəsizlik təsdiqi iddiası yoxdur. Production uğuru yalnız generator müqaviləsinin SUCCESS nəticəsində mümkündür; digər nəticələr bu ekranı açmır.
+Başla → 32-B Bu gün. Onboarding tarixçəsi bağlanır; geri düyməsi ilə yenidən bitişə düşülmür. Başla yeməyi yeyilmiş saymır və əlavə profil/plan yaratmır. Cavablarıma bax mövcud cavablarla redaktəyə qaytarır.
+32-B: Bu gün aktiv alt bölmədir; üç planlı nümunə yemək, sıfır faktiki qeyd. Kalori/hədəf uydurulmur. Bu panel keçid nəticəsini izah edən maketdir; təsdiqli Bu gün ekranının yenidən dizaynı deyil. Hesab açmaq və abunə Başla üçün şərt deyil.
+
+Yenidən yaratmaq: python3 design-concepts/simple-turquoise/completion/onboarding_states.py
+Hər iki son PNG və 19/00/02 istinadları açılıb müqayisə edildi. Mətn və düymələr kəsilmir; 4/5 və 5/5 göstəriciləri düzgündür. Rənglər mövcud tokenlərdir; kontrast 12.70/5.04/4.71 keçir. Native klik, ekran oxuyucu, AZ/EN/RU və böyük şrift yoxlanmayıb. Köhnə native vizual borc bağlanmır.

@@ -7144,6 +7144,1833 @@
       },
       "sha256": "1770b8a3dfc905c4d74e16e2aef1a4a5fb8e7fbe9673084ac985bf2b62485197",
       "comparison": "Opened every final AZ panel and 19/00/02 references. Five-part progress, back action, white rounded surfaces, teal actions and existing food artwork retain the onboarding direction. 31 has initially empty radios, inline warning, expanded multi-select and mutually exclusive No state. 32 completes 5/5 and shows Başla with Today destination and explicit synthetic-plan labeling, no invented energy target or logged meals. No observed clipping. Today is a transition illustration, not approval of a dashboard redesign. Native/localization/accessibility and user approval remain unverified."
+    },
+    {
+      "id": "unified-00",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/00-esas-istiqamet.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Salam!",
+        "Nə yediyini necə əlavə edək?",
+        "Məqsədin nədir?",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "00-A",
+        "00-B",
+        "00-C"
+      ],
+      "comparison": "Compared with 00: retained four illustrated goals in two columns, three illustrated Add routes and distinct Today actual/plan content; common navigation and selected check are visible.",
+      "sha256": "362f0ddf35b494a6aad23f98da97de2925db787475c37eddec02eb3eb0d27e86",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/00-esas-istiqamet.png",
+        "design-concepts/simple-turquoise/unified/00-esas-istiqamet.html",
+        "design-concepts/simple-turquoise/unified/package.py",
+        "design-concepts/simple-turquoise/unified/build.py",
+        "design-concepts/simple-turquoise/unified/index.html",
+        "design-concepts/simple-turquoise/unified/legacy.py",
+        "design-concepts/simple-turquoise/unified/style.py",
+        "design-concepts/simple-turquoise/unified/render.mjs",
+        "design-concepts/simple-turquoise/unified/onboarding.py",
+        "design-concepts/simple-turquoise/unified/visual-review.json",
+        "design-concepts/simple-turquoise/unified/render-report.json",
+        "design-concepts/simple-turquoise/unified/screens.json",
+        "design-concepts/simple-turquoise/unified/MANIFEST.json",
+        "design-concepts/simple-turquoise/unified/replacement-map.json",
+        "design-concepts/simple-turquoise/unified/coverage.json",
+        "design-concepts/simple-turquoise/unified/README.txt",
+        "design-concepts/simple-turquoise/unified/components.py",
+        "design-concepts/simple-turquoise/unified/states.py",
+        "design-concepts/simple-turquoise/unified/references/d03-menu.txt",
+        "design-concepts/simple-turquoise/unified/references/d02-portions.txt",
+        "design-concepts/simple-turquoise/unified/source-inputs/completion-screens.json",
+        "design-concepts/simple-turquoise/unified/assets/art_wheat.png",
+        "design-concepts/simple-turquoise/unified/assets/art_nuts.png",
+        "design-concepts/simple-turquoise/unified/assets/art_lose.png",
+        "design-concepts/simple-turquoise/unified/assets/art_gain.png",
+        "design-concepts/simple-turquoise/unified/assets/art_progress.png",
+        "design-concepts/simple-turquoise/unified/assets/art_entry_camera.png",
+        "design-concepts/simple-turquoise/unified/assets/art_ingredient_carrot.png",
+        "design-concepts/simple-turquoise/unified/assets/art_health.png",
+        "design-concepts/simple-turquoise/unified/assets/art_milk.png",
+        "design-concepts/simple-turquoise/unified/assets/art_male.png",
+        "design-concepts/simple-turquoise/unified/assets/art_welcome.png",
+        "design-concepts/simple-turquoise/unified/assets/art_ingredient_onion.png",
+        "design-concepts/simple-turquoise/unified/assets/art_healthy.png",
+        "design-concepts/simple-turquoise/unified/assets/art_walking.png",
+        "design-concepts/simple-turquoise/unified/assets/art_saved.png",
+        "design-concepts/simple-turquoise/unified/assets/art_portion_scale.png",
+        "design-concepts/simple-turquoise/unified/assets/art_empty_progress.png",
+        "design-concepts/simple-turquoise/unified/assets/art_ingredient_chicken.png",
+        "design-concepts/simple-turquoise/unified/assets/art_other_choices.png",
+        "design-concepts/simple-turquoise/unified/assets/art_empty.png",
+        "design-concepts/simple-turquoise/unified/assets/art_fish.png",
+        "design-concepts/simple-turquoise/unified/assets/art_entry_search.png",
+        "design-concepts/simple-turquoise/unified/assets/art_cooking.png",
+        "design-concepts/simple-turquoise/unified/assets/art_height.png",
+        "design-concepts/simple-turquoise/unified/assets/art_write_error.png",
+        "design-concepts/simple-turquoise/unified/assets/art_account.png",
+        "design-concepts/simple-turquoise/unified/assets/art_female.png",
+        "design-concepts/simple-turquoise/unified/assets/art_empty_add.png",
+        "design-concepts/simple-turquoise/unified/assets/art_weight.png",
+        "design-concepts/simple-turquoise/unified/assets/art_entry_previous.png",
+        "design-concepts/simple-turquoise/unified/assets/art_age.png",
+        "design-concepts/simple-turquoise/unified/assets/art_recipe.png",
+        "design-concepts/simple-turquoise/unified/assets/art_budget.png",
+        "design-concepts/simple-turquoise/unified/assets/art_active.png",
+        "design-concepts/simple-turquoise/unified/assets/art_sedentary.png",
+        "design-concepts/simple-turquoise/unified/assets/art_egg.png",
+        "design-concepts/simple-turquoise/unified/assets/art_dislikes.png",
+        "design-concepts/simple-turquoise/unified/assets/art_ingredient_oil.png",
+        "design-concepts/simple-turquoise/unified/assets/art_ingredient_rice.png",
+        "design-concepts/simple-turquoise/unified/assets/art_menu.png",
+        "design-concepts/simple-turquoise/unified/assets/art_empty_menu.png",
+        "design-concepts/simple-turquoise/unified/assets/art_log.png",
+        "design-concepts/simple-turquoise/unified/assets/art_maintain.png",
+        "design-concepts/simple-turquoise/unified/references/d03-menu.png",
+        "design-concepts/simple-turquoise/unified/references/d02-portions.png",
+        "design-concepts/simple-turquoise/unified/references/00-reference.png",
+        "design-concepts/qida-turquoise-designs-final.zip",
+        "design-concepts/qida-turquoise-designs-final.manifest.json",
+        "design-concepts/simple-turquoise/unified/references/31-allergiya-ilkin-veziyyet.png",
+        "design-concepts/simple-turquoise/unified/references/32-plan-hazirdir.png",
+        "design-concepts/simple-turquoise/unified/references/31-32-flow-notes.txt"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/00-esas-istiqamet.png": "362f0ddf35b494a6aad23f98da97de2925db787475c37eddec02eb3eb0d27e86",
+        "design-concepts/simple-turquoise/unified/00-esas-istiqamet.html": "57ff3b01abba958865534723343de02fe9c7c43679227d6912c6b8b58373bee1",
+        "design-concepts/simple-turquoise/unified/package.py": "8a2a8a321a7accc789fda26dd2d97e6758d0337bdd8e96ade8ae835bb1f93815",
+        "design-concepts/simple-turquoise/unified/build.py": "929e3fcaf5ab7428844e8020424580efce7f858b2af2c057269ce30ca2b984e4",
+        "design-concepts/simple-turquoise/unified/index.html": "463727541de24a4f01afa15c9017ad5d5fb9aabbb4a2171dcca2b0ebbc104c2e",
+        "design-concepts/simple-turquoise/unified/legacy.py": "413619e5aa13169c40f5823d734d0c65aaaaa56378bf4597206b87506d44ef07",
+        "design-concepts/simple-turquoise/unified/style.py": "84288af1fc5f93328eb4b52a05c3600487b789f1be85493b93ac78655837ee1f",
+        "design-concepts/simple-turquoise/unified/render.mjs": "86c761c9deeb7ddc1ac0a30975c8a3d908d84b8648da7c41917ea6707bd470b9",
+        "design-concepts/simple-turquoise/unified/onboarding.py": "d5fec0cd3c08c30ff64eaf39bcca6f2f7b1bebd006b27e9b67783198e0fa559c",
+        "design-concepts/simple-turquoise/unified/visual-review.json": "74669ba260e586262d0e7975f739b656a5598e350a1fe27262b2367aab9b0449",
+        "design-concepts/simple-turquoise/unified/render-report.json": "dbac7b75cb6c332943d73f717bf55fc7ec95ff316204b7786500ca8f81f01238",
+        "design-concepts/simple-turquoise/unified/screens.json": "3c36bf93937036585656a95955915809ba914c3a3c7010f6d9ac358cac1d8e7a",
+        "design-concepts/simple-turquoise/unified/MANIFEST.json": "d69e52351d80f23dc75b5c389f041cd43962625a87570bcd7f53906a337411f5",
+        "design-concepts/simple-turquoise/unified/replacement-map.json": "5795eb3f8e6e218172af822f409a8348acff3a76eea59657a408a5f34d1be6ff",
+        "design-concepts/simple-turquoise/unified/coverage.json": "0b55d28c6f68b4eea931f2ea887827d3e54abdb4025797c93c0eab1cea53d6cd",
+        "design-concepts/simple-turquoise/unified/README.txt": "f5bd8ca59cbe4cdaed29cf66854d231001df14beb83050d3d1fd953563c8b71d",
+        "design-concepts/simple-turquoise/unified/components.py": "b8409bcd1960801cc9cbcfd58a9eaa5109bc224d4c772cc26970a70c66e9277a",
+        "design-concepts/simple-turquoise/unified/states.py": "b2956874810d65c48d0ffbdcf6440153b290e4abab7cd38a50c16ff89d18dbdb",
+        "design-concepts/simple-turquoise/unified/references/d03-menu.txt": "617f4c3155f7a6eb15b1c416ad07db3392d6716cf7202fb42a43535edf4126d5",
+        "design-concepts/simple-turquoise/unified/references/d02-portions.txt": "c8d4258910213a1d50b07262bed3957404357a76adff6c41a147ecad7c7f0138",
+        "design-concepts/simple-turquoise/unified/source-inputs/completion-screens.json": "641bb39856786de4afc9a81bbedc8071ad8229df72c5f7bae524a9d0501d8aaf",
+        "design-concepts/simple-turquoise/unified/assets/art_wheat.png": "5536b79b092e0650756eb4a71df041299ad8793cea6969d5c8dc571f2b4005c7",
+        "design-concepts/simple-turquoise/unified/assets/art_nuts.png": "f39090e10fad14b1693a05b3efd9e25e5f416eaa5b39f265d8dafdf63ee7a443",
+        "design-concepts/simple-turquoise/unified/assets/art_lose.png": "200c602165a65a8b7af7d0c78e8ea8a57e0a52d81dd805fb2a6ed613d467c3e3",
+        "design-concepts/simple-turquoise/unified/assets/art_gain.png": "866d3140ffcc921c98d521a62a1973a8eec441e15e052bd62a3496b9477247c4",
+        "design-concepts/simple-turquoise/unified/assets/art_progress.png": "a76fe5a5277347771074bd378925ca236560a1ffbe35d47b6e86b520bcc7af5e",
+        "design-concepts/simple-turquoise/unified/assets/art_entry_camera.png": "88152a819d21f76b7306879378e26c2e3fc246c382f48b8a73f69134eabc5cb4",
+        "design-concepts/simple-turquoise/unified/assets/art_ingredient_carrot.png": "a733c9f59719bf30ecfd68c7bb18d29764093680535eba36235b995a09bf2cf1",
+        "design-concepts/simple-turquoise/unified/assets/art_health.png": "46c6494dc68aeecef2b39b46eeafbf0d356d1ac798579f8244a92a5e68a6590a",
+        "design-concepts/simple-turquoise/unified/assets/art_milk.png": "817cf13c2ff8f2e273ab3c7c8a77bfea56ea2175b6e9379ac7ee63026b015b66",
+        "design-concepts/simple-turquoise/unified/assets/art_male.png": "67185e131956bb506971797d5d9c678ceaecc1d4e6381b891f4c4748dc78dbe7",
+        "design-concepts/simple-turquoise/unified/assets/art_welcome.png": "c1bc161cc930abf293ac2cd9d8236272c393d9cadf37359407516c238d9ff3bb",
+        "design-concepts/simple-turquoise/unified/assets/art_ingredient_onion.png": "ede54b7764ac356cc541c3c79eaa70fa7645754ebdc2d36d1918b4976aa76a26",
+        "design-concepts/simple-turquoise/unified/assets/art_healthy.png": "2786200748e473925be12442a2c5e07ad5f1faeb37611389d7fedc6cc84e17a6",
+        "design-concepts/simple-turquoise/unified/assets/art_walking.png": "60de4bdaf5d200b8b9956abfb7a0be6621a52b5fabc9d26ccf808eedd8c09300",
+        "design-concepts/simple-turquoise/unified/assets/art_saved.png": "24913f6e57c9c0b1a33bd2b399c5adb6157fd4c952dfdabd5cf9451d91e9ebfd",
+        "design-concepts/simple-turquoise/unified/assets/art_portion_scale.png": "2688d3e3b61c128dae160c3735452e4a84d8557c972752ebbc2fdfa935fd947e",
+        "design-concepts/simple-turquoise/unified/assets/art_empty_progress.png": "72ae08aec4bf6a6e84c21c60a74b77d479c1136b763fcea2153a128bcb0324ab",
+        "design-concepts/simple-turquoise/unified/assets/art_ingredient_chicken.png": "516e0afa2dd16528703689ce8e75add85fc988abfbc36f2b8790bf613e5c494c",
+        "design-concepts/simple-turquoise/unified/assets/art_other_choices.png": "68617807b152435eb5293682846fbb4d8895a1d461c3cb0b0a1da18ed543d97b",
+        "design-concepts/simple-turquoise/unified/assets/art_empty.png": "a660e9498bd053246b9978f1db33c0f62d263f8402326e7482f0876a9d28a3eb",
+        "design-concepts/simple-turquoise/unified/assets/art_fish.png": "0696695b3b62e081c33a987d531ba058f05491f440a69c03430d9ed505be4c03",
+        "design-concepts/simple-turquoise/unified/assets/art_entry_search.png": "189e0d540ca882984af13d5ba2b0bf181f02a7e6119e215177be99745144107a",
+        "design-concepts/simple-turquoise/unified/assets/art_cooking.png": "1ea114727c4f0fce683277e69ccf2d52355979bdffc65a211487589c273941d1",
+        "design-concepts/simple-turquoise/unified/assets/art_height.png": "f3266ed0d0f918a8aff54bed902a4a240ad43ee614118284604c2e7192b2d2b2",
+        "design-concepts/simple-turquoise/unified/assets/art_write_error.png": "aaba1c3df7ab969974b3ae6ffc5a0b057364345627da53914ef183004a5d71a1",
+        "design-concepts/simple-turquoise/unified/assets/art_account.png": "910843e3a4241f69d4687ee0e8ec8e79ae5936de2560f3e16cc97131796bd3e3",
+        "design-concepts/simple-turquoise/unified/assets/art_female.png": "2765a3296f73f761baf3654603322918d2bce16272592256c19485cae84dd302",
+        "design-concepts/simple-turquoise/unified/assets/art_empty_add.png": "9e9bc62acd3e94ff074dfde06ae6ebb198141b7d96e06cc87783afa0a6a1459d",
+        "design-concepts/simple-turquoise/unified/assets/art_weight.png": "a7063b77c362937487e0446bab8c3deebc4e8c59d787c5019fc56fb28e0c6f96",
+        "design-concepts/simple-turquoise/unified/assets/art_entry_previous.png": "93589e4af6dbf21dd6905138d281752fccdbda3f95a0112461870ddc2ca7d5ec",
+        "design-concepts/simple-turquoise/unified/assets/art_age.png": "373818c263801c686202a0bebcf7986b2b3856b0bff9448a415b62aa02cfee5e",
+        "design-concepts/simple-turquoise/unified/assets/art_recipe.png": "ebf8a6670103e1672973509e04400ddd033cc4443e15595c6d03cfdf87794adb",
+        "design-concepts/simple-turquoise/unified/assets/art_budget.png": "fad428e2c514b953028919ca6465cffe48c22bba46a4b80b55ceaba6cdae004c",
+        "design-concepts/simple-turquoise/unified/assets/art_active.png": "bc6d3db79480ca71c26d1d0551ba646c441481dac7642ab256bb69cf0fb1899b",
+        "design-concepts/simple-turquoise/unified/assets/art_sedentary.png": "a59b273a9f48871244666d5e9204ebea3fcdbf50a9e94ae08f037d07955d5791",
+        "design-concepts/simple-turquoise/unified/assets/art_egg.png": "96989e9989ff9d8cac94d13b87987be48727ab36b5293c498c05592332842bb5",
+        "design-concepts/simple-turquoise/unified/assets/art_dislikes.png": "49055b3194ff7ff89d1663e288d1da4cbb09e8382f2925820dcf698ea726b6d7",
+        "design-concepts/simple-turquoise/unified/assets/art_ingredient_oil.png": "17da448febfc3abdda320fee18a36348f19394b0b5ec704b5ebd62775b2a8383",
+        "design-concepts/simple-turquoise/unified/assets/art_ingredient_rice.png": "496a4965dfd0e74783730ee81aad037d88126f2de481196a042cac5cf15ef341",
+        "design-concepts/simple-turquoise/unified/assets/art_menu.png": "de98ff43d5fb810725e83b71f8c66da5c3089360124c2004ea07e949a21c90d4",
+        "design-concepts/simple-turquoise/unified/assets/art_empty_menu.png": "37d4ee95d9bdd819837511ee51ac13b9a6fc440b634b4952c4454e6242e67b93",
+        "design-concepts/simple-turquoise/unified/assets/art_log.png": "2f4e2cf4e84f88ffe65e020c0f382c646d869f05986045d5ac15b414a93d73de",
+        "design-concepts/simple-turquoise/unified/assets/art_maintain.png": "a6de2139c5fff7ebe10f44b86a56599b1dabf2050d4f51297ce939c96d18c33e",
+        "design-concepts/simple-turquoise/unified/references/d03-menu.png": "5cc43a3291ee6a1a4136c908c4267d5e2103221d61a66412e072e2a04ce00702",
+        "design-concepts/simple-turquoise/unified/references/d02-portions.png": "e185e3dbde893306722b8b4ffc0f0ed4e98a1de62fe7367f56cfeba0969870e5",
+        "design-concepts/simple-turquoise/unified/references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c",
+        "design-concepts/qida-turquoise-designs-final.zip": "fd84964d53611d8ad6f94224e0221d6262282f6436586f395c9d6eb7041ce5ec",
+        "design-concepts/qida-turquoise-designs-final.manifest.json": "d69e52351d80f23dc75b5c389f041cd43962625a87570bcd7f53906a337411f5",
+        "design-concepts/simple-turquoise/unified/references/31-allergiya-ilkin-veziyyet.png": "bb23f7a168367da79478a82976b76a6807c2c6c39c4731be629ae2fa5fd8b916",
+        "design-concepts/simple-turquoise/unified/references/32-plan-hazirdir.png": "1770b8a3dfc905c4d74e16e2aef1a4a5fb8e7fbe9673084ac985bf2b62485197",
+        "design-concepts/simple-turquoise/unified/references/31-32-flow-notes.txt": "1d60f03a6d974c6667f792c998f0fbc68400619522ed347ca1f3b4a469de4e86"
+      }
+    },
+    {
+      "id": "unified-01",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/01-baslangic.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Xoş gəldin!",
+        "Özünü tanıt",
+        "Aktivlik və sağlamlıq",
+        "Planına bax",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "01-A",
+        "01-B",
+        "01-C",
+        "01-D"
+      ],
+      "comparison": "Compared with 01 and completed onboarding: welcome benefits/language and direct numeric steppers retained; four activity categories replace legacy three; 2/5 and 3/5 match progress.",
+      "sha256": "ec29eb972622315968028441ef3ea8241293b41ff6e9ce3eb274710a9c6732ae",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/01-baslangic.png",
+        "design-concepts/simple-turquoise/unified/01-baslangic.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/01-baslangic.png": "ec29eb972622315968028441ef3ea8241293b41ff6e9ce3eb274710a9c6732ae",
+        "design-concepts/simple-turquoise/unified/01-baslangic.html": "20114b7fac412bd582e7ebf84323b9d6ce163f8d494c73140a0d8626eaa767ca"
+      }
+    },
+    {
+      "id": "unified-02",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/02-secimler-ve-hesab.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Allergiya və seçimlər",
+        "Vaxt və büdcə",
+        "Planını saxla",
+        "Hesabına daxil ol",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "02-A",
+        "02-B",
+        "02-C",
+        "02-D"
+      ],
+      "comparison": "Compared with 02 and current completion/31: initial allergy Yes/No is unanswered and allergen list remains closed; the conditional list is fully shown in 47. Budget 5/5, guest/account paths and persistent labels stay visible.",
+      "sha256": "d25ee1c8ae360c61c496247b37aafdb1b541a57a1baeeb9a3261a1f79350fe04",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/02-secimler-ve-hesab.png",
+        "design-concepts/simple-turquoise/unified/02-secimler-ve-hesab.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/02-secimler-ve-hesab.png": "d25ee1c8ae360c61c496247b37aafdb1b541a57a1baeeb9a3261a1f79350fe04",
+        "design-concepts/simple-turquoise/unified/02-secimler-ve-hesab.html": "1dfde189558f52c51fbbd067a12417cf4a887c5364017ca099509a12577e642c"
+      }
+    },
+    {
+      "id": "unified-03",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/03-yemek-qeydiyyati.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Nə yemisən?",
+        "Yeməyin şəklini çək",
+        "Bu yeməkdir?",
+        "Əlavə olundu!",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "03-A",
+        "03-B",
+        "03-C",
+        "03-D"
+      ],
+      "comparison": "Compared with 03: search, camera frame, food/oil confirmation and saved result remain separate; no photo-only automatic log. No observed clipped labels.",
+      "sha256": "ef3265128210892eec6ba928e2e1bcd1df7e9898ddfe8d5737520be646bd86b4",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/03-yemek-qeydiyyati.png",
+        "design-concepts/simple-turquoise/unified/03-yemek-qeydiyyati.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/03-yemek-qeydiyyati.png": "ef3265128210892eec6ba928e2e1bcd1df7e9898ddfe8d5737520be646bd86b4",
+        "design-concepts/simple-turquoise/unified/03-yemek-qeydiyyati.html": "1b4a9c968abc7a370826a30b4519354a255a7a885e3ec09a6aa8def2a6a3ae67"
+      }
+    },
+    {
+      "id": "unified-04",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/04-menyu-ve-alisveris.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/approved/d03-menu.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Həftənin menyusu",
+        "Toyuq plovu",
+        "Nə ilə dəyişək?",
+        "Alış-veriş siyahısı",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "04-A",
+        "04-B",
+        "04-C",
+        "04-D"
+      ],
+      "comparison": "Compared with 04 and D03: seven actual dates, selected/Today marker, plan/partial statuses and portion entry retained. Recipe, shopping categories and separate home/purchased states visible.",
+      "sha256": "951df7a73fb9b04ed6ab64cb195debaa016103efbf3494dd147d75924cbdb75b",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/04-menyu-ve-alisveris.png",
+        "design-concepts/simple-turquoise/unified/04-menyu-ve-alisveris.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/04-menyu-ve-alisveris.png": "951df7a73fb9b04ed6ab64cb195debaa016103efbf3494dd147d75924cbdb75b",
+        "design-concepts/simple-turquoise/unified/04-menyu-ve-alisveris.html": "e3ecf6bbf329ac6b1525d8b0b867a2b85716a79294dda7284f1ee7e916665b38"
+      }
+    },
+    {
+      "id": "unified-05",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/05-irelileyis-ve-profil.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Çəkini qeyd et",
+        "Həftəyə baxaq",
+        "Profilin",
+        "Nə vaxt xatırladaq?",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "05-A",
+        "05-B",
+        "05-C",
+        "05-D"
+      ],
+      "comparison": "Compared with 05: dated weight entry, measurement count, weekly history, profile destinations and optional reminder times/quiet hours remain readable; actual active routes match each surface.",
+      "sha256": "b443f4be2123b2c275a4e496ea855a9f0033f8f50828797ab15617073c696711",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/05-irelileyis-ve-profil.png",
+        "design-concepts/simple-turquoise/unified/05-irelileyis-ve-profil.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/05-irelileyis-ve-profil.png": "b443f4be2123b2c275a4e496ea855a9f0033f8f50828797ab15617073c696711",
+        "design-concepts/simple-turquoise/unified/05-irelileyis-ve-profil.html": "cc657e5f728c5996a1f2444f20f7324b6585b8e6e8d8779d22cc9176ef929b24"
+      }
+    },
+    {
+      "id": "unified-06",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/06-abunelik-ve-veziyyetler.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Abunəliyə bax",
+        "Hələ yemək əlavə etməmisən",
+        "İnternet yoxdur",
+        "Şəkli tanıya bilmədik",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "06-A",
+        "06-B",
+        "06-C",
+        "06-D"
+      ],
+      "comparison": "Compared with 06: store-price-unavailable subscription, empty Today, durable local save awaiting sync and photo failure are distinct; visible recovery actions remain.",
+      "sha256": "85e1407533d4b4046e36f6f2b0808dccd41293161d027fa78b523a4886cc6b55",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/06-abunelik-ve-veziyyetler.png",
+        "design-concepts/simple-turquoise/unified/06-abunelik-ve-veziyyetler.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/06-abunelik-ve-veziyyetler.png": "85e1407533d4b4046e36f6f2b0808dccd41293161d027fa78b523a4886cc6b55",
+        "design-concepts/simple-turquoise/unified/06-abunelik-ve-veziyyetler.html": "1af80a70ebade31e9b70125ea12d9ca78e9a7a7115ed52081ed8c8b87b3fc13f"
+      }
+    },
+    {
+      "id": "unified-07",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/07-inqrediyent-redaktesi.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Toyuq plovu",
+        "İnqrediyentləri dəyiş",
+        "Nə əlavə edək?",
+        "Dəyişikliklərə bax",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "07-A",
+        "07-B",
+        "07-C",
+        "07-D"
+      ],
+      "comparison": "Compared with 07: ingredient steppers/removal/add, expanded other ingredients and prepared count are visible. Full scroll-content capture keeps all controls; preview uses labelled synthetic 500-to-555 fixture.",
+      "sha256": "1a79209307e7021d6bc8093465b070b59c8f7c432b862ea6f2cc361d6bb1e863",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/07-inqrediyent-redaktesi.png",
+        "design-concepts/simple-turquoise/unified/07-inqrediyent-redaktesi.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/07-inqrediyent-redaktesi.png": "1a79209307e7021d6bc8093465b070b59c8f7c432b862ea6f2cc361d6bb1e863",
+        "design-concepts/simple-turquoise/unified/07-inqrediyent-redaktesi.html": "92a05a0014a9ba778fcbc45fedad4c4cd8fec36c6b32b1042298301874416d4b"
+      }
+    },
+    {
+      "id": "unified-08",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/08-yemek-ve-gun-deyisme.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Nəyi dəyişmək istəyirsən?",
+        "Bu günə uyğun yeməklər",
+        "Hansı günlə dəyişək?",
+        "İki yeməyin yeri dəyişəcək",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "08-A",
+        "08-B",
+        "08-C",
+        "08-D"
+      ],
+      "comparison": "Compared with 08: edit/replace/swap/move paths are distinct, consumed items excluded, both-day confirmation separated from selecting a meal; no unwarranted suitability badge.",
+      "sha256": "1e5a1d218ae4cea6f55dd7e584e4ab96c3e74c0f4fbf07c37104cc79c49be994",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/08-yemek-ve-gun-deyisme.png",
+        "design-concepts/simple-turquoise/unified/08-yemek-ve-gun-deyisme.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/08-yemek-ve-gun-deyisme.png": "1e5a1d218ae4cea6f55dd7e584e4ab96c3e74c0f4fbf07c37104cc79c49be994",
+        "design-concepts/simple-turquoise/unified/08-yemek-ve-gun-deyisme.html": "9d21646858088929fa14dad07c520ac1efc935c6409109755a32b33cbbe477c8"
+      }
+    },
+    {
+      "id": "unified-09",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/09-foto-sonrasi-resept.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/approved/d02-portions.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Reseptdə nəyisə dəyişmisən?",
+        "Hazırladığın yemək",
+        "Nə qədər yedin?",
+        "Gündəliyə əlavə edək?",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "09-A",
+        "09-B",
+        "09-C",
+        "09-D"
+      ],
+      "comparison": "Compared with 09 and D02: actual-batch editor has no swap actions; prepared four and consumed one remain separate; quarter-share summary precedes explicit diary confirmation.",
+      "sha256": "16188d324c988a5bd317687ae8173f40327d962bd7e04b0f757c341035f427f0",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/09-foto-sonrasi-resept.png",
+        "design-concepts/simple-turquoise/unified/09-foto-sonrasi-resept.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/09-foto-sonrasi-resept.png": "16188d324c988a5bd317687ae8173f40327d962bd7e04b0f757c341035f427f0",
+        "design-concepts/simple-turquoise/unified/09-foto-sonrasi-resept.html": "8ed504d5222232456ebeda4eebfe034769066c674960afe56e7957a0b7e37744"
+      }
+    },
+    {
+      "id": "unified-10",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/10-deyisiklik-ve-xeta-hallari.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Bu dəyişmə uyğun gəlmir",
+        "Məlumat çatmır",
+        "Hazırlanma qaydası da dəyişir",
+        "Saxlamadan çıxırsan?",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "10-A",
+        "10-B",
+        "10-C",
+        "10-D"
+      ],
+      "comparison": "Compared with 10: incompatible swap, missing nutrient, changed instructions and draft exit provide concrete back paths; unknown data is not zero and old imagery is not a yield measurement.",
+      "sha256": "2911c61bd0c9442838e23f4ea1ee363282abc6eb459c5b94e117a6cbcf7a73a9",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/10-deyisiklik-ve-xeta-hallari.png",
+        "design-concepts/simple-turquoise/unified/10-deyisiklik-ve-xeta-hallari.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/10-deyisiklik-ve-xeta-hallari.png": "2911c61bd0c9442838e23f4ea1ee363282abc6eb459c5b94e117a6cbcf7a73a9",
+        "design-concepts/simple-turquoise/unified/10-deyisiklik-ve-xeta-hallari.html": "8a67489f90cf650801c652536b0bf8ab08e1ba405d2a3bc7197cb7bfba54805a"
+      }
+    },
+    {
+      "id": "unified-11",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/11-yenilenmis-plan-ve-tesdiq.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/approved/d03-menu.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Həftənin menyusu",
+        "Alış-veriş yeniləndi",
+        "Bu yeməklə əvəz edək?",
+        "Qeyd olundu!",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "11-A",
+        "11-B",
+        "11-C",
+        "11-D"
+      ],
+      "comparison": "Compared with 11 and D03: named swapped slots, atomic undo, shopping delta/preserved marks, replacement preview and actual saved snapshot are visible; future plans remain separate.",
+      "sha256": "4e6af86a2ae3344d609de0d47003ae0bb3a0ae79a268fc8af90129f97259aa74",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/11-yenilenmis-plan-ve-tesdiq.png",
+        "design-concepts/simple-turquoise/unified/11-yenilenmis-plan-ve-tesdiq.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/11-yenilenmis-plan-ve-tesdiq.png": "4e6af86a2ae3344d609de0d47003ae0bb3a0ae79a268fc8af90129f97259aa74",
+        "design-concepts/simple-turquoise/unified/11-yenilenmis-plan-ve-tesdiq.html": "ea6e93004b1d9163189856213a919edc7a6aea5397d13a98d2fbe4c43bbc7301"
+      }
+    },
+    {
+      "id": "unified-12",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/12-elave-profil-secimleri.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Sağlamlıq sualları",
+        "Büdcə məlumatları",
+        "Evdə var işarəsi",
+        "Profil saxlanıb",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "12-A",
+        "12-B",
+        "12-C",
+        "12-D"
+      ],
+      "comparison": "Compared with 12 and current plan: all ten health questions visible with unanswered state; removed obsolete equipment/exact inventory onboarding forms, retained numeric budget/person count and saved profile.",
+      "sha256": "53e2a1f3342e43bd05dd809741784c97f6ed7497f8d4cba5e9610e70a3cc5a47",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/12-elave-profil-secimleri.png",
+        "design-concepts/simple-turquoise/unified/12-elave-profil-secimleri.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/12-elave-profil-secimleri.png": "53e2a1f3342e43bd05dd809741784c97f6ed7497f8d4cba5e9610e70a3cc5a47",
+        "design-concepts/simple-turquoise/unified/12-elave-profil-secimleri.html": "96578e39bbccc39c743852bf77f20b97fcde8e3f24d146f9441b60cf9d65d032"
+      }
+    },
+    {
+      "id": "unified-13",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/13-bos-veziyyetler.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/approved/d03-menu.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Hələ menyu yoxdur",
+        "İlk yeməyini əlavə et",
+        "Hələ irəliləyiş qeydi yoxdur",
+        "Hesaba giriş əlçatan deyil",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "13-A",
+        "13-B",
+        "13-C",
+        "13-D"
+      ],
+      "comparison": "Compared with 13 and D03: Menu/Add/Progress use their own active tabs, real empty-state text and recovery action; account unavailability retains local data.",
+      "sha256": "cfac82ab1df9efa1c84196409c2cdb90c81f49d39d9905a3554297d64a15cfde",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/13-bos-veziyyetler.png",
+        "design-concepts/simple-turquoise/unified/13-bos-veziyyetler.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/13-bos-veziyyetler.png": "cfac82ab1df9efa1c84196409c2cdb90c81f49d39d9905a3554297d64a15cfde",
+        "design-concepts/simple-turquoise/unified/13-bos-veziyyetler.html": "3232a922c8df1b62de9ad882792236b6e69dcf8344830531328fd9988d0111bf"
+      }
+    },
+    {
+      "id": "unified-14",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/14-elave-formalar-ve-veziyyetler.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Digər seçimlər",
+        "Sevmədiyim yeməklər",
+        "Yüklənir…",
+        "Telefona yazmaq alınmadı",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "14-A",
+        "14-B",
+        "14-C",
+        "14-D"
+      ],
+      "comparison": "Compared with 14: custom allergen/gluten and dislikes stay separate, loading has disabled confirmation, write failure does not claim saved. Persistent field labels visible.",
+      "sha256": "acb737425c7e388b1beebf1a4279e5c10f500858e522fd7f8666af7fa8883092",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/14-elave-formalar-ve-veziyyetler.png",
+        "design-concepts/simple-turquoise/unified/14-elave-formalar-ve-veziyyetler.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/14-elave-formalar-ve-veziyyetler.png": "acb737425c7e388b1beebf1a4279e5c10f500858e522fd7f8666af7fa8883092",
+        "design-concepts/simple-turquoise/unified/14-elave-formalar-ve-veziyyetler.html": "c7a5644ae6b04bfae116ebfaa06e322b3684cbff82ee27688b73177f50ffa7dc"
+      }
+    },
+    {
+      "id": "unified-15",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/15-aktivlik-ve-hedefsiz-davam.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Günün necə keçir?",
+        "Yüngül fəal",
+        "Seçimini yenidən yoxla",
+        "Hədəfsiz davam edə bilərsən",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "15-A",
+        "15-B",
+        "15-C",
+        "15-D"
+      ],
+      "comparison": "Compared with 15: four activity choices and legacy answer reconfirmation remain; uncertainty leads to target-free diary, source example is not exercise prescription.",
+      "sha256": "6ed05d6c770474d3cf1a9873447156eb5f9b3efaaf44096c8410215f2f2e141d",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/15-aktivlik-ve-hedefsiz-davam.png",
+        "design-concepts/simple-turquoise/unified/15-aktivlik-ve-hedefsiz-davam.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/15-aktivlik-ve-hedefsiz-davam.png": "6ed05d6c770474d3cf1a9873447156eb5f9b3efaaf44096c8410215f2f2e141d",
+        "design-concepts/simple-turquoise/unified/15-aktivlik-ve-hedefsiz-davam.html": "9e8cbd686190a8280549e70361933533218fdfe52a63757d1b47376d87a39742"
+      }
+    },
+    {
+      "id": "unified-16",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/16-aktivlik-izahlari.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Az hərəkətli",
+        "Fəal",
+        "Çox fəal",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "16-1",
+        "16-2",
+        "16-3"
+      ],
+      "comparison": "Compared with 16: source activity examples preserve durations and caveat, with confirm/other/uncertain paths and common illustrated shell.",
+      "sha256": "fbd841b53e1949493168a3d3e33c229172fc2d5da737bc5cf0039a168c012d50",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/16-aktivlik-izahlari.png",
+        "design-concepts/simple-turquoise/unified/16-aktivlik-izahlari.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/16-aktivlik-izahlari.png": "fbd841b53e1949493168a3d3e33c229172fc2d5da737bc5cf0039a168c012d50",
+        "design-concepts/simple-turquoise/unified/16-aktivlik-izahlari.html": "cdfccd6729d3e11cd6358050000e3eb1cfdd8b44746bf16df9078265f0a85567"
+      }
+    },
+    {
+      "id": "unified-17",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/17-hedefsiz-davam-sebebleri.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Məlumatı verməyə bilərsən",
+        "Fərdi dəstək daha uyğundur",
+        "Hesablamanın əhatəsi məhduddur",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "17-1",
+        "17-2",
+        "17-3"
+      ],
+      "comparison": "Compared with 17: missing sex, health exclusion and model scope remain distinct reasons; diary path visible and no clinical approval/bypass invented.",
+      "sha256": "4bb38953c8c7e1b6200bf224843c39d80818d3cc0db9e4a5644fa829622ab5a5",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/17-hedefsiz-davam-sebebleri.png",
+        "design-concepts/simple-turquoise/unified/17-hedefsiz-davam-sebebleri.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/17-hedefsiz-davam-sebebleri.png": "4bb38953c8c7e1b6200bf224843c39d80818d3cc0db9e4a5644fa829622ab5a5",
+        "design-concepts/simple-turquoise/unified/17-hedefsiz-davam-sebebleri.html": "af27bc2f1e18069efe6fbdab1840e190a2d049c7eda38b0f0a3e6bccb5f7eb7c"
+      }
+    },
+    {
+      "id": "unified-18",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/18-hedefsiz-hesablama-sebebleri.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18",
+        "19"
+      ],
+      "elements": [
+        "Avtomatik hədəf verilmir",
+        "Uyğun bölgü alınmadı",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "18-A",
+        "18-B"
+      ],
+      "comparison": "Compared with 18: energy floor and macro infeasibility remain distinct, no artificial clamp or reduced minimum; input review and target-free paths visible.",
+      "sha256": "633def7ad1b0f708b75836ac0317cb0dec4625054bd9df2b0966a4329683ec78",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/18-hedefsiz-hesablama-sebebleri.png",
+        "design-concepts/simple-turquoise/unified/18-hedefsiz-hesablama-sebebleri.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/18-hedefsiz-hesablama-sebebleri.png": "633def7ad1b0f708b75836ac0317cb0dec4625054bd9df2b0966a4329683ec78",
+        "design-concepts/simple-turquoise/unified/18-hedefsiz-hesablama-sebebleri.html": "dd35f82c70d6465a64d52fe4959e3be523607693814d8119c6ea939cbc375ec5"
+      }
+    },
+    {
+      "id": "unified-19",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/19-telimat-yoxdur.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "16.3",
+        "19.14"
+      ],
+      "elements": [
+        "Bu variantın təlimatı yoxdur",
+        "İlkin reseptə qayıt?",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "19-A",
+        "19-B"
+      ],
+      "comparison": "Compared with prior completion 19 and 10: unavailable revised instructions clearly blocks misleading old steps; explicit original-recipe return describes discarded draft.",
+      "sha256": "37d8a65a660e3aafa1c299adba44620c85f7276360ace8b5db1ef684960d9751",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/19-telimat-yoxdur.png",
+        "design-concepts/simple-turquoise/unified/19-telimat-yoxdur.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/19-telimat-yoxdur.png": "37d8a65a660e3aafa1c299adba44620c85f7276360ace8b5db1ef684960d9751",
+        "design-concepts/simple-turquoise/unified/19-telimat-yoxdur.html": "b3d66565ab81990dae3126f1684a751bd300db56a367553275a57d7ac40241d6"
+      }
+    },
+    {
+      "id": "unified-20",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/20-gun-hefte-onbaxis.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "16.2",
+        "16.6",
+        "19.15"
+      ],
+      "elements": [
+        "Günün yenilənmiş planı",
+        "Həftəyə təsiri",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "20-A",
+        "20-B"
+      ],
+      "comparison": "Compared with completion 20: both expanded day/week panels show actual unchanged, remaining-plan before/after and projected macro totals; full nutrient names now replace abbreviations.",
+      "sha256": "f2c377428460b23a22dff26c89e1ceae659bcbb87094d75eebecb2c96430fa0c",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/20-gun-hefte-onbaxis.png",
+        "design-concepts/simple-turquoise/unified/20-gun-hefte-onbaxis.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/20-gun-hefte-onbaxis.png": "f2c377428460b23a22dff26c89e1ceae659bcbb87094d75eebecb2c96430fa0c",
+        "design-concepts/simple-turquoise/unified/20-gun-hefte-onbaxis.html": "e185235c51b2b6ff8484f0800d25729dce22bc2338b6f00873b9c7c0405e1474"
+      }
+    },
+    {
+      "id": "unified-21",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/21-deyisme-yollari.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "16.4",
+        "16.5",
+        "T06",
+        "T09"
+      ],
+      "elements": [
+        "Uyğun alternativ tapılmadı",
+        "Porsiyanı uyğunlaşdıraq?",
+        "Bu hissə artıq yeyilib",
+        "Bu günə köçür",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "21-A",
+        "21-B",
+        "21-C",
+        "21-D"
+      ],
+      "comparison": "Compared with completion 21 and 08: no-alternative, proposed 0.8 portion, consumed guard and empty-slot move retain all four distinct branches and recovery paths.",
+      "sha256": "55e400ece61724f9c37f22d3ae4088bcf3740fc159e5ece92a51b7d0c100af44",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/21-deyisme-yollari.png",
+        "design-concepts/simple-turquoise/unified/21-deyisme-yollari.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/21-deyisme-yollari.png": "55e400ece61724f9c37f22d3ae4088bcf3740fc159e5ece92a51b7d0c100af44",
+        "design-concepts/simple-turquoise/unified/21-deyisme-yollari.html": "e96fea4f6982b259a11f0cc693d0f1a00bdc7d5abc639dcb625821eff8d08f30"
+      }
+    },
+    {
+      "id": "unified-22",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/22-plan-konfliktleri.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "16.6",
+        "16.8",
+        "T12"
+      ],
+      "elements": [
+        "Faktiki qeyd qorunacaq",
+        "Plan başqa cihazda dəyişib",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "22-A",
+        "22-B"
+      ],
+      "comparison": "Compared with completion 22 and 11: undo preserves actual snapshot; stale-plan conflict preserves draft and does not overwrite newer plan. Both visible without clipping.",
+      "sha256": "b3a3a9b8aaf401aad4f87f5a589203cee3ee811e462eb439c6a8261b88336431",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/22-plan-konfliktleri.png",
+        "design-concepts/simple-turquoise/unified/22-plan-konfliktleri.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/22-plan-konfliktleri.png": "b3a3a9b8aaf401aad4f87f5a589203cee3ee811e462eb439c6a8261b88336431",
+        "design-concepts/simple-turquoise/unified/22-plan-konfliktleri.html": "a5e3c21d771cf78fd66bde636bb5284ded40dcc25c7fdbbfef3a42f6cf26f162"
+      }
+    },
+    {
+      "id": "unified-23",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/23-foto-deqiqlesdirme.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/approved/d02-portions.png"
+      ],
+      "requirements": [
+        "16.9",
+        "T18",
+        "T13"
+      ],
+      "elements": [
+        "Bu foto hansı yeməkdir?",
+        "Bir şeyi dəqiqləşdirək",
+        "Nə qədər yedin?",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "23-A",
+        "23-B",
+        "23-C"
+      ],
+      "comparison": "Compared with completion 23 and 09: explicit recipe association precedes model discrepancy confirmation; user recipe remains authoritative and quarter-batch consumption stays separate.",
+      "sha256": "c5d3676a68d5cf47a19b31ec816776b2d0293d9340016bff2a18def7c10aabe9",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/23-foto-deqiqlesdirme.png",
+        "design-concepts/simple-turquoise/unified/23-foto-deqiqlesdirme.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/23-foto-deqiqlesdirme.png": "c5d3676a68d5cf47a19b31ec816776b2d0293d9340016bff2a18def7c10aabe9",
+        "design-concepts/simple-turquoise/unified/23-foto-deqiqlesdirme.html": "2c0a15589279e5d07190fb27255e4a0695faac0ca00fcbf686f32579dbdb2b23"
+      }
+    },
+    {
+      "id": "unified-24",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/24-alisveris-hallari.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "16.6",
+        "19.8"
+      ],
+      "elements": [
+        "Alınmış məhsul saxlanıb",
+        "Siyahın hələ boşdur",
+        "Paylaşılacaq mətn",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "24-A",
+        "24-B",
+        "24-C"
+      ],
+      "comparison": "Compared with completion 24 and 04: purchased-but-removed item retained, empty week and unsent sharing preview distinct; replaced missing art with existing basket. No broken image remains.",
+      "sha256": "89fc7352c785d3611b93da72605cfbc9a249b28fb4486a1849966ddeffa9aedd",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/24-alisveris-hallari.png",
+        "design-concepts/simple-turquoise/unified/24-alisveris-hallari.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/24-alisveris-hallari.png": "89fc7352c785d3611b93da72605cfbc9a249b28fb4486a1849966ddeffa9aedd",
+        "design-concepts/simple-turquoise/unified/24-alisveris-hallari.html": "a993a60641e4b9822b287a2977ba120fbdd525a8782f24d35c402e50757fe3bf"
+      }
+    },
+    {
+      "id": "unified-25",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/25-hesab-formalari.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18.9",
+        "18.10"
+      ],
+      "elements": [
+        "Yeni hesab yarat",
+        "Qeydiyyat alınmadı",
+        "Bərpa linki işləmir",
+        "Yeni şifrə seç",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "25-A",
+        "25-B",
+        "25-C",
+        "25-D"
+      ],
+      "comparison": "Compared with completion 25 and 02: mismatch error now uses padded common error surface; registration failure, expired link and new password keep persistent labels and return actions.",
+      "sha256": "68748416840f7f432f3e7091ac790f2c0b474db33750fbb0a785135dd59cdda7",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/25-hesab-formalari.png",
+        "design-concepts/simple-turquoise/unified/25-hesab-formalari.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/25-hesab-formalari.png": "68748416840f7f432f3e7091ac790f2c0b474db33750fbb0a785135dd59cdda7",
+        "design-concepts/simple-turquoise/unified/25-hesab-formalari.html": "11c695fb3269910a886a81da1632d456836d0a494727e6bf379bb08efb78ec55"
+      }
+    },
+    {
+      "id": "unified-26",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/26-komek-formalari.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "19.16"
+      ],
+      "elements": [
+        "Foto kalorisi niyə təxminidir?",
+        "Dəstəyə müraciət",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "26-A",
+        "26-B"
+      ],
+      "comparison": "Compared with completion 26 and 14: FAQ answer and support form use common cards/fields; optional recipe and privacy-limited form content are visible.",
+      "sha256": "43542507cf5a9eb132bcdd743e4c5ae8269b5b261e9f92cef32f66a4fbd76214",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/26-komek-formalari.png",
+        "design-concepts/simple-turquoise/unified/26-komek-formalari.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/26-komek-formalari.png": "43542507cf5a9eb132bcdd743e4c5ae8269b5b261e9f92cef32f66a4fbd76214",
+        "design-concepts/simple-turquoise/unified/26-komek-formalari.html": "1b11737811882594e06994a47cfd9bfc31704959682eed3891ee592e008fc0b3"
+      }
+    },
+    {
+      "id": "unified-27",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/27-baxis-ve-bos-siyahilar.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "27.8",
+        "19.3",
+        "19.16"
+      ],
+      "elements": [
+        "Hədəfə yenidən baxaq",
+        "Əvvəl yediklərim",
+        "Saxlanmış reseptlər",
+        "Foto siyahısı",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "27-A",
+        "27-B",
+        "27-C",
+        "27-D"
+      ],
+      "comparison": "Compared with completion 27 and 13: optional 14-day review, empty previous foods, saved recipes and photos remain separate; selected navigation matches each list.",
+      "sha256": "c111e23b115e29b15a4c767769fc1644100cde9c0756baf662e6114edf259b61",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/27-baxis-ve-bos-siyahilar.png",
+        "design-concepts/simple-turquoise/unified/27-baxis-ve-bos-siyahilar.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/27-baxis-ve-bos-siyahilar.png": "c111e23b115e29b15a4c767769fc1644100cde9c0756baf662e6114edf259b61",
+        "design-concepts/simple-turquoise/unified/27-baxis-ve-bos-siyahilar.html": "60b1c429920e9adefb1a9d880d4f8a7e00a151f447a209b46036877afb0b36d0"
+      }
+    },
+    {
+      "id": "unified-28",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/28-vahid-vizual-qaydalar.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/approved/d02-portions.png"
+      ],
+      "requirements": [
+        "18.12",
+        "19.17",
+        "28.4"
+      ],
+      "elements": [
+        "Bugünkü menyun",
+        "Qida dəyərlərinin əsası",
+        "Bişmiş çəki məlum deyil",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "28-A",
+        "28-B",
+        "28-C"
+      ],
+      "comparison": "Compared with completion 28 and D02: partial eaten safeguards, measured 300g/100g basis and unknown cooked-yield cases remain distinct. Units and missing-data text consistent.",
+      "sha256": "2eb62995618381805795449571aec3f7c88a530d990bebdc50a9d8d6100c55cb",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/28-vahid-vizual-qaydalar.png",
+        "design-concepts/simple-turquoise/unified/28-vahid-vizual-qaydalar.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/28-vahid-vizual-qaydalar.png": "2eb62995618381805795449571aec3f7c88a530d990bebdc50a9d8d6100c55cb",
+        "design-concepts/simple-turquoise/unified/28-vahid-vizual-qaydalar.html": "512143bdc84120552fe77b1659bfd8a7df7baef9f773cbc5a9d3847e27ce4b46"
+      }
+    },
+    {
+      "id": "unified-29",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/29-elave-faktiki-porsiya.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/approved/d02-portions.png"
+      ],
+      "requirements": [
+        "16.7",
+        "T13",
+        "T17",
+        "T19"
+      ],
+      "elements": [
+        "Əlavə yediyini ayrıca qeyd et",
+        "Əlavə qəbulu təsdiqlə",
+        "Əlavə hissə qeyd edildi",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "29-A",
+        "29-B",
+        "29-C"
+      ],
+      "comparison": "Compared with completion 29 and D02: additional 0.5 intake alone is previewed/saved, prior one serving preserved and totals reach 1.5 servings once; cooked grams absent when unknown.",
+      "sha256": "e68032cf3b6d7e30f0db9610925ea5a6cbe63c71c0ff57c433c1e6a450f203af",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/29-elave-faktiki-porsiya.png",
+        "design-concepts/simple-turquoise/unified/29-elave-faktiki-porsiya.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/29-elave-faktiki-porsiya.png": "e68032cf3b6d7e30f0db9610925ea5a6cbe63c71c0ff57c433c1e6a450f203af",
+        "design-concepts/simple-turquoise/unified/29-elave-faktiki-porsiya.html": "eb9c776c7f5e6b46cf2200510e1561c451c8afd634d9cd8cdd17ff48a091cac4"
+      }
+    },
+    {
+      "id": "unified-30",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/30-onboarding-giris-xetalari.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18.2",
+        "19.2"
+      ],
+      "elements": [
+        "Özünü tanıt",
+        "Özünü tanıt",
+        "Özünü tanıt",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "30-A",
+        "30-B",
+        "30-C"
+      ],
+      "comparison": "Compared with completed onboarding and 01: all three errors now use exactly the same full age/height/weight component, inline error, confirmation and optional sex. Long invalid age stays readable.",
+      "sha256": "e2060cb83b7220a4844ad2f35cc965850ca99a6eccfec4dc2cb166497834e971",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/30-onboarding-giris-xetalari.png",
+        "design-concepts/simple-turquoise/unified/30-onboarding-giris-xetalari.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/30-onboarding-giris-xetalari.png": "e2060cb83b7220a4844ad2f35cc965850ca99a6eccfec4dc2cb166497834e971",
+        "design-concepts/simple-turquoise/unified/30-onboarding-giris-xetalari.html": "82197c334b51a4a81fb7101d7f807bc4c8c130a594d1080f4b7231d81e7a56bb"
+      }
+    },
+    {
+      "id": "unified-31",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/31-onboarding-tamamlanma.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "17.4",
+        "18.2",
+        "18.8",
+        "26.8"
+      ],
+      "elements": [
+        "Seçimlərin tamamdır",
+        "Vahidi dəqiqləşdir",
+        "Vaxt və büdcə",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "31-A",
+        "31-B",
+        "31-C"
+      ],
+      "comparison": "Compared with completed onboarding: five completed groups and 5/5 summary, explicit unit confirmation and incomplete budget stay separate; no silent conversion, disabled incomplete action.",
+      "sha256": "882b0948fd6f69fe423116f42489a04cec78bc9274976c865c399d4466e0a7e4",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/31-onboarding-tamamlanma.png",
+        "design-concepts/simple-turquoise/unified/31-onboarding-tamamlanma.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/31-onboarding-tamamlanma.png": "882b0948fd6f69fe423116f42489a04cec78bc9274976c865c399d4466e0a7e4",
+        "design-concepts/simple-turquoise/unified/31-onboarding-tamamlanma.html": "a55de88947aaa9bcc2813164690e2c071a6af8f452735dbd5bea4c757912159d"
+      }
+    },
+    {
+      "id": "unified-32",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/32-olcu-giris-serhedleri.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "19.2",
+        "26.8"
+      ],
+      "elements": [
+        "Ölçüləri tamamla",
+        "Boyu düzəlt",
+        "Girişi yoxla",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "32-A",
+        "32-B",
+        "32-C"
+      ],
+      "comparison": "Compared with 01/30: blank/zero/negative, infinite and excessive numeric inputs retain full form and units, inline explanations and disabled Continue. No clipping observed.",
+      "sha256": "d34194fc0327aa71ea8ad88b3a620aa0199489d4d2065b12e3b477e098c775b3",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/32-olcu-giris-serhedleri.png",
+        "design-concepts/simple-turquoise/unified/32-olcu-giris-serhedleri.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/32-olcu-giris-serhedleri.png": "d34194fc0327aa71ea8ad88b3a620aa0199489d4d2065b12e3b477e098c775b3",
+        "design-concepts/simple-turquoise/unified/32-olcu-giris-serhedleri.html": "3b58baae4e055375767418d7a5dcb20c536dbcfa8eb63409bf83ea67916a8905"
+      }
+    },
+    {
+      "id": "unified-33",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/33-allergiya-ve-budce-xetalari.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "17.4",
+        "18.3",
+        "18.8"
+      ],
+      "elements": [
+        "Allergiya seçimini tamamla",
+        "Çoxlu allergiya",
+        "Büdcəni düzəlt",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "33-A",
+        "33-B",
+        "33-C"
+      ],
+      "comparison": "Compared with current completion/31: unanswered allergy error now sits under the same Yes/No question; Yes enables multiple/custom allergy, No excludes allergens. Invalid budget/person count retains inline recovery and other answers.",
+      "sha256": "484871e7dbafba890b50780aab056ad320c0e1e84ea3b67a0d25d02703934f66",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/33-allergiya-ve-budce-xetalari.png",
+        "design-concepts/simple-turquoise/unified/33-allergiya-ve-budce-xetalari.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/33-allergiya-ve-budce-xetalari.png": "484871e7dbafba890b50780aab056ad320c0e1e84ea3b67a0d25d02703934f66",
+        "design-concepts/simple-turquoise/unified/33-allergiya-ve-budce-xetalari.html": "a1cb885059e606b1d0b4b25ae4cdc20e96a5180b77e6cae2e296339165555339"
+      }
+    },
+    {
+      "id": "unified-34",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/34-resept-redaktoru-xetalar.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "16.1",
+        "16.2",
+        "T01"
+      ],
+      "elements": [
+        "İnqrediyent qalmayıb",
+        "Miqdarları düzəlt",
+        "Kökü reseptdən çıxaraq?",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "34-A",
+        "34-B",
+        "34-C"
+      ],
+      "comparison": "Compared with original ingredient-error sheet/07: empty recipe offers add/undo; blank and negative are inline; zero has separate removal confirmation before changing recipe.",
+      "sha256": "5a6f7bd6d142cc035938934763fa3ea57c40ccabd94db98ca74ed260c22051c9",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/34-resept-redaktoru-xetalar.png",
+        "design-concepts/simple-turquoise/unified/34-resept-redaktoru-xetalar.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/34-resept-redaktoru-xetalar.png": "5a6f7bd6d142cc035938934763fa3ea57c40ccabd94db98ca74ed260c22051c9",
+        "design-concepts/simple-turquoise/unified/34-resept-redaktoru-xetalar.html": "12722b2fc55188f81431daace09d89ed6528cded253b8bb26c19a249270b4a35"
+      }
+    },
+    {
+      "id": "unified-35",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/35-resept-allergen-ve-vahid.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "16.1",
+        "16.9",
+        "T08",
+        "T11"
+      ],
+      "elements": [
+        "Allergen ziddiyyəti var",
+        "Allergen məlumatı yoxdur",
+        "Miqdarı yoxla",
+        "Bu vahid çevrilmir",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "35-A",
+        "35-B",
+        "35-C",
+        "35-D"
+      ],
+      "comparison": "Compared with original ingredient-error sheet/07: allergy conflict, unknown allergens, nonfinite quantities and unsupported spoon conversion are separate; safety blocks have recovery actions.",
+      "sha256": "261f2bfe05dd011db24917158cb98cda2e232cc87da6cc87e699d277a1b19025",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/35-resept-allergen-ve-vahid.png",
+        "design-concepts/simple-turquoise/unified/35-resept-allergen-ve-vahid.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/35-resept-allergen-ve-vahid.png": "261f2bfe05dd011db24917158cb98cda2e232cc87da6cc87e699d277a1b19025",
+        "design-concepts/simple-turquoise/unified/35-resept-allergen-ve-vahid.html": "3ded06c785aa8bbf8ebc61ca342d669a6d14056f71f85450371dcbc2968c8d9d"
+      }
+    },
+    {
+      "id": "unified-36",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/36-iki-gun-ve-kocurme-onbaxis.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "16.3",
+        "16.5",
+        "16.9",
+        "T05",
+        "T06",
+        "T09",
+        "T10"
+      ],
+      "elements": [
+        "Yer dəyişmə · iki gün",
+        "Boş vaxta köçürmə",
+        "Dəyişiklik saxlanıb",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "36-A",
+        "36-B",
+        "36-C"
+      ],
+      "comparison": "Compared with 08/20: both dates have expanded actual/remaining/projected energy and macro comparisons; swap versus empty-slot move and saved result remain distinct. Synthetic totals conserve weekly intake.",
+      "sha256": "94b717f637fe856dc6c11c8633cf10bb4b0e7858ce10e9e947fd7d0f1f00a3b1",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/36-iki-gun-ve-kocurme-onbaxis.png",
+        "design-concepts/simple-turquoise/unified/36-iki-gun-ve-kocurme-onbaxis.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/36-iki-gun-ve-kocurme-onbaxis.png": "94b717f637fe856dc6c11c8633cf10bb4b0e7858ce10e9e947fd7d0f1f00a3b1",
+        "design-concepts/simple-turquoise/unified/36-iki-gun-ve-kocurme-onbaxis.html": "390240929fb8dc58cc65f40437cb84936e481c32649bb69d8c5cb1b75505e73c"
+      }
+    },
+    {
+      "id": "unified-37",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/37-geri-qaytarma-netice.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "16.5",
+        "16.9",
+        "T12"
+      ],
+      "elements": [
+        "Son dəyişikliyi geri qaytaraq?",
+        "Plan yenilənib",
+        "Geri qaytarıldı",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "37-A",
+        "37-B",
+        "37-C"
+      ],
+      "comparison": "Compared with 11/22: undo preflight, intervening plan conflict and success are shown as separate states; diary snapshots are never silently deleted.",
+      "sha256": "3e5052e93e3e434e07897370578986812f6903014498c4ddfd1c750940ccb24c",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/37-geri-qaytarma-netice.png",
+        "design-concepts/simple-turquoise/unified/37-geri-qaytarma-netice.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/37-geri-qaytarma-netice.png": "3e5052e93e3e434e07897370578986812f6903014498c4ddfd1c750940ccb24c",
+        "design-concepts/simple-turquoise/unified/37-geri-qaytarma-netice.html": "adaf7b92fb82afe1dcc0312805f3920d6fa2c343f8a30652539f29703a8998bc"
+      }
+    },
+    {
+      "id": "unified-38",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/38-foto-icaze-ve-yag.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "19.5",
+        "24.6",
+        "T18"
+      ],
+      "elements": [
+        "Kamera icazəsi yoxdur",
+        "Fotonu göndərək?",
+        "Əlavə yağ və sous",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "38-A",
+        "38-B",
+        "38-C"
+      ],
+      "comparison": "Compared with 03/09: camera refusal retains search fallback, sending requires real privacy information, oil addition asks whether extra so original oil cannot be double counted.",
+      "sha256": "4cc14364434e5f36edc73789c38d0ed3ddfba2b0585761255caf272a08f37c9d",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/38-foto-icaze-ve-yag.png",
+        "design-concepts/simple-turquoise/unified/38-foto-icaze-ve-yag.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/38-foto-icaze-ve-yag.png": "4cc14364434e5f36edc73789c38d0ed3ddfba2b0585761255caf272a08f37c9d",
+        "design-concepts/simple-turquoise/unified/38-foto-icaze-ve-yag.html": "e4a93d041e89f47d0c7b93683b69998a53752256a81c1c72ba687918c7860e08"
+      }
+    },
+    {
+      "id": "unified-39",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/39-hesab-forma-xetalari.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18.9",
+        "18.10"
+      ],
+      "elements": [
+        "Girişi düzəlt",
+        "Daxil olmaq alınmadı",
+        "Giriş dayandırıldı",
+        "Bərpa linki istə",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "39-A",
+        "39-B",
+        "39-C",
+        "39-D"
+      ],
+      "comparison": "Compared with 02/25: inline email error, generic credential error, provider cancellation and recovery send failure retain inputs/back path; no account enumeration promise.",
+      "sha256": "94b84191b3c21f63af99b64eefde618cc2e8ea70ff66f6d91de033115e6adc9c",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/39-hesab-forma-xetalari.png",
+        "design-concepts/simple-turquoise/unified/39-hesab-forma-xetalari.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/39-hesab-forma-xetalari.png": "94b84191b3c21f63af99b64eefde618cc2e8ea70ff66f6d91de033115e6adc9c",
+        "design-concepts/simple-turquoise/unified/39-hesab-forma-xetalari.html": "843c0297a5e7555c49cc54cd533ef390d55d7a01114a79be18dda4ebf8c1fd55"
+      }
+    },
+    {
+      "id": "unified-40",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/40-yeni-sifre-ve-destek.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18.10",
+        "19.16"
+      ],
+      "elements": [
+        "Yeni şifrəni düzəlt",
+        "Şifrə yeniləndi",
+        "Müraciəti tamamla",
+        "Müraciət göndərildi",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "40-A",
+        "40-B",
+        "40-C",
+        "40-D"
+      ],
+      "comparison": "Compared with 25/26: password requirement/mismatch, saved password, support inline validation and submitted result use common hierarchy and visible return actions.",
+      "sha256": "8da8568eb8c8e7bfa961604ab7a80a17904e211ff6efe9bdccca753c525954a2",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/40-yeni-sifre-ve-destek.png",
+        "design-concepts/simple-turquoise/unified/40-yeni-sifre-ve-destek.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/40-yeni-sifre-ve-destek.png": "8da8568eb8c8e7bfa961604ab7a80a17904e211ff6efe9bdccca753c525954a2",
+        "design-concepts/simple-turquoise/unified/40-yeni-sifre-ve-destek.html": "8d7d6730687aa2e533f5ac39ea09f906e5bafa2dd3bf994840b9eb00d4c8b2ff"
+      }
+    },
+    {
+      "id": "unified-41",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/41-hesab-mexfilik-idare.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "19.16",
+        "24.7"
+      ],
+      "elements": [
+        "Məlumatlarını idarə et",
+        "İxrac önbaxışı",
+        "Hesabdan çıxaq?",
+        "Hesabı silməyi təsdiqlə",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "41-A",
+        "41-B",
+        "41-C",
+        "41-D"
+      ],
+      "comparison": "Compared with 05 and plan 19.16: privacy/export/logout/delete have separate screens; unsynced data and destructive confirmation are explicit, actual retention remains a documented integration dependency.",
+      "sha256": "27e3869f78d0cced96e2f2d43aedcecf49864949550f2ae85425ebdb4f8e69df",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/41-hesab-mexfilik-idare.png",
+        "design-concepts/simple-turquoise/unified/41-hesab-mexfilik-idare.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/41-hesab-mexfilik-idare.png": "27e3869f78d0cced96e2f2d43aedcecf49864949550f2ae85425ebdb4f8e69df",
+        "design-concepts/simple-turquoise/unified/41-hesab-mexfilik-idare.html": "31de23b088d3ac47d5fea067b5d8dd768e2e5677b81d03d32d93fcf8506bd88b"
+      }
+    },
+    {
+      "id": "unified-42",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/42-abunelik-statuslari.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "19.11"
+      ],
+      "elements": [
+        "Abunəlik aktivdir",
+        "Ödəniş gözləyir",
+        "Ödəniş alınmadı",
+        "Alışı bərpa et",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "42-A",
+        "42-B",
+        "42-C",
+        "42-D"
+      ],
+      "comparison": "Compared with 06: active, pending, failed and restore request states use same shell; store data is required and existing records remain. Actual entitlement/runtime is not claimed.",
+      "sha256": "2f962a37abb754690baf90e1fe61afaa09acf6796cf3d0b5bfa35d270c2ab4e5",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/42-abunelik-statuslari.png",
+        "design-concepts/simple-turquoise/unified/42-abunelik-statuslari.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/42-abunelik-statuslari.png": "2f962a37abb754690baf90e1fe61afaa09acf6796cf3d0b5bfa35d270c2ab4e5",
+        "design-concepts/simple-turquoise/unified/42-abunelik-statuslari.html": "cdf2ee9e4b641952aa37d68cdd039539199fa3c9ff11c265efab1f358d16c326"
+      }
+    },
+    {
+      "id": "unified-43",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/43-el-ile-ve-tarixce.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/approved/d02-portions.png"
+      ],
+      "requirements": [
+        "19.4",
+        "19.13",
+        "T04",
+        "T17"
+      ],
+      "elements": [
+        "Yeməyi özün əlavə et",
+        "Əvvəl yediklərim",
+        "Dəqiq miqdar daxil et",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "43-A",
+        "43-B",
+        "43-C"
+      ],
+      "comparison": "Compared with D02: manual original grams preserve unknown nutrients, previous entry multiplier is not grams, measured 1200g batch enables correct 150g/eighth-batch input.",
+      "sha256": "cbeb2106786f7cda1f78b0f3e53385f751a85fbcd43bd62a6c85da26778d47a0",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/43-el-ile-ve-tarixce.png",
+        "design-concepts/simple-turquoise/unified/43-el-ile-ve-tarixce.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/43-el-ile-ve-tarixce.png": "cbeb2106786f7cda1f78b0f3e53385f751a85fbcd43bd62a6c85da26778d47a0",
+        "design-concepts/simple-turquoise/unified/43-el-ile-ve-tarixce.html": "124dbd9904f9cfd34adc2dc0bb795d1f9928c1e7358465fbb3bdfd4026ebd3cf"
+      }
+    },
+    {
+      "id": "unified-44",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/44-qeyd-ve-ceki-duzelis.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "19.6",
+        "19.9"
+      ],
+      "elements": [
+        "Qeydə düzəliş et",
+        "Bu qeydi silək?",
+        "Bu tarixdə ölçmə var",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "44-A",
+        "44-B",
+        "44-C"
+      ],
+      "comparison": "Compared with 05/11: diary edit/delete and same-date weight collision each have explicit preview/confirmation path; no silent duplicate or plan-history rewrite.",
+      "sha256": "ea77ff705022ede56abc29f3b0877e5f5adad12880e931a21da2ab64ef1ae961",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/44-qeyd-ve-ceki-duzelis.png",
+        "design-concepts/simple-turquoise/unified/44-qeyd-ve-ceki-duzelis.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/44-qeyd-ve-ceki-duzelis.png": "ea77ff705022ede56abc29f3b0877e5f5adad12880e931a21da2ab64ef1ae961",
+        "design-concepts/simple-turquoise/unified/44-qeyd-ve-ceki-duzelis.html": "67b3ef2932ca21ec7aee17d112d5efafa516c0d183b4387c8d6f88b9e444f030"
+      }
+    },
+    {
+      "id": "unified-45",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/45-qosulma-ve-axtaris.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "18.13",
+        "19.4",
+        "22.9"
+      ],
+      "elements": [
+        "Nəticə tapılmadı",
+        "Axtarış alınmadı",
+        "Plan hazırlamaq alınmadı",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "45-A",
+        "45-B",
+        "45-C"
+      ],
+      "comparison": "Compared with 03/06/13: empty search, transport failure and no feasible plan have separate actionable states; no fabricated success or relaxed allergy gate.",
+      "sha256": "b74e1ba1a42011b34d5fab1bebe4a256622ea1d59633bfd75f264ed1a4e1cf3a",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/45-qosulma-ve-axtaris.png",
+        "design-concepts/simple-turquoise/unified/45-qosulma-ve-axtaris.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/45-qosulma-ve-axtaris.png": "b74e1ba1a42011b34d5fab1bebe4a256622ea1d59633bfd75f264ed1a4e1cf3a",
+        "design-concepts/simple-turquoise/unified/45-qosulma-ve-axtaris.html": "15daf1e89cb9269ace9bf2c927dfa321e8d219290f8b30712339ab5c68b66f83"
+      }
+    },
+    {
+      "id": "unified-46",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/46-destek-ve-xatirlatma.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png"
+      ],
+      "requirements": [
+        "19.16",
+        "19.2",
+        "27.8"
+      ],
+      "elements": [
+        "Göndərmək alınmadı",
+        "Hədəfə yenidən baxaq",
+        "Yaşı yoxla",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "46-A",
+        "46-B",
+        "46-C"
+      ],
+      "comparison": "Compared with 26/27/30: support send failure keeps actual entered form; optional 14-day reminder does not change target, invalid fractional age retains complete form and inline correction.",
+      "sha256": "63d58fd2cd6b4c3bb4082d83d832c2007fc973880efa830c70a15ea9c1a8c25c",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/46-destek-ve-xatirlatma.png",
+        "design-concepts/simple-turquoise/unified/46-destek-ve-xatirlatma.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/46-destek-ve-xatirlatma.png": "63d58fd2cd6b4c3bb4082d83d832c2007fc973880efa830c70a15ea9c1a8c25c",
+        "design-concepts/simple-turquoise/unified/46-destek-ve-xatirlatma.html": "f2748f39be6f5d8abe7b72e6b78c5010643420aa67ebc8626d9ea5924f44ddd1"
+      }
+    },
+    {
+      "id": "unified-47",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/47-allergiya-ilkin-sual.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/completion/31-allergiya-ilkin-veziyyet.png"
+      ],
+      "requirements": [
+        "18.3",
+        "18.8"
+      ],
+      "elements": [
+        "Allergiya və seçimlər",
+        "Allergiya və seçimlər",
+        "Allergiya və seçimlər",
+        "Allergiya və seçimlər",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "47-A",
+        "47-B",
+        "47-C",
+        "47-D"
+      ],
+      "comparison": "Opened all four panels and original completion/31. Preserved unanswered initial question/list closed, Continue error, Yes with all five illustrated multi-select allergens/other path, and No with exclusive none. Shared 4/5 progress, fields and actions match the unified set; all text visible.",
+      "sha256": "4bfecb40cefb25c1c164b643530c05237d0063a5a0d40d71b8dc1d3063fc5f60",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/47-allergiya-ilkin-sual.png",
+        "design-concepts/simple-turquoise/unified/47-allergiya-ilkin-sual.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/47-allergiya-ilkin-sual.png": "4bfecb40cefb25c1c164b643530c05237d0063a5a0d40d71b8dc1d3063fc5f60",
+        "design-concepts/simple-turquoise/unified/47-allergiya-ilkin-sual.html": "a9922ce6d208cfd1328541db7ed2760fcbd25068682ff44601b5ca4858d646d7"
+      }
+    },
+    {
+      "id": "unified-48",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/unified/48-plan-hazirdir-basla.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/completion/32-plan-hazirdir.png"
+      ],
+      "requirements": [
+        "18.8",
+        "18.11"
+      ],
+      "elements": [
+        "Planın hazırdır",
+        "Bu gün",
+        "Shared token-bound phone/header/cards/fields/buttons/navigation"
+      ],
+      "states": [
+        "48-A",
+        "48-B"
+      ],
+      "comparison": "Opened both panels and original completion/32. Ready screen retains five completed groups, labelled sample plan and Başla/Cavablarıma bax. Today is active with three planned slots and zero logged meals; no calorie target invented. Same frame, cards, imagery and actions; no clipping.",
+      "sha256": "8f116f955d72c2f883f11ef3855ff7f35c2126af20a9a2bf8675218a088c25fe",
+      "sources": [
+        "design-concepts/simple-turquoise/unified/48-plan-hazirdir-basla.png",
+        "design-concepts/simple-turquoise/unified/48-plan-hazirdir-basla.html"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/unified/48-plan-hazirdir-basla.png": "8f116f955d72c2f883f11ef3855ff7f35c2126af20a9a2bf8675218a088c25fe",
+        "design-concepts/simple-turquoise/unified/48-plan-hazirdir-basla.html": "7af349a047ce3d447bb0439e85e19d38cf951338634404afa1557053658a1199"
+      }
     }
   ]
 }
