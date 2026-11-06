@@ -6309,6 +6309,25 @@
       ],
       "status": "agent-inspected-draft-user-approval-pending",
       "note": "Concept coverage only; historical gaps and runtime status remain open."
+    },
+    {
+      "id": "24-ingredient-editor-errors",
+      "image": "design-concepts/simple-turquoise/24-inqrediyent-redaktoru-xetalar.png",
+      "sha256": "3c7f72bdbee795e64b27c9eaaf41a731f35621416d04f98ea5fa74ccbd49538a",
+      "requirements": [
+        "16.1",
+        "16.2",
+        "16.9"
+      ],
+      "states": [
+        "empty-recipe",
+        "blank-negative-quantity",
+        "zero-removal-confirmation",
+        "allergen-conflict",
+        "unknown-allergen"
+      ],
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
     }
   ]
 }

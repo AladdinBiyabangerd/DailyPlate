@@ -6412,6 +6412,48 @@
         "design-concepts/simple-turquoise/18-hedefsiz-hesablama-sebebleri.png": "ff1963cef11510587b1545aca9c867f0cad0051a0684156a68dacaf506827e55",
         "design-concepts/simple-turquoise/18-no-target-calculation-prompt.txt": "66b6299cff75223d383eeabb11061e94de7ca47b2f720dd81be4befb09d20c10"
       }
+    },
+    {
+      "id": "concept-24-ingredient-editor-errors",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/24-inqrediyent-redaktoru-xetalar.png",
+      "references": [
+        "design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png",
+        "design-concepts/tokens.css"
+      ],
+      "requirements": [
+        "16.1",
+        "16.2",
+        "16.9"
+      ],
+      "elements": [
+        "Empty recipe blocks saving and offers add/undo",
+        "Blank and negative quantities show inline explanations",
+        "Zero quantity requires explicit removal confirmation",
+        "Allergen conflict blocks plan application; actual logging separate",
+        "Unknown allergens never marked safe"
+      ],
+      "states": [
+        "empty-recipe",
+        "blank-negative-quantity",
+        "zero-removal-confirmation",
+        "allergen-conflict",
+        "unknown-allergen"
+      ],
+      "required_review": [
+        "Inspect all five panels against 07 reference",
+        "Do not treat draft as native acceptance"
+      ],
+      "sha256": "3c7f72bdbee795e64b27c9eaaf41a731f35621416d04f98ea5fa74ccbd49538a",
+      "comparison": "Opened all five AZ panels and 07 ingredient-editor reference. Pale turquoise background, white rounded cards, food cutouts, dark headings and teal actions preserve the reference direction. Empty recipe blocks saving and offers add/undo; blank and negative inputs have inline explanations; zero has a separate removal confirmation; allergen conflict blocks plan application while actual logging remains separate; unknown allergen does not claim safety. All labels/actions visible without observed clipping. Raster red error accent has no existing token and is not approved for implementation. Native behavior, pixel contrast, localization/accessibility and user approval unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/24-inqrediyent-redaktoru-xetalar.png",
+        "design-concepts/simple-turquoise/24-inqrediyent-redaktoru-xetalar.txt"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/24-inqrediyent-redaktoru-xetalar.png": "3c7f72bdbee795e64b27c9eaaf41a731f35621416d04f98ea5fa74ccbd49538a",
+        "design-concepts/simple-turquoise/24-inqrediyent-redaktoru-xetalar.txt": "70852d50978ad7cd182672031bf74b374610aca2ea8fe60477bf838ccb364380"
+      }
     }
   ]
 }
