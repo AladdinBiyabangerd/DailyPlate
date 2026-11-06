@@ -1,42 +1,41 @@
-# Current task — plan → PNG → missing design state map
+# Current task — missing-state PNG designs, first unit
 
 ## Completed
-- All 255 numbered canonical plan items plus T01–T19 mapped: 274 rows.
-- Opened downscaled copies of all 17 concept PNGs (00–14, approved D02/D03); original hashes, exact source text, panel references and missing-state categories recorded.
-- 208 partial PNG references; 66 explicitly classified nonvisual obligations. No row marked implemented or visually accepted.
-- Repeatable JSON/Markdown generation rejects unmapped items. Git-excluded local post-merge CI checks export freshness.
+- Previous map: 255 numbered plan items + T01–T19 = 274 rows, 51 missing-state groups. Original 17-PNG inventory remains unchanged.
+- First new design sheet generated with built-in image_gen: 15-aktivlik-ve-hedefsiz-davam.png, four full mobile panels.
+- Panels: four unselected activity options; low_active example/help; reconfirm old three-choice answer; uncertain activity to no-target diary.
+- Generated image opened and compared to 01-baslangic.png. Copy is legible, no automatic target/selection fabricated. Draft proposal, not user-approved or runtime accepted.
+- Exact prompt, source requirements, panel/state index, original image hash and inspection notes saved.
 
 ## Current state
-- Map commit 90a03a2 merged to main as ce8a47b. Map validation passed in post-merge CI.
-- CI failed on four pre-existing MissingTranslation errors in debug demo_menu.xml; visual acceptance remains pending from earlier app work.
-- Repair branch fix/demo-explicit-az-resources adds values-az with the exact existing default AZ strings/array. No displayed text/layout changes intended. Read latest CI report for subsequent finish outcome.
-- Main had failed technical CI and pending visual acceptance at 518a404 before this task. The map does not close that debt.
+- Branch docs/missing-png-activity; read Git and .local-ci/logs/latest.json for subsequent commit/finish result.
+- Before this unit, main d2d4194 passed technical CI (236 JVM tests, lint, compilation, data/export/token checks) but inherited standalone-demo visual gate was pending.
+- Application code, canonical nutrition plan and existing PNG assets unchanged. No APK created.
 
 ## Decisions
-- Canonical nutrition plan unchanged. PNG presence means design context, never implementation evidence.
-- Missing concept panels and missing runtime functionality are different findings; runtime not audited here.
-- Section 30 reported specialist review/energy-macro activation supersedes older status text; catalog/release evidence remains separate.
-- Sections 17.4/17.8 remove onboarding meal coverage/equipment/home inventory and exact home quantity; old PNG 12 must not reintroduce them.
-- Section 26 requires four EER activity categories and reconfirmation of older three choices.
-- No APK requested/created; no automatic visual acceptance.
+- Follow existing 00/01 style and named tokens. New file is a sibling concept, never an overwritten reference or app screenshot.
+- Canonical sections 26.4–26.6 supply four activity codes and low_active example; uncertainty does not block diary use or fabricate an automatic target.
+- The activity example is not prescribed exercise; old three-choice answer is not silently migrated.
+- Keep new design_proposals metadata separate from native surface/case acceptance in visual-review-plan.json. Do not use mockups as runtime evidence or approve old demo debt.
 
 ## Remaining work
-- Finish AZ resource repair with merged-main CI. Report inherited visual debt explicitly if it persists; do not approve the earlier standalone demo through this map.
-- Future UI work: expand selected requirement gaps into concrete visual-review-plan cases; implement one surface, render APK-free, inspect before acceptance.
-- Separate mock-menu repair stays unmerged on fix/mock-existing-menu (7fa11b6). It feeds seven fixture meals into real menu/recipe flows. Previous user requested no CI for that repair; do not silently merge it into this audit.
+- Other three activity help panels; selected-option and full accessibility/localization variants.
+- Separate no-target designs for missing sex, health exclusion, model scope, energy floor and macro infeasibility.
+- Remaining map gaps: inputs/health/allergen/budget, generator results, search/manual/history, photo, edits, shopping, progress/reminders, auth/sync/privacy/billing, etc. First sheet does not close all 51 groups.
+- Native AZ/EN/RU x 100/150%, pixel contrast, touch targets, device/TalkBack, implementation and user design approval remain unverified.
+- Preserve unmerged fix/mock-existing-menu (7fa11b6). Its default demo text differs from current main's explicit values-az; reconcile localized resources if that branch is later merged.
 
 ## Relevant files
-- docs/qa/design-requirement-map.md and .json
-- planning/build_design_requirement_map.py
-- planning/research-data.json; planning/meal-customization-requirements.txt
-- design-concepts/simple-turquoise PNGs and implementation/new-flows/ui-extension guides
-- docs/qa/design-discrepancies.md; visual-review-plan.json; visual-acceptance.md
+- docs/qa/design-requirement-map.{md,json}; planning/research-data.json
+- design-concepts/simple-turquoise/15-aktivlik-ve-hedefsiz-davam.png
+- design-concepts/simple-turquoise/{15-activity-prompt.txt,missing-state-png-prompts.txt,missing-state-pngs.json}
+- docs/qa/visual-review-plan.json (design_proposals); docs/qa/design-discrepancies.md
+- design-concepts/tokens.css; simple-turquoise implementation/new-flows/ui-extension guides
 
 ## Checks performed
-- Generation resolves all 274 IDs and PNG paths; rejects duplicate/orphan/unmapped dispositions.
-- All 17 relevant concept images opened at inventory resolution; original hashes recorded.
-- git diff --check passed before map commit. Map source/PNG/freshness, canonical exports and 15 library tests passed on merged main ce8a47b; lint failed on pre-existing missing AZ translations. No branch CI/JVM tests run.
-- Runtime behavior, full-resolution pixel/contrast, device/TalkBack and new hash-bound visual acceptance unverified.
+- Read canonical NP-04/05/06/08 and style guides/token file; opened reference and generated PNG.
+- Checked four visible panels, wording, absent fabricated calorie target and matching component hierarchy.
+- Branch CI/tests not run; mandatory checks only follow merge through finish. Read latest CI for final technical result.
 
 ## Exact next step
-- Read Git/latest CI result after resource repair finish. If technical checks pass but visual remains pending, keep the earlier app visual repair separately scoped; map supplies requirement IDs and missing design states for that work. Do not report full merged-main completion while that gate is open.
+- Inspect latest Git/CI, then continue in a new chat with the remaining activity-help panels and no-target reasons, reading this context and the map. Do not claim all missing PNGs or full visual acceptance are finished.

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "draft-concepts-not-runtime-acceptance",
+  "source_map": "docs/qa/design-requirement-map.json",
+  "sets": [
+    {
+      "id": "15-activity",
+      "image": "design-concepts/simple-turquoise/15-aktivlik-ve-hedefsiz-davam.png",
+      "requirements": [
+        "26.4",
+        "26.5",
+        "26.6",
+        "5.3"
+      ],
+      "gap_groups": [
+        "activity",
+        "no-target"
+      ],
+      "panels": [
+        {
+          "id": "15-A",
+          "state": "unselected-four-options",
+          "description": "Four EER categories; nothing silently selected; explicit uncertain path."
+        },
+        {
+          "id": "15-B",
+          "state": "low-active-help",
+          "description": "Source-aligned daily-activity example, not exercise advice."
+        },
+        {
+          "id": "15-C",
+          "state": "legacy-reconfirmation",
+          "description": "Existing three-choice answer requires a new explicit choice."
+        },
+        {
+          "id": "15-D",
+          "state": "uncertain-no-target",
+          "description": "ACTIVITY_UNCERTAIN permits diary use without automatic energy target."
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept; no implementation or user design approval asserted.",
+        "The other three category help panels are not included in this first sheet.",
+        "Missing sex, health exclusions and model-out-of-scope need separate no-target designs.",
+        "Native AZ/EN/RU at 100/150 percent, scrolling, touch targets and TalkBack remain unverified.",
+        "The original 17-PNG audit is retained; these concepts do not close its runtime gaps."
+      ],
+      "sha256": "85dd1ccd4eab431af2f6190c34e7e88521b559855c4ce305f3b6277a47ecf4aa",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    }
+  ]
+}

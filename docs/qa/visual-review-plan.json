@@ -6245,5 +6245,42 @@
         }
       ]
     }
+  ],
+  "design_proposals": [
+    {
+      "id": "concept-15-activity",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/15-aktivlik-ve-hedefsiz-davam.png",
+      "references": [
+        "design-concepts/simple-turquoise/01-baslangic.png",
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/tokens.css"
+      ],
+      "requirements": [
+        "26.4",
+        "26.5",
+        "26.6",
+        "5.3"
+      ],
+      "elements": [
+        "Four separate EER activity choices with no automatic selection",
+        "Explanation is a daily-activity example, never prescribed exercise",
+        "Old three-choice answer requires reconfirmation",
+        "Uncertain activity permits diary without an automatic calorie target"
+      ],
+      "states": [
+        "unselected-four-options",
+        "low-active-help",
+        "legacy-reconfirmation",
+        "uncertain-no-target"
+      ],
+      "required_review": [
+        "Inspect all four panels and original style reference",
+        "Check exact AZ copy and no invented medical values",
+        "Concept only; AZ/EN/RU 100/150% native implementation remains unverified"
+      ],
+      "sha256": "85dd1ccd4eab431af2f6190c34e7e88521b559855c4ce305f3b6277a47ecf4aa",
+      "comparison": "Opened generated four-panel PNG and 01 reference. Pale turquoise background, white rounded illustrated cards, dark headings, teal primary actions and separate secondary links continue the reference direction. Four empty activity radios replace old three options. Low-active source example/disclaimer, explicit reconfirmation and no-target diary path are legible and present. No calorie target or clinical status is fabricated. Native layout, exact raster contrast, localization/text scaling and user approval remain unverified."
+    }
   ]
 }
