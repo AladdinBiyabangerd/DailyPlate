@@ -30,7 +30,7 @@
 ## Checks performed
 - Gate regression tests run only in merged-main CI; mapping technical pass, no mapping error.
 - Opened five final panels and references; no clipping observed. Token contrast: text/surface 12.70, muted/bg 5.04, white/primary 4.71. Raster pixel contrast not certified.
-- Final PNG merge CI: inspect .local-ci/logs/latest.json; native acceptance expected pending, not complete.
+- First PNG merge b9b9233 failed the derived-map parity check before Android checks. Repair branch fix/derived-concept-map derives supplements from missing-state-pngs.json and regenerates JSON/MD together. Inspect latest CI for repair outcome; native acceptance remains pending.
 - APK, device, TalkBack, native AZ/EN/RU × 100/150%, clinical effectiveness and user design approval unverified.
 
 ## Exact next step

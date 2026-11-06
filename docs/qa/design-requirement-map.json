@@ -6242,7 +6242,42 @@
   ],
   "concept_supplements": [
     {
-      "id": "concept-17-no-target",
+      "id": "15-activity",
+      "image": "design-concepts/simple-turquoise/15-aktivlik-ve-hedefsiz-davam.png",
+      "sha256": "85dd1ccd4eab431af2f6190c34e7e88521b559855c4ce305f3b6277a47ecf4aa",
+      "requirements": [
+        "26.4",
+        "26.5",
+        "26.6",
+        "5.3"
+      ],
+      "states": [
+        "unselected-four-options",
+        "low-active-help",
+        "legacy-reconfirmation",
+        "uncertain-no-target"
+      ],
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
+    },
+    {
+      "id": "16-activity-help",
+      "image": "design-concepts/simple-turquoise/16-aktivlik-izahlari.png",
+      "sha256": "a50993a8ee4c180d469258ca214c9f6e25ab236b4a72cee9f6da188e57d042eb",
+      "requirements": [
+        "26.4",
+        "26.5"
+      ],
+      "states": [
+        "inactive-help",
+        "active-help",
+        "very-active-help"
+      ],
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
+    },
+    {
+      "id": "17-no-target",
       "image": "design-concepts/simple-turquoise/17-hedefsiz-davam-sebebleri.png",
       "sha256": "6f9858991411797844765edcad65e0e3d3c28ebd6ba1896c5ad1a96e5287badc",
       "requirements": [
@@ -6257,11 +6292,11 @@
         "health-excluded",
         "model-out-of-scope"
       ],
-      "status": "draft-agent-inspected-not-runtime-acceptance",
-      "note": "Historical audit rows/gaps retained; this supplement adds concept coverage only."
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
     },
     {
-      "id": "concept-18-no-target-calculation",
+      "id": "18-no-target-calculation",
       "image": "design-concepts/simple-turquoise/18-hedefsiz-hesablama-sebebleri.png",
       "sha256": "ff1963cef11510587b1545aca9c867f0cad0051a0684156a68dacaf506827e55",
       "requirements": [
@@ -6272,8 +6307,8 @@
         "energy-below-product-floor",
         "macro-infeasible"
       ],
-      "status": "draft-agent-inspected-not-runtime-acceptance",
-      "note": "Historical audit rows/gaps retained; this supplement adds concept coverage only."
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
     }
   ]
 }
