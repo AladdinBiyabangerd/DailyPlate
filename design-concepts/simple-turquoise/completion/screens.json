@@ -375,5 +375,83 @@
         "art": "art_portion_scale"
       }
     ]
+  },
+  {
+    "num": 29,
+    "slug": "elave-faktiki-porsiya",
+    "title": "Planlı hissədən artıq qəbul · ayrıca qeyd",
+    "requirements": [
+      "16.7",
+      "T13",
+      "T17",
+      "T19"
+    ],
+    "panels": [
+      {
+        "id": "29-A",
+        "title": "Əlavə yediyini ayrıca qeyd et",
+        "body": "<section class=\"card \"><h3>Toyuq plovu · 6 noyabr, Nahar</h3><p>Plan: 1 porsiya · artıq qeyd edilib: 1 porsiya<br>Qalan planlı hissə: 0</p></section><label>İndi əlavə yediyin miqdar<div class=\"field\">0,5 porsiya</div></label><section class=\"card notice\"><h3>Yalnız əlavə hissəni yaz</h3><p>Cəmi 1,5 porsiya yemisənsə, burada əlavə 0,5 porsiya yaz. Əvvəlki 1 porsiya yenidən əlavə olunmur.</p></section><section class=\"card \"><h3>Tərkib və ölçü</h3><p>Son təsdiqlənmiş resept versiyası · 4 porsiyalı qazan.<br>Bişmiş çəki məlum deyil; qram göstərilmir.</p></section><p>Tərkib fərqlidirsə: Tərkibi düzəlt. Miqdar boş, sıfır, mənfi və ya sonlu rəqəm deyilsə önbaxış açılmır.</p>",
+        "cta": "Əlavə hissənin önbaxışına bax",
+        "back": "Planlı hissəyə qayıt",
+        "tab": null,
+        "art": "art_portion_scale"
+      },
+      {
+        "id": "29-B",
+        "title": "Əlavə qəbulu təsdiqlə",
+        "body": "<section class=\"card selected\"><h3>Ayrıca faktiki qeyd · hələ saxlanmayıb</h3><p>Toyuq plovu · əlavə 0,5 porsiya<br>4 porsiyalı qazanın ⅛ hissəsi</p></section><section class=\"card \"><h3>Əlavə 0,5 porsiya üçün</h3><p>250 kkal · Zülal 15 q<br>Karbohidrat 25 q · Yağ 10 q</p></section><section class=\"card \"><h3>Bu yemək üzrə faktiki qəbul</h3><p>Əvvəl: 1 porsiya · 500 kkal<br>Sonra: 1,5 porsiya · 750 kkal<br>Qalan planlı hissə: 0 → 0</p></section><section class=\"card notice\"><h3>Plan dəyişmir</h3><p>Yalnız əlavə qəbul gündəliyə yazılır. Hədəf, digər yeməklər və alış-veriş dəyişmir. Bu, yeni plan tövsiyəsi deyil.</p></section><p>Rəqəmlər sintetik nümunədir. Təsdiqədək qeyd yaranmır; təkrar basma ikinci qeyd yaratmamalıdır.</p>",
+        "cta": "Əlavə 0,5 porsiyanı qeyd et",
+        "back": "Miqdarı düzəlt",
+        "tab": null,
+        "art": "art_portion_scale"
+      },
+      {
+        "id": "29-C",
+        "title": "Əlavə hissə qeyd edildi",
+        "body": "<section class=\"card selected\"><h3>Gündəlikdə ayrıca qeyd</h3><p>Toyuq plovu · əlavə 0,5 porsiya<br>Əvvəlki 1 porsiyalı qeyd qorunur.</p></section><section class=\"card \"><h3>Bu yemək üzrə cəmi</h3><p>Faktiki: 1,5 porsiya · 750 kkal<br>Qalan planlı hissə: 0<br>Günün proqnozunda əlavə hissə yalnız bir dəfə sayılır.</p></section><section class=\"card \"><h3>Düzəliş yolu</h3><p>Səhv miqdar yazmısansa yalnız yeni əlavə qeydi açıb düzəlt və ya sil. Əvvəlki qeyd səssiz dəyişmir.</p></section>",
+        "cta": "Əlavə qeydi aç",
+        "back": "Gündəliyə qayıt",
+        "tab": null,
+        "art": "art_portion_scale"
+      }
+    ]
+  },
+  {
+    "num": 30,
+    "slug": "onboarding-giris-xetalari",
+    "title": "Onboarding · yanlış yaş, boy və çəki",
+    "requirements": [
+      "18.2",
+      "19.2"
+    ],
+    "panels": [
+      {
+        "id": "30-A",
+        "title": "Yaşı rəqəmlə yaz",
+        "body": "<div class=\"chip\">Addım 2/5 · Özünü tanıt</div><label>Yaş · tam il<div class=\"field\">iyirmi səkkiz</div></label><div class=\"error\">! Yaşı tamamlanmış illə, tam rəqəm olaraq yaz. Məsələn: 28.</div><section class=\"card\"><h3>Cavabların saxlanıb</h3><p>Yalnız səhv sahəni düzəlt. Məqsəd və digər cavablar dəyişmir. Səhv girişlə növbəti addıma keçilmir.</p></section><section class=\"card notice\"><h3>Uyğunluq ayrıca yoxlanır</h3><p>Düzgün rəqəm fərdi plana uyğunluq təsdiqi deyil. Yaş və digər məhdudiyyətlər məhsul qaydaları ilə yoxlanır; bu konsept yeni tibbi hədd müəyyən etmir.</p></section>",
+        "cta": "Sahəni düzəlt",
+        "back": "Əvvəlki addıma qayıt",
+        "tab": null,
+        "art": "art_account"
+      },
+      {
+        "id": "30-B",
+        "title": "Boyu yoxla",
+        "body": "<div class=\"chip\">Addım 2/5 · Özünü tanıt</div><label>Boy · sm<div class=\"field\">NaN</div></label><div class=\"error\">! Boy sıfırdan böyük, sonlu rəqəm olmalıdır. Vahidi də yoxla.</div><section class=\"card\"><h3>Cavabların saxlanıb</h3><p>Yalnız səhv sahəni düzəlt. Məqsəd və digər cavablar dəyişmir. Səhv girişlə növbəti addıma keçilmir.</p></section><section class=\"card notice\"><h3>Uyğunluq ayrıca yoxlanır</h3><p>Düzgün rəqəm fərdi plana uyğunluq təsdiqi deyil. Yaş və digər məhdudiyyətlər məhsul qaydaları ilə yoxlanır; bu konsept yeni tibbi hədd müəyyən etmir.</p></section>",
+        "cta": "Sahəni düzəlt",
+        "back": "Əvvəlki addıma qayıt",
+        "tab": null,
+        "art": "art_account"
+      },
+      {
+        "id": "30-C",
+        "title": "Çəkini yoxla",
+        "body": "<div class=\"chip\">Addım 2/5 · Özünü tanıt</div><label>Çəki · kq<div class=\"field\">−5</div></label><div class=\"error\">! Çəki sıfırdan böyük, sonlu rəqəm olmalıdır. Məsələn: 78,4.</div><section class=\"card\"><h3>Cavabların saxlanıb</h3><p>Yalnız səhv sahəni düzəlt. Məqsəd və digər cavablar dəyişmir. Səhv girişlə növbəti addıma keçilmir.</p></section><section class=\"card notice\"><h3>Uyğunluq ayrıca yoxlanır</h3><p>Düzgün rəqəm fərdi plana uyğunluq təsdiqi deyil. Yaş və digər məhdudiyyətlər məhsul qaydaları ilə yoxlanır; bu konsept yeni tibbi hədd müəyyən etmir.</p></section>",
+        "cta": "Sahəni düzəlt",
+        "back": "Əvvəlki addıma qayıt",
+        "tab": null,
+        "art": "art_account"
+      }
+    ]
   }
 ]

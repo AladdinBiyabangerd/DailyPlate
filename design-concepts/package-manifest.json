@@ -1,0 +1,302 @@
+{
+  "status": "draft-designs-not-runtime-acceptance",
+  "date": "2026-11-06",
+  "files": [
+    {
+      "path": "01-natural.png",
+      "sha256": "fe25eb078eec91be7f1bffcc44c71cf505f7919865d1ae05fcea14a6b36ddc3d"
+    },
+    {
+      "path": "02-warm-v2-prompt.txt",
+      "sha256": "19d28fe5ec48ba4a6fb8b94f5522c708236f86fa193178268d2d03b6f8879818"
+    },
+    {
+      "path": "02-warm-v2.png",
+      "sha256": "67c74428bf4834a7f428427044442a19e351793ef24bf64a49470e81838d0fe5"
+    },
+    {
+      "path": "02-warm.png",
+      "sha256": "5b85c8db62d8f621d49479603007b1115c4bcba9737a0e2fbcdbf5dcae8a10bd"
+    },
+    {
+      "path": "03-dark.png",
+      "sha256": "0859c6fa738a7186d147ebf4b1f6f5e397bdc1b084edc4d677c8b55b11928192"
+    },
+    {
+      "path": "generation-notes.txt",
+      "sha256": "47c534d4b4115802ed27e0e53058350908c88985889d38bd3d9e1e5ef7cb3b29"
+    },
+    {
+      "path": "simple-turquoise/00-reference.png",
+      "sha256": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c"
+    },
+    {
+      "path": "simple-turquoise/01-baslangic.png",
+      "sha256": "9ece62681083ee57a41e94d3a3ffbf9dc5be8666a740caaff68eec019d54042b"
+    },
+    {
+      "path": "simple-turquoise/02-secimler-ve-hesab.png",
+      "sha256": "4be076738eb3e24b04da79caa3a2c9a9dd216e317475aece595faa2cd67b481c"
+    },
+    {
+      "path": "simple-turquoise/03-yemek-qeydiyyati.png",
+      "sha256": "1416bc0b1dca1b9649fedd0f8a96155e92c38285226ccfe288f0fc03a8311fb6"
+    },
+    {
+      "path": "simple-turquoise/04-menyu-ve-alisveris.png",
+      "sha256": "b921482d183a8faf75577da778073fa66fdde9886e62f9707962ee7dea8d1610"
+    },
+    {
+      "path": "simple-turquoise/05-irelileyis-ve-profil.png",
+      "sha256": "e057b9191df709798bc7d85c8df1e344fece00b3db152335cdebbbcc575d88f2"
+    },
+    {
+      "path": "simple-turquoise/06-abunelik-ve-veziyyetler.png",
+      "sha256": "92d01f7999f1fb31076e3d3c3c1437520b2c4188dd14354687a7b136eb2ad85c"
+    },
+    {
+      "path": "simple-turquoise/07-inqrediyent-redaktesi.png",
+      "sha256": "0a91f7e0912a7f27d5042f870ed224c6c947ae73c9f9fa805585a1c7a2369595"
+    },
+    {
+      "path": "simple-turquoise/08-yemek-ve-gun-deyisme.png",
+      "sha256": "4520e6aaab121d810f750953b945a77cc6a6f46286750e55438d39481c16d14f"
+    },
+    {
+      "path": "simple-turquoise/09-foto-sonrasi-resept.png",
+      "sha256": "8f33546c023ea83b12e3b4eb62b9b48a19bf3174915781959ba048b232ec02b0"
+    },
+    {
+      "path": "simple-turquoise/10-deyisiklik-ve-xeta-hallari.png",
+      "sha256": "e3402c15e162454dad626a8852af45a6a0bca258163b657620f267e42dc6b8bd"
+    },
+    {
+      "path": "simple-turquoise/11-yenilenmis-plan-ve-tesdiq.png",
+      "sha256": "3d2690366867b1fbee63cb830c4ad1f98f5a972d3cd5d7ac409eaf729bef1f53"
+    },
+    {
+      "path": "simple-turquoise/12-elave-profil-secimleri.png",
+      "sha256": "2df922d9cc0707f01e365926f14236dca01d7eb19721b7bd2bb82183189e6e1c"
+    },
+    {
+      "path": "simple-turquoise/13-bos-veziyyetler.png",
+      "sha256": "36ccf7152eae250ccb90d32c568432a925cdf580cba2a0d428d43760400c284a"
+    },
+    {
+      "path": "simple-turquoise/14-elave-formalar-ve-veziyyetler.png",
+      "sha256": "9d6d5bca8a7646fd2d4c87dadfece5a266bf224d686c14e3a5fa8939080a0103"
+    },
+    {
+      "path": "simple-turquoise/15-activity-prompt.txt",
+      "sha256": "5e873dffcd4b1e526a7d7c8dec326c90b6d2a19f2190c0919297cf8202bbe4d3"
+    },
+    {
+      "path": "simple-turquoise/15-aktivlik-ve-hedefsiz-davam.png",
+      "sha256": "85dd1ccd4eab431af2f6190c34e7e88521b559855c4ce305f3b6277a47ecf4aa"
+    },
+    {
+      "path": "simple-turquoise/16-activity-help-prompt.txt",
+      "sha256": "e7d1415c95ecdcc812bd18e65a12e952e8d0684cb4227fe6813955213b43a807"
+    },
+    {
+      "path": "simple-turquoise/16-aktivlik-izahlari.png",
+      "sha256": "a50993a8ee4c180d469258ca214c9f6e25ab236b4a72cee9f6da188e57d042eb"
+    },
+    {
+      "path": "simple-turquoise/17-hedefsiz-davam-sebebleri.png",
+      "sha256": "6f9858991411797844765edcad65e0e3d3c28ebd6ba1896c5ad1a96e5287badc"
+    },
+    {
+      "path": "simple-turquoise/17-no-target-prompt.txt",
+      "sha256": "247daad11c58ba550c7aa5d825a55a907d7e15209ad7cf98d6f6295f3ee9a900"
+    },
+    {
+      "path": "simple-turquoise/18-hedefsiz-hesablama-sebebleri.png",
+      "sha256": "ff1963cef11510587b1545aca9c867f0cad0051a0684156a68dacaf506827e55"
+    },
+    {
+      "path": "simple-turquoise/18-no-target-calculation-prompt.txt",
+      "sha256": "66b6299cff75223d383eeabb11061e94de7ca47b2f720dd81be4befb09d20c10"
+    },
+    {
+      "path": "simple-turquoise/19-onboarding-reference.txt",
+      "sha256": "c229176723f9c2691a0fee7da87c70cade5a1c6e58293fa9a6ae00b30a2385d3"
+    },
+    {
+      "path": "simple-turquoise/19-onboarding-tamamlanmis-axin.png",
+      "sha256": "e73358ae4c1631cf4534af06ff1f9ac15b4ef847cfc416818cc56455557544f0"
+    },
+    {
+      "path": "simple-turquoise/24-inqrediyent-redaktoru-xetalar.png",
+      "sha256": "3c7f72bdbee795e64b27c9eaaf41a731f35621416d04f98ea5fa74ccbd49538a"
+    },
+    {
+      "path": "simple-turquoise/24-inqrediyent-redaktoru-xetalar.txt",
+      "sha256": "70852d50978ad7cd182672031bf74b374610aca2ea8fe60477bf838ccb364380"
+    },
+    {
+      "path": "simple-turquoise/approved/d02-portions.png",
+      "sha256": "e185e3dbde893306722b8b4ffc0f0ed4e98a1de62fe7367f56cfeba0969870e5"
+    },
+    {
+      "path": "simple-turquoise/approved/d02-portions.txt",
+      "sha256": "c8d4258910213a1d50b07262bed3957404357a76adff6c41a147ecad7c7f0138"
+    },
+    {
+      "path": "simple-turquoise/approved/d03-menu.png",
+      "sha256": "5cc43a3291ee6a1a4136c908c4267d5e2103221d61a66412e072e2a04ce00702"
+    },
+    {
+      "path": "simple-turquoise/approved/d03-menu.txt",
+      "sha256": "617f4c3155f7a6eb15b1c416ad07db3392d6716cf7202fb42a43535edf4126d5"
+    },
+    {
+      "path": "simple-turquoise/completion/19-telimat-yoxdur.html",
+      "sha256": "cae3b2e1fa8439f518e4284be4454eb0d6b0020a7570f18296705773f1b3426b"
+    },
+    {
+      "path": "simple-turquoise/completion/19-telimat-yoxdur.png",
+      "sha256": "1e834cf1651ea8ffdb088c8bd2b73c52ae20427cff67d80ec4903579a50d2dcc"
+    },
+    {
+      "path": "simple-turquoise/completion/20-gun-hefte-onbaxis.html",
+      "sha256": "8355d7f60f46b6555c1cff21d29bce69cd3c2000be3b1af2a510cf0482312f14"
+    },
+    {
+      "path": "simple-turquoise/completion/20-gun-hefte-onbaxis.png",
+      "sha256": "e33619fdb2b3417e1bc5868c08c93811133685a54a85f35cd5409300315dc5aa"
+    },
+    {
+      "path": "simple-turquoise/completion/21-deyisme-yollari.html",
+      "sha256": "3fb9f82b192815ae54021961b33c83828354a651fd8b6028faf71ab17e49a719"
+    },
+    {
+      "path": "simple-turquoise/completion/21-deyisme-yollari.png",
+      "sha256": "5d2aed7d3f4fac6002f497a30efc8b7834a25d65bf91dca8728a3dff90e9f74e"
+    },
+    {
+      "path": "simple-turquoise/completion/22-plan-konfliktleri.html",
+      "sha256": "82b90c19313dccddc936561aad07bf40ae6cc44f5b1118a852cbd2c54455c06b"
+    },
+    {
+      "path": "simple-turquoise/completion/22-plan-konfliktleri.png",
+      "sha256": "55954dcc7bb8472327c099d72f235cf2c95d3cab3c0380cbb2d2ec6d44329223"
+    },
+    {
+      "path": "simple-turquoise/completion/23-foto-deqiqlesdirme.html",
+      "sha256": "15ed1b4aca8e128d0ab0477c024280d9d5860f9affa7b798cbb447569eb44434"
+    },
+    {
+      "path": "simple-turquoise/completion/23-foto-deqiqlesdirme.png",
+      "sha256": "30d58f5eead66a99497822de0b6f6dfd48b127b2bf4ef9d2ff84b90060a488bb"
+    },
+    {
+      "path": "simple-turquoise/completion/24-alisveris-hallari.html",
+      "sha256": "fcba8811ff118c4e3eb97db06f4c69c84cf41b5aba33c6ce46635208f697d018"
+    },
+    {
+      "path": "simple-turquoise/completion/24-alisveris-hallari.png",
+      "sha256": "153dec33e330711ee126ac1dc570d84514de02820ee19106d9edd7094bd46d33"
+    },
+    {
+      "path": "simple-turquoise/completion/25-hesab-formalari.html",
+      "sha256": "71caaa8ddf591d4b66b378416058b69b5a43b37fb3ccc7d542b5de7fb5be9f51"
+    },
+    {
+      "path": "simple-turquoise/completion/25-hesab-formalari.png",
+      "sha256": "18cc8fc097d0467481734a6a05d8e64e149326fa7840e8671c055a1e460b4eaa"
+    },
+    {
+      "path": "simple-turquoise/completion/26-komek-formalari.html",
+      "sha256": "5434ef5d2b48e94e2c175c53815024b9f9f662a1f90499e54444706af4600748"
+    },
+    {
+      "path": "simple-turquoise/completion/26-komek-formalari.png",
+      "sha256": "bacc971398eb185cce4e350c5d9ad9cbd2fffefe0879a28123c9a2f6ba2e79fc"
+    },
+    {
+      "path": "simple-turquoise/completion/27-baxis-ve-bos-siyahilar.html",
+      "sha256": "7dd91df85a0473ebd765898aa188aac2df871ce29327d903e7a6b6177910b51e"
+    },
+    {
+      "path": "simple-turquoise/completion/27-baxis-ve-bos-siyahilar.png",
+      "sha256": "22626723a428b73a9012a8406329086fff08898b570fe5748995c23a096254ed"
+    },
+    {
+      "path": "simple-turquoise/completion/28-vahid-vizual-qaydalar.html",
+      "sha256": "6547af2f5e7df04a43058575701f1c690faf745ff3c5bc3947386806af285f38"
+    },
+    {
+      "path": "simple-turquoise/completion/28-vahid-vizual-qaydalar.png",
+      "sha256": "04a1d1e787b093930699ddbe97308f5d4df28c551866ce16f88b7eb0ec93b759"
+    },
+    {
+      "path": "simple-turquoise/completion/29-elave-faktiki-porsiya.html",
+      "sha256": "e0ff51dc04aea3abd302b5dda7724afc036d4ec0aaf5dc0a5ad0c051b322932b"
+    },
+    {
+      "path": "simple-turquoise/completion/29-elave-faktiki-porsiya.png",
+      "sha256": "4b7418a0dc32b95347246d07d1b518c8b49ea20927dffece04c777472d79b4b0"
+    },
+    {
+      "path": "simple-turquoise/completion/30-onboarding-giris-xetalari.html",
+      "sha256": "b9d69c966c5f7f8a7ba3683ee5a38b5beab058525e818cfe1cce254fc75d9765"
+    },
+    {
+      "path": "simple-turquoise/completion/30-onboarding-giris-xetalari.png",
+      "sha256": "686ee27d9532113ad022ac8cd39cfb857b1cf3cc6b9a105a9969daf2f2287b6e"
+    },
+    {
+      "path": "simple-turquoise/completion/README.md",
+      "sha256": "9a5a67757ee227d12f6511251b930541ac504107d1d75cd4af226176ea69fcef"
+    },
+    {
+      "path": "simple-turquoise/completion/render.py",
+      "sha256": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50"
+    },
+    {
+      "path": "simple-turquoise/completion/screens.json",
+      "sha256": "b00785fc83c0f6b3b72f40664b605ff4077a77965e54af82a145e0a10a410d27"
+    },
+    {
+      "path": "simple-turquoise/implementation-guide.txt",
+      "sha256": "241bd23e02cf81572031acf5dddab484c84a3bb62964922c0cb9ed5685e12552"
+    },
+    {
+      "path": "simple-turquoise/missing-state-png-prompts.txt",
+      "sha256": "03fc2d447cd841dc34c860e5e709b843d0e8a256b00093abefb59ee93011ab66"
+    },
+    {
+      "path": "simple-turquoise/missing-state-pngs.json",
+      "sha256": "176b233a2b9e459205b8205e230fc78ad2f33f77279783a4b9844cfe2d8d56bc"
+    },
+    {
+      "path": "simple-turquoise/new-flows-guide.txt",
+      "sha256": "9cc72547b7902668e894297190273b96e82ebe776d5aac1f8d04182d674c0470"
+    },
+    {
+      "path": "simple-turquoise/new-flows-prompts.txt",
+      "sha256": "f4323b4596fdb6015cc5c9f3d24ccc07f5e57a89dc2f2dbc40b6b3ea4b720680"
+    },
+    {
+      "path": "simple-turquoise/new-flows-review.json",
+      "sha256": "f776a8ef3d88381f92b312f8e9b8a71e7062a5ebc9a601893fdd71d5a785c319"
+    },
+    {
+      "path": "simple-turquoise/prompts.txt",
+      "sha256": "cc162529efac4e0d7a2d51c70c96aadb9d8a33a4ed53fcfec3d907a57666bbe8"
+    },
+    {
+      "path": "simple-turquoise/ui-extension-guide.txt",
+      "sha256": "cce3790229f80e5a4b77ba2750c62d38c66acb34be92337095679c76de290643"
+    },
+    {
+      "path": "simple-turquoise/ui-extension-prompts.txt",
+      "sha256": "a1c3dae8f267625342277807ae3364b241969e5f00e73516bc44af40b08e7494"
+    },
+    {
+      "path": "tokens.css",
+      "sha256": "0ea094f84600a586323c81219be63365661c548eed2adb71b9b4a1030750c31a"
+    }
+  ]
+}
