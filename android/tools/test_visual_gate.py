@@ -3,7 +3,7 @@ import copy
 import tempfile
 import unittest
 from pathlib import Path
-from visual_gate import MATRIX, protected, validate_plan, validate_review
+from visual_gate import MATRIX, digest, proposal_sources, protected, validate_plan, validate_review
 
 
 class VisualGateTest(unittest.TestCase):
@@ -12,6 +12,31 @@ class VisualGateTest(unittest.TestCase):
                      'android/app/src/test/java/com/aladdin/dailyplate/ui/NewTest.kt', 'design-concepts/tokens.css'):
             self.assertTrue(protected(name))
         self.assertFalse(protected('docs/context/current-task.md'))
+
+    def test_proposals_cannot_hide_native_changes_or_stale_assets(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            (root / 'design-concepts').mkdir()
+            name = 'design-concepts/draft.png'
+            content = b'\x89PNG\r\n\x1a\nconcept'
+            (root / name).write_bytes(content)
+            proposal = dict(output=name, sources=[name], source_hashes={name: digest(content)},
+                            sha256=digest(content), requirements=['NP-08'], states=['no-target'],
+                            elements=['diary action'], references=[name], comparison='Inspected full panel',
+                            status='draft-rendered-agent-inspected-not-runtime-acceptance')
+            plan = dict(design_proposals=[proposal])
+            self.assertEqual(proposal_sources(plan, root), {name})
+            for source in ('android/app/src/main/example.kt', 'design-concepts/tokens.css'):
+                invalid = copy.deepcopy(plan)
+                invalid['design_proposals'][0]['sources'].append(source)
+                with self.assertRaises(ValueError): proposal_sources(invalid, root)
+            native = {**plan, 'surfaces': [dict(sources=[], cases=[dict(reference=name)])]}
+            with self.assertRaises(ValueError): proposal_sources(native, root)
+            invalid = copy.deepcopy(plan)
+            invalid['design_proposals'][0]['source_hashes'][name] = 'stale'
+            with self.assertRaises(ValueError): proposal_sources(invalid, root)
+            (root / name).write_bytes(b'changed')
+            with self.assertRaises(ValueError): proposal_sources(plan, root)
 
     def test_missing_stale_coverage_and_unreviewed_evidence_are_rejected(self):
         with tempfile.TemporaryDirectory() as temp:

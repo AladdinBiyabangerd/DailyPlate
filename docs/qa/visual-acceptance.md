@@ -93,3 +93,12 @@ Gate tests: `android/tools/test_visual_gate.py` validates evidence contracts and
 `android/tools/test_visual_workflow.py` exercises actual hooks/finish/review in
 isolated disposable repositories. Both run only in mandatory post-merge CI.
 Python caches in test fixtures are excluded from Git cleanliness checks.
+
+## Draft concept mapping
+
+`design_proposals` may map inspected draft PNGs and their prompt/metadata files using
+explicit `sources` and SHA-256 `source_hashes`. The validator checks the draft status,
+requirements, states, elements, comparison and PNG hash. This only resolves input
+classification; it grants no design approval or native acceptance. Android inputs,
+tokens, and any asset used by a native surface as a source/reference cannot be
+covered this way. Native render coverage and inherited pending reviews remain required.
