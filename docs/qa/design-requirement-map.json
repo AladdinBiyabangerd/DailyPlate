@@ -6239,5 +6239,41 @@
       "runtime_status": "not_audited",
       "nonvisual_evidence_required": "Ssenarinin əvvəl/sonra DB, plan, alış-veriş və FoodLog nəticəsi ayrıca testlə təsdiqlənməlidir."
     }
+  ],
+  "concept_supplements": [
+    {
+      "id": "concept-17-no-target",
+      "image": "design-concepts/simple-turquoise/17-hedefsiz-davam-sebebleri.png",
+      "sha256": "6f9858991411797844765edcad65e0e3d3c28ebd6ba1896c5ad1a96e5287badc",
+      "requirements": [
+        "5.3",
+        "21.3",
+        "25.3",
+        "26.7",
+        "26.8"
+      ],
+      "states": [
+        "missing-sex",
+        "health-excluded",
+        "model-out-of-scope"
+      ],
+      "status": "draft-agent-inspected-not-runtime-acceptance",
+      "note": "Historical audit rows/gaps retained; this supplement adds concept coverage only."
+    },
+    {
+      "id": "concept-18-no-target-calculation",
+      "image": "design-concepts/simple-turquoise/18-hedefsiz-hesablama-sebebleri.png",
+      "sha256": "ff1963cef11510587b1545aca9c867f0cad0051a0684156a68dacaf506827e55",
+      "requirements": [
+        "27.3",
+        "28.3"
+      ],
+      "states": [
+        "energy-below-product-floor",
+        "macro-infeasible"
+      ],
+      "status": "draft-agent-inspected-not-runtime-acceptance",
+      "note": "Historical audit rows/gaps retained; this supplement adds concept coverage only."
+    }
   ]
 }

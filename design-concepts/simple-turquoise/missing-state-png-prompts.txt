@@ -32,3 +32,5 @@ not OR alternatives or an exercise prescription. Every panel includes disclaimer
 explicit confirmation, other choices and the uncertain path.
 Full initial prompt: 16-activity-help-prompt.txt. Follow-up edit removes an accidental
 repeated “və ya” in the inactive description; no nutrition values are changed.
+
+Sets 17/18: see 17-no-target-prompt.txt (reproduction specification) and 18-no-target-calculation-prompt.txt (generation prompt). Five distinct no-target reasons; canonical requirements 5.3, 21.3, 25.3, 26.7, 26.8, 27.3, 28.3. Drafts only.
