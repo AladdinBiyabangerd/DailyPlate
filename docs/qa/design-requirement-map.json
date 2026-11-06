@@ -6328,6 +6328,171 @@
       ],
       "status": "agent-inspected-draft-user-approval-pending",
       "note": "Concept coverage only; historical gaps and runtime status remain open."
+    },
+    {
+      "id": "19-completion",
+      "image": "design-concepts/simple-turquoise/completion/19-telimat-yoxdur.png",
+      "sha256": "1e834cf1651ea8ffdb088c8bd2b73c52ae20427cff67d80ec4903579a50d2dcc",
+      "requirements": [
+        "16.3",
+        "19.14"
+      ],
+      "states": [
+        "19-A-Bu variantın təlimatı yoxdur",
+        "19-B-İlkin reseptə qayıt?"
+      ],
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
+    },
+    {
+      "id": "20-completion",
+      "image": "design-concepts/simple-turquoise/completion/20-gun-hefte-onbaxis.png",
+      "sha256": "e33619fdb2b3417e1bc5868c08c93811133685a54a85f35cd5409300315dc5aa",
+      "requirements": [
+        "16.2",
+        "16.6",
+        "19.15"
+      ],
+      "states": [
+        "20-A-Günün yenilənmiş planı",
+        "20-B-Həftəyə təsiri"
+      ],
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
+    },
+    {
+      "id": "21-completion",
+      "image": "design-concepts/simple-turquoise/completion/21-deyisme-yollari.png",
+      "sha256": "5d2aed7d3f4fac6002f497a30efc8b7834a25d65bf91dca8728a3dff90e9f74e",
+      "requirements": [
+        "16.4",
+        "16.5",
+        "T06",
+        "T09"
+      ],
+      "states": [
+        "21-A-Uyğun alternativ tapılmadı",
+        "21-B-Porsiyanı uyğunlaşdıraq?",
+        "21-C-Bu hissə artıq yeyilib",
+        "21-D-Bu günə köçür"
+      ],
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
+    },
+    {
+      "id": "22-completion",
+      "image": "design-concepts/simple-turquoise/completion/22-plan-konfliktleri.png",
+      "sha256": "55954dcc7bb8472327c099d72f235cf2c95d3cab3c0380cbb2d2ec6d44329223",
+      "requirements": [
+        "16.6",
+        "16.8",
+        "T12"
+      ],
+      "states": [
+        "22-A-Faktiki qeyd qorunacaq",
+        "22-B-Plan başqa cihazda dəyişib"
+      ],
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
+    },
+    {
+      "id": "23-completion",
+      "image": "design-concepts/simple-turquoise/completion/23-foto-deqiqlesdirme.png",
+      "sha256": "30d58f5eead66a99497822de0b6f6dfd48b127b2bf4ef9d2ff84b90060a488bb",
+      "requirements": [
+        "16.9",
+        "T18",
+        "T13"
+      ],
+      "states": [
+        "23-A-Bu foto hansı yeməkdir?",
+        "23-B-Bir şeyi dəqiqləşdirək",
+        "23-C-Nə qədər yedin?"
+      ],
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
+    },
+    {
+      "id": "24-completion",
+      "image": "design-concepts/simple-turquoise/completion/24-alisveris-hallari.png",
+      "sha256": "153dec33e330711ee126ac1dc570d84514de02820ee19106d9edd7094bd46d33",
+      "requirements": [
+        "16.6",
+        "19.8"
+      ],
+      "states": [
+        "24-A-Alınmış məhsul saxlanıb",
+        "24-B-Siyahın hələ boşdur",
+        "24-C-Paylaşılacaq mətn"
+      ],
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
+    },
+    {
+      "id": "25-completion",
+      "image": "design-concepts/simple-turquoise/completion/25-hesab-formalari.png",
+      "sha256": "18cc8fc097d0467481734a6a05d8e64e149326fa7840e8671c055a1e460b4eaa",
+      "requirements": [
+        "18.9",
+        "18.10"
+      ],
+      "states": [
+        "25-A-Yeni hesab yarat",
+        "25-B-Qeydiyyat alınmadı",
+        "25-C-Bərpa linki işləmir",
+        "25-D-Yeni şifrə seç"
+      ],
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
+    },
+    {
+      "id": "26-completion",
+      "image": "design-concepts/simple-turquoise/completion/26-komek-formalari.png",
+      "sha256": "bacc971398eb185cce4e350c5d9ad9cbd2fffefe0879a28123c9a2f6ba2e79fc",
+      "requirements": [
+        "19.16"
+      ],
+      "states": [
+        "26-A-Foto kalorisi niyə təxminidir?",
+        "26-B-Dəstəyə müraciət"
+      ],
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
+    },
+    {
+      "id": "27-completion",
+      "image": "design-concepts/simple-turquoise/completion/27-baxis-ve-bos-siyahilar.png",
+      "sha256": "22626723a428b73a9012a8406329086fff08898b570fe5748995c23a096254ed",
+      "requirements": [
+        "27.8",
+        "19.3",
+        "19.16"
+      ],
+      "states": [
+        "27-A-Hədəfə yenidən baxaq",
+        "27-B-Əvvəl yediklərim",
+        "27-C-Saxlanmış reseptlər",
+        "27-D-Foto siyahısı"
+      ],
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
+    },
+    {
+      "id": "28-completion",
+      "image": "design-concepts/simple-turquoise/completion/28-vahid-vizual-qaydalar.png",
+      "sha256": "04a1d1e787b093930699ddbe97308f5d4df28c551866ce16f88b7eb0ec93b759",
+      "requirements": [
+        "18.12",
+        "19.17",
+        "28.4"
+      ],
+      "states": [
+        "28-A-Bugünkü menyun",
+        "28-B-Qida dəyərlərinin əsası",
+        "28-C-Bişmiş çəki məlum deyil"
+      ],
+      "status": "agent-inspected-draft-user-approval-pending",
+      "note": "Concept coverage only; historical gaps and runtime status remain open."
     }
   ]
 }

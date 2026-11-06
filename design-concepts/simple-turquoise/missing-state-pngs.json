@@ -195,6 +195,347 @@
         "Native AZ/EN/RU at 100/150%, keyboard/focus, TalkBack, touch targets and pixel contrast remain unverified.",
         "Inherited native visual acceptance debt remains open."
       ]
+    },
+    {
+      "id": "19-completion",
+      "image": "design-concepts/simple-turquoise/completion/19-telimat-yoxdur.png",
+      "requirements": [
+        "16.3",
+        "19.14"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "19-A",
+          "state": "19-A-Bu variantın təlimatı yoxdur",
+          "description": "Bu variantın təlimatı yoxdur"
+        },
+        {
+          "id": "19-B",
+          "state": "19-B-İlkin reseptə qayıt?",
+          "description": "İlkin reseptə qayıt?"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "1e834cf1651ea8ffdb088c8bd2b73c52ae20427cff67d80ec4903579a50d2dcc",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "20-completion",
+      "image": "design-concepts/simple-turquoise/completion/20-gun-hefte-onbaxis.png",
+      "requirements": [
+        "16.2",
+        "16.6",
+        "19.15"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "20-A",
+          "state": "20-A-Günün yenilənmiş planı",
+          "description": "Günün yenilənmiş planı"
+        },
+        {
+          "id": "20-B",
+          "state": "20-B-Həftəyə təsiri",
+          "description": "Həftəyə təsiri"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "e33619fdb2b3417e1bc5868c08c93811133685a54a85f35cd5409300315dc5aa",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "21-completion",
+      "image": "design-concepts/simple-turquoise/completion/21-deyisme-yollari.png",
+      "requirements": [
+        "16.4",
+        "16.5",
+        "T06",
+        "T09"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "21-A",
+          "state": "21-A-Uyğun alternativ tapılmadı",
+          "description": "Uyğun alternativ tapılmadı"
+        },
+        {
+          "id": "21-B",
+          "state": "21-B-Porsiyanı uyğunlaşdıraq?",
+          "description": "Porsiyanı uyğunlaşdıraq?"
+        },
+        {
+          "id": "21-C",
+          "state": "21-C-Bu hissə artıq yeyilib",
+          "description": "Bu hissə artıq yeyilib"
+        },
+        {
+          "id": "21-D",
+          "state": "21-D-Bu günə köçür",
+          "description": "Bu günə köçür"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "5d2aed7d3f4fac6002f497a30efc8b7834a25d65bf91dca8728a3dff90e9f74e",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "22-completion",
+      "image": "design-concepts/simple-turquoise/completion/22-plan-konfliktleri.png",
+      "requirements": [
+        "16.6",
+        "16.8",
+        "T12"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "22-A",
+          "state": "22-A-Faktiki qeyd qorunacaq",
+          "description": "Faktiki qeyd qorunacaq"
+        },
+        {
+          "id": "22-B",
+          "state": "22-B-Plan başqa cihazda dəyişib",
+          "description": "Plan başqa cihazda dəyişib"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "55954dcc7bb8472327c099d72f235cf2c95d3cab3c0380cbb2d2ec6d44329223",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "23-completion",
+      "image": "design-concepts/simple-turquoise/completion/23-foto-deqiqlesdirme.png",
+      "requirements": [
+        "16.9",
+        "T18",
+        "T13"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "23-A",
+          "state": "23-A-Bu foto hansı yeməkdir?",
+          "description": "Bu foto hansı yeməkdir?"
+        },
+        {
+          "id": "23-B",
+          "state": "23-B-Bir şeyi dəqiqləşdirək",
+          "description": "Bir şeyi dəqiqləşdirək"
+        },
+        {
+          "id": "23-C",
+          "state": "23-C-Nə qədər yedin?",
+          "description": "Nə qədər yedin?"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "30d58f5eead66a99497822de0b6f6dfd48b127b2bf4ef9d2ff84b90060a488bb",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "24-completion",
+      "image": "design-concepts/simple-turquoise/completion/24-alisveris-hallari.png",
+      "requirements": [
+        "16.6",
+        "19.8"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "24-A",
+          "state": "24-A-Alınmış məhsul saxlanıb",
+          "description": "Alınmış məhsul saxlanıb"
+        },
+        {
+          "id": "24-B",
+          "state": "24-B-Siyahın hələ boşdur",
+          "description": "Siyahın hələ boşdur"
+        },
+        {
+          "id": "24-C",
+          "state": "24-C-Paylaşılacaq mətn",
+          "description": "Paylaşılacaq mətn"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "153dec33e330711ee126ac1dc570d84514de02820ee19106d9edd7094bd46d33",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "25-completion",
+      "image": "design-concepts/simple-turquoise/completion/25-hesab-formalari.png",
+      "requirements": [
+        "18.9",
+        "18.10"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "25-A",
+          "state": "25-A-Yeni hesab yarat",
+          "description": "Yeni hesab yarat"
+        },
+        {
+          "id": "25-B",
+          "state": "25-B-Qeydiyyat alınmadı",
+          "description": "Qeydiyyat alınmadı"
+        },
+        {
+          "id": "25-C",
+          "state": "25-C-Bərpa linki işləmir",
+          "description": "Bərpa linki işləmir"
+        },
+        {
+          "id": "25-D",
+          "state": "25-D-Yeni şifrə seç",
+          "description": "Yeni şifrə seç"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "18cc8fc097d0467481734a6a05d8e64e149326fa7840e8671c055a1e460b4eaa",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "26-completion",
+      "image": "design-concepts/simple-turquoise/completion/26-komek-formalari.png",
+      "requirements": [
+        "19.16"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "26-A",
+          "state": "26-A-Foto kalorisi niyə təxminidir?",
+          "description": "Foto kalorisi niyə təxminidir?"
+        },
+        {
+          "id": "26-B",
+          "state": "26-B-Dəstəyə müraciət",
+          "description": "Dəstəyə müraciət"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "bacc971398eb185cce4e350c5d9ad9cbd2fffefe0879a28123c9a2f6ba2e79fc",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "27-completion",
+      "image": "design-concepts/simple-turquoise/completion/27-baxis-ve-bos-siyahilar.png",
+      "requirements": [
+        "27.8",
+        "19.3",
+        "19.16"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "27-A",
+          "state": "27-A-Hədəfə yenidən baxaq",
+          "description": "Hədəfə yenidən baxaq"
+        },
+        {
+          "id": "27-B",
+          "state": "27-B-Əvvəl yediklərim",
+          "description": "Əvvəl yediklərim"
+        },
+        {
+          "id": "27-C",
+          "state": "27-C-Saxlanmış reseptlər",
+          "description": "Saxlanmış reseptlər"
+        },
+        {
+          "id": "27-D",
+          "state": "27-D-Foto siyahısı",
+          "description": "Foto siyahısı"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "22626723a428b73a9012a8406329086fff08898b570fe5748995c23a096254ed",
+      "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "28-completion",
+      "image": "design-concepts/simple-turquoise/completion/28-vahid-vizual-qaydalar.png",
+      "requirements": [
+        "18.12",
+        "19.17",
+        "28.4"
+      ],
+      "gap_groups": [
+        "completion-user-nine-groups"
+      ],
+      "panels": [
+        {
+          "id": "28-A",
+          "state": "28-A-Bugünkü menyun",
+          "description": "Bugünkü menyun"
+        },
+        {
+          "id": "28-B",
+          "state": "28-B-Qida dəyərlərinin əsası",
+          "description": "Qida dəyərlərinin əsası"
+        },
+        {
+          "id": "28-C",
+          "state": "28-C-Bişmiş çəki məlum deyil",
+          "description": "Bişmiş çəki məlum deyil"
+        }
+      ],
+      "limitations": [
+        "Draft AZ concept, not runtime acceptance.",
+        "Existing native visual debt and older-image audit remain open."
+      ],
+      "sha256": "04a1d1e787b093930699ddbe97308f5d4df28c551866ce16f88b7eb0ec93b759",
+      "review_status": "agent-inspected-draft-user-approval-pending"
     }
   ]
 }

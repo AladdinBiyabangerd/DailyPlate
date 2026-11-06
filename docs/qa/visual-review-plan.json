@@ -6330,7 +6330,7 @@
         "design-concepts/simple-turquoise/16-aktivlik-izahlari.png": "a50993a8ee4c180d469258ca214c9f6e25ab236b4a72cee9f6da188e57d042eb",
         "design-concepts/simple-turquoise/16-activity-help-prompt.txt": "e7d1415c95ecdcc812bd18e65a12e952e8d0684cb4227fe6813955213b43a807",
         "design-concepts/simple-turquoise/missing-state-png-prompts.txt": "03fc2d447cd841dc34c860e5e709b843d0e8a256b00093abefb59ee93011ab66",
-        "design-concepts/simple-turquoise/missing-state-pngs.json": "bea58f35d8c59a5b728de17e5fd82874285ca6b0ef0f67ddcd17126673eff21a"
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
       }
     },
     {
@@ -6453,6 +6453,470 @@
       "source_hashes": {
         "design-concepts/simple-turquoise/24-inqrediyent-redaktoru-xetalar.png": "3c7f72bdbee795e64b27c9eaaf41a731f35621416d04f98ea5fa74ccbd49538a",
         "design-concepts/simple-turquoise/24-inqrediyent-redaktoru-xetalar.txt": "70852d50978ad7cd182672031bf74b374610aca2ea8fe60477bf838ccb364380"
+      }
+    },
+    {
+      "id": "concept-19-completion",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/completion/19-telimat-yoxdur.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/10-deyisiklik-ve-xeta-hallari.png",
+        "design-concepts/simple-turquoise/approved/d03-menu.png"
+      ],
+      "requirements": [
+        "16.3",
+        "19.14"
+      ],
+      "elements": [
+        "Bu variantın təlimatı yoxdur",
+        "İlkin reseptə qayıt?"
+      ],
+      "states": [
+        "19-A",
+        "19-B"
+      ],
+      "required_review": [
+        "Open full PNG and references; read all text; check clipping and state semantics",
+        "Concept only, never native runtime acceptance"
+      ],
+      "sha256": "1e834cf1651ea8ffdb088c8bd2b73c52ae20427cff67d80ec4903579a50d2dcc",
+      "comparison": "Separate warning and explicit original-recipe return; no unverified cooking steps. White cards, peach notice and turquoise actions match reference 10; compact existing illustrations follow D03. Full text/actions visible. Draft AZ only; user approval, native localization/font scaling, device and TalkBack unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/completion/19-telimat-yoxdur.png",
+        "design-concepts/simple-turquoise/completion/19-telimat-yoxdur.html",
+        "design-concepts/simple-turquoise/completion/screens.json",
+        "design-concepts/simple-turquoise/completion/render.py",
+        "design-concepts/simple-turquoise/completion/README.md",
+        "design-concepts/simple-turquoise/missing-state-pngs.json"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/completion/19-telimat-yoxdur.png": "1e834cf1651ea8ffdb088c8bd2b73c52ae20427cff67d80ec4903579a50d2dcc",
+        "design-concepts/simple-turquoise/completion/19-telimat-yoxdur.html": "cae3b2e1fa8439f518e4284be4454eb0d6b0020a7570f18296705773f1b3426b",
+        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
+        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+      }
+    },
+    {
+      "id": "concept-20-completion",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/completion/20-gun-hefte-onbaxis.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/10-deyisiklik-ve-xeta-hallari.png",
+        "design-concepts/simple-turquoise/approved/d03-menu.png"
+      ],
+      "requirements": [
+        "16.2",
+        "16.6",
+        "19.15"
+      ],
+      "elements": [
+        "Günün yenilənmiş planı",
+        "Həftəyə təsiri"
+      ],
+      "states": [
+        "20-A",
+        "20-B"
+      ],
+      "required_review": [
+        "Open full PNG and references; read all text; check clipping and state semantics",
+        "Concept only, never native runtime acceptance"
+      ],
+      "sha256": "e33619fdb2b3417e1bc5868c08c93811133685a54a85f35cd5409300315dc5aa",
+      "comparison": "Opened both full panels: actual and remaining planned intake separated; daily/weekly before/after energy and all macros present. Synthetic sums consistent, missing log caveat visible. Same token cards/actions; no clipping. Draft AZ only; user approval, native localization/font scaling, device and TalkBack unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/completion/20-gun-hefte-onbaxis.png",
+        "design-concepts/simple-turquoise/completion/20-gun-hefte-onbaxis.html",
+        "design-concepts/simple-turquoise/completion/screens.json",
+        "design-concepts/simple-turquoise/completion/render.py",
+        "design-concepts/simple-turquoise/completion/README.md",
+        "design-concepts/simple-turquoise/missing-state-pngs.json"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/completion/20-gun-hefte-onbaxis.png": "e33619fdb2b3417e1bc5868c08c93811133685a54a85f35cd5409300315dc5aa",
+        "design-concepts/simple-turquoise/completion/20-gun-hefte-onbaxis.html": "8355d7f60f46b6555c1cff21d29bce69cd3c2000be3b1af2a510cf0482312f14",
+        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
+        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+      }
+    },
+    {
+      "id": "concept-21-completion",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/completion/21-deyisme-yollari.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/10-deyisiklik-ve-xeta-hallari.png",
+        "design-concepts/simple-turquoise/approved/d03-menu.png"
+      ],
+      "requirements": [
+        "16.4",
+        "16.5",
+        "T06",
+        "T09"
+      ],
+      "elements": [
+        "Uyğun alternativ tapılmadı",
+        "Porsiyanı uyğunlaşdıraq?",
+        "Bu hissə artıq yeyilib",
+        "Bu günə köçür"
+      ],
+      "states": [
+        "21-A",
+        "21-B",
+        "21-C",
+        "21-D"
+      ],
+      "required_review": [
+        "Open full PNG and references; read all text; check clipping and state semantics",
+        "Concept only, never native runtime acceptance"
+      ],
+      "sha256": "5d2aed7d3f4fac6002f497a30efc8b7834a25d65bf91dca8728a3dff90e9f74e",
+      "comparison": "Read all four panels: no alternative, explicit gram/serving proposal without approval, consumed-part refusal with record link, and empty-slot move distinguished from swap. Source/destination and return paths visible. Matches D03 card hierarchy, no clipping. Draft AZ only; user approval, native localization/font scaling, device and TalkBack unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/completion/21-deyisme-yollari.png",
+        "design-concepts/simple-turquoise/completion/21-deyisme-yollari.html",
+        "design-concepts/simple-turquoise/completion/screens.json",
+        "design-concepts/simple-turquoise/completion/render.py",
+        "design-concepts/simple-turquoise/completion/README.md",
+        "design-concepts/simple-turquoise/missing-state-pngs.json"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/completion/21-deyisme-yollari.png": "5d2aed7d3f4fac6002f497a30efc8b7834a25d65bf91dca8728a3dff90e9f74e",
+        "design-concepts/simple-turquoise/completion/21-deyisme-yollari.html": "3fb9f82b192815ae54021961b33c83828354a651fd8b6028faf71ab17e49a719",
+        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
+        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+      }
+    },
+    {
+      "id": "concept-22-completion",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/completion/22-plan-konfliktleri.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/10-deyisiklik-ve-xeta-hallari.png",
+        "design-concepts/simple-turquoise/approved/d03-menu.png"
+      ],
+      "requirements": [
+        "16.6",
+        "16.8",
+        "T12"
+      ],
+      "elements": [
+        "Faktiki qeyd qorunacaq",
+        "Plan başqa cihazda dəyişib"
+      ],
+      "states": [
+        "22-A",
+        "22-B"
+      ],
+      "required_review": [
+        "Open full PNG and references; read all text; check clipping and state semantics",
+        "Concept only, never native runtime acceptance"
+      ],
+      "sha256": "55954dcc7bb8472327c099d72f235cf2c95d3cab3c0380cbb2d2ec6d44329223",
+      "comparison": "Read both conflict panels: undo preserves actual snapshot and avoids recounting; other-device save rejected with retained draft and compare path. Peach information and primary/secondary hierarchy match 10; no text clipping. Draft AZ only; user approval, native localization/font scaling, device and TalkBack unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/completion/22-plan-konfliktleri.png",
+        "design-concepts/simple-turquoise/completion/22-plan-konfliktleri.html",
+        "design-concepts/simple-turquoise/completion/screens.json",
+        "design-concepts/simple-turquoise/completion/render.py",
+        "design-concepts/simple-turquoise/completion/README.md",
+        "design-concepts/simple-turquoise/missing-state-pngs.json"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/completion/22-plan-konfliktleri.png": "55954dcc7bb8472327c099d72f235cf2c95d3cab3c0380cbb2d2ec6d44329223",
+        "design-concepts/simple-turquoise/completion/22-plan-konfliktleri.html": "82b90c19313dccddc936561aad07bf40ae6cc44f5b1118a852cbd2c54455c06b",
+        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
+        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+      }
+    },
+    {
+      "id": "concept-23-completion",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/completion/23-foto-deqiqlesdirme.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/10-deyisiklik-ve-xeta-hallari.png",
+        "design-concepts/simple-turquoise/approved/d03-menu.png"
+      ],
+      "requirements": [
+        "16.9",
+        "T18",
+        "T13"
+      ],
+      "elements": [
+        "Bu foto hansı yeməkdir?",
+        "Bir şeyi dəqiqləşdirək",
+        "Nə qədər yedin?"
+      ],
+      "states": [
+        "23-A",
+        "23-B",
+        "23-C"
+      ],
+      "required_review": [
+        "Open full PNG and references; read all text; check clipping and state semantics",
+        "Concept only, never native runtime acceptance"
+      ],
+      "sha256": "30d58f5eead66a99497822de0b6f6dfd48b127b2bf4ef9d2ff84b90060a488bb",
+      "comparison": "Opened final three panels: selected recipe has check and border, photo discrepancy retains user authority, prepared batch and consumed share separated. Existing camera/recipe/scale illustrations retain 00 direction; no hidden write or clipped text. Draft AZ only; user approval, native localization/font scaling, device and TalkBack unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/completion/23-foto-deqiqlesdirme.png",
+        "design-concepts/simple-turquoise/completion/23-foto-deqiqlesdirme.html",
+        "design-concepts/simple-turquoise/completion/screens.json",
+        "design-concepts/simple-turquoise/completion/render.py",
+        "design-concepts/simple-turquoise/completion/README.md",
+        "design-concepts/simple-turquoise/missing-state-pngs.json"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/completion/23-foto-deqiqlesdirme.png": "30d58f5eead66a99497822de0b6f6dfd48b127b2bf4ef9d2ff84b90060a488bb",
+        "design-concepts/simple-turquoise/completion/23-foto-deqiqlesdirme.html": "15ed1b4aca8e128d0ab0477c024280d9d5860f9affa7b798cbb447569eb44434",
+        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
+        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+      }
+    },
+    {
+      "id": "concept-24-completion",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/completion/24-alisveris-hallari.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/10-deyisiklik-ve-xeta-hallari.png",
+        "design-concepts/simple-turquoise/approved/d03-menu.png"
+      ],
+      "requirements": [
+        "16.6",
+        "19.8"
+      ],
+      "elements": [
+        "Alınmış məhsul saxlanıb",
+        "Siyahın hələ boşdur",
+        "Paylaşılacaq mətn"
+      ],
+      "states": [
+        "24-A",
+        "24-B",
+        "24-C"
+      ],
+      "required_review": [
+        "Open full PNG and references; read all text; check clipping and state semantics",
+        "Concept only, never native runtime acceptance"
+      ],
+      "sha256": "153dec33e330711ee126ac1dc570d84514de02820ee19106d9edd7094bd46d33",
+      "comparison": "Opened all three: purchased no-longer-needed item retained with previous quantity label, separate empty list, exact share text with privacy explanation. Unique home/purchased states visible; Menu selection uses check plus color. No clipping. Draft AZ only; user approval, native localization/font scaling, device and TalkBack unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/completion/24-alisveris-hallari.png",
+        "design-concepts/simple-turquoise/completion/24-alisveris-hallari.html",
+        "design-concepts/simple-turquoise/completion/screens.json",
+        "design-concepts/simple-turquoise/completion/render.py",
+        "design-concepts/simple-turquoise/completion/README.md",
+        "design-concepts/simple-turquoise/missing-state-pngs.json"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/completion/24-alisveris-hallari.png": "153dec33e330711ee126ac1dc570d84514de02820ee19106d9edd7094bd46d33",
+        "design-concepts/simple-turquoise/completion/24-alisveris-hallari.html": "fcba8811ff118c4e3eb97db06f4c69c84cf41b5aba33c6ce46635208f697d018",
+        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
+        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+      }
+    },
+    {
+      "id": "concept-25-completion",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/completion/25-hesab-formalari.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/10-deyisiklik-ve-xeta-hallari.png",
+        "design-concepts/simple-turquoise/approved/d03-menu.png"
+      ],
+      "requirements": [
+        "18.9",
+        "18.10"
+      ],
+      "elements": [
+        "Yeni hesab yarat",
+        "Qeydiyyat alınmadı",
+        "Bərpa linki işləmir",
+        "Yeni şifrə seç"
+      ],
+      "states": [
+        "25-A",
+        "25-B",
+        "25-C",
+        "25-D"
+      ],
+      "required_review": [
+        "Open full PNG and references; read all text; check clipping and state semantics",
+        "Concept only, never native runtime acceptance"
+      ],
+      "sha256": "18cc8fc097d0467481734a6a05d8e64e149326fa7840e8671c055a1e460b4eaa",
+      "comparison": "Read four final forms: mismatched passwords inline, registration failure preserves data, expired/invalid link has resend, new password has two labelled fields and show controls. Removed implementation placeholder. Full labels/actions fit; no arbitrary password rule invented. Draft AZ only; user approval, native localization/font scaling, device and TalkBack unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/completion/25-hesab-formalari.png",
+        "design-concepts/simple-turquoise/completion/25-hesab-formalari.html",
+        "design-concepts/simple-turquoise/completion/screens.json",
+        "design-concepts/simple-turquoise/completion/render.py",
+        "design-concepts/simple-turquoise/completion/README.md",
+        "design-concepts/simple-turquoise/missing-state-pngs.json"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/completion/25-hesab-formalari.png": "18cc8fc097d0467481734a6a05d8e64e149326fa7840e8671c055a1e460b4eaa",
+        "design-concepts/simple-turquoise/completion/25-hesab-formalari.html": "71caaa8ddf591d4b66b378416058b69b5a43b37fb3ccc7d542b5de7fb5be9f51",
+        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
+        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+      }
+    },
+    {
+      "id": "concept-26-completion",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/completion/26-komek-formalari.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/10-deyisiklik-ve-xeta-hallari.png",
+        "design-concepts/simple-turquoise/approved/d03-menu.png"
+      ],
+      "requirements": [
+        "19.16"
+      ],
+      "elements": [
+        "Foto kalorisi niyə təxminidir?",
+        "Dəstəyə müraciət"
+      ],
+      "states": [
+        "26-A",
+        "26-B"
+      ],
+      "required_review": [
+        "Open full PNG and references; read all text; check clipping and state semantics",
+        "Concept only, never native runtime acceptance"
+      ],
+      "sha256": "bacc971398eb185cce4e350c5d9ad9cbd2fffefe0879a28123c9a2f6ba2e79fc",
+      "comparison": "Read FAQ answer and support form: concrete answer, email/topic/optional recipe/message, explicit attachment privacy. Same white cards and turquoise actions; no clipping or accidental send. Draft AZ only; user approval, native localization/font scaling, device and TalkBack unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/completion/26-komek-formalari.png",
+        "design-concepts/simple-turquoise/completion/26-komek-formalari.html",
+        "design-concepts/simple-turquoise/completion/screens.json",
+        "design-concepts/simple-turquoise/completion/render.py",
+        "design-concepts/simple-turquoise/completion/README.md",
+        "design-concepts/simple-turquoise/missing-state-pngs.json"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/completion/26-komek-formalari.png": "bacc971398eb185cce4e350c5d9ad9cbd2fffefe0879a28123c9a2f6ba2e79fc",
+        "design-concepts/simple-turquoise/completion/26-komek-formalari.html": "5434ef5d2b48e94e2c175c53815024b9f9f662a1f90499e54444706af4600748",
+        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
+        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+      }
+    },
+    {
+      "id": "concept-27-completion",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/completion/27-baxis-ve-bos-siyahilar.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/10-deyisiklik-ve-xeta-hallari.png",
+        "design-concepts/simple-turquoise/approved/d03-menu.png"
+      ],
+      "requirements": [
+        "27.8",
+        "19.3",
+        "19.16"
+      ],
+      "elements": [
+        "Hədəfə yenidən baxaq",
+        "Əvvəl yediklərim",
+        "Saxlanmış reseptlər",
+        "Foto siyahısı"
+      ],
+      "states": [
+        "27-A",
+        "27-B",
+        "27-C",
+        "27-D"
+      ],
+      "required_review": [
+        "Open full PNG and references; read all text; check clipping and state semantics",
+        "Concept only, never native runtime acceptance"
+      ],
+      "sha256": "22626723a428b73a9012a8406329086fff08898b570fe5748995c23a096254ed",
+      "comparison": "Read all four final panels: 14-day reminder with two/three-measurement distinction and symptom stop path, separate history/bookmark/photo empties and next actions. Consistent active parent tabs, all cards and bottom navigation visible. Draft AZ only; user approval, native localization/font scaling, device and TalkBack unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/completion/27-baxis-ve-bos-siyahilar.png",
+        "design-concepts/simple-turquoise/completion/27-baxis-ve-bos-siyahilar.html",
+        "design-concepts/simple-turquoise/completion/screens.json",
+        "design-concepts/simple-turquoise/completion/render.py",
+        "design-concepts/simple-turquoise/completion/README.md",
+        "design-concepts/simple-turquoise/missing-state-pngs.json"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/completion/27-baxis-ve-bos-siyahilar.png": "22626723a428b73a9012a8406329086fff08898b570fe5748995c23a096254ed",
+        "design-concepts/simple-turquoise/completion/27-baxis-ve-bos-siyahilar.html": "7dd91df85a0473ebd765898aa188aac2df871ce29327d903e7a6b6177910b51e",
+        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
+        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
+      }
+    },
+    {
+      "id": "concept-28-completion",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/completion/28-vahid-vizual-qaydalar.png",
+      "references": [
+        "design-concepts/simple-turquoise/00-reference.png",
+        "design-concepts/simple-turquoise/10-deyisiklik-ve-xeta-hallari.png",
+        "design-concepts/simple-turquoise/approved/d03-menu.png"
+      ],
+      "requirements": [
+        "18.12",
+        "19.17",
+        "28.4"
+      ],
+      "elements": [
+        "Bugünkü menyun",
+        "Qida dəyərlərinin əsası",
+        "Bişmiş çəki məlum deyil"
+      ],
+      "states": [
+        "28-A",
+        "28-B",
+        "28-C"
+      ],
+      "required_review": [
+        "Open full PNG and references; read all text; check clipping and state semantics",
+        "Concept only, never native runtime acceptance"
+      ],
+      "sha256": "04a1d1e787b093930699ddbe97308f5d4df28c551866ce16f88b7eb0ec93b759",
+      "comparison": "Read all three final panels: remaining serving basis, measured cooked 100g versus 300g portion, unknown-yield exception. Correct half-serving macro arithmetic and fixed Menu tab; identical tokens/layout to other new sheets, no clipping. Draft AZ only; user approval, native localization/font scaling, device and TalkBack unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/completion/28-vahid-vizual-qaydalar.png",
+        "design-concepts/simple-turquoise/completion/28-vahid-vizual-qaydalar.html",
+        "design-concepts/simple-turquoise/completion/screens.json",
+        "design-concepts/simple-turquoise/completion/render.py",
+        "design-concepts/simple-turquoise/completion/README.md",
+        "design-concepts/simple-turquoise/missing-state-pngs.json"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/completion/28-vahid-vizual-qaydalar.png": "04a1d1e787b093930699ddbe97308f5d4df28c551866ce16f88b7eb0ec93b759",
+        "design-concepts/simple-turquoise/completion/28-vahid-vizual-qaydalar.html": "6547af2f5e7df04a43058575701f1c690faf745ff3c5bc3947386806af285f38",
+        "design-concepts/simple-turquoise/completion/screens.json": "d7bb9d2ec17b765a0dfac3c144eba63d63506c3f21543dfe98bf865efbbf5bd5",
+        "design-concepts/simple-turquoise/completion/render.py": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50",
+        "design-concepts/simple-turquoise/completion/README.md": "75a9b74a0d857f18a0d2c7b5e5408f07d6e25424692afd9aeb3ef81c92c7b228",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "a12f5693c39fd944c11ad230453b9d8d43b3dbf7225b0594e5037e9e80e81516"
       }
     }
   ]
