@@ -240,23 +240,27 @@
     },
     {
       "path": "simple-turquoise/completion/30-onboarding-giris-xetalari.html",
-      "sha256": "b9d69c966c5f7f8a7ba3683ee5a38b5beab058525e818cfe1cce254fc75d9765"
+      "sha256": "d79e473d39177fb1e5a8ba6e4374bc801e0d2791adef5213c8f1ee47aea32330"
     },
     {
       "path": "simple-turquoise/completion/30-onboarding-giris-xetalari.png",
-      "sha256": "686ee27d9532113ad022ac8cd39cfb857b1cf3cc6b9a105a9969daf2f2287b6e"
+      "sha256": "e6ece09298c6a9d92535a24494ad7e88f219815bc19919d9ed55af60b3e87d3f"
     },
     {
       "path": "simple-turquoise/completion/README.md",
       "sha256": "9a5a67757ee227d12f6511251b930541ac504107d1d75cd4af226176ea69fcef"
     },
     {
+      "path": "simple-turquoise/completion/onboarding_form.py",
+      "sha256": "c870579f15f9c1d44a4194c1093f8ce28e63c85237bfd0b44cb5ac2b920a6029"
+    },
+    {
       "path": "simple-turquoise/completion/render.py",
-      "sha256": "5ed7af98426c86e621806aae70520d5b0e24bf835c031d571daf280d3853dd50"
+      "sha256": "2912c78de71ad50849b71f5f4a3ae7bf78ed426d92e2277df5506e4af28011bd"
     },
     {
       "path": "simple-turquoise/completion/screens.json",
-      "sha256": "b00785fc83c0f6b3b72f40664b605ff4077a77965e54af82a145e0a10a410d27"
+      "sha256": "641bb39856786de4afc9a81bbedc8071ad8229df72c5f7bae524a9d0501d8aaf"
     },
     {
       "path": "simple-turquoise/implementation-guide.txt",
