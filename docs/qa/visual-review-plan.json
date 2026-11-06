@@ -6329,8 +6329,88 @@
       "source_hashes": {
         "design-concepts/simple-turquoise/16-aktivlik-izahlari.png": "a50993a8ee4c180d469258ca214c9f6e25ab236b4a72cee9f6da188e57d042eb",
         "design-concepts/simple-turquoise/16-activity-help-prompt.txt": "e7d1415c95ecdcc812bd18e65a12e952e8d0684cb4227fe6813955213b43a807",
-        "design-concepts/simple-turquoise/missing-state-png-prompts.txt": "eec5580effd72437b93ba37e68e55275c29b284de56e768b525a51c7dcb04025",
-        "design-concepts/simple-turquoise/missing-state-pngs.json": "997c9daecfd6c95c33ba56d7d95b016d438f62871de1f124c4c227ef0b9c4f4b"
+        "design-concepts/simple-turquoise/missing-state-png-prompts.txt": "03fc2d447cd841dc34c860e5e709b843d0e8a256b00093abefb59ee93011ab66",
+        "design-concepts/simple-turquoise/missing-state-pngs.json": "7c85a741811d2fad99016632eb9e8c69e316e6f18e84fc45c3c081a5c52a66a8"
+      }
+    },
+    {
+      "id": "concept-17-no-target",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/17-hedefsiz-davam-sebebleri.png",
+      "references": [
+        "design-concepts/simple-turquoise/15-aktivlik-ve-hedefsiz-davam.png",
+        "design-concepts/simple-turquoise/01-baslangic.png",
+        "design-concepts/tokens.css"
+      ],
+      "requirements": [
+        "5.3",
+        "21.3",
+        "25.3",
+        "26.7",
+        "26.8"
+      ],
+      "elements": [
+        "Separate missing-sex, health-exclusion and model-scope reasons",
+        "Diary primary action; explicit correction path",
+        "Expert target never bypasses health exclusion; scope is not diagnosis"
+      ],
+      "states": [
+        "missing-sex",
+        "health-excluded",
+        "model-out-of-scope"
+      ],
+      "required_review": [
+        "Open all three full panels against 15/01; read exact AZ copy",
+        "No fabricated target, diagnosis or expert approval",
+        "Native localization/accessibility remains unverified"
+      ],
+      "sha256": "6f9858991411797844765edcad65e0e3d3c28ebd6ba1896c5ad1a96e5287badc",
+      "comparison": "Opened all three full AZ panels and 15/01 references. Pale turquoise background, white cards, peach notices, illustrated notebook/profile/support and clear primary diary action follow the established direction. Read missing-sex no-inference copy, separate health exclusion and no-bypass notice, and product-scope versus diagnosis distinction. All correction actions and expert-target link visible; no clipping observed. Phone frame differs cosmetically from reference. Concept only; native localization, pixel contrast, touch targets, TalkBack and user approval unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/17-hedefsiz-davam-sebebleri.png",
+        "design-concepts/simple-turquoise/17-no-target-prompt.txt"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/17-hedefsiz-davam-sebebleri.png": "6f9858991411797844765edcad65e0e3d3c28ebd6ba1896c5ad1a96e5287badc",
+        "design-concepts/simple-turquoise/17-no-target-prompt.txt": "247daad11c58ba550c7aa5d825a55a907d7e15209ad7cf98d6f6295f3ee9a900"
+      }
+    },
+    {
+      "id": "concept-18-no-target-calculation",
+      "status": "draft-rendered-agent-inspected-not-runtime-acceptance",
+      "output": "design-concepts/simple-turquoise/18-hedefsiz-hesablama-sebebleri.png",
+      "references": [
+        "design-concepts/simple-turquoise/15-aktivlik-ve-hedefsiz-davam.png",
+        "design-concepts/simple-turquoise/01-baslangic.png",
+        "design-concepts/tokens.css"
+      ],
+      "requirements": [
+        "27.3",
+        "28.3"
+      ],
+      "elements": [
+        "Separate energy-floor and macro-infeasible reasons",
+        "No clamp, no invented macro replacement or protein reduction",
+        "Diary primary action and expert support"
+      ],
+      "states": [
+        "energy-below-product-floor",
+        "macro-infeasible"
+      ],
+      "required_review": [
+        "Read both full panels and reference",
+        "Product boundary is not universal medical minimum",
+        "Native localization/accessibility remains unverified"
+      ],
+      "sha256": "ff1963cef11510587b1545aca9c867f0cad0051a0684156a68dacaf506827e55",
+      "comparison": "Opened both full AZ panels and 15/01 references. White cards, turquoise actions, peach notices and notebook/food illustrations preserve the established direction. Energy-floor panel explicitly rejects universal medical minimum/safety guarantee and artificial target increase. Macro panel rejects silent number changes/protein-minimum reduction and supplies no automatic calorie/macro target. Diary, input review and expert-support paths visible, no clipping observed. Phone framing and decorative outer food imagery vary from 15; draft only. Native localization, pixel contrast, touch targets, TalkBack and user approval unverified.",
+      "sources": [
+        "design-concepts/simple-turquoise/18-hedefsiz-hesablama-sebebleri.png",
+        "design-concepts/simple-turquoise/18-no-target-calculation-prompt.txt"
+      ],
+      "source_hashes": {
+        "design-concepts/simple-turquoise/18-hedefsiz-hesablama-sebebleri.png": "ff1963cef11510587b1545aca9c867f0cad0051a0684156a68dacaf506827e55",
+        "design-concepts/simple-turquoise/18-no-target-calculation-prompt.txt": "66b6299cff75223d383eeabb11061e94de7ca47b2f720dd81be4befb09d20c10"
       }
     }
   ]

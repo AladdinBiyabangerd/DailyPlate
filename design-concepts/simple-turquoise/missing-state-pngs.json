@@ -83,6 +83,74 @@
       "sha256": "a50993a8ee4c180d469258ca214c9f6e25ab236b4a72cee9f6da188e57d042eb",
       "review_status": "agent-inspected-draft-user-approval-pending",
       "comparison": "Opened final corrected PNG and 15/01 references. Three full panels preserve turquoise background, white cards, friendly illustrations, peach disclaimer and primary/secondary hierarchy. Read all AZ copy: inactive 30/90 minutes; active 30–50 at 5–7 km/h plus 45 cycling and 40 doubles tennis; very-active 45 cycling, 25 at 10 km/h and 60 doubles tennis. Repeated conjunction corrected. No clipping observed. All three disclaimers and confirmation/other/uncertain actions visible. Pixel contrast, native accessibility/localization and user approval remain unverified."
+    },
+    {
+      "id": "17-no-target",
+      "image": "design-concepts/simple-turquoise/17-hedefsiz-davam-sebebleri.png",
+      "requirements": [
+        "5.3",
+        "21.3",
+        "25.3",
+        "26.7",
+        "26.8"
+      ],
+      "gap_groups": [
+        "no-target",
+        "health"
+      ],
+      "panels": [
+        {
+          "id": "17-A",
+          "state": "missing-sex"
+        },
+        {
+          "id": "17-B",
+          "state": "health-excluded"
+        },
+        {
+          "id": "17-C",
+          "state": "model-out-of-scope"
+        }
+      ],
+      "sha256": "6f9858991411797844765edcad65e0e3d3c28ebd6ba1896c5ad1a96e5287badc",
+      "review_status": "agent-inspected-draft-user-approval-pending",
+      "comparison": "Opened all three full AZ panels and 15/01 references. Pale turquoise background, white cards, peach notices, illustrated notebook/profile/support and clear primary diary action follow the established direction. Read missing-sex no-inference copy, separate health exclusion and no-bypass notice, and product-scope versus diagnosis distinction. All correction actions and expert-target link visible; no clipping observed. Phone frame differs cosmetically from reference. Concept only; native localization, pixel contrast, touch targets, TalkBack and user approval unverified.",
+      "limitations": [
+        "AZ concept only; no runtime or clinical approval asserted.",
+        "Native AZ/EN/RU 100/150%, pixel contrast, device and TalkBack unverified.",
+        "Inherited native acceptance debt remains open; expert-target entry form/provenance and reason subvariants remain separate work."
+      ]
+    },
+    {
+      "id": "18-no-target-calculation",
+      "image": "design-concepts/simple-turquoise/18-hedefsiz-hesablama-sebebleri.png",
+      "requirements": [
+        "27.3",
+        "28.3"
+      ],
+      "gap_groups": [
+        "floor",
+        "macro",
+        "no-target"
+      ],
+      "panels": [
+        {
+          "id": "18-A",
+          "state": "energy-below-product-floor"
+        },
+        {
+          "id": "18-B",
+          "state": "macro-infeasible"
+        }
+      ],
+      "sha256": "ff1963cef11510587b1545aca9c867f0cad0051a0684156a68dacaf506827e55",
+      "review_status": "agent-inspected-draft-user-approval-pending",
+      "comparison": "Opened both full AZ panels and 15/01 references. White cards, turquoise actions, peach notices and notebook/food illustrations preserve the established direction. Energy-floor panel explicitly rejects universal medical minimum/safety guarantee and artificial target increase. Macro panel rejects silent number changes/protein-minimum reduction and supplies no automatic calorie/macro target. Diary, input review and expert-support paths visible, no clipping observed. Phone framing and decorative outer food imagery vary from 15; draft only. Native localization, pixel contrast, touch targets, TalkBack and user approval unverified.",
+      "limitations": [
+        "AZ concept only; no runtime or clinical approval asserted.",
+        "Native AZ/EN/RU 100/150%, pixel contrast, device and TalkBack unverified.",
+        "Inherited native acceptance debt remains open; expert-target entry form/provenance and reason subvariants remain separate work."
+      ]
     }
   ]
 }
