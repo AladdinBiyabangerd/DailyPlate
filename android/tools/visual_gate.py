@@ -22,12 +22,44 @@ def safe_file(root, relative):
     return path
 
 
+def proposal_sources(plan, references):
+    """Map inspected draft assets only; never substitute concepts for native evidence."""
+    covered = set()
+    native_references = {case['reference'] for surface in plan.get('surfaces', [])
+                         for case in surface['cases']}
+    native_sources = {source for surface in plan.get('surfaces', []) for source in surface['sources']}
+    for proposal in plan.get('design_proposals', []):
+        sources = proposal.get('sources', [])
+        if not sources:
+            continue  # Historical metadata does not grant an exemption.
+        if (proposal.get('status') != 'draft-rendered-agent-inspected-not-runtime-acceptance'
+                or not all(proposal.get(key) for key in
+                           ('requirements', 'states', 'elements', 'references', 'comparison'))):
+            raise ValueError('Draft proposal requires explicit inspection and requirements')
+        if proposal['output'] not in sources:
+            raise ValueError('Proposal output must be mapped')
+        for source in sources:
+            if (not source.startswith('design-concepts/') or source in native_references
+                    or source in native_sources or source.endswith(('.css', '.kt', '.xml'))):
+                raise ValueError('Proposal cannot cover runtime inputs, tokens or native references')
+            content = safe_file(references, source).read_bytes()
+            if proposal.get('source_hashes', {}).get(source) != digest(content):
+                raise ValueError('Proposal source hash missing or stale')
+        content = safe_file(references, proposal['output']).read_bytes()
+        if not content.startswith(b'\x89PNG\r\n\x1a\n') or digest(content) != proposal.get('sha256'):
+            raise ValueError('Proposal must identify inspected PNG')
+        for reference in proposal['references']:
+            safe_file(references, reference)
+        covered.update(sources)
+    return covered
+
+
 def validate_plan(plan, changed, artifacts, references):
     """Every changed input must be mapped, every surface needs six fresh variants."""
     surfaces = plan.get('surfaces', [])
     if not surfaces:
         raise ValueError('Visual changes require docs/qa/visual-review-plan.json surfaces')
-    covered, cases, ids = set(), [], set()
+    covered, cases, ids = proposal_sources(plan, references), [], set()
     for surface in surfaces:
         if not surface.get('requirements') or not surface.get('states'):
             raise ValueError('Each surface needs concrete requirements and required states')
