@@ -21,3 +21,14 @@ Canonical copy/interaction notes:
 - Uncertain activity: ACTIVITY_UNCERTAIN; diary allowed, automatic target absent.
 - No calories, price, clinical threshold or fabricated measured PAL in this sheet.
 - The four-screen sheet is a first unit, not closure of all 51 gap groups.
+
+Set 16: 16-aktivlik-izahlari.png
+Style reference: 15-aktivlik-ve-hedefsiz-davam.png and 01-baslangic.png.
+Requirements: canonical research-data.json /sections/25/items/3–4 (26.4–26.5).
+Panels: inactive / active / very_active explanation. Together with 15-B,
+these cover the four category explanation concepts, not selected-state or runtime acceptance.
+Preserve all source durations and speeds. Activity lists are combined daily examples,
+not OR alternatives or an exercise prescription. Every panel includes disclaimer,
+explicit confirmation, other choices and the uncertain path.
+Full initial prompt: 16-activity-help-prompt.txt. Follow-up edit removes an accidental
+repeated “və ya” in the inactive description; no nutrition values are changed.
