@@ -39,3 +39,5 @@
 
 ## Concurrent onboarding integration
 - Main also contains completion/31 allergy Yes/No initial states and completion/32 ready-to-Today flow from another task. Preserved those sources and integrated their decisions as unified/47 (initial Yes/No) and unified/48 (ready → Start → Today), including aligned 02/33 screens.
+
+Final contrast correction: all 49 rendered sheets were reopened after small links, secondary actions and active navigation switched to the existing dark text token. Checked pairs pass WCAG AA (minimum small-text pair 4.71:1); 49 renders have no broken images or horizontal overflow. Previous merged-main 5a8f2a3 technical CI passed, including 222 JVM tests; inherited native visual acceptance remains pending. Final correction merge result is recorded in .local-ci/logs/latest.json.

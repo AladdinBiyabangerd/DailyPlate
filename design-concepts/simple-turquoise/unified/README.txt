@@ -48,7 +48,9 @@ YOXLAMA
 konkret şəkil hash-lərini və baxış qeydlərini saxlayır. Bu native qəbul sənədi deyil.
 render-report.json hər dəst üçün təzə Chrome ölçməsini, şəkil və daşma nəticəsini verir.
 Kontrast: simple-text/simple-bg 11,95; simple-muted/simple-bg 5,04;
-ağ/simple-primary 4,71. Hamısı 4,5 həddindən yuxarıdır.
+ağ/simple-primary 4,71. Hamısı 4,5 həddindən yuxarıdır. Kiçik link, ikinci hərəkət və aktiv naviqasiya
+mətni açıq fonda simple-text istifadə edir (11,95); simple-primary həmin fonda
+yalnız böyük +/− idarələrində və dekorativ/UI xətlərində işlənir (4,43 > 3).
 Native AZ/EN/RU × 100/150%, klaviatura, TalkBack, cihaz və backend yoxlanmayıb.
 Əvvəlki native vizual qəbul borcu ayrıca açıqdır; dizaynla avtomatik bağlanmır.
 Tətbiq kodu dəyişməyib, APK yaradılmayıb.

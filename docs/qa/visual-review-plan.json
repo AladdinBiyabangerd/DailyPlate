@@ -7168,7 +7168,7 @@
         "00-C"
       ],
       "comparison": "Compared with 00: retained four illustrated goals in two columns, three illustrated Add routes and distinct Today actual/plan content; common navigation and selected check are visible.",
-      "sha256": "362f0ddf35b494a6aad23f98da97de2925db787475c37eddec02eb3eb0d27e86",
+      "sha256": "97337033bef585f935c4993bca3552b5564902a5d26fd5fe8b2dc2c61b8740db",
       "sources": [
         "design-concepts/simple-turquoise/unified/00-esas-istiqamet.png",
         "design-concepts/simple-turquoise/unified/00-esas-istiqamet.html",
@@ -7244,22 +7244,22 @@
         "design-concepts/simple-turquoise/unified/references/31-32-flow-notes.txt"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/00-esas-istiqamet.png": "362f0ddf35b494a6aad23f98da97de2925db787475c37eddec02eb3eb0d27e86",
-        "design-concepts/simple-turquoise/unified/00-esas-istiqamet.html": "57ff3b01abba958865534723343de02fe9c7c43679227d6912c6b8b58373bee1",
+        "design-concepts/simple-turquoise/unified/00-esas-istiqamet.png": "97337033bef585f935c4993bca3552b5564902a5d26fd5fe8b2dc2c61b8740db",
+        "design-concepts/simple-turquoise/unified/00-esas-istiqamet.html": "b936bebcc35e8003760af92b2c6dc565eb84b65ebf227653fa730cb3da2e68b2",
         "design-concepts/simple-turquoise/unified/package.py": "8a2a8a321a7accc789fda26dd2d97e6758d0337bdd8e96ade8ae835bb1f93815",
         "design-concepts/simple-turquoise/unified/build.py": "929e3fcaf5ab7428844e8020424580efce7f858b2af2c057269ce30ca2b984e4",
-        "design-concepts/simple-turquoise/unified/index.html": "463727541de24a4f01afa15c9017ad5d5fb9aabbb4a2171dcca2b0ebbc104c2e",
+        "design-concepts/simple-turquoise/unified/index.html": "9b4e4c298da9df648b8a8772625d770a415856be744dee8400e44ef6855f1330",
         "design-concepts/simple-turquoise/unified/legacy.py": "413619e5aa13169c40f5823d734d0c65aaaaa56378bf4597206b87506d44ef07",
-        "design-concepts/simple-turquoise/unified/style.py": "84288af1fc5f93328eb4b52a05c3600487b789f1be85493b93ac78655837ee1f",
+        "design-concepts/simple-turquoise/unified/style.py": "52991b0f0afb307ce340992cbdf940132b0fa68bb6499f4331fb87a3b1ddd38e",
         "design-concepts/simple-turquoise/unified/render.mjs": "86c761c9deeb7ddc1ac0a30975c8a3d908d84b8648da7c41917ea6707bd470b9",
         "design-concepts/simple-turquoise/unified/onboarding.py": "d5fec0cd3c08c30ff64eaf39bcca6f2f7b1bebd006b27e9b67783198e0fa559c",
-        "design-concepts/simple-turquoise/unified/visual-review.json": "74669ba260e586262d0e7975f739b656a5598e350a1fe27262b2367aab9b0449",
+        "design-concepts/simple-turquoise/unified/visual-review.json": "0ed492cf2747cae143bc67c3e5c155a6c57cc48db2152792519f030c7a503586",
         "design-concepts/simple-turquoise/unified/render-report.json": "dbac7b75cb6c332943d73f717bf55fc7ec95ff316204b7786500ca8f81f01238",
         "design-concepts/simple-turquoise/unified/screens.json": "3c36bf93937036585656a95955915809ba914c3a3c7010f6d9ac358cac1d8e7a",
-        "design-concepts/simple-turquoise/unified/MANIFEST.json": "d69e52351d80f23dc75b5c389f041cd43962625a87570bcd7f53906a337411f5",
+        "design-concepts/simple-turquoise/unified/MANIFEST.json": "aade98ad638dd3df88e397790b435b13a4831ea3ff58a5b4ddbb7ac840ee5562",
         "design-concepts/simple-turquoise/unified/replacement-map.json": "5795eb3f8e6e218172af822f409a8348acff3a76eea59657a408a5f34d1be6ff",
         "design-concepts/simple-turquoise/unified/coverage.json": "0b55d28c6f68b4eea931f2ea887827d3e54abdb4025797c93c0eab1cea53d6cd",
-        "design-concepts/simple-turquoise/unified/README.txt": "f5bd8ca59cbe4cdaed29cf66854d231001df14beb83050d3d1fd953563c8b71d",
+        "design-concepts/simple-turquoise/unified/README.txt": "46f5c512dd11d7db0cec87f524e0dfd67ce2f3d708ba673390b26aafd936ac9e",
         "design-concepts/simple-turquoise/unified/components.py": "b8409bcd1960801cc9cbcfd58a9eaa5109bc224d4c772cc26970a70c66e9277a",
         "design-concepts/simple-turquoise/unified/states.py": "b2956874810d65c48d0ffbdcf6440153b290e4abab7cd38a50c16ff89d18dbdb",
         "design-concepts/simple-turquoise/unified/references/d03-menu.txt": "617f4c3155f7a6eb15b1c416ad07db3392d6716cf7202fb42a43535edf4126d5",
@@ -7311,8 +7311,8 @@
         "design-concepts/simple-turquoise/unified/references/d03-menu.png": "5cc43a3291ee6a1a4136c908c4267d5e2103221d61a66412e072e2a04ce00702",
         "design-concepts/simple-turquoise/unified/references/d02-portions.png": "e185e3dbde893306722b8b4ffc0f0ed4e98a1de62fe7367f56cfeba0969870e5",
         "design-concepts/simple-turquoise/unified/references/00-reference.png": "4275f6cd9131ec4ac9e5000647e3210f09c03e38dddc0e1f6a1c3f010f30f55c",
-        "design-concepts/qida-turquoise-designs-final.zip": "fd84964d53611d8ad6f94224e0221d6262282f6436586f395c9d6eb7041ce5ec",
-        "design-concepts/qida-turquoise-designs-final.manifest.json": "d69e52351d80f23dc75b5c389f041cd43962625a87570bcd7f53906a337411f5",
+        "design-concepts/qida-turquoise-designs-final.zip": "599814a038b7807bc7415cf8f014c8083c0c1c2c7d8be3da92d83abba7604676",
+        "design-concepts/qida-turquoise-designs-final.manifest.json": "aade98ad638dd3df88e397790b435b13a4831ea3ff58a5b4ddbb7ac840ee5562",
         "design-concepts/simple-turquoise/unified/references/31-allergiya-ilkin-veziyyet.png": "bb23f7a168367da79478a82976b76a6807c2c6c39c4731be629ae2fa5fd8b916",
         "design-concepts/simple-turquoise/unified/references/32-plan-hazirdir.png": "1770b8a3dfc905c4d74e16e2aef1a4a5fb8e7fbe9673084ac985bf2b62485197",
         "design-concepts/simple-turquoise/unified/references/31-32-flow-notes.txt": "1d60f03a6d974c6667f792c998f0fbc68400619522ed347ca1f3b4a469de4e86"
@@ -7343,14 +7343,14 @@
         "01-D"
       ],
       "comparison": "Compared with 01 and completed onboarding: welcome benefits/language and direct numeric steppers retained; four activity categories replace legacy three; 2/5 and 3/5 match progress.",
-      "sha256": "ec29eb972622315968028441ef3ea8241293b41ff6e9ce3eb274710a9c6732ae",
+      "sha256": "930f7dbc95cce8088a55c8dbe5b3a178b5539e174b74ba519ac3cac0bdb9898d",
       "sources": [
         "design-concepts/simple-turquoise/unified/01-baslangic.png",
         "design-concepts/simple-turquoise/unified/01-baslangic.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/01-baslangic.png": "ec29eb972622315968028441ef3ea8241293b41ff6e9ce3eb274710a9c6732ae",
-        "design-concepts/simple-turquoise/unified/01-baslangic.html": "20114b7fac412bd582e7ebf84323b9d6ce163f8d494c73140a0d8626eaa767ca"
+        "design-concepts/simple-turquoise/unified/01-baslangic.png": "930f7dbc95cce8088a55c8dbe5b3a178b5539e174b74ba519ac3cac0bdb9898d",
+        "design-concepts/simple-turquoise/unified/01-baslangic.html": "7193c86fc87893d02c9580ff84385e912aa13de44a0bfe9663b49763866ae183"
       }
     },
     {
@@ -7378,14 +7378,14 @@
         "02-D"
       ],
       "comparison": "Compared with 02 and current completion/31: initial allergy Yes/No is unanswered and allergen list remains closed; the conditional list is fully shown in 47. Budget 5/5, guest/account paths and persistent labels stay visible.",
-      "sha256": "d25ee1c8ae360c61c496247b37aafdb1b541a57a1baeeb9a3261a1f79350fe04",
+      "sha256": "842f299350cb3f9d0dae9840b2c48fe571cde9a47d3c19f997a2fd0f795056e1",
       "sources": [
         "design-concepts/simple-turquoise/unified/02-secimler-ve-hesab.png",
         "design-concepts/simple-turquoise/unified/02-secimler-ve-hesab.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/02-secimler-ve-hesab.png": "d25ee1c8ae360c61c496247b37aafdb1b541a57a1baeeb9a3261a1f79350fe04",
-        "design-concepts/simple-turquoise/unified/02-secimler-ve-hesab.html": "1dfde189558f52c51fbbd067a12417cf4a887c5364017ca099509a12577e642c"
+        "design-concepts/simple-turquoise/unified/02-secimler-ve-hesab.png": "842f299350cb3f9d0dae9840b2c48fe571cde9a47d3c19f997a2fd0f795056e1",
+        "design-concepts/simple-turquoise/unified/02-secimler-ve-hesab.html": "1e0ae3f1f1777075b3c557af4055daf72d2119e6c566c1d2120536073a1adfe7"
       }
     },
     {
@@ -7413,14 +7413,14 @@
         "03-D"
       ],
       "comparison": "Compared with 03: search, camera frame, food/oil confirmation and saved result remain separate; no photo-only automatic log. No observed clipped labels.",
-      "sha256": "ef3265128210892eec6ba928e2e1bcd1df7e9898ddfe8d5737520be646bd86b4",
+      "sha256": "75fdbaa4ca32f9a3504c64aa94ecd192d8e84b45ff0bd192b632fde99e164300",
       "sources": [
         "design-concepts/simple-turquoise/unified/03-yemek-qeydiyyati.png",
         "design-concepts/simple-turquoise/unified/03-yemek-qeydiyyati.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/03-yemek-qeydiyyati.png": "ef3265128210892eec6ba928e2e1bcd1df7e9898ddfe8d5737520be646bd86b4",
-        "design-concepts/simple-turquoise/unified/03-yemek-qeydiyyati.html": "1b4a9c968abc7a370826a30b4519354a255a7a885e3ec09a6aa8def2a6a3ae67"
+        "design-concepts/simple-turquoise/unified/03-yemek-qeydiyyati.png": "75fdbaa4ca32f9a3504c64aa94ecd192d8e84b45ff0bd192b632fde99e164300",
+        "design-concepts/simple-turquoise/unified/03-yemek-qeydiyyati.html": "47ecbbc3c51adf5688ad7325b2e8fd7d9ed4fb1b41d110cf8f81ce03163e3305"
       }
     },
     {
@@ -7449,14 +7449,14 @@
         "04-D"
       ],
       "comparison": "Compared with 04 and D03: seven actual dates, selected/Today marker, plan/partial statuses and portion entry retained. Recipe, shopping categories and separate home/purchased states visible.",
-      "sha256": "951df7a73fb9b04ed6ab64cb195debaa016103efbf3494dd147d75924cbdb75b",
+      "sha256": "8cef10cb99b45ce4f37b9130d219b53bdaf6f6516de4c430b106385fccebf856",
       "sources": [
         "design-concepts/simple-turquoise/unified/04-menyu-ve-alisveris.png",
         "design-concepts/simple-turquoise/unified/04-menyu-ve-alisveris.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/04-menyu-ve-alisveris.png": "951df7a73fb9b04ed6ab64cb195debaa016103efbf3494dd147d75924cbdb75b",
-        "design-concepts/simple-turquoise/unified/04-menyu-ve-alisveris.html": "e3ecf6bbf329ac6b1525d8b0b867a2b85716a79294dda7284f1ee7e916665b38"
+        "design-concepts/simple-turquoise/unified/04-menyu-ve-alisveris.png": "8cef10cb99b45ce4f37b9130d219b53bdaf6f6516de4c430b106385fccebf856",
+        "design-concepts/simple-turquoise/unified/04-menyu-ve-alisveris.html": "eb498d2d65d74c3cc9049ce160882306c836c3d772bc06b693c011f4e92c986e"
       }
     },
     {
@@ -7484,14 +7484,14 @@
         "05-D"
       ],
       "comparison": "Compared with 05: dated weight entry, measurement count, weekly history, profile destinations and optional reminder times/quiet hours remain readable; actual active routes match each surface.",
-      "sha256": "b443f4be2123b2c275a4e496ea855a9f0033f8f50828797ab15617073c696711",
+      "sha256": "a78cc6e59f45987ac23a300048c789a3550b8e312363cb37ae7d6bb277bde277",
       "sources": [
         "design-concepts/simple-turquoise/unified/05-irelileyis-ve-profil.png",
         "design-concepts/simple-turquoise/unified/05-irelileyis-ve-profil.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/05-irelileyis-ve-profil.png": "b443f4be2123b2c275a4e496ea855a9f0033f8f50828797ab15617073c696711",
-        "design-concepts/simple-turquoise/unified/05-irelileyis-ve-profil.html": "cc657e5f728c5996a1f2444f20f7324b6585b8e6e8d8779d22cc9176ef929b24"
+        "design-concepts/simple-turquoise/unified/05-irelileyis-ve-profil.png": "a78cc6e59f45987ac23a300048c789a3550b8e312363cb37ae7d6bb277bde277",
+        "design-concepts/simple-turquoise/unified/05-irelileyis-ve-profil.html": "b1f9cc799941d1981592f0393fef9e9937f7d4490a408b91d050ae4ed9f4584e"
       }
     },
     {
@@ -7519,14 +7519,14 @@
         "06-D"
       ],
       "comparison": "Compared with 06: store-price-unavailable subscription, empty Today, durable local save awaiting sync and photo failure are distinct; visible recovery actions remain.",
-      "sha256": "85e1407533d4b4046e36f6f2b0808dccd41293161d027fa78b523a4886cc6b55",
+      "sha256": "9d6f438c062834937a949f24bd679342f94be869a3960d1634745e65c68e7d8f",
       "sources": [
         "design-concepts/simple-turquoise/unified/06-abunelik-ve-veziyyetler.png",
         "design-concepts/simple-turquoise/unified/06-abunelik-ve-veziyyetler.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/06-abunelik-ve-veziyyetler.png": "85e1407533d4b4046e36f6f2b0808dccd41293161d027fa78b523a4886cc6b55",
-        "design-concepts/simple-turquoise/unified/06-abunelik-ve-veziyyetler.html": "1af80a70ebade31e9b70125ea12d9ca78e9a7a7115ed52081ed8c8b87b3fc13f"
+        "design-concepts/simple-turquoise/unified/06-abunelik-ve-veziyyetler.png": "9d6f438c062834937a949f24bd679342f94be869a3960d1634745e65c68e7d8f",
+        "design-concepts/simple-turquoise/unified/06-abunelik-ve-veziyyetler.html": "b0acbc591fa66407f0ee04d95ce6a70cca4dfb9e1d4bf585eccf9e8ee2254e51"
       }
     },
     {
@@ -7554,14 +7554,14 @@
         "07-D"
       ],
       "comparison": "Compared with 07: ingredient steppers/removal/add, expanded other ingredients and prepared count are visible. Full scroll-content capture keeps all controls; preview uses labelled synthetic 500-to-555 fixture.",
-      "sha256": "1a79209307e7021d6bc8093465b070b59c8f7c432b862ea6f2cc361d6bb1e863",
+      "sha256": "14253f5c0616c98f00f24f00976c7d0ff2b4b55285ab56c3e86ea67a5ac0914b",
       "sources": [
         "design-concepts/simple-turquoise/unified/07-inqrediyent-redaktesi.png",
         "design-concepts/simple-turquoise/unified/07-inqrediyent-redaktesi.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/07-inqrediyent-redaktesi.png": "1a79209307e7021d6bc8093465b070b59c8f7c432b862ea6f2cc361d6bb1e863",
-        "design-concepts/simple-turquoise/unified/07-inqrediyent-redaktesi.html": "92a05a0014a9ba778fcbc45fedad4c4cd8fec36c6b32b1042298301874416d4b"
+        "design-concepts/simple-turquoise/unified/07-inqrediyent-redaktesi.png": "14253f5c0616c98f00f24f00976c7d0ff2b4b55285ab56c3e86ea67a5ac0914b",
+        "design-concepts/simple-turquoise/unified/07-inqrediyent-redaktesi.html": "9452f73239b88ab2ddadcfbe98e836d3f667d60dbb36aa0f5cba530a6c7730ec"
       }
     },
     {
@@ -7589,14 +7589,14 @@
         "08-D"
       ],
       "comparison": "Compared with 08: edit/replace/swap/move paths are distinct, consumed items excluded, both-day confirmation separated from selecting a meal; no unwarranted suitability badge.",
-      "sha256": "1e5a1d218ae4cea6f55dd7e584e4ab96c3e74c0f4fbf07c37104cc79c49be994",
+      "sha256": "2410b182e2f3ca8ea7268219446aa7c08dc260f8b41a9720ad1f016fa9425ab6",
       "sources": [
         "design-concepts/simple-turquoise/unified/08-yemek-ve-gun-deyisme.png",
         "design-concepts/simple-turquoise/unified/08-yemek-ve-gun-deyisme.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/08-yemek-ve-gun-deyisme.png": "1e5a1d218ae4cea6f55dd7e584e4ab96c3e74c0f4fbf07c37104cc79c49be994",
-        "design-concepts/simple-turquoise/unified/08-yemek-ve-gun-deyisme.html": "9d21646858088929fa14dad07c520ac1efc935c6409109755a32b33cbbe477c8"
+        "design-concepts/simple-turquoise/unified/08-yemek-ve-gun-deyisme.png": "2410b182e2f3ca8ea7268219446aa7c08dc260f8b41a9720ad1f016fa9425ab6",
+        "design-concepts/simple-turquoise/unified/08-yemek-ve-gun-deyisme.html": "0a5bd1bb13cc9aa716f5b2cc26eefc4e914ee72b1d31409b145df49b1b86c7a6"
       }
     },
     {
@@ -7625,14 +7625,14 @@
         "09-D"
       ],
       "comparison": "Compared with 09 and D02: actual-batch editor has no swap actions; prepared four and consumed one remain separate; quarter-share summary precedes explicit diary confirmation.",
-      "sha256": "16188d324c988a5bd317687ae8173f40327d962bd7e04b0f757c341035f427f0",
+      "sha256": "b2b492d119bcff43e41f45bb277ca238d7c98d099d5495c3c7421576a20d1f4d",
       "sources": [
         "design-concepts/simple-turquoise/unified/09-foto-sonrasi-resept.png",
         "design-concepts/simple-turquoise/unified/09-foto-sonrasi-resept.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/09-foto-sonrasi-resept.png": "16188d324c988a5bd317687ae8173f40327d962bd7e04b0f757c341035f427f0",
-        "design-concepts/simple-turquoise/unified/09-foto-sonrasi-resept.html": "8ed504d5222232456ebeda4eebfe034769066c674960afe56e7957a0b7e37744"
+        "design-concepts/simple-turquoise/unified/09-foto-sonrasi-resept.png": "b2b492d119bcff43e41f45bb277ca238d7c98d099d5495c3c7421576a20d1f4d",
+        "design-concepts/simple-turquoise/unified/09-foto-sonrasi-resept.html": "84b58be6a2eedf7656d61f7cef2d65162a4e75bdbd4a16fd3100939a745d43e5"
       }
     },
     {
@@ -7660,14 +7660,14 @@
         "10-D"
       ],
       "comparison": "Compared with 10: incompatible swap, missing nutrient, changed instructions and draft exit provide concrete back paths; unknown data is not zero and old imagery is not a yield measurement.",
-      "sha256": "2911c61bd0c9442838e23f4ea1ee363282abc6eb459c5b94e117a6cbcf7a73a9",
+      "sha256": "e50380a6ef07ac7ff54047f202e7a9e7fba718224f71100c374265ba47c8ae31",
       "sources": [
         "design-concepts/simple-turquoise/unified/10-deyisiklik-ve-xeta-hallari.png",
         "design-concepts/simple-turquoise/unified/10-deyisiklik-ve-xeta-hallari.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/10-deyisiklik-ve-xeta-hallari.png": "2911c61bd0c9442838e23f4ea1ee363282abc6eb459c5b94e117a6cbcf7a73a9",
-        "design-concepts/simple-turquoise/unified/10-deyisiklik-ve-xeta-hallari.html": "8a67489f90cf650801c652536b0bf8ab08e1ba405d2a3bc7197cb7bfba54805a"
+        "design-concepts/simple-turquoise/unified/10-deyisiklik-ve-xeta-hallari.png": "e50380a6ef07ac7ff54047f202e7a9e7fba718224f71100c374265ba47c8ae31",
+        "design-concepts/simple-turquoise/unified/10-deyisiklik-ve-xeta-hallari.html": "4de4e70f0f2c42dab094bb163afe0a4c1211c3eb666c5197528cf65c60aad099"
       }
     },
     {
@@ -7696,14 +7696,14 @@
         "11-D"
       ],
       "comparison": "Compared with 11 and D03: named swapped slots, atomic undo, shopping delta/preserved marks, replacement preview and actual saved snapshot are visible; future plans remain separate.",
-      "sha256": "4e6af86a2ae3344d609de0d47003ae0bb3a0ae79a268fc8af90129f97259aa74",
+      "sha256": "edaec8681c006b173e9fb5788786927549fc138fbac5d6b9c1b4ae0dd67ae113",
       "sources": [
         "design-concepts/simple-turquoise/unified/11-yenilenmis-plan-ve-tesdiq.png",
         "design-concepts/simple-turquoise/unified/11-yenilenmis-plan-ve-tesdiq.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/11-yenilenmis-plan-ve-tesdiq.png": "4e6af86a2ae3344d609de0d47003ae0bb3a0ae79a268fc8af90129f97259aa74",
-        "design-concepts/simple-turquoise/unified/11-yenilenmis-plan-ve-tesdiq.html": "ea6e93004b1d9163189856213a919edc7a6aea5397d13a98d2fbe4c43bbc7301"
+        "design-concepts/simple-turquoise/unified/11-yenilenmis-plan-ve-tesdiq.png": "edaec8681c006b173e9fb5788786927549fc138fbac5d6b9c1b4ae0dd67ae113",
+        "design-concepts/simple-turquoise/unified/11-yenilenmis-plan-ve-tesdiq.html": "3997fdf2e830f774c2e6358912c1e5a8dbd50288479a8fde7cd318c8b11be986"
       }
     },
     {
@@ -7731,14 +7731,14 @@
         "12-D"
       ],
       "comparison": "Compared with 12 and current plan: all ten health questions visible with unanswered state; removed obsolete equipment/exact inventory onboarding forms, retained numeric budget/person count and saved profile.",
-      "sha256": "53e2a1f3342e43bd05dd809741784c97f6ed7497f8d4cba5e9610e70a3cc5a47",
+      "sha256": "67662152bb41644b5004e5b0ff80fff09bf3c1e94a4d17d16e9245fdcaa9acb3",
       "sources": [
         "design-concepts/simple-turquoise/unified/12-elave-profil-secimleri.png",
         "design-concepts/simple-turquoise/unified/12-elave-profil-secimleri.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/12-elave-profil-secimleri.png": "53e2a1f3342e43bd05dd809741784c97f6ed7497f8d4cba5e9610e70a3cc5a47",
-        "design-concepts/simple-turquoise/unified/12-elave-profil-secimleri.html": "96578e39bbccc39c743852bf77f20b97fcde8e3f24d146f9441b60cf9d65d032"
+        "design-concepts/simple-turquoise/unified/12-elave-profil-secimleri.png": "67662152bb41644b5004e5b0ff80fff09bf3c1e94a4d17d16e9245fdcaa9acb3",
+        "design-concepts/simple-turquoise/unified/12-elave-profil-secimleri.html": "4806b8d3d4020bc3472d299b4cb82239014e5f69181a326e758c2e434b6720b4"
       }
     },
     {
@@ -7767,14 +7767,14 @@
         "13-D"
       ],
       "comparison": "Compared with 13 and D03: Menu/Add/Progress use their own active tabs, real empty-state text and recovery action; account unavailability retains local data.",
-      "sha256": "cfac82ab1df9efa1c84196409c2cdb90c81f49d39d9905a3554297d64a15cfde",
+      "sha256": "c00071db94927aa31928ee9e31754a50f9a4d1978d0d7f387d98c79db45d29e4",
       "sources": [
         "design-concepts/simple-turquoise/unified/13-bos-veziyyetler.png",
         "design-concepts/simple-turquoise/unified/13-bos-veziyyetler.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/13-bos-veziyyetler.png": "cfac82ab1df9efa1c84196409c2cdb90c81f49d39d9905a3554297d64a15cfde",
-        "design-concepts/simple-turquoise/unified/13-bos-veziyyetler.html": "3232a922c8df1b62de9ad882792236b6e69dcf8344830531328fd9988d0111bf"
+        "design-concepts/simple-turquoise/unified/13-bos-veziyyetler.png": "c00071db94927aa31928ee9e31754a50f9a4d1978d0d7f387d98c79db45d29e4",
+        "design-concepts/simple-turquoise/unified/13-bos-veziyyetler.html": "c04a514fcb6eec4ee52ace26ba95ab8713803272af52f5cf52d128430f378250"
       }
     },
     {
@@ -7802,14 +7802,14 @@
         "14-D"
       ],
       "comparison": "Compared with 14: custom allergen/gluten and dislikes stay separate, loading has disabled confirmation, write failure does not claim saved. Persistent field labels visible.",
-      "sha256": "acb737425c7e388b1beebf1a4279e5c10f500858e522fd7f8666af7fa8883092",
+      "sha256": "e4b27d9d6e700e6791a7d3f166b3d15024aaebb5bb51d16b4e5840a105155738",
       "sources": [
         "design-concepts/simple-turquoise/unified/14-elave-formalar-ve-veziyyetler.png",
         "design-concepts/simple-turquoise/unified/14-elave-formalar-ve-veziyyetler.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/14-elave-formalar-ve-veziyyetler.png": "acb737425c7e388b1beebf1a4279e5c10f500858e522fd7f8666af7fa8883092",
-        "design-concepts/simple-turquoise/unified/14-elave-formalar-ve-veziyyetler.html": "c7a5644ae6b04bfae116ebfaa06e322b3684cbff82ee27688b73177f50ffa7dc"
+        "design-concepts/simple-turquoise/unified/14-elave-formalar-ve-veziyyetler.png": "e4b27d9d6e700e6791a7d3f166b3d15024aaebb5bb51d16b4e5840a105155738",
+        "design-concepts/simple-turquoise/unified/14-elave-formalar-ve-veziyyetler.html": "1313b8d97c7c5a49ae4e922dc54fd01b9f4c16e737c5701744b81bde8e861355"
       }
     },
     {
@@ -7837,14 +7837,14 @@
         "15-D"
       ],
       "comparison": "Compared with 15: four activity choices and legacy answer reconfirmation remain; uncertainty leads to target-free diary, source example is not exercise prescription.",
-      "sha256": "6ed05d6c770474d3cf1a9873447156eb5f9b3efaaf44096c8410215f2f2e141d",
+      "sha256": "f56797d9364020c4683ec7a1e8a0638442b026d1a2b1459b3cbf13754e0b8c2f",
       "sources": [
         "design-concepts/simple-turquoise/unified/15-aktivlik-ve-hedefsiz-davam.png",
         "design-concepts/simple-turquoise/unified/15-aktivlik-ve-hedefsiz-davam.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/15-aktivlik-ve-hedefsiz-davam.png": "6ed05d6c770474d3cf1a9873447156eb5f9b3efaaf44096c8410215f2f2e141d",
-        "design-concepts/simple-turquoise/unified/15-aktivlik-ve-hedefsiz-davam.html": "9e8cbd686190a8280549e70361933533218fdfe52a63757d1b47376d87a39742"
+        "design-concepts/simple-turquoise/unified/15-aktivlik-ve-hedefsiz-davam.png": "f56797d9364020c4683ec7a1e8a0638442b026d1a2b1459b3cbf13754e0b8c2f",
+        "design-concepts/simple-turquoise/unified/15-aktivlik-ve-hedefsiz-davam.html": "8051c75ae38c6c41e3d5cacd6a751c7e2ce8571a64a33ed9cde72465db0aff1d"
       }
     },
     {
@@ -7870,14 +7870,14 @@
         "16-3"
       ],
       "comparison": "Compared with 16: source activity examples preserve durations and caveat, with confirm/other/uncertain paths and common illustrated shell.",
-      "sha256": "fbd841b53e1949493168a3d3e33c229172fc2d5da737bc5cf0039a168c012d50",
+      "sha256": "eaab9c376d4709ffb746b88fc0d2f585bcdffdc2cca909c804dfbb4fe4679055",
       "sources": [
         "design-concepts/simple-turquoise/unified/16-aktivlik-izahlari.png",
         "design-concepts/simple-turquoise/unified/16-aktivlik-izahlari.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/16-aktivlik-izahlari.png": "fbd841b53e1949493168a3d3e33c229172fc2d5da737bc5cf0039a168c012d50",
-        "design-concepts/simple-turquoise/unified/16-aktivlik-izahlari.html": "cdfccd6729d3e11cd6358050000e3eb1cfdd8b44746bf16df9078265f0a85567"
+        "design-concepts/simple-turquoise/unified/16-aktivlik-izahlari.png": "eaab9c376d4709ffb746b88fc0d2f585bcdffdc2cca909c804dfbb4fe4679055",
+        "design-concepts/simple-turquoise/unified/16-aktivlik-izahlari.html": "49cdf0823d9598a083f5659044437fda71799ab19924fa82df96afa2f5731936"
       }
     },
     {
@@ -7903,14 +7903,14 @@
         "17-3"
       ],
       "comparison": "Compared with 17: missing sex, health exclusion and model scope remain distinct reasons; diary path visible and no clinical approval/bypass invented.",
-      "sha256": "4bb38953c8c7e1b6200bf224843c39d80818d3cc0db9e4a5644fa829622ab5a5",
+      "sha256": "f781c217064b3e3b8d407a12500925ef8b6eb4447ef86b8e57e5a866d34e0f4d",
       "sources": [
         "design-concepts/simple-turquoise/unified/17-hedefsiz-davam-sebebleri.png",
         "design-concepts/simple-turquoise/unified/17-hedefsiz-davam-sebebleri.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/17-hedefsiz-davam-sebebleri.png": "4bb38953c8c7e1b6200bf224843c39d80818d3cc0db9e4a5644fa829622ab5a5",
-        "design-concepts/simple-turquoise/unified/17-hedefsiz-davam-sebebleri.html": "af27bc2f1e18069efe6fbdab1840e190a2d049c7eda38b0f0a3e6bccb5f7eb7c"
+        "design-concepts/simple-turquoise/unified/17-hedefsiz-davam-sebebleri.png": "f781c217064b3e3b8d407a12500925ef8b6eb4447ef86b8e57e5a866d34e0f4d",
+        "design-concepts/simple-turquoise/unified/17-hedefsiz-davam-sebebleri.html": "285a257b0f36aa948891a629e180cedd34d96924d0b147acc94e9577a035a3c9"
       }
     },
     {
@@ -7934,14 +7934,14 @@
         "18-B"
       ],
       "comparison": "Compared with 18: energy floor and macro infeasibility remain distinct, no artificial clamp or reduced minimum; input review and target-free paths visible.",
-      "sha256": "633def7ad1b0f708b75836ac0317cb0dec4625054bd9df2b0966a4329683ec78",
+      "sha256": "cf0655500e5ef2b13b6cefeb9866ffef6fa50f2f5123391d103713a953a2b65b",
       "sources": [
         "design-concepts/simple-turquoise/unified/18-hedefsiz-hesablama-sebebleri.png",
         "design-concepts/simple-turquoise/unified/18-hedefsiz-hesablama-sebebleri.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/18-hedefsiz-hesablama-sebebleri.png": "633def7ad1b0f708b75836ac0317cb0dec4625054bd9df2b0966a4329683ec78",
-        "design-concepts/simple-turquoise/unified/18-hedefsiz-hesablama-sebebleri.html": "dd35f82c70d6465a64d52fe4959e3be523607693814d8119c6ea939cbc375ec5"
+        "design-concepts/simple-turquoise/unified/18-hedefsiz-hesablama-sebebleri.png": "cf0655500e5ef2b13b6cefeb9866ffef6fa50f2f5123391d103713a953a2b65b",
+        "design-concepts/simple-turquoise/unified/18-hedefsiz-hesablama-sebebleri.html": "9008eb09ad55181649cfd02f9547f27ac4e8a8a05f64b2df858ff9efa052f82b"
       }
     },
     {
@@ -7965,14 +7965,14 @@
         "19-B"
       ],
       "comparison": "Compared with prior completion 19 and 10: unavailable revised instructions clearly blocks misleading old steps; explicit original-recipe return describes discarded draft.",
-      "sha256": "37d8a65a660e3aafa1c299adba44620c85f7276360ace8b5db1ef684960d9751",
+      "sha256": "ed583b8c943fa000e73abf00093a6e71536cd9b0fe92b9a744b71b1cacba7bc8",
       "sources": [
         "design-concepts/simple-turquoise/unified/19-telimat-yoxdur.png",
         "design-concepts/simple-turquoise/unified/19-telimat-yoxdur.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/19-telimat-yoxdur.png": "37d8a65a660e3aafa1c299adba44620c85f7276360ace8b5db1ef684960d9751",
-        "design-concepts/simple-turquoise/unified/19-telimat-yoxdur.html": "b3d66565ab81990dae3126f1684a751bd300db56a367553275a57d7ac40241d6"
+        "design-concepts/simple-turquoise/unified/19-telimat-yoxdur.png": "ed583b8c943fa000e73abf00093a6e71536cd9b0fe92b9a744b71b1cacba7bc8",
+        "design-concepts/simple-turquoise/unified/19-telimat-yoxdur.html": "8a34d6c691a81902978834f4e8fcb3850d0f18b2a9603709444bf12e6e52f208"
       }
     },
     {
@@ -7997,14 +7997,14 @@
         "20-B"
       ],
       "comparison": "Compared with completion 20: both expanded day/week panels show actual unchanged, remaining-plan before/after and projected macro totals; full nutrient names now replace abbreviations.",
-      "sha256": "f2c377428460b23a22dff26c89e1ceae659bcbb87094d75eebecb2c96430fa0c",
+      "sha256": "bb0b48715eca6aaaec20b6934b511819f7f8a7ceca2b005be593b8bc7b1c6174",
       "sources": [
         "design-concepts/simple-turquoise/unified/20-gun-hefte-onbaxis.png",
         "design-concepts/simple-turquoise/unified/20-gun-hefte-onbaxis.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/20-gun-hefte-onbaxis.png": "f2c377428460b23a22dff26c89e1ceae659bcbb87094d75eebecb2c96430fa0c",
-        "design-concepts/simple-turquoise/unified/20-gun-hefte-onbaxis.html": "e185235c51b2b6ff8484f0800d25729dce22bc2338b6f00873b9c7c0405e1474"
+        "design-concepts/simple-turquoise/unified/20-gun-hefte-onbaxis.png": "bb0b48715eca6aaaec20b6934b511819f7f8a7ceca2b005be593b8bc7b1c6174",
+        "design-concepts/simple-turquoise/unified/20-gun-hefte-onbaxis.html": "4c7bbeae8486afc934643eac8268de0c6efdd1144a10ebef9e82ce1588c1c560"
       }
     },
     {
@@ -8034,14 +8034,14 @@
         "21-D"
       ],
       "comparison": "Compared with completion 21 and 08: no-alternative, proposed 0.8 portion, consumed guard and empty-slot move retain all four distinct branches and recovery paths.",
-      "sha256": "55e400ece61724f9c37f22d3ae4088bcf3740fc159e5ece92a51b7d0c100af44",
+      "sha256": "e8ad15454bc72d4427518bbc7a9e6080597be9696fb34d19d328ebc7b251e33f",
       "sources": [
         "design-concepts/simple-turquoise/unified/21-deyisme-yollari.png",
         "design-concepts/simple-turquoise/unified/21-deyisme-yollari.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/21-deyisme-yollari.png": "55e400ece61724f9c37f22d3ae4088bcf3740fc159e5ece92a51b7d0c100af44",
-        "design-concepts/simple-turquoise/unified/21-deyisme-yollari.html": "e96fea4f6982b259a11f0cc693d0f1a00bdc7d5abc639dcb625821eff8d08f30"
+        "design-concepts/simple-turquoise/unified/21-deyisme-yollari.png": "e8ad15454bc72d4427518bbc7a9e6080597be9696fb34d19d328ebc7b251e33f",
+        "design-concepts/simple-turquoise/unified/21-deyisme-yollari.html": "4a57c3d6d16be2ba9510ba1f595331aedea16e063dc8925e14ceef3d79f398fa"
       }
     },
     {
@@ -8066,14 +8066,14 @@
         "22-B"
       ],
       "comparison": "Compared with completion 22 and 11: undo preserves actual snapshot; stale-plan conflict preserves draft and does not overwrite newer plan. Both visible without clipping.",
-      "sha256": "b3a3a9b8aaf401aad4f87f5a589203cee3ee811e462eb439c6a8261b88336431",
+      "sha256": "1b161c279307d6ce409e716d00f9758332443ef3a04a7e1d1ec086a20a079172",
       "sources": [
         "design-concepts/simple-turquoise/unified/22-plan-konfliktleri.png",
         "design-concepts/simple-turquoise/unified/22-plan-konfliktleri.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/22-plan-konfliktleri.png": "b3a3a9b8aaf401aad4f87f5a589203cee3ee811e462eb439c6a8261b88336431",
-        "design-concepts/simple-turquoise/unified/22-plan-konfliktleri.html": "a5e3c21d771cf78fd66bde636bb5284ded40dcc25c7fdbbfef3a42f6cf26f162"
+        "design-concepts/simple-turquoise/unified/22-plan-konfliktleri.png": "1b161c279307d6ce409e716d00f9758332443ef3a04a7e1d1ec086a20a079172",
+        "design-concepts/simple-turquoise/unified/22-plan-konfliktleri.html": "00c2e04d7f3d38946ba34d6bb03ef0050f8705cb495dcdc3367325b3fefe45d8"
       }
     },
     {
@@ -8101,14 +8101,14 @@
         "23-C"
       ],
       "comparison": "Compared with completion 23 and 09: explicit recipe association precedes model discrepancy confirmation; user recipe remains authoritative and quarter-batch consumption stays separate.",
-      "sha256": "c5d3676a68d5cf47a19b31ec816776b2d0293d9340016bff2a18def7c10aabe9",
+      "sha256": "ef7c0493a0099759f72282faf6e9dd34b8486cd9eea544e85f3170d2eecd047b",
       "sources": [
         "design-concepts/simple-turquoise/unified/23-foto-deqiqlesdirme.png",
         "design-concepts/simple-turquoise/unified/23-foto-deqiqlesdirme.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/23-foto-deqiqlesdirme.png": "c5d3676a68d5cf47a19b31ec816776b2d0293d9340016bff2a18def7c10aabe9",
-        "design-concepts/simple-turquoise/unified/23-foto-deqiqlesdirme.html": "2c0a15589279e5d07190fb27255e4a0695faac0ca00fcbf686f32579dbdb2b23"
+        "design-concepts/simple-turquoise/unified/23-foto-deqiqlesdirme.png": "ef7c0493a0099759f72282faf6e9dd34b8486cd9eea544e85f3170d2eecd047b",
+        "design-concepts/simple-turquoise/unified/23-foto-deqiqlesdirme.html": "43cbd0a5e8786011bb6332031283137c32b51e12dab679603215eb337ebacb8c"
       }
     },
     {
@@ -8134,14 +8134,14 @@
         "24-C"
       ],
       "comparison": "Compared with completion 24 and 04: purchased-but-removed item retained, empty week and unsent sharing preview distinct; replaced missing art with existing basket. No broken image remains.",
-      "sha256": "89fc7352c785d3611b93da72605cfbc9a249b28fb4486a1849966ddeffa9aedd",
+      "sha256": "1bb8c00caf49ea8366f4e80bddf026bbbc8253f58e81ac797703a1ddda81473a",
       "sources": [
         "design-concepts/simple-turquoise/unified/24-alisveris-hallari.png",
         "design-concepts/simple-turquoise/unified/24-alisveris-hallari.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/24-alisveris-hallari.png": "89fc7352c785d3611b93da72605cfbc9a249b28fb4486a1849966ddeffa9aedd",
-        "design-concepts/simple-turquoise/unified/24-alisveris-hallari.html": "a993a60641e4b9822b287a2977ba120fbdd525a8782f24d35c402e50757fe3bf"
+        "design-concepts/simple-turquoise/unified/24-alisveris-hallari.png": "1bb8c00caf49ea8366f4e80bddf026bbbc8253f58e81ac797703a1ddda81473a",
+        "design-concepts/simple-turquoise/unified/24-alisveris-hallari.html": "bec144a7cdccdb0fee0c3c3b7bda1a4b1eb85f6c3bfdb694cf378443f0ebfc28"
       }
     },
     {
@@ -8169,14 +8169,14 @@
         "25-D"
       ],
       "comparison": "Compared with completion 25 and 02: mismatch error now uses padded common error surface; registration failure, expired link and new password keep persistent labels and return actions.",
-      "sha256": "68748416840f7f432f3e7091ac790f2c0b474db33750fbb0a785135dd59cdda7",
+      "sha256": "ebdb191be1bdd6d1702d82a86a634d96beda5999b8e71bda930dcabf9836491f",
       "sources": [
         "design-concepts/simple-turquoise/unified/25-hesab-formalari.png",
         "design-concepts/simple-turquoise/unified/25-hesab-formalari.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/25-hesab-formalari.png": "68748416840f7f432f3e7091ac790f2c0b474db33750fbb0a785135dd59cdda7",
-        "design-concepts/simple-turquoise/unified/25-hesab-formalari.html": "11c695fb3269910a886a81da1632d456836d0a494727e6bf379bb08efb78ec55"
+        "design-concepts/simple-turquoise/unified/25-hesab-formalari.png": "ebdb191be1bdd6d1702d82a86a634d96beda5999b8e71bda930dcabf9836491f",
+        "design-concepts/simple-turquoise/unified/25-hesab-formalari.html": "3b75eb508d394c6ca3a0c8fbd5b16a25f24cc4d51f8b3609e1d8a5fa2a1f1335"
       }
     },
     {
@@ -8199,14 +8199,14 @@
         "26-B"
       ],
       "comparison": "Compared with completion 26 and 14: FAQ answer and support form use common cards/fields; optional recipe and privacy-limited form content are visible.",
-      "sha256": "43542507cf5a9eb132bcdd743e4c5ae8269b5b261e9f92cef32f66a4fbd76214",
+      "sha256": "1a8c8c91ac95a518a41ff5254d6772a440f0c3bfc35a7b2c42fd93ac6ef1848c",
       "sources": [
         "design-concepts/simple-turquoise/unified/26-komek-formalari.png",
         "design-concepts/simple-turquoise/unified/26-komek-formalari.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/26-komek-formalari.png": "43542507cf5a9eb132bcdd743e4c5ae8269b5b261e9f92cef32f66a4fbd76214",
-        "design-concepts/simple-turquoise/unified/26-komek-formalari.html": "1b11737811882594e06994a47cfd9bfc31704959682eed3891ee592e008fc0b3"
+        "design-concepts/simple-turquoise/unified/26-komek-formalari.png": "1a8c8c91ac95a518a41ff5254d6772a440f0c3bfc35a7b2c42fd93ac6ef1848c",
+        "design-concepts/simple-turquoise/unified/26-komek-formalari.html": "4101789b764cc9bfb9377d837740202961bb1240bcf049a8152e1c44c9571d9e"
       }
     },
     {
@@ -8235,14 +8235,14 @@
         "27-D"
       ],
       "comparison": "Compared with completion 27 and 13: optional 14-day review, empty previous foods, saved recipes and photos remain separate; selected navigation matches each list.",
-      "sha256": "c111e23b115e29b15a4c767769fc1644100cde9c0756baf662e6114edf259b61",
+      "sha256": "cec4d722a8600944fd406403454975e47f7cbb955286f2b5dde6b675e2f16be7",
       "sources": [
         "design-concepts/simple-turquoise/unified/27-baxis-ve-bos-siyahilar.png",
         "design-concepts/simple-turquoise/unified/27-baxis-ve-bos-siyahilar.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/27-baxis-ve-bos-siyahilar.png": "c111e23b115e29b15a4c767769fc1644100cde9c0756baf662e6114edf259b61",
-        "design-concepts/simple-turquoise/unified/27-baxis-ve-bos-siyahilar.html": "60b1c429920e9adefb1a9d880d4f8a7e00a151f447a209b46036877afb0b36d0"
+        "design-concepts/simple-turquoise/unified/27-baxis-ve-bos-siyahilar.png": "cec4d722a8600944fd406403454975e47f7cbb955286f2b5dde6b675e2f16be7",
+        "design-concepts/simple-turquoise/unified/27-baxis-ve-bos-siyahilar.html": "7300d2e6017a351fe8384cb586d25d06423690594dbe315a299271a3ea96c54a"
       }
     },
     {
@@ -8270,14 +8270,14 @@
         "28-C"
       ],
       "comparison": "Compared with completion 28 and D02: partial eaten safeguards, measured 300g/100g basis and unknown cooked-yield cases remain distinct. Units and missing-data text consistent.",
-      "sha256": "2eb62995618381805795449571aec3f7c88a530d990bebdc50a9d8d6100c55cb",
+      "sha256": "2eef80e2dbe13dcc2e6782492a7a2d7773ba46ae12cd2db0d438470dac060ec8",
       "sources": [
         "design-concepts/simple-turquoise/unified/28-vahid-vizual-qaydalar.png",
         "design-concepts/simple-turquoise/unified/28-vahid-vizual-qaydalar.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/28-vahid-vizual-qaydalar.png": "2eb62995618381805795449571aec3f7c88a530d990bebdc50a9d8d6100c55cb",
-        "design-concepts/simple-turquoise/unified/28-vahid-vizual-qaydalar.html": "512143bdc84120552fe77b1659bfd8a7df7baef9f773cbc5a9d3847e27ce4b46"
+        "design-concepts/simple-turquoise/unified/28-vahid-vizual-qaydalar.png": "2eef80e2dbe13dcc2e6782492a7a2d7773ba46ae12cd2db0d438470dac060ec8",
+        "design-concepts/simple-turquoise/unified/28-vahid-vizual-qaydalar.html": "2207eee94ec6cc853e88b1e46b3c9fd4035a98683824058efee026dfdac804cf"
       }
     },
     {
@@ -8306,14 +8306,14 @@
         "29-C"
       ],
       "comparison": "Compared with completion 29 and D02: additional 0.5 intake alone is previewed/saved, prior one serving preserved and totals reach 1.5 servings once; cooked grams absent when unknown.",
-      "sha256": "e68032cf3b6d7e30f0db9610925ea5a6cbe63c71c0ff57c433c1e6a450f203af",
+      "sha256": "d24ba48e72790d7eb90312f06d79d961212539cddcba2468b8d4a36a5047ad12",
       "sources": [
         "design-concepts/simple-turquoise/unified/29-elave-faktiki-porsiya.png",
         "design-concepts/simple-turquoise/unified/29-elave-faktiki-porsiya.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/29-elave-faktiki-porsiya.png": "e68032cf3b6d7e30f0db9610925ea5a6cbe63c71c0ff57c433c1e6a450f203af",
-        "design-concepts/simple-turquoise/unified/29-elave-faktiki-porsiya.html": "eb9c776c7f5e6b46cf2200510e1561c451c8afd634d9cd8cdd17ff48a091cac4"
+        "design-concepts/simple-turquoise/unified/29-elave-faktiki-porsiya.png": "d24ba48e72790d7eb90312f06d79d961212539cddcba2468b8d4a36a5047ad12",
+        "design-concepts/simple-turquoise/unified/29-elave-faktiki-porsiya.html": "0f0d6bf2c0d147220fa553c69144fa7ba582c0d7a3e67ce80891f454ce329f5f"
       }
     },
     {
@@ -8339,14 +8339,14 @@
         "30-C"
       ],
       "comparison": "Compared with completed onboarding and 01: all three errors now use exactly the same full age/height/weight component, inline error, confirmation and optional sex. Long invalid age stays readable.",
-      "sha256": "e2060cb83b7220a4844ad2f35cc965850ca99a6eccfec4dc2cb166497834e971",
+      "sha256": "a5459920c182112778957973b97d281baee5a98a80e983314b674ce1ee2f3ad1",
       "sources": [
         "design-concepts/simple-turquoise/unified/30-onboarding-giris-xetalari.png",
         "design-concepts/simple-turquoise/unified/30-onboarding-giris-xetalari.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/30-onboarding-giris-xetalari.png": "e2060cb83b7220a4844ad2f35cc965850ca99a6eccfec4dc2cb166497834e971",
-        "design-concepts/simple-turquoise/unified/30-onboarding-giris-xetalari.html": "82197c334b51a4a81fb7101d7f807bc4c8c130a594d1080f4b7231d81e7a56bb"
+        "design-concepts/simple-turquoise/unified/30-onboarding-giris-xetalari.png": "a5459920c182112778957973b97d281baee5a98a80e983314b674ce1ee2f3ad1",
+        "design-concepts/simple-turquoise/unified/30-onboarding-giris-xetalari.html": "887ab6b45cfb46eb408b765b7f08792356ab78a2174e75cd7377797d45fc9114"
       }
     },
     {
@@ -8374,14 +8374,14 @@
         "31-C"
       ],
       "comparison": "Compared with completed onboarding: five completed groups and 5/5 summary, explicit unit confirmation and incomplete budget stay separate; no silent conversion, disabled incomplete action.",
-      "sha256": "882b0948fd6f69fe423116f42489a04cec78bc9274976c865c399d4466e0a7e4",
+      "sha256": "5a1d720a7ea82fbf6b5bb936df8a9804154b47e64f6f5a82a7ea40c8da2ad005",
       "sources": [
         "design-concepts/simple-turquoise/unified/31-onboarding-tamamlanma.png",
         "design-concepts/simple-turquoise/unified/31-onboarding-tamamlanma.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/31-onboarding-tamamlanma.png": "882b0948fd6f69fe423116f42489a04cec78bc9274976c865c399d4466e0a7e4",
-        "design-concepts/simple-turquoise/unified/31-onboarding-tamamlanma.html": "a55de88947aaa9bcc2813164690e2c071a6af8f452735dbd5bea4c757912159d"
+        "design-concepts/simple-turquoise/unified/31-onboarding-tamamlanma.png": "5a1d720a7ea82fbf6b5bb936df8a9804154b47e64f6f5a82a7ea40c8da2ad005",
+        "design-concepts/simple-turquoise/unified/31-onboarding-tamamlanma.html": "20cba84afc8015919791b5bb78ed5ac42b58f1d29e3813c2f394a3b93e4bc1d3"
       }
     },
     {
@@ -8407,14 +8407,14 @@
         "32-C"
       ],
       "comparison": "Compared with 01/30: blank/zero/negative, infinite and excessive numeric inputs retain full form and units, inline explanations and disabled Continue. No clipping observed.",
-      "sha256": "d34194fc0327aa71ea8ad88b3a620aa0199489d4d2065b12e3b477e098c775b3",
+      "sha256": "2a82b9902cd7cec6970b7b64e3b98c1b1de025116420c2f5853424361c047ed8",
       "sources": [
         "design-concepts/simple-turquoise/unified/32-olcu-giris-serhedleri.png",
         "design-concepts/simple-turquoise/unified/32-olcu-giris-serhedleri.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/32-olcu-giris-serhedleri.png": "d34194fc0327aa71ea8ad88b3a620aa0199489d4d2065b12e3b477e098c775b3",
-        "design-concepts/simple-turquoise/unified/32-olcu-giris-serhedleri.html": "3b58baae4e055375767418d7a5dcb20c536dbcfa8eb63409bf83ea67916a8905"
+        "design-concepts/simple-turquoise/unified/32-olcu-giris-serhedleri.png": "2a82b9902cd7cec6970b7b64e3b98c1b1de025116420c2f5853424361c047ed8",
+        "design-concepts/simple-turquoise/unified/32-olcu-giris-serhedleri.html": "53595bd762022dcddfa3262f7c5f49459b68b42a6101ed7d1a1db876a307e5bc"
       }
     },
     {
@@ -8441,14 +8441,14 @@
         "33-C"
       ],
       "comparison": "Compared with current completion/31: unanswered allergy error now sits under the same Yes/No question; Yes enables multiple/custom allergy, No excludes allergens. Invalid budget/person count retains inline recovery and other answers.",
-      "sha256": "484871e7dbafba890b50780aab056ad320c0e1e84ea3b67a0d25d02703934f66",
+      "sha256": "8212cfad92271439fc84c72f2e47b87f63cbf8434cef338bda0a5b59ceae522f",
       "sources": [
         "design-concepts/simple-turquoise/unified/33-allergiya-ve-budce-xetalari.png",
         "design-concepts/simple-turquoise/unified/33-allergiya-ve-budce-xetalari.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/33-allergiya-ve-budce-xetalari.png": "484871e7dbafba890b50780aab056ad320c0e1e84ea3b67a0d25d02703934f66",
-        "design-concepts/simple-turquoise/unified/33-allergiya-ve-budce-xetalari.html": "a1cb885059e606b1d0b4b25ae4cdc20e96a5180b77e6cae2e296339165555339"
+        "design-concepts/simple-turquoise/unified/33-allergiya-ve-budce-xetalari.png": "8212cfad92271439fc84c72f2e47b87f63cbf8434cef338bda0a5b59ceae522f",
+        "design-concepts/simple-turquoise/unified/33-allergiya-ve-budce-xetalari.html": "9af54326799b62c3822b30fb63ea37b0af46bfef2ad0d0fbe4efe20e5c7ce1e5"
       }
     },
     {
@@ -8475,14 +8475,14 @@
         "34-C"
       ],
       "comparison": "Compared with original ingredient-error sheet/07: empty recipe offers add/undo; blank and negative are inline; zero has separate removal confirmation before changing recipe.",
-      "sha256": "5a6f7bd6d142cc035938934763fa3ea57c40ccabd94db98ca74ed260c22051c9",
+      "sha256": "237078a7db6c817825aeb58f7204bb396ec30cea66e116be63cf9f549d29c142",
       "sources": [
         "design-concepts/simple-turquoise/unified/34-resept-redaktoru-xetalar.png",
         "design-concepts/simple-turquoise/unified/34-resept-redaktoru-xetalar.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/34-resept-redaktoru-xetalar.png": "5a6f7bd6d142cc035938934763fa3ea57c40ccabd94db98ca74ed260c22051c9",
-        "design-concepts/simple-turquoise/unified/34-resept-redaktoru-xetalar.html": "12722b2fc55188f81431daace09d89ed6528cded253b8bb26c19a249270b4a35"
+        "design-concepts/simple-turquoise/unified/34-resept-redaktoru-xetalar.png": "237078a7db6c817825aeb58f7204bb396ec30cea66e116be63cf9f549d29c142",
+        "design-concepts/simple-turquoise/unified/34-resept-redaktoru-xetalar.html": "65f10aa51d93665acd20dd51be8bc42568754b975d8cd1d0120c66d441a81654"
       }
     },
     {
@@ -8512,14 +8512,14 @@
         "35-D"
       ],
       "comparison": "Compared with original ingredient-error sheet/07: allergy conflict, unknown allergens, nonfinite quantities and unsupported spoon conversion are separate; safety blocks have recovery actions.",
-      "sha256": "261f2bfe05dd011db24917158cb98cda2e232cc87da6cc87e699d277a1b19025",
+      "sha256": "553c4581c1a64b9f55bbdbe8f0e18a7c3aa45fd9f64cefc576f881a0cd6200c4",
       "sources": [
         "design-concepts/simple-turquoise/unified/35-resept-allergen-ve-vahid.png",
         "design-concepts/simple-turquoise/unified/35-resept-allergen-ve-vahid.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/35-resept-allergen-ve-vahid.png": "261f2bfe05dd011db24917158cb98cda2e232cc87da6cc87e699d277a1b19025",
-        "design-concepts/simple-turquoise/unified/35-resept-allergen-ve-vahid.html": "3ded06c785aa8bbf8ebc61ca342d669a6d14056f71f85450371dcbc2968c8d9d"
+        "design-concepts/simple-turquoise/unified/35-resept-allergen-ve-vahid.png": "553c4581c1a64b9f55bbdbe8f0e18a7c3aa45fd9f64cefc576f881a0cd6200c4",
+        "design-concepts/simple-turquoise/unified/35-resept-allergen-ve-vahid.html": "336b21d63b1e02ce3b1d3585ae2566d7324ac35bcb866040e917004440f7404e"
       }
     },
     {
@@ -8550,14 +8550,14 @@
         "36-C"
       ],
       "comparison": "Compared with 08/20: both dates have expanded actual/remaining/projected energy and macro comparisons; swap versus empty-slot move and saved result remain distinct. Synthetic totals conserve weekly intake.",
-      "sha256": "94b717f637fe856dc6c11c8633cf10bb4b0e7858ce10e9e947fd7d0f1f00a3b1",
+      "sha256": "2931c566688d83590c85fc77bc0914c3e752359a6e352680843e291646689e3d",
       "sources": [
         "design-concepts/simple-turquoise/unified/36-iki-gun-ve-kocurme-onbaxis.png",
         "design-concepts/simple-turquoise/unified/36-iki-gun-ve-kocurme-onbaxis.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/36-iki-gun-ve-kocurme-onbaxis.png": "94b717f637fe856dc6c11c8633cf10bb4b0e7858ce10e9e947fd7d0f1f00a3b1",
-        "design-concepts/simple-turquoise/unified/36-iki-gun-ve-kocurme-onbaxis.html": "390240929fb8dc58cc65f40437cb84936e481c32649bb69d8c5cb1b75505e73c"
+        "design-concepts/simple-turquoise/unified/36-iki-gun-ve-kocurme-onbaxis.png": "2931c566688d83590c85fc77bc0914c3e752359a6e352680843e291646689e3d",
+        "design-concepts/simple-turquoise/unified/36-iki-gun-ve-kocurme-onbaxis.html": "485d61e4ef1e308ba0da12e3dd76630669c0492268d711a24a2a1ac4155a8aaf"
       }
     },
     {
@@ -8584,14 +8584,14 @@
         "37-C"
       ],
       "comparison": "Compared with 11/22: undo preflight, intervening plan conflict and success are shown as separate states; diary snapshots are never silently deleted.",
-      "sha256": "3e5052e93e3e434e07897370578986812f6903014498c4ddfd1c750940ccb24c",
+      "sha256": "6a7a2c948066a29474e73182b7f3de5b35e6841aa7bf8b8b2bc33ee2f0f591ec",
       "sources": [
         "design-concepts/simple-turquoise/unified/37-geri-qaytarma-netice.png",
         "design-concepts/simple-turquoise/unified/37-geri-qaytarma-netice.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/37-geri-qaytarma-netice.png": "3e5052e93e3e434e07897370578986812f6903014498c4ddfd1c750940ccb24c",
-        "design-concepts/simple-turquoise/unified/37-geri-qaytarma-netice.html": "adaf7b92fb82afe1dcc0312805f3920d6fa2c343f8a30652539f29703a8998bc"
+        "design-concepts/simple-turquoise/unified/37-geri-qaytarma-netice.png": "6a7a2c948066a29474e73182b7f3de5b35e6841aa7bf8b8b2bc33ee2f0f591ec",
+        "design-concepts/simple-turquoise/unified/37-geri-qaytarma-netice.html": "cbb095fa439fd821ffd4edfb7a0732702c3b6708d4aef7914d04362d8af4b1f8"
       }
     },
     {
@@ -8618,14 +8618,14 @@
         "38-C"
       ],
       "comparison": "Compared with 03/09: camera refusal retains search fallback, sending requires real privacy information, oil addition asks whether extra so original oil cannot be double counted.",
-      "sha256": "4cc14364434e5f36edc73789c38d0ed3ddfba2b0585761255caf272a08f37c9d",
+      "sha256": "b5377d36d7fe43e23ff8b6c12cff03f5ca6cb86674e7a2778f2fdd3483698f80",
       "sources": [
         "design-concepts/simple-turquoise/unified/38-foto-icaze-ve-yag.png",
         "design-concepts/simple-turquoise/unified/38-foto-icaze-ve-yag.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/38-foto-icaze-ve-yag.png": "4cc14364434e5f36edc73789c38d0ed3ddfba2b0585761255caf272a08f37c9d",
-        "design-concepts/simple-turquoise/unified/38-foto-icaze-ve-yag.html": "e4a93d041e89f47d0c7b93683b69998a53752256a81c1c72ba687918c7860e08"
+        "design-concepts/simple-turquoise/unified/38-foto-icaze-ve-yag.png": "b5377d36d7fe43e23ff8b6c12cff03f5ca6cb86674e7a2778f2fdd3483698f80",
+        "design-concepts/simple-turquoise/unified/38-foto-icaze-ve-yag.html": "e9ccdd412e7c38c7b386e22b1de54e113fde6b659af7a8b3b0cff39f3132c28c"
       }
     },
     {
@@ -8653,14 +8653,14 @@
         "39-D"
       ],
       "comparison": "Compared with 02/25: inline email error, generic credential error, provider cancellation and recovery send failure retain inputs/back path; no account enumeration promise.",
-      "sha256": "94b84191b3c21f63af99b64eefde618cc2e8ea70ff66f6d91de033115e6adc9c",
+      "sha256": "d8ac7dad0e41847cbbc1a0f601f0f53b3be551125cc4441c9c4a829b39a8ad82",
       "sources": [
         "design-concepts/simple-turquoise/unified/39-hesab-forma-xetalari.png",
         "design-concepts/simple-turquoise/unified/39-hesab-forma-xetalari.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/39-hesab-forma-xetalari.png": "94b84191b3c21f63af99b64eefde618cc2e8ea70ff66f6d91de033115e6adc9c",
-        "design-concepts/simple-turquoise/unified/39-hesab-forma-xetalari.html": "843c0297a5e7555c49cc54cd533ef390d55d7a01114a79be18dda4ebf8c1fd55"
+        "design-concepts/simple-turquoise/unified/39-hesab-forma-xetalari.png": "d8ac7dad0e41847cbbc1a0f601f0f53b3be551125cc4441c9c4a829b39a8ad82",
+        "design-concepts/simple-turquoise/unified/39-hesab-forma-xetalari.html": "d75412ae7e02b02cebf1e26cef6b1e75a225070f4ee8493768bf8d57a6df80d7"
       }
     },
     {
@@ -8688,14 +8688,14 @@
         "40-D"
       ],
       "comparison": "Compared with 25/26: password requirement/mismatch, saved password, support inline validation and submitted result use common hierarchy and visible return actions.",
-      "sha256": "8da8568eb8c8e7bfa961604ab7a80a17904e211ff6efe9bdccca753c525954a2",
+      "sha256": "567bd16e6197f58016ebea30140bc39be90d337e12ca5cfe6f636f36df2a238e",
       "sources": [
         "design-concepts/simple-turquoise/unified/40-yeni-sifre-ve-destek.png",
         "design-concepts/simple-turquoise/unified/40-yeni-sifre-ve-destek.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/40-yeni-sifre-ve-destek.png": "8da8568eb8c8e7bfa961604ab7a80a17904e211ff6efe9bdccca753c525954a2",
-        "design-concepts/simple-turquoise/unified/40-yeni-sifre-ve-destek.html": "8d7d6730687aa2e533f5ac39ea09f906e5bafa2dd3bf994840b9eb00d4c8b2ff"
+        "design-concepts/simple-turquoise/unified/40-yeni-sifre-ve-destek.png": "567bd16e6197f58016ebea30140bc39be90d337e12ca5cfe6f636f36df2a238e",
+        "design-concepts/simple-turquoise/unified/40-yeni-sifre-ve-destek.html": "d36bc87965bba43e095184bce352559211c2d6dcf71082fccc844ed5b7f40001"
       }
     },
     {
@@ -8723,14 +8723,14 @@
         "41-D"
       ],
       "comparison": "Compared with 05 and plan 19.16: privacy/export/logout/delete have separate screens; unsynced data and destructive confirmation are explicit, actual retention remains a documented integration dependency.",
-      "sha256": "27e3869f78d0cced96e2f2d43aedcecf49864949550f2ae85425ebdb4f8e69df",
+      "sha256": "cb1c3a5930cce9d87ee102bea0cdd5344b439c9955907cefc1837d805d8acdc1",
       "sources": [
         "design-concepts/simple-turquoise/unified/41-hesab-mexfilik-idare.png",
         "design-concepts/simple-turquoise/unified/41-hesab-mexfilik-idare.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/41-hesab-mexfilik-idare.png": "27e3869f78d0cced96e2f2d43aedcecf49864949550f2ae85425ebdb4f8e69df",
-        "design-concepts/simple-turquoise/unified/41-hesab-mexfilik-idare.html": "31de23b088d3ac47d5fea067b5d8dd768e2e5677b81d03d32d93fcf8506bd88b"
+        "design-concepts/simple-turquoise/unified/41-hesab-mexfilik-idare.png": "cb1c3a5930cce9d87ee102bea0cdd5344b439c9955907cefc1837d805d8acdc1",
+        "design-concepts/simple-turquoise/unified/41-hesab-mexfilik-idare.html": "4303d06b297d7d7a8053b023983ba91f5aab62c3ffde2de990dcc1843acf1a54"
       }
     },
     {
@@ -8757,14 +8757,14 @@
         "42-D"
       ],
       "comparison": "Compared with 06: active, pending, failed and restore request states use same shell; store data is required and existing records remain. Actual entitlement/runtime is not claimed.",
-      "sha256": "2f962a37abb754690baf90e1fe61afaa09acf6796cf3d0b5bfa35d270c2ab4e5",
+      "sha256": "1debd62cd70e08bc1bff86f9097eb9cf083c6d61cdf16d8327a30816f27194d5",
       "sources": [
         "design-concepts/simple-turquoise/unified/42-abunelik-statuslari.png",
         "design-concepts/simple-turquoise/unified/42-abunelik-statuslari.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/42-abunelik-statuslari.png": "2f962a37abb754690baf90e1fe61afaa09acf6796cf3d0b5bfa35d270c2ab4e5",
-        "design-concepts/simple-turquoise/unified/42-abunelik-statuslari.html": "cdf2ee9e4b641952aa37d68cdd039539199fa3c9ff11c265efab1f358d16c326"
+        "design-concepts/simple-turquoise/unified/42-abunelik-statuslari.png": "1debd62cd70e08bc1bff86f9097eb9cf083c6d61cdf16d8327a30816f27194d5",
+        "design-concepts/simple-turquoise/unified/42-abunelik-statuslari.html": "694b228dc01f824ccb17d6088dad2c92f4cd5c540ed1fc8cbc4760d5cd864ece"
       }
     },
     {
@@ -8793,14 +8793,14 @@
         "43-C"
       ],
       "comparison": "Compared with D02: manual original grams preserve unknown nutrients, previous entry multiplier is not grams, measured 1200g batch enables correct 150g/eighth-batch input.",
-      "sha256": "cbeb2106786f7cda1f78b0f3e53385f751a85fbcd43bd62a6c85da26778d47a0",
+      "sha256": "a0a8d52806e35fb66e005df3fecf21aeba0f07358adc10654217e95cf8a4aaca",
       "sources": [
         "design-concepts/simple-turquoise/unified/43-el-ile-ve-tarixce.png",
         "design-concepts/simple-turquoise/unified/43-el-ile-ve-tarixce.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/43-el-ile-ve-tarixce.png": "cbeb2106786f7cda1f78b0f3e53385f751a85fbcd43bd62a6c85da26778d47a0",
-        "design-concepts/simple-turquoise/unified/43-el-ile-ve-tarixce.html": "124dbd9904f9cfd34adc2dc0bb795d1f9928c1e7358465fbb3bdfd4026ebd3cf"
+        "design-concepts/simple-turquoise/unified/43-el-ile-ve-tarixce.png": "a0a8d52806e35fb66e005df3fecf21aeba0f07358adc10654217e95cf8a4aaca",
+        "design-concepts/simple-turquoise/unified/43-el-ile-ve-tarixce.html": "4dbed11379247978e47de26cecb9a8b443f23a0d5c640dbc1805ab927fab421f"
       }
     },
     {
@@ -8826,14 +8826,14 @@
         "44-C"
       ],
       "comparison": "Compared with 05/11: diary edit/delete and same-date weight collision each have explicit preview/confirmation path; no silent duplicate or plan-history rewrite.",
-      "sha256": "ea77ff705022ede56abc29f3b0877e5f5adad12880e931a21da2ab64ef1ae961",
+      "sha256": "fc546ad9791662a9ec0cddbd57a2566d867ae4aa957d437fca2fd470e103f81a",
       "sources": [
         "design-concepts/simple-turquoise/unified/44-qeyd-ve-ceki-duzelis.png",
         "design-concepts/simple-turquoise/unified/44-qeyd-ve-ceki-duzelis.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/44-qeyd-ve-ceki-duzelis.png": "ea77ff705022ede56abc29f3b0877e5f5adad12880e931a21da2ab64ef1ae961",
-        "design-concepts/simple-turquoise/unified/44-qeyd-ve-ceki-duzelis.html": "67b3ef2932ca21ec7aee17d112d5efafa516c0d183b4387c8d6f88b9e444f030"
+        "design-concepts/simple-turquoise/unified/44-qeyd-ve-ceki-duzelis.png": "fc546ad9791662a9ec0cddbd57a2566d867ae4aa957d437fca2fd470e103f81a",
+        "design-concepts/simple-turquoise/unified/44-qeyd-ve-ceki-duzelis.html": "a174cb45a554648746fc3f8d8df90fc709e04fcca37010a0776765e69b0a115c"
       }
     },
     {
@@ -8860,14 +8860,14 @@
         "45-C"
       ],
       "comparison": "Compared with 03/06/13: empty search, transport failure and no feasible plan have separate actionable states; no fabricated success or relaxed allergy gate.",
-      "sha256": "b74e1ba1a42011b34d5fab1bebe4a256622ea1d59633bfd75f264ed1a4e1cf3a",
+      "sha256": "5aa3f7c9d042cd2e2139f9c860d3b6934359cfed5d58b28b4ce74dd248fa1577",
       "sources": [
         "design-concepts/simple-turquoise/unified/45-qosulma-ve-axtaris.png",
         "design-concepts/simple-turquoise/unified/45-qosulma-ve-axtaris.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/45-qosulma-ve-axtaris.png": "b74e1ba1a42011b34d5fab1bebe4a256622ea1d59633bfd75f264ed1a4e1cf3a",
-        "design-concepts/simple-turquoise/unified/45-qosulma-ve-axtaris.html": "15daf1e89cb9269ace9bf2c927dfa321e8d219290f8b30712339ab5c68b66f83"
+        "design-concepts/simple-turquoise/unified/45-qosulma-ve-axtaris.png": "5aa3f7c9d042cd2e2139f9c860d3b6934359cfed5d58b28b4ce74dd248fa1577",
+        "design-concepts/simple-turquoise/unified/45-qosulma-ve-axtaris.html": "b89cca8fb9dc65e2041087d6aac2164212bdd3970552733fbd7c9ec0a9c5ec46"
       }
     },
     {
@@ -8894,14 +8894,14 @@
         "46-C"
       ],
       "comparison": "Compared with 26/27/30: support send failure keeps actual entered form; optional 14-day reminder does not change target, invalid fractional age retains complete form and inline correction.",
-      "sha256": "63d58fd2cd6b4c3bb4082d83d832c2007fc973880efa830c70a15ea9c1a8c25c",
+      "sha256": "8859e9dca62a57c7016ad3e5039bac669e635ffee872c8b0b9d419d3f41a60e3",
       "sources": [
         "design-concepts/simple-turquoise/unified/46-destek-ve-xatirlatma.png",
         "design-concepts/simple-turquoise/unified/46-destek-ve-xatirlatma.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/46-destek-ve-xatirlatma.png": "63d58fd2cd6b4c3bb4082d83d832c2007fc973880efa830c70a15ea9c1a8c25c",
-        "design-concepts/simple-turquoise/unified/46-destek-ve-xatirlatma.html": "f2748f39be6f5d8abe7b72e6b78c5010643420aa67ebc8626d9ea5924f44ddd1"
+        "design-concepts/simple-turquoise/unified/46-destek-ve-xatirlatma.png": "8859e9dca62a57c7016ad3e5039bac669e635ffee872c8b0b9d419d3f41a60e3",
+        "design-concepts/simple-turquoise/unified/46-destek-ve-xatirlatma.html": "e5d22f2ba015aad781351c8850d6c37ec74e24e183401eb5ecfeced423da4967"
       }
     },
     {
@@ -8930,14 +8930,14 @@
         "47-D"
       ],
       "comparison": "Opened all four panels and original completion/31. Preserved unanswered initial question/list closed, Continue error, Yes with all five illustrated multi-select allergens/other path, and No with exclusive none. Shared 4/5 progress, fields and actions match the unified set; all text visible.",
-      "sha256": "4bfecb40cefb25c1c164b643530c05237d0063a5a0d40d71b8dc1d3063fc5f60",
+      "sha256": "0ff226bc233f3f3136fc224463f7bc8948c5d8b8af568511c4baffeedd738ada",
       "sources": [
         "design-concepts/simple-turquoise/unified/47-allergiya-ilkin-sual.png",
         "design-concepts/simple-turquoise/unified/47-allergiya-ilkin-sual.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/47-allergiya-ilkin-sual.png": "4bfecb40cefb25c1c164b643530c05237d0063a5a0d40d71b8dc1d3063fc5f60",
-        "design-concepts/simple-turquoise/unified/47-allergiya-ilkin-sual.html": "a9922ce6d208cfd1328541db7ed2760fcbd25068682ff44601b5ca4858d646d7"
+        "design-concepts/simple-turquoise/unified/47-allergiya-ilkin-sual.png": "0ff226bc233f3f3136fc224463f7bc8948c5d8b8af568511c4baffeedd738ada",
+        "design-concepts/simple-turquoise/unified/47-allergiya-ilkin-sual.html": "5f079db968439f0527942c62c3ab6b948690956c337712eac4e7f87147573059"
       }
     },
     {
@@ -8962,14 +8962,14 @@
         "48-B"
       ],
       "comparison": "Opened both panels and original completion/32. Ready screen retains five completed groups, labelled sample plan and Başla/Cavablarıma bax. Today is active with three planned slots and zero logged meals; no calorie target invented. Same frame, cards, imagery and actions; no clipping.",
-      "sha256": "8f116f955d72c2f883f11ef3855ff7f35c2126af20a9a2bf8675218a088c25fe",
+      "sha256": "9edec65bb420a5696b24ef10be8e11f8bd85aabbff6d70296de3bfd53e7ea8cd",
       "sources": [
         "design-concepts/simple-turquoise/unified/48-plan-hazirdir-basla.png",
         "design-concepts/simple-turquoise/unified/48-plan-hazirdir-basla.html"
       ],
       "source_hashes": {
-        "design-concepts/simple-turquoise/unified/48-plan-hazirdir-basla.png": "8f116f955d72c2f883f11ef3855ff7f35c2126af20a9a2bf8675218a088c25fe",
-        "design-concepts/simple-turquoise/unified/48-plan-hazirdir-basla.html": "7af349a047ce3d447bb0439e85e19d38cf951338634404afa1557053658a1199"
+        "design-concepts/simple-turquoise/unified/48-plan-hazirdir-basla.png": "9edec65bb420a5696b24ef10be8e11f8bd85aabbff6d70296de3bfd53e7ea8cd",
+        "design-concepts/simple-turquoise/unified/48-plan-hazirdir-basla.html": "30828e9082a7bd4c2c4afa44d05ffe7b81331b0e29fa4378e9977706c94f5886"
       }
     }
   ]
