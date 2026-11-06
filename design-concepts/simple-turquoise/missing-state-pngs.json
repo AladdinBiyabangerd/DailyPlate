@@ -40,13 +40,49 @@
       ],
       "limitations": [
         "Draft AZ concept; no implementation or user design approval asserted.",
-        "The other three category help panels are not included in this first sheet.",
+        "Remaining category help concepts are in set 16; native behavior and selected-state variants remain unverified.",
         "Missing sex, health exclusions and model-out-of-scope need separate no-target designs.",
         "Native AZ/EN/RU at 100/150 percent, scrolling, touch targets and TalkBack remain unverified.",
         "The original 17-PNG audit is retained; these concepts do not close its runtime gaps."
       ],
       "sha256": "85dd1ccd4eab431af2f6190c34e7e88521b559855c4ce305f3b6277a47ecf4aa",
       "review_status": "agent-inspected-draft-user-approval-pending"
+    },
+    {
+      "id": "16-activity-help",
+      "image": "design-concepts/simple-turquoise/16-aktivlik-izahlari.png",
+      "requirements": [
+        "26.4",
+        "26.5"
+      ],
+      "gap_groups": [
+        "activity"
+      ],
+      "panels": [
+        {
+          "id": "16-A",
+          "state": "inactive-help",
+          "description": "Ordinary daily activity, approximately 30 min walking and 90 min light/moderate housework."
+        },
+        {
+          "id": "16-B",
+          "state": "active-help",
+          "description": "Additional 30–50 min walking at 5–7 km/h, 45 min moderate cycling and 40 min doubles tennis."
+        },
+        {
+          "id": "16-C",
+          "state": "very-active-help",
+          "description": "Additional 45 min moderate cycling, 25 min running at 10 km/h and 60 min doubles tennis."
+        }
+      ],
+      "limitations": [
+        "Draft AZ concepts; not user-approved or runtime acceptance.",
+        "Selected states, native AZ/EN/RU at 100/150%, pixel contrast, touch targets and TalkBack remain unverified.",
+        "Other missing-state groups and inherited runtime visual debt remain open."
+      ],
+      "sha256": "a50993a8ee4c180d469258ca214c9f6e25ab236b4a72cee9f6da188e57d042eb",
+      "review_status": "agent-inspected-draft-user-approval-pending",
+      "comparison": "Opened final corrected PNG and 15/01 references. Three full panels preserve turquoise background, white cards, friendly illustrations, peach disclaimer and primary/secondary hierarchy. Read all AZ copy: inactive 30/90 minutes; active 30–50 at 5–7 km/h plus 45 cycling and 40 doubles tennis; very-active 45 cycling, 25 at 10 km/h and 60 doubles tennis. Repeated conjunction corrected. No clipping observed. All three disclaimers and confirmation/other/uncertain actions visible. Pixel contrast, native accessibility/localization and user approval remain unverified."
     }
   ]
 }

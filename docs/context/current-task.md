@@ -1,41 +1,38 @@
-# Current task — missing-state PNG designs, first unit
+# Current task — missing-state PNG designs, activity help unit
 
 ## Completed
-- Previous map: 255 numbered plan items + T01–T19 = 274 rows, 51 missing-state groups. Original 17-PNG inventory remains unchanged.
-- First new design sheet generated with built-in image_gen: 15-aktivlik-ve-hedefsiz-davam.png, four full mobile panels.
-- Panels: four unselected activity options; low_active example/help; reconfirm old three-choice answer; uncertain activity to no-target diary.
-- Generated image opened and compared to 01-baslangic.png. Copy is legible, no automatic target/selection fabricated. Draft proposal, not user-approved or runtime accepted.
-- Exact prompt, source requirements, panel/state index, original image hash and inspection notes saved.
+- Set 16: 16-aktivlik-izahlari.png, three full AZ panels: inactive, active, very_active help.
+- Together with 15-B low_active, all four activity category explanation concepts now exist.
+- Canonical research-data.json §26.4–26.5 amounts preserved; disclaimer and explicit confirmation/other/uncertain paths on each panel.
+- Opened final corrected PNG and 15/01 style references; removed generated duplicate conjunction. Prompt, hash and inspection recorded in proposal metadata.
 
 ## Current state
-- Branch docs/missing-png-activity; read Git and .local-ci/logs/latest.json for subsequent commit/finish result.
-- Before this unit, main d2d4194 passed technical CI (236 JVM tests, lint, compilation, data/export/token checks) but inherited standalone-demo visual gate was pending.
-- Application code, canonical nutrition plan and existing PNG assets unchanged. No APK created.
+- Task branch docs/activity-help-pngs; inspect Git and .local-ci/logs/latest.json for final commit/merge result.
+- Before this unit main 01f1377 had technical CI passed, inherited standalone-demo visual acceptance pending. Do not bless this debt using concept images.
+- No application or canonical plan changes. No APK created. Original 17-PNG map remains historical audit.
 
 ## Decisions
-- Follow existing 00/01 style and named tokens. New file is a sibling concept, never an overwritten reference or app screenshot.
-- Canonical sections 26.4–26.6 supply four activity codes and low_active example; uncertainty does not block diary use or fabricate an automatic target.
-- The activity example is not prescribed exercise; old three-choice answer is not silently migrated.
-- Keep new design_proposals metadata separate from native surface/case acceptance in visual-review-plan.json. Do not use mockups as runtime evidence or approve old demo debt.
+- New sibling concept only; never overwrite approved references or treat mockups as native screenshots.
+- Examples are daily-activity comparisons, never exercise prescriptions or equivalent OR alternatives.
+- Metadata stays in design_proposals, separate from native surface acceptance.
 
 ## Remaining work
-- Other three activity help panels; selected-option and full accessibility/localization variants.
-- Separate no-target designs for missing sex, health exclusion, model scope, energy floor and macro infeasibility.
-- Remaining map gaps: inputs/health/allergen/budget, generator results, search/manual/history, photo, edits, shopping, progress/reminders, auth/sync/privacy/billing, etc. First sheet does not close all 51 groups.
-- Native AZ/EN/RU x 100/150%, pixel contrast, touch targets, device/TalkBack, implementation and user design approval remain unverified.
-- Preserve unmerged fix/mock-existing-menu (7fa11b6). Its default demo text differs from current main's explicit values-az; reconcile localized resources if that branch is later merged.
+- Selected-option and native accessibility/localization variants.
+- Next concept unit: separate no-target reasons for missing sex, health exclusion, model scope, energy floor and macro infeasibility.
+- Other map gaps remain: inputs/health/allergen/budget, generator, search/manual/history, photo, edits, shopping, progress/reminders, auth/sync/privacy/billing.
+- User design approval, exact raster contrast, native AZ/EN/RU × 100/150%, device/TalkBack and implementation unverified.
+- Preserve unmerged fix/mock-existing-menu (7fa11b6); reconcile default versus values-az if later merged.
 
 ## Relevant files
-- docs/qa/design-requirement-map.{md,json}; planning/research-data.json
-- design-concepts/simple-turquoise/15-aktivlik-ve-hedefsiz-davam.png
-- design-concepts/simple-turquoise/{15-activity-prompt.txt,missing-state-png-prompts.txt,missing-state-pngs.json}
+- docs/qa/design-requirement-map.json; planning/research-data.json; planning/nutrition-science-implementation-plan.txt
+- design-concepts/simple-turquoise/16-aktivlik-izahlari.png, 16-activity-help-prompt.txt, missing-state-pngs.json, missing-state-png-prompts.txt
 - docs/qa/visual-review-plan.json (design_proposals); docs/qa/design-discrepancies.md
-- design-concepts/tokens.css; simple-turquoise implementation/new-flows/ui-extension guides
+- design-concepts/tokens.css and simple-turquoise style guides, 00/01/15 references
 
 ## Checks performed
-- Read canonical NP-04/05/06/08 and style guides/token file; opened reference and generated PNG.
-- Checked four visible panels, wording, absent fabricated calorie target and matching component hierarchy.
-- Branch CI/tests not run; mandatory checks only follow merge through finish. Read latest CI for final technical result.
+- Read canonical NP-04/05/06 and requirement map; visually inspected all three final panels against references.
+- Token contrast: text/surface 12.70, muted/bg 5.04, white/primary 4.71; these do not certify generated pixel contrast.
+- Mandatory technical CI only after local merge through finish; see latest log for outcome. Runtime acceptance remains separate.
 
 ## Exact next step
-- Inspect latest Git/CI, then continue in a new chat with the remaining activity-help panels and no-target reasons, reading this context and the map. Do not claim all missing PNGs or full visual acceptance are finished.
+- In a new chat inspect latest Git/CI, read the map and canonical no-target failure requirements, then prepare the no-target reason concept unit. Do not claim all missing PNGs or runtime visual acceptance complete.
