@@ -1,0 +1,16 @@
+İNQREDİYENT REDAKTORU — XƏTA HALLARI
+
+Status: AZ dizayn eskizi; tətbiq davranışı və istifadəçi dizayn təsdiqi deyil.
+Mənbə: bu chatdə built-in image_gen ilə yaradılmış beş panelli PNG, dəyişdirilmədən köçürülüb.
+İstinad: 07-inqrediyent-redaktesi.png; rəng və aralıqlar: ../tokens.css.
+Tələblər: planning/meal-customization-requirements.txt §§1,5,7 və T11; məhsul planı §16.
+
+01 — Bütün inqrediyentlər silinib: boş resept saxlanmır; əlavə et və son silinməni geri qaytar.
+02 — Boş və mənfi miqdar: sahə yanında səbəb; düzəlişədək davam etmək bağlıdır. 0 q ayrıca çıxarma əməliyyatıdır.
+03 — Sıfır: kökü çıxarma təsdiqi və miqdara geri qayıtmaq.
+04 — Allergen konflikti: fıstıq allergiyası; plana tətbiq bağlıdır; məhsulu çıxar və ya dəyiş. Faktiki yemək qeydi ayrıca qalır.
+05 — Allergen məlumatı naməlumdur: uyğunluq təsdiqlənmir; başqa məhsul seç və ya sousu çıxar.
+
+Açıq işlər: NaN, sonsuz və həddən artıq miqdar, olmayan vahid çevirməsi, Digər ərzaqlar genişlənməsi; native AZ/EN/RU × 100/150%, klaviatura, fokus, TalkBack və toxunma ölçüləri.
+Rasterdə miqdar xətaları üçün qırmızı vurğu var; tokens.css-də ayrıca error tokeni yoxdur. Bu rəng tətbiq üçün təsdiqlənmiş token sayılmır.
+Yoxlama: bütün beş panel və 07 istinadı açılıb müqayisə edilib; mətnlər və düymələr görünür, kəsilmə müşahidə olunmayıb. Raster kontrastı və native davranış təsdiqlənməyib.

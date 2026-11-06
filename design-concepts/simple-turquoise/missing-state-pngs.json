@@ -151,6 +151,50 @@
         "Native AZ/EN/RU 100/150%, pixel contrast, device and TalkBack unverified.",
         "Inherited native acceptance debt remains open; expert-target entry form/provenance and reason subvariants remain separate work."
       ]
+    },
+    {
+      "id": "24-ingredient-editor-errors",
+      "image": "design-concepts/simple-turquoise/24-inqrediyent-redaktoru-xetalar.png",
+      "requirements": [
+        "16.1",
+        "16.2",
+        "16.9"
+      ],
+      "gap_groups": [
+        "editor",
+        "allergen"
+      ],
+      "panels": [
+        {
+          "id": "24-01",
+          "state": "empty-recipe"
+        },
+        {
+          "id": "24-02",
+          "state": "blank-negative-quantity"
+        },
+        {
+          "id": "24-03",
+          "state": "zero-removal-confirmation"
+        },
+        {
+          "id": "24-04",
+          "state": "allergen-conflict"
+        },
+        {
+          "id": "24-05",
+          "state": "unknown-allergen"
+        }
+      ],
+      "sha256": "3c7f72bdbee795e64b27c9eaaf41a731f35621416d04f98ea5fa74ccbd49538a",
+      "review_status": "agent-inspected-draft-user-approval-pending",
+      "comparison": "Opened all five AZ panels and 07 ingredient-editor reference. Pale turquoise background, white rounded cards, food cutouts, dark headings and teal actions preserve the reference direction. Empty recipe blocks saving and offers add/undo; blank and negative inputs have inline explanations; zero has a separate removal confirmation; allergen conflict blocks plan application while actual logging remains separate; unknown allergen does not claim safety. All labels/actions visible without observed clipping. Raster red error accent has no existing token and is not approved for implementation. Native behavior, pixel contrast, localization/accessibility and user approval unverified.",
+      "limitations": [
+        "AZ concept only; no runtime or user design acceptance.",
+        "NaN, infinite/excessive quantity, missing unit conversion and expanded other-food controls remain open.",
+        "Native AZ/EN/RU at 100/150%, keyboard/focus, TalkBack, touch targets and pixel contrast remain unverified.",
+        "Inherited native visual acceptance debt remains open."
+      ]
     }
   ]
 }
