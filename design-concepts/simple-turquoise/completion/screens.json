@@ -419,7 +419,7 @@
   {
     "num": 30,
     "slug": "onboarding-giris-xetalari",
-    "title": "Onboarding · yanlış yaş, boy və çəki",
+    "title": "Onboarding · məlumatları düzəlt",
     "requirements": [
       "18.2",
       "19.2"
@@ -427,27 +427,27 @@
     "panels": [
       {
         "id": "30-A",
-        "title": "Yaşı rəqəmlə yaz",
-        "body": "<div class=\"chip\">Addım 2/5 · Özünü tanıt</div><label>Yaş · tam il<div class=\"field\">iyirmi səkkiz</div></label><div class=\"error\">! Yaşı tamamlanmış illə, tam rəqəm olaraq yaz. Məsələn: 28.</div><section class=\"card\"><h3>Cavabların saxlanıb</h3><p>Yalnız səhv sahəni düzəlt. Məqsəd və digər cavablar dəyişmir. Səhv girişlə növbəti addıma keçilmir.</p></section><section class=\"card notice\"><h3>Uyğunluq ayrıca yoxlanır</h3><p>Düzgün rəqəm fərdi plana uyğunluq təsdiqi deyil. Yaş və digər məhdudiyyətlər məhsul qaydaları ilə yoxlanır; bu konsept yeni tibbi hədd müəyyən etmir.</p></section>",
-        "cta": "Sahəni düzəlt",
+        "title": "Özünü tanıt",
+        "body": "<div class=\"measurements\"><div class=\"measure\"><div class=\"measure-row\"><b>Yaş · il</b><div class=\"stepper\"><span>−</span><span>iyirmi səkkiz</span><span>+</span></div></div><div class=\"inline-error\">⚠ Yaşı rəqəmlə yaz. Məsələn: 28.</div></div><div class=\"measure\"><div class=\"measure-row\"><b>Boy · sm</b><div class=\"stepper\"><span>−</span><span>172</span><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Çəki · kq</b><div class=\"stepper\"><span>−</span><span>78,4</span><span>+</span></div></div></div></div><p class=\"confirm\">☐ Ölçüləri və vahidləri təsdiqləyirəm.</p><div class=\"sex\"><h3>Hesablama üçün cins <small>Könüllüdür</small></h3><div class=\"choices\">○ Kişi &nbsp; ○ Qadın &nbsp; ○ İndi seçmirəm</div></div><p class=\"hint\">ⓘ Cins olmadan avtomatik hədəf verilmir.</p><p class=\"retained\">Digər cavabların saxlanılıb.</p>",
+        "cta": "Davam et",
         "back": "Əvvəlki addıma qayıt",
         "tab": null,
         "art": "art_account"
       },
       {
         "id": "30-B",
-        "title": "Boyu yoxla",
-        "body": "<div class=\"chip\">Addım 2/5 · Özünü tanıt</div><label>Boy · sm<div class=\"field\">NaN</div></label><div class=\"error\">! Boy sıfırdan böyük, sonlu rəqəm olmalıdır. Vahidi də yoxla.</div><section class=\"card\"><h3>Cavabların saxlanıb</h3><p>Yalnız səhv sahəni düzəlt. Məqsəd və digər cavablar dəyişmir. Səhv girişlə növbəti addıma keçilmir.</p></section><section class=\"card notice\"><h3>Uyğunluq ayrıca yoxlanır</h3><p>Düzgün rəqəm fərdi plana uyğunluq təsdiqi deyil. Yaş və digər məhdudiyyətlər məhsul qaydaları ilə yoxlanır; bu konsept yeni tibbi hədd müəyyən etmir.</p></section>",
-        "cta": "Sahəni düzəlt",
+        "title": "Özünü tanıt",
+        "body": "<div class=\"measurements\"><div class=\"measure\"><div class=\"measure-row\"><b>Yaş · il</b><div class=\"stepper\"><span>−</span><span>28</span><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Boy · sm</b><div class=\"stepper\"><span>−</span><span>NaN</span><span>+</span></div></div><div class=\"inline-error\">⚠ Boyunu sm ilə yaz. Məsələn: 172.</div></div><div class=\"measure\"><div class=\"measure-row\"><b>Çəki · kq</b><div class=\"stepper\"><span>−</span><span>78,4</span><span>+</span></div></div></div></div><p class=\"confirm\">☐ Ölçüləri və vahidləri təsdiqləyirəm.</p><div class=\"sex\"><h3>Hesablama üçün cins <small>Könüllüdür</small></h3><div class=\"choices\">○ Kişi &nbsp; ○ Qadın &nbsp; ○ İndi seçmirəm</div></div><p class=\"hint\">ⓘ Cins olmadan avtomatik hədəf verilmir.</p><p class=\"retained\">Digər cavabların saxlanılıb.</p>",
+        "cta": "Davam et",
         "back": "Əvvəlki addıma qayıt",
         "tab": null,
         "art": "art_account"
       },
       {
         "id": "30-C",
-        "title": "Çəkini yoxla",
-        "body": "<div class=\"chip\">Addım 2/5 · Özünü tanıt</div><label>Çəki · kq<div class=\"field\">−5</div></label><div class=\"error\">! Çəki sıfırdan böyük, sonlu rəqəm olmalıdır. Məsələn: 78,4.</div><section class=\"card\"><h3>Cavabların saxlanıb</h3><p>Yalnız səhv sahəni düzəlt. Məqsəd və digər cavablar dəyişmir. Səhv girişlə növbəti addıma keçilmir.</p></section><section class=\"card notice\"><h3>Uyğunluq ayrıca yoxlanır</h3><p>Düzgün rəqəm fərdi plana uyğunluq təsdiqi deyil. Yaş və digər məhdudiyyətlər məhsul qaydaları ilə yoxlanır; bu konsept yeni tibbi hədd müəyyən etmir.</p></section>",
-        "cta": "Sahəni düzəlt",
+        "title": "Özünü tanıt",
+        "body": "<div class=\"measurements\"><div class=\"measure\"><div class=\"measure-row\"><b>Yaş · il</b><div class=\"stepper\"><span>−</span><span>28</span><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Boy · sm</b><div class=\"stepper\"><span>−</span><span>172</span><span>+</span></div></div></div><div class=\"measure\"><div class=\"measure-row\"><b>Çəki · kq</b><div class=\"stepper\"><span>−</span><span>−5</span><span>+</span></div></div><div class=\"inline-error\">⚠ Çəki sıfırdan böyük olmalıdır. Məsələn: 78,4.</div></div></div><p class=\"confirm\">☐ Ölçüləri və vahidləri təsdiqləyirəm.</p><div class=\"sex\"><h3>Hesablama üçün cins <small>Könüllüdür</small></h3><div class=\"choices\">○ Kişi &nbsp; ○ Qadın &nbsp; ○ İndi seçmirəm</div></div><p class=\"hint\">ⓘ Cins olmadan avtomatik hədəf verilmir.</p><p class=\"retained\">Digər cavabların saxlanılıb.</p>",
+        "cta": "Davam et",
         "back": "Əvvəlki addıma qayıt",
         "tab": null,
         "art": "art_account"

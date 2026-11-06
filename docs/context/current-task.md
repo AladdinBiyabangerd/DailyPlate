@@ -20,3 +20,9 @@ Opened new three-panel PNG, D02 reference, onboarding and ingredient-error sheet
 
 ## Exact next step
 Review draft PNGs; resolve inherited native gate separately before claiming application completion.
+
+## 30 full-form alignment — 6 November
+- Reworked all three 30 panels to the existing full onboarding step 2/5; age/height/weight remain together, errors directly under the relevant field, confirmation/optional sex/disabled Continue retained. Simplified technical text.
+- Rendered and opened PNG; compared with 19 onboarding reference. No visible clipping; contrast 12.70/5.04/4.71 passed. Package and source hashes refreshed.
+- No native code or APK changes. Inherited 756-case native review remains separate and pending.
+- Next: inspect post-merge CI outcome; native acceptance requires actual comparison of every current manifest case before review-visual.
