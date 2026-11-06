@@ -1,66 +1,41 @@
-# Current task — D04 recipe details complete
+# Current task — plan → PNG → missing design state map
 
 ## Completed
-- User approved adapting D04 to the new design on 5 November 2026, retaining
-  “Yedim — porsiyanı seç” and hiding unavailable photo/edit controls.
-- Labelled dish illustration, personal-share summary, illustrated batch ingredients,
-  expandable numbered cooking steps and secondary nutrition/version details implemented.
-- Portion selection opens at its heading; existing preview/explicit confirmation,
-  remaining-share safeguards and read-only recipe viewing preserved.
+- All 255 numbered canonical plan items plus T01–T19 mapped: 274 rows.
+- Opened downscaled copies of all 17 concept PNGs (00–14, approved D02/D03); original hashes, exact source text, panel references and missing-state categories recorded.
+- 208 partial PNG references; 66 explicitly classified nonvisual obligations. No row marked implemented or visually accepted.
+- Repeatable JSON/Markdown generation rejects unmapped items. Git-excluded local post-merge CI checks export freshness.
 
 ## Current state
-- Accepted implementation main: 5a6db7c407964a2759ea44a488c773c1afec70d6.
-- Technical CI and explicit hash-bound visual acceptance passed. Documentation-only
-  completion merge is checked separately; .local-ci/logs/latest.json is authoritative.
-- Implementation commits: 9c8510a, b19729e, 17e6379, 53ce8cc.
-- All 708 final native renders viewed in 118 pixel-preserving sheets: 312 D04 and
-  396 D02/D03 regression images, whose hashes match prior accepted images.
+- Work branch: docs/plan-png-state-map; documentation/generator only, application and design assets unchanged.
+- Commit/merge/CI outcome: read Git and .local-ci/logs/latest.json; this handoff precedes finish.
+- Main had failed technical CI and pending visual acceptance at 518a404 before this task. The map does not close that debt.
 
 ## Decisions
-- Approved 07 ingredient/recipe reference supplies artwork and visual hierarchy;
-  existing tokens/native components retained. Two ingredient columns at 100%, one
-  at 150% keeps translated labels readable. Illustration is explicitly not a photo.
-- Personal planned share and entire prepared batch remain distinct. Customized
-  ingredients are exact; unverified instructions and unknown time/nutrients stay honest.
-- Consumed/skipped/no-basis states do not offer invalid logging. Photo/edit and other
-  unavailable actions are omitted. Existing shell navigation remains D06 debt.
-- No APK, remote, push or deployment; nutrition/publication policy gates unchanged.
+- Canonical nutrition plan unchanged. PNG presence means design context, never implementation evidence.
+- Missing concept panels and missing runtime functionality are different findings; runtime not audited here.
+- Section 30 reported specialist review/energy-macro activation supersedes older status text; catalog/release evidence remains separate.
+- Sections 17.4/17.8 remove onboarding meal coverage/equipment/home inventory and exact home quantity; old PNG 12 must not reintroduce them.
+- Section 26 requires four EER activity categories and reconfirmation of older three choices.
+- No APK requested/created; no automatic visual acceptance.
 
 ## Remaining work
-- D05 profile and D06 navigation remain open separate units. Do not begin automatically.
-- Real approved production-catalog integration, actual food photos, device/keyboard
-  and TalkBack acceptance remain unverified.
-- Earlier D03 FoodEntryUiTest intermittent timeout root cause remains uninvestigated;
-  final D04 221-test run passed without failures/errors/skips.
+- Finish documentation branch with merged-main CI. Report inherited app failures/visual debt explicitly if they persist.
+- Future UI work: expand selected requirement gaps into concrete visual-review-plan cases; implement one surface, render APK-free, inspect before acceptance.
+- Separate mock-menu repair stays unmerged on fix/mock-existing-menu (7fa11b6). It feeds seven fixture meals into real menu/recipe flows. Previous user requested no CI for that repair; do not silently merge it into this audit.
 
 ## Relevant files
-- android/app/src/main/java/com/aladdin/dailyplate/ui/menu/
-  {RecipeDetailScreen,RecipeDetailDesign,RecipeIngredientArt}.kt
-- android/app/src/main/res/values{,-az,-en,-ru}/recipe_design.xml
-- android/app/src/test/java/com/aladdin/dailyplate/ui/RecipeDetailDesignUiTest.kt
-- docs/qa/{design-discrepancies.md,visual-review-plan.json,visual-acceptance.md}
-- design-concepts/simple-turquoise/07-inqrediyent-redaktesi.png;
-  design-concepts/tokens.css; planning/nutrition-science-implementation-plan.txt
-  §16/18–19; docs/nutrition-plan-design.md.
+- docs/qa/design-requirement-map.md and .json
+- planning/build_design_requirement_map.py
+- planning/research-data.json; planning/meal-customization-requirements.txt
+- design-concepts/simple-turquoise PNGs and implementation/new-flows/ui-extension guides
+- docs/qa/design-discrepancies.md; visual-review-plan.json; visual-acceptance.md
 
 ## Checks performed
-- Post-merge main: 221 JVM contract/Room tests; APK-free lint/compile/token/contrast,
-  canonical exports/library contracts and visual gate contracts passed.
-- D04 normal/expanded/customized/no-basis/consumed/skipped/partial at AZ/EN/RU ×
-  100%/150%, top/summary/every ingredient/steps/bottom plus expanded step/info views.
-- Tests verify modified grams, unknown time/energy, no inherited custom steps,
-  absent invalid actions, direct portion heading visibility and preview/cancel safety.
-- Evidence: .local-ci/visual/5a6db7c407964a2759ea44a488c773c1afec70d6/{manifest,review}.json.
-  Actual comparison completed before review-visual; finish accepted without CI rerun.
-- Documentation completion CI exposed an intermittent NavigationUiTest failure:
-  Compose delayed press visited a detached node across language/recreation.
-  A semantics-only render-test workaround passed 221 tests but was reverted to
-  preserve the existing pointer coverage; no application navigation was changed.
-  Root cause repair remains separate debt. Final main status is in latest.json.
-- Initial lint failure fixed by removing obsolete labels; native review improved hero
-  crop, secondary back action and portion-editor scroll entry. No APK/device checks.
+- Generation resolves all 274 IDs and PNG paths; rejects duplicate/orphan/unmapped dispositions.
+- All 17 relevant concept images opened at inventory resolution; original hashes recorded.
+- git diff --check passed before commit. No branch CI/JVM tests run.
+- Runtime behavior, full-resolution pixel/contrast, device/TalkBack and new hash-bound visual acceptance unverified.
 
 ## Exact next step
-- If requested, inspect D05 in a new chat: read this context, discrepancy inventory,
-  visual rules, plan §18–19 and 05-irelileyis-ve-profil.png. Show current and reference
-  side by side; present any new design for user approval before implementing it.
+- Read Git/latest CI result. Run workflow.py finish for this map if not yet merged. Keep inherited app/visual repair separately scoped; map supplies requirement IDs and missing design states for that work.
