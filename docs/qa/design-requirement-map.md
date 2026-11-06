@@ -44,6 +44,13 @@ Mənbə reyestri, xülasələr və week sintetik məzmunu ayrıca ekran tələbi
 - **D02** — [design-concepts/simple-turquoise/approved/d02-portions.png](../../design-concepts/simple-turquoise/approved/d02-portions.png): Resept qazan/şəxsi pay; Dəqiq miqdar/naməlum enerji.
 - **D03** — [design-concepts/simple-turquoise/approved/d03-menu.png](../../design-concepts/simple-turquoise/approved/d03-menu.png): Tarixli menyu/qismən yeyilib; Boş menyu; Razılaşdırılmış qərarlar.
 
+## Sonrakı konsept əlavələri
+
+- **15-activity** — [design-concepts/simple-turquoise/15-aktivlik-ve-hedefsiz-davam.png](../../design-concepts/simple-turquoise/15-aktivlik-ve-hedefsiz-davam.png): unselected-four-options, low-active-help, legacy-reconfirmation, uncertain-no-target. Tələblər: 26.4, 26.5, 26.6, 5.3. Status: agent-inspected-draft-user-approval-pending; runtime qəbulu deyil.
+- **16-activity-help** — [design-concepts/simple-turquoise/16-aktivlik-izahlari.png](../../design-concepts/simple-turquoise/16-aktivlik-izahlari.png): inactive-help, active-help, very-active-help. Tələblər: 26.4, 26.5. Status: agent-inspected-draft-user-approval-pending; runtime qəbulu deyil.
+- **17-no-target** — [design-concepts/simple-turquoise/17-hedefsiz-davam-sebebleri.png](../../design-concepts/simple-turquoise/17-hedefsiz-davam-sebebleri.png): missing-sex, health-excluded, model-out-of-scope. Tələblər: 5.3, 21.3, 25.3, 26.7, 26.8. Status: agent-inspected-draft-user-approval-pending; runtime qəbulu deyil.
+- **18-no-target-calculation** — [design-concepts/simple-turquoise/18-hedefsiz-hesablama-sebebleri.png](../../design-concepts/simple-turquoise/18-hedefsiz-hesablama-sebebleri.png): energy-below-product-floor, macro-infeasible. Tələblər: 27.3, 28.3. Status: agent-inspected-draft-user-approval-pending; runtime qəbulu deyil.
+
 17 faylın kiçildilmiş nüsxələri açılıb baxılıb; tam rezolyusiyada piksel/kontrast auditi aparılmayıb. Orijinal PNG və plan SHA-256-ları JSON-da saxlanır. Bu hash-lər runtime vizual qəbulu əvəz etmir.
 
 ## Konkret çatışmayan vəziyyətlər

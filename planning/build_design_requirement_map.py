@@ -344,6 +344,27 @@ def refs(spec):
     return result
 
 
+def concept_supplements(rows):
+    """Derive later draft coverage without rewriting the historical 17-image audit."""
+    inventory = json.loads((ROOT / 'design-concepts/simple-turquoise/missing-state-pngs.json').read_text())
+    requirements = {row['id'] for row in rows}
+    supplements = []
+    for entry in inventory['sets']:
+        if not set(entry['requirements']).issubset(requirements):
+            raise ValueError('Concept references an unknown requirement')
+        image = (ROOT / entry['image']).resolve()
+        if not image.is_relative_to((ROOT / 'design-concepts').resolve()):
+            raise ValueError('Concept image must stay in design-concepts')
+        if sha(image) != entry['sha256']:
+            raise ValueError('Stale concept image hash')
+        supplements.append(dict(id=entry['id'], image=entry['image'], sha256=entry['sha256'],
+                                requirements=entry['requirements'],
+                                states=[panel['state'] for panel in entry['panels']],
+                                status=entry['review_status'],
+                                note='Concept coverage only; historical gaps and runtime status remain open.'))
+    return supplements
+
+
 def build():
     source = 'planning/research-data.json'
     customization = 'planning/meal-customization-requirements.txt'
@@ -433,6 +454,7 @@ def build():
                    'total': len(rows), 'pngs_inspected': len(images),
                    **dict(Counter(row['design_status'] for row in rows))},
         'rows': rows,
+        'concept_supplements': concept_supplements(rows),
     }
 
 
@@ -453,6 +475,11 @@ def markdown(report):
     out += ['', '## PNG reyestri', '']
     for key, image in report['images'].items():
         out += [f'- **{key}** — [{image["path"]}](../../{image["path"]}): {image["panels"]}.']
+    out += ['', '## Sonrakı konsept əlavələri', '']
+    for entry in report['concept_supplements']:
+        out += [f"- **{entry['id']}** — [{entry['image']}](../../{entry['image']}): "
+                + ', '.join(entry['states']) + '. Tələblər: ' + ', '.join(entry['requirements'])
+                + '. Status: ' + entry['status'] + '; runtime qəbulu deyil.']
     out += ['', '17 faylın kiçildilmiş nüsxələri açılıb baxılıb; tam rezolyusiyada piksel/kontrast auditi aparılmayıb. '
             'Orijinal PNG və plan SHA-256-ları JSON-da saxlanır. Bu hash-lər runtime vizual qəbulu əvəz etmir.', '',
             '## Konkret çatışmayan vəziyyətlər', '']
