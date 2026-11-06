@@ -20,10 +20,11 @@ Cari avtomatik enerji/makro hesabı istifadəçinin açıq qərarı ilə aktivdi
 NP-16 review/çəki consumer-i və davamlı hədəf dayandırılması tamamlanıb
 (47cb07d; yekun qəbul/kontekst 5daf7de): docs/qa/android-np16-acceptance.md.
 NP-17–23 makro və menyu yoxlama nüvəsi mövcuddur; tam nutrient əhatəsi,
-real dərc olunmuş porsiya feasibility-si və K15 generatoru hazır sayılmır.
-K14–K34 tam mərhələlər kimi tamamlanmayıb; müqavilə/model/nüvə hazırlığı həmin
-mərhələlərin qəbulu deyil. Növbəti implementasiya vahidi K14-dür; bu status
-yeniləməsi K14-ə başlama göstərişi deyil. K27 geniş çəki giriş/progress UI-si qalır.
+real dərc olunmuş kataloq/porsiya feasibility-si hazır sayılmır; K15 sintetik domen sübutu ayrıdır.
+K14–K34 istehsal mərhələləri kimi tam qəbul edilməyib; müqavilə/model/nüvə hazırlığı həmin
+mərhələlərin qəbulu deyil. K14 alış/qiymət nüvəsi ayrıca implementasiya edilib; sübut: docs/qa/android-k14-acceptance.md.
+K15 domen generatoru və sintetik qəbul testləri implementasiya olunub; sübut:
+  docs/qa/android-k15-acceptance.md. Növbəti implementasiya vahidi K16-dır. K27 geniş çəki giriş/progress UI-si qalır.
 Yoxlanmış baza main 5daf7de: uyğun CI yaşıl, 151 JVM testi, lint/compile,
 token/kontrast, kitabxana müqavilələri və export parity. Cari yekun sübut
 .local-ci/logs/latest.json head-in main HEAD ilə uyğunluğu və passed=true-dur.
@@ -216,12 +217,17 @@ Yoxlama: allergenli/allergeni naməlum məhsul keçmir; vaxtı naməlum resept 1
 Bitmə: deterministik filtr; draft library canlı namizəd olmur.
 
 K14 — Alış miqdarı və region qiymət modeli
-Status: növbəti vahid; bu uzlaşdırmada implementasiyasına başlanmayıb.
+Status: alış/region qiymət nüvəsi implementasiya edilib; docs/qa/android-k14-acceptance.md.
+Real G4 qiymət/büdcə qəbulu və K17 UI ayrıca qalır.
 Asılılıq: K04, K07. Mənbə: §17, §19.8; customization §6.
 Yazılacaq: ingredient_price, paket/edible_fraction/preparation_state,
-  istifadə xərci ilə tam paket alışının ayrımı, evdəki miqdarın çıxılması.
+  istifadə xərci ilə tam paket alışının ayrımı, həftəlik ümumi ehtiyac.
+  5 noyabr 2026 qərarı: evdəki dəqiq miqdar girişi/çıxılması plandan çıxarılıb;
+  K14 qiymət API-sində home parametri və çıxılma nəticə sahələri silinib.
+  Tarixi ShoppingItem.homeQuantity payload uyğunluğu saxlanır; boolean model
+  keçidi və işarələrin qorunması K17-nin ayrıca işidir.
 Yoxlama: həftə üzrə məhsul birləşir; 750 q/500 q paket → 2 paket;
-  250 q evdə varsa → 1 paket; quru qiymət bişmiş qrama vurulmur;
+  “Evdə var” ümumi 750 q ehtiyacı dəyişmir; quru qiymət bişmiş qrama vurulmur;
   region/qiymət yoxdur və ya köhnədirsə total_cost=null və səbəb var.
 Bitmə: fixture qiyməti test kimi işarələnir; G4 olmadan real büdcə uyğunluğu yoxdur.
 
@@ -247,7 +253,8 @@ Bitmə: ekran 04, 13–14 və Bu gün inteqrasiyası E2E; tarixlər realdır.
 
 K17 — Alış-veriş ekranı və paylaşım
 Asılılıq: K14, K16. Mənbə: §19.8; ekran 16, 42.
-Yazılacaq: həftəlik kateqoriya/vahid/miqdar, ayrı Evdə var və Alınıb,
+Yazılacaq: həftəlik kateqoriya/vahid/ümumi miqdar, ayrı sadə Evdə var və Alınıb işarələri,
+  evdəki dəqiq qram girişi və avtomatik miqdar çıxılması yoxdur,
   unikal məhsul sayğacı, plan fərqi və sistem paylaşım önbaxışı.
 Yoxlama: uyğun vahidlər birləşir; unknown ədəd→qram çevrilmir; işarə restart-da
   qalır; artıq alınmış/lazım olmayan məhsul itmir; paylaşım yalnız siyahıdır,
@@ -464,5 +471,5 @@ NP-16 tamamlanıb; NP-17–23 nüvəsi real menyu generatoru və tam nutrient se
 Cari sübutlar: docs/qa/android-k08-v2-implementation.md,
 docs/qa/android-np16-acceptance.md və matching-head merged-main CI.
 §30 USER_ATTESTATION bildirilmiş təsdiqdir; reviewer/tarix uydurulmur.
-K14 qiymət, K15 real generator və K27 geniş progress qəbulu hələ ayrıca işdir.
+K14 real qiymət/G4, K15 real kataloq/G3 və K27 geniş progress qəbulu hələ ayrıca işdir.
 Bu sənəd icra statusunu uzlaşdırır; kanonik məhsul qaydalarını dəyişmir.

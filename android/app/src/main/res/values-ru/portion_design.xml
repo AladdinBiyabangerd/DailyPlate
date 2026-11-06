@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pd_quantity">Укажи количество</string>
+    <string name="pd_illustration">Иллюстрация · не образец порции</string>
+    <string name="pd_no_photo">Для этого продукта нет фото измеренной порции.</string>
+    <string name="pd_prepared">Сколько порций приготовлено?</string>
+    <string name="pd_eaten">Сколько порций ты съел(а)?</string>
+    <string name="pd_batch_scale">При изменении числа порций все ингредиенты изменяются пропорционально.</string>
+    <string name="pd_batch_grams">Для этой кастрюли: %1$s г</string>
+    <string name="pd_half">Половина</string>
+    <string name="pd_one">1 порция</string>
+    <string name="pd_two">2 порции</string>
+    <string name="pd_share">%1$s / %2$s кастрюли</string>
+    <string name="pd_exact">Указать точное количество</string>
+    <string name="pd_no_yield">Для расчёта в граммах нужен измеренный вес готового блюда. Можно продолжить в порциях.</string>
+    <string name="pd_grams">Съеденное количество (г)</string>
+    <string name="pd_servings_mode">Выбрать порции</string>
+    <string name="pd_energy_unknown">Энергия: неизвестна</string>
+    <string name="pd_preview">Предпросмотр</string>
+    <string name="pd_edit">Изменить количество</string>
+    <string name="pd_previous">Выбери долю сохранённой личной порции. 1 — то же количество, что в предыдущей записи.</string>
+    <string name="pd_batch_invalid">Число приготовленных порций должно быть положительным и конечным.</string>
+    <string name="pd_recipe_title">Сколько ты съел(а)?</string>
+    <string name="pd_count">Порции</string>
+</resources>

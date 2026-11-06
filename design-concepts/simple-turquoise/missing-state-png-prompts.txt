@@ -1,0 +1,36 @@
+QIDA — missing-state concept PNGs
+Built-in image_gen; ui-mockup; no CLI/API fallback.
+Status: draft design proposals, not app screenshots or implementation acceptance.
+
+Set 15: 15-aktivlik-ve-hedefsiz-davam.png
+Style reference: 01-baslangic.png; approved direction 00-reference.png.
+Tokens: ../tokens.css; simple-* palette, space-* and radius-card intent.
+Requirements: canonical plan 26.4–26.6, with hədəfsiz diary behavior in 5.3.
+Four panels: unselected four EER options; low_active explanation; old choice
+reconfirmation; uncertain activity/no automatic energy target.
+The full generation prompt is recorded in 15-activity-prompt.txt.
+
+Canonical copy/interaction notes:
+- Codes: inactive / low_active / active / very_active. Labels: Az hərəkətli /
+  Yüngül fəal / Fəal / Çox fəal. Labels alone do not define category assignment.
+- Open detail help before confirmation; help for all four categories must use
+  canonical NP-05 examples. Only low_active help is drawn in this sheet.
+- Low_active example: additional 60–80 minutes walking at 5–7 km/hour, alongside
+  ordinary daily activity. This is a source example, never prescribed exercise.
+- Old “Bir az hərəkət edirəm” must not map automatically to active/low_active.
+- Uncertain activity: ACTIVITY_UNCERTAIN; diary allowed, automatic target absent.
+- No calories, price, clinical threshold or fabricated measured PAL in this sheet.
+- The four-screen sheet is a first unit, not closure of all 51 gap groups.
+
+Set 16: 16-aktivlik-izahlari.png
+Style reference: 15-aktivlik-ve-hedefsiz-davam.png and 01-baslangic.png.
+Requirements: canonical research-data.json /sections/25/items/3–4 (26.4–26.5).
+Panels: inactive / active / very_active explanation. Together with 15-B,
+these cover the four category explanation concepts, not selected-state or runtime acceptance.
+Preserve all source durations and speeds. Activity lists are combined daily examples,
+not OR alternatives or an exercise prescription. Every panel includes disclaimer,
+explicit confirmation, other choices and the uncertain path.
+Full initial prompt: 16-activity-help-prompt.txt. Follow-up edit removes an accidental
+repeated “və ya” in the inactive description; no nutrition values are changed.
+
+Sets 17/18: see 17-no-target-prompt.txt (reproduction specification) and 18-no-target-calculation-prompt.txt (generation prompt). Five distinct no-target reasons; canonical requirements 5.3, 21.3, 25.3, 26.7, 26.8, 27.3, 28.3. Drafts only.

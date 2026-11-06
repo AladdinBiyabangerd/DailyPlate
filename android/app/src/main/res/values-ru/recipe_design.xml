@@ -1,0 +1,13 @@
+<resources>
+    <string name="rdd_ingredients">Что понадобится?</string>
+    <string name="rdd_steps">Как приготовить?</string>
+    <string name="rdd_more">Пищевая ценность и сведения о рецепте</string>
+    <string name="rdd_art">Иллюстрация — не фотография блюда или ингредиентов.</string>
+    <string name="rdd_energy">Примерно %1$.0f ккал</string>
+    <string name="rdd_grams">%1$.1f г</string>
+    <string name="rdd_personal">Ваша плановая доля: %1$.2f порции</string>
+    <string name="rdd_batch_hint">Количество ниже указано для всего приготовленного блюда.</string>
+    <string name="rdd_empty">Для этой версии нет сведений об ингредиентах.</string>
+    <string name="rdd_expanded">Развёрнуто</string>
+    <string name="rdd_collapsed">Свёрнуто</string>
+</resources>

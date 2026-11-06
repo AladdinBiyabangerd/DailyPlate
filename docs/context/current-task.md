@@ -1,48 +1,46 @@
-# Current task — execution queue reconciliation
+# Current task — uniform final design package
 
 ## Completed
-- Reconciled planning/coding-tasks.txt with existing code and acceptance evidence.
-- K13 hard filters exist (00a0ca2); K08-v2 integration/activation is already on main
-  (20473a9). NP-16 is complete (47cb07d; final acceptance/context 5daf7de).
-- Corrected stale K13-next, research-not-integrated and inactive-calculation claims.
+- User explicitly requested every old selected turquoise design set aligned, all eleven listed design gaps closed, and a final ZIP.
+- Recreated 00–18, onboarding/ingredient-error references and completion 19–30 through shared components; added 31–48 state sheets. Total: 49 AZ sheets / 165 panels.
+- Every output PNG opened and compared with original sheets and 00/D02/D03 references. Hash-bound static review: unified/visual-review.json. No observed clipping after fixing missing art, cramped age text and error spacing.
+- Final ZIP: design-concepts/qida-turquoise-designs-final.zip; 166 entries including MANIFEST. Every archive hash verified. Extracted portable build regenerates identical HTML; all local links/assets resolve.
 
 ## Current state
-- Before this documentation update, main 5daf7de had matching green CI: 151 JVM
-  tests, lint/compile, tokens/contrast, library contracts and canonical export parity.
-- This documentation-only unit uses finish; authoritative final result is
-  .local-ci/logs/latest.json with head equal to current main HEAD and passed=true.
-- K14 is next in the implementation queue; it has NOT been started in this unit.
+- Work done in isolated /private/tmp/callmood-design-package on docs/unified-design-delivery; original shared branch/user edits preserved.
+- Mandatory merge/technical results are recorded in that worktree's .local-ci/logs/latest.json; consult the actual result before claiming lifecycle completion.
+- The concept review resolves design artifact coverage only. Inherited native visual acceptance remains pending; docs/qa/design-discrepancies.md is unchanged open debt. No false native review-visual record submitted.
 
 ## Decisions
-- Current automatic energy/macros are explicitly user-enabled under canonical §30.
-  Catalog/menu approval remains separate and blocked; no new clinical approval.
-- NP-17–23 macro/menu-check core exists, but does not complete K15 generation,
-  full nutrient coverage or real published-portion validation.
-- Existing models/contracts are preparation, not acceptance of K14–K34.
-- Only coding-tasks.txt and this context changed. No app/canonical plan/UI changes.
+- Unified directory/ZIP is the current complete AZ design delivery. Old raster sets stay as historical repo references; natural/warm/dark alternatives are outside the selected turquoise style.
+- D02 prepared/consumed separation and D03 dated selector/status structure retained; new designs do not silently approve/change native runtime references.
+- Removed obsolete exact home-inventory/equipment/meal-coverage onboarding forms per current plan. Evdə var is only a simple shopping flag.
+- Values are labelled synthetic fixtures, not DB nutrition recompute. Existing token palette unchanged. No invented clinical threshold, store price, retention duration or approval.
+- New source generator embeds existing token/style snapshot in HTML for self-contained export. No application code, APK, network publication or remote Git changes.
 
 ## Remaining work
-- Await a separate instruction before K14 implementation. Inspect pricing contracts
-  and plan §17/19.8, §21 R-06, A-07/A-08 and customization §6 first.
-- K15 generator and K27 broader weight entry/progress remain separate milestones.
-- Device/APK/pilot, clinical effectiveness and real catalog/price acceptance remain
-  unverified. No APK or remote actions authorized/performed.
+- User visual approval of final concepts; actual store/service/privacy strings depend on implementation configuration.
+- Native localization, keyboard, TalkBack, device and backend transaction behavior remain unverified. Those are implementation acceptance, not missing AZ concept PNGs.
 
 ## Relevant files
-- planning/coding-tasks.txt; planning/nutrition-science-implementation-plan.txt
-- docs/nutrition-plan-design.md §30 (canonical source: planning/research-data.json)
-- docs/qa/android-k13-acceptance.txt; android-k08-v2-implementation.md;
-  android-np16-acceptance.md (all under docs/qa/)
-- android/app/src/main/java/com/aladdin/dailyplate/domain/planning/RecipeCandidateFilter.kt
-- android/app/src/main/java/com/aladdin/dailyplate/domain/policy/NutritionPlanning.kt
-- android/app/src/main/java/com/aladdin/dailyplate/domain/policy/NutritionMenuChecks.kt
+- design-concepts/simple-turquoise/unified/{index.html,README.txt,screens.json,coverage.json,replacement-map.json,visual-review.json,render-report.json,MANIFEST.json}
+- Shared source: components.py, legacy.py, states.py, style.py, build.py, render.mjs, package.py; assets/ and references/.
+- docs/qa/visual-review-plan.json (explicit new concept source/hash mappings); docs/qa/design-discrepancies.md (native debt, unchanged).
+- planning/nutrition-science-implementation-plan.txt §§16–19,26–30; planning/meal-customization-requirements.txt T01–T19; docs/nutrition-plan-design.md.
 
 ## Checks performed
-- Read code, acceptance records and commit history; verified clean initial tree,
-  hooksPath=.local-ci/hooks and baseline matching-head green CI.
-- Documentation diff/whitespace review; final post-merge check via workflow finish.
-- No branch/manual CI, new UI render, APK or device checks.
+- All 49 rendered sheets inspected. Chrome reports zero missing images and zero horizontal overflow.
+- Contrast: text/background 11.95; muted/background 5.04; white/primary 4.71; all >=4.5.
+- 166 ZIP entries CRC and SHA-256 verified, HTML local links/assets checked, extracted portable rebuild byte-identical.
+- Post-merge CI is mandatory and its exact fresh outcome lives in .local-ci/logs/latest.json, not inferred from concept rendering.
 
 ## Exact next step
-- Read this note and coding-tasks.txt. K14 is the next implementation candidate;
-  start it only on a separate user instruction. Do not repeat K13 or NP-16.
+- Inspect the current merged-main CI outcome and preserve this delivery. Future native acceptance work must compare actual fresh manifest renders with approved references; do not treat the static ZIP as runtime proof.
+
+## Concurrent onboarding integration
+- Main also contains completion/31 allergy Yes/No initial states and completion/32 ready-to-Today flow from another task. Preserved those sources and integrated their decisions as unified/47 (initial Yes/No) and unified/48 (ready → Start → Today), including aligned 02/33 screens.
+
+Final contrast correction: all 49 rendered sheets were reopened after small links, secondary actions and active navigation switched to the existing dark text token. Checked pairs pass WCAG AA (minimum small-text pair 4.71:1); 49 renders have no broken images or horizontal overflow. Previous merged-main 5a8f2a3 technical CI passed, including 222 JVM tests; inherited native visual acceptance remains pending. Final correction merge result is recorded in .local-ci/logs/latest.json.
+
+## Git delivery synchronization — 2026-11-06
+User explicitly authorized remote push and merge. Shared checkout was on old docs/missing-flow-pngs; apparent design additions already existed on main 5c4df1a. Preserved complete shared state in stash safety/shared-design-files-before-main-sync-20261106. Kept current main design/QA versions rather than restoring stale copies. Retained useful onboarding reference note in implementation-guide.txt. Final package remains 49 sheets / 165 panels. Technical CI previously passed; native visual acceptance remains pending. Next: push delivery branch, finish local merge/checks, update remote main and verify shared local main equals origin/main. No APK authorized.

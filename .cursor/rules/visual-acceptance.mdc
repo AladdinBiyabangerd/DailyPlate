@@ -1,0 +1,22 @@
+---
+description: Block UI completion without fresh renders and explicit design comparison
+alwaysApply: true
+---
+
+# Visual acceptance
+
+- Follow `AGENTS.md` and `docs/qa/visual-acceptance.md` for every UI-affecting task.
+- Before coding, map each affected surface to agreed design references, concrete
+  elements and required states in `docs/qa/visual-review-plan.json`.
+- Use ui-craft; colour/token parity alone never proves screen conformity.
+- Do not remove or rearrange agreed elements without existing user authorization.
+  Document authorized platform/accessibility adaptations individually.
+- Post-merge CI must generate fresh APK-free Robolectric PNGs. Never reuse old
+  reports, screenshots from another package, or raster mockups as runtime proof.
+- Open every required render and its design reference; compare structure, imagery,
+  typography, states, clipping and touch targets, including AZ/EN/RU at 100%/150%.
+- Missing render/coverage, pending review or unresolved differences block completion.
+  Use `review-visual` only after actual inspection; it cannot waive missing evidence.
+- Never automatically bless/update baselines to make CI green. Existing gaps in
+  `docs/qa/design-discrepancies.md` are debt, not accepted design.
+- Report technical CI and visual acceptance separately; cite exact evidence and limits.

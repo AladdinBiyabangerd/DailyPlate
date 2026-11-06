@@ -6,7 +6,6 @@
     <string name="pc_error">Write not confirmed. Retry the same record.</string>
     <string name="pc_retry">Retry</string>
     <string name="pc_estimate">Estimated nutrients for your portion</string>
-    <string name="pc_photo_closed">Small/Medium/Large requires verified recipe weights and real portion photos. Enter an exact quantity now.</string>
     <string name="pc_energy">Energy</string>
     <string name="pc_protein">Protein</string>
     <string name="pc_fat">Fat</string>

@@ -28,7 +28,7 @@ fun FoodEntryScreen(openSaved: (String) -> Unit = {}, openToday: () -> Unit = {}
     var state by remember { mutableStateOf(SurfaceState.Loading) }
     var refresh by remember { mutableIntStateOf(0) }
     var query by rememberSaveable { mutableStateOf("") }
-    var mode by rememberSaveable { mutableStateOf("search") }
+    var mode by rememberSaveable { mutableStateOf("home") }
     var encoded by rememberSaveable { mutableStateOf<String?>(null) }
     val language = LocalConfiguration.current.locales[0].language
     LaunchedEffect(refresh, language) {
@@ -50,14 +50,27 @@ fun FoodEntryScreen(openSaved: (String) -> Unit = {}, openToday: () -> Unit = {}
     fun select(draft: PortionDraft) { encoded = Json.encodeToString(PortionDraft.serializer(), draft) }
     fun now() = RecordedAt(Instant.now().toString(), ZoneId.systemDefault().id)
     val draft = encoded?.let { Json.decodeFromString(PortionDraft.serializer(), it) }
-    BackHandler(mode != "search" || draft != null) { if (draft != null) encoded = null else mode = "search" }
+    BackHandler(mode != "home" || draft != null) { if (draft != null) encoded = null else mode = "home" }
     LaunchedEffect(mode, draft != null) { resetScroll() }
     when {
         draft != null -> PortionDraftEditor(draft, { encoded = null; refresh++ }, ::select, openSaved = openSaved, openToday = openToday)
         mode == "manual" -> savedForms.SaveableStateProvider("manual") {
             ManualFoodForm(query, { mode = "search" }) { select(it) }
         }
+        mode == "home" -> {
+            EntryLanding { mode = it }
+            QidaButton(stringResource(R.string.fe_manual), { mode = "manual" })
+        }
+        mode == "camera" -> {
+            EntryBack { mode = "home" }
+            QidaHeading(stringResource(R.string.fe_camera))
+            QidaState(SurfaceState.Empty, stringResource(R.string.fe_camera_unavailable))
+            EntryAction(stringResource(R.string.fe_search), stringResource(R.string.fe_search_hint),
+                R.drawable.art_entry_search) { mode = "search" }
+            QidaButton(stringResource(R.string.fe_manual), { mode = "manual" })
+        }
         else -> {
+            EntryBack { mode = "home" }
             QidaHeading(stringResource(R.string.fe_title))
             QidaButton(stringResource(if (mode == "previous") R.string.fe_search else R.string.fe_previous), {
                 mode = if (mode == "previous") "search" else "previous"
@@ -82,13 +95,8 @@ fun FoodEntryScreen(openSaved: (String) -> Unit = {}, openToday: () -> Unit = {}
                 val matches = FoodSearch.find(foods, query)
                 if (matches.isEmpty()) QidaState(SurfaceState.Empty, stringResource(R.string.fe_no_results))
                 matches.forEach { food ->
-                    QidaCard {
-                        Text(food.names.label(language), style = MaterialTheme.typography.titleMedium)
-                        Text(food.preparationState)
-                        Text("${food.sourceType} / ${food.sourceId} / ${food.sourceVersion}")
-                        QidaButton(stringResource(R.string.fe_choose), {
-                            select(food.portionDraft(100.0, EntryUnit.GRAM, now()).copy(name = food.names.label(language)))
-                        })
+                    FoodResultCard(food, food.names.label(language)) {
+                        select(food.portionDraft(100.0, EntryUnit.GRAM, now()).copy(name = food.names.label(language)))
                     }
                 }
             }

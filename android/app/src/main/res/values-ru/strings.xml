@@ -63,4 +63,36 @@
     <string name="nr_report_note">При новом симптоме или необъяснимом изменении веса кнопки ниже сразу приостанавливают цель.</string>
     <string name="nr_symptom">Новый симптом — приостановить цель</string>
     <string name="nr_unexplained">Необъяснимое изменение веса — приостановить цель</string>
+
+    <string name="rd_details">Подробнее о рецепте</string>
+    <string name="rd_error">Не удалось открыть рецепт или сохранить запись. Повторите. Изменённый план требует нового подтверждения порции.</string>
+    <string name="rd_saved">Сохранено в локальном дневнике.</string>
+    <string name="rd_pending">Подтверждённая запись ожидает сохранения. Повтор создаёт ту же запись.</string>
+    <string name="rd_version">Версия рецепта %1$d · изменение %2$d</string>
+    <string name="rd_plan_portion">Запланировано личных порций: %1$.2f · осталось: %2$.2f</string>
+    <string name="rd_batch">Ингредиенты всего приготовленного блюда</string>
+    <string name="rd_batch_servings">Приготовленное блюдо: %1$.2f порций плана</string>
+    <string name="rd_unverified">Инструкции этой версии не проверены.</string>
+    <string name="rd_no_steps">Для этой версии нет инструкций.</string>
+    <string name="rd_no_basis">Нет данных о доле личной порции в блюде. Для записи нужна основа расчёта порции.</string>
+    <string name="rd_ate">Я поел — выбрать порцию</string>
+    <string name="rd_personal">Сколько личных порций плана вы съели?</string>
+    <string name="rd_invalid">Введите положительное конечное число не больше оставшейся порции.</string>
+    <string name="rd_confirm_portion">Личных порций для записи: %1$.2f</string>
+
+    <string name="rd_personal_nutrients">Пищевая ценность личной порции плана</string>
+    <string name="td_greeting">Привет!</string>
+    <string name="td_next_meal">Следующий приём пищи</string>
+    <string name="td_latest_meal">Последняя запись</string>
+    <string name="td_start">Начнём день</string>
+    <string name="td_illustration">Иллюстрация</string>
+    <string name="td_recorded_meals">Записанные приёмы пищи</string>
+    <string name="td_recorded">Записано</string>
+    <string name="td_kcal">Примерно %.0f ккал</string>
+    <string name="td_breakfast">Завтрак</string>
+    <string name="td_lunch">Обед</string>
+    <string name="td_dinner">Ужин</string>
+    <string name="td_snack">Перекус</string>
+    <string name="td_numbered_meal">Приём пищи %1$d</string>
+    <string name="td_details">Подробнее</string>
 </resources>

@@ -9,6 +9,8 @@ import java.util.concurrent.Callable
 class MealPlanRepository internal constructor(private val database: UserDatabase) {
     private val history = UserSnapshotRepository(database, "plan", MealPlan.serializer(), MealPlan::userId, MealPlan::ref)
 
+    fun current(userId: String): List<MealPlan> = history.current(userId)
+
     fun latest(userId: String, id: String): MealPlan? = history.latest(userId, id)
     fun version(userId: String, ref: VersionRef): MealPlan? = history.version(userId, ref)
 

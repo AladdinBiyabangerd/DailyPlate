@@ -1,0 +1,28 @@
+<resources>
+    <string name="mn_error">The plan could not be saved or the preview is stale. Check again.</string>
+    <string name="mn_reload">Reload</string>
+    <string name="mn_choices">Change preferences</string>
+    <string name="mn_target">Estimated daily target: %1$.0f kcal</string>
+    <string name="mn_slots">Meals per day: %1$d</string>
+    <string name="mn_accept">Confirm menu</string>
+    <string name="mn_future_note">Past and recorded portions are preserved. This preview creates no diary entry.</string>
+    <string name="mn_from">Effective from: %1$s</string>
+    <string name="mn_before_after">Before → after</string>
+    <string name="mn_confirm_future">Confirm future plan</string>
+    <string name="mn_cancel">Cancel preview</string>
+    <string name="mn_generate">Generate a new weekly plan</string>
+    <string name="mn_recalculate">Recalculate future plan from profile</string>
+    <string name="mn_unavailable">Approved planning inputs are unavailable. You can use the diary.</string>
+    <string name="mn_ready">Preview ready. Confirm to save.</string>
+    <string name="mn_no_plan">No suitable plan was found for this request.</string>
+    <string name="mn_incomplete">There is insufficient data to confirm a plan.</string>
+    <string name="mn_stale">Profile or inputs changed. Create a new request.</string>
+    <string name="mn_temporary">Search did not complete. Try a new request.</string>
+    <string name="mn_planned">Planned</string>
+    <string name="mn_partial">Partly consumed</string>
+    <string name="mn_consumed">Consumed</string>
+    <string name="mn_skipped">Skipped</string>
+    <string name="mn_projection">Actual + remaining plan (estimated): %1$s kcal</string>
+    <string name="mn_diary_incomplete">Diary completeness is unconfirmed; exact remaining energy is unavailable.</string>
+    <string name="mn_cost">Estimated weekly cost: %1$s</string>
+</resources>

@@ -27,4 +27,13 @@
     <string name="fe_fat">Yağ (q / 100 q)</string>
     <string name="fe_carbs">Karbohidrat (q / 100 q)</string>
     <string name="fe_source">Mənbə / etiket və tarix</string>
+    <string name="fe_entry_title">Nə yediyini necə əlavə edək?</string>
+    <string name="fe_entry_hint">Birini seç — hamısı asandır.</string>
+    <string name="fe_camera">Şəkil çək</string>
+    <string name="fe_camera_hint">Yeməyin şəklini çək.</string>
+    <string name="fe_search_hint">Adını yaz: plov, dolma…</string>
+    <string name="fe_previous_hint">Bir toxunuşla təkrar əlavə et.</string>
+    <string name="fe_camera_unavailable">Şəkildən tanıma hələ hazır deyil. Yeməyi axtara və ya özün yaza bilərsən.</string>
+    <string name="fe_illustration">İllüstrasiya</string>
+    <string name="fe_result_energy">100 q üçün təxminən %1$.0f kkal</string>
 </resources>

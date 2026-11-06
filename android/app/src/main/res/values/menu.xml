@@ -1,0 +1,28 @@
+<resources>
+    <string name="mn_error">Plan saxlanmadı və ya önbaxış köhnəlib. Yenidən yoxla.</string>
+    <string name="mn_reload">Yenidən yüklə</string>
+    <string name="mn_choices">Seçimləri dəyiş</string>
+    <string name="mn_target">Təxmini gündəlik hədəf: %1$.0f kcal</string>
+    <string name="mn_slots">Gündəlik yemək sayı: %1$d</string>
+    <string name="mn_accept">Menyunu təsdiqlə</string>
+    <string name="mn_future_note">Keçmiş və qeyd edilmiş porsiyalar qorunur. Bu önbaxış gündəlik qeydi yaratmır.</string>
+    <string name="mn_from">Dəyişiklik tarixi: %1$s</string>
+    <string name="mn_before_after">Əvvəl → sonra</string>
+    <string name="mn_confirm_future">Gələcək planı təsdiqlə</string>
+    <string name="mn_cancel">Önbaxışı ləğv et</string>
+    <string name="mn_generate">Yeni həftə üçün plan hazırla</string>
+    <string name="mn_recalculate">Profilə görə gələcək planı hesabla</string>
+    <string name="mn_unavailable">Plan üçün təsdiqli məlumatlar hazır deyil. Gündəlikdən istifadə edə bilərsən.</string>
+    <string name="mn_ready">Önbaxış hazırdır. Saxlamaq üçün təsdiqlə.</string>
+    <string name="mn_no_plan">Bu sorğu üçün uyğun plan tapılmadı.</string>
+    <string name="mn_incomplete">Planı təsdiqləmək üçün məlumat çatmır.</string>
+    <string name="mn_stale">Profil və ya mənbələr dəyişib. Yeni sorğu yarat.</string>
+    <string name="mn_temporary">Axtarış tamamlanmadı. Başqa sorğu ilə yenidən yoxla.</string>
+    <string name="mn_planned">Planlı</string>
+    <string name="mn_partial">Qismən yeyilib</string>
+    <string name="mn_consumed">Yeyilib</string>
+    <string name="mn_skipped">Buraxılıb</string>
+    <string name="mn_projection">Faktiki + qalan plan (təxmini): %1$s kcal</string>
+    <string name="mn_diary_incomplete">Gündəlik tam təsdiqlənməyib; dəqiq qalan enerji göstərilmir.</string>
+    <string name="mn_cost">Həftəlik xərc (təxmini): %1$s</string>
+</resources>

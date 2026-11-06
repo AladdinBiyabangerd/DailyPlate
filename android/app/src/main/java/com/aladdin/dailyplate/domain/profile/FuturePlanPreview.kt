@@ -13,7 +13,9 @@ data class FuturePlanPreview(
 ) {
     init {
         require(before.userId == after.userId && before.ref.id == after.ref.id)
-        require(after.ref.version == before.ref.version + 1)
+        require(after.ref.version == Math.addExact(before.ref.version, 1))
+        require(before.userProfile == request.fromProfile)
+        require(before.week == after.week && before.timezone == after.timezone)
         require(after.userProfile == request.toProfile && explanation.isNotBlank())
         val oldIds = before.items.map { it.id }.toSet()
         before.items.forEach { old ->

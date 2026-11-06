@@ -50,6 +50,50 @@ class FoodEntryUiTest {
             file.outputStream().use { bitmap.compress(Bitmap.CompressFormat.PNG, 100, it) }
         }
     }
+    @Test fun approvedEntryAndResultLayouts() {
+        var language by mutableStateOf("az")
+        var scale by mutableFloatStateOf(1f)
+        var result by mutableStateOf(false)
+        var selected by mutableStateOf(false)
+        compose.runOnUiThread { compose.activity.setContent {
+            val config = android.content.res.Configuration(base.resources.configuration).apply {
+                setLocale(Locale.forLanguageTag(language)); fontScale = scale
+            }
+            val context = base.createConfigurationContext(config)
+            CompositionLocalProvider(LocalContext provides context, LocalConfiguration provides config,
+                androidx.compose.ui.platform.LocalDensity provides androidx.compose.ui.unit.Density(base.resources.displayMetrics.density, scale)) {
+                QidaTheme { androidx.compose.material3.Surface(color = androidx.compose.material3.MaterialTheme.colorScheme.background) {
+                    Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(QidaSpacing.large),
+                        verticalArrangement = Arrangement.spacedBy(QidaSpacing.medium)) {
+                        if (!result) com.aladdin.dailyplate.ui.entry.EntryLanding { }
+                        else {
+                            QidaHeading(context.getString(R.string.fe_title))
+                            com.aladdin.dailyplate.ui.entry.FoodResultCard(
+                                com.aladdin.dailyplate.domain.Food(
+                                    com.aladdin.dailyplate.domain.VersionRef("preview", 1),
+                                    com.aladdin.dailyplate.domain.LocalizedText("Düyü"), emptyList(),
+                                    "source", "DB", "cooked", com.aladdin.dailyplate.domain.NutrientSnapshot(emptyMap()),
+                                    emptySet(), null, "v1", null, com.aladdin.dailyplate.domain.ContentStatus.DRAFT),
+                                when(language) { "en" -> "Cooked long-grain rice without added salt"; "ru" -> "Варёный длиннозёрный рис без добавления соли"; else -> "Duz əlavə edilmədən bişmiş uzun düyü" }) { selected = true }
+                        }
+                    }
+                } }
+            }
+        } }
+        for (lang in listOf("az", "en", "ru")) for (size in listOf(1f, 1.5f)) {
+            compose.runOnIdle { language = lang; scale = size; result = false }
+            capture("approved-entry-$lang-$size")
+            compose.runOnIdle { result = true }
+            capture("approved-result-$lang-$size")
+            val context = base.createConfigurationContext(android.content.res.Configuration(base.resources.configuration).apply {
+                setLocale(Locale.forLanguageTag(lang))
+            })
+            compose.onNodeWithText(context.getString(R.string.fe_unknown_value)).assertExists()
+            click(context.getString(R.string.fe_choose))
+            compose.runOnIdle { org.junit.Assert.assertTrue(selected); selected = false }
+        }
+    }
+
     @Test fun todaySummaryAzLarge() = renderToday("az", false)
     @Test fun todaySummaryEnLarge() = renderToday("en", false)
     @Test fun todaySummaryRuLarge() = renderToday("ru", false)
@@ -102,7 +146,7 @@ class FoodEntryUiTest {
         compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.fe_manual)).fetchSemanticsNodes().isNotEmpty() }
         click(t(R.string.fe_manual))
         enter(t(R.string.fe_name), "K12 yemək"); enter(t(R.string.fe_amount), "150")
-        click(t(R.string.fe_prepare)); click(t(R.string.fe_prepare)); click(t(R.string.pc_confirm))
+        click(t(R.string.fe_prepare)); click(t(R.string.pd_preview)); click(t(R.string.pc_confirm))
         compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.pc_saved)).fetchSemanticsNodes().isNotEmpty() }
         compose.activityRule.scenario.recreate()
         click(t(R.string.td_edit))
@@ -110,9 +154,12 @@ class FoodEntryUiTest {
         capture("k12-edit-az")
         compose.onNodeWithText(t(R.string.td_multiple)).performScrollTo().performTextReplacement("2")
         click(t(R.string.fe_prepare)); click(t(R.string.pc_confirm))
-        compose.waitUntil(10000) { compose.onAllNodesWithText("300.0 " + t(R.string.fe_grams)).fetchSemanticsNodes().isNotEmpty() }
+        compose.waitUntil(10000) { compose.onAllNodesWithTag("today-hero").fetchSemanticsNodes().isNotEmpty() }
+        compose.onNodeWithTag("today-hero").performScrollTo().assertIsDisplayed()
         capture("k12-today-az")
-        click(t(R.string.td_edit)); click(t(R.string.td_delete))
+        compose.onNodeWithTag("today-hero").performClick()
+        compose.onNodeWithText("300.0 " + t(R.string.fe_grams)).performScrollTo().assertIsDisplayed()
+        click(t(R.string.td_delete))
         compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.td_delete_question)).fetchSemanticsNodes().isNotEmpty() }
         compose.onNodeWithText(t(R.string.td_delete_question)).performScrollTo().assertIsDisplayed()
         capture("k12-delete-confirm-az")
@@ -148,7 +195,7 @@ class FoodEntryUiTest {
                 } }
             }
         } }
-        click(context.getString(R.string.fe_prepare))
+        click(context.getString(R.string.pd_preview))
         org.junit.Assert.assertEquals(0, attempts)
         click(context.getString(R.string.pc_confirm))
         compose.waitUntil(10000) { compose.onAllNodesWithText(context.getString(R.string.pc_error)).fetchSemanticsNodes().isNotEmpty() }
@@ -166,18 +213,23 @@ class FoodEntryUiTest {
         click("Hesabım var")
         click("Davam et")
         click("Əlavə et")
-        compose.waitUntil(10000) { compose.onAllNodesWithText("Nə yemisən?").fetchSemanticsNodes().isNotEmpty() }
+        compose.waitUntil(10000) { compose.onAllNodesWithText(az.getString(R.string.fe_entry_title)).fetchSemanticsNodes().isNotEmpty() }
         capture("app-search-az")
         click(az.getString(R.string.fe_manual))
         enter(az.getString(R.string.fe_name), "Evdə yemək")
         enter(az.getString(R.string.fe_amount), "150")
         click(az.getString(R.string.fe_prepare))
         compose.activityRule.scenario.recreate()
-        compose.onNodeWithText(az.getString(R.string.fe_portion)).performScrollTo().assertIsDisplayed()
+        compose.onNodeWithText(az.getString(R.string.pd_quantity)).performScrollTo().assertIsDisplayed()
         compose.onNodeWithText("Evdə yemək").assertExists()
         capture("app-portion-restored-az")
     }
     @Test fun manualUnknownDraftAndSearchClearInAllLanguagesAtLargeText() {
+        // This is a layout/input matrix, not a cold catalog-import timing test.
+        val catalogWorker = java.util.concurrent.Executors.newSingleThreadExecutor()
+        try { catalogWorker.submit {
+            com.aladdin.dailyplate.data.local.CatalogRepository.open(base).use { it.productionFoods() }
+        }.get() } finally { catalogWorker.shutdown() }
         var language by androidx.compose.runtime.mutableStateOf("az")
         var scale by androidx.compose.runtime.mutableFloatStateOf(1f)
         compose.runOnUiThread { compose.activity.setContent {
@@ -200,7 +252,9 @@ class FoodEntryUiTest {
             compose.runOnIdle { language = lang; scale = s }
             val c = base.createConfigurationContext(android.content.res.Configuration(base.resources.configuration).apply { setLocale(Locale.forLanguageTag(lang)) })
             fun t(id: Int) = c.getString(id)
-            compose.waitUntil(10000) { compose.onAllNodesWithText(t(R.string.fe_no_results)).fetchSemanticsNodes().isNotEmpty() }
+            click(t(R.string.fe_search))
+            compose.waitUntil(30000) { compose.onAllNodesWithText(t(R.string.loading)).fetchSemanticsNodes().isEmpty() }
+            compose.onNodeWithText(t(R.string.fe_no_results)).performScrollTo().assertIsDisplayed()
             enter(t(R.string.fe_query), "Missing")
             click(t(R.string.fe_clear))
             compose.onNodeWithText("Missing").assertDoesNotExist()
@@ -213,9 +267,9 @@ class FoodEntryUiTest {
             compose.onNodeWithText(t(R.string.fe_name)).performScrollTo()
             capture("manual-$lang-$s")
             click(t(R.string.fe_prepare))
-            compose.onNodeWithText(t(R.string.fe_portion)).performScrollTo().assertIsDisplayed()
+            compose.onNodeWithText(t(R.string.pd_quantity)).performScrollTo().assertIsDisplayed()
             capture("portion-$lang-$s")
-            click(t(R.string.fe_prepare))
+            click(t(R.string.pd_preview))
             compose.onNodeWithText(t(R.string.fe_ready)).performScrollTo().assertIsDisplayed()
             capture("ready-$lang-$s")
         }

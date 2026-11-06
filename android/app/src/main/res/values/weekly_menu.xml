@@ -1,0 +1,16 @@
+<resources>
+    <string name="wm_title">Həftənin menyusu</string>
+    <string name="wm_range">%1$s – %2$s</string>
+    <string name="wm_date_zone">%1$s · %2$s</string>
+    <string name="wm_empty">Hələ menyu yoxdur</string>
+    <string name="wm_empty_day">Bu gün üçün planlı yemək yoxdur.</string>
+    <string name="wm_tools">Dəyişmə və alış-veriş</string>
+    <string name="wm_tools_note">Bu funksiyalar hələ hazır deyil.</string>
+    <string name="wm_energy">Təxminən %1$.0f kalori</string>
+    <string name="wm_energy_unknown">Enerji məlum deyil</string>
+    <string name="wm_time">%1$d dəq</string>
+    <string name="wm_time_unknown">Vaxt məlum deyil</string>
+    <string name="wm_portion">Planlı şəxsi porsiya: %1$.2f · Qalan: %2$.2f</string>
+    <string name="wm_ate">Yedim</string>
+    <string name="wm_illustration">Yemək illüstrasiyası</string>
+</resources>

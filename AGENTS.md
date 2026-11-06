@@ -78,6 +78,13 @@ This applies to all implementation, fixes, refactors and code reviews in this pr
 
 ## Visual work
 
+- **New designs must follow the existing design principles.** Before designing a
+  new screen or flow, consult the approved references and related screens. Keep
+  layout, components, terminology and interaction patterns consistent. UI/UX must
+  be simple, easy to understand, comfortable to use and polished; avoid needless
+  complexity and make the main action and next step clear. Apply this rule to
+  every new design and redesign, alongside the existing visual acceptance gate.
+
 When a task touches how something looks, use the `ui-craft` skill — it carries
 the token, contrast and screenshot workflow. Two things hold regardless of it:
 
@@ -87,6 +94,20 @@ the token, contrast and screenshot workflow. Two things hold regardless of it:
 - **Don't report a visual change as working without having rendered it and
   looked at the image.** If rendering wasn't possible, say that plainly instead
   of implying the result was checked.
+
+## Mandatory visual completion gate
+
+- Follow `.cursor/rules/visual-acceptance.mdc` and `docs/qa/visual-acceptance.md`.
+- Before UI work, record agreed references, concrete screen elements and required
+  states in `docs/qa/visual-review-plan.json`. Colour parity is not layout approval.
+- Post-merge CI must generate fresh APK-free renders. Open each required image and
+  its reference before writing an explicit, hash-bound visual acceptance record.
+- Missing coverage, pending review or unresolved design differences means unfinished
+  work even when lint/build/tests pass. Never auto-approve/update image baselines.
+- Use `workflow.py review-visual <review.json>` only after actual comparison; then
+  `workflow.py finish` verifies merged-main completion without rerunning CI.
+- Preserve `docs/qa/design-discrepancies.md` as open debt; existing screens are not
+  implicitly approved. Report technical checks and visual acceptance separately.
 
 # Context growth
 

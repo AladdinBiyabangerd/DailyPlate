@@ -1,0 +1,16 @@
+<resources>
+    <string name="wm_title">Weekly menu</string>
+    <string name="wm_range">%1$s – %2$s</string>
+    <string name="wm_date_zone">%1$s · %2$s</string>
+    <string name="wm_empty">No menu yet</string>
+    <string name="wm_empty_day">No meals are planned for this day.</string>
+    <string name="wm_tools">Meal changes and shopping</string>
+    <string name="wm_tools_note">These features are not available yet.</string>
+    <string name="wm_energy">About %1$.0f calories</string>
+    <string name="wm_energy_unknown">Energy unknown</string>
+    <string name="wm_time">%1$d min</string>
+    <string name="wm_time_unknown">Time unknown</string>
+    <string name="wm_portion">Planned personal servings: %1$.2f · Remaining: %2$.2f</string>
+    <string name="wm_ate">I ate this</string>
+    <string name="wm_illustration">Meal illustration</string>
+</resources>
